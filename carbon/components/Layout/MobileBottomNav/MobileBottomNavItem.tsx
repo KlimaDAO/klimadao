@@ -1,7 +1,7 @@
 "use client";
 import { useIsPathnameActive } from "hooks/useIsPathnameActive";
 import { FC } from "react";
-import { NavItem } from "./NavItems";
+import { NavItem } from "../NavItems";
 import styles from "./styles.module.scss";
 
 interface Props {
@@ -9,17 +9,17 @@ interface Props {
   key?: string;
 }
 
-export const DesktopSidebarItem: FC<Props> = ({ navItem }) => {
+export const MobileBottomNavItem: FC<Props> = ({ navItem }) => {
   const active = useIsPathnameActive(navItem.url);
 
   return (
     <a
-      className={styles.desktopSidebarItem}
-      href={navItem.url}
+      aria-describedby="button"
+      className={styles.mobileBottomNavItem}
       aria-selected={active}
+      href={navItem.url}
     >
-      <span className={styles.desktopSidebarIcon}>{navItem.icon}</span>
-      {navItem.label}
+      {navItem.icon}
     </a>
   );
 };

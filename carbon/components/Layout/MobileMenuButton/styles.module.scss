@@ -13,18 +13,22 @@
   color: var(--brand-white);
   background-color: var(--darkmode-surface-02);
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
+  align-items: center;
   gap: 2rem;
   width: 100%;
 
   &:hover {
     background-color: var(--brand-blue);
   }
-
-  &[aria-selected="true"] {
-    background-color: var(--brand-blue);
+  &[aria-selected="true"] span {
+    color: var(--brand-blue);
   }
-}
-button.active {
-  background-color: var(--brand-blue);
+  &[aria-selected="true"]:hover span {
+    color: var(--brand-white);
+  }
+  span {
+    display: flex;
+    align-items: center;
+  }
 }

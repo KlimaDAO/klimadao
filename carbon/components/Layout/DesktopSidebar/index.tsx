@@ -3,8 +3,8 @@ import styles from "./styles.module.scss";
 
 import { CarbonmarkDataLogo } from "components/Graphics/CarbonmarkDataLogo";
 import Link from "components/Link";
+import { navItems } from "../NavItems";
 import { DesktopSidebarItem } from "./DesktopSidebarItem";
-import { navItems } from "./NavItems";
 
 export const DesktopSidebar: FC = () => {
   return (

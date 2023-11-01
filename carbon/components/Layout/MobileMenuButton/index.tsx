@@ -2,28 +2,12 @@
 
 import { Menu } from "@mui/icons-material";
 import { Button, Drawer } from "@mui/material";
-import Link from "components/Link";
-import { useIsPathnameActive } from "hooks/useIsPathnameActive";
-import { FC, useState } from "react";
-import { NavItem, navItems } from "../NavItems";
+import { useState } from "react";
+import { navItems } from "../NavItems";
 import layoutStyles from "../styles.module.scss";
+import { MobileMenuButtonItem } from "./MobileMenuButtonItem";
 import styles from "./styles.module.scss";
 
-interface Props {
-  navItem: NavItem;
-  key?: string;
-}
-const MobileMenuButtonItem: FC<Props> = (props) => {
-  const active = useIsPathnameActive(props.navItem.url);
-  return (
-    <Link href={props.navItem.url}>
-      <Button className={styles.button} aria-selected={active}>
-        {props.navItem.icon}
-        {props.navItem.label}
-      </Button>
-    </Link>
-  );
-};
 export function MobileMenuButton() {
   const [showDrawer, setShowDrawer] = useState(false);
   const toggleDrawer = () => {
