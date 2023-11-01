@@ -38,15 +38,17 @@
 }
 
 .cardHeaderTitle {
-  min-width: 30rem;
   @include breakpoints.large {
     white-space: nowrap;
     min-width: auto;
   }
-  flex: 1 1 0;
+  flex: 3 1 0;
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
+}
+.cardHeaderTitleNoGrow {
+  flex-grow: 1;
 }
 
 .cardHeaderDetailsLink {
