@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:61
-msgid "{0} tonnes"
-msgstr "{0} tonnes"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -172,6 +167,11 @@ msgstr "Approve"
 #: components/CreateListing/Transaction/Approve.tsx:88
 msgid "Next"
 msgstr "Next"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:61
+msgid "{0} tonnes"
+msgstr "{0} tonnes"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Submit.tsx:41
