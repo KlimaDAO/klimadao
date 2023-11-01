@@ -1,31 +1,33 @@
 .wrapper {
+  padding-top: 6.4rem;
+  height: 100vh;
+  display: flex;
+}
+.links {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   padding: 1.2rem 2.4rem;
+  background-color: var(--brand-white);
 }
 
 .button {
   white-space: nowrap;
   font-size: 1.4rem;
-  padding: 0 2.4rem;
-  height: 4.8rem;
-  color: var(--brand-white);
-  background-color: var(--darkmode-surface-02);
+  color: var(--lightmode-font-01);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 2rem;
   width: 100%;
+  font-weight: 600;
 
   &:hover {
-    background-color: var(--brand-blue);
+    color: var(--brand-blue);
   }
   &[aria-selected="true"] span {
     color: var(--brand-blue);
-  }
-  &[aria-selected="true"]:hover span {
-    color: var(--brand-white);
   }
   span {
     display: flex;

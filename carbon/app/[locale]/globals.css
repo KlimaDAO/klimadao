@@ -75,3 +75,11 @@ a {
   position: relative;
   z-index: 999;
 }
+
+/** Styles for the mui drawer 
+ * FIXME: should we use a MuiTheme for this?
+*/
+.MuiDrawer-paper,
+.MuiModal-backdrop {
+  background-color: transparent;
+}
