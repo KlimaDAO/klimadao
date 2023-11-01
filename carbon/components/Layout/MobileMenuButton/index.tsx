@@ -19,12 +19,7 @@ export function MobileMenuButton() {
         {!showDrawer && <Menu />}
         {showDrawer && <Clear />}
       </Button>
-      <Drawer
-        anchor="bottom"
-        open={showDrawer}
-        onClose={toggleDrawer}
-        onClick={toggleDrawer}
-      >
+      <Drawer anchor="bottom" open={showDrawer} onClick={toggleDrawer}>
         <div className={styles.wrapper}>
           <div className={styles.links}>
             {navItems().map((navItem) => (

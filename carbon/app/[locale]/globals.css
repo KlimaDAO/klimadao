@@ -80,6 +80,8 @@ a {
  * FIXME: should we use a MuiTheme for this?
 */
 .MuiDrawer-paper,
-.MuiModal-backdrop {
+.MuiModal-backdrop,
+.MuiDrawer-modal {
   background-color: transparent;
+  pointer-events: none;
 }
