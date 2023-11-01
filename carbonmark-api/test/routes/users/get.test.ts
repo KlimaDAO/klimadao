@@ -40,7 +40,7 @@ describe("GET /users/[walletOrHandle]", () => {
       });
   });
 
-  test("by wallet", async () => {
+  test.only("by wallet", async () => {
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
@@ -75,7 +75,15 @@ describe("GET /users/[walletOrHandle]", () => {
     expect(actual_response).toEqual(expected_response); // check if the returned handle is correct
   });
 
-  test("invalid address", async () => {
+  test.only("invalid address", async () => {
+    //Remove existing mocks
+    jest.unmock("firebase-admin");
+    jest.unmock("firebase-admin/app");
+
+    //Return no users
+    mockFirebase({ get: jest.fn(() => ({ empty: true })) });
+    app = await build();
+
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/invalid_address`, // use an invalid wallet address
