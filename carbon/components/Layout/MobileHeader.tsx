@@ -1,10 +1,10 @@
 import { FC } from "react";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
-import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { CarbonmarkDataLogo } from "components/Graphics/CarbonmarkDataLogo";
+import { ChangeLanguageButton } from "components/Layout/ChangeLanguageButton";
 import Link from "components/Link";
-import { MobileMenu } from "./MobileMenu";
+import { MobileMenuButton } from "./MobileMenuButton";
 
 export const MobileHeader: FC = () => {
   return (
@@ -14,8 +14,8 @@ export const MobileHeader: FC = () => {
           <CarbonmarkDataLogo width={116} height={20} />
         </Link>
         <div className={styles.mobileNavButtons}>
-          <ChangeLanguageButton></ChangeLanguageButton>
-          <MobileMenu></MobileMenu>
+          <ChangeLanguageButton />
+          <MobileMenuButton />
         </div>
       </div>
     </>

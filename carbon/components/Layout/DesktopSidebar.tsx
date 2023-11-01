@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 import { CarbonmarkDataLogo } from "components/Graphics/CarbonmarkDataLogo";
 import Link from "components/Link";

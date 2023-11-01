@@ -2,7 +2,7 @@
 import { useIsPathnameActive } from "hooks/useIsPathnameActive";
 import { FC } from "react";
 import { NavItem } from "./NavItems";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   navItem: NavItem;

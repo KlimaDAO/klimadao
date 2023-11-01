@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { navItems } from "./NavItems";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 import { MobileBottomNavItem } from "./MobileBottomNavItem";
 
