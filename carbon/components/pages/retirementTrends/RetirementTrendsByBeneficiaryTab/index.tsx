@@ -10,7 +10,7 @@ export default function RetirementTrendsByBeneficiaryTab() {
   return (
     <DetailPage
       card={<RetirementsByBeneficiaryListCard className={layout.zIndexSeven} />}
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of retirements and amount of digital carbon credits retired via infrastructure built by KlimaDAO from a given beneficiary address.`}
       insights={{
         content: t`Lorem Ipsum`,
         source: "ai",
