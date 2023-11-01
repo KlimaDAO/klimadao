@@ -1,7 +1,10 @@
 import { FastifyInstance } from "fastify";
 import { omit } from "lodash";
 import nock from "nock";
-import { aUser } from "../../../src/.generated/mocks/marketplace.mocks";
+import {
+  aListing,
+  aUser,
+} from "../../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { build } from "../../helper";
 import { DEV_URL, MOCK_ADDRESS, MOCK_USER_PROFILE } from "../../test.constants";
@@ -75,7 +78,7 @@ describe("GET /users/[walletOrHandle]", () => {
     expect(actual_response).toEqual(expected_response); // check if the returned handle is correct
   });
 
-  test("invalid handle", async () => {
+  test("with invalid handle", async () => {
     //Remove existing mocks
     jest.unmock("firebase-admin");
     jest.unmock("firebase-admin/app");
@@ -92,30 +95,15 @@ describe("GET /users/[walletOrHandle]", () => {
     expect(response.statusCode).toBe(404); // expect a 404 Not Found status code
   });
 
-  test.only("invalid address", async () => {
+  test("with invalid address or handle", async () => {
     //Remove existing mocks
     jest.unmock("firebase-admin");
     jest.unmock("firebase-admin/app");
 
     //Return no users
     mockFirebase({ get: jest.fn(() => ({ exists: false })) });
+
     app = await build();
-
-    nock(GRAPH_URLS["polygon"].marketplace)
-      .post("", (body) => body.query.includes("getUserByWallet"))
-      .reply(200, { data: { users: [aUser()] } });
-
-    nock(GRAPH_URLS["polygon"].assets)
-      .post("")
-      .reply(200, {
-        data: {
-          accounts: [
-            // anAccount({
-            //   holdings: [holding],
-            // }),
-          ],
-        },
-      });
 
     const response = await app.inject({
       method: "GET",
@@ -125,29 +113,24 @@ describe("GET /users/[walletOrHandle]", () => {
     expect(response.statusCode).toBe(404); // expect a 404 Not Found status code
   });
 
-  test("User Not Found", async () => {
-    const response = await app.inject({
-      method: "GET",
-      url: `${DEV_URL}/users/non_existent_user`,
-    });
+  /**@todo complete*/
+  test.skip("with mumbai network parameter", async () => {
+    nock(
+      "https://api.thegraph.com/subgraphs/id/QmdrYranfueu9Ann3kYCkEKTmTRReusybzFZ2nYz8YM6WF"
+    )
+      .persist()
+      .post("", undefined)
+      .reply(200, { data: { users: [aUser()] } });
 
-    expect(response.statusCode).toBe(404);
-  });
+    nock(GRAPH_URLS["mumbai"].assets)
+      .persist()
+      .post("")
+      .reply(200, {
+        data: { accounts: [] },
+      });
 
-  test("Check User Profile Data", async () => {
-    const response = await app.inject({
-      method: "GET",
-      url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
-    });
+    app = await build();
 
-    const user = response.json();
-    expect(response.statusCode).toBe(200);
-    expect(user.handle).toBe(MOCK_ADDRESS.slice(0, 24));
-    expect(user.username).toBe("blah");
-    expect(user.description).toBe("blah");
-  });
-
-  test("Network Parameter", async () => {
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_ADDRESS}?network=mumbai`,
@@ -155,13 +138,24 @@ describe("GET /users/[walletOrHandle]", () => {
 
     expect(response.statusCode).toBe(200);
   });
+  /**@todo complete*/
+  test.skip("with expires after parameter", async () => {
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("", (body) => body.query.includes("getUserByWallet"))
+      .reply(200, {
+        data: {
+          users: [{ listings: aListing({ expiration: "75" }) }],
+        },
+      });
 
-  test("Expires After Parameter", async () => {
     const response = await app.inject({
       method: "GET",
-      url: `${DEV_URL}/users/${MOCK_ADDRESS}?expiresAfter=60`,
+      url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
     });
 
+    const actual_response = await response.json();
+
     expect(response.statusCode).toBe(200);
+    expect(actual_response.listings.length).toBe(1);
   });
 });

@@ -50,7 +50,6 @@ const handler = (fastify: FastifyInstance) =>
           "No user profile found for given handle or address"
         );
       }
-
       //Fetch marketplace and asset data
       const [user, assets] = await Promise.all([
         getUserByWallet({
@@ -121,6 +120,7 @@ const handler = (fastify: FastifyInstance) =>
       return reply.send(response);
     } catch (e) {
       console.error(e);
+      throw e;
     }
   };
 
