@@ -5,8 +5,10 @@ import path, { join } from "path";
 import { CommonSchema } from "./models/CommonSchema.model";
 
 // Only pull env vars from .env if running in locally
-if (!["preview", "production"].includes(process.env.VERCEL_ENV ?? "")) {
-  dotenv.config({ path: path.resolve(__dirname, "../../.env.local") });
+if (
+  !["preview", "production"].includes(process.env.NEXT_PUBLIC_VERCEL_ENV ?? "")
+) {
+  dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 }
 
 export type AppOptions = {
