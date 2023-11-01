@@ -35,9 +35,9 @@ export default function OverviewPage() {
             individual carbon reduction project at a certain point in time. Also
             like traditional credits, digital carbon can be bought, sold, and
             retired – but with much greater transparency and ease. A further
-            advantage of digital carbon is that it is a 'money Lego' – it can be
-            used to power applications, enable new use cases, and, ultimately,
-            dramatically scale financing to carbon reduction projects.`}
+            advantage of digital carbon is that it is a 'money Lego' – it is
+            programmable and can be used to power applications, enable new use cases,
+            and ultimately, dramatically scale financing to carbon reduction projects.`}
           </p>
         </article>
       </div>
