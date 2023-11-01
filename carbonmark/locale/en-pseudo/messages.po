@@ -14,6 +14,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Home/index.tsx:304
+#: components/pages/Home/index.tsx:328
+msgid "Request Demo"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -453,8 +459,6 @@ msgid "List your projects for sale in just a few clicks"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Home/index.tsx:304
-#: components/pages/Home/index.tsx:328
 #: components/pages/Users/SellerConnected/index.tsx:113
 msgid "Create Profile"
 msgstr ""
