@@ -18,7 +18,12 @@ export function MobileMenuButton() {
       <Button onClick={toggleDrawer} className={layoutStyles.topBarButton}>
         <Menu />
       </Button>
-      <Drawer anchor="bottom" open={showDrawer} onClose={toggleDrawer}>
+      <Drawer
+        anchor="bottom"
+        open={showDrawer}
+        onClose={toggleDrawer}
+        onClick={toggleDrawer}
+      >
         <div className={styles.wrapper}>
           {navItems().map((navItem) => (
             <MobileMenuButtonItem key={navItem.url} navItem={navItem} />
