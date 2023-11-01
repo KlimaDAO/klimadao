@@ -83,7 +83,7 @@ export default function DailyCarbonSupplyByProtocolCard(
   );
   const title =
     props.status == "issued"
-      ? t`Cummulative Verra registry credits tokenized over time`
+      ? t`Cumulative Verra registry credits tokenized over time`
       : t`On-Chain Verra credits retired over time`;
 
   const detailUrl =

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-31 04:32+0000\n"
+"POT-Creation-Date: 2023-11-01 10:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -446,7 +446,7 @@ msgid "Create Profile"
 msgstr "创建个人资料"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:158
 msgid "Create a listing"
 msgstr "创建挂牌"
 
@@ -568,7 +568,7 @@ msgid "Downloading ..."
 msgstr "正在下载..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Edit"
 msgstr "编辑"
 
@@ -578,7 +578,7 @@ msgid "Edit Profile"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:210
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
 msgid "Edit listing"
 msgstr "编辑挂牌"
 
@@ -2213,12 +2213,12 @@ msgid "profile.edit_your_profile"
 msgstr "编辑您的个人资料以添加描述。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:156
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:155
 msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:225
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
@@ -2701,7 +2701,7 @@ msgid "transaction_modal.approve.price"
 msgstr "确认每吨价格"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:78
+#: components/CreateListing/Transaction/index.tsx:81
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "返回"
@@ -2747,13 +2747,13 @@ msgid "transaction_modal.submit.price"
 msgstr "提交每吨价格："
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:43
+#: components/CreateListing/Transaction/index.tsx:46
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "1. 批准"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:53
+#: components/CreateListing/Transaction/index.tsx:56
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. 提交"
@@ -2825,6 +2825,11 @@ msgid "{0} maximum for credit cards"
 msgstr "{0} 信用卡最高限额"
 
 #. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:61
+msgid "{0} tonnes"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | 简介 | Carbonmark"
@@ -2835,8 +2840,8 @@ msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr "{DEFAULT_EXPIRATION_DAYS} 天 ({expirationDatestring})"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:154
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
+#: components/CreateListing/index.tsx:153
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
 msgid "{amount} tonnes"
 msgstr "{amount} 吨"
 

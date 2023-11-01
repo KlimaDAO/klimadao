@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-31 04:32+0000\n"
+"POT-Creation-Date: 2023-11-01 10:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -257,12 +257,12 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/DailyVerraCreditsCard/index.tsx:52
-msgid "Cummulative Verra registry credits issued over time"
+msgid "Cumulative Verra registry credits issued over time"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard/index.tsx:86
-msgid "Cummulative Verra registry credits tokenized over time"
+msgid "Cumulative Verra registry credits tokenized over time"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -380,9 +380,9 @@ msgid ""
 "individual carbon reduction project at a certain point in time. Also\n"
 "like traditional credits, digital carbon can be bought, sold, and\n"
 "retired – but with much greater transparency and ease. A further\n"
-"advantage of digital carbon is that it is a 'money Lego' – it can be\n"
-"used to power applications, enable new use cases, and, ultimately,\n"
-"dramatically scale financing to carbon reduction projects."
+"advantage of digital carbon is that it is a 'money Lego' – it is\n"
+"programmable and can be used to power applications, enable new use cases,\n"
+"and ultimately, dramatically scale financing to carbon reduction projects."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -420,7 +420,6 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/verra-credits-over-time/page.tsx:11
-#: components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab/index.tsx:13
 #: components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab/index.tsx:15
 msgid "Lorem Ipsum"
 msgstr ""
@@ -866,6 +865,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: app/[locale]/details/digital-carbon-retirements/[chain]/page.tsx:25
 msgid "The total number of digital carbon credits retired over time on the {chainLabel} blockchain."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab/index.tsx:13
+msgid "The total number of retirements and amount of digital carbon credits retired via infrastructure built by KlimaDAO from a given beneficiary address."
 msgstr ""
 
 #. js-lingui-explicit-id

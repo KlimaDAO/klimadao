@@ -127,13 +127,13 @@ msgid "Toggle Select Project"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:154
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
+#: components/CreateListing/index.tsx:153
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
 msgid "{amount} tonnes"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:158
 msgid "Create a listing"
 msgstr ""
 
@@ -166,6 +166,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:88
 msgid "Next"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:61
+msgid "{0} tonnes"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1916,12 +1921,12 @@ msgid "No active listings."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Edit"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:210
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
 msgid "Edit listing"
 msgstr ""
 
@@ -2113,13 +2118,13 @@ msgid "transaction.status.error"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:43
+#: components/CreateListing/Transaction/index.tsx:46
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:53
+#: components/CreateListing/Transaction/index.tsx:56
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr ""
@@ -2295,7 +2300,7 @@ msgid "transaction_modal.submit.contract_address"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:156
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:155
 msgid "profile.listing.delete.error"
 msgstr ""
 
@@ -2315,7 +2320,7 @@ msgid "offset.default_retirement_address"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:225
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
@@ -2350,7 +2355,7 @@ msgid "retirement.totals.page_subline"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:78
+#: components/CreateListing/Transaction/index.tsx:81
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr ""
