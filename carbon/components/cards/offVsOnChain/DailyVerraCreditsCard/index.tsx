@@ -49,7 +49,7 @@ export default function DailyVerraCreditsCard(
   );
   const title =
     props.status == "issued"
-      ? t`Cummulative Verra registry credits issued over time`
+      ? t`Cumulative Verra registry credits issued over time`
       : t`Off-Chain Verra credits retired over time`;
 
   const detailUrl =
