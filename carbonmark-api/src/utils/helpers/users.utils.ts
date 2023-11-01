@@ -74,6 +74,7 @@ export const getProfileByHandle = async (params: {
     .where("handle", "==", params.handle.toLowerCase())
     .limit(1)
     .get();
+
   if (snapshot.empty) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- apply known type
   const profile = snapshot.docs.at(0)?.data() as UserProfile | undefined;

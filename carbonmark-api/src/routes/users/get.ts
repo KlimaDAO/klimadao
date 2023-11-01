@@ -56,7 +56,6 @@ const handler = (fastify: FastifyInstance) =>
         }),
         getHoldingsByWallet({ address, network: query.network }),
       ]);
-      console.log("PROFILE", profile);
       // TODO: user more performant util here
       const UserProfilesMap = await getUserProfilesByIds({
         firebase: fastify.firebase,

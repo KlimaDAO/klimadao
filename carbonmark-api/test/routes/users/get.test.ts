@@ -1,11 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { omit } from "lodash";
 import nock from "nock";
-import {
-  aHolding,
-  aToken,
-  anAccount,
-} from "../../../src/.generated/mocks/digitalCarbon.mocks";
 import { aUser } from "../../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { build } from "../../helper";
@@ -14,6 +9,7 @@ import { disableAuth, mockFirebase } from "../../test.utils";
 
 describe("GET /users/[walletOrHandle]", () => {
   let app: FastifyInstance;
+  // const holding = aHolding({ token: aToken({ decimals: 8 }) });
 
   beforeEach(async () => {
     disableAuth();
@@ -22,17 +18,14 @@ describe("GET /users/[walletOrHandle]", () => {
       get: jest.fn(() => ({
         exists: true,
         data: () => MOCK_USER_PROFILE,
+        docs: [{ data: () => MOCK_USER_PROFILE }],
       })),
     });
     app = await build();
-  });
 
-  test.only("by wallet", async () => {
-    const user = aUser();
-    // const holding = aHolding({ token: aToken({ decimals: 8 }) });
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("", (body) => body.query.includes("getUserByWallet"))
-      .reply(200, { data: { users: [user] } });
+      .reply(200, { data: { users: [aUser()] } });
 
     nock(GRAPH_URLS["polygon"].assets)
       .post("")
@@ -45,7 +38,9 @@ describe("GET /users/[walletOrHandle]", () => {
           ],
         },
       });
+  });
 
+  test("by wallet", async () => {
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
@@ -63,43 +58,21 @@ describe("GET /users/[walletOrHandle]", () => {
     expect(expected_response).toEqual(actual_response);
   });
 
-  test("by handle", async () => {
-    // Mock Firebase with a user
-    mockFirebase({
-      get: jest.fn().mockReturnValue({
-        exists: true,
-        empty: false,
-        data: () => ({
-          handle: MOCK_ADDRESS,
-          wallet: MOCK_ADDRESS,
-          username: "blah",
-          description: "blah",
-        }),
-      }),
-    });
-
-    nock(GRAPH_URLS["polygon"].marketplace)
-      .post("", (body) => body.query.includes("getUserByWallet"))
-      .reply(200, { data: { users: [aUser()] } });
-
-    nock(GRAPH_URLS["polygon"].assets)
-      .post("")
-      .reply(200, {
-        data: {
-          accounts: [
-            anAccount({
-              holdings: [aHolding({ token: aToken({ decimals: 8 }) })],
-            }),
-          ],
-        },
-      });
-
+  test.only("by handle", async () => {
     const response = await app.inject({
       method: "GET",
-      url: `${DEV_URL}/users/${MOCK_ADDRESS}`, // use handle instead of wallet address
+      url: `${DEV_URL}/users/${MOCK_USER_PROFILE.handle}`, // use handle instead of wallet address
     });
+    const expected_response = {
+      ...omit(MOCK_USER_PROFILE, "address"),
+      wallet: MOCK_USER_PROFILE.address,
+      listings: [],
+      activities: [],
+      assets: [],
+    };
+    const actual_response = await response?.json();
     expect(response?.statusCode).toBe(200);
-    expect(response?.json().handle).toBe(MOCK_ADDRESS); // check if the returned handle is correct
+    expect(actual_response).toEqual(expected_response); // check if the returned handle is correct
   });
 
   test("invalid address", async () => {
