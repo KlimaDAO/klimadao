@@ -1,6 +1,6 @@
 import { urls } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
-import { ButtonWithLink } from "components/ButtonWithLink";
+import { Button } from "@mui/material";
 import { ChangeLanguageButton } from "components/Layout/ChangeLanguageButton";
 import Link from "components/Link";
 import { FC } from "react";
@@ -32,10 +32,11 @@ export const PageHeader: FC<{
       <div className={layout.desktopOnly}>
         <div className={styles.buttons}>
           <ChangeLanguageButton />
-          <ButtonWithLink
-            href={urls.marketplace}
-            label={t`Explore Marketplace`}
-          />
+          <Link href={urls.marketplace}>
+            <Button className={styles.exploreButton}>
+              {t`Explore Marketplace`}
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
