@@ -33,29 +33,37 @@ const handler = (fastify: FastifyInstance) =>
 
       const walletOrHandle = params.walletOrHandle.toLowerCase();
 
-      // If handle is provided, we must do a profile lookup first.
-      let handleProfile;
-      if (!utils.isAddress(walletOrHandle)) {
-        handleProfile = await getProfileByHandle({
-          firebase: fastify.firebase,
-          handle: walletOrHandle,
-        });
-        // if there is no profile, we can't continue without an address
-        if (!handleProfile || !utils.isAddress(handleProfile.address)) {
-          return reply.notFound("No user profile found for given handle.");
-        }
+      // Fetch the firebase UserProfile first
+      const profile = !utils.isAddress(walletOrHandle)
+        ? await getProfileByHandle({
+            firebase: fastify.firebase,
+            handle: walletOrHandle,
+          })
+        : await getProfileByAddress({
+            firebase: fastify.firebase,
+            address: walletOrHandle,
+          });
+
+      // If there is no profile, we can't continue
+      if (!profile) {
+        return reply.notFound(
+          "No user profile found for given handle or address"
+        );
       }
-      const address = handleProfile?.address || walletOrHandle; // now we know we have an address
-      const [profile, user, assets] = await Promise.all([
-        handleProfile ||
-          getProfileByAddress({ firebase: fastify.firebase, address }),
+
+      //Fetch marketplace and asset data
+      const [user, assets] = await Promise.all([
         getUserByWallet({
-          address,
+          address: profile.address,
           network: query.network,
           expiresAfter: query.expiresAfter,
         }),
-        getHoldingsByWallet({ address, network: query.network }),
+        getHoldingsByWallet({
+          address: profile.address,
+          network: query.network,
+        }),
       ]);
+
       // TODO: user more performant util here
       const UserProfilesMap = await getUserProfilesByIds({
         firebase: fastify.firebase,
@@ -104,7 +112,7 @@ const handler = (fastify: FastifyInstance) =>
         profileImgUrl: profile?.profileImgUrl || null,
         updatedAt: profile?.updatedAt || 0,
         username: profile?.username || "",
-        wallet: address,
+        wallet: profile.address,
         listings,
         activities,
         assets,

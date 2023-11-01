@@ -40,7 +40,7 @@ describe("GET /users/[walletOrHandle]", () => {
       });
   });
 
-  test.only("by wallet", async () => {
+  test("by wallet", async () => {
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
@@ -58,7 +58,7 @@ describe("GET /users/[walletOrHandle]", () => {
     expect(expected_response).toEqual(actual_response);
   });
 
-  test.only("by handle", async () => {
+  test("by handle", async () => {
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_USER_PROFILE.handle}`, // use handle instead of wallet address
@@ -75,7 +75,7 @@ describe("GET /users/[walletOrHandle]", () => {
     expect(actual_response).toEqual(expected_response); // check if the returned handle is correct
   });
 
-  test.only("invalid address", async () => {
+  test("invalid handle", async () => {
     //Remove existing mocks
     jest.unmock("firebase-admin");
     jest.unmock("firebase-admin/app");
@@ -92,10 +92,34 @@ describe("GET /users/[walletOrHandle]", () => {
     expect(response.statusCode).toBe(404); // expect a 404 Not Found status code
   });
 
-  test("invalid handle", async () => {
+  test.only("invalid address", async () => {
+    //Remove existing mocks
+    jest.unmock("firebase-admin");
+    jest.unmock("firebase-admin/app");
+
+    //Return no users
+    mockFirebase({ get: jest.fn(() => ({ exists: false })) });
+    app = await build();
+
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("", (body) => body.query.includes("getUserByWallet"))
+      .reply(200, { data: { users: [aUser()] } });
+
+    nock(GRAPH_URLS["polygon"].assets)
+      .post("")
+      .reply(200, {
+        data: {
+          accounts: [
+            // anAccount({
+            //   holdings: [holding],
+            // }),
+          ],
+        },
+      });
+
     const response = await app.inject({
       method: "GET",
-      url: `${DEV_URL}/users/invalid_handle`, // use an invalid handle
+      url: `${DEV_URL}/users/${MOCK_ADDRESS}`, // use an invalid handle
     });
 
     expect(response.statusCode).toBe(404); // expect a 404 Not Found status code
