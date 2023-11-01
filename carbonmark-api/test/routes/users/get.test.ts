@@ -1,3 +1,5 @@
+import { FastifyInstance } from "fastify";
+import { omit } from "lodash";
 import nock from "nock";
 import {
   aHolding,
@@ -7,27 +9,58 @@ import {
 import { aUser } from "../../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { build } from "../../helper";
-import { DEV_URL, MOCK_ADDRESS } from "../../test.constants";
-import { mockFirebase } from "../../test.utils";
+import { DEV_URL, MOCK_ADDRESS, MOCK_USER_PROFILE } from "../../test.constants";
+import { disableAuth, mockFirebase } from "../../test.utils";
 
-describe.skip("GET /users/[walletOrHandle]", () => {
-  test("by wallet", async () => {
-    // Mock Firebase with no users
-    mockFirebase({ get: jest.fn().mockReturnValue({ empty: true }) });
+describe("GET /users/[walletOrHandle]", () => {
+  let app: FastifyInstance;
 
-    const app = await build();
+  beforeEach(async () => {
+    disableAuth();
+    // Mock Firebase with a user
+    mockFirebase({
+      get: jest.fn(() => ({
+        exists: true,
+        data: () => MOCK_USER_PROFILE,
+      })),
+    });
+    app = await build();
+  });
+
+  test.only("by wallet", async () => {
+    const user = aUser();
+    // const holding = aHolding({ token: aToken({ decimals: 8 }) });
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("", (body) => body.query.includes("getUserByWallet"))
+      .reply(200, { data: { users: [user] } });
+
+    nock(GRAPH_URLS["polygon"].assets)
+      .post("")
+      .reply(200, {
+        data: {
+          accounts: [
+            // anAccount({
+            //   holdings: [holding],
+            // }),
+          ],
+        },
+      });
 
     const response = await app.inject({
-      method: "PUT",
+      method: "GET",
       url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
-      body: {
-        handle: MOCK_ADDRESS.slice(0, 24),
-        wallet: MOCK_ADDRESS,
-        username: "blah",
-        description: "blah",
-      },
     });
+    const actual_response = await response.json();
+
+    const expected_response = {
+      ...omit(MOCK_USER_PROFILE, "address"),
+      wallet: MOCK_USER_PROFILE.address,
+      listings: [],
+      activities: [],
+      assets: [],
+    };
     expect(response.statusCode).toBe(200);
+    expect(expected_response).toEqual(actual_response);
   });
 
   test("by handle", async () => {
@@ -44,8 +77,6 @@ describe.skip("GET /users/[walletOrHandle]", () => {
         }),
       }),
     });
-
-    const app = await build();
 
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("", (body) => body.query.includes("getUserByWallet"))
@@ -72,8 +103,6 @@ describe.skip("GET /users/[walletOrHandle]", () => {
   });
 
   test("invalid address", async () => {
-    const app = await build();
-
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/invalid_address`, // use an invalid wallet address
@@ -83,8 +112,6 @@ describe.skip("GET /users/[walletOrHandle]", () => {
   });
 
   test("invalid handle", async () => {
-    const app = await build();
-
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/invalid_handle`, // use an invalid handle
@@ -94,8 +121,6 @@ describe.skip("GET /users/[walletOrHandle]", () => {
   });
 
   test("User Not Found", async () => {
-    const app = await build();
-
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/non_existent_user`,
@@ -105,8 +130,6 @@ describe.skip("GET /users/[walletOrHandle]", () => {
   });
 
   test("Check User Profile Data", async () => {
-    const app = await build();
-
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
@@ -120,8 +143,6 @@ describe.skip("GET /users/[walletOrHandle]", () => {
   });
 
   test("Network Parameter", async () => {
-    const app = await build();
-
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_ADDRESS}?network=mumbai`,
@@ -131,8 +152,6 @@ describe.skip("GET /users/[walletOrHandle]", () => {
   });
 
   test("Expires After Parameter", async () => {
-    const app = await build();
-
     const response = await app.inject({
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_ADDRESS}?expiresAfter=60`,
