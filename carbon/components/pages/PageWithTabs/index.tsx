@@ -8,7 +8,7 @@ import { MobileTabSelector } from "components/MobileTabSelector";
 import OptionsSwitcher from "components/OptionsSwitcher";
 import { PageHeader } from "components/PageHeader/PageHeader";
 import { Options } from "lib/charts/options";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Key, ReactNode, useEffect, useState } from "react";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
@@ -62,9 +62,6 @@ export default function PageWithTabs(props: {
   }
 
   let tabsDynamicOptionsList: Options<string>[][] = getTabsDynamicOptionsList();
-
-  const router = useRouter();
-  const pathname = usePathname();
 
   const handleChange = (_: React.SyntheticEvent, newTab: string) => {
     const url = new URL(window.location.href);

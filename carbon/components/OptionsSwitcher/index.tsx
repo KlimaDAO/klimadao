@@ -35,7 +35,6 @@ export default function OptionsSwitcher<T extends Key>(props: {
     const url = new URL(window.location.href);
     initialValue = (url.searchParams.get(props.name) as T) || initialValue;
     setSelected(initialValue);
-    console.log(initialValue);
     if (!readonly && props.onSelectionChange) {
       props.onSelectionChange(initialValue);
     }
