@@ -27,7 +27,7 @@ import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { selectBalances, selectDomain, selectLocale } from "state/selectors";
+import { selectBalances, selectDomain } from "state/selectors";
 import { Domain } from "state/user";
 import * as styles from "./styles";
 
@@ -136,7 +136,6 @@ interface Props {
 }
 
 export const NavMenu: FC<Props> = (props) => {
-  const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
   const domains = useSelector(selectDomain);
   const { pathname } = useLocation();

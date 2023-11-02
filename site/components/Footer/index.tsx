@@ -16,6 +16,7 @@ import {
   YoutubeIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import { createLinkWithLocaleQuery } from "lib/i18n";
 import * as styles from "./styles";
 
 interface Props {
@@ -35,10 +36,10 @@ export const Footer: FC<Props> = (props) => {
           <Link href="/buy">
             <Trans>Buy</Trans>
           </Link>
-          <a href={urls.stake}>
+          <a href={createLinkWithLocaleQuery(urls.stake, locale)}>
             <Trans>Stake</Trans>
           </a>
-          <a href={urls.app}>
+          <a href={createLinkWithLocaleQuery(urls.app, locale)}>
             <Trans>App</Trans>
           </a>
           <A href={urls.officialDocs}>

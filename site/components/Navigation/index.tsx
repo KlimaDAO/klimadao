@@ -7,6 +7,7 @@ import { FC } from "react";
 import { urls } from "@klimadao/lib/constants";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { HeaderDesktop } from "components/Header/HeaderDesktop";
+import { createLinkWithLocaleQuery } from "lib/i18n";
 import { HeaderMobile } from "../Header/HeaderMobile";
 import { DropdownItemDesktop } from "./DropdownItemDesktop";
 import { LinkItemDesktop } from "./LinkItemDesktop";
@@ -55,7 +56,7 @@ export const Navigation: FC<Props> = ({
             <ButtonPrimary
               key="Enter App"
               label={t({ message: "Enter App", id: "shared.enter_app" })}
-              href={urls.app}
+              href={createLinkWithLocaleQuery(urls.app, locale)}
             />
           ) : (
             <ButtonPrimary
@@ -107,16 +108,28 @@ export const Navigation: FC<Props> = ({
         </DropdownItemDesktop>
 
         <DropdownItemDesktop name={t({ message: "App", id: "shared.app" })}>
-          <LinkItemDesktop name={t`Buy Klima`} key="buy klima" url={urls.buy} />
-          <LinkItemDesktop name={t`Stake Klima`} key="stake" url={urls.stake} />
-          <LinkItemDesktop name={t`Bond Klima`} key="bond" url={urls.bonds} />
+          <LinkItemDesktop
+            name={t`Buy Klima`}
+            key="buy klima"
+            url={createLinkWithLocaleQuery(urls.buy, locale)}
+          />
+          <LinkItemDesktop
+            name={t`Stake Klima`}
+            key="stake"
+            url={createLinkWithLocaleQuery(urls.stake, locale)}
+          />
+          <LinkItemDesktop
+            name={t`Bond Klima`}
+            key="bond"
+            url={createLinkWithLocaleQuery(urls.bonds, locale)}
+          />
           <LinkItemDesktop
             name={t({
               message: "Wrap sKlima",
               id: "shared.wrap",
             })}
             key="wrap"
-            url={urls.wrap}
+            url={createLinkWithLocaleQuery(urls.wrap, locale)}
           />
           <LinkItemDesktop
             name={t({
@@ -124,7 +137,7 @@ export const Navigation: FC<Props> = ({
               id: "shared.offset",
             })}
             key="offset"
-            url={urls.offset}
+            url={createLinkWithLocaleQuery(urls.offset, locale)}
           />
           <LinkItemDesktop
             name={t({
@@ -132,7 +145,7 @@ export const Navigation: FC<Props> = ({
               id: "shared.buy_carbon",
             })}
             key="buy carbon"
-            url={urls.redeem}
+            url={createLinkWithLocaleQuery(urls.redeem, locale)}
           />
           <LinkItemDesktop
             name={t({
@@ -140,7 +153,7 @@ export const Navigation: FC<Props> = ({
               id: "shared.info",
             })}
             key="info"
-            url={urls.info}
+            url={createLinkWithLocaleQuery(urls.info, locale)}
           />
         </DropdownItemDesktop>
         <LinkItemDesktop
@@ -232,12 +245,12 @@ export const Navigation: FC<Props> = ({
                 <NavItemMobile
                   name={t`Stake Klima`}
                   key="stake"
-                  url={urls.stake}
+                  url={createLinkWithLocaleQuery(urls.stake, locale)}
                 />,
                 <NavItemMobile
                   name={t`Bond Klima`}
                   key="bond"
-                  url={urls.bonds}
+                  url={createLinkWithLocaleQuery(urls.bonds, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -245,7 +258,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.wrap",
                   })}
                   key="wrap"
-                  url={urls.wrap}
+                  url={createLinkWithLocaleQuery(urls.wrap, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -253,7 +266,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.offset",
                   })}
                   key="offset"
-                  url={urls.offset}
+                  url={createLinkWithLocaleQuery(urls.offset, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -261,7 +274,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.buy_carbon",
                   })}
                   key="buy carbon"
-                  url={urls.redeem}
+                  url={createLinkWithLocaleQuery(urls.redeem, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -269,7 +282,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.info",
                   })}
                   key="info"
-                  url={urls.info}
+                  url={createLinkWithLocaleQuery(urls.info, locale)}
                 />,
               ]}
             />
@@ -319,7 +332,7 @@ export const Navigation: FC<Props> = ({
           <div className="buttons">
             <ButtonPrimary
               label="Enter App"
-              href={urls.app}
+              href={createLinkWithLocaleQuery(urls.app, locale)}
               className={styles.navMain_MobileButton}
             />
             {showThemeToggle && <ThemeToggle />}
