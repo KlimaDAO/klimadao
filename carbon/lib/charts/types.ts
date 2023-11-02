@@ -356,12 +356,21 @@ export interface DailyCreditsChartDataItem
     BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 
-// Chat Data: Treemaps
+// Chart Data: Treemaps
 export type TreeMapItem<P> = P & {
   name?: string;
   children?: TreeMapData<P>;
 };
 export type TreeMapData<P> = Array<TreeMapItem<P>>;
+
+// Credits volume query configuration
+export type DailyCreditsQueryConfiguration = Array<{
+  query: CreditsQueryParams;
+  mapping: ChartDateMappingParams<
+    AggregatedCreditsByDatesItem,
+    DailyCreditsChartDataItem
+  >;
+}>;
 
 /** Node dictionnary for cards or tab */
 export type NodeDictionnary = Record<Key, React.ReactNode>;

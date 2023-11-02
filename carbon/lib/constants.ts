@@ -69,5 +69,6 @@ export const urls = {
     aggregatedCreditsByBridgeAndProject: `${api_url}/credits/agg/bridge/project`,
     aggregatedCreditsByBridgeAndDate: `${api_url}/credits/agg/bridge/monthly`,
     aggregatedCreditsByBridge: `${api_url}/credits/agg/bridge`,
+    aggregatedPoolVolumeByDate: `${api_url}/pools/agg`,
   },
 };
