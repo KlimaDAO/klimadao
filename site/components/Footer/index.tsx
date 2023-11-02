@@ -1,6 +1,5 @@
 import { cx } from "@emotion/css";
 import { Trans } from "@lingui/macro";
-import { createLinkWithLocaleQuery } from "lib/i18n";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -36,10 +35,10 @@ export const Footer: FC<Props> = (props) => {
           <Link href="/buy">
             <Trans>Buy</Trans>
           </Link>
-          <a href={createLinkWithLocaleQuery(urls.stake, locale)}>
+          <a href={urls.stake}>
             <Trans>Stake</Trans>
           </a>
-          <a href={createLinkWithLocaleQuery(urls.app, locale)}>
+          <a href={urls.app}>
             <Trans>App</Trans>
           </a>
           <A href={urls.officialDocs}>

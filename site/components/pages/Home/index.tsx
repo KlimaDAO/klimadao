@@ -13,7 +13,6 @@ import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { SocialProof } from "components/SocialProof";
-import { createLinkWithLocaleQuery } from "lib/i18n";
 import { LatestPost } from "lib/queries";
 import { NextPage } from "next";
 import Image from "next/legacy/image";
@@ -111,7 +110,7 @@ export const Home: NextPage<Props> = (props) => {
                 <ButtonPrimary
                   key="Enter App"
                   label={t({ id: "shared.enter_app", message: "Enter App" })}
-                  href={createLinkWithLocaleQuery(urls.app, locale)}
+                  href={urls.app}
                 />
               </div>
             </div>

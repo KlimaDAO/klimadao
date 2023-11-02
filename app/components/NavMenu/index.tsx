@@ -23,7 +23,6 @@ import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import Payment from "@mui/icons-material/Payment";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
-import { createLinkWithLocaleSubPath } from "lib/i18n";
 import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
@@ -147,7 +146,7 @@ export const NavMenu: FC<Props> = (props) => {
 
   return (
     <nav className={styles.container}>
-      <a href={createLinkWithLocaleSubPath(urls.home, locale)}>
+      <a href={urls.home}>
         <LogoWithClaim />
       </a>
       <div className="stack-12">

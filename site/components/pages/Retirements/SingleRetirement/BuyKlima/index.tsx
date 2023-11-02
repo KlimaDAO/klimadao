@@ -2,7 +2,6 @@ import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
-import { createLinkWithLocaleQuery } from "lib/i18n";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import droneView from "public/drone_view.png";
@@ -45,7 +44,7 @@ export const BuyKlima = () => {
             id: "retirement.footer.buy_klima.button.offset",
             message: "Offset",
           })}
-          href={createLinkWithLocaleQuery(urls.offset, locale)}
+          href={urls.offset}
           variant="gray"
         />
       </div>
