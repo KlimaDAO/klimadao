@@ -455,9 +455,8 @@ msgstr "List your projects for sale in just a few clicks"
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:113
-msgid "Create Profile"
-msgstr "Create Profile"
+msgid "Request Demo"
+msgstr "Request Demo"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:313
@@ -1899,6 +1898,11 @@ msgstr "About"
 #: components/pages/Users/SellerConnected/index.tsx:113
 msgid "Edit Profile"
 msgstr "Edit Profile"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/index.tsx:113
+msgid "Create Profile"
+msgstr "Create Profile"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:128

@@ -455,8 +455,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:113
-msgid "Create Profile"
+msgid "Request Demo"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1895,6 +1894,11 @@ msgstr "<<<<<<< HEAD======="
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:113
 msgid "Edit Profile"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/index.tsx:113
+msgid "Create Profile"
 msgstr ""
 
 #. js-lingui-explicit-id

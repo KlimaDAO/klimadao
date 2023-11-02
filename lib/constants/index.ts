@@ -139,6 +139,8 @@ export const urls = {
     "https://share-eu1.hsforms.com/1fEb0LUdcRlKGTzNCVYz6igfhhlr",
   klimaInfinityContactForm:
     "https://share-eu1.hsforms.com/1g2uooleDQ06MaRpylL5irwfhhlr",
+  carbonmarkDemoForm:
+    "https://share-eu1.hsforms.com/1aI5EZsiYQsCBvi7rml_bIAfhhlr",
   pressEmail: "mailto:press@klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
   lifiStake:
