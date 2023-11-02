@@ -3,6 +3,7 @@ import nock from "nock";
 import app from "../src/app";
 type Args = {
   allowNetworkRequest?: boolean;
+  logger?: boolean;
 };
 let fastify: FastifyInstance;
 
@@ -19,7 +20,7 @@ afterEach(async () => {
 export async function build(args?: Args) {
   try {
     // Create a new Fastify instance
-    fastify = Fastify({ logger: false });
+    fastify = Fastify({ logger: args?.logger });
 
     // Register the application with the Fastify instance
     await fastify.register(app);
