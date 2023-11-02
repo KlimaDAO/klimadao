@@ -1,10 +1,10 @@
 import { t } from "@lingui/macro";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCredits";
-import { DailyCreditsQueryConfiguration } from "lib/charts/aggregators/getDailyCredits";
 import { statusToDateField } from "lib/charts/dateField";
 import {
   Bridge,
+  DailyCreditsQueryConfiguration,
   DateFilteringOption,
   Pool,
   PoolQuantitiesInterface,

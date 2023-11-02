@@ -1,3 +1,4 @@
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { Key } from "react";
 
 // API level Query parameters
@@ -350,20 +351,13 @@ export type GenericDailyChartDataItem = {
 export type DailyChartData<CI extends GenericDailyChartDataItem> =
   ChartData<CI>;
 
+// Chart data: credits
 export interface DailyCreditsChartDataItem
   extends GenericDailyChartDataItem,
     PoolQuantitiesInterface,
     BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 
-// Chart Data: Treemaps
-export type TreeMapItem<P> = P & {
-  name?: string;
-  children?: TreeMapData<P>;
-};
-export type TreeMapData<P> = Array<TreeMapItem<P>>;
-
-// Credits volume query configuration
 export type DailyCreditsQueryConfiguration = Array<{
   query: CreditsQueryParams;
   mapping: ChartDateMappingParams<
@@ -371,6 +365,14 @@ export type DailyCreditsQueryConfiguration = Array<{
     DailyCreditsChartDataItem
   >;
 }>;
+export type DailyCreditsChartConfiguration = ChartConfiguration<Bridge>;
+
+// Chat Data: Treemaps
+export type TreeMapItem<P> = P & {
+  name?: string;
+  children?: TreeMapData<P>;
+};
+export type TreeMapData<P> = Array<TreeMapItem<P>>;
 
 /** Node dictionnary for cards or tab */
 export type NodeDictionnary = Record<Key, React.ReactNode>;
