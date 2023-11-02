@@ -7,8 +7,8 @@ import { Tab } from "@mui/material";
 import { MobileTabSelector } from "components/MobileTabSelector";
 import OptionsSwitcher from "components/OptionsSwitcher";
 import { PageHeader } from "components/PageHeader/PageHeader";
+import { useQueryParam } from "hooks/useQueryParam";
 import { Options } from "lib/charts/options";
-import { useSearchParams } from "next/navigation";
 import { Key, ReactNode, useEffect, useState } from "react";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
@@ -26,10 +26,12 @@ export default function PageWithTabs(props: {
   title: string;
   tabs: TabParams;
 }) {
-  const queryParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState(
-    queryParams.get("tab") || props.tabs[0].key
-  );
+  const [activeTab, setActiveTab] = useQueryParam<string>({
+    key: "tab",
+    defaultValue: props.tabs[0].key,
+    readonly: false,
+  });
+
   /** By default, the first option of each widget is selected */
   const getDetaultOptions = () => {
     return props.tabs.map((tab) =>
@@ -62,21 +64,6 @@ export default function PageWithTabs(props: {
   }
 
   let tabsDynamicOptionsList: Options<string>[][] = getTabsDynamicOptionsList();
-
-  const handleChange = (_: React.SyntheticEvent, newTab: string) => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("tab", String(newTab));
-    history.pushState({}, document.title, url.href);
-    setActiveTab(newTab);
-  };
-
-  // Get Tab from URL
-  useEffect(() => {
-    const queryKey = queryParams.get("tab");
-    if (queryKey != null && props.tabs.some((tab) => tab.key == queryKey)) {
-      setActiveTab(queryKey);
-    }
-  }, []);
 
   useEffect(() => {
     tabsDynamicOptionsList = getTabsDynamicOptionsList();
@@ -123,7 +110,9 @@ export default function PageWithTabs(props: {
             className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
           />
           <TabList
-            onChange={handleChange}
+            onChange={(_: React.SyntheticEvent, newTab: string) => {
+              setActiveTab(newTab);
+            }}
             className={`${layout.desktopOnly} ${styles.tabList}`}
           >
             {props.tabs.map((tab) => (

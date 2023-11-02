@@ -11,19 +11,16 @@ interface Props<T> {
   /** Can this value be changed */
   readonly: boolean;
 }
-export function useQueryParam<T>(
-  props: Props<T>
-): [T | undefined, (newValue: T) => void] {
-  const [value, setValue] = useState<T | undefined>(props.defaultValue);
+export function useQueryParam<T>(props: Props<T>): [T, (newValue: T) => void] {
+  const [value, setValue] = useState<T>(props.defaultValue);
 
   // When the component is loaded the value is read from the URL
   let initialValue = props.defaultValue;
   useEffect(() => {
-    console.log(initialValue);
     const url = new URL(window.location.href);
     initialValue = (url.searchParams.get(props.key) as T) || initialValue;
+    setValue(initialValue);
     if (!props.readonly && props.onValueChange) {
-      setValue(initialValue);
       props.onValueChange(initialValue);
     }
   }, []);
