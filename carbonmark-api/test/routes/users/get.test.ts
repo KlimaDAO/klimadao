@@ -85,6 +85,10 @@ describe("GET /users/[walletOrHandle]", () => {
 
     //Return no users
     mockFirebase({ get: jest.fn(() => ({ empty: true })) });
+
+    /** We need to close the existing server */
+    app.close();
+    /** And create a new one with updated firebase mock */
     app = await build();
 
     const response = await app.inject({
@@ -103,6 +107,9 @@ describe("GET /users/[walletOrHandle]", () => {
     //Return no users
     mockFirebase({ get: jest.fn(() => ({ exists: false })) });
 
+    /** We need to close the existing server */
+    app.close();
+    /** And create a new one with updated firebase mock */
     app = await build();
 
     const response = await app.inject({
