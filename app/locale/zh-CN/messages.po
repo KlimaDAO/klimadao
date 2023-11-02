@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-30 15:36+0000\n"
+"POT-Creation-Date: 2023-11-02 19:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,7 +10,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:84
 msgid "Acknowledge and Accept"
-msgstr ""
+msgstr "确认并接受"
 
 #. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
@@ -88,12 +88,12 @@ msgstr "余额不足"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:29
 msgid "Investment Risk Disclaimer"
-msgstr ""
+msgstr "投资风险免责声明"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
-msgstr ""
+msgstr "流动性不足：可能市场上面有活跃的 $KLIMA，如果您需要快速出售代币，可能会导致亏损。"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:411
@@ -135,12 +135,12 @@ msgstr "登录"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:39
 msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
-msgstr ""
+msgstr "投资损失：$KLIMA 和其他加密货币的价值可能随时快速增加或减少。因此，您可能会遭受重大且快速的损失，包括损失所有投资资金。"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:68
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
-msgstr ""
+msgstr "无担保：不能保证KlimaDAO平台或$KLIMA代币会实现其目标，也不能保证协议中会保留任何价值。"
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:166
@@ -165,7 +165,7 @@ msgstr "2022年4月12日起，“dapp”迁移至“app”。请更新您的书�
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:60
 msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
-msgstr ""
+msgstr "操作风险：KlimaDAO 平台依赖于与 Polygon 网络和其他数字资产相关的各种技术。这些技术可能会发生变化，并且此类变化可能会对您的投资产生不利影响。"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:682
@@ -191,12 +191,12 @@ msgstr "项目详情<0/>"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
-msgstr ""
+msgstr "购买加密货币，包括$KLIMA代币，涉及高度风险，应被视为极具投机性。以下是一些重要考虑要点："
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
-msgstr ""
+msgstr "监管行动和变化：加密货币的监管环境在不断发展，监管政策的变化可能对您的投资产生不利影响。"
 
 #. js-lingui-explicit-id
 #: components/views/Redeem/index.tsx:388
@@ -232,7 +232,7 @@ msgstr "此费用包括滑点和矿池收取的任何赎回费用"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
-msgstr ""
+msgstr "本风险警告摘要并未披露与投资 $KLIMA 相关的所有风险。在做出任何投资决定之前，您应该自行进行尽职调查并咨询财务顾问。"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
@@ -275,7 +275,7 @@ msgstr "您收到"
 #: components/views/Offset/index.tsx:921
 #: components/views/Redeem/index.tsx:499
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
-msgstr ""
+msgstr "您的余额必须至少比交易成本高 1%。"
 
 #. Long sentence
 #. js-lingui-explicit-id

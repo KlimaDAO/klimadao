@@ -88,7 +88,6 @@ module.exports = async (phase, { defaultConfig }) => {
       deviceSizes,
     },
     experimental: {
-      appDir: false,
       optimizePackageImports: ["@klimadao/lib/utils"],
     },
   };

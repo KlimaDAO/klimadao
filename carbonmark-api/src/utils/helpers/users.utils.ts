@@ -1,12 +1,12 @@
 import { app } from "firebase-admin";
 import { chunk } from "lodash";
 
-interface UserProfile {
+export interface UserProfile {
   address: string;
   createdAt: number;
   description: string;
   handle: string;
-  profileImgUrl?: string;
+  profileImgUrl?: string | null;
   updatedAt: number;
   username: string;
 }
@@ -23,6 +23,7 @@ export const getProfileByAddress = async (params: {
     .collection("users")
     .doc(params.address.toUpperCase())
     .get();
+
   if (!doc.exists) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known type
   return doc.data() as UserProfile;
@@ -73,6 +74,7 @@ export const getProfileByHandle = async (params: {
     .where("handle", "==", params.handle.toLowerCase())
     .limit(1)
     .get();
+
   if (snapshot.empty) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- apply known type
   const profile = snapshot.docs.at(0)?.data() as UserProfile | undefined;

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-30 15:36+0000\n"
+"POT-Creation-Date: 2023-11-02 19:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -446,7 +446,7 @@ msgid "Create Profile"
 msgstr "创建个人资料"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:158
 msgid "Create a listing"
 msgstr "创建挂牌"
 
@@ -568,7 +568,7 @@ msgid "Downloading ..."
 msgstr "正在下载..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Edit"
 msgstr "编辑"
 
@@ -578,7 +578,7 @@ msgid "Edit Profile"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:210
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
 msgid "Edit listing"
 msgstr "编辑挂牌"
 
@@ -1484,12 +1484,12 @@ msgstr "通用碳市场"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:50
 msgid "The allowance below reflects the sum of all your listings for this specific token."
-msgstr ""
+msgstr "以下授权额反映了该特定代币的所有挂牌量的总和。"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:43
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
-msgstr ""
+msgstr "资产只会在销售完成时从您的钱包中转出。您可以随时撤销此授权。"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:34
@@ -1669,7 +1669,7 @@ msgstr "总碳停用"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:59
 msgid "Total allowance"
-msgstr ""
+msgstr "总授权额"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:70
@@ -1953,7 +1953,7 @@ msgstr "您的钱包地址："
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:374
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
-msgstr ""
+msgstr "您的余额必须至少多出交易成本的1%。"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
@@ -2213,12 +2213,12 @@ msgid "profile.edit_your_profile"
 msgstr "编辑您的个人资料以添加描述。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:156
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:155
 msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:225
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
@@ -2701,7 +2701,7 @@ msgid "transaction_modal.approve.price"
 msgstr "确认每吨价格"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:78
+#: components/CreateListing/Transaction/index.tsx:81
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "返回"
@@ -2747,13 +2747,13 @@ msgid "transaction_modal.submit.price"
 msgstr "提交每吨价格："
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:43
+#: components/CreateListing/Transaction/index.tsx:46
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "1. 批准"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:53
+#: components/CreateListing/Transaction/index.tsx:56
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. 提交"
@@ -2825,6 +2825,11 @@ msgid "{0} maximum for credit cards"
 msgstr "{0} 信用卡最高限额"
 
 #. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:61
+msgid "{0} tonnes"
+msgstr "{0} 吨"
+
+#. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | 简介 | Carbonmark"
@@ -2835,8 +2840,8 @@ msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr "{DEFAULT_EXPIRATION_DAYS} 天 ({expirationDatestring})"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:154
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
+#: components/CreateListing/index.tsx:153
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
 msgid "{amount} tonnes"
 msgstr "{amount} 吨"
 

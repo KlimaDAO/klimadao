@@ -78,14 +78,9 @@ export default function DataTableClientWrapper<RI, P>(props: {
       );
     }
   }
-  // The card renderer needs a special wrapper to align pagination properly
-  const wrapperClassName =
-    getRendererKey(props.configurationKey, "mobile") == "cards"
-      ? styles.mobileCardsWrapper
-      : "";
 
   return (
-    <div className={wrapperClassName}>
+    <div className={styles.scrollWrapper}>
       <table className={`${styles.table} ${styles.desktopOnly}`}>
         {renderTable("desktop")}
       </table>
@@ -93,11 +88,13 @@ export default function DataTableClientWrapper<RI, P>(props: {
         {renderTable("mobile")}
       </table>
       {withPagination && (
-        <Pagination
-          page={page}
-          pages_count={props.pages_count}
-          onPageChange={setPage}
-        ></Pagination>
+        <div className={styles.paginationWrapper}>
+          <Pagination
+            page={page}
+            pages_count={props.pages_count}
+            onPageChange={setPage}
+          />
+        </div>
       )}
     </div>
   );
