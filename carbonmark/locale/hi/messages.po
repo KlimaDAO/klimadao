@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-02 19:07+0000\n"
+"POT-Creation-Date: 2023-11-02 19:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -441,8 +441,6 @@ msgid "Create New Listing"
 msgstr "नयी सूची बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/pages/Home/index.tsx:304
-#: components/pages/Home/index.tsx:328
 #: components/pages/Users/SellerConnected/index.tsx:113
 msgid "Create Profile"
 msgstr "प्रोफ़ाइल बनाएँ"
@@ -1199,6 +1197,12 @@ msgstr "शेष आपूर्त्ति"
 #: lib/getCategoryInfo.ts:23
 msgid "Renewable Energy"
 msgstr "नवीकरणीय ऊर्जा"
+
+#. js-lingui-explicit-id
+#: components/pages/Home/index.tsx:304
+#: components/pages/Home/index.tsx:328
+msgid "Request Demo"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:171

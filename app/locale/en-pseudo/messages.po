@@ -104,7 +104,7 @@ msgid "Switch to Polygon"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:204
+#: components/NavMenu/index.tsx:202
 #: components/views/Redeem/index.tsx:526
 msgid "Buy Carbon"
 msgstr ""
@@ -113,8 +113,8 @@ msgstr ""
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:474
-#: components/views/Offset/index.tsx:612
+#: components/views/Offset/index.tsx:473
+#: components/views/Offset/index.tsx:611
 #: components/views/Redeem/index.tsx:255
 #: components/views/Redeem/index.tsx:339
 #: components/views/Stake/index.tsx:431
@@ -127,7 +127,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:550
+#: components/views/Offset/index.tsx:549
 #: components/views/Redeem/index.tsx:286
 #: components/views/Stake/index.tsx:252
 #: components/views/Wrap/index.tsx:230
@@ -156,7 +156,7 @@ msgid "Login"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:487
+#: components/views/Offset/index.tsx:486
 #: components/views/Redeem/index.tsx:260
 #: components/views/Redeem/index.tsx:431
 #: components/views/Stake/index.tsx:242
@@ -165,7 +165,7 @@ msgid "Enter quantity"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:540
+#: components/views/Offset/index.tsx:539
 #: components/views/Redeem/index.tsx:281
 #: components/views/Stake/index.tsx:247
 #: components/views/Wrap/index.tsx:225
@@ -173,37 +173,37 @@ msgid "Insufficient balance"
 msgstr "======="
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:679
+#: components/views/Offset/index.tsx:678
 msgid "Offset"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:682
+#: components/views/Offset/index.tsx:681
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "<<<<<<< HEAD"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:693
+#: components/views/Offset/index.tsx:692
 msgid "Select carbon token to retire"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:694
+#: components/views/Offset/index.tsx:693
 msgid "Select token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:806
+#: components/views/Offset/index.tsx:805
 msgid "Beneficiary name"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:818
+#: components/views/Offset/index.tsx:817
 msgid "Beneficiary 0x address (optional)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:921
+#: components/views/Offset/index.tsx:920
 #: components/views/Redeem/index.tsx:499
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
 msgstr ""
@@ -316,7 +316,7 @@ msgid "status.error"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:873
+#: components/views/Offset/index.tsx:872
 msgid "fiat.max_quantity"
 msgstr ""
 
@@ -517,7 +517,7 @@ msgid "shared.balances"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:932
+#: components/views/Offset/index.tsx:931
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -540,7 +540,7 @@ msgid "bond.transaction_modal.bond.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:180
+#: components/NavMenu/index.tsx:178
 msgid "menu.bond_carbon"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgid "bond.bond_price"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:164
+#: components/NavMenu/index.tsx:162
 msgid "menu.buy_klima"
 msgstr ""
 
@@ -580,7 +580,7 @@ msgid "choose_bond.ubo.description"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:779
+#: components/views/Offset/index.tsx:778
 #: components/views/Redeem/index.tsx:440
 msgid "offset.invalid_project_tonnage"
 msgstr ""
@@ -601,7 +601,7 @@ msgid "invalid_rpc.modal.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:545
+#: components/views/Offset/index.tsx:544
 msgid "offset.checkout"
 msgstr ""
 
@@ -684,7 +684,7 @@ msgid "transaction_modal.submit.contract_address"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:852
+#: components/views/Offset/index.tsx:851
 #: components/views/Redeem/index.tsx:451
 msgid "offset_cost"
 msgstr ""
@@ -726,12 +726,12 @@ msgid "offset.selectiveRetirement.default_input_type"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:821
+#: components/views/Offset/index.tsx:820
 msgid "offset.default_retirement_address"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:841
+#: components/views/Offset/index.tsx:840
 msgid "offset.retirement_purpose"
 msgstr ""
 
@@ -768,17 +768,17 @@ msgid "shared.enter_amount"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:492
+#: components/views/Offset/index.tsx:491
 msgid "shared.enter_beneficiary"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:767
+#: components/views/Offset/index.tsx:766
 msgid "offset.offset_quantity"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:500
+#: components/views/Offset/index.tsx:499
 msgid "shared.enter_retirement_message"
 msgstr ""
 
@@ -837,7 +837,7 @@ msgid "checkurlbanner.got_it"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:735
+#: components/views/Offset/index.tsx:734
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
@@ -883,7 +883,7 @@ msgid "pklima.index_adjusted"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:212
+#: components/NavMenu/index.tsx:210
 msgid "menu.info"
 msgstr ""
 
@@ -893,7 +893,7 @@ msgid "info.info_and_faq"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:633
+#: components/views/Offset/index.tsx:632
 #: components/views/Redeem/index.tsx:353
 msgid "offset.incompatible"
 msgstr ""
@@ -904,29 +904,29 @@ msgid "connectModal.institutional"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:516
+#: components/views/Offset/index.tsx:515
 #: components/views/Redeem/index.tsx:265
 msgid "offset.insufficient_project_tonnage"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:508
+#: components/views/Offset/index.tsx:507
 msgid "shared.invalid_beneficiary_addr"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:532
+#: components/views/Offset/index.tsx:531
 #: components/views/Redeem/index.tsx:273
 msgid "shared.invalid_project_address"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:524
+#: components/views/Offset/index.tsx:523
 msgid "shared.invalid_quantity"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:215
 msgid "menu.just_for_you"
 msgstr ""
 
@@ -954,7 +954,7 @@ msgstr ""
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:153
-#: components/views/Offset/index.tsx:466
+#: components/views/Offset/index.tsx:465
 #: components/views/PKlima/index.tsx:149
 #: components/views/Redeem/index.tsx:247
 #: components/views/Stake/index.tsx:229
@@ -1006,7 +1006,7 @@ msgid "info.app_not_loading.metamask_should_prompt"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:788
+#: components/views/Offset/index.tsx:787
 msgid "offset.min_quantity_fiat"
 msgstr ""
 
@@ -1026,7 +1026,7 @@ msgid "transaction_modal.next"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:69
+#: components/NavMenu/index.tsx:68
 msgid "menu.not_connected"
 msgstr ""
 
@@ -1041,7 +1041,7 @@ msgid "info.official_contract_addresses"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:196
+#: components/NavMenu/index.tsx:194
 msgid "menu.offset"
 msgstr ""
 
@@ -1051,7 +1051,7 @@ msgid "buy.cta_2"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:902
+#: components/views/Offset/index.tsx:901
 msgid "offset.dropdown_payWith.label"
 msgstr ""
 
@@ -1076,7 +1076,7 @@ msgid "bond.discount.description_tooltip"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:224
+#: components/NavMenu/index.tsx:222
 msgid "token.pKLIMA"
 msgstr ""
 
@@ -1158,7 +1158,7 @@ msgid "pklima.redeemed"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:479
+#: components/views/Offset/index.tsx:478
 msgid "shared.redirecting_checkout"
 msgstr ""
 
@@ -1179,12 +1179,12 @@ msgid "connect_modal.error_processing"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:555
+#: components/views/Offset/index.tsx:554
 msgid "shared.retire"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:959
+#: components/views/Offset/index.tsx:958
 msgid "offset.retire_carbon"
 msgstr ""
 
@@ -1194,7 +1194,7 @@ msgid "offset.retire_specific"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:832
+#: components/views/Offset/index.tsx:831
 msgid "offset.retirement_message"
 msgstr ""
 
@@ -1204,7 +1204,7 @@ msgid "offset.successModal.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:886
+#: components/views/Offset/index.tsx:885
 msgid "offset.retiring"
 msgstr ""
 
@@ -1229,7 +1229,7 @@ msgid "offset.selectiveRetirement.selectProject.select"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:906
+#: components/views/Offset/index.tsx:905
 msgid "offset.modal_payWith.title"
 msgstr ""
 
@@ -1276,7 +1276,7 @@ msgid "stake.stake"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:172
+#: components/NavMenu/index.tsx:170
 msgid "menu.stake_klima"
 msgstr ""
 
@@ -1347,7 +1347,7 @@ msgid "pklima.update"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:856
+#: components/views/Offset/index.tsx:855
 msgid "offset.aggregation_fee_tooltip"
 msgstr ""
 
@@ -1465,7 +1465,7 @@ msgid "connect_modal.error_message_default"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:798
+#: components/views/Offset/index.tsx:797
 msgid "offset.retirement_credit"
 msgstr ""
 
@@ -1481,7 +1481,7 @@ msgid "wrap.wrap"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:188
+#: components/NavMenu/index.tsx:186
 msgid "menu.wrap_klima"
 msgstr ""
 
@@ -1538,6 +1538,6 @@ msgid "offset.you_have_retired"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:51
+#: components/NavMenu/index.tsx:50
 msgid "menu.wallet_address"
 msgstr ""
