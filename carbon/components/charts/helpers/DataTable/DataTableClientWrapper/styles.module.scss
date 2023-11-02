@@ -1,11 +1,16 @@
 @use "~@klimadao/lib/theme/breakpoints.scss";
 
-.mobileCardsWrapper {
-  width: fit-content;
-  @include breakpoints.medium {
-    width: 100%;
-  }
+.scrollWrapper {
+  overflow-x: auto;
+  display: grid;
 }
+
+.paginationWrapper {
+  position: sticky;
+  justify-self: end;
+  right: 0;
+}
+
 .table {
   color: var(--lightmode-font-01);
   width: 100%;
