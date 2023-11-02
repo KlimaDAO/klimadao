@@ -1,6 +1,5 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
-import { createLinkWithLocaleQuery } from "lib/i18n";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -8,6 +7,7 @@ import { FC } from "react";
 import { urls } from "@klimadao/lib/constants";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { HeaderDesktop } from "components/Header/HeaderDesktop";
+import { createLinkWithLocaleQuery } from "lib/i18n";
 import { HeaderMobile } from "../Header/HeaderMobile";
 import { DropdownItemDesktop } from "./DropdownItemDesktop";
 import { LinkItemDesktop } from "./LinkItemDesktop";
