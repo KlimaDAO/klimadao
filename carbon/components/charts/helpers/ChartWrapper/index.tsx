@@ -50,11 +50,17 @@ export const useIsResizing = () => {
  * Does not display charts during resize event to avoid sluggish recharts animations
  * See: https://github.com/recharts/recharts/issues/1767
  */
-export default function ChartWrapper<T>(props: NoDataWrapperProps<T>) {
+export default function ChartWrapper<T>(
+  props: NoDataWrapperProps<T> & { className?: string }
+) {
   const isBeingResized = useIsResizing();
   const content = !isBeingResized ? (
     <NoDataWrapper {...props}>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer
+        width="100%"
+        height="100%"
+        className={props.className}
+      >
         {props.children}
       </ResponsiveContainer>
     </NoDataWrapper>
