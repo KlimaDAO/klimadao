@@ -8,6 +8,7 @@ import { locales } from "lib/i18n";
 import { usePathname } from "next-intl/client";
 import Link from "next-intl/link";
 import { useSearchParams } from "next/navigation";
+import layout from "theme/layout.module.scss";
 import layoutStyles from "../styles.module.scss";
 import styles from "./styles.module.scss";
 
@@ -17,7 +18,7 @@ export function ChangeLanguageButton() {
   if (`${searchParams}`) {
     href = `${href}?${searchParams}`;
   }
-
+  /* FIXME: Hide the change language button until translations are done */
   return (
     <Tippy
       className={styles.topBarTooltip}
@@ -37,7 +38,7 @@ export function ChangeLanguageButton() {
       trigger="click"
     >
       <Button
-        className={layoutStyles.topBarButton}
+        className={`${layoutStyles.topBarButton} ${layout.hidden}`}
         aria-label={t`Change language`}
       >
         <Language />
