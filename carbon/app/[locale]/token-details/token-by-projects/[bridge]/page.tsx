@@ -2,6 +2,7 @@ import { t } from "@lingui/macro";
 import TokenDistributionOfProjectsCard from "components/cards/tokenDetails/TokenDistributionOfProjectsCard";
 import DetailPage from "components/pages/DetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
+import { PageLinks } from "lib/PageLinks";
 import { capitalize } from "lodash";
 
 export default function TokenDistributionOfProjectsPage({
@@ -20,6 +21,7 @@ export default function TokenDistributionOfProjectsPage({
         />
       }
       overview={t`A breakdown of the carbon projects for which the carbon credits were issued and then bridged and pooled via ${bridgeLabel}.`}
+      backButtonHref={`${PageLinks.TokenDetails}?tab=${params.bridge}`}
     />
   );
 }

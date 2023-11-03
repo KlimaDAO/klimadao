@@ -4,6 +4,9 @@ import DetailPage from "components/pages/DetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
 import { capitalize } from "lodash";
 
+/*
+FIXME: Is this used?!
+*/
 export default function TokenBridgeBreakdownPage({
   params,
   searchParams,
