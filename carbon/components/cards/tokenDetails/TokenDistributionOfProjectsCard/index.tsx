@@ -11,6 +11,11 @@ import ChartCard, { CardProps } from "../../ChartCard";
 export default function TokenDistributionOfProjectsCard(
   props: CardProps & TokenDetailsProps
 ) {
+  // No projects distribution card for retired credits on particular pools
+  if (props.pool != "all" && props.status == "retired") {
+    return <></>;
+  }
+
   const chart = (
     /* @ts-expect-error async Server component */
     <TokenDistributionOfProjectsChart {...props} />

@@ -1,3 +1,4 @@
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { Key } from "react";
 
 // API level Query parameters
@@ -350,11 +351,21 @@ export type GenericDailyChartDataItem = {
 export type DailyChartData<CI extends GenericDailyChartDataItem> =
   ChartData<CI>;
 
+// Chart data: credits
 export interface DailyCreditsChartDataItem
   extends GenericDailyChartDataItem,
     PoolQuantitiesInterface,
     BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
+
+export type DailyCreditsQueryConfiguration = Array<{
+  query: CreditsQueryParams;
+  mapping: ChartDateMappingParams<
+    AggregatedCreditsByDatesItem,
+    DailyCreditsChartDataItem
+  >;
+}>;
+export type DailyCreditsChartConfiguration = ChartConfiguration<Bridge>;
 
 // Chat Data: Treemaps
 export type TreeMapItem<P> = P & {
