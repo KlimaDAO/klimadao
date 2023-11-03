@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfProjectsCard";
 import DetailPage from "components/pages/DetailPage";
+import { PageLinks } from "lib/PageLinks";
 
 export default function VerraCreditsIssuedByProjectTypePage() {
   return (
@@ -13,6 +14,7 @@ export default function VerraCreditsIssuedByProjectTypePage() {
         />
       }
       overview={t`The total number of carbon credits that have been issued by carbon registry Verra sorted by carbon project type.`}
+      backButtonHref={PageLinks.OffChainVsOnChain}
     />
   );
 }
