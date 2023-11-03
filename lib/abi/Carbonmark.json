@@ -374,6 +374,27 @@
       "type": "error"
     },
     {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minFillAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "CarbonmarkMarketplace_ListingAmountLessThanMinFillAmount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CarbonmarkMarketplace_ListingAmountZero",
+      "type": "error"
+    },
+    {
       "inputs": [],
       "name": "CarbonmarkMarketplace_ListingDoesNotExist",
       "type": "error"
@@ -456,6 +477,22 @@
           "internalType": "address",
           "name": "token",
           "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "approval",
+          "type": "bool"
+        }
+      ],
+      "name": "CarbonmarkMarketplace_ListingTokenNotApprovedForAll",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
         }
       ],
       "name": "CarbonmarkMarketplace_ListingTokenNotSupported",
@@ -510,6 +547,12 @@
           "internalType": "address",
           "name": "token",
           "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
         },
         {
           "indexed": false,
@@ -653,6 +696,11 @@
         },
         {
           "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         },
@@ -754,6 +802,25 @@
           "internalType": "address",
           "name": "",
           "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getListingTokenType",
+      "outputs": [
+        {
+          "internalType": "enum Storage.TokenType",
+          "name": "",
+          "type": "uint8"
         }
       ],
       "stateMutability": "view",
