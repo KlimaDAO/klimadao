@@ -9,7 +9,7 @@ import {
 import { Link } from "@mui/material";
 import { FC } from "react";
 import layout from "theme/layout.module.scss";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 export const Footer: FC = () => {
   return (

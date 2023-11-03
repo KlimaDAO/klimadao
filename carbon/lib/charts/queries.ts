@@ -388,3 +388,14 @@ export const queryAggregatedCreditsByPool = function (
     }
   );
 };
+
+/** Queries the Pools volumes aggregations by date endpoint */
+export const queryAggregatedPoolVolumesByDates = function (
+  freq: DateAggregationFrequency,
+  params: CreditsQueryParams & PaginationQueryParams
+): Promise<AggregatedCreditsByDates> {
+  return paginatedQuery<
+    AggregatedCreditsByDatesItem,
+    CreditsQueryParams & PaginationQueryParams
+  >(`${urls.api.aggregatedPoolVolumeByDate}/${freq}`, params);
+};

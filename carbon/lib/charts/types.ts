@@ -1,3 +1,5 @@
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
+
 // API level Query parameters
 export const BRIDGES = ["toucan", "c3", "moss"];
 export const CHAIN = ["polygon", "eth", "celo"];
@@ -348,11 +350,21 @@ export type GenericDailyChartDataItem = {
 export type DailyChartData<CI extends GenericDailyChartDataItem> =
   ChartData<CI>;
 
+// Chart data: credits
 export interface DailyCreditsChartDataItem
   extends GenericDailyChartDataItem,
     PoolQuantitiesInterface,
     BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
+
+export type DailyCreditsQueryConfiguration = Array<{
+  query: CreditsQueryParams;
+  mapping: ChartDateMappingParams<
+    AggregatedCreditsByDatesItem,
+    DailyCreditsChartDataItem
+  >;
+}>;
+export type DailyCreditsChartConfiguration = ChartConfiguration<Bridge>;
 
 // Chat Data: Treemaps
 export type TreeMapItem<P> = P & {

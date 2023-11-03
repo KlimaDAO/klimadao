@@ -20,28 +20,24 @@ export default function TokenDetailsPage() {
   getDateFilteringOptions().forEach((date) => {
     getPoolStatusOptions().forEach((status) => {
       getToucanPoolsOptions().forEach((pool) => {
-        if (pool.value == "all" || status.value == "bridged") {
-          toucanContents[`${pool.value}|${date.value}|${status.value}`] = (
-            <TokenDetailsTab
-              bridge="toucan"
-              pool={pool.value}
-              status={status.value}
-              since={date.value}
-            />
-          );
-        }
+        toucanContents[`${pool.value}|${date.value}|${status.value}`] = (
+          <TokenDetailsTab
+            bridge="toucan"
+            pool={pool.value}
+            status={status.value}
+            since={date.value}
+          />
+        );
       });
       getC3PoolsOptions().forEach((pool) => {
-        if (pool.value == "all" || status.value == "bridged") {
-          c3Contents[`${pool.value}|${date.value}|${status.value}`] = (
-            <TokenDetailsTab
-              bridge="c3"
-              pool={pool.value}
-              status={status.value}
-              since={date.value}
-            />
-          );
-        }
+        c3Contents[`${pool.value}|${date.value}|${status.value}`] = (
+          <TokenDetailsTab
+            bridge="c3"
+            pool={pool.value}
+            status={status.value}
+            since={date.value}
+          />
+        );
       });
     });
     mossContents[`${date.value}`] = (

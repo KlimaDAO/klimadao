@@ -1,10 +1,10 @@
 import { t } from "@lingui/macro";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCredits";
-import { DailyCreditsQueryConfiguration } from "lib/charts/aggregators/getDailyCredits";
 import { statusToDateField } from "lib/charts/dateField";
 import {
   Bridge,
+  DailyCreditsQueryConfiguration,
   DateFilteringOption,
   Pool,
   PoolQuantitiesInterface,
@@ -95,7 +95,6 @@ export function getChartConfiguration(props: TokenDetailsProps) {
 export function getCreditsQueryConfiguration(
   props: TokenDetailsProps
 ): DailyCreditsQueryConfiguration {
-  const freq = props.since == "lifetime" ? "monthly" : "daily";
   const dateField = statusToDateField(props.status);
   const params = creditsQueryParamsFromProps(props);
 

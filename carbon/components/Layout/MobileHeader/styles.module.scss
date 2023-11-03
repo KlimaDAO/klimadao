@@ -1,0 +1,19 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+@use "theme/typography.module.scss";
+
+.mobileHeader {
+  height: 6.4rem;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.6rem 0.8rem 1.6rem;
+  justify-content: space-between;
+
+  @include breakpoints.desktop {
+    display: none;
+  }
+}
+
+.mobileNavButtons {
+  display: flex;
+  gap: 1.6rem;
+}
