@@ -29,6 +29,7 @@ export default function OverviewPage() {
             <TokenizedCreditsByBridgeCard
               detailUrlPosition="bottom"
               className={layout.zIndexSix}
+              sourceHref={"/overview"}
             ></TokenizedCreditsByBridgeCard>
             <HistoricalPriceCard
               className={layout.zIndexFive}

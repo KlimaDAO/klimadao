@@ -11,11 +11,11 @@ export default function VerraCreditsTokenizedByBridgePage() {
         <TokenizedCreditsByBridgeCard
           isDetailPage={true}
           centerTitle={true}
-          sourceHref={PageLinks.Overview}
+          sourceHref={PageLinks.OffChainVsOnChain}
         />
       }
       overview={t`A breakdown of carbon credits issued by carbon registry Verra which have been bridged and tokenized on a public blockchain.`}
-      backButtonHref={PageLinks.Overview}
+      backButtonHref={PageLinks.OffChainVsOnChain}
     />
   );
 }

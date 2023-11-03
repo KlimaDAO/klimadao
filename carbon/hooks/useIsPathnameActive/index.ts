@@ -11,7 +11,7 @@ export const useIsPathnameActive = (navItem: NavItem): boolean => {
       : pathname) || "/";
   const active =
     navItem.url == pathnameWithoutLocale ||
-    (!!navItem.path && pathnameWithoutLocale.startsWith(navItem.path));
+    pathnameWithoutLocale.startsWith(navItem.path);
 
   return active;
 };
