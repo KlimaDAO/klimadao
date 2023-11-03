@@ -14,6 +14,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:26
+msgid "Volume deposited over time"
+msgstr "Volume deposited over time"
+
+#. js-lingui-explicit-id
+#: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:28
+msgid "Volume retired over time"
+msgstr "Volume retired over time"
+
+#. js-lingui-explicit-id
+#: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:30
+msgid "Volume redemmed over time"
+msgstr "Volume redemmed over time"
+
+#. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
@@ -380,27 +395,27 @@ msgstr "By beneficiary"
 #: app/[locale]/supply/page.tsx:16
 #: components/cards/overview/DailyCarbonSupplyCard/index.tsx:23
 #: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:23
-#: components/Layout/NavItems.tsx:29
+#: components/Layout/NavItems/index.tsx:29
 msgid "Supply"
 msgstr "Supply"
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:59
+#: app/[locale]/token-details/page.tsx:55
 msgid "Token details"
 msgstr "Token details"
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:63
+#: app/[locale]/token-details/page.tsx:59
 msgid "C3"
 msgstr "C3"
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:73
+#: app/[locale]/token-details/page.tsx:69
 msgid "Moss"
 msgstr "Moss"
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:79
+#: app/[locale]/token-details/page.tsx:75
 msgid "Toucan"
 msgstr "Toucan"
 
@@ -502,7 +517,7 @@ msgid "On-chain retirements"
 msgstr "On-chain retirements"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/DailyVerraCreditsOverviewCard/index.tsx:123
+#: components/cards/overview/DailyVerraCreditsOverviewCard/index.tsx:125
 msgid "Verra credits"
 msgstr "Verra credits"
 
@@ -741,22 +756,22 @@ msgid "MCO2"
 msgstr "MCO2"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenDistributionOfMethodologiesCard/index.tsx:29
+#: components/cards/tokenDetails/TokenDistributionOfMethodologiesCard/index.tsx:28
 msgid "Distribution of methodologies"
 msgstr "Distribution of methodologies"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenDistributionOfProjectsCard/index.tsx:22
+#: components/cards/tokenDetails/TokenDistributionOfProjectsCard/index.tsx:27
 msgid "Distribution of Projects"
 msgstr "Distribution of Projects"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenDistributionOfVintageCard/index.tsx:29
+#: components/cards/tokenDetails/TokenDistributionOfVintageCard/index.tsx:28
 msgid "Distribution of vintage start dates"
 msgstr "Distribution of vintage start dates"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenOriginsCard/index.tsx:23
+#: components/cards/tokenDetails/TokenOriginsCard/index.tsx:27
 msgid "Origin of credits"
 msgstr "Origin of credits"
 
@@ -796,7 +811,7 @@ msgid "Volume over time"
 msgstr "Volume over time"
 
 #. js-lingui-explicit-id
-#: components/ChangeLanguageButton/index.tsx:42
+#: components/Layout/ChangeLanguageButton/index.tsx:42
 msgid "Change language"
 msgstr "Change language"
 
@@ -1052,23 +1067,23 @@ msgid "No data availble"
 msgstr "No data availble"
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems.tsx:19
+#: components/Layout/NavItems/index.tsx:19
 #: components/pages/DetailPage/index.tsx:25
 msgid "Overview"
 msgstr "Overview"
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems.tsx:24
+#: components/Layout/NavItems/index.tsx:24
 msgid "Off vs On-Chain"
 msgstr "Off vs On-Chain"
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems.tsx:34
+#: components/Layout/NavItems/index.tsx:34
 msgid "Retirement Trends"
 msgstr "Retirement Trends"
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems.tsx:39
+#: components/Layout/NavItems/index.tsx:39
 msgid "Token Details"
 msgstr "Token Details"
 
