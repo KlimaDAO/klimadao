@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
+import { PageLinks } from "lib/PageLinks";
 import {
   DailyCreditsChartConfiguration,
   DailyCreditsQueryConfiguration,
@@ -54,8 +55,8 @@ export default function DailyVerraCreditsCard(
 
   const detailUrl =
     props.status == "issued"
-      ? "/details/verra-credits-issued-over-time"
-      : "/details/verra-credits-retired-off-chain-over-time";
+      ? `${PageLinks.OffChainVsOnChain}/verra-credits-issued-over-time`
+      : `${PageLinks.OffChainVsOnChain}/verra-credits-retired-off-chain-over-time`;
   return (
     <ChartCard
       {...props}

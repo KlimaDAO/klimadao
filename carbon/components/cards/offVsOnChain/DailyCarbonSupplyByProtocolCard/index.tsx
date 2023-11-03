@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
+import { PageLinks } from "lib/PageLinks";
 import {
   DailyCreditsChartConfiguration,
   DailyCreditsQueryConfiguration,
@@ -88,8 +89,8 @@ export default function DailyCarbonSupplyByProtocolCard(
 
   const detailUrl =
     props.status == "issued"
-      ? "/details/verra-credits-tokenized-over-time"
-      : "/details/verra-credits-retired-on-chain-over-time";
+      ? `${PageLinks.OffChainVsOnChain}/verra-credits-tokenized-over-time`
+      : `${PageLinks.OffChainVsOnChain}/verra-credits-retired-on-chain-over-time`;
 
   return (
     <ChartCard
