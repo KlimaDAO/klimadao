@@ -4,6 +4,7 @@ import DailyEthCarbonSupplyCard from "components/cards/supply/DailyEthCarbonSupp
 import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCarbonSupplyCard";
 import DetailPage from "components/pages/DetailPage";
 import { ChainDetailPageProps } from "components/pages/props";
+import { PageLinks } from "lib/PageLinks";
 import { capitalize } from "lodash";
 
 export default function DigitalDailyCarbonSupplyPage({
@@ -27,6 +28,7 @@ export default function DigitalDailyCarbonSupplyPage({
       pageTitle={t`Digital carbon supply - ${chainLabel}`}
       card={card}
       overview={t`The current supply of digital carbon on the ${chainLabel} blockchain broken down by digital carbon pool.`}
+      backButtonHref={PageLinks.Supply}
     />
   );
 }

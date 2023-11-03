@@ -3,6 +3,7 @@ import DailyEthRetirementsCard from "components/cards/supply/DailyEthRetirements
 import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
 import DetailPage from "components/pages/DetailPage";
 import { ChainDetailPageProps } from "components/pages/props";
+import { PageLinks } from "lib/PageLinks";
 import { capitalize } from "lodash";
 
 export default function DigitalDailyRetirementsPage({
@@ -23,6 +24,7 @@ export default function DigitalDailyRetirementsPage({
       pageTitle={t`Digital carbon retirements - ${chainLabel}`}
       card={card}
       overview={t`The total number of digital carbon credits retired over time on the ${chainLabel} blockchain.`}
+      backButtonHref={PageLinks.Supply}
     />
   );
 }

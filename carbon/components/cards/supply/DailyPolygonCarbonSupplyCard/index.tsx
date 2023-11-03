@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import { DailyPolygonCarbonSupplyChart } from "components/charts/DailyCarbonSupplyChart";
+import { PageLinks } from "lib/PageLinks";
 
 export default function DailyPolygonCarbonSupplyCard(props: CardProps) {
   const chart = (
@@ -11,7 +12,7 @@ export default function DailyPolygonCarbonSupplyCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Polygon supply`}
-      detailUrl="/details/digital-carbon-supply/polygon"
+      detailUrl={`${PageLinks.Supply}/digital-carbon-supply/polygon`}
       chart={chart}
     />
   );
