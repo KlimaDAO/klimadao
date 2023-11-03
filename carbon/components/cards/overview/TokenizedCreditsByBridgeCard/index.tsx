@@ -17,7 +17,7 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Tokenized credits by bridge`}
-      detailUrl="/details/verra-credits-tokenized-by-bridge"
+      detailUrl="/overview/verra-credits-tokenized-by-bridge"
       detailUrlPosition="top"
       chart={chart}
     />

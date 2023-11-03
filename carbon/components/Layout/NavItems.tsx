@@ -6,11 +6,13 @@ import {
   StackedLineChart,
   TokenOutlined,
 } from "@mui/icons-material";
+import { PageLinks } from "lib/PageLinks";
 
 export interface NavItem {
   label: string;
   icon: JSX.Element;
   url: string;
+  path?: string;
 }
 
 export const navItems = (): Array<NavItem> => {
@@ -18,27 +20,28 @@ export const navItems = (): Array<NavItem> => {
     {
       label: t`Overview`,
       icon: <TokenOutlined />,
-      url: "/",
+      url: PageLinks.Overview,
+      path: "/overview",
     },
     {
       label: t`Off vs On-Chain`,
       icon: <Link />,
-      url: "/off-chain-vs-on-chain",
+      url: PageLinks.OffChainVsOnChain,
     },
     {
       label: t`Supply`,
       icon: <BarChart />,
-      url: "/supply",
+      url: PageLinks.Supply,
     },
     {
       label: t`Retirement Trends`,
       icon: <StackedLineChart />,
-      url: "/retirement-trends",
+      url: PageLinks.RetirementTrends,
     },
     {
       label: t`Token Details`,
       icon: <PaidOutlined />,
-      url: "/token-details",
+      url: PageLinks.TokenDetails,
     },
   ];
 };
