@@ -20,37 +20,12 @@ query getDigitalCarbonProjectsCountries {
 
 query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: { projectID: $projectID }) {
-    registry
-    region
-    projectID
-    name
-    methodologies
-    id
-    country
-    category
+    ...DigitalCarbonProjectFragment
     carbonCredits(where: { vintage: $vintage }) {
-      vintage
-      currentSupply
+      ...CarbonCreditFragment
       poolBalances {
-        balance
-        id
-        deposited
-        redeemed
-        pool {
-          name
-          supply
-          id
-          decimals
-          dailySnapshots {
-            lastUpdateTimestamp
-          }
-        }
+        ...PoolBalancesFragment
       }
-      id
-      crossChainSupply
-      bridgeProtocol
-      bridged
-      retired
     }
   }
 }
@@ -77,35 +52,13 @@ query findDigitalCarbonProjects(
       ]
     }
   ) {
-    id
-    name
-    projectID
-    methodologies
-    country
-    category
-    registry
-    region
+    ...DigitalCarbonProjectFragment
     carbonCredits {
-      vintage
-      currentSupply
-      id
-      crossChainSupply
-      bridgeProtocol
-      bridged
-      retired
+      ...CarbonCreditFragment
       poolBalances {
-        balance
-        id
-        deposited
-        redeemed
+        ...PoolBalancesFragment
         pool {
-          name
-          supply
-          id
-          decimals
-          dailySnapshots {
-            lastUpdateTimestamp
-          }
+          ...PoolFragment
         }
       }
     }

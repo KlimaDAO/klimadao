@@ -4172,6 +4172,14 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
+export type DigitalCarbonProjectFragmentFragment = { __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string };
+
+export type CarbonCreditFragmentFragment = { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string };
+
+export type PoolBalancesFragmentFragment = { __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } };
+
+export type PoolFragmentFragment = { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> };
+
 export type GetDigitalCarbonProjectsVintagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4193,7 +4201,7 @@ export type GetProjectCreditsQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectCreditsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', registry: Registry, region: string, projectID: string, name: string, methodologies: string, id: string, country: string, category: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }> }> }> };
+export type GetProjectCreditsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }> }> }> };
 
 export type FindDigitalCarbonProjectsQueryVariables = Exact<{
   country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
@@ -4205,7 +4213,57 @@ export type FindDigitalCarbonProjectsQueryVariables = Exact<{
 
 export type FindDigitalCarbonProjectsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }> }> }> };
 
-
+export const DigitalCarbonProjectFragmentFragmentDoc = gql`
+    fragment DigitalCarbonProjectFragment on CarbonProject {
+  id
+  name
+  projectID
+  methodologies
+  country
+  category
+  registry
+  region
+}
+    `;
+export const CarbonCreditFragmentFragmentDoc = gql`
+    fragment CarbonCreditFragment on CarbonCredit {
+  vintage
+  currentSupply
+  id
+  crossChainSupply
+  bridgeProtocol
+  bridged
+  retired
+}
+    `;
+export const PoolBalancesFragmentFragmentDoc = gql`
+    fragment PoolBalancesFragment on CarbonPoolCreditBalance {
+  balance
+  id
+  deposited
+  redeemed
+  pool {
+    name
+    supply
+    id
+    decimals
+    dailySnapshots {
+      lastUpdateTimestamp
+    }
+  }
+}
+    `;
+export const PoolFragmentFragmentDoc = gql`
+    fragment PoolFragment on CarbonPool {
+  name
+  supply
+  id
+  decimals
+  dailySnapshots {
+    lastUpdateTimestamp
+  }
+}
+    `;
 export const GetDigitalCarbonProjectsVintagesDocument = gql`
     query getDigitalCarbonProjectsVintages {
   carbonProjects(first: 1000) {
@@ -4232,82 +4290,40 @@ export const GetDigitalCarbonProjectsCountriesDocument = gql`
 export const GetProjectCreditsDocument = gql`
     query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: {projectID: $projectID}) {
-    registry
-    region
-    projectID
-    name
-    methodologies
-    id
-    country
-    category
+    ...DigitalCarbonProjectFragment
     carbonCredits(where: {vintage: $vintage}) {
-      vintage
-      currentSupply
+      ...CarbonCreditFragment
       poolBalances {
-        balance
-        id
-        deposited
-        redeemed
-        pool {
-          name
-          supply
-          id
-          decimals
-          dailySnapshots {
-            lastUpdateTimestamp
-          }
-        }
+        ...PoolBalancesFragment
       }
-      id
-      crossChainSupply
-      bridgeProtocol
-      bridged
-      retired
     }
   }
 }
-    `;
+    ${DigitalCarbonProjectFragmentFragmentDoc}
+${CarbonCreditFragmentFragmentDoc}
+${PoolBalancesFragmentFragmentDoc}`;
 export const FindDigitalCarbonProjectsDocument = gql`
     query findDigitalCarbonProjects($country: [String!], $category: [String!], $search: String, $vintage: [Int!]) {
   carbonProjects(
     first: 1000
     where: {and: [{category_in: $category}, {country_in: $country}, {carbonCredits_: {vintage_in: $vintage}}, {or: [{name_contains_nocase: $search}, {projectID_contains_nocase: $search}]}]}
   ) {
-    id
-    name
-    projectID
-    methodologies
-    country
-    category
-    registry
-    region
+    ...DigitalCarbonProjectFragment
     carbonCredits {
-      vintage
-      currentSupply
-      id
-      crossChainSupply
-      bridgeProtocol
-      bridged
-      retired
+      ...CarbonCreditFragment
       poolBalances {
-        balance
-        id
-        deposited
-        redeemed
+        ...PoolBalancesFragment
         pool {
-          name
-          supply
-          id
-          decimals
-          dailySnapshots {
-            lastUpdateTimestamp
-          }
+          ...PoolFragment
         }
       }
     }
   }
 }
-    `;
+    ${DigitalCarbonProjectFragmentFragmentDoc}
+${CarbonCreditFragmentFragmentDoc}
+${PoolBalancesFragmentFragmentDoc}
+${PoolFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 

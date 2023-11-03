@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { pick } from "lodash";
+import { pick, set } from "lodash";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
@@ -145,8 +145,7 @@ describe("GET /projects", () => {
         country: {
           id: carbonProjects.carbonProject.country,
         },
-        // no price on subgraph  yet
-        price: "",
+        price: poolPrices["bct"].defaultPrice,
         listings: null,
         key: digitalCarbon.digitalCarbonProject.projectID,
         location: {
@@ -284,24 +283,15 @@ describe("GET /projects", () => {
           ],
         },
       });
-
+    // override so listing is cheaper
+    const project = set(
+      marketplace.projectWithListing,
+      "listings[0].singleUnitPrice",
+      "1234560"
+    );
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, {
-        data: {
-          projects: [
-            {
-              ...marketplace.projectWithListing,
-              listings: [
-                {
-                  ...marketplace.projectWithListing.listings?.[0],
-                  singleUnitPrice: "1234560",
-                },
-              ],
-            },
-          ],
-        },
-      }); // override so listing is cheaper
+      .reply(200, { data: { projects: [project] } });
 
     const response = await fastify.inject({
       method: "GET",

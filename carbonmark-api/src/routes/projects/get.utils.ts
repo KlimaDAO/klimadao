@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
+import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
@@ -59,54 +59,80 @@ export const getDefaultQueryArgs = async (
  * Chooses between default and selective price.
  * Sorted cheapest first.
  */
-type ProjectBalances = Record<string, string>;
+type ProjectBalances = Record<
+  string,
+  { balance: string; projectAddress: string }
+>;
 
 export const getDigitalCarbonTokenPrices = (
-  digitalCarbonProject: FindQueryDigitalCarbon,
+  digitalCarbonProject: CarbonProjectType,
   poolPrices: Record<string, PoolPrice>
 ) => {
-  const pools = digitalCarbonProject.carbonCredits[0].poolBalances;
+  const poolAddressToKey: Record<string, string> = {};
 
-  const tokenBalances: ProjectBalances = {};
+  for (const [key, poolInfo] of Object.entries(POOL_INFO)) {
+    poolAddressToKey[poolInfo.poolAddress.toLowerCase()] = key;
+  }
 
-  for (const pool of pools) {
-    const poolInfoEntries = Object.entries(POOL_INFO);
-    for (const [key, poolInfo] of poolInfoEntries) {
-      if (poolInfo.poolAddress === pool.id) {
-        tokenBalances[key] = pool.balance;
-      }
+  const tokenBalances: ProjectBalances = {
+    nbo: { balance: "0", projectAddress: "" },
+    ubo: { balance: "0", projectAddress: "" },
+    bct: { balance: "0", projectAddress: "" },
+    nct: { balance: "0", projectAddress: "" },
+    mco2: { balance: "0", projectAddress: "" },
+  };
+
+  /**
+   * @todo mc02 poolPrices are NaN because there is no default project
+   */
+
+  const credits = digitalCarbonProject.carbonCredits;
+
+  for (const credit of credits) {
+    if (credit.poolBalances.length === 0) continue;
+
+    for (const poolBalance of credit.poolBalances) {
+      const poolId = poolBalance.pool.id;
+      const key = poolAddressToKey[poolId];
+
+      tokenBalances[key] = {
+        balance: poolBalance.balance,
+        projectAddress: credit.id, // should this be this be credit.id or poolBalance.pool.id ?
+      };
     }
   }
 
   const prices: string[] = [];
-
-  if (parseFloat(tokenBalances.ubo) >= 1) {
+  if (parseFloat(tokenBalances["ubo"].balance) >= 1) {
     const isDefault =
       POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances.tokenAddress.toLowerCase();
+      tokenBalances["ubo"].projectAddress.toLowerCase();
     const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
     prices.push(poolPrices.ubo[priceKey]);
   }
-  if (parseFloat(tokenBalances.nbo) >= 1) {
+  if (parseFloat(tokenBalances["nbo"].balance) >= 1) {
     const isDefault =
       POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances.tokenAddress.toLowerCase();
+      tokenBalances["nbo"].projectAddress.toLowerCase();
     const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
     prices.push(poolPrices.nbo[priceKey]);
   }
-  if (parseFloat(tokenBalances.nct) >= 1) {
+  if (parseFloat(tokenBalances["nct"].balance) >= 1) {
     const isDefault =
       POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances.tokenAddress.toLowerCase();
+      tokenBalances["nct"].projectAddress.toLowerCase();
     const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
     prices.push(poolPrices.nct[priceKey]);
   }
-  if (parseFloat(tokenBalances.bct) >= 1) {
+  if (parseFloat(tokenBalances["bct"].balance) >= 1) {
     const isDefault =
       POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances.tokenAddress.toLowerCase();
+      tokenBalances["bct"].projectAddress.toLowerCase();
     const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
     prices.push(poolPrices.bct[priceKey]);
+  }
+  if (parseFloat(tokenBalances["mco2"].balance) >= 1) {
+    prices.push(poolPrices["mco2"]["selectiveRedeemPrice"]);
   }
   return sortBy(prices, (p) => Number(p));
 };
@@ -128,26 +154,15 @@ export const toGeoJSON = (
  * For polygon-bridged-carbon subgraph projects
  * Returns true if project has >=1 tonne in any pool
  * */
-export const isValidPoolProject = (project: FindQueryDigitalCarbon) => {
-  const validProjects = [];
 
-  for (const carbonCredit of project.carbonCredits) {
-    const poolBalances = carbonCredit.poolBalances;
+export const isValidPoolProject = (project: CarbonProjectType) => {
+  const balances = project.carbonCredits.flatMap(extract("poolBalances"));
+  const addresses = Object.values(POOL_INFO).map(extract("poolAddress"));
 
-    for (const poolBalance of poolBalances) {
-      const poolAddresses = Object.values(POOL_INFO).map(
-        (pool) => pool.poolAddress
-      );
-      if (
-        poolAddresses.includes(poolBalance.pool.id) &&
-        Number(poolBalance.balance) > 0
-      ) {
-        validProjects.push(poolBalance);
-      }
-    }
-  }
-
-  return !!validProjects.length;
+  return balances.some(
+    (balance) =>
+      addresses.includes(balance.pool.id) && Number(balance.balance) > 0
+  );
 };
 export const isActiveListing = (l: {
   active?: boolean | null;
@@ -168,13 +183,13 @@ export const isValidMarketplaceProject = (
 };
 
 /** The specific CarbonOffset type from the find findDigitalCarbon query*/
-export type FindQueryDigitalCarbon =
+export type CarbonProjectType =
   FindDigitalCarbonProjectsQuery["carbonProjects"][number];
 
 /** A key may have a marketplace entry, a pool entry, or both. */
 type ProjectData = {
   key: CreditIdentifier;
-  poolProjectData?: FindQueryDigitalCarbon;
+  poolProjectData?: CarbonProjectType;
   marketplaceProjectData?: GetProjectsQuery["projects"][number];
 };
 /** Map project keys to gql and cms data */
@@ -197,7 +212,7 @@ const pickUpdatedAt = (data: ProjectData): string => {
     });
   });
 
-  const mostRecentTimestamp = maxBy(timestamps);
+  const mostRecentTimestamp = max(timestamps);
   return youngestListing?.updatedAt ?? mostRecentTimestamp ?? "";
 };
 
@@ -212,10 +227,10 @@ const pickBestPrice = (
   const cheapestListingUSDC =
     cheapestListing?.singleUnitPrice &&
     formatUSDC(cheapestListing.singleUnitPrice);
-
   const allPoolPrices = data.poolProjectData
     ? getDigitalCarbonTokenPrices(data.poolProjectData, poolPrices)
     : [];
+
   const cheapestPoolPrice = minBy(allPoolPrices, (p) => Number(p));
 
   const bestPrice =

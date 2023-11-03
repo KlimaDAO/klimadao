@@ -16,7 +16,7 @@ type PartialCarbonPoolDailySnapshot = Partial<CarbonPoolDailySnapshot>;
 // /** Fixtures for the polygon-digital-carbon subgraph */
 
 const creditBalance: PartialCarbonPoolCreditBalance = {
-  id: "0xb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
+  id: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
 };
 
 const dailySnapshot: PartialCarbonPoolDailySnapshot = {
@@ -26,7 +26,7 @@ const dailySnapshot: PartialCarbonPoolDailySnapshot = {
 
 const poolBalance: PartialCarbonPoolCreditBalance = {
   balance: "320307910491148199345054",
-  id: "0x2f800db0fdb5223b3c3f354886d907a671414a7fb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
+  id: "0x2f800db0fdb5223b3c3f354886d907a671414a7fb139c4cc9d20a3618e9a2268d73eff18c496b99",
   deposited: "320308000000000000000000",
   redeemed: "89508851800654946",
   pool: {
@@ -45,7 +45,7 @@ type PartialCarbonCredit = Partial<CarbonCredit>;
 const carbonCredit: PartialCarbonCredit = {
   vintage: 2011,
   currentSupply: "320308000000000000000000",
-  id: "0xb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
+  id: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
   crossChainSupply: "0",
   bridgeProtocol: BridgeProtocol.Toucan,
   bridged: "320308000000000000000000",
