@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const card = css`
+  cursor: pointer;
   background-color: var(--surface-01);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-01);
