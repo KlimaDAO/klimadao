@@ -1,10 +1,12 @@
 import { cx } from "@emotion/css";
-import { Autocomplete, Button, TextField, ThemeProvider, createTheme } from "@mui/material";
+import { Autocomplete, TextField, ThemeProvider, createTheme } from "@mui/material";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkLogoFull } from "components/Logos/CarbonmarkLogoFull";
 import { PageHead } from "components/PageHead";
 import { SimpleProjectCard } from "components/SimpleProjectCard";
 import { Project } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
+import { isNil } from "lodash";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { KG_CARBON_KM_FLIGHT } from "./constants";
@@ -24,9 +26,10 @@ const cities = [
 
 type City = typeof cities[number]
 
+/** Overwrite the MUI theme used elsewhere */
 const theme = createTheme({
     typography: {
-        fontSize: 20, // replace with your desired font size
+        fontSize: 20,
     },
 });
 
@@ -45,7 +48,7 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
     }, [source, destination])
 
     const estimate = KG_CARBON_KM_FLIGHT * distance;
-    const price = (project?.price ?? 0) * estimate
+    const price = Number(project?.price ?? 0) * estimate;
 
     return (
         <>
@@ -81,7 +84,7 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
                         <div className={styles.stats}>
                             <div><b>Distance:</b> {distance.toFixed(2)} km</div>
                             <div><b>Carbon Estimate:</b> {estimate.toFixed(2)} tonnes</div>
-                            <div><b>Offset Cost:</b> ${price * estimate} USD</div>
+                            <div><b>Offset Cost:</b> ${(price * estimate).toFixed(2)} USD</div>
                         </div>
                         <div className={styles.projectOptions}>
                             {props.projects.map((p) => (
@@ -93,7 +96,13 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
                                 />
                             ))}
                         </div>
-                        <Button variant="outlined" size="large" className={styles.button}><b>Offset</b></Button>
+                        <ButtonPrimary
+                            disabled={isNil(project)}
+                            key="Browse Projects"
+                            label={`Offset`}
+                            href="/projects"
+                            className={styles.button}
+                        />,
                     </div>
                 </div>
             </ThemeProvider>

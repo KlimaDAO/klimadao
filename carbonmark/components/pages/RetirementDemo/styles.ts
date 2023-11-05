@@ -51,5 +51,5 @@ export const card = css`
   height: 22rem;
 `;
 export const button = css`
-  margin-top: 20px;
+  margin-top: 60px;
 `;
