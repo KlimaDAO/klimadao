@@ -49,6 +49,11 @@ export const logo = css`
 export const card = css`
   width: 22rem;
   height: 22rem;
+  //Override to hide the card image and vintage by matching classNames
+  [class$="cardImage"],
+  [class$="text-vintage"] {
+    display: none;
+  }
 `;
 export const button = css`
   margin-top: 60px;

@@ -102,7 +102,7 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
                             label={`Offset`}
                             href="/projects"
                             className={styles.button}
-                        />,
+                        />
                     </div>
                 </div>
             </ThemeProvider>
