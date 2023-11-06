@@ -10,7 +10,6 @@ import { PageHeader } from "components/PageHeader/PageHeader";
 import { Options } from "lib/charts/options";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Key, ReactNode, useEffect, useState } from "react";
-import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 
 type TabParam = {
@@ -115,18 +114,16 @@ export default function PageWithTabs(props: {
       <PageHeader title={props.title} />
       <TabContext value={activeTab}>
         <div className={styles.tabRoot}>
-          <MobileTabSelector
-            value={activeTab}
-            options={props.tabs.map((tab) => {
-              return { label: tab.label, value: tab.key };
-            })}
-            onSelectionChanged={(key: string) => setActiveTab(key)}
-            className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
-          />
-          <TabList
-            onChange={handleChange}
-            className={`${layout.desktopOnly} ${styles.tabList}`}
-          >
+          <div className={styles.mobileTabSelectorWrapper}>
+            <MobileTabSelector
+              value={activeTab}
+              options={props.tabs.map((tab) => {
+                return { label: tab.label, value: tab.key };
+              })}
+              onSelectionChanged={(key: string) => setActiveTab(key)}
+            />
+          </div>
+          <TabList onChange={handleChange} className={`${styles.tabList}`}>
             {props.tabs.map((tab) => (
               <Tab
                 key={tab.key}
