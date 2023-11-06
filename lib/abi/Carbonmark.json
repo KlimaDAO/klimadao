@@ -720,6 +720,8 @@
           "type": "uint256"
         }
       ],
+      "stateMutability": "nonpayable",
+      "type": "function",
       "name": "createListing",
       "outputs": [
         {
@@ -727,9 +729,46 @@
           "name": "id",
           "type": "bytes32"
         }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "unitPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minFillAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
       ],
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "name": "createListing",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "id",
+          "type": "bytes32"
+        }
+      ]
     },
     {
       "inputs": [
