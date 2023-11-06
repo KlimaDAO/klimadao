@@ -8,42 +8,41 @@ import { locales } from "lib/i18n";
 import { usePathname } from "next-intl/client";
 import Link from "next-intl/link";
 import { useSearchParams } from "next/navigation";
-import { FC, useState } from "react";
+import layout from "theme/layout.module.scss";
+import layoutStyles from "../styles.module.scss";
 import styles from "./styles.module.scss";
 
-export const ChangeLanguageButton: FC<{ className?: string }> = ({
-  className,
-}) => {
-  const [showTooltip, setShowTooltip] = useState(false);
+export function ChangeLanguageButton() {
   const searchParams = useSearchParams();
   let href = usePathname();
   if (`${searchParams}`) {
     href = `${href}?${searchParams}`;
   }
-
+  /* FIXME: Hide the change language button until translations are done */
   return (
     <Tippy
-      className={styles.tooltip}
+      className={styles.topBarTooltip}
       content={
         <div aria-describedby="tooltip-content">
-          {Object.keys(locales).map((localeKey) => (
-            <Link key={localeKey} locale={localeKey} href={href}>
-              {locales[localeKey].label}
-            </Link>
-          ))}
+          <>
+            {Object.keys(locales).map((localeKey) => (
+              <Link key={localeKey} locale={localeKey} href={href}>
+                {locales[localeKey].label}
+              </Link>
+            ))}
+          </>
         </div>
       }
       interactive={true}
       placement="bottom-start"
-      visible={showTooltip}
+      trigger="click"
     >
       <Button
-        className={`${styles.changeLanguageButton} ${className}`}
+        className={`${layoutStyles.topBarButton} ${layout.hidden}`}
         aria-label={t`Change language`}
-        onClick={() => setShowTooltip(!showTooltip)}
       >
         <Language />
       </Button>
     </Tippy>
   );
-};
+}

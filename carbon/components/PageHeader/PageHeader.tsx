@@ -1,7 +1,7 @@
 import { urls } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import { Button } from "@mui/material";
-import { ChangeLanguageButton } from "components/ChangeLanguageButton";
+import { ChangeLanguageButton } from "components/Layout/ChangeLanguageButton";
 import Link from "components/Link";
 import { FC } from "react";
 import layout from "theme/layout.module.scss";

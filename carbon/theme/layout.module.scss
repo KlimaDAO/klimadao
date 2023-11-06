@@ -81,7 +81,6 @@ div.card66percent {
     display: unset;
   }
 }
-
 .textLeft {
   text-align: left;
 }
@@ -147,7 +146,9 @@ div.card66percent {
 .zIndexSeven {
   z-index: 7;
 }
-
+.hidden {
+  display: none;
+}
 .noOverflow {
   overflow: hidden;
 }
