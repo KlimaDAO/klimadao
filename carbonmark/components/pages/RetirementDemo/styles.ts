@@ -25,7 +25,7 @@ export const form = css`
 export const stats = css`
   display: block;
   gap: 12px;
-  margin: 12px 0;
+  margin: 20px 0;
   text-align: center;
 `;
 
@@ -55,8 +55,21 @@ export const card = css`
     display: none;
   }
 `;
-export const button = css`
-  margin-top: 60px;
-`;
+export const button = css``;
 
-export const mapbox = css``;
+export const mapbox = css`
+  height: 300px;
+  width: 100vw;
+  margin: 24px 0;
+  border-radius: 6px;
+
+  .mapboxgl-ctrl-attrib {
+    font-size: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+  }
+`;
