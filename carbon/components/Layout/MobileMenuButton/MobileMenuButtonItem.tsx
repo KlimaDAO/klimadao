@@ -11,7 +11,7 @@ interface Props {
   navItem: NavItem;
 }
 export const MobileMenuButtonItem: FC<Props> = (props) => {
-  const active = useIsPathnameActive(props.navItem.url);
+  const active = useIsPathnameActive(props.navItem);
   return (
     <Link href={props.navItem.url}>
       <Button className={styles.button} aria-selected={active}>

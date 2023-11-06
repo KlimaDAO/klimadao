@@ -6,6 +6,7 @@ import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KPieChart from "components/charts/helpers/KPieChart";
 import { getLatestCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics";
 import { CarbonMetricsItem } from "lib/charts/types";
+import { PageLinks } from "lib/PageLinks";
 
 export default function CarbonSupplyByBlockChainCard(props: CardProps) {
   const chart = (
@@ -17,7 +18,7 @@ export default function CarbonSupplyByBlockChainCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Carbon supply by blockchain`}
-      detailUrl="/details/digital-carbon-supply-by-blockchain"
+      detailUrl={`${PageLinks.Supply}/digital-carbon-supply-by-blockchain`}
       chart={chart}
     />
   );

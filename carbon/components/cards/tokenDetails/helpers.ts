@@ -1,5 +1,6 @@
 import { t } from "@lingui/macro";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { PageLinks } from "lib/PageLinks";
 import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCredits";
 import { statusToDateField } from "lib/charts/dateField";
 import {
@@ -27,7 +28,7 @@ export function tokenDetailChartProps(props: TokenDetailsProps) {
   };
 }
 export function propsToDetailsURL(props: TokenDetailsProps, slug: string) {
-  return `/details/${slug}/${props.bridge}?pool=${props.pool}&status=${props.status}&since=${props.since}`;
+  return `${PageLinks.TokenDetails}/${slug}/${props.bridge}?pool=${props.pool}&status=${props.status}&since=${props.since}`;
 }
 export function getChartConfiguration(props: TokenDetailsProps) {
   const configuration: ChartConfiguration<keyof PoolQuantitiesInterface> = [];

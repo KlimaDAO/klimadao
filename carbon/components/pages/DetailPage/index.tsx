@@ -13,11 +13,15 @@ export default function DetailPage(props: {
     content: string;
     source: "ai" | "human";
   };
+  backButtonHref: string;
 }) {
   return (
     <div>
       {props.pageTitle && (
-        <PageHeader title={props.pageTitle} showBackButton={true} />
+        <PageHeader
+          title={props.pageTitle}
+          backButtonHref={props.backButtonHref}
+        />
       )}
       {props.card}
       <div className={styles.text}>

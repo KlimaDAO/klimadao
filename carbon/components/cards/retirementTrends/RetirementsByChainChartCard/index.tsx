@@ -3,6 +3,7 @@ import ChartCard, { CardProps } from "components/cards/ChartCard";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import CustomLegendItem from "components/charts/helpers/CustomLegendItem";
 import KAreaChart from "components/charts/helpers/KAreaChart";
+import { PageLinks } from "lib/PageLinks";
 import { queryMonthlyRetirementsByOrigin } from "lib/charts/queries";
 import { KlimaMonthlyRetirementsByOriginItem } from "lib/charts/types";
 import { palette } from "theme/palette";
@@ -34,7 +35,7 @@ export default function RetirementsByChainOffchainChartCard(props: CardProps) {
       {...props}
       isColumnCard={true}
       title={t`KlimaDAO retirements by chain`}
-      detailUrl="/details/retirement-trends-by-chain"
+      detailUrl={`${PageLinks.RetirementTrends}/retirement-trends-by-chain`}
       chart={chart}
     />
   );
