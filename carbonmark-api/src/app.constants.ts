@@ -5,15 +5,17 @@ const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
 const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
 
 const POLYGON_URLS = {
-  marketplace: `${GRAPH_API_ROOT_ID}/QmdrYranfueu9Ann3kYCkEKTmTRReusybzFZ2nYz8YM6WF`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmTfM5TvokuyKXCGWL3wTLZ1z4TqRtQ7PdVfQRVU39ovUC`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
 };
 
-// For now these are the same, marketplace will be updated once it has been released to polygon
-const MUMBAI_URLS = POLYGON_URLS;
+const MUMBAI_URLS = {
+  ...POLYGON_URLS,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmdrYranfueu9Ann3kYCkEKTmTRReusybzFZ2nYz8YM6WF`,
+};
 
 /** Graph URLS */
 /** Note: the keys of the below objects are used when selecting gql files for type generation */
