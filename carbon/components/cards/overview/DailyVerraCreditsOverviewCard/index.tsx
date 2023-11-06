@@ -2,14 +2,16 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import {
-  DailyCreditsChartConfiguration,
-  DailyCreditsQueryConfiguration,
-} from "lib/charts/aggregators/getDailyCredits";
-import {
   getCreditsBridgeOptions,
   getCreditsStatusOptions,
 } from "lib/charts/options";
-import { DateField, NodeDictionnary, Status } from "lib/charts/types";
+import {
+  DailyCreditsChartConfiguration,
+  DailyCreditsQueryConfiguration,
+  DateField,
+  NodeDictionnary,
+  Status,
+} from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */

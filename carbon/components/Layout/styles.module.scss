@@ -1,0 +1,41 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+@use "theme/typography.module.scss";
+
+.main {
+  padding: 0 1.6rem;
+  flex: 1;
+
+  @include breakpoints.desktop {
+    padding: 0 4rem;
+  }
+}
+
+.content {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--brand-background);
+}
+
+.desktopLayout {
+  @include breakpoints.desktop {
+    align-items: start;
+    display: grid;
+    grid-template-columns: min-content auto;
+    min-height: 100vh;
+  }
+}
+
+.topBarButton {
+  min-width: 4.8rem;
+  min-height: 4.8rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  color: var(--lightmode-font-01);
+  background-color: var(--lightmode-surface-02);
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-02 19:16+0000\n"
+"POT-Creation-Date: 2023-11-03 16:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -146,7 +146,7 @@ msgid "By token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:63
+#: app/[locale]/token-details/page.tsx:59
 msgid "C3"
 msgstr ""
 
@@ -200,7 +200,7 @@ msgid "Celo supply"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/ChangeLanguageButton/index.tsx:42
+#: components/Layout/ChangeLanguageButton/index.tsx:42
 msgid "Change language"
 msgstr ""
 
@@ -314,17 +314,17 @@ msgid "Digital carbon supply snapshot"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenDistributionOfProjectsCard/index.tsx:22
+#: components/cards/tokenDetails/TokenDistributionOfProjectsCard/index.tsx:27
 msgid "Distribution of Projects"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenDistributionOfMethodologiesCard/index.tsx:29
+#: components/cards/tokenDetails/TokenDistributionOfMethodologiesCard/index.tsx:28
 msgid "Distribution of methodologies"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenDistributionOfVintageCard/index.tsx:29
+#: components/cards/tokenDetails/TokenDistributionOfVintageCard/index.tsx:28
 msgid "Distribution of vintage start dates"
 msgstr ""
 
@@ -436,7 +436,7 @@ msgid "Missing"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:73
+#: app/[locale]/token-details/page.tsx:69
 msgid "Moss"
 msgstr ""
 
@@ -538,7 +538,7 @@ msgid "Of total retired credits"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems.tsx:24
+#: components/Layout/NavItems/index.tsx:24
 msgid "Off vs On-Chain"
 msgstr ""
 
@@ -596,7 +596,7 @@ msgid "On/Off chain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenOriginsCard/index.tsx:23
+#: components/cards/tokenDetails/TokenOriginsCard/index.tsx:27
 msgid "Origin of credits"
 msgstr ""
 
@@ -606,7 +606,7 @@ msgid "Outstanding"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems.tsx:19
+#: components/Layout/NavItems/index.tsx:19
 #: components/pages/DetailPage/index.tsx:25
 msgid "Overview"
 msgstr ""
@@ -715,7 +715,7 @@ msgid "Retirement Details"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems.tsx:34
+#: components/Layout/NavItems/index.tsx:34
 msgid "Retirement Trends"
 msgstr ""
 
@@ -763,7 +763,7 @@ msgstr ""
 #: app/[locale]/supply/page.tsx:16
 #: components/cards/overview/DailyCarbonSupplyCard/index.tsx:23
 #: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:23
-#: components/Layout/NavItems.tsx:29
+#: components/Layout/NavItems/index.tsx:29
 msgid "Supply"
 msgstr ""
 
@@ -898,12 +898,12 @@ msgid "Token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems.tsx:39
+#: components/Layout/NavItems/index.tsx:39
 msgid "Token Details"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:59
+#: app/[locale]/token-details/page.tsx:55
 msgid "Token details"
 msgstr ""
 
@@ -977,7 +977,7 @@ msgid "Total tonnes retired"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:79
+#: app/[locale]/token-details/page.tsx:75
 msgid "Toucan"
 msgstr ""
 
@@ -1022,7 +1022,7 @@ msgid "Universal Basic Offset (UBO)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/DailyVerraCreditsOverviewCard/index.tsx:123
+#: components/cards/overview/DailyVerraCreditsOverviewCard/index.tsx:125
 msgid "Verra credits"
 msgstr ""
 
@@ -1064,8 +1064,23 @@ msgid "Verra credits tokenized over time"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:26
+msgid "Volume deposited over time"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/cards/tokenDetails/TokenVolumeOverTimeCard/index.tsx:23
 msgid "Volume over time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:30
+msgid "Volume redemmed over time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:28
+msgid "Volume retired over time"
 msgstr ""
 
 #. js-lingui-explicit-id

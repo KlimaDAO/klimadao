@@ -2,11 +2,11 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import { PageLinks } from "lib/PageLinks";
+import { statusToDateField } from "lib/charts/dateField";
 import {
   DailyCreditsChartConfiguration,
   DailyCreditsQueryConfiguration,
-} from "lib/charts/aggregators/getDailyCredits";
-import { statusToDateField } from "lib/charts/dateField";
+} from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import { palette } from "theme/palette";
 import { OffVsOnChainProps } from "../helpers";

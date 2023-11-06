@@ -6,7 +6,7 @@ import { Footer } from "./Footer";
 import LayoutClientWrapper from "./LayoutClientWrapper";
 import { MobileBottomNav } from "./MobileBottomNav";
 import { MobileHeader } from "./MobileHeader";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 interface Props {
   children: ReactNode;
   locale: string;
