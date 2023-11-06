@@ -55,11 +55,11 @@ const Fact: FC<{
   index: number;
   fact: CoinTileDataFact;
   clickable?: boolean;
-}> = ({ index, fact, clickable }) => {
+}> = ({ index, fact, clickable = false }) => {
   return (
     <div
       key={index}
-      className={`${styles.fact} ${clickable ? styles.clickable : ""}`}
+      className={`${styles.fact} ${clickable && styles.clickable}`}
     >
       <div aria-describedby="value">{fact.value}</div>
       <div aria-describedby="label">{fact.label}</div>
