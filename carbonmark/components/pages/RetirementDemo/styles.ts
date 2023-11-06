@@ -58,3 +58,5 @@ export const card = css`
 export const button = css`
   margin-top: 60px;
 `;
+
+export const mapbox = css``;

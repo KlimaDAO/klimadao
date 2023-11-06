@@ -12,9 +12,10 @@ import { SimpleProjectCard } from "components/SimpleProjectCard";
 import { Project } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
+import { Map } from "mapbox-gl";
 import { NextPage } from "next";
-import { useEffect, useState } from "react";
-import { KG_CARBON_KM_FLIGHT } from "./constants";
+import { useEffect, useRef, useState } from "react";
+import { CITIES, KG_CARBON_KM_FLIGHT } from "./constants";
 import * as styles from "./styles";
 import { haversine } from "./utils";
 
@@ -22,17 +23,7 @@ export type PageProps = {
   projects: Project[];
 };
 
-const cities = [
-  { id: 1, label: "New York", coordinates: { lat: 40.7128, lng: -74.006 } },
-  {
-    id: 2,
-    label: "Los Angeles",
-    coordinates: { lat: 34.0522, lng: -118.2437 },
-  },
-  { id: 3, label: "Chicago", coordinates: { lat: 41.8781, lng: -87.6298 } },
-];
-
-type City = (typeof cities)[number];
+type City = (typeof CITIES)[number];
 
 /** Overwrite the MUI theme used elsewhere */
 const theme = createTheme({
@@ -47,6 +38,12 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
   const [source, setSource] = useState<City>();
   const [destination, setDestination] = useState<City>();
 
+  const estimate = KG_CARBON_KM_FLIGHT * distance;
+  const price = Number(project?.price ?? 0) * estimate;
+
+  const mapContainer = useRef<HTMLDivElement | null>(null);
+  const map = useRef<Map | null>(null);
+
   useEffect(() => {
     if (notNil(source) && notNil(destination)) {
       const distance = haversine(source.coordinates, destination.coordinates);
@@ -55,8 +52,12 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
     }
   }, [source, destination]);
 
-  const estimate = KG_CARBON_KM_FLIGHT * distance;
-  const price = Number(project?.price ?? 0) * estimate;
+  // Initial mapbox load
+  useEffect(() => {
+    if (mapContainer.current) {
+      map.current = new Map({ container: mapContainer.current });
+    }
+  }, []);
 
   return (
     <>
@@ -78,7 +79,7 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
                 onChange={(event, val) => val && setSource(val)}
                 size="small"
                 id="from-city-select"
-                options={cities}
+                options={CITIES}
                 sx={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} label="From" />}
               />
@@ -86,11 +87,13 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
                 onChange={(event, val) => val && setDestination(val)}
                 size="small"
                 id="to-city-select"
-                options={cities}
+                options={CITIES}
                 sx={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} label="To" />}
               />
             </div>
+
+            <div ref={mapContainer} className={styles.mapbox} />
             <div className={styles.stats}>
               <div>
                 <b>Distance:</b> {distance.toFixed(2)} km
