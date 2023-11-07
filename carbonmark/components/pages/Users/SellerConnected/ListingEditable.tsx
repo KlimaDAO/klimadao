@@ -177,14 +177,6 @@ export const ListingEditable: FC<Props> = (props) => {
     return Number(safeAdd(unlistedBalance.toString(), listing.leftToSell));
   };
 
-  /** Util to render the amount label in the transaction modal */
-  const getAmountLabel = () => {
-    const amount = hasApproval()
-      ? newQuantity // 'submit' view shows the new quantity
-      : getTotalAssetApproval(listingToEdit); // 'approve' view shows all listings of this asset
-    return t`${amount} tonnes`;
-  };
-
   return (
     <>
       {props.listings.map((listing) => (
@@ -247,8 +239,8 @@ export const ListingEditable: FC<Props> = (props) => {
         {showTransactionView && !isLoading && (
           <Transaction
             hasApproval={hasApproval()}
-            allowance={currentAllowance}
-            quantity={getAmountLabel()}
+            allowance={getTotalAssetApproval(listingToEdit).toString()}
+            quantity={newQuantity.toString()}
             price={{
               value: inputValues.newSingleUnitPrice,
               token: "usdc",

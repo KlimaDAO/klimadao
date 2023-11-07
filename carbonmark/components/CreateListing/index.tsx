@@ -147,14 +147,6 @@ export const CreateListing: FC<Props> = (props) => {
       amount: getUnlistedBalance(a, props.listings).toString(),
     }));
 
-  /** Util to render the amount label in the transaction modal */
-  const getAmountLabel = () => {
-    const amount = hasApproval()
-      ? Number(inputValues?.amount) // 'submit' view shows the new quantity
-      : getTotalAssetApproval(inputValues); // 'approve' view shows all listings of this asset
-    return t`${amount} tonnes`;
-  };
-
   return (
     <Modal
       title={t`Create a listing`}
@@ -177,8 +169,8 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          allowance={currentAllowance}
-          quantity={getAmountLabel()}
+          allowance={getTotalAssetApproval(inputValues).toString()}
+          quantity={Number(inputValues?.amount || 0).toString()}
           price={{
             value: inputValues.unitPrice,
             token: "usdc",
