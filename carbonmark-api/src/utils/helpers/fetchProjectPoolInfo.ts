@@ -83,11 +83,10 @@ type CarbonCredit = {
 type CarbonCredits = CarbonCredit[];
 
 /**
- * Query the subgraph for a list of the C3Ts and TCO2s that exist for a credit vintage.
- * @param {Params} params
- *  @example fetchCarbonProjectTokens({ key: "VCS-981", vintage: "2017" })
- * @returns {Promise<[PoolInfoMap, Stats]>}
- * A map of project token info for each pool. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
+ * Query the ICR subgraph for supply, stats etc for ICR projects
+ * @param sdk
+ * @param serialization
+ * @returns
  */
 
 const fetchAndNormalizeICRProjectTokens = async (
@@ -113,6 +112,14 @@ const fetchAndNormalizeICRProjectTokens = async (
 
   return [stats];
 };
+
+/**
+ * Query the subgraph for a list of the C3Ts and TCO2s that exist for a credit vintage.
+ * @param {Params} params
+ *  @example fetchCarbonProjectTokens({ key: "VCS-981", vintage: "2017" })
+ * @returns {Promise<[PoolInfoMap, Stats]>}
+ * A map of project token info for each pool. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
+ */
 
 export const fetchProjectPoolInfo = async (
   sdk: GQL_SDK,

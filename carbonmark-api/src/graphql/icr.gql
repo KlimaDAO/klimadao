@@ -8,10 +8,7 @@ query getExPostInfoViaSerialization($serialization: String!) {
     id
     lastVerificationTimestamp
     project {
-      id
-      projectAddress
-      projectName
-      transactionHash
+      ...ProjectFragment
     }
     tokenId
     verificationPeriodEnd

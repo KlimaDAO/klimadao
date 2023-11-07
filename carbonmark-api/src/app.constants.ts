@@ -14,12 +14,16 @@ const POLYGON_URLS = {
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
+  /**
+   * @todo this need to be changed to carbon-registry-polgyon when mainnet api key is verified
+   */
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
 const MUMBAI_URLS = {
   ...POLYGON_URLS,
   marketplace: `${GRAPH_API_ROOT_ID}/QmdrYranfueu9Ann3kYCkEKTmTRReusybzFZ2nYz8YM6WF`,
+  icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
 /** Sanity URLS */
