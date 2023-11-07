@@ -9,6 +9,7 @@ type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
   network: NetworkParam;
+  icrSerialization?: string;
 };
 
 /**
@@ -23,10 +24,12 @@ export const fetchPoolPricesAndStats = async (
   if (params.network !== "polygon") {
     return [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
   }
+
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
     fetchProjectPoolInfo(sdk, {
       projectID: params.key,
       vintage: Number(params.vintage),
+      icrSerialization: params.icrSerialization,
     }),
     fetchAllPoolPrices(sdk), // fetch the price for all known lps
   ]);

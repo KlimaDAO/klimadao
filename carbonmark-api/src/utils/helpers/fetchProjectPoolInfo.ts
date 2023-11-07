@@ -31,6 +31,7 @@ type PoolInfoMap = {
 type Params = {
   projectID: string; // Project id `"VCS-981"`
   vintage: number; // Vintage Int 2017
+  icrSerialization?: string;
 };
 
 /**
@@ -89,18 +90,51 @@ type CarbonCredits = CarbonCredit[];
  * A map of project token info for each pool. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
 
+const fetchAndNormalizeICRProjectTokens = async (
+  sdk: GQL_SDK,
+  serialization: string
+): Promise<CarbonCredit[]> => {
+  const data = await sdk.icr.getExPostInfoViaSerialization({
+    serialization: serialization,
+  });
+
+  const post = data.exPosts[0];
+
+  const stats = {
+    vintage: Number(post.vintage),
+    currentSupply: ethers.utils.parseUnits(post.supply, 18).toString(),
+    poolBalances: [],
+    id: post.id,
+    crossChainSupply: "0",
+    bridgeProtocol: "0",
+    bridged: ethers.utils.parseUnits(post.estimatedAmount, 18).toString(),
+    retired: ethers.utils.parseUnits(post.retiredAmount, 18).toString(),
+  };
+
+  return [stats];
+};
+
 export const fetchProjectPoolInfo = async (
   sdk: GQL_SDK,
   params: Params
 ): Promise<[Partial<PoolInfoMap>, Stats]> => {
-  const data = await sdk.digital_carbon.getProjectCredits({
-    projectID: params.projectID,
-    vintage: Number(params.vintage),
-  });
+  let tokens: CarbonCredits = [];
+
+  if (params.icrSerialization) {
+    const icrData = fetchAndNormalizeICRProjectTokens(
+      sdk,
+      params.icrSerialization
+    );
+    tokens = await icrData;
+  } else {
+    const data = await sdk.digital_carbon.getProjectCredits({
+      projectID: params.projectID,
+      vintage: Number(params.vintage),
+    });
+    tokens = data?.carbonProjects?.[0]?.carbonCredits || [];
+  }
 
   /** @type {QueryResponse[]} */
-
-  const tokens: CarbonCredits = data?.carbonProjects?.[0]?.carbonCredits || [];
 
   // Graph data is in 18 decimals. All operations are performed in BigNumber before converting to Number at the end
 
@@ -114,7 +148,6 @@ export const fetchProjectPoolInfo = async (
     }),
     initialStats
   );
-
   // project bigNumber stats
   const stats: Stats = {
     totalBridged: parseFloat(
@@ -127,6 +160,7 @@ export const fetchProjectPoolInfo = async (
       ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
     ),
   };
+
   const poolInfoMap = Object.keys(POOL_INFO).reduce<Partial<PoolInfoMap>>(
     (prevMap, poolName) => {
       const poolAddress = POOL_INFO[poolName].poolAddress;
