@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-07 16:13+0000\n"
+"POT-Creation-Date: 2023-11-07 22:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -444,7 +444,7 @@ msgid "Create Profile"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:158
+#: components/CreateListing/index.tsx:152
 msgid "Create a listing"
 msgstr ""
 
@@ -566,7 +566,7 @@ msgid "Downloading ..."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:189
 msgid "Edit"
 msgstr ""
 
@@ -576,7 +576,7 @@ msgid "Edit Profile"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "Edit listing"
 msgstr ""
 
@@ -2215,7 +2215,7 @@ msgid "profile.listing.delete.error"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:216
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
@@ -2834,12 +2834,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:153
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
-msgid "{amount} tonnes"
 msgstr ""
 
 #. js-lingui-explicit-id
