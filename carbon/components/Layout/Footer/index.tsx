@@ -31,8 +31,6 @@ export const Footer: FC = () => {
           Official Docs
         </Link>
         <Link href={urls.resources}>Blog</Link>
-        <Link href={urls.contact}>Contact</Link>
-        <Link href={urls.disclaimer}>Disclaimer</Link>
       </div>
       <div className={styles.footerSocialLinks}>
         <Link href={urls.twitter}>

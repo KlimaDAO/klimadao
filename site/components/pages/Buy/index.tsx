@@ -301,7 +301,9 @@ export const Buy: NextPage = () => {
             <Text t="body2">
               <Trans id="buy.staking_description2">
                 You can also use the app to spend KLIMA and{" "}
-                <Anchor href={urls.retirements}>retire digital carbon</Anchor>{" "}
+                <Anchor href={urls.retirements_carbonmark}>
+                  retire digital carbon
+                </Anchor>{" "}
                 on the blockchain.
               </Trans>
             </Text>
