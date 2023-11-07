@@ -42,8 +42,8 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
   const [source, setSource] = useState<City>(CITIES[0]);
   const [destination, setDestination] = useState<City>(CITIES[1]);
 
-  const estimate = KG_CARBON_KM_FLIGHT * distance;
-  const price = Number(project?.price ?? 0) * estimate;
+  const estimate = (KG_CARBON_KM_FLIGHT * distance) / 1000;
+  const price = Number(project?.price ?? 0);
 
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<Map | null>(null);
