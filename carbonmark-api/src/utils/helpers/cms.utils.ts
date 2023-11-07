@@ -1,7 +1,6 @@
-import { compact, isNil } from "lodash";
+import { compact } from "lodash";
 import { filter, pipe } from "lodash/fp";
 import {
-  GetCmsProjectContentQuery,
   GetCmsProjectQuery,
   ProjectContent,
 } from "../../.generated/types/cms.types";

@@ -23,6 +23,18 @@ type PoolInfoMap = {
   ubo: PoolInfo;
   nbo: PoolInfo;
 };
+<<<<<<< HEAD:carbonmark-api/src/utils/helpers/getProjectPoolInfo.ts
+=======
+/**
+ * Params for fetchProjectPoolInfo
+ */
+
+type Params = {
+  projectID: string; // Project id `"VCS-981"`
+  vintage: number; // Vintage Int 2017
+  icrSerialization?: string;
+};
+>>>>>>> b461c2e72 (icr individual project page working):carbonmark-api/src/utils/helpers/fetchProjectPoolInfo.ts
 
 /**
  * Stats for all project tokens across both bridges
@@ -93,7 +105,6 @@ export const getProjectPoolInfo = (
     }),
     initialStats
   );
-
   // project bigNumber stats
   const stats: Stats = {
     totalBridged: parseFloat(
@@ -106,6 +117,7 @@ export const getProjectPoolInfo = (
       ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
     ),
   };
+
   const poolInfoMap = Object.keys(POOL_INFO).reduce<Partial<PoolInfoMap>>(
     (prevMap, poolName) => {
       const poolAddress = POOL_INFO[poolName].poolAddress;

@@ -14,6 +14,7 @@ const POLYGON_URLS = {
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
+  icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
 const MUMBAI_URLS = {

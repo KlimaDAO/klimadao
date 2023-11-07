@@ -1,0 +1,21 @@
+query getExPostInfoViaSerialization($serialization: String!) {
+  exPosts(where: { serialization: $serialization }) {
+    serialization
+    supply
+    retiredAmount
+    estimatedAmount
+    cancelledAmount
+    id
+    lastVerificationTimestamp
+    project {
+      id
+      projectAddress
+      projectName
+      transactionHash
+    }
+    tokenId
+    verificationPeriodEnd
+    verificationPeriodStart
+    vintage
+  }
+}
