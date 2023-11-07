@@ -514,27 +514,27 @@ msgid "Historical prices (USD)"
 msgstr "Historical prices (USD)"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:34
+#: components/cards/overview/TokensPriceCard/index.tsx:33
 msgid "Digital carbon pricing"
 msgstr "Digital carbon pricing"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:77
+#: components/cards/overview/TokensPriceCard/index.tsx:76
 msgid "{formattedCurrentSupply} tonnes available"
 msgstr "{formattedCurrentSupply} tonnes available"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:81
+#: components/cards/overview/TokensPriceCard/index.tsx:80
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:87
+#: components/cards/overview/TokensPriceCard/index.tsx:86
 msgid "Selective cost"
 msgstr "Selective cost"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:104
+#: components/cards/overview/TokensPriceCard/index.tsx:94
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:106
 #: lib/charts/options.ts:128
 msgid "Last 7 days"

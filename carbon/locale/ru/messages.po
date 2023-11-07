@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-07 06:03+0000\n"
+"POT-Creation-Date: 2023-11-07 12:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +77,7 @@ msgstr ""
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:60
 #: lib/charts/options.ts:92
 msgid "BCT"
-msgstr ""
+msgstr "BCT"
 
 #. js-lingui-explicit-id
 #: components/charts/DistributionOfProjectsChart/index.tsx:125
@@ -280,7 +280,7 @@ msgid "Detailed list of KlimaDAO retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:34
+#: components/cards/overview/TokensPriceCard/index.tsx:33
 msgid "Digital carbon pricing"
 msgstr ""
 
@@ -408,7 +408,7 @@ msgid "Last 30 days"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:104
+#: components/cards/overview/TokensPriceCard/index.tsx:94
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:106
 #: lib/charts/options.ts:128
 msgid "Last 7 days"
@@ -660,7 +660,7 @@ msgid "Price of digital carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:81
+#: components/cards/overview/TokensPriceCard/index.tsx:80
 msgid "Price per tonne"
 msgstr ""
 
@@ -741,7 +741,7 @@ msgid "Retirements by token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:87
+#: components/cards/overview/TokensPriceCard/index.tsx:86
 msgid "Selective cost"
 msgstr ""
 
@@ -1148,6 +1148,6 @@ msgid "{bridgeLabel} volume over Time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:77
+#: components/cards/overview/TokensPriceCard/index.tsx:76
 msgid "{formattedCurrentSupply} tonnes available"
 msgstr ""
