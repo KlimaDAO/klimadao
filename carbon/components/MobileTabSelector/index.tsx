@@ -11,7 +11,7 @@ export const MobileTabSelector = <T extends string>(props: {
   value: string;
   options: Array<TypedOption<T>>;
   onSelectionChanged: (value: T) => void;
-  className: string;
+  className?: string;
 }) => {
   const handleChange = (event: SelectChangeEvent) => {
     props.onSelectionChanged(event.target.value as T);
@@ -19,7 +19,7 @@ export const MobileTabSelector = <T extends string>(props: {
 
   return (
     <Select
-      className={`${styles.select} ${props.className}`}
+      className={`${styles.select} ${props.className ?? ""}`}
       value={props.value}
       onChange={handleChange}
       IconComponent={KeyboardArrowDown}
