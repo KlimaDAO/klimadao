@@ -1650,6 +1650,8 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
+export type ProjectFragmentFragment = { __typename?: 'Project', id: any, projectAddress: any, projectName: string, transactionHash: any };
+
 export type GetExPostInfoViaSerializationQueryVariables = Exact<{
   serialization: Scalars['String'];
 }>;
@@ -1657,7 +1659,14 @@ export type GetExPostInfoViaSerializationQueryVariables = Exact<{
 
 export type GetExPostInfoViaSerializationQuery = { __typename?: 'Query', exPosts: Array<{ __typename?: 'ExPost', serialization: string, supply: string, retiredAmount: string, estimatedAmount: string, cancelledAmount: string, id: any, lastVerificationTimestamp: string, tokenId: string, verificationPeriodEnd: string, verificationPeriodStart: string, vintage: string, project: { __typename?: 'Project', id: any, projectAddress: any, projectName: string, transactionHash: any } }> };
 
-
+export const ProjectFragmentFragmentDoc = gql`
+    fragment ProjectFragment on Project {
+  id
+  projectAddress
+  projectName
+  transactionHash
+}
+    `;
 export const GetExPostInfoViaSerializationDocument = gql`
     query getExPostInfoViaSerialization($serialization: String!) {
   exPosts(where: {serialization: $serialization}) {
@@ -1669,10 +1678,7 @@ export const GetExPostInfoViaSerializationDocument = gql`
     id
     lastVerificationTimestamp
     project {
-      id
-      projectAddress
-      projectName
-      transactionHash
+      ...ProjectFragment
     }
     tokenId
     verificationPeriodEnd
@@ -1680,7 +1686,7 @@ export const GetExPostInfoViaSerializationDocument = gql`
     vintage
   }
 }
-    `;
+    ${ProjectFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
