@@ -34,7 +34,7 @@ export const CreateListing: FC<Props> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
-  const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
+  const [currentAllowance, setCurrentAllowance] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
   const isPending =
@@ -43,12 +43,12 @@ export const CreateListing: FC<Props> = (props) => {
 
   const showSuccessScreen = success && !!props.successScreen;
   const showTransactionView =
-    !!inputValues && !!allowanceValue && !showSuccessScreen;
+    !!inputValues && !!currentAllowance && !showSuccessScreen;
   const showForm = !showTransactionView && !isLoading && !showSuccessScreen;
 
   const resetStateAndCloseModal = () => {
     setInputValues(null);
-    setAllowanceValue(null);
+    setCurrentAllowance(null);
     setStatus(null);
     setSuccess(false);
     props.onModalClose();
@@ -70,7 +70,7 @@ export const CreateListing: FC<Props> = (props) => {
         userAddress: address,
         network: networkLabel,
       });
-      setAllowanceValue(allowance);
+      setCurrentAllowance(allowance);
       setInputValues(values);
       setIsLoading(false);
     } catch (e) {
@@ -96,7 +96,9 @@ export const CreateListing: FC<Props> = (props) => {
    */
   const hasApproval = () => {
     if (!Number(inputValues?.amount)) return false;
-    return Number(allowanceValue || "0") === getTotalAssetApproval(inputValues);
+    return (
+      Number(currentAllowance || "0") === getTotalAssetApproval(inputValues)
+    );
   };
 
   const handleApproval = async () => {
@@ -112,7 +114,7 @@ export const CreateListing: FC<Props> = (props) => {
         value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
-      setAllowanceValue(newAllowanceValue);
+      setCurrentAllowance(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
@@ -175,7 +177,7 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          allowance={allowanceValue}
+          allowance={currentAllowance}
           quantity={getAmountLabel()}
           price={{
             value: inputValues.unitPrice,
@@ -188,7 +190,7 @@ export const CreateListing: FC<Props> = (props) => {
           onResetStatus={() => setStatus(null)}
           onGoBack={() => {
             setStatus(null);
-            setAllowanceValue(null); // this will hide the Transaction View and re-checks the allowance again
+            setCurrentAllowance(null); // this will hide the Transaction View and re-checks the allowance again
           }}
         />
       )}
