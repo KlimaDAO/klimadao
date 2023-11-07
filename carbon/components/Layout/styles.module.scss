@@ -34,6 +34,10 @@
   color: var(--lightmode-font-01);
   background-color: var(--lightmode-surface-02);
 
+  @include breakpoints.desktop {
+    background-color: var(--brand-white);
+  }
+
   svg {
     width: 2.4rem;
     height: 2.4rem;
