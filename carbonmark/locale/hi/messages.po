@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-07 12:55+0000\n"
+"POT-Creation-Date: 2023-11-07 14:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1568,12 +1568,12 @@ msgstr "यह ऐप केवल पॉलीगॉन मेननेट प�
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:16
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "यह सूची समाप्त हो गई है और बाज़ार से छिपी हुई है। कृपया सूची पुनः सबमिट करें या हटाएँ।"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:11
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "यह सूची अब मान्य नहीं है और बाज़ार से छिपी हुई है। कृपया सूची पुनः सबमिट करें या हटाएँ।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
@@ -1672,7 +1672,7 @@ msgstr "कुल रिटायरमेन्ट्स:"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:59
 msgid "Total allowance"
-msgstr ""
+msgstr "कुल भत्ता"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:70
@@ -1711,17 +1711,17 @@ msgstr "कुल बिक्री लागत"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:106
 msgid "USDC per tonne"
-msgstr ""
+msgstr "यूएसडीसी प्रति टन"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:111
 msgid "Unit price is required"
-msgstr ""
+msgstr "यूनिट मूल्य आवश्यक है"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 msgid "Unlisted tonnes:"
-msgstr ""
+msgstr "असूचीबद्ध टन:"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -1731,7 +1731,7 @@ msgstr "डिजिटल कार्बन बाज़ार में अ�
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
 msgid "Update listing"
-msgstr ""
+msgstr "सूची अपडेट करें"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:86
@@ -1916,7 +1916,7 @@ msgstr "आप अपने बटुए में किसी भी कार
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Submit.tsx:47
 msgid "You can delete this listing at any time."
-msgstr ""
+msgstr "आप इस सूची को किसी भी समय हटा सकते हैं."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
@@ -1958,7 +1958,7 @@ msgstr "आपका वॉलेट पता:"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:374
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
-msgstr ""
+msgstr "आपकी शेष राशि लेनदेन की लागत से कम से कम 1% अधिक होनी चाहिए।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
@@ -2822,7 +2822,7 @@ msgstr "यह सुविधा केवल उन उपयोगकर्�
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:174
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:293
@@ -2832,7 +2832,7 @@ msgstr "{0} क्रेडिट कार्ड के लिए अधिक�
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/index.tsx:61
 msgid "{0} tonnes"
-msgstr ""
+msgstr "{0} टन"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
@@ -2842,13 +2842,13 @@ msgstr "{0} | प्रोफ़ाइल | कार्बनमार्क"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
+msgstr "{DEFAULT_EXPIRATION_DAYS} दिन ({expirationDatestring})"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:153
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:185
 msgid "{amount} tonnes"
-msgstr ""
+msgstr "{amount} टन"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-07 12:55+0000\n"
+"POT-Creation-Date: 2023-11-07 14:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1048,106 +1048,106 @@ msgstr ""
 #: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:19
 #: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:38
 msgid "Verra credits retired"
-msgstr ""
+msgstr "वेरा क्रेडिट सेवानिवृत्त हो गए"
 
 #. js-lingui-explicit-id
 #: app/[locale]/off-chain-vs-on-chain/verra-credits-issued-over-time/page.tsx:9
 msgid "Verra credits retired over time"
-msgstr ""
+msgstr "वेरा क्रेडिट समय के साथ सेवानिवृत्त हो गए"
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedVsTokenizedCreditsChart.tsx:68
 msgid "Verra credits tokenized"
-msgstr ""
+msgstr "वेरा क्रेडिट को टोकन दिया गया"
 
 #. js-lingui-explicit-id
 #: app/[locale]/off-chain-vs-on-chain/verra-credits-tokenized-over-time/page.tsx:9
 msgid "Verra credits tokenized over time"
-msgstr ""
+msgstr "समय के साथ वेरा क्रेडिट को टोकन दिया गया"
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:26
 msgid "Volume deposited over time"
-msgstr ""
+msgstr "समय के साथ जमा हुई मात्रा"
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/TokenVolumeOverTimeCard/index.tsx:23
 msgid "Volume over time"
-msgstr ""
+msgstr "समय के साथ वॉल्यूम"
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:30
 msgid "Volume redemmed over time"
-msgstr ""
+msgstr "समय के साथ वॉल्यूम को पुनः प्राप्त किया गया"
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:28
 msgid "Volume retired over time"
-msgstr ""
+msgstr "वॉल्यूम समय के साथ समाप्त हो गया"
 
 #. js-lingui-explicit-id
 #: app/[locale]/overview/digital-carbon/page.tsx:14
 #: app/[locale]/overview/digital-carbon/page.tsx:28
 #: app/[locale]/overview/page.tsx:20
 msgid "What is digital carbon?"
-msgstr ""
+msgstr "डिजिटल कार्बन क्या है?"
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:111
 msgid "of retired credits"
-msgstr ""
+msgstr "सेवानिवृत्त क्रेडिट का"
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:20
 msgid "off-chain"
-msgstr ""
+msgstr "ऑफ-चेन"
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:39
 msgid "on-chain"
-msgstr ""
+msgstr "ऑन-चेन"
 
 #. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:111
 msgid "{0} Tonnes"
-msgstr ""
+msgstr "{0} टन"
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:76
 msgid "{0} tonnes bridged"
-msgstr ""
+msgstr "{0} टन ब्रिज कीये गये"
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:84
 msgid "{0} tonnes outstanding"
-msgstr ""
+msgstr "{0} टन बकाया"
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:80
 msgid "{0} tonnes retired"
-msgstr ""
+msgstr "{0} टन सेवानिवृत्त"
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/token-by-vintage-date/[bridge]/page.tsx:15
 msgid "{bridgeLabel} Distribution of vintage start dates"
-msgstr ""
+msgstr "{bridgeLabel} पुरानी आरंभ तिथियों का वितरण"
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:15
 msgid "{bridgeLabel} distribution of methodologies"
-msgstr ""
+msgstr "{bridgeLabel} पद्धतियों का वितरण"
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/token-by-projects/[bridge]/page.tsx:15
 msgid "{bridgeLabel} distribution of projects"
-msgstr ""
+msgstr "{bridgeLabel} परियोजनाओं का वितरण"
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:15
 msgid "{bridgeLabel} volume over Time"
-msgstr ""
+msgstr "{bridgeLabel} समय के साथ मात्रा"
 
 #. js-lingui-explicit-id
 #: components/cards/overview/TokensPriceCard/index.tsx:76
 msgid "{formattedCurrentSupply} tonnes available"
-msgstr ""
+msgstr "{formattedCurrentSupply} टन उपलब्ध है"
