@@ -123,7 +123,7 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Verra credits`}
-      detailUrl="/details/verra-credits-over-time"
+      detailUrl="/overview/verra-credits-over-time"
       topOptions={getCreditsBridgeOptions()}
       bottomOptions={getCreditsStatusOptions()}
       charts={charts}

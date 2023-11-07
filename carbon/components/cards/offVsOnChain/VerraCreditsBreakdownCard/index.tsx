@@ -29,7 +29,7 @@ export default function VerraCreditsBreakdownCard(props: CardProps) {
     <ChartCard
       {...props}
       title={title}
-      detailUrl="/details/verra-credits-breakdown"
+      detailUrl="/off-chain-vs-on-chain/verra-credits-breakdown"
       chart={chart}
       className={layout.zIndexSeven}
     />

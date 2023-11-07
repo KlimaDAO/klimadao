@@ -5,6 +5,7 @@ import VerraCreditsBreakdownCard from "components/cards/offVsOnChain/VerraCredit
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import OffVsOnChainClientWrapper from "components/pages/offVsOnChain/OffVsOnChainClientWrapper";
 import OffVsOnChainTab from "components/pages/offVsOnChain/OffVsOnChainTab";
+import { PageLinks } from "lib/PageLinks";
 import layout from "theme/layout.module.scss";
 
 export default function OffVsOnChainPage() {
@@ -16,7 +17,10 @@ export default function OffVsOnChainPage() {
       <div className={layout.cardStackedRows}>
         <div className={`${layout.cardRow} ${layout.prioritizeFirstCard}`}>
           <VerraCreditsBreakdownCard className={layout.zIndexSeven} />
-          <TokenizedCreditsByBridgeCard className={layout.zIndexSix} />
+          <TokenizedCreditsByBridgeCard
+            className={layout.zIndexSix}
+            sourceHref={PageLinks.OffChainVsOnChain}
+          />
         </div>
       </div>
       <OffVsOnChainClientWrapper
