@@ -36,8 +36,9 @@ export function CoinTile(props: { data: CoinTileData }) {
           if (fact.tooltip) {
             return (
               <Tooltip
+                leaveTouchDelay={2500}
                 enterTouchDelay={0}
-                title={fact.tooltip}
+                title={<div className={styles.tooltip}>{fact.tooltip}</div>}
                 disableFocusListener
               >
                 <Fact fact={fact} index={index} clickable />
