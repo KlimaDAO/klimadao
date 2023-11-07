@@ -1,3 +1,5 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
 .chartLegendText {
   color: var(--lightmode-font-01);
   font-size: 1.2rem;
@@ -37,5 +39,16 @@
     display: block;
     width: 0.8rem;
     height: 0.8rem;
+  }
+}
+
+.mobileCenteredLegend {
+  ul {
+    display: flex;
+    justify-content: center;
+
+    @include breakpoints.desktop {
+      display: block;
+    }
   }
 }
