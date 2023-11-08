@@ -30,7 +30,7 @@ export const Footer: FC = () => {
         <Link href={urls.officialDocs} className={layout.desktopOnly}>
           Official Docs
         </Link>
-        <Link href={urls.resources}>Blog</Link>
+        <Link href={urls.disclaimer}>Disclaimer</Link>
       </div>
       <div className={styles.footerSocialLinks}>
         <Link href={urls.twitter}>
