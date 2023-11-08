@@ -2,6 +2,7 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KBarChart from "components/charts/helpers/KBarChart";
+import { PageLinks } from "lib/PageLinks";
 import { queryAggregatedCreditsByBridgeAndVintage } from "lib/charts/queries";
 import { AggregatedCreditsByBridgeAndVintageItem } from "lib/charts/types";
 import { palette } from "theme/palette";
@@ -18,8 +19,8 @@ export default function VerraCreditsByBridgeAndVintageCard(
   const title = t`Credits by vintage start dates`;
   const detailUrl =
     props.status == "issued"
-      ? "/details/verra-credits-issued-by-vintage-date"
-      : "/details/verra-credits-retired-by-vintage-date";
+      ? `${PageLinks.OffChainVsOnChain}/verra-credits-issued-by-vintage-date`
+      : `${PageLinks.OffChainVsOnChain}/verra-credits-retired-by-vintage-date`;
 
   return (
     <ChartCard

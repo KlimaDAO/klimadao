@@ -1,0 +1,54 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
+.footer {
+  background-color: var(--darkmode-surface-01);
+  color: var(--brand-white);
+  padding: 4rem 2.4rem;
+
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+
+  @include breakpoints.desktopLarge {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--brand-white);
+  }
+}
+
+.footerNavLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.6rem;
+
+  @include breakpoints.desktop {
+    gap: 3.2rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  a {
+    white-space: nowrap;
+  }
+}
+
+.footerSocialLinks {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: space-between;
+
+  @include breakpoints.large {
+    justify-content: center;
+  }
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}

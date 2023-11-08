@@ -1,14 +1,13 @@
 "use client";
 
 import { KeyboardArrowLeft } from "@mui/icons-material";
-import { useRouter } from "next/navigation";
+import Link from "components/Link";
+import { FC } from "react";
 
-export default function BackButton() {
-  const router = useRouter();
-
+export const BackButton: FC<{ href: string }> = ({ href }) => {
   return (
-    <span onClick={() => router.back()} role="button">
+    <Link href={href} role="button">
       <KeyboardArrowLeft />
-    </span>
+    </Link>
   );
-}
+};

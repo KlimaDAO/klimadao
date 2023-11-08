@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-31 04:06+0000\n"
+"POT-Creation-Date: 2023-11-07 16:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,7 @@ msgstr "सभी संपत्तियां प्रमुख रजिस
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Submit.tsx:41
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
-msgstr ""
+msgstr "लगभग समाप्त! अंतिम चरण सूची बनाना और उसे सिस्टम में सबमिट करना है। कृपया नीचे दी गई मात्रा और कीमत सत्यापित करें।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
@@ -120,7 +120,7 @@ msgstr "मंज़ूरी दें"
 #: components/CreateListing/Form/index.tsx:59
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:80
 msgid "Asset"
-msgstr ""
+msgstr "एसेट"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
@@ -136,7 +136,7 @@ msgstr "एसेट आईडी"
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
 msgid "Asset details"
-msgstr ""
+msgstr "एसेट विवरण"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:113
@@ -149,7 +149,7 @@ msgid ""
 "At this time, Carbonmark cannot process credit card payments\n"
 "exceeding {0}. Please adjust the\n"
 "quantity and try again later."
-msgstr ""
+msgstr "इस समय, कार्बनमार्क {0} से अधिक क्रेडिट कार्ड भुगतान संसाधित नहीं कर सकता है। कृपया मात्रा समायोजित करें और बाद में पुनः प्रयास करें।"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
@@ -172,7 +172,7 @@ msgstr "उपलब्ध आपूर्तिराशि पार हो �
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:101
 msgid "Available to list: {0}"
-msgstr ""
+msgstr "उपलब्ध: {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
@@ -215,7 +215,7 @@ msgstr "बैलेंस"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:93
 msgid "Balance exceeded"
-msgstr ""
+msgstr "उपलब्ध जमाराशि पार हो गई"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:101
@@ -441,16 +441,14 @@ msgid "Create New Listing"
 msgstr "नयी सूची बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/pages/Home/index.tsx:304
-#: components/pages/Home/index.tsx:328
 #: components/pages/Users/SellerConnected/index.tsx:113
 msgid "Create Profile"
 msgstr "प्रोफ़ाइल बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:158
 msgid "Create a listing"
-msgstr ""
+msgstr "सूची बनाएँ"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:222
@@ -485,12 +483,12 @@ msgstr "बन गई:"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:96
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr ""
+msgstr "क्रेडिट कार्ड से न्यूनतम खरीदारी ${formattedFiatMinimum} है"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:75
 msgid "Credit card minimum purchase is {0}"
-msgstr ""
+msgstr "क्रेडिट कार्ड से न्यूनतम खरीदारी {0} है"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:222
@@ -570,7 +568,7 @@ msgid "Downloading ..."
 msgstr "डाउनलोड हो रहा है..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Edit"
 msgstr "संपादित करें"
 
@@ -580,9 +578,11 @@ msgid "Edit Profile"
 msgstr "प्रोफ़ाइल संपादित करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:210
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
 msgid "Edit listing"
 msgstr ""
+"सूची बदलें\n"
+""
 
 #. js-lingui-explicit-id
 #: lib/getCategoryInfo.ts:47
@@ -592,12 +592,12 @@ msgstr "ऊर्जा दक्षता"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
 msgid "Expiration"
-msgstr ""
+msgstr "समय सीमा समाप्ति"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:14
 msgid "Expired"
-msgstr ""
+msgstr "समय सीमा समाप्त"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
@@ -622,7 +622,7 @@ msgstr "कार्बनमार्क प्लैटफ़ॉर्म का 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:37
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
-msgstr ""
+msgstr "सबसे पहले, अपनी ओर से इस संपत्ति को स्थानांतरित करने के लिए कार्बनमार्क प्रणाली को मंजूरी दें।"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:343
@@ -691,7 +691,7 @@ msgstr "यहां शीघ्र और आसानी से रिटा�
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:74
 msgid "How many tonnes do you want to list for sale?"
-msgstr ""
+msgstr "आप कितने टन बिक्री के लिए सूचीबद्ध करना चाहते हैं?"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:90
@@ -732,7 +732,7 @@ msgstr "कार्बनमार्क का परिचय"
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:9
 msgid "Invalid"
-msgstr ""
+msgstr "अमान्य"
 
 #. js-lingui-explicit-id
 #: components/Footer/index.tsx:38
@@ -778,7 +778,7 @@ msgstr "बस कुछ ही क्लिक में बिक्री क
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 msgid "Listed tonnes:"
-msgstr ""
+msgstr "सूचीबद्ध टन:"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:128
@@ -829,7 +829,7 @@ msgstr "लॉग इन करें"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:342
 msgid "Login to pay with USDC"
-msgstr ""
+msgstr "यूएसडीसी से भुगतान करने के लिए लॉगिन करें"
 
 #. js-lingui-explicit-id
 #: components/shared/Navigation/index.tsx:63
@@ -918,12 +918,12 @@ msgstr "कोई प्रॉजेक्ट विवरण मौजूद �
 #. js-lingui-explicit-id
 #: components/pages/Projects/index.tsx:83
 msgid "No projects found with current filters"
-msgstr ""
+msgstr "मौजूदा फ़िल्टर वाला कोई प्रोजेक्ट नहीं मिला"
 
 #. js-lingui-explicit-id
 #: components/ProjectCard/index.tsx:63
 msgid "No props.project description found"
-msgstr ""
+msgstr "कोई props.project विवरण नहीं मिला"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
@@ -1058,7 +1058,7 @@ msgstr "गोपनीयता नीति"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:353
 msgid "Processing Fee:"
-msgstr ""
+msgstr "प्रोसेसिंग शुल्क:"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:83
@@ -1144,7 +1144,7 @@ msgstr "मात्रा आवश्यक है"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:127
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
-msgstr ""
+msgstr "सूचीबद्ध मात्रा: {listedQuantity}, असूचीबद्ध मात्रा: {unlistedQuantity}, कुल उपलब्ध: {totalAvailableQuantity}"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:103
@@ -1199,6 +1199,12 @@ msgstr "शेष आपूर्त्ति"
 #: lib/getCategoryInfo.ts:23
 msgid "Renewable Energy"
 msgstr "नवीकरणीय ऊर्जा"
+
+#. js-lingui-explicit-id
+#: components/pages/Home/index.tsx:304
+#: components/pages/Home/index.tsx:328
+msgid "Request Demo"
+msgstr "डेमो का अनुरोध करें"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:171
@@ -1380,7 +1386,7 @@ msgstr "साइन इन / कनेक्ट टु बाय"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:129
 msgid "Single unit price"
-msgstr ""
+msgstr "एकल यूनिट मूल्य"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:106
@@ -1479,12 +1485,12 @@ msgstr "यूनिवर्सल कार्बन मार्केटप�
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:50
 msgid "The allowance below reflects the sum of all your listings for this specific token."
-msgstr ""
+msgstr "नीचे दिया गया भत्ता इस विशिष्ट टोकन के लिए आपकी सभी लिस्टिंग का योग दर्शाता है।"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:43
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
-msgstr ""
+msgstr "बिक्री पूरी होने पर ही संपत्ति आपके वॉलेट से स्थानांतरित की जाएगी। आप इस भत्ते को किसी भी समय रद्द कर सकते हैं।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:34
@@ -1562,12 +1568,12 @@ msgstr "यह ऐप केवल पॉलीगॉन मेननेट प�
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:16
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "यह सूची समाप्त हो गई है और बाज़ार से छिपी हुई है। कृपया सूची पुनः सबमिट करें या हटाएँ।"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:11
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "यह सूची अब मान्य नहीं है और बाज़ार से छिपी हुई है। कृपया सूची पुनः सबमिट करें या हटाएँ।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
@@ -1666,7 +1672,7 @@ msgstr "कुल रिटायरमेन्ट्स:"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:59
 msgid "Total allowance"
-msgstr ""
+msgstr "कुल भत्ता"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:70
@@ -1705,17 +1711,17 @@ msgstr "कुल बिक्री लागत"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:106
 msgid "USDC per tonne"
-msgstr ""
+msgstr "यूएसडीसी प्रति टन"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:111
 msgid "Unit price is required"
-msgstr ""
+msgstr "यूनिट मूल्य आवश्यक है"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 msgid "Unlisted tonnes:"
-msgstr ""
+msgstr "असूचीबद्ध टन:"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -1725,7 +1731,7 @@ msgstr "डिजिटल कार्बन बाज़ार में अ�
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
 msgid "Update listing"
-msgstr ""
+msgstr "सूची अपडेट करें"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:86
@@ -1910,7 +1916,7 @@ msgstr "आप अपने बटुए में किसी भी कार
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Submit.tsx:47
 msgid "You can delete this listing at any time."
-msgstr ""
+msgstr "आप इस सूची को किसी भी समय हटा सकते हैं."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
@@ -1952,7 +1958,7 @@ msgstr "आपका वॉलेट पता:"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:374
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
-msgstr ""
+msgstr "आपकी शेष राशि लेनदेन की लागत से कम से कम 1% अधिक होनी चाहिए।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
@@ -2212,12 +2218,12 @@ msgid "profile.edit_your_profile"
 msgstr "विवरण जोड़ने के लिए अपनी प्रोफ़ाइल संपादित करें."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:156
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:155
 msgid "profile.listing.delete.error"
 msgstr "सूची मिटायी नहीं जा सकी। कृपया पुनः कोशिश करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:225
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
 msgid "profile.listing.edit.delete_listing"
 msgstr "सूची मिटाएँ"
 
@@ -2700,7 +2706,7 @@ msgid "transaction_modal.approve.price"
 msgstr "प्रति टन राशि की पुष्टि करें"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:78
+#: components/CreateListing/Transaction/index.tsx:81
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "वापस जाएँ"
@@ -2746,13 +2752,13 @@ msgid "transaction_modal.submit.price"
 msgstr "प्रति टन कीमत सबमिट करें:"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:43
+#: components/CreateListing/Transaction/index.tsx:46
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "मंज़ूरी दें"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:53
+#: components/CreateListing/Transaction/index.tsx:56
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. जमा करें"
@@ -2816,12 +2822,17 @@ msgstr "यह सुविधा केवल उन उपयोगकर्�
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:174
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:293
 msgid "{0} maximum for credit cards"
 msgstr "{0} क्रेडिट कार्ड के लिए अधिकतम"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:61
+msgid "{0} tonnes"
+msgstr "{0} टन"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
@@ -2831,13 +2842,13 @@ msgstr "{0} | प्रोफ़ाइल | कार्बनमार्क"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
+msgstr "{DEFAULT_EXPIRATION_DAYS} दिन ({expirationDatestring})"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:154
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
+#: components/CreateListing/index.tsx:153
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
 msgid "{amount} tonnes"
-msgstr ""
+msgstr "{amount} टन"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

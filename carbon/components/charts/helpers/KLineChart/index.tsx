@@ -9,6 +9,7 @@ import {
   getXAxisProps,
   getYAxisProps,
 } from "../props";
+import styles from "../styles.module.scss";
 
 /** FIXME: Refactor to KlimaLineChart */
 export default function KLineChart<T extends object>(props: ChartProps<T>) {
@@ -21,7 +22,11 @@ export default function KLineChart<T extends object>(props: ChartProps<T>) {
     );
 
   return (
-    <ChartWrapper data={props.data} noDataText={props.noDataText}>
+    <ChartWrapper
+      data={props.data}
+      noDataText={props.noDataText}
+      className={styles.mobileCenteredLegend}
+    >
       <LineChart data={props.data}>
         <XAxis {...getXAxisProps(props)} />
         <YAxis {...getYAxisProps(props)} />

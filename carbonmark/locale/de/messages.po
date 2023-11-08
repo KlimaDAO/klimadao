@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-31 04:06+0000\n"
+"POT-Creation-Date: 2023-11-07 16:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -120,7 +120,7 @@ msgstr "Genehmigen"
 #: components/CreateListing/Form/index.tsx:59
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:80
 msgid "Asset"
-msgstr ""
+msgstr "Asset"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
@@ -172,7 +172,7 @@ msgstr "Verfügbarer Vorrat überschritten"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:101
 msgid "Available to list: {0}"
-msgstr ""
+msgstr "Für Angebote verfügbar: {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
@@ -215,7 +215,7 @@ msgstr "Guthaben"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:93
 msgid "Balance exceeded"
-msgstr ""
+msgstr "Guthaben überschritten"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:101
@@ -439,16 +439,14 @@ msgid "Create New Listing"
 msgstr "Neuen Eintrag erstellen"
 
 #. js-lingui-explicit-id
-#: components/pages/Home/index.tsx:304
-#: components/pages/Home/index.tsx:328
 #: components/pages/Users/SellerConnected/index.tsx:113
 msgid "Create Profile"
 msgstr "Profil erstellen"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:158
 msgid "Create a listing"
-msgstr ""
+msgstr "Angebot erstellen"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:222
@@ -568,7 +566,7 @@ msgid "Downloading ..."
 msgstr "Wird heruntergeladen ..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -578,9 +576,9 @@ msgid "Edit Profile"
 msgstr "Profil bearbeiten"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:210
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
 msgid "Edit listing"
-msgstr ""
+msgstr "Angebot bearbeiten"
 
 #. js-lingui-explicit-id
 #: lib/getCategoryInfo.ts:47
@@ -590,12 +588,12 @@ msgstr "Energieeffizienz"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
 msgid "Expiration"
-msgstr ""
+msgstr "Ablauf"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:14
 msgid "Expired"
-msgstr ""
+msgstr "Abgelaufen"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
@@ -689,7 +687,7 @@ msgstr "Dies ist eine Liste aus reichhaltig verfügbaren, vergünstigten CO2-Tok
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:74
 msgid "How many tonnes do you want to list for sale?"
-msgstr ""
+msgstr "Wie viele Tonnen möchten Sie zum Verkauf anbieten?"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:90
@@ -730,7 +728,7 @@ msgstr "Über Carbonmark"
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:9
 msgid "Invalid"
-msgstr ""
+msgstr "Ungültig"
 
 #. js-lingui-explicit-id
 #: components/Footer/index.tsx:38
@@ -776,7 +774,7 @@ msgstr "Bieten Sie Ihre Projekte mit wenigen Klicks zum Verkauf an"
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 msgid "Listed tonnes:"
-msgstr ""
+msgstr "Gelistete Tonnen:"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:128
@@ -1142,7 +1140,7 @@ msgstr "Menge ist erforderlich"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:127
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
-msgstr ""
+msgstr "Angebotene Menge: {listedQuantity}, nicht angebotene Menge {unlistedQuantity}, insgesamt verfügbar: {totalAvailableQuantity}"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:103
@@ -1197,6 +1195,12 @@ msgstr "Verbleibendes Angebot:"
 #: lib/getCategoryInfo.ts:23
 msgid "Renewable Energy"
 msgstr "Erneuerbare Energie"
+
+#. js-lingui-explicit-id
+#: components/pages/Home/index.tsx:304
+#: components/pages/Home/index.tsx:328
+msgid "Request Demo"
+msgstr "Demo anfordern"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:171
@@ -1378,7 +1382,7 @@ msgstr "Zum Kaufen anmelden/verbinden"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:129
 msgid "Single unit price"
-msgstr ""
+msgstr "Stückpreis"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:106
@@ -1477,12 +1481,12 @@ msgstr "Der Universelle CO2-Marktplatz"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:50
 msgid "The allowance below reflects the sum of all your listings for this specific token."
-msgstr ""
+msgstr "Der unten genannte Wert ist die Summe aller Angebote für dieses spezifische Token."
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:43
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
-msgstr ""
+msgstr "Die Assets werden erst aus Ihrer Wallet transferiert, wenn der Verkauf abgeschlossen ist. Sie können diese Bewilligung jederzeit widerrufen."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:34
@@ -1560,12 +1564,12 @@ msgstr "Die App funktioniert nur im Polygon-Mainnet."
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:16
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "Das Angebot ist abgelaufen und wird auf dem Marktplatz ausgeblendet. Bitte stellen Sie das Angebot erneut ein oder löschen Sie es."
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:11
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "Das Angebot ist nicht mehr gültig und wird auf dem Marktplatz ausgeblendet. Bitte stellen Sie das Angebot erneut ein oder löschen Sie es."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
@@ -1662,7 +1666,7 @@ msgstr "Gesamter CO2-Ausgleich"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:59
 msgid "Total allowance"
-msgstr ""
+msgstr "Insgesamt bewilligt"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:70
@@ -1701,7 +1705,7 @@ msgstr "Gesamtverkaufskosten"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:106
 msgid "USDC per tonne"
-msgstr ""
+msgstr "USDC pro Tonne"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:111
@@ -1711,7 +1715,7 @@ msgstr "Stückpreis ist erforderlich"
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 msgid "Unlisted tonnes:"
-msgstr ""
+msgstr "Nicht angebotene Tonnen:"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -1721,7 +1725,7 @@ msgstr "Beispiellose Transparenz auf dem gesamten Digitalen CO2-Markt."
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
 msgid "Update listing"
-msgstr ""
+msgstr "Angebot aktualisieren"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:86
@@ -1946,7 +1950,7 @@ msgstr "Ihre Walletadresse"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:374
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
-msgstr ""
+msgstr "Ihr Guthaben muss die Kosten der Transaktion um mindestens 1 % übersteigen."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
@@ -2206,12 +2210,12 @@ msgid "profile.edit_your_profile"
 msgstr "Bearbeiten Sie Ihr Profil, um eine Beschreibung hinzuzufügen."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:156
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:155
 msgid "profile.listing.delete.error"
 msgstr "Eintrag konnte nicht gelöscht werden. Bitte versuchen Sie es erneut."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:225
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
 msgid "profile.listing.edit.delete_listing"
 msgstr "Eintrag löschen"
 
@@ -2694,7 +2698,7 @@ msgid "transaction_modal.approve.price"
 msgstr "Preis pro CO2-Tonne bestätigen"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:78
+#: components/CreateListing/Transaction/index.tsx:81
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "Zurück"
@@ -2740,13 +2744,13 @@ msgid "transaction_modal.submit.price"
 msgstr "Preis pro Tonne nennen:"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:43
+#: components/CreateListing/Transaction/index.tsx:46
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "1. Genehmigen"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/index.tsx:53
+#: components/CreateListing/Transaction/index.tsx:56
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Absenden"
@@ -2818,6 +2822,11 @@ msgid "{0} maximum for credit cards"
 msgstr "Maximal {0} für Kreditkarten"
 
 #. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:61
+msgid "{0} tonnes"
+msgstr "{0} Tonnen"
+
+#. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Profil | Carbonmark"
@@ -2825,13 +2834,13 @@ msgstr "{0} | Profil | Carbonmark"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
+msgstr "{DEFAULT_EXPIRATION_DAYS} Tage ({expirationDatestring})"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:154
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
+#: components/CreateListing/index.tsx:153
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
 msgid "{amount} tonnes"
-msgstr ""
+msgstr "{amount} Tonnen"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

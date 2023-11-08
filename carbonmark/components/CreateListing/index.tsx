@@ -9,7 +9,6 @@ import {
   getCarbonmarkAllowance,
 } from "lib/actions";
 import { LO } from "lib/luckyOrange";
-import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Asset, Listing } from "lib/types/carbonmark.types";
 import {
@@ -176,12 +175,12 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          amount={getAmountLabel()}
+          allowance={allowanceValue}
+          quantity={getAmountLabel()}
           price={{
             value: inputValues.unitPrice,
             token: "usdc",
           }}
-          spenderAddress={getAddress("carbonmark", networkLabel)}
           onApproval={handleApproval}
           onSubmit={onAddListing}
           onCancel={resetStateAndCloseModal}

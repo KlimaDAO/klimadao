@@ -1,4 +1,4 @@
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { FC, useState } from "react";
@@ -8,17 +8,20 @@ import * as styles from "./styles";
 import { Value } from "./types";
 
 interface Props {
+  /** If the seller has already approved the required allowance */
   hasApproval: boolean;
-  amount: string;
+  /** Price per unit */
   price?: Value;
-  approvalValue?: string;
   onApproval: () => void;
   onSubmit: () => void;
   onCancel: () => void;
   status: TransactionStatusMessage | null;
   onResetStatus: () => void;
   onGoBack: () => void;
-  spenderAddress: string;
+  /** Total allowance needed to create this listing (sum of similar listings + new listing) */
+  allowance: string;
+  /** Quantity to list for */
+  quantity: string;
 }
 
 export const Transaction: FC<Props> = (props) => {
@@ -55,7 +58,7 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          amount={props.approvalValue || props.amount}
+          amount={t`${props.allowance} tonnes`}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
@@ -66,7 +69,7 @@ export const Transaction: FC<Props> = (props) => {
       )}
       {view === "submit" && (
         <Submit
-          amount={props.amount}
+          amount={props.quantity}
           price={props.price}
           onSubmit={props.onSubmit}
           onClose={props.onCancel}

@@ -9,7 +9,7 @@ import HistoricalPriceCard from "components/cards/overview/HistoricalPriceCard";
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import TokensPriceCard from "components/cards/overview/TokensPriceCard";
 
-/** Overview page (index/landing page) captured via rewrite in next.config.js*/
+/** Overview page (index/landing page) captured by app/[locale]/page.tsx */
 export default function OverviewPage() {
   return (
     <>
@@ -29,6 +29,7 @@ export default function OverviewPage() {
             <TokenizedCreditsByBridgeCard
               detailUrlPosition="bottom"
               className={layout.zIndexSix}
+              sourceHref={"/overview"}
             ></TokenizedCreditsByBridgeCard>
             <HistoricalPriceCard
               className={layout.zIndexFive}

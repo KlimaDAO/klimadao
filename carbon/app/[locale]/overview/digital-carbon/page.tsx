@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 
 import { PageHeader } from "components/PageHeader/PageHeader";
+import { PageLinks } from "lib/PageLinks";
 import Image from "next/image";
 import banner from "./banner.png";
 import styles from "./styles.module.scss";
@@ -9,7 +10,10 @@ import styles from "./styles.module.scss";
 export default function OverviewPage() {
   return (
     <>
-      <PageHeader title={t`What is digital carbon?`} showBackButton={true} />
+      <PageHeader
+        title={t`What is digital carbon?`}
+        backButtonHref={PageLinks.Overview}
+      />
       <div className={styles.content}>
         <div className={styles.bannerContainer}>
           <Image
@@ -35,9 +39,9 @@ export default function OverviewPage() {
             individual carbon reduction project at a certain point in time. Also
             like traditional credits, digital carbon can be bought, sold, and
             retired – but with much greater transparency and ease. A further
-            advantage of digital carbon is that it is a 'money Lego' – it can be
-            used to power applications, enable new use cases, and, ultimately,
-            dramatically scale financing to carbon reduction projects.`}
+            advantage of digital carbon is that it is a 'money Lego' – it is
+            programmable and can be used to power applications, enable new use cases,
+            and ultimately, dramatically scale financing to carbon reduction projects.`}
           </p>
         </article>
       </div>

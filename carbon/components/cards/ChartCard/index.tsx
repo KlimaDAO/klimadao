@@ -74,9 +74,14 @@ export default function ChartCard<T extends Key, B extends Key>(
   const bottomDetailUrlComponent =
     detailUrlPosition == "bottom" ? detailUrlComponent : <></>;
 
-  const cardHeaderTitleStyle = `${styles.cardHeaderTitle} ${
-    props.centerTitle ? layout.textCenter : ""
-  }`;
+  // Computes the style of the header title
+  let cardHeaderTitleStyle = styles.cardHeaderTitle;
+  // Center the title if requested
+  if (props.centerTitle)
+    cardHeaderTitleStyle = `${cardHeaderTitleStyle} ${layout.textCenter}`;
+  // Prevent title from growing if there are top options, so top options are perfectly centered
+  if (props.topOptions)
+    cardHeaderTitleStyle = `${cardHeaderTitleStyle} ${styles.cardHeaderTitleNoGrow}`;
 
   /** Returns the chart to display given the chosen options
    If the the chart attribute is filled, it is that chart.

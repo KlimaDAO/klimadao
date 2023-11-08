@@ -12,16 +12,20 @@
   }
 }
 
-.desktopOnly {
+.topPadding {
+  padding: 0;
+
+  @include breakpoints.large {
+    padding: 2rem 0 0 0;
+  }
+}
+
+.tabList {
   display: none;
 
   @include breakpoints.large {
     display: unset;
   }
-}
-
-.topPadding {
-  padding: 2rem 0 0 0;
 }
 
 .tabRoot {
@@ -30,20 +34,37 @@
   }
 }
 
+.mobileTabSelectorWrapper {
+  position: sticky;
+  top: 0;
+  padding-top: 0.8rem;
+  z-index: 700;
+  height: 6.4rem;
+  background-color: var(--brand-background);
+
+  @include breakpoints.large {
+    display: none;
+  }
+}
+
 .optionsSwitchers {
+  position: sticky;
+  top: 6.4rem;
+  z-index: 700;
+  background-color: var(--brand-background);
   display: grid;
   justify-content: space-between;
   row-gap: 0.8rem;
-  margin-bottom: 2rem;
+  padding: 0.8rem 0;
+  grid-template-columns: repeat(auto-fill, 100%);
   grid-template-areas:
-    "one three"
-    "two two";
-
-  @include breakpoints.large {
-    grid-template-areas: "one two three";
-  }
+    "three"
+    "one"
+    "two";
 
   @include breakpoints.desktopLarge {
+    grid-template-areas: "one two three";
+    grid-template-columns: auto;
     position: absolute;
     top: 0;
     right: 0;
@@ -61,7 +82,6 @@
   }
   &:nth-child(2) {
     grid-area: two;
-    justify-self: center;
   }
   &:nth-child(3) {
     grid-area: three;
@@ -75,13 +95,19 @@
 }
 
 .optionsSwitcher {
+  width: 100%;
+
   li {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 4rem;
+    flex: 1;
   }
 
   @include breakpoints.desktopLarge {
+    width: min-content;
+    flex: 0;
     li {
       height: min-content;
     }

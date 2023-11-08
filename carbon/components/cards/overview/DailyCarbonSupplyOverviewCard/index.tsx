@@ -22,7 +22,7 @@ export default function DailyCarbonSupplyOverviewCard(props: CardProps) {
       {...props}
       name="supply"
       title={t`Supply`}
-      detailUrl="/details/digital-carbon-supply-snapshot"
+      detailUrl="/overview/digital-carbon-supply-snapshot"
       bottomOptions={getChainsOptions()}
       charts={charts}
     />

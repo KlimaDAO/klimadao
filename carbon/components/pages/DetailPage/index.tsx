@@ -10,6 +10,7 @@ export interface DetailPageProps {
     content: string;
     source: "ai" | "human";
   };
+  backButtonHref: string;
 }
 /**
  * A UI layout component to position detail pages content
@@ -18,7 +19,10 @@ export default function DetailPage(props: DetailPageProps) {
   return (
     <div>
       {props.pageTitle && (
-        <PageHeader title={props.pageTitle} showBackButton={true} />
+        <PageHeader
+          title={props.pageTitle}
+          backButtonHref={props.backButtonHref}
+        />
       )}
       {props.card}
       <div className={styles.text}>

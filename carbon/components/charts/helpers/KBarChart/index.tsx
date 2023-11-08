@@ -9,6 +9,7 @@ import {
   getXAxisProps,
   getYAxisProps,
 } from "../props";
+import styles from "../styles.module.scss";
 
 /** FIXME: Refactor to KlimaBarChart */
 export default function KBarChart<T extends object>(props: ChartProps<T>) {
@@ -20,7 +21,11 @@ export default function KBarChart<T extends object>(props: ChartProps<T>) {
       BOTTOM_LEFT_LEGEND_PROPS
     );
   return (
-    <ChartWrapper data={props.data} noDataText={props.noDataText}>
+    <ChartWrapper
+      data={props.data}
+      noDataText={props.noDataText}
+      className={styles.mobileCenteredLegend}
+    >
       <BarChart data={props.data} barCategoryGap={"5%"}>
         {props.XAxis && <XAxis {...getXAxisProps(props)} />}
         {props.YAxis && <YAxis {...getYAxisProps(props)} />}

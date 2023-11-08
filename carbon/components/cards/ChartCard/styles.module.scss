@@ -32,17 +32,22 @@
 .cardHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 1.2rem;
 }
 
 .cardHeaderTitle {
-  white-space: nowrap;
-  flex: 1 1 0;
+  @include breakpoints.large {
+    white-space: nowrap;
+    min-width: auto;
+  }
+  flex: 3 1 0;
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
+}
+.cardHeaderTitleNoGrow {
+  flex-grow: 1;
 }
 
 .cardHeaderDetailsLink {

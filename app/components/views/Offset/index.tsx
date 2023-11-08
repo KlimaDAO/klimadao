@@ -41,7 +41,6 @@ import { isAddress, parseUnits } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
-import { createLinkWithLocaleSubPath } from "lib/i18n";
 import C3T from "public/icons/C3T.png";
 import Fiat from "public/icons/Fiat.png";
 import TCO2 from "public/icons/TCO2.png";
@@ -986,12 +985,9 @@ export const Offset = (props: Props) => {
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}
-          retirementUrl={createLinkWithLocaleSubPath(
-            `${urls.retirements}/${
-              beneficiaryAddress || props.address
-            }/${retirementTotals}`,
-            locale
-          )}
+          retirementUrl={`${urls.retirements}/${
+            beneficiaryAddress || props.address
+          }/${retirementTotals}`}
         />
       )}
     </>
