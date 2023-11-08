@@ -37,7 +37,7 @@
 }
 
 .cardHeaderTitle {
-  @include breakpoints.large {
+  @include breakpoints.desktopLarge {
     white-space: nowrap;
     min-width: auto;
   }
