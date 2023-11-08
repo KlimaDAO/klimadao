@@ -33,7 +33,7 @@ export const ListingEditable: FC<Props> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
-  const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
+  const [currentAllowance, setCurrentAllowance] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const newQuantity = Number(inputValues?.newQuantity || "1");
@@ -42,11 +42,11 @@ export const ListingEditable: FC<Props> = (props) => {
     status?.statusType === "userConfirmation" ||
     status?.statusType === "networkConfirmation";
 
-  const showTransactionView = !!inputValues && !!allowanceValue;
+  const showTransactionView = !!inputValues && !!currentAllowance;
 
   const resetLocalState = () => {
     setInputValues(null);
-    setAllowanceValue(null);
+    setCurrentAllowance(null);
     setStatus(null);
     setListingToEdit(null);
   };
@@ -66,7 +66,7 @@ export const ListingEditable: FC<Props> = (props) => {
         userAddress: address,
         network: networkLabel,
       });
-      setAllowanceValue(allowance);
+      setCurrentAllowance(allowance);
       setInputValues(values);
       setIsLoading(false);
     } catch (e) {
@@ -92,7 +92,7 @@ export const ListingEditable: FC<Props> = (props) => {
   const hasApproval = () => {
     if (!listingToEdit) return false;
     return (
-      Number(allowanceValue || "0") === getTotalAssetApproval(listingToEdit)
+      Number(currentAllowance || "0") === getTotalAssetApproval(listingToEdit)
     );
   };
 
@@ -108,7 +108,7 @@ export const ListingEditable: FC<Props> = (props) => {
         value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
-      setAllowanceValue(newAllowanceValue);
+      setCurrentAllowance(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
@@ -177,14 +177,6 @@ export const ListingEditable: FC<Props> = (props) => {
     return Number(safeAdd(unlistedBalance.toString(), listing.leftToSell));
   };
 
-  /** Util to render the amount label in the transaction modal */
-  const getAmountLabel = () => {
-    const amount = hasApproval()
-      ? newQuantity // 'submit' view shows the new quantity
-      : getTotalAssetApproval(listingToEdit); // 'approve' view shows all listings of this asset
-    return t`${amount} tonnes`;
-  };
-
   return (
     <>
       {props.listings.map((listing) => (
@@ -247,8 +239,8 @@ export const ListingEditable: FC<Props> = (props) => {
         {showTransactionView && !isLoading && (
           <Transaction
             hasApproval={hasApproval()}
-            allowance={allowanceValue}
-            quantity={getAmountLabel()}
+            allowance={getTotalAssetApproval(listingToEdit).toString()}
+            quantity={newQuantity.toString()}
             price={{
               value: inputValues.newSingleUnitPrice,
               token: "usdc",
@@ -260,7 +252,7 @@ export const ListingEditable: FC<Props> = (props) => {
             onResetStatus={() => setStatus(null)}
             onGoBack={() => {
               setStatus(null);
-              setAllowanceValue(null); // this will hide the Transaction View and re-checks the allowance again
+              setCurrentAllowance(null); // this will hide the Transaction View and re-checks the allowance again
             }}
           />
         )}
