@@ -1,11 +1,14 @@
 import { Web3ContextProvider } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
 import { i18n } from "@lingui/core";
 import { PageHead } from "components/PageHead";
 import { WithIsomorphicRouter } from "components/WithIsomorphicRouter";
 import { WithRedux } from "components/WithRedux";
 import { Home } from "components/views/Home";
-import { IS_PRODUCTION, WALLETCONNECT_PROJECT_ID } from "lib/constants";
+import {
+  BASE_URL,
+  IS_PRODUCTION,
+  WALLETCONNECT_PROJECT_ID,
+} from "lib/constants";
 import { NextPage } from "next";
 import { ReactNode } from "react";
 import { useSelector } from "react-redux";
@@ -41,7 +44,7 @@ const HomePage: NextPage = () => {
             title="KlimaDAO | Official App"
             mediaTitle="KlimaDAO | Official App"
             metaDescription="Use the KLIMA web app to bond, stake and earn rewards."
-            mediaImageSrc={urls.mediaImage}
+            mediaImageSrc={`${BASE_URL}/og-media.png`}
           />
           <Home />
         </WithIsomorphicRouter>
