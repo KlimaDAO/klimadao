@@ -2,10 +2,7 @@ import { t } from "@lingui/macro";
 import { PageHeader } from "components/PageHeader/PageHeader";
 import styles from "./styles.module.scss";
 
-/**
- * A UI layout component to position detail pages content
- */
-export default function DetailPage(props: {
+export interface DetailPageProps {
   card: React.ReactNode | Promise<React.ReactNode>;
   pageTitle?: string;
   overview: string;
@@ -14,7 +11,11 @@ export default function DetailPage(props: {
     source: "ai" | "human";
   };
   backButtonHref: string;
-}) {
+}
+/**
+ * A UI layout component to position detail pages content
+ */
+export default function DetailPage(props: DetailPageProps) {
   return (
     <div>
       {props.pageTitle && (

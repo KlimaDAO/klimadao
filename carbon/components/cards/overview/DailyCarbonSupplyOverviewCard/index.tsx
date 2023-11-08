@@ -20,6 +20,7 @@ export default function DailyCarbonSupplyOverviewCard(props: CardProps) {
   return (
     <ChartCard
       {...props}
+      name="supply"
       title={t`Supply`}
       detailUrl="/overview/digital-carbon-supply-snapshot"
       bottomOptions={getChainsOptions()}

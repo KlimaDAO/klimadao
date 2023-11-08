@@ -26,6 +26,7 @@ export default function OffVsOnChainClientWrapper(props: {
   return (
     <>
       <OptionsSwitcher
+        name="status"
         className={styles.centered}
         options={getCreditsStatusOptions()}
         onSelectionChange={setOptionKey}

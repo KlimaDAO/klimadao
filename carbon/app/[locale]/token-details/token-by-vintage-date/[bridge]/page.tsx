@@ -1,27 +1,26 @@
 import { t } from "@lingui/macro";
 import TokenDistributionOfVintageCard from "components/cards/tokenDetails/TokenDistributionOfVintageCard";
-import DetailPage from "components/pages/DetailPage";
+import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
-import { PageLinks } from "lib/PageLinks";
 import { capitalize } from "lodash";
 
-export default function TokenDistributionOfVintageDatePage({
-  params,
-  searchParams,
-}: TokenDetailPageProps) {
-  const bridgeLabel = capitalize(params.bridge);
+export default function TokenDistributionOfVintageDatePage(
+  props: TokenDetailPageProps
+) {
+  const bridgeLabel = capitalize(props.params.bridge);
+
   return (
-    <DetailPage
+    <TokenDetailsDetailPage
       pageTitle={t`${bridgeLabel} Distribution of vintage start dates`}
       card={
         <TokenDistributionOfVintageCard
           isDetailPage={true}
-          {...params}
-          {...searchParams}
+          {...props.params}
+          {...props.searchParams}
         />
       }
       overview={t`A breakdown of the vintage dates of each carbon credit bridged via ${bridgeLabel}.`}
-      backButtonHref={`${PageLinks.TokenDetails}?tab=${params.bridge}`}
+      {...props}
     />
   );
 }
