@@ -85,6 +85,9 @@
 }
 // Layout adjustments for dettail page
 [aria-roledescription="detailPage"] {
+  &.card {
+    height: auto;
+  }
   .issuedvsRetiredWrapper {
     width: 24rem;
   }
