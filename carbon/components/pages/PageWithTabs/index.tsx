@@ -131,7 +131,7 @@ export default function PageWithTabs(props: {
               value={tab.key}
               className={styles.topPadding}
             >
-              {tabsDynamicOptionsList[tabIndex] && (
+              {tabsDynamicOptionsList[tabIndex].length > 0 && (
                 <div className={styles.optionsSwitchers}>
                   {tabsDynamicOptionsList[tabIndex].map(
                     (options, widgetIndex) => (
