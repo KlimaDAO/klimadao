@@ -264,7 +264,7 @@ msgid "Not Connected"
 msgstr "Not Connected"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:99
+#: components/Layout/index.tsx:95
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "Login"
@@ -2281,12 +2281,12 @@ msgid "connectModal.wallet"
 msgstr "connect a wallet"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:96
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:100
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -2370,11 +2370,6 @@ msgstr "How many tonnes of carbon would you like to offset? <0>* </0>"
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
 msgid "retirement.single.transaction_record.title"
 msgstr "Immutable transaction record"
-
-#. js-lingui-explicit-id
-#: components/Layout/index.tsx:94
-msgid "connectModal.institutional"
-msgstr "institutional"
 
 #. js-lingui-explicit-id
 #: components/Layout/NavMenu/index.tsx:35

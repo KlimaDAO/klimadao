@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-08 15:35+0000\n"
+"POT-Creation-Date: 2023-11-08 17:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,8 +84,8 @@ msgid "Location: {0}"
 msgstr "स्थान:{0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
 msgid "Login"
 msgstr "लॉग इन करें"
 
@@ -620,12 +620,6 @@ msgid "concat.careers"
 msgstr "करियर"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/PledgeDashboard/index.tsx:170
-msgid "connectModal.institutional"
-msgstr "संस्थागत"
-
-#. js-lingui-explicit-id
 #: components/pages/Pledge/index.tsx:104
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "connectModal.torus"
@@ -638,8 +632,8 @@ msgid "connectModal.wallet"
 msgstr "वॉलेट कनेक्ट करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:118
-#: components/pages/Pledge/PledgeDashboard/index.tsx:176
+#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/index.tsx:172
 msgid "connect_modal.connecting"
 msgstr "संपर्क"
 
@@ -659,8 +653,8 @@ msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से ही प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/PledgeDashboard/index.tsx:180
+#: components/pages/Pledge/index.tsx:118
+#: components/pages/Pledge/PledgeDashboard/index.tsx:176
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
@@ -1585,7 +1579,7 @@ msgid "pledges.form.awaiting_signature"
 msgstr "हस्ताक्षर की प्रतीक्षा में..."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:194
+#: components/pages/Pledge/PledgeDashboard/index.tsx:190
 msgid "pledges.form.confirm_delete"
 msgstr "हटाने की पुष्टि करें"
 
@@ -1600,7 +1594,7 @@ msgid "pledges.form.confirm_remove_cancel"
 msgstr "रद्द करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:209
+#: components/pages/Pledge/index.tsx:205
 msgid "pledges.form.error"
 msgstr "वॉलेट पता, .klima अथवा .eth डोमेन दर्ज करें"
 
@@ -1775,7 +1769,7 @@ msgid "pledges.form.submit_button"
 msgstr "प्लेज सेव करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:190
+#: components/pages/Pledge/PledgeDashboard/index.tsx:186
 msgid "pledges.form.title"
 msgstr "आपकी प्रतिज्ञा"
 
@@ -1820,7 +1814,7 @@ msgid "pledges.home.hero.create"
 msgstr "एक प्रतिज्ञा बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:167
+#: components/pages/Pledge/index.tsx:163
 msgid "pledges.home.hero.learn_more"
 msgstr "और जानें"
 
@@ -1830,17 +1824,17 @@ msgid "pledges.home.hero.view"
 msgstr "अपनी प्रतिज्ञा देखें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:203
+#: components/pages/Pledge/index.tsx:199
 msgid "pledges.home.search.label"
 msgstr "ENS या 0x पता दर्ज करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:197
+#: components/pages/Pledge/index.tsx:193
 msgid "pledges.home.search.placeholder"
 msgstr "ईनस (ENS) , केनस (KNS) या 0x पता दर्ज करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:223
+#: components/pages/Pledge/index.tsx:219
 msgid "pledges.home.search.submit"
 msgstr "खोज"
 

@@ -98,8 +98,8 @@ msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
 msgid "Login"
 msgstr "Login"
 
@@ -820,7 +820,7 @@ msgid "pledge.modal.confirm"
 msgstr "Confirm"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:194
+#: components/pages/Pledge/PledgeDashboard/index.tsx:190
 msgid "pledges.form.confirm_delete"
 msgstr "confirm removal"
 
@@ -851,14 +851,14 @@ msgid "pledges.home.hero.connecting"
 msgstr "Connecting..."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:118
-#: components/pages/Pledge/PledgeDashboard/index.tsx:176
+#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/index.tsx:172
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/PledgeDashboard/index.tsx:180
+#: components/pages/Pledge/index.tsx:118
+#: components/pages/Pledge/PledgeDashboard/index.tsx:176
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -1018,7 +1018,7 @@ msgid "web3modal.torus.name"
 msgstr "Email or Social"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:203
+#: components/pages/Pledge/index.tsx:199
 msgid "pledges.home.search.label"
 msgstr "ENS or 0x address"
 
@@ -1068,7 +1068,7 @@ msgid "pledges.form.errors.categoryQuantity.min"
 msgstr "Enter a value greater than 0"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:209
+#: components/pages/Pledge/index.tsx:205
 msgid "pledges.form.error"
 msgstr "Enter a wallet address, .klima or .eth domain"
 
@@ -1079,7 +1079,7 @@ msgid "shared.enter_app"
 msgstr "Enter App"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:197
+#: components/pages/Pledge/index.tsx:193
 msgid "pledges.home.search.placeholder"
 msgstr "Enter ENS, KNS or 0x address"
 
@@ -1332,12 +1332,6 @@ msgid "buy.bond_answer_cex2"
 msgstr "Instead, KLIMA tokens are traded on a \"Decentralized Exchange\" (DEX) that is powered by smart contracts and runs directly on the blockchain. DEXs have some major advantages. DEXs made it possible for the DAO to own the majority of liquidity, so it can maintain full autonomy and generate revenue to pay contributors. We chose to use Sushi's DEX technology as it already facilitates tens of millions of dollars in transactions per day."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/PledgeDashboard/index.tsx:170
-msgid "connectModal.institutional"
-msgstr "institutional"
-
-#. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/index.tsx:233
 msgid "retirement.single.is_this_your_retirement"
 msgstr "Is this your retirement?"
@@ -1516,7 +1510,7 @@ msgid "community.head.metadescription"
 msgstr "Learn about our community of passionate Klimates"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:167
+#: components/pages/Pledge/index.tsx:163
 msgid "pledges.home.hero.learn_more"
 msgstr "Learn more"
 
@@ -1917,7 +1911,7 @@ msgid "web3modal.walletconnect.desc"
 msgstr "Scan with WalletConnect to connect"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:223
+#: components/pages/Pledge/index.tsx:219
 msgid "pledges.home.search.submit"
 msgstr "Search"
 
@@ -2457,7 +2451,7 @@ msgid "pledge.modal.wallet_add_confirm"
 msgstr "You may only have one pledge page per wallet address. If you have already created a pledge page with this wallet, visitors will be redirected to this pledge instead. You can remove this wallet at any time."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:190
+#: components/pages/Pledge/PledgeDashboard/index.tsx:186
 msgid "pledges.form.title"
 msgstr "Your pledge"
 
