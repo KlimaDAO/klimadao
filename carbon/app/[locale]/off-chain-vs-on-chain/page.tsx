@@ -9,12 +9,26 @@ import { PageLinks } from "lib/PageLinks";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 
+function title() {
+  return t`Off vs On-chain carbon`;
+}
+function description() {
+  return t`Off vs On-chain carbon`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
 export default function OffVsOnChainPage() {
   const issuedCreditsTab = <OffVsOnChainTab status="issued" />;
   const retiredCreditsTab = <OffVsOnChainTab status="all_retired" />;
   return (
     <div>
-      <PageHeader title={t`Off vs On-chain carbon`} />
+      <PageHeader title={title()} />
       <div className={layout.cardStackedRows}>
         <div
           className={`${layout.cardRow} ${layout.prioritizeFirstCard} ${styles.firstRow}`}

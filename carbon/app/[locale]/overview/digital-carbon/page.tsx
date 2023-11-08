@@ -6,14 +6,25 @@ import Image from "next/image";
 import banner from "./banner.png";
 import styles from "./styles.module.scss";
 
+function title() {
+  return t`What is digital carbon?`;
+}
+function description() {
+  return t`What is digital carbon?`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
 /** Overview page (index/landing page) captured via rewrite in next.config.js*/
 export default function OverviewPage() {
   return (
     <>
-      <PageHeader
-        title={t`What is digital carbon?`}
-        backButtonHref={PageLinks.Overview}
-      />
+      <PageHeader title={title()} backButtonHref={PageLinks.Overview} />
       <div className={styles.content}>
         <div className={styles.bannerContainer}>
           <Image

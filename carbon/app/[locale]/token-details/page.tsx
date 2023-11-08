@@ -8,8 +8,23 @@ import {
   getToucanPoolsOptions,
 } from "lib/charts/options";
 import { NodeDictionnary } from "lib/charts/types";
-/** Retirement Trends Page
- * Uses a Client Component (RetirementTrendsPage) to handle tab navigation
+
+function title() {
+  return t`Token details`;
+}
+function description() {
+  return t`Token details`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
+/** Token details Page
+ * Uses a Client Component (PageWithTabs) to handle tab and options navigation
  * Tabs are actually Components rendered Server side passed to the Client Component as props
  */
 export default function TokenDetailsPage() {
@@ -52,7 +67,7 @@ export default function TokenDetailsPage() {
 
   return (
     <PageWithTabs
-      title={t`Token details`}
+      title={title()}
       tabs={[
         {
           key: "c3",

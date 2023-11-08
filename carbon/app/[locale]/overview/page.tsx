@@ -9,12 +9,26 @@ import HistoricalPriceCard from "components/cards/overview/HistoricalPriceCard";
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import TokensPriceCard from "components/cards/overview/TokensPriceCard";
 
+function title() {
+  return t`State of the digital carbon market`;
+}
+function description() {
+  return t`State of the digital carbon market`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
 /** Overview page (index/landing page) captured by app/[locale]/page.tsx */
 export default function OverviewPage() {
   return (
     <>
       <PageHeader
-        title={t`State of the digital carbon market`}
+        title={title()}
         subheading={{
           href: "/overview/digital-carbon",
           label: t`What is digital carbon?`,
