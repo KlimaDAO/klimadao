@@ -61,7 +61,9 @@
     "three"
     "one"
     "two";
-
+  @include breakpoints.large {
+    top: 0;
+  }
   @include breakpoints.desktopLarge {
     grid-template-areas: "one two three";
     grid-template-columns: auto;
