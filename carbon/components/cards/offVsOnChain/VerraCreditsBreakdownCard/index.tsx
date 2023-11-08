@@ -1,6 +1,5 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
-import layout from "theme/layout.module.scss";
 import { IssuedVsTokenizedCreditsChart } from "./issuedVsTokenizedCreditsChart";
 import {
   OffchainRetiredCreditsCard,
@@ -15,15 +14,20 @@ export default function VerraCreditsBreakdownCard(props: CardProps) {
     : styles.wrapper;
   const chart = (
     <div className={wrapperClassName}>
-      {/* @ts-expect-error async Server component */}
-      <IssuedVsTokenizedCreditsChart />
-      {/* @ts-expect-error async Server component */}
-      <OffchainRetiredCreditsCard />
-      {/* @ts-expect-error async Server component */}
-      <OnchainRetiredCreditsCard />
+      <div>
+        {/* @ts-expect-error async Server component */}
+        <IssuedVsTokenizedCreditsChart />
+      </div>
+      <div>
+        {/* @ts-expect-error async Server component */}
+        <OffchainRetiredCreditsCard />
+        {/* @ts-expect-error async Server component */}
+        <OnchainRetiredCreditsCard />
+      </div>
     </div>
   );
   const title = t`Verra credits breakdown`;
+  const cardClassName = `${props.className} ${styles.card}`;
 
   return (
     <ChartCard
@@ -31,7 +35,8 @@ export default function VerraCreditsBreakdownCard(props: CardProps) {
       title={title}
       detailUrl="/off-chain-vs-on-chain/verra-credits-breakdown"
       chart={chart}
-      className={layout.zIndexSeven}
+      isColumnCard={true}
+      className={cardClassName}
     />
   );
 }

@@ -7,6 +7,7 @@ import OffVsOnChainClientWrapper from "components/pages/offVsOnChain/OffVsOnChai
 import OffVsOnChainTab from "components/pages/offVsOnChain/OffVsOnChainTab";
 import { PageLinks } from "lib/PageLinks";
 import layout from "theme/layout.module.scss";
+import styles from "./styles.module.scss";
 
 export default function OffVsOnChainPage() {
   const issuedCreditsTab = <OffVsOnChainTab status="issued" />;
@@ -15,7 +16,9 @@ export default function OffVsOnChainPage() {
     <div>
       <PageHeader title={t`Off vs On-chain carbon`} />
       <div className={layout.cardStackedRows}>
-        <div className={`${layout.cardRow} ${layout.prioritizeFirstCard}`}>
+        <div
+          className={`${layout.cardRow} ${layout.prioritizeFirstCard} ${styles.firstRow}`}
+        >
           <VerraCreditsBreakdownCard className={layout.zIndexSeven} />
           <TokenizedCreditsByBridgeCard
             className={layout.zIndexSix}

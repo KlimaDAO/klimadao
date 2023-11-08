@@ -114,7 +114,6 @@ export default function ChartCard<T extends Key, B extends Key>(
   if (bottomOptionsPosition == "center") {
     footerClassName = `${footerClassName} ${styles.overlapLegend}`;
   }
-
   return (
     <div
       className={cx(cardClassName, props.className)}
