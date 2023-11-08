@@ -93,7 +93,7 @@ export const config = {
   featureFlags: {
     /** Ability to create listings from assets in portfolio */
     createListing: {
-      production: false,
+      production: true,
       preview: true,
       development: true,
     },
