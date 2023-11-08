@@ -14,18 +14,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: app/[locale]/off-chain-vs-on-chain/page.tsx:16
+#: app/[locale]/off-chain-vs-on-chain/page.tsx:17
 msgid "Off vs On-chain carbon"
 msgstr "Off vs On-chain carbon"
 
 #. js-lingui-explicit-id
-#: app/[locale]/off-chain-vs-on-chain/verra-credits-breakdown/page.tsx:9
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:26
+#: app/[locale]/off-chain-vs-on-chain/verra-credits-breakdown/page.tsx:10
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:29
 msgid "Verra credits breakdown"
 msgstr "Verra credits breakdown"
 
 #. js-lingui-explicit-id
-#: app/[locale]/off-chain-vs-on-chain/verra-credits-breakdown/page.tsx:11
+#: app/[locale]/off-chain-vs-on-chain/verra-credits-breakdown/page.tsx:17
 msgid "The total number of carbon credits that have been issued by carbon registry Verra and what portion have been bridged, tokenized, and retired on-chain."
 msgstr "The total number of carbon credits that have been issued by carbon registry Verra and what portion have been bridged, tokenized, and retired on-chain."
 
