@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-08 21:50+0000\n"
+"POT-Creation-Date: 2023-11-08 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -168,42 +168,42 @@ msgid "blog.disclaimer.title"
 msgstr "Haftungsausschluss:"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:432
+#: components/pages/Buy/index.tsx:434
 msgid "buy.answer_exchange"
 msgstr "Fortgeschrittene Nutzer können die <0>Polygon Bridge</0> verwenden, um digitale Assets von Ethereum nach Polygon zu transferieren. Über <1>Polygon Gas Swap</1> tauschen Sie digitale Assets wie USDC oder MATIC."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:389
+#: components/pages/Buy/index.tsx:391
 msgid "buy.bond_answer_cedit_card"
 msgstr "Einige Anbieter wie <0>Transak</0> erlauben es Ihnen, KLIMA gegen eine kleine Gebühr mit einer Kreditkarte zu kaufen. Sollte Ihre Wallet keine MATIC-Tokens beinhalten, können Sie jedoch keinerlei Aktionen ausführen (wie Überweisungen). Um Gebühren und das genannte Problem zu umgehen, empfehlen wir daher, MATIC direkt zu kaufen und die Tokens gegen KLIMA auf Sushi.com zu tauschen."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:407
+#: components/pages/Buy/index.tsx:409
 msgid "buy.bond_answer_cex1"
 msgstr "KLIMA steht auf zentralisierten Börsen wie Coinbase, BInance oder Crypto.com nicht zur Verfügung, da diese in der Regel sehr hohe Notierungsgebühren verlangen und von teuren Market Makern finanziert werden müssen."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:415
+#: components/pages/Buy/index.tsx:417
 msgid "buy.bond_answer_cex2"
 msgstr "KLIMA-Tokens stehen stattdessen auf einer dezentralisierten Börse (DEX) zur Verfügung, wo Smart Contracts und die Blockchain für einen reibungslosen Ablauf sorgen. DEXs bringen einige große Vorteile mit. So ermöglichen sie es der DAO, den Großteil der eigenen Liquidität zu behalten. Dadurch bleibt die DAO autonom und erwirtschaftet Gewinn, um die Mitarbeiter zu bezahlen. Wir haben uns für Sushis DEX entschieden, da diese Börse bereits Dutzende Millionen Transaktionsvolumen jeden Tag bearbeitet."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:370
+#: components/pages/Buy/index.tsx:372
 msgid "buy.bond_description1"
 msgstr "Erfahrene Kryptonutzer können durch Bonds KLIMA direkt vom Protokoll kaufen. Um KLIMA über Bonds zu erhalten, stellen Sie ein CO2-Token oder ein Liquiditätstoken bereit und erhalten im Gegenzug vergünstigtes KLIMA. Durch diesen Mechanismus wird die Schatzkammer der DAO langsam mit digitalem CO2 gefüllt."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:379
+#: components/pages/Buy/index.tsx:381
 msgid "buy.bond_description_capacity"
 msgstr "Bond-Kapazitäten sind limitiert und Bonds sind nicht immer verfügbar."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:400
+#: components/pages/Buy/index.tsx:402
 msgid "buy.bond_question_cex"
 msgstr "Warum kann ich KLIMA nicht bei Coinbase oder anderen zentralisierten Börsen finden? Warum muss ich <0>Sushi.com</0> nutzen?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:384
+#: components/pages/Buy/index.tsx:386
 msgid "buy.bond_question_credit_card"
 msgstr "Kann ich KLIMA direkt mit einer Kreditkarte kaufen?"
 
@@ -268,7 +268,7 @@ msgid "buy.create_wallet_item"
 msgstr "1. Wallet erstellen"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:318
+#: components/pages/Buy/index.tsx:320
 msgid "buy.faq_title"
 msgstr "FAQ"
 
@@ -319,37 +319,37 @@ msgid "buy.load_wallet_description3"
 msgstr "<0>Stellen Sie sicher, die MATIC-Tokens über das Polygon-Netzwerk zu senden!</0> Börsen wie Coinbase werden Sie Fragen, an welches Netzwerk Sie die MATIC-Tokens senden möchten. Wählen Sie immer Polygon aus."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:426
+#: components/pages/Buy/index.tsx:428
 msgid "buy.question_exchange"
 msgstr "Ich möchte eine andere Börse nutzen, aber diese verkauft kein MATIC"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:321
+#: components/pages/Buy/index.tsx:323
 msgid "buy.question_why_matic"
 msgstr "Warum muss ich zuerst MATIC kaufen?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:326
+#: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic_answer"
 msgstr "KLIMAs Token und das Protokoll verwenden die Polygon-Blockchain. MATIC ist der \"Treibstoff\", der jede Transaktion über Polygon befeuert. Eine Transaktion kann nicht ausgeführt werden, ohne die Transaktionsgebühr zu bezahlen. Das heißt, dass du MATIC im Wert von Centbruchteilen entrichten musst, um die folgenden Aktionen auszuführen:"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:337
+#: components/pages/Buy/index.tsx:339
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr "KLIMA für sKLIMA staken"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:344
+#: components/pages/Buy/index.tsx:346
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr "Unterschiedliche Tokens tauschen"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:351
+#: components/pages/Buy/index.tsx:353
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr "Tokens an eine andere Wallet senden"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:358
+#: components/pages/Buy/index.tsx:360
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr "KLIMA oder andere Tokens nutzen, um CO2 auszugleichen"
 
@@ -369,7 +369,7 @@ msgid "buy.staking_description2"
 msgstr "Sie können die App auch verwenden, um KLIMA auszugeben und Ihren CO2-Fußabdruck über die Blockchain mit <0>digitalen CO2-Zertifikaten ausgleichen</0>."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:309
+#: components/pages/Buy/index.tsx:311
 msgid "buy.staking_description3"
 msgstr "Achten Sie abschließend auf <0>laufende Abstimmungen</0>, um das Protokoll in die richtige Richtung zu lenken."
 
@@ -445,7 +445,7 @@ msgid "buy.wallet_connect_example_qr_code"
 msgstr "wallet connect qr code beispiel"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:365
+#: components/pages/Buy/index.tsx:367
 msgid "buy.what_are_bonds"
 msgstr "Gibt es andere Möglichkeiten, KLIMA zu bekommen? Was sind Bonds?"
 

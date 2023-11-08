@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-08 21:50+0000\n"
+"POT-Creation-Date: 2023-11-08 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "500 - Server error occurred"
 msgstr "500 - Se ha producido un error en el servidor"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:211
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
 msgid "<0>* </0> Required Field"
 msgstr "<0>* </0> Campo obligatorio"
 
@@ -240,7 +240,7 @@ msgid "Beneficiary name"
 msgstr "Nombre del Beneficiario"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "Dirección del monedero del beneficiario (opcional)"
@@ -1250,7 +1250,7 @@ msgid "Retire Carbon"
 msgstr "RETIRA CARBONO"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:197
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retire créditos de carbono para usted mismo o en nombre de otra persona u organización."
 
@@ -1499,7 +1499,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "El primer paso es conceder la aprobación para transferir su activo de pago desde su monedero a Carbonmark, el siguiente paso es aprobar la transferencia real y completar su compra."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:203
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "La información que figura a continuación se difundirá públicamente para verificar su declaración medioambiental. Esta transacción es permanente; la información no puede modificarse una vez completada su transacción."
 
@@ -1997,14 +1997,14 @@ msgstr "a"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:97
+#: components/pages/Blog/Post/index.tsx:98
 msgid "blog.disclaimer.description"
 msgstr ""
 "La información proporcionada en este post relativo a KlimaDAO (\"KlimaDAO\"), sus criptoactivos, activos comerciales, estrategia y operaciones, tiene únicamente fines informativos generales y no es una oferta formal de venta ni una solicitud de oferta de compra de valores, opciones, futuros u otros derivados relacionados con valores en ninguna jurisdicción y su contenido no está prescrito por las leyes de valores.\n"
 " La información contenida en este post no debe ser considerada como un consejo para comprar o vender o mantener dichos valores o como una oferta para venderlos. Esta post no tiene en cuenta ni proporciona ningún tipo de asesoramiento fiscal, jurídico o de inversión, ni opinión sobre los objetivos de inversión específicos o la situación financiera de ninguna persona.  KlimaDAO y sus agentes, asesores, directores, funcionarios, empleados y accionistas no ofrecen ninguna declaración ni garantía, expresa o implícita, en cuanto a la exactitud de dicha información y KlimaDAO renuncia expresamente a toda responsabilidad que pueda basarse en dicha información o en errores u omisiones de la misma. KlimaDAO se reserva el derecho de modificar o sustituir la información contenida en este documento, en parte o en su totalidad, en cualquier momento, y no se compromete a facilitar al destinatario el acceso a la información modificada ni a notificárselo. La información contenida en este post sustituye a cualquier post o conversación anterior relativa a la misma información, similar o relacionada. Cualquier información, representación o declaración que no esté contenida en el presente documento no deberá ser considerada para ningún propósito. Ni KlimaDAO ni ninguno de sus representantes tendrán responsabilidad alguna, contractual, extracontractual, fiduciaria o de otro tipo, frente a usted o a cualquier persona que resulte del uso de la información contenida en esta entrada de blog por parte de usted o de cualquiera de sus representantes, o por las omisiones de la información contenida en este post. Además, KlimaDAO no asume ninguna obligación de comentar las expectativas o declaraciones de terceros con respecto a los asuntos tratados en este post."
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:94
+#: components/pages/Blog/Post/index.tsx:95
 msgid "blog.disclaimer.title"
 msgstr "Aviso legal:"
 
@@ -2116,47 +2116,47 @@ msgid "menu.retire"
 msgstr "Retirar"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:219
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
 msgid "offset.amount_in_tonnes"
 msgstr "¿Cuántas toneladas de carbono desea compensar? <0>* </0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
 msgid "offset.amount_in_tonnes_2"
 msgstr "Disponible: {balance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:311
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
 msgid "offset.default_retirement_address"
 msgstr "Por defecto, la dirección del monedero conectado"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:244
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
 msgid "offset.offset_quantity"
 msgstr "Ingrese la cantidad a compensar"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:395
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
 msgid "offset.retire_carbon"
 msgstr "Confirmar Retiro"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:274
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
 msgid "offset.retirement_beneficiary_name"
 msgstr "Nombre del beneficiario"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:262
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
 msgid "offset.retirement_credit"
 msgstr "¿A quién se acreditará esta retirada?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.retirement_message"
 msgstr "Mensaje de Retiro"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:331
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
 msgid "offset.retirement_retirement_message"
 msgstr "Mensaje de Retiro"
 
@@ -2177,7 +2177,7 @@ msgid "offset.successModal.body3"
 msgstr "Su transacción se ha procesado correctamente pero está tardando más de lo normal en indexarse. Pronto aparecerá en tus <0>jubilaciones</0>."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:352
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
 msgid "offset_disclaimer"
 msgstr "Tenga cuidado de no incluir ninguna información personal sensible (como una dirección de correo electrónico) en su nombre de retiro o mensaje. La información que introduzca aquí no podrá editarse una vez enviada y existirá permanentemente en una blockchain pública."
 
@@ -2362,12 +2362,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Compruebe si hay errores tipográficos en su búsqueda o pruebe con otro término de búsqueda."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:373
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.back_button"
 msgstr "atrás"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:364
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
 msgid "retire.submit_button"
 msgstr "RETIRA CARBONO"
 
@@ -2608,7 +2608,7 @@ msgid "shared.head.description"
 msgstr "Impulsa la acción climática y gana recompensas con una moneda digital respaldada por carbono."
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:80
+#: components/pages/Blog/Post/index.tsx:81
 msgid "shared.resourcecenter"
 msgstr "Centro de Recursos"
 

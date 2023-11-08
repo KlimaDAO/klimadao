@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-08 21:50+0000\n"
+"POT-Creation-Date: 2023-11-08 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "500 - Server error occurred"
 msgstr "500 - सर्वर त्रुटि हो गई"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:211
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> आवश्यक क्षेत्र"
 
@@ -240,7 +240,7 @@ msgid "Beneficiary name"
 msgstr "लाभार्थी का नाम"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "लाभार्थी वॉलेट पता (वैकल्पिक)"
@@ -1254,7 +1254,7 @@ msgid "Retire Carbon"
 msgstr "कार्बन रिटायर करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:197
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "अपने लिए या किसी अन्य व्यक्ति या संगठन की ओर से कार्बन क्रेडिट रिटायर करें।"
 
@@ -1503,7 +1503,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी ख़रीदारी संपन्न करनी है।"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:203
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "आपके पर्यावरणीय दावे को सत्यापित करने के लिए नीचे दी गई जानकारी सार्वजनिक रूप से प्रसारित की जाएगी। यह लेन-देन स्थायी है; आपके लेन-देन पूरे हो जाने के बाद जानकारी को बदला नहीं जा सकता।"
 
@@ -2005,12 +2005,12 @@ msgstr "पर"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:97
+#: components/pages/Blog/Post/index.tsx:98
 msgid "blog.disclaimer.description"
 msgstr "क्लीमाडाओ (“KlimaDAO”), इसकी क्रिप्टो-संपत्ति, व्यावसायिक संपत्ति, रणनीति और संचालन से संबंधित इस ब्लॉग पोस्ट में प्रदान की गई जानकारी केवल सामान्य ज्ञानवर्द्धन संबंधी उद्देश्यों के चलते दी गयी है और यह किसी भी न्यायक्षेत्र में कोई प्रतिभूति, ऑप्शंस, फ़्यूचर्स, या प्रतिभूतियों से संबंधित अन्य डेरिवेटिव्ज़ को ख़रीदने अथवा बेचने हेतु कोई औपचारिक प्रस्ताव या उकसावा नहीं है और इसकी सामग्री प्रतिभूति क़ानूनों पर आधारित नहीं है। इस ब्लॉग पोस्ट में निहित जानकारी पर ऐसी प्रतिभूतियों को ख़रीदने या बेचने या होल्ड करने की सलाह या ऐसी प्रतिभूतियों को बेचने के प्रस्ताव के रूप में भरोसा नहीं किया जाना चाहिए। यह ब्लॉग पोस्ट किसी व्यक्ति के विशिष्ट निवेश उद्देश्यों या वित्तीय स्थिति के बारे में कोई कर, क़ानूनी या निवेश सलाह या राय प्रदान नहीं करता है और न ही इसे ध्यान में रखता है। KlimaDAO और उसके एजेंट, सलाहकार, निदेशक, अधिकारी, कर्मचारी और शेयरधारक ऐसी जानकारी की सटीकता के रूप में व्यक्त या निहित कोई प्रतिनिधित्व या वारंटी नहीं देते हैं और KlimaDAO स्पष्ट रूप से ऐसी जानकारी या त्रुटियों या चूक पर आधारित किसी भी और समस्त दायित्व को अस्वीकार करता है। KlimaDAO किसी भी समय, आंशिक रूप से या पूरी तरह से, इसमें निहित जानकारी को संशोधित करने या बदलने का अधिकार सुरक्षित रखता है, और प्राप्तकर्ता को संशोधित जानकारी तक पहुंच प्रदान करने या उसके प्राप्तकर्ता को सूचित करने का कोई दायित्व नहीं लेता है। इस ब्लॉग पोस्ट में निहित जानकारी समान, मिलती-जुलती या संबंधित जानकारी से संबंधित किसी भी पूर्व ब्लॉग पोस्ट या बातचीत को सुपरसीड करती है। कोई भी सूचना, अभ्यावेदन या कथन जो इसमें शामिल नहीं है, किसी भी उद्देश्य के लिए उस पर भरोसा नहीं किया जाएगा। आपके या आपके किसी प्रतिनिधि द्वारा इस ब्लॉग पोस्ट में दी गई जानकारी के उपयोग के परिणामस्वरूप या आपके द्वारा या आपके किसी भी प्रतिनिधि द्वारा चूक के परिणामस्वरूप न तो क्लीमाडाओ और न ही इसके किसी प्रतिनिधि का, अनुबंध, अपकृत्य, विश्वास या अन्यथा, आपके या किसी भी व्यक्ति के लिए कोई दायित्व नहीं होगा। इसके अतिरिक्त, क्लीमाडाओ इस ब्लॉग पोस्ट में चर्चा किए गए मामलों के संबंध में तृतीय पक्षों की अपेक्षाओं, या उनके द्वारा दिए गए बयानों पर टिप्पणी करने के लिए कोई दायित्व नहीं लेता है।"
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:94
+#: components/pages/Blog/Post/index.tsx:95
 msgid "blog.disclaimer.title"
 msgstr "अस्वीकरण:"
 
@@ -2122,47 +2122,47 @@ msgid "menu.retire"
 msgstr "रिटायर"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:219
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
 msgid "offset.amount_in_tonnes"
 msgstr "आप कितने टन कार्बन को ऑफ़सेट करना चाहेंगे?<0>* </0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
 msgid "offset.amount_in_tonnes_2"
 msgstr "उपलब्ध: {balance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:311
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
 msgid "offset.default_retirement_address"
 msgstr "कनेक्टेड वॉलेट का पते पर किए गए डिफ़ॉल्ट"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:244
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
 msgid "offset.offset_quantity"
 msgstr "ऑफ़सेट करने के लिए मात्रा दर्ज करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:395
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
 msgid "offset.retire_carbon"
 msgstr "रिटायरमेंट की पुष्टि करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:274
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
 msgid "offset.retirement_beneficiary_name"
 msgstr "लाभार्थी का नाम"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:262
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
 msgid "offset.retirement_credit"
 msgstr "यह रिटायरमेंट किसके खाते में जाएगी?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.retirement_message"
 msgstr "रिटायरमेंट संदेश"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:331
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
 msgid "offset.retirement_retirement_message"
 msgstr "रिटायरमेंट सन्देश"
 
@@ -2183,7 +2183,7 @@ msgid "offset.successModal.body3"
 msgstr "आप की लेन-देन सफलतापूर्वक प्रोसेस हो गयी है लेकिन इन्डेक्स होने में सामान्य से अधिक समय लग रहा है। यह आपकी <0>रिटायरमैंट</0> में जल्द ही दिखाई देगा ।"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:352
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
 msgid "offset_disclaimer"
 msgstr "अपने रिटायरमैंट नाम या संदेश में किसी भी संवेदनशील व्यक्तिगत जानकारी (जैसे ईमेल पता) को शामिल करते सयय सावधान रहें। आपके द्वारा यहां दर्ज की गई जानकारी को एक बार जमा करने के बाद संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
@@ -2368,12 +2368,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "टाइपो-त्रुटियों के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज-शब्द आज़माएँ।"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:373
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.back_button"
 msgstr "वापस"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:364
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
 msgid "retire.submit_button"
 msgstr "कार्बन रिटायर करें"
 
@@ -2614,7 +2614,7 @@ msgid "shared.head.description"
 msgstr "क्लआीमेट ऐक्शन प्रयत्न करें और कार्बन-समर्थित डिजिटल मुद्रा के रूप में पुरस्कार अर्जित करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:80
+#: components/pages/Blog/Post/index.tsx:81
 msgid "shared.resourcecenter"
 msgstr "संसाधन केंद्र"
 
