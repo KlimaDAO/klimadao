@@ -37,6 +37,7 @@ export const fields = css`
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: center;
 `;
 
 export const logo = css`
@@ -72,4 +73,9 @@ export const mapbox = css`
     bottom: 8px;
     left: 12px;
   }
+`;
+
+export const text = css`
+  margin-bottom: 24px;
+  text-align: center;
 `;
