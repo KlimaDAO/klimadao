@@ -1,25 +1,40 @@
 import OptionsSwitcher from "components/OptionsSwitcher";
 import DetailPage, { DetailPageProps } from "components/pages/DetailPage";
+import { PageLinks } from "lib/PageLinks";
 import {
   getC3PoolsOptions,
   getDateFilteringOptions,
   getPoolStatusOptions,
   getToucanPoolsOptions,
 } from "lib/charts/options";
-import { Bridge } from "lib/charts/types";
 import styles from "../PageWithTabs/styles.module.scss";
+import { TokenDetailPageProps } from "../props";
 
 export default function TokenDetailsDetailPage(
-  props: DetailPageProps & { bridge: Bridge }
+  props: Omit<DetailPageProps, "backButtonHref"> & TokenDetailPageProps
 ) {
   const poolOptions =
-    props.bridge == "toucan"
+    props.params.bridge == "toucan"
       ? getToucanPoolsOptions()
-      : props.bridge == "c3"
+      : props.params.bridge == "c3"
       ? getC3PoolsOptions()
       : undefined;
 
-  const newProps = { ...props };
+  const backButtonQuery: Record<string, string> = {};
+  backButtonQuery.tab = props.params.bridge;
+  backButtonQuery[`option_${props.params.bridge}_0`] = props.searchParams.pool;
+  backButtonQuery[`option_${props.params.bridge}_1`] = props.searchParams.since;
+  backButtonQuery[`option_${props.params.bridge}_2`] =
+    props.searchParams.status;
+
+  const newProps: DetailPageProps = {
+    ...props,
+    ...{
+      backButtonHref: `${PageLinks.TokenDetails}?${new URLSearchParams(
+        backButtonQuery
+      ).toString()}`,
+    },
+  };
   newProps.card = (
     <div className={styles.tabRoot}>
       <div
@@ -57,3 +72,5 @@ export default function TokenDetailsDetailPage(
   );
   return <DetailPage {...newProps} />;
 }
+
+export function backButtonHref() {}
