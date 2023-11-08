@@ -14,18 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:18
-#: app/[locale]/token-details/breakdown-of-digital-carbon/[bridge]/page.tsx:15
-msgid "Breakdown of {bridgeLabel} pooled"
-msgstr "Breakdown of {bridgeLabel} pooled"
-
-#. js-lingui-explicit-id
-#: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:26
-#: app/[locale]/token-details/breakdown-of-digital-carbon/[bridge]/page.tsx:23
-msgid "A breakdown of the current supply of carbon credits bridged via {bridgeLabel} and pooled into digital carbon pools."
-msgstr "A breakdown of the current supply of carbon credits bridged via {bridgeLabel} and pooled into digital carbon pools."
-
-#. js-lingui-explicit-id
 #: app/[locale]/off-chain-vs-on-chain/page.tsx:16
 msgid "Off vs On-chain carbon"
 msgstr "Off vs On-chain carbon"
@@ -330,11 +318,20 @@ msgstr "The current supply of digital carbon on the {chainLabel} blockchain brok
 
 #. js-lingui-explicit-id
 #: app/[locale]/supply/page.tsx:16
-#: components/cards/overview/DailyCarbonSupplyCard/index.tsx:23
-#: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:23
+#: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:24
 #: components/Layout/NavItems/index.tsx:33
 msgid "Supply"
 msgstr "Supply"
+
+#. js-lingui-explicit-id
+#: app/[locale]/token-details/breakdown-of-digital-carbon/[bridge]/page.tsx:15
+msgid "Breakdown of {bridgeLabel} pooled"
+msgstr "Breakdown of {bridgeLabel} pooled"
+
+#. js-lingui-explicit-id
+#: app/[locale]/token-details/breakdown-of-digital-carbon/[bridge]/page.tsx:23
+msgid "A breakdown of the current supply of carbon credits bridged via {bridgeLabel} and pooled into digital carbon pools."
+msgstr "A breakdown of the current supply of carbon credits bridged via {bridgeLabel} and pooled into digital carbon pools."
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/page.tsx:55
@@ -367,42 +364,42 @@ msgid "The total number of digital carbon credits bridged via {bridgeLabel} brok
 msgstr "The total number of digital carbon credits bridged via {bridgeLabel} broken down by the current outstanding supply and retired digital carbon credits."
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:15
+#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:13
 msgid "{bridgeLabel} distribution of methodologies"
 msgstr "{bridgeLabel} distribution of methodologies"
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:23
+#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:21
 msgid "A breakdown of the methodologies used to validate and issue each carbon credit bridged via {bridgeLabel}."
 msgstr "A breakdown of the methodologies used to validate and issue each carbon credit bridged via {bridgeLabel}."
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-by-projects/[bridge]/page.tsx:15
+#: app/[locale]/token-details/token-by-projects/[bridge]/page.tsx:13
 msgid "{bridgeLabel} distribution of projects"
 msgstr "{bridgeLabel} distribution of projects"
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-by-projects/[bridge]/page.tsx:23
+#: app/[locale]/token-details/token-by-projects/[bridge]/page.tsx:21
 msgid "A breakdown of the carbon projects for which the carbon credits were issued and then bridged and pooled via {bridgeLabel}."
 msgstr "A breakdown of the carbon projects for which the carbon credits were issued and then bridged and pooled via {bridgeLabel}."
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-by-vintage-date/[bridge]/page.tsx:15
+#: app/[locale]/token-details/token-by-vintage-date/[bridge]/page.tsx:14
 msgid "{bridgeLabel} Distribution of vintage start dates"
 msgstr "{bridgeLabel} Distribution of vintage start dates"
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-by-vintage-date/[bridge]/page.tsx:23
+#: app/[locale]/token-details/token-by-vintage-date/[bridge]/page.tsx:22
 msgid "A breakdown of the vintage dates of each carbon credit bridged via {bridgeLabel}."
 msgstr "A breakdown of the vintage dates of each carbon credit bridged via {bridgeLabel}."
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:15
+#: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:11
 msgid "{bridgeLabel} volume over Time"
 msgstr "{bridgeLabel} volume over Time"
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:23
+#: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:19
 msgid "The volume of digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
 msgstr "The volume of digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
 
@@ -499,12 +496,12 @@ msgid "Credits retired off-chain vs on-chain by origin"
 msgstr "Credits retired off-chain vs on-chain by origin"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/DailyCarbonRetirementsCard/index.tsx:21
+#: components/cards/overview/DailyCarbonRetirementsCard/index.tsx:22
 msgid "On-chain retirements"
 msgstr "On-chain retirements"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/DailyVerraCreditsOverviewCard/index.tsx:125
+#: components/cards/overview/DailyVerraCreditsOverviewCard/index.tsx:126
 msgid "Verra credits"
 msgstr "Verra credits"
 
@@ -1070,7 +1067,7 @@ msgstr "Change language"
 
 #. js-lingui-explicit-id
 #: components/Layout/NavItems/index.tsx:21
-#: components/pages/DetailPage/index.tsx:29
+#: components/pages/DetailPage/index.tsx:30
 msgid "Overview"
 msgstr "Overview"
 
@@ -1095,7 +1092,7 @@ msgid "Explore Marketplace"
 msgstr "Explore Marketplace"
 
 #. js-lingui-explicit-id
-#: components/pages/DetailPage/index.tsx:35
+#: components/pages/DetailPage/index.tsx:36
 msgid "Insights"
 msgstr "Insights"
 
