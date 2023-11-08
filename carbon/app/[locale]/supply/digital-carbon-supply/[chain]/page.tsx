@@ -3,14 +3,30 @@ import DailyCeloCarbonSupplyCard from "components/cards/supply/DailyCeloCarbonSu
 import DailyEthCarbonSupplyCard from "components/cards/supply/DailyEthCarbonSupplyCard";
 import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCarbonSupplyCard";
 import DetailPage from "components/pages/DetailPage";
-import { ChainDetailPageProps } from "components/pages/props";
+import { ChainDetailPageProps, ChainPageParams } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
-import { capitalize } from "lodash";
+import { getChainLabel } from "lib/chains";
+
+function title(params: ChainPageParams) {
+  const chainLabel = getChainLabel(params.chain);
+  return t`Digital carbon supply - ${chainLabel}`;
+}
+function description(params: ChainPageParams) {
+  const chainLabel = getChainLabel(params.chain);
+  console.log(params);
+  return t`The current supply of digital carbon on the ${chainLabel} blockchain broken down by digital carbon pool.`;
+}
+
+export async function generateMetadata({ params }: ChainDetailPageProps) {
+  return {
+    title: title(params),
+    description: description(params),
+  };
+}
 
 export default function DigitalDailyCarbonSupplyPage({
   params,
 }: ChainDetailPageProps) {
-  const chainLabel = capitalize(params.chain);
   let card = <></>;
   switch (params.chain) {
     case "polygon":
@@ -25,9 +41,9 @@ export default function DigitalDailyCarbonSupplyPage({
   }
   return (
     <DetailPage
-      pageTitle={t`Digital carbon supply - ${chainLabel}`}
+      pageTitle={title(params)}
       card={card}
-      overview={t`The current supply of digital carbon on the ${chainLabel} blockchain broken down by digital carbon pool.`}
+      overview={description(params)}
       backButtonHref={PageLinks.Supply}
     />
   );

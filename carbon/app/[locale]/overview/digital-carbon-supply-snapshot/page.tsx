@@ -3,12 +3,26 @@ import DailyCarbonSupplyCard from "components/cards/overview/DailyCarbonSupplyOv
 import DetailPage from "components/pages/DetailPage";
 import { PageLinks } from "lib/PageLinks";
 
+function title() {
+  return t`Digital carbon supply snapshot`;
+}
+function description() {
+  return t`The total supply of digital carbon on each blockchain broken down by digital carbon pool.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
 export default function DigitalCarbonSupplyPage() {
   return (
     <DetailPage
-      pageTitle={t`Digital carbon supply snapshot`}
+      pageTitle={title()}
       card={<DailyCarbonSupplyCard isDetailPage={true}></DailyCarbonSupplyCard>}
-      overview={t`The total supply of digital carbon on each blockchain broken down by digital carbon pool.`}
+      overview={description()}
       backButtonHref={PageLinks.Overview}
     />
   );

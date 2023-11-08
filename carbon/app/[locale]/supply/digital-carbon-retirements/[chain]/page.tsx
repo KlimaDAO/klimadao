@@ -2,14 +2,29 @@ import { t } from "@lingui/macro";
 import DailyEthRetirementsCard from "components/cards/supply/DailyEthRetirementsCard";
 import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
 import DetailPage from "components/pages/DetailPage";
-import { ChainDetailPageProps } from "components/pages/props";
+import { ChainDetailPageProps, ChainPageParams } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
-import { capitalize } from "lodash";
+import { getChainLabel } from "lib/chains";
+
+function title(params: ChainPageParams) {
+  const chainLabel = getChainLabel(params.chain);
+  return t`Digital carbon retirements - ${chainLabel}`;
+}
+function description(params: ChainPageParams) {
+  const chainLabel = getChainLabel(params.chain);
+  return t`The total number of digital carbon credits retired over time on the ${chainLabel} blockchain.`;
+}
+
+export async function generateMetadata({ params }: ChainDetailPageProps) {
+  return {
+    title: title(params),
+    description: description(params),
+  };
+}
 
 export default function DigitalDailyRetirementsPage({
   params,
 }: ChainDetailPageProps) {
-  const chainLabel = capitalize(params.chain);
   let card = <></>;
   switch (params.chain) {
     case "polygon":
@@ -21,9 +36,9 @@ export default function DigitalDailyRetirementsPage({
   }
   return (
     <DetailPage
-      pageTitle={t`Digital carbon retirements - ${chainLabel}`}
+      pageTitle={title(params)}
       card={card}
-      overview={t`The total number of digital carbon credits retired over time on the ${chainLabel} blockchain.`}
+      overview={description(params)}
       backButtonHref={PageLinks.Supply}
     />
   );

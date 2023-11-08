@@ -4,17 +4,31 @@ import VerraCreditsBreakdownCard from "components/cards/offVsOnChain/VerraCredit
 import DetailPage from "components/pages/DetailPage";
 import { PageLinks } from "lib/PageLinks";
 
+function title() {
+  return t`Verra credits breakdown`;
+}
+function description() {
+  return t`The total number of carbon credits that have been issued by carbon registry Verra and what portion have been bridged, tokenized, and retired on-chain.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
 export default function VerraCreditsBreakdownPage() {
   return (
     <DetailPage
-      pageTitle={t`Verra credits breakdown`}
+      pageTitle={title()}
       card={
         <VerraCreditsBreakdownCard
           isDetailPage={true}
           className={cardStyles.rowCardContainer}
         />
       }
-      overview={t`The total number of carbon credits that have been issued by carbon registry Verra and what portion have been bridged, tokenized, and retired on-chain.`}
+      overview={description()}
       backButtonHref={PageLinks.OffChainVsOnChain}
     />
   );

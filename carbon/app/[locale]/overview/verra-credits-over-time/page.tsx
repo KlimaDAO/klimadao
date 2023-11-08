@@ -3,12 +3,26 @@ import DailyVerraCreditsCard from "components/cards/overview/DailyVerraCreditsOv
 import DetailPage from "components/pages/DetailPage";
 import { PageLinks } from "lib/PageLinks";
 
+function title() {
+  return t`Verra credits over time`;
+}
+function description() {
+  return t`The total number of carbon credits issued by carbon registry Verra over time and the number of credits retired over time. On-chain refers to credits bridged and tokenized on a public blockchain.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
 export default function VerraCreditsOverTimePage() {
   return (
     <DetailPage
-      pageTitle={t`Verra credits over time`}
+      pageTitle={title()}
       card={<DailyVerraCreditsCard isDetailPage={true}></DailyVerraCreditsCard>}
-      overview={t`The total number of carbon credits issued by carbon registry Verra over time and the number of credits retired over time. On-chain refers to credits bridged and tokenized on a public blockchain.`}
+      overview={description()}
       insights={{ content: t`Lorem Ipsum`, source: "ai" }}
       backButtonHref={PageLinks.Overview}
     />

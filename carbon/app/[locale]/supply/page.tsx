@@ -9,11 +9,25 @@ import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCa
 import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
 import layout from "theme/layout.module.scss";
 
+function title() {
+  return t`Supply`;
+}
+function description() {
+  return t`Supply`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
 export default function SupplyPage() {
   return (
     <div>
       <>
-        <PageHeader title={t`Supply`} />
+        <PageHeader title={title()} />
       </>
       <div className={layout.cardStackedRows}>
         <div></div>

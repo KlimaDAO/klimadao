@@ -5,14 +5,28 @@ import RetirementTrendsByChainTab from "components/pages/retirementTrends/Retire
 import RetirementTrendsByPoolTab from "components/pages/retirementTrends/RetirementTrendsByPoolTab";
 import RetirementTrendsByTokenTab from "components/pages/retirementTrends/RetirementTrendsByTokenTab";
 
+function title() {
+  return t`Retirement trends`;
+}
+function description() {
+  return t`Retirement trends`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: title(),
+    description: description(),
+  };
+}
+
 /** Retirement Trends Page
- * Uses a Client Component (RetirementTrendsPage) to handle tab navigation
+ * Uses a Client Component (PageWithTabs) to handle tab navigation
  * Tabs are actually Components rendered Server side passed to the Client Component as props
  */
 export default function RetirementTrends() {
   return (
     <PageWithTabs
-      title={t`Retirement trends`}
+      title={title()}
       tabs={[
         {
           key: "byPool",
