@@ -1,9 +1,8 @@
 import { cx } from "@emotion/css";
 import {
-  Autocomplete,
   TextField,
   ThemeProvider,
-  createTheme,
+  createTheme
 } from "@mui/material";
 import { FeatureCollection, LineString } from "@turf/helpers";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
@@ -22,6 +21,14 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { CITIES, KG_CARBON_KM_FLIGHT } from "./constants";
 import * as styles from "./styles";
 import { haversine } from "./utils";
+
+import dynamic from 'next/dynamic';
+
+// Dynamically import GooglePlacesSelect with SSR turned off
+const GooglePlacesSelect = dynamic(
+  () => import('./GooglePlacesSelect'),
+  { ssr: false } // This will load the component only on client side
+);
 
 export type PageProps = {
   projects: Project[];
@@ -164,22 +171,9 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
                 defaultValue=""
                 render={({ field }) => <TextField {...field} sx={{ width: 300 }} id="message" size="small" type="text" label="Why are you offsetting?" />} />
 
-              <Autocomplete
-                onChange={(_, val) => val && setSource(val)}
-                size="small"
-                id="from-city-select"
-                options={CITIES}
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label="From" />}
-              />
-              <Autocomplete
-                onChange={(_, val) => val && setDestination(val)}
-                size="small"
-                id="to-city-select"
-                options={CITIES}
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label="To" />}
-              />
+              <GooglePlacesSelect label="From" />
+              <GooglePlacesSelect label="To" />
+
             </div>
 
             {/* <div ref={mapContainer} className={styles.mapbox} /> */}
