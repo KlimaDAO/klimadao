@@ -1,11 +1,9 @@
 import { urls } from "@klimadao/lib/constants";
-import {
-  GitHub,
-  LinkedIn,
-  Telegram,
-  Twitter,
-  YouTube,
-} from "@mui/icons-material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link } from "@mui/material";
 import { FC } from "react";
 import layout from "theme/layout.module.scss";
@@ -34,22 +32,22 @@ export const Footer: FC = () => {
       </div>
       <div className={styles.footerSocialLinks}>
         <Link href={urls.twitter}>
-          <Twitter />
+          <TwitterIcon />
         </Link>
         <Link href={urls.youtube}>
-          <YouTube />
+          <YouTubeIcon />
         </Link>
         <Link href={urls.discordInvite}>
           <DiscordSvg />
         </Link>
         <Link href={urls.github} className={layout.mobileOnly}>
-          <GitHub />
+          <GitHubIcon />
         </Link>
         <Link href={urls.linkedIn}>
-          <LinkedIn />
+          <LinkedInIcon />
         </Link>
         <Link href={urls.telegram}>
-          <Telegram />
+          <TelegramIcon />
         </Link>
       </div>
     </div>
