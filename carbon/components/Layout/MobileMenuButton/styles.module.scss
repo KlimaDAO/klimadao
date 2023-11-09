@@ -25,10 +25,10 @@
   font-weight: 600;
 
   &:hover {
-    color: var(--brand-blue);
+    color: var(--brand-green);
   }
   &[aria-selected="true"] span {
-    color: var(--brand-blue);
+    color: var(--brand-green);
   }
   span {
     display: flex;
