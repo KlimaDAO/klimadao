@@ -1,6 +1,7 @@
 export interface ChartConfigurationItem<T> {
   id: Extract<T, string>; // id of chart, also the key used by recharts to find data for this configuration item
   label: string; // label
+  tooltipLabel?: string; // tooltip label (defaults to label if undefined, implemented only in KPieChart as of now)
   color: string; // color on the chart
   legendOrder?: number; // The order in which the element are displayd in the legend
 }

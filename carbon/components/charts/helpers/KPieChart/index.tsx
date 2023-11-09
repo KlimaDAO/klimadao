@@ -36,6 +36,7 @@ export default function KPieChart<
   > = props.data.map((item, i) => {
     const chartOptions = configuration[i];
     let label = chartOptions.label || chartOptions.id;
+    const tooltipLabel = label;
     if (props.showPercentageInLegend) {
       const percentage = formatPercentage({
         value: item.quantity / total,
@@ -46,7 +47,8 @@ export default function KPieChart<
     const record: ChartConfigurationItem<keyof T> & { quantity: number } = {
       id: chartOptions.id,
       color: chartOptions.color,
-      label: label,
+      label,
+      tooltipLabel,
       quantity: item.quantity,
     };
     chartOptions.label = label;
@@ -124,7 +126,13 @@ export default function KPieChart<
           outerRadius="100%"
         >
           {chartData.map((entry) => (
-            <Cell key={entry.id} fill={entry.color} name={entry.label} />
+            /** Using aria-describedby is a hack to add information to the cell's payload */
+            <Cell
+              key={entry.id}
+              fill={entry.color}
+              name={entry.label}
+              aria-describedby={entry.tooltipLabel}
+            />
           ))}
         </Pie>
         {showTooltip && (
