@@ -75,7 +75,7 @@ msgid "Change language"
 msgstr "Change language"
 
 #. js-lingui-explicit-id
-#: components/CopyAddressButton/index.tsx:36
+#: components/CopyAddressButton/index.tsx:37
 msgid "Copy"
 msgstr "Copy"
 
@@ -1715,22 +1715,22 @@ msgid "Create your own retirement"
 msgstr "Create your own retirement"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:9
+#: components/pages/Users/Badge/index.tsx:10
 msgid "Invalid"
 msgstr "Invalid"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:11
+#: components/pages/Users/Badge/index.tsx:12
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:14
+#: components/pages/Users/Badge/index.tsx:15
 msgid "Expired"
 msgstr "Expired"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:16
+#: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 
