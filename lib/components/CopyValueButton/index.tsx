@@ -1,5 +1,7 @@
 import { cx } from "@emotion/css";
-import { Check, ContentCopy } from "@mui/icons-material";
+import CheckIcon from "@mui/icons-material/Check";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+
 import React, { FC, useEffect, useState } from "react";
 
 import { ButtonBaseProps, ButtonPrimary } from "@klimadao/lib/components";
@@ -28,7 +30,7 @@ export const CopyValueButton: FC<Props> = (props) => {
       variant={"transparent"}
       {...props}
       className={className}
-      icon={copied ? <Check /> : <ContentCopy />}
+      icon={copied ? <CheckIcon /> : <ContentCopyIcon />}
       onClick={() => cachedValue && doCopy(cachedValue)}
       iconPos="suffix"
     />
