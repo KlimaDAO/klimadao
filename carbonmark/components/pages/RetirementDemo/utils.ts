@@ -1,6 +1,6 @@
 import { RADIUS_OF_EARTH_IN_KMS } from "./constants";
 
-type Point = { lat: number; lng: number };
+export type Point = { lat: number; lng: number };
 
 /**
  * Computes the distance between two geocoordinates in kilometers

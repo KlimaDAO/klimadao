@@ -4,7 +4,6 @@ import {
   ThemeProvider,
   createTheme
 } from "@mui/material";
-import { FeatureCollection, LineString } from "@turf/helpers";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkLogoFull } from "components/Logos/CarbonmarkLogoFull";
 import { PageHead } from "components/PageHead";
@@ -18,11 +17,12 @@ import mapboxgl, { Map } from "mapbox-gl";
 import { NextPage } from "next";
 import { useEffect, useRef, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { CITIES, KG_CARBON_KM_FLIGHT } from "./constants";
+import { KG_CARBON_KM_FLIGHT } from "./constants";
 import * as styles from "./styles";
-import { haversine } from "./utils";
+import { Point, haversine } from "./utils";
 
 import dynamic from 'next/dynamic';
+import { Place } from "./GooglePlacesSelect";
 
 // Dynamically import GooglePlacesSelect with SSR turned off
 const GooglePlacesSelect = dynamic(
@@ -34,7 +34,13 @@ export type PageProps = {
   projects: Project[];
 };
 
-type City = (typeof CITIES)[number];
+const latLngToPoint = (latLng?: google.maps.LatLng): Point | null => {
+  if (!latLng) return null
+  return {
+    lat: latLng.lat(),
+    lng: latLng.lng(),
+  };
+};
 
 /** Overwrite the MUI theme used elsewhere */
 const theme = createTheme({
@@ -48,8 +54,8 @@ mapboxgl.accessToken = NEXT_PUBLIC_MAPBOX_TOKEN ?? "";
 export const RetirementDemo: NextPage<PageProps> = (props) => {
   const [distance, setDistance] = useState(0);
   const [project, setProject] = useState<Project>();
-  const [source, setSource] = useState<City>(CITIES[0]);
-  const [destination, setDestination] = useState<City>(CITIES[1]);
+  const [source, setSource] = useState<Place | null>(null);
+  const [destination, setDestination] = useState<Place | null>(null);
 
   const estimate = KG_CARBON_KM_FLIGHT * distance / 1000;
   const price = Number(project?.price ?? 0);
@@ -72,8 +78,10 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
 
   /** Estimate the distance travelled */
   useEffect(() => {
-    if (notNil(source) && notNil(destination)) {
-      const distance = haversine(source.coordinates, destination.coordinates);
+    const sourceCoords = latLngToPoint(source?.geometry?.location);
+    const destCoords = latLngToPoint(destination?.geometry?.location);
+    if (notNil(sourceCoords) && notNil(destCoords)) {
+      const distance = haversine(sourceCoords, destCoords);
       setDistance(distance);
     }
   }, [source, destination]);
@@ -91,51 +99,53 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
     }
   }, []);
 
-  useEffect(() => {
-    const mapRef = map.current;
 
-    if (!mapRef?.isStyleLoaded()) return;
 
-    // A simple line from origin to destination.
-    const route: FeatureCollection<LineString> = {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          geometry: {
-            type: "LineString",
-            coordinates: [
-              [source?.coordinates.lng ?? 0, source?.coordinates.lat ?? 0],
-              [
-                destination?.coordinates.lng ?? 0,
-                destination?.coordinates.lat ?? 0,
-              ],
-            ],
-          },
-          properties: {},
-        },
-      ],
-    };
+  // useEffect(() => {
+  //   const mapRef = map.current;
 
-    if (mapRef?.getSource("route")) mapRef?.removeSource("route");
-    if (mapRef?.getLayer("route")) mapRef?.removeLayer("route");
+  //   if (!mapRef?.isStyleLoaded()) return;
 
-    if (!mapRef?.getSource("route"))
-      map.current?.addSource("route", {
-        type: "geojson",
-        data: route,
-      });
-    if (!mapRef?.getLayer("route"))
-      map.current?.addLayer({
-        id: "route",
-        source: "route",
-        type: "line",
-        paint: {
-          "line-width": 2,
-          "line-color": "#007cbf",
-        },
-      });
-  }, [source, destination]);
+  //   // A simple line from origin to destination.
+  //   const route: FeatureCollection<LineString> = {
+  //     type: "FeatureCollection",
+  //     features: [
+  //       {
+  //         type: "Feature",
+  //         geometry: {
+  //           type: "LineString",
+  //           coordinates: [
+  //             [source?.coordinates.lng ?? 0, source?.coordinates.lat ?? 0],
+  //             [
+  //               destination?.coordinates.lng ?? 0,
+  //               destination?.coordinates.lat ?? 0,
+  //             ],
+  //           ],
+  //         },
+  //         properties: {},
+  //       },
+  //     ],
+  //   };
+
+  //   if (mapRef?.getSource("route")) mapRef?.removeSource("route");
+  //   if (mapRef?.getLayer("route")) mapRef?.removeLayer("route");
+
+  //   if (!mapRef?.getSource("route"))
+  //     map.current?.addSource("route", {
+  //       type: "geojson",
+  //       data: route,
+  //     });
+  //   if (!mapRef?.getLayer("route"))
+  //     map.current?.addLayer({
+  //       id: "route",
+  //       source: "route",
+  //       type: "line",
+  //       paint: {
+  //         "line-width": 2,
+  //         "line-color": "#007cbf",
+  //       },
+  //     });
+  // }, [source, destination]);
 
   return (
     <>
@@ -171,8 +181,9 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
                 defaultValue=""
                 render={({ field }) => <TextField {...field} sx={{ width: 300 }} id="message" size="small" type="text" label="Why are you offsetting?" />} />
 
-              <GooglePlacesSelect label="From" />
-              <GooglePlacesSelect label="To" />
+              <GooglePlacesSelect label="From" onChange={(_, value) => setSource(value)} value={source} />
+              <GooglePlacesSelect label="To" onChange={(_, value) => setDestination(value)} value={destination} />
+
 
             </div>
 
@@ -215,3 +226,6 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
     </>
   );
 };
+
+
+export default RetirementDemo;
