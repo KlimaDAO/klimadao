@@ -5,6 +5,7 @@ import { parseUnits } from "ethers-v6";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { INFURA_ID, LIVE_OFFSET_WALLET_MNEMONIC } from "lib/shared/secrets";
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
+import IERC20 from "../../../../lib/abi/IERC20.json";
 import KlimaRetirementAggregatorV2 from "../../../../lib/abi/KlimaRetirementAggregatorV2.json";
 const LIVE_WALLET_ADDRESS = "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac";
 
@@ -27,16 +28,19 @@ const handler: NextApiHandler = async (
   );
 
   if (process.env.SHOULD_DO_APPROVAL) {
+    console.debug(`Beginning transactions approval up to ${"10"} tonnes...`);
     const contract = new Contract(
       projectTokenAddress, // address of whatever token we are retiring
-      KlimaRetirementAggregatorV2.abi,
+      IERC20.abi,
       wallet
     );
     const approveTxn = await contract.approve(
       addresses["mainnet"].retirementAggregatorV2,
-      parseUnits("10", 18) /// 99,999 followed by 18 decimal places
+      parseUnits("10", 18).toString() /// 99,999 followed by 18 decimal places
     );
+    console.debug(`Executing transactions approval up to ${"10"} tonnes...`);
     await approveTxn.wait(1);
+    console.debug(`Transactions approved up to ${"10"} tonnes`);
   }
 
   const params = req.body;
@@ -57,16 +61,20 @@ const handler: NextApiHandler = async (
     abi,
     wallet
   );
-  // params.onStatus("userConfirmation");
-  aggregator.c3RetireExactC3T;
   const newRetirementIndex: BigNumber = await aggregator.callStatic[
     "c3RetireExactC3T"
   ](...args);
 
+  console.debug(`Building retirement transaction with args: ${args}`);
   const txn = await aggregator.c3RetireExactC3T(...args);
-  // params.onStatus("networkConfirmation");
+
+  console.debug(`Executing transaction with args: ${args}`);
   const receipt: RetirementReceipt = await txn.wait(1);
-  const url = `https://carbonmark.com/retirements/[${wallet.address}]/[${newRetirementIndex}]`;
+
+  console.debug(`Successful transaction with args: ${args}`);
+
+  const url = `https://carbonmark.com/retirements/${wallet.address}/${newRetirementIndex}`;
+
   return res.status(200).json({ url, transaction: receipt.transactionHash });
 };
 
