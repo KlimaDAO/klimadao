@@ -33,7 +33,7 @@ export default async function VerraCreditsRetiredByVintageDatePage(
         />
       }
       overview={description()}
-      backButtonHref={PageLinks.OffChainVsOnChain}
+      backButtonHref={`${PageLinks.OffChainVsOnChain}?status=retired`}
     />
   );
 }

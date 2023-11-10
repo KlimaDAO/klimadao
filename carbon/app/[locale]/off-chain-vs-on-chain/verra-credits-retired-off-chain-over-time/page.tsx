@@ -28,7 +28,7 @@ export default async function VerraCreditsRetiredOffChainOverTimePage(
       pageTitle={title()}
       card={<DailyVerraCreditsCard isDetailPage={true} status="all_retired" />}
       overview={description()}
-      backButtonHref={PageLinks.OffChainVsOnChain}
+      backButtonHref={`${PageLinks.OffChainVsOnChain}?status=retired`}
     />
   );
 }
