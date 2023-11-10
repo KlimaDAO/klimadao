@@ -6,15 +6,27 @@ import {
   Status,
 } from "lib/charts/types";
 
-export interface BridgePageParams {
+export interface LocalizedPageParams {
+  locale: string;
+}
+export interface BridgePageParams extends LocalizedPageParams {
   bridge: Bridge;
 }
-export interface ChainPageParams {
+export interface ChainPageParams extends LocalizedPageParams {
   chain: Chain;
+}
+export interface TokenQuerySearchParams {
+  status: Status;
+  since: DateFilteringOption;
+  pool: Pool;
+}
+
+export interface LocalizedPageProps {
+  params: LocalizedPageParams;
 }
 export interface TokenDetailPageProps {
   params: BridgePageParams;
-  searchParams: { status: Status; since: DateFilteringOption; pool: Pool };
+  searchParams: TokenQuerySearchParams;
 }
 export interface ChainDetailPageProps {
   params: ChainPageParams;

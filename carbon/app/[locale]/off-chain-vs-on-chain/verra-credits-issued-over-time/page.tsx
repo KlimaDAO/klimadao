@@ -1,6 +1,8 @@
 import { t } from "@lingui/macro";
+import { initLayout } from "app/[locale]/layout";
 import DailyVerraCreditsCard from "components/cards/offVsOnChain/DailyVerraCreditsCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 
 function title() {
@@ -17,7 +19,10 @@ export async function generateMetadata() {
   };
 }
 
-export default function VerraCreditsRetiredOverTimePage() {
+export default async function VerraCreditsRetiredOverTimePage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
       pageTitle={title()}

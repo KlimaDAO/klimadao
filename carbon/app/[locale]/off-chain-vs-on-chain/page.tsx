@@ -5,8 +5,10 @@ import VerraCreditsBreakdownCard from "components/cards/offVsOnChain/VerraCredit
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import OffVsOnChainClientWrapper from "components/pages/offVsOnChain/OffVsOnChainClientWrapper";
 import OffVsOnChainTab from "components/pages/offVsOnChain/OffVsOnChainTab";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 import layout from "theme/layout.module.scss";
+import { initLayout } from "../layout";
 import styles from "./styles.module.scss";
 
 function title() {
@@ -23,7 +25,8 @@ export async function generateMetadata() {
   };
 }
 
-export default function OffVsOnChainPage() {
+export default async function OffVsOnChainPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
   const issuedCreditsTab = <OffVsOnChainTab status="issued" />;
   const retiredCreditsTab = <OffVsOnChainTab status="all_retired" />;
   return (

@@ -8,6 +8,8 @@ import DailyCarbonSupplyOverviewCard from "components/cards/overview/DailyCarbon
 import HistoricalPriceCard from "components/cards/overview/HistoricalPriceCard";
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import TokensPriceCard from "components/cards/overview/TokensPriceCard";
+import { LocalizedPageProps } from "components/pages/props";
+import { initLayout } from "../layout";
 
 function title() {
   return t`State of the digital carbon market`;
@@ -24,7 +26,8 @@ export async function generateMetadata() {
 }
 
 /** Overview page (index/landing page) captured by app/[locale]/page.tsx */
-export default function OverviewPage() {
+export default async function OverviewPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
   return (
     <>
       <PageHeader

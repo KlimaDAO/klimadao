@@ -1,6 +1,8 @@
 import { t } from "@lingui/macro";
 
+import { initLayout } from "app/[locale]/layout";
 import { PageHeader } from "components/PageHeader/PageHeader";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 import Image from "next/image";
 import banner from "./banner.png";
@@ -21,7 +23,8 @@ export async function generateMetadata() {
 }
 
 /** Overview page (index/landing page) captured via rewrite in next.config.js*/
-export default function OverviewPage() {
+export default async function OverviewPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
   return (
     <>
       <PageHeader title={title()} backButtonHref={PageLinks.Overview} />

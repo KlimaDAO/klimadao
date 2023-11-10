@@ -1,6 +1,8 @@
 import { t } from "@lingui/macro";
+import { initLayout } from "app/[locale]/layout";
 import DailyVerraCreditsCard from "components/cards/offVsOnChain/DailyVerraCreditsCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 
 function title() {
@@ -17,13 +19,16 @@ export async function generateMetadata() {
   };
 }
 
-export default function VerraCreditsRetiredOffChainOverTimePage() {
+export default async function VerraCreditsRetiredOffChainOverTimePage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
       pageTitle={title()}
       card={<DailyVerraCreditsCard isDetailPage={true} status="all_retired" />}
       overview={description()}
-      backButtonHref={PageLinks.OffChainVsOnChain}
+      backButtonHref={`${PageLinks.OffChainVsOnChain}?status=retired`}
     />
   );
 }
