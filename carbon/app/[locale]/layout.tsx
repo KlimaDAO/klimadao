@@ -1,5 +1,10 @@
 import Layout from "components/Layout";
-import { activateLocale, loadTranslation } from "lib/i18n";
+import {
+  activateLocale,
+  currentLocale,
+  currentTranslation,
+  loadTranslation,
+} from "lib/i18n";
 import type { Metadata } from "next";
 import "./globals.css";
 export const metadata: Metadata = {
@@ -10,17 +15,22 @@ export default async function RootLayout(props: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // Activate translations server side
-  const locale = props.params.locale;
-  const translation = await loadTranslation(locale);
-  activateLocale(locale, translation);
   return (
-    <html lang={locale}>
+    <html lang={props.params.locale}>
       <body data-theme="theme-light">
-        <Layout locale={props.params.locale} translation={translation}>
+        <Layout locale={props.params.locale} translation={currentTranslation()}>
           {props.children}
         </Layout>
       </body>
     </html>
   );
+}
+
+export async function initLayout(params: { locale: string }) {
+  // Activate translations server side
+  if (params.locale != currentLocale()) {
+    const locale = params.locale;
+    const translation = await loadTranslation(params.locale);
+    activateLocale(locale, translation);
+  }
 }

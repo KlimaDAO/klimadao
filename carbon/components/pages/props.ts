@@ -1,3 +1,4 @@
+import { Locale } from "@lingui/core";
 import {
   Bridge,
   Chain,
@@ -8,6 +9,7 @@ import {
 
 export interface BridgePageParams {
   bridge: Bridge;
+  locale: Locale;
 }
 export interface ChainPageParams {
   chain: Chain;
