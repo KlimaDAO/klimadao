@@ -27,7 +27,7 @@ export default function PoolVolumeOverTimeCard(
       : props.status == "retired"
       ? t`Volume retired over time`
       : props.status == "redeemed"
-      ? t`Volume redemmed over time`
+      ? t`Volume redeemed over time`
       : "";
 
   const detailPageSlug = `pool-volume-${props.status}-over-time`;
