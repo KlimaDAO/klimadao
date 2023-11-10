@@ -12,9 +12,14 @@ export interface BridgePageParams {
 export interface ChainPageParams {
   chain: Chain;
 }
+export interface TokenQueryParams {
+  status: Status;
+  since: DateFilteringOption;
+  pool: Pool;
+}
 export interface TokenDetailPageProps {
   params: BridgePageParams;
-  searchParams: { status: Status; since: DateFilteringOption; pool: Pool };
+  searchParams: TokenQueryParams;
 }
 export interface ChainDetailPageProps {
   params: ChainPageParams;

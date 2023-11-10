@@ -1,29 +1,29 @@
 import { t } from "@lingui/macro";
 import PoolVolumeOverTimeCard from "components/cards/tokenDetails/PoolVolumeOverTimeCard";
 import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
-import { BridgePageParams, TokenDetailPageProps } from "components/pages/props";
-import { getBridgeLabel } from "lib/bridges";
+import { TokenDetailPageProps } from "components/pages/props";
+import { getPoolLabel } from "lib/pools";
 
-function title(params: BridgePageParams) {
-  const bridgeLabel = getBridgeLabel(params.bridge);
-  return t`${bridgeLabel} volume redeemed over time`;
+function title(props: TokenDetailPageProps) {
+  const poolLabel = getPoolLabel(props.searchParams.pool);
+  return t`${poolLabel} volume redeemed over time`;
 }
-function description(params: BridgePageParams) {
-  const bridgeLabel = getBridgeLabel(params.bridge);
-  return t`The volume of redeemed digital carbon credits in ${bridgeLabel} digital carbon pools over a given time period.`;
+function description(props: TokenDetailPageProps) {
+  const poolLabel = getPoolLabel(props.searchParams.pool);
+  return t`The volume of redeemed digital carbon credits in the ${poolLabel} pool over a given time period.`;
 }
 
-export async function generateMetadata({ params }: TokenDetailPageProps) {
+export async function generateMetadata(props: TokenDetailPageProps) {
   return {
-    title: title(params),
-    description: description(params),
+    title: title(props),
+    description: description(props),
   };
 }
 
 export default function TokenVolumeOverTimePage(props: TokenDetailPageProps) {
   return (
     <TokenDetailsDetailPage
-      pageTitle={title(props.params)}
+      pageTitle={title(props)}
       card={
         <PoolVolumeOverTimeCard
           isDetailPage={true}
@@ -31,7 +31,7 @@ export default function TokenVolumeOverTimePage(props: TokenDetailPageProps) {
           {...props.searchParams}
         />
       }
-      overview={description(props.params)}
+      overview={description(props)}
       {...props}
     />
   );
