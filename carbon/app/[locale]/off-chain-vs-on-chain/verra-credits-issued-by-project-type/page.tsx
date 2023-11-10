@@ -1,6 +1,8 @@
 import { t } from "@lingui/macro";
+import { initLayout } from "app/[locale]/layout";
 import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfProjectsCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 
 function title() {
@@ -16,7 +18,10 @@ export async function generateMetadata() {
     description: description(),
   };
 }
-export default function VerraCreditsIssuedByProjectTypePage() {
+export default async function VerraCreditsIssuedByProjectTypePage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
       pageTitle={title()}

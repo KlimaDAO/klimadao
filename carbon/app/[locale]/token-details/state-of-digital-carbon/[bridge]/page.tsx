@@ -1,42 +1,43 @@
 import { t } from "@lingui/macro";
+import { initLayout } from "app/[locale]/layout";
 import TokenStateOfDigitalCarbonCard from "components/cards/tokenDetails/TokenStateOfDigitalCarbonCard";
 import DetailPage from "components/pages/DetailPage";
-import { BridgePageParams, TokenDetailPageProps } from "components/pages/props";
+import { TokenDetailPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 import { getBridgeLabel } from "lib/bridges";
 
-function title(params: BridgePageParams) {
-  const bridgeLabel = getBridgeLabel(params.bridge);
+function title(props: TokenDetailPageProps) {
+  const bridgeLabel = getBridgeLabel(props.params.bridge);
   return t`State of ${bridgeLabel} digital carbon`;
 }
-function description(params: BridgePageParams) {
-  const bridgeLabel = getBridgeLabel(params.bridge);
+function description(props: TokenDetailPageProps) {
+  const bridgeLabel = getBridgeLabel(props.params.bridge);
   return t`The total number of digital carbon credits bridged via ${bridgeLabel} broken down by the current outstanding supply and retired digital carbon credits.`;
 }
 
-export async function generateMetadata({ params }: TokenDetailPageProps) {
+export async function generateMetadata(props: TokenDetailPageProps) {
   return {
-    title: title(params),
-    description: description(params),
+    title: title(props),
+    description: description(props),
   };
 }
 
-export default function TokenStateOfDigitalCarbonPage({
-  params,
-  searchParams,
-}: TokenDetailPageProps) {
+export default async function TokenStateOfDigitalCarbonPage(
+  props: TokenDetailPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
-      pageTitle={title(params)}
+      pageTitle={title(props)}
       card={
         <TokenStateOfDigitalCarbonCard
           isDetailPage={true}
-          {...params}
-          {...searchParams}
+          {...props.params}
+          {...props.searchParams}
         />
       }
-      overview={description(params)}
-      backButtonHref={`${PageLinks.TokenDetails}?tab=${params.bridge}`}
+      overview={description(props)}
+      backButtonHref={`${PageLinks.TokenDetails}?tab=${props.params.bridge}`}
     />
   );
 }

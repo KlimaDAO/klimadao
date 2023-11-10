@@ -1,4 +1,3 @@
-import { Locale } from "@lingui/core";
 import {
   Bridge,
   Chain,
@@ -7,21 +6,27 @@ import {
   Status,
 } from "lib/charts/types";
 
-export interface BridgePageParams {
-  bridge: Bridge;
-  locale: Locale;
+export interface LocalizedPageParams {
+  locale: string;
 }
-export interface ChainPageParams {
+export interface BridgePageParams extends LocalizedPageParams {
+  bridge: Bridge;
+}
+export interface ChainPageParams extends LocalizedPageParams {
   chain: Chain;
 }
-export interface TokenQueryParams {
+export interface TokenQuerySearchParams {
   status: Status;
   since: DateFilteringOption;
   pool: Pool;
 }
+
+export interface LocalizedPageProps {
+  params: LocalizedPageParams;
+}
 export interface TokenDetailPageProps {
   params: BridgePageParams;
-  searchParams: TokenQueryParams;
+  searchParams: TokenQuerySearchParams;
 }
 export interface ChainDetailPageProps {
   params: ChainPageParams;

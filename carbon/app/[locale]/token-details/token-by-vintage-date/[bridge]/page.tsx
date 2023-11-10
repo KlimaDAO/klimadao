@@ -1,4 +1,5 @@
 import { t } from "@lingui/macro";
+import { initLayout } from "app/[locale]/layout";
 import TokenDistributionOfVintageCard from "components/cards/tokenDetails/TokenDistributionOfVintageCard";
 
 import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
@@ -21,9 +22,10 @@ export async function generateMetadata({ params }: TokenDetailPageProps) {
   };
 }
 
-export default function TokenDistributionOfVintageDatePage(
+export default async function TokenDistributionOfVintageDatePage(
   props: TokenDetailPageProps
 ) {
+  await initLayout(props.params);
   return (
     <TokenDetailsDetailPage
       pageTitle={title(props.params)}

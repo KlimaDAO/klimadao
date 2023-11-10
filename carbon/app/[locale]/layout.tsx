@@ -1,5 +1,9 @@
 import Layout from "components/Layout";
 import {
+  LocalizedPageParams,
+  LocalizedPageProps,
+} from "components/pages/props";
+import {
   activateLocale,
   currentLocale,
   currentTranslation,
@@ -11,10 +15,9 @@ export const metadata: Metadata = {
   title: "Carbon Dashboard",
   description: "Carbon Dashboard",
 };
-export default async function RootLayout(props: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+export default async function RootLayout(
+  props: LocalizedPageProps & { children: React.ReactNode }
+) {
   return (
     <html lang={props.params.locale}>
       <body data-theme="theme-light">
@@ -26,7 +29,7 @@ export default async function RootLayout(props: {
   );
 }
 
-export async function initLayout(params: { locale: string }) {
+export async function initLayout(params: LocalizedPageParams) {
   // Activate translations server side
   if (params.locale != currentLocale()) {
     const locale = params.locale;
