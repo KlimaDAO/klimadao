@@ -1,4 +1,5 @@
 import { t } from "@lingui/macro";
+import { initLayout } from "app/[locale]/layout";
 import PoolVolumeOverTimeCard from "components/cards/tokenDetails/PoolVolumeOverTimeCard";
 import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
@@ -20,7 +21,10 @@ export async function generateMetadata(props: TokenDetailPageProps) {
   };
 }
 
-export default function TokenVolumeOverTimePage(props: TokenDetailPageProps) {
+export default async function TokenVolumeOverTimePage(
+  props: TokenDetailPageProps
+) {
+  await initLayout(props.params);
   return (
     <TokenDetailsDetailPage
       pageTitle={title(props)}

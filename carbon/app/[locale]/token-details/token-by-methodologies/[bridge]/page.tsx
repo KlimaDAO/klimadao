@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: TokenDetailPageProps) {
     description: description(params),
   };
 }
-export default function TokenDistributionOfMethodologiesPage(
+export default async function TokenDistributionOfMethodologiesPage(
   props: TokenDetailPageProps
 ) {
   return (

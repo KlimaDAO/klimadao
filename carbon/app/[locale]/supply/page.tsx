@@ -7,7 +7,9 @@ import DailyEthCarbonSupplyCard from "components/cards/supply/DailyEthCarbonSupp
 import DailyEthRetirementsCard from "components/cards/supply/DailyEthRetirementsCard";
 import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCarbonSupplyCard";
 import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
+import { LocalizedPageProps } from "components/pages/props";
 import layout from "theme/layout.module.scss";
+import { initLayout } from "../layout";
 
 function title() {
   return t`Supply`;
@@ -23,7 +25,9 @@ export async function generateMetadata() {
   };
 }
 
-export default function SupplyPage() {
+export default async function SupplyPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
+
   return (
     <div>
       <>

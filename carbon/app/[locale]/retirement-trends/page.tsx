@@ -1,9 +1,11 @@
 import { t } from "@lingui/macro";
 import PageWithTabs from "components/pages/PageWithTabs";
+import { LocalizedPageProps } from "components/pages/props";
 import RetirementTrendsByBeneficiaryTab from "components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab";
 import RetirementTrendsByChainTab from "components/pages/retirementTrends/RetirementTrendsByChainTab";
 import RetirementTrendsByPoolTab from "components/pages/retirementTrends/RetirementTrendsByPoolTab";
 import RetirementTrendsByTokenTab from "components/pages/retirementTrends/RetirementTrendsByTokenTab";
+import { initLayout } from "../layout";
 
 function title() {
   return t`Retirement trends`;
@@ -23,7 +25,8 @@ export async function generateMetadata() {
  * Uses a Client Component (PageWithTabs) to handle tab navigation
  * Tabs are actually Components rendered Server side passed to the Client Component as props
  */
-export default function RetirementTrends() {
+export default async function RetirementTrends(props: LocalizedPageProps) {
+  await initLayout(props.params);
   return (
     <PageWithTabs
       title={title()}

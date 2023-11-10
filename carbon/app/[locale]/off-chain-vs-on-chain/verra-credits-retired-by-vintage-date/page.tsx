@@ -1,6 +1,8 @@
 import { t } from "@lingui/macro";
+import { initLayout } from "app/[locale]/layout";
 import VerraCreditsByBridgeAndVintageCard from "components/cards/offVsOnChain/VerraCreditsByBridgeAndVintageCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 
 function title() {
@@ -17,7 +19,10 @@ export async function generateMetadata() {
   };
 }
 
-export default function VerraCreditsRetiredByVintageDatePage() {
+export default async function VerraCreditsRetiredByVintageDatePage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
       pageTitle={title()}
@@ -28,7 +33,7 @@ export default function VerraCreditsRetiredByVintageDatePage() {
         />
       }
       overview={description()}
-      backButtonHref={PageLinks.OffChainVsOnChain}
+      backButtonHref={`${PageLinks.OffChainVsOnChain}?status=retired`}
     />
   );
 }
