@@ -65,7 +65,7 @@ export const getAggregatorV2Allowance = async (params: {
     getAddress("retirementAggregatorV2")
   );
 
-  return ethersFormatUnits(allowance, 18);
+  return ethersFormatUnits(BigInt(allowance), 18);
 };
 
 /** Approve a known `tokenName`, or `tokenAddress` to be spent by the `spender` contract */
@@ -348,6 +348,9 @@ export const createCompositeAsset = (
   }
 
   const compositeAsset: AssetForRetirement = {
+    id: asset.id,
+    amount: asset.amount,
+    token: { ...asset.token },
     tokenName: asset.token.name,
     balance: asset.amount,
     tokenSymbol: asset.token.symbol,
