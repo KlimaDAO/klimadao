@@ -181,8 +181,8 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
                 defaultValue=""
                 render={({ field }) => <TextField {...field} sx={{ width: 300 }} id="message" size="small" type="text" label="Why are you offsetting?" />} />
 
-              <GooglePlacesSelect label="From" onChange={(_, value) => setSource(value)} value={source} />
-              <GooglePlacesSelect label="To" onChange={(_, value) => setDestination(value)} value={destination} />
+              <GooglePlacesSelect label="From" onChange={(_, value) => setSource(value)} value={source} requestOpts={{ types: ["airport"] }} />
+              <GooglePlacesSelect label="To" onChange={(_, value) => setDestination(value)} value={destination} requestOpts={{ types: ["airport"] }} />
 
 
             </div>

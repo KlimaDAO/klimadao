@@ -24,10 +24,15 @@ type OnChangeProps = UseAutocompleteProps<Place, false, false, false>["onChange"
 
 export type Place = google.maps.places.AutocompletePrediction & Partial<Pick<google.maps.places.PlaceResult, "geometry">>
 
-type Props = { label: string } & Omit<AutocompleteProps<Place, false, false, false, ChipTypeMap['defaultComponent']>, "options" | "renderInput">
+type Props = {
+    //The label for the displayed Textfield
+    label: string,
+    //Request Options for the Autocomplete Service
+    requestOpts?: Omit<google.maps.places.AutocompletionRequest, "input">
+} & Omit<AutocompleteProps<Place, false, false, false, ChipTypeMap['defaultComponent']>, "options" | "renderInput">
 
 function GooglePlacesSelect(props: Props) {
-    const [inputValue, setInputValue] = useState<string>();
+    const [input, setInput] = useState<string>();
     const [options, setOptions] = useState<Place[]>([]);
     const autocomplete = useRef<google.maps.places.AutocompleteService>();
     const places = useRef<google.maps.places.PlacesService>();
@@ -42,13 +47,17 @@ function GooglePlacesSelect(props: Props) {
 
     /** When the input changes populate the list of options */
     useEffect(() => {
-        autocomplete.current?.getPlacePredictions(
-            { input: inputValue ?? "" },
-            (result) => setOptions(result ?? [])
-        )
-    }, [inputValue])
+        if (input)
+            autocomplete.current?.getPlacePredictions(
+                { ...props.requestOpts, input },
+                (result) => setOptions(result ?? [])
+            )
+    }, [input])
 
-    /** Fetch location data on select of a place. We do it here to avoid unnecessary requests to the API */
+    /** 
+     * Fetch location data on selection of an option. 
+     * This results in less requests to the API than for each suggested option
+     */
     const onChange: OnChangeProps = (event, value: Place | null, ...rest) => {
         value && places.current?.getDetails(
             { placeId: value.place_id, fields: ["geometry"] },
@@ -68,7 +77,7 @@ function GooglePlacesSelect(props: Props) {
         noOptionsText="No locations"
         onChange={onChange}
         onInputChange={(_, newInputValue) => {
-            setInputValue(newInputValue);
+            setInput(newInputValue);
         }}
         renderInput={(params) => <TextField {...params} label={props.label} fullWidth />}
         renderOption={(props, option) => {
