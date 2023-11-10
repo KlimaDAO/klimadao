@@ -20,12 +20,17 @@ export default function TokenDetailsDetailPage(
       ? getC3PoolsOptions()
       : undefined;
 
+  const status =
+    props.searchParams.status == "deposited" ||
+    props.searchParams.status == "bridged"
+      ? "bridged"
+      : "retired";
+
   const backButtonQuery: Record<string, string> = {};
   backButtonQuery.tab = props.params.bridge;
   backButtonQuery[`option_${props.params.bridge}_0`] = props.searchParams.pool;
   backButtonQuery[`option_${props.params.bridge}_1`] = props.searchParams.since;
-  backButtonQuery[`option_${props.params.bridge}_2`] =
-    props.searchParams.status;
+  backButtonQuery[`option_${props.params.bridge}_2`] = status;
 
   const newProps: DetailPageProps = {
     ...props,
