@@ -18,11 +18,11 @@ import * as styles from "./styles";
 import { Point, haversine } from "./utils";
 
 import dynamic from "next/dynamic";
-import { Place } from "./GooglePlacesSelect";
+import { Place } from "../../GooglePlacesSelect";
 
 // Dynamically import GooglePlacesSelect with SSR turned off
 const GooglePlacesSelect = dynamic(
-  () => import("./GooglePlacesSelect"),
+  () => import("../../GooglePlacesSelect"),
   { ssr: false } // This will load the component only on client side
 );
 
