@@ -6,7 +6,7 @@ import { getBridgeLabel } from "lib/bridges";
 
 function title(params: BridgePageParams) {
   const bridgeLabel = getBridgeLabel(params.bridge);
-  return t`${bridgeLabel} volume over Time`;
+  return t`${bridgeLabel} volume over time`;
 }
 function description(params: BridgePageParams) {
   const bridgeLabel = getBridgeLabel(params.bridge);
