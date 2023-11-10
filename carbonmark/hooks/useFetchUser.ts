@@ -8,8 +8,9 @@ type GetUserFnT = ClientT["/users/{walletOrHandle}"]["get"];
 export const useFetchUser = (
   args: Parameters<GetUserFnT>[0],
   options?: {
-    initOpts: Parameters<GetUserFnT>[1];
-    swrOpts: SWRConfiguration;
+    initOpts?: Parameters<GetUserFnT>[1];
+    swrOpts?: SWRConfiguration;
+    disabled?: boolean;
   }
 ) => {
   const fetchUser = async () =>
@@ -18,7 +19,7 @@ export const useFetchUser = (
     ).json();
 
   const { data, ...rest } = useSWR(
-    fetchUserURL(args),
+    !options?.disabled ? fetchUserURL(args) : null,
     fetchUser,
     options?.swrOpts
   );

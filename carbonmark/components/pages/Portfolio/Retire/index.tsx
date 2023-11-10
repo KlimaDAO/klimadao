@@ -37,7 +37,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
     params: { walletOrHandle: address },
     // Current user, fetch all listings
     query: { expiresAfter: "0" },
-  });
+  }, { disabled: !address });
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
   const isConnectedUser = isConnected && address;

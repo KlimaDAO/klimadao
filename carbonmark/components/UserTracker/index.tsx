@@ -12,7 +12,7 @@ export const UserTracker: FC<Props> = (props) => {
   const { address = "", isConnectionFromCache } = useWeb3();
   const { carbonmarkUser, isLoading } = useFetchUser({
     params: { walletOrHandle: address },
-  });
+  }, { disabled: !address });
   useEffect(() => {
     // Start tracking only if we finished loading carbonmarkUser data
     if (
