@@ -11,7 +11,9 @@ import { PageLinks } from "lib/PageLinks";
 export default function CarbonSupplyByBlockChainCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <CarbonSupplyByBlockChainChart></CarbonSupplyByBlockChainChart>
+    <CarbonSupplyByBlockChainChart
+      showPercentageInLegend={props.isDetailPage}
+    ></CarbonSupplyByBlockChainChart>
   );
 
   return (
@@ -25,7 +27,9 @@ export default function CarbonSupplyByBlockChainCard(props: CardProps) {
 }
 
 /** Async server component that renders a Recharts client component */
-async function CarbonSupplyByBlockChainChart() {
+async function CarbonSupplyByBlockChainChart(props: {
+  showPercentageInLegend?: boolean;
+}) {
   const configuration: ChartConfiguration<keyof CarbonMetricsItem> = [
     {
       id: "total_carbon_supply_polygon",
@@ -62,5 +66,11 @@ async function CarbonSupplyByBlockChainChart() {
       id: "total_carbon_supply_celo",
     },
   ];
-  return <KPieChart data={data} configuration={configuration} />;
+  return (
+    <KPieChart
+      data={data}
+      configuration={configuration}
+      showPercentageInLegend={props.showPercentageInLegend}
+    />
+  );
 }

@@ -31,7 +31,9 @@ export function KlimaTooltip(params: {
                       style={{ backgroundColor: pld.color }}
                     ></span>
                   )}
-                  {pld.payload?.name || pld.name}
+                  {pld.payload["aria-describedby"] ||
+                    pld.payload?.name ||
+                    pld.name}
                 </div>
                 <div>
                   {pld.value !== undefined &&
