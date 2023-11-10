@@ -28,7 +28,11 @@ export function tokenDetailChartProps(props: TokenDetailsProps) {
   };
 }
 export function propsToDetailsURL(props: TokenDetailsProps, slug: string) {
-  return `${PageLinks.TokenDetails}/${slug}/${props.bridge}?pool=${props.pool}&status=${props.status}&since=${props.since}`;
+  const status =
+    props.status == "bridged" || props.status == "deposited"
+      ? "bridged"
+      : "retired";
+  return `${PageLinks.TokenDetails}/${slug}/${props.bridge}?pool=${props.pool}&status=${status}&since=${props.since}`;
 }
 export function getChartConfiguration(props: TokenDetailsProps) {
   const configuration: ChartConfiguration<keyof PoolQuantitiesInterface> = [];
