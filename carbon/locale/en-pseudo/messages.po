@@ -14,21 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:94
-msgid "{0} retired"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:100
-msgid "{0} outstanding"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:105
-msgid "{0} Bridged"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: app/[locale]/off-chain-vs-on-chain/page.tsx:13
 #: app/[locale]/off-chain-vs-on-chain/page.tsx:16
 msgid "Off vs On-chain carbon"
@@ -797,6 +782,21 @@ msgstr ""
 #: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:56
 #: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:104
 msgid "Outstanding"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:94
+msgid "{0} retired"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:100
+msgid "{0} outstanding"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:105
+msgid "{0} Bridged"
 msgstr ""
 
 #. js-lingui-explicit-id
