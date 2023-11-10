@@ -15,38 +15,38 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/pool-volume-deposited-over-time/[bridge]/page.tsx:9
-msgid "{bridgeLabel} volume deposited over time"
-msgstr "{bridgeLabel} volume deposited over time"
+msgid "{poolLabel} volume deposited over time"
+msgstr "{poolLabel} volume deposited over time"
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/pool-volume-deposited-over-time/[bridge]/page.tsx:13
-msgid "The volume of deposited digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
-msgstr "The volume of deposited digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
+msgid "The volume of deposited digital carbon credits in the {poolLabel} pool over a given time period."
+msgstr "The volume of deposited digital carbon credits in the {poolLabel} pool over a given time period."
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/pool-volume-redeemed-over-time/[bridge]/page.tsx:9
-msgid "{bridgeLabel} volume redeemed over time"
-msgstr "{bridgeLabel} volume redeemed over time"
+msgid "{poolLabel} volume redeemed over time"
+msgstr "{poolLabel} volume redeemed over time"
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/pool-volume-redeemed-over-time/[bridge]/page.tsx:13
-msgid "The volume of redeemed digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
-msgstr "The volume of redeemed digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
+msgid "The volume of redeemed digital carbon credits in the {poolLabel} pool over a given time period."
+msgstr "The volume of redeemed digital carbon credits in the {poolLabel} pool over a given time period."
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/pool-volume-retired-over-time/[bridge]/page.tsx:9
-msgid "{bridgeLabel} volume retired over time"
-msgstr "{bridgeLabel} volume retired over time"
+msgid "{poolLabel} volume retired over time"
+msgstr "{poolLabel} volume retired over time"
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/pool-volume-retired-over-time/[bridge]/page.tsx:13
-msgid "The volume of retired digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
-msgstr "The volume of retired digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
+msgid "The volume of retired digital carbon credits in the {poolLabel} pool over a given time period."
+msgstr "The volume of retired digital carbon credits in the {poolLabel} pool over a given time period."
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:9
-msgid "{bridgeLabel} volume over time"
-msgstr "{bridgeLabel} volume over time"
+#: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:30
+msgid "Volume redeemed over time"
+msgstr "Volume redeemed over time"
 
 #. js-lingui-explicit-id
 #: app/[locale]/off-chain-vs-on-chain/page.tsx:13
@@ -435,6 +435,11 @@ msgid "A breakdown of the vintage dates of each carbon credit bridged via {bridg
 msgstr "A breakdown of the vintage dates of each carbon credit bridged via {bridgeLabel}."
 
 #. js-lingui-explicit-id
+#: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:9
+msgid "{bridgeLabel} volume over time"
+msgstr "{bridgeLabel} volume over time"
+
+#. js-lingui-explicit-id
 #: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:13
 msgid "The volume of digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
 msgstr "The volume of digital carbon credits in {bridgeLabel} digital carbon pools over a given time period."
@@ -732,7 +737,7 @@ msgid "Polygon retirements"
 msgstr "Polygon retirements"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/helpers.ts:42
+#: components/cards/tokenDetails/helpers.ts:38
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:108
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:44
 #: lib/charts/options.ts:74
@@ -740,7 +745,7 @@ msgid "UBO"
 msgstr "UBO"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/helpers.ts:50
+#: components/cards/tokenDetails/helpers.ts:46
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:114
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:52
 #: lib/charts/options.ts:78
@@ -748,7 +753,7 @@ msgid "NBO"
 msgstr "NBO"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/helpers.ts:61
+#: components/cards/tokenDetails/helpers.ts:57
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:59
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:60
 #: lib/charts/options.ts:92
@@ -756,7 +761,7 @@ msgid "BCT"
 msgstr "BCT"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/helpers.ts:72
+#: components/cards/tokenDetails/helpers.ts:68
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:65
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:68
 #: lib/charts/options.ts:96
@@ -764,14 +769,14 @@ msgid "NCT"
 msgstr "NCT"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/helpers.ts:83
+#: components/cards/tokenDetails/helpers.ts:79
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:71
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:120
 msgid "Not pooled"
 msgstr "Not pooled"
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/helpers.ts:92
+#: components/cards/tokenDetails/helpers.ts:88
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:76
 msgid "MCO2"
 msgstr "MCO2"
@@ -785,11 +790,6 @@ msgstr "Volume deposited over time"
 #: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:28
 msgid "Volume retired over time"
 msgstr "Volume retired over time"
-
-#. js-lingui-explicit-id
-#: components/cards/tokenDetails/PoolVolumeOverTimeCard/index.tsx:30
-msgid "Volume redemmed over time"
-msgstr "Volume redemmed over time"
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/TokenDistributionOfMethodologiesCard/index.tsx:28
