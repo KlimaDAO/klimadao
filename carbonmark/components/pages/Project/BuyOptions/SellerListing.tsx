@@ -2,9 +2,10 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
-import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
+import { createListingRetireLink, createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import {
   formatWalletAddress,
@@ -100,6 +101,8 @@ export const SellerListing: FC<Props> = (props) => {
       )}
 
       {address && isConnected && (
+      <div className={styles.buttons}>
+
         <ButtonPrimary
           label={t({
             id: "buy",
@@ -114,6 +117,18 @@ export const SellerListing: FC<Props> = (props) => {
           }
           disabled={isConnectedSeller}
         />
+        <CarbonmarkButton
+        label={t`Retire now`}
+        href={createListingRetireLink(
+          props.project,
+          props.listing.id
+        )}
+        renderLink={(linkProps) => <Link {...linkProps} />}
+        onClick={() => {
+          LO.track("Retire - Listing: Retire Button Clicked");
+        }}
+      />
+        </div>
       )}
     </Card>
   );

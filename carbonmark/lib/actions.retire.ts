@@ -12,7 +12,7 @@ import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { OnStatusHandler } from "lib/statusMessage";
-import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
+import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark.types";
 
 export const getRetirementAllowance = async (params: {
   userAddress: string;
@@ -135,6 +135,7 @@ export const retireCarbonTransaction = async (params: {
   onStatus: OnStatusHandler;
   projectAddress: string;
   isPoolDefault: boolean;
+  listing?: Listing ;
 }): Promise<{
   transactionHash: string;
   /** retirement transaction block number */
@@ -173,7 +174,25 @@ export const retireCarbonTransaction = async (params: {
     const retirementIndex = (retirements.toNumber() || 0) + 1;
 
     let txn;
-    if (params.isPoolDefault) {
+      if (params.listing !== undefined){ 
+        txn = await retireContract.retireCarbonmarkListing(
+          [
+            params.listing.id,
+            params.listing.seller.id,
+            params.listing.tokenAddress,
+            parseUnits(params.listing.leftToSell, 18),
+            parseUnits(params.listing.singleUnitPrice,6)
+          ],
+          parsedMaxAmountIn,
+          parseUnits(params.quantity, 18),
+          "",
+          params.beneficiaryAddress || params.address,
+          params.beneficiaryName,
+          params.retirementMessage,
+          TransferMode.EXTERNAL
+        );
+      }
+    else if (params.isPoolDefault) {
       txn = await retireContract.retireExactCarbonDefault(
         getAddress(params.paymentMethod),
         getAddress(params.retirementToken),

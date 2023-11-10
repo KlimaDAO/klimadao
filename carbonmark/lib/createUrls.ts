@@ -1,4 +1,4 @@
-import { Project, TokenPrice } from "lib/types/carbonmark.types";
+import { Listing, Project, TokenPrice } from "lib/types/carbonmark.types";
 
 type ProjectData = {
   key: Project["key"];
@@ -16,6 +16,11 @@ export const createProjectPoolRetireLink = (
   project: ProjectData,
   pool: TokenPrice["poolName"]
 ) => `${createProjectLink(project)}/retire/pools/${pool.toLowerCase()}`;
+
+export const createListingRetireLink = (
+  project: ProjectData,
+  listing: Listing["id"]
+) => `${createProjectLink(project)}/retire/${listing.toLowerCase()}`;
 
 export const createSellerLink = (handle: string) => `/users/${handle}`;
 
