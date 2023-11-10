@@ -1,6 +1,5 @@
 export { concatAddress } from "./concatAddress";
 export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
-export { fetchBlockRate } from "./fetchBlockRate";
 export { formatTonnes } from "./formatTonnes";
 export { formatUnits } from "./formatUnits";
 export {
@@ -19,7 +18,6 @@ export { getImageSizes } from "./getImageSizes";
 export { getInfuraUrl } from "./getInfuraUrl";
 export { getInteger } from "./getInteger";
 export { getIsValidAddress } from "./getIsValidAddress";
-export { getKlimaSupply } from "./getKlimaSupply";
 export { getLocales } from "./getLocales";
 export { getOgImageSrc } from "./getOgImageSrc";
 export {
@@ -32,7 +30,6 @@ export { getStakingRewards } from "./getStakingRewards";
 export { getStaticProvider } from "./getStaticProvider";
 export { getTokenDecimals } from "./getTokenDecimals";
 export { getTotalCarbonRetired } from "./getTotalCarbonRetired";
-export { getTotalPoolRetired } from "./getTotalPoolRetired";
 export { getTotalRetirements } from "./getTotalRetirements";
 export { getTreasuryBalance } from "./getTreasuryBalance";
 export { isTestnetChainId } from "./isTestnetChainId";

@@ -1,5 +1,5 @@
 import { cx } from "@emotion/css";
-import { Launch } from "@mui/icons-material";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { FC } from "react";
 
 import { ButtonPrimary } from "@klimadao/lib/components";
@@ -25,7 +25,7 @@ export const ViewWalletButton: FC<Props> = (props) => {
         label={<Trans>View</Trans>}
         variant="transparent"
         className={styles.viewButton}
-        icon={<Launch />}
+        icon={<LaunchIcon />}
         iconPos="suffix"
       />
     </div>

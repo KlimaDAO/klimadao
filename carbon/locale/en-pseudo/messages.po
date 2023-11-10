@@ -311,7 +311,7 @@ msgstr ""
 #: app/[locale]/supply/page.tsx:13
 #: app/[locale]/supply/page.tsx:16
 #: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:24
-#: components/Layout/NavItems/index.tsx:33
+#: components/Layout/NavItems/index.tsx:31
 msgid "Supply"
 msgstr ""
 
@@ -1059,23 +1059,23 @@ msgid "Change language"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems/index.tsx:21
+#: components/Layout/NavItems/index.tsx:19
 #: components/pages/DetailPage/index.tsx:30
 msgid "Overview"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems/index.tsx:27
+#: components/Layout/NavItems/index.tsx:25
 msgid "Off vs On-Chain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems/index.tsx:39
+#: components/Layout/NavItems/index.tsx:37
 msgid "Retirement Trends"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems/index.tsx:45
+#: components/Layout/NavItems/index.tsx:43
 msgid "Token Details"
 msgstr ""
 

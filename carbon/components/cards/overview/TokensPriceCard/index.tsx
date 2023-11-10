@@ -1,6 +1,6 @@
 import { formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { InfoOutlined } from "@mui/icons-material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import PercentageChange from "components/PercentageChange";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import {
@@ -84,7 +84,7 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
             label: (
               <div className={styles.selectiveFee}>
                 {t`Selective cost`}
-                <InfoOutlined fontSize={"inherit"} />
+                <InfoOutlinedIcon fontSize={"inherit"} />
               </div>
             ),
             value: selectiveCostInfo,

@@ -1853,7 +1853,7 @@ msgid "pledges.form.confirm_remove"
 msgstr "remove"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:24
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
@@ -2290,7 +2290,7 @@ msgid "resources.list.filter.tag.user_guides"
 msgstr "User Guides"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:25
+#: lib/constants.ts:20
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
@@ -2331,7 +2331,7 @@ msgid "buy.wallet_connect_example_qr_code"
 msgstr "wallet connect qr code example"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:21
+#: lib/constants.ts:16
 msgid "connect_modal.error_message_default"
 msgstr "We had some trouble connecting. Please try again."
 

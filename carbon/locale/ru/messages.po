@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-08 23:03+0000\n"
+"POT-Creation-Date: 2023-11-09 20:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -537,7 +537,7 @@ msgid "Of total retired credits"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems/index.tsx:27
+#: components/Layout/NavItems/index.tsx:25
 msgid "Off vs On-Chain"
 msgstr ""
 
@@ -606,7 +606,7 @@ msgid "Outstanding"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems/index.tsx:21
+#: components/Layout/NavItems/index.tsx:19
 #: components/pages/DetailPage/index.tsx:30
 msgid "Overview"
 msgstr ""
@@ -715,7 +715,7 @@ msgid "Retirement Details"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems/index.tsx:39
+#: components/Layout/NavItems/index.tsx:37
 msgid "Retirement Trends"
 msgstr ""
 
@@ -765,7 +765,7 @@ msgstr ""
 #: app/[locale]/supply/page.tsx:13
 #: app/[locale]/supply/page.tsx:16
 #: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:24
-#: components/Layout/NavItems/index.tsx:33
+#: components/Layout/NavItems/index.tsx:31
 msgid "Supply"
 msgstr ""
 
@@ -900,7 +900,7 @@ msgid "Token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Layout/NavItems/index.tsx:45
+#: components/Layout/NavItems/index.tsx:43
 msgid "Token Details"
 msgstr ""
 
