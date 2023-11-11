@@ -9,11 +9,6 @@ export const layout = css`
   justify-content: center;
 `;
 
-export const projectOptions = css`
-  display: flex;
-  gap: 12px;
-`;
-
 export const form = css`
   display: flex;
   flex-direction: column;
@@ -27,10 +22,6 @@ export const stats = css`
   gap: 12px;
   margin: 20px 0;
   text-align: center;
-`;
-
-export const selectedCard = css`
-  border: 1px solid blue;
 `;
 
 export const fields = css`
@@ -47,15 +38,6 @@ export const logo = css`
   }
 `;
 
-export const card = css`
-  width: 22rem;
-  height: 22rem;
-  //Override to hide the card image and vintage by matching classNames
-  [class$="cardImage"],
-  [class$="text-vintage"] {
-    display: none;
-  }
-`;
 export const button = css``;
 
 export const mapbox = css`

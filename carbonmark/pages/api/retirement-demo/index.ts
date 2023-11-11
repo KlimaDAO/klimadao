@@ -9,7 +9,7 @@ import IERC20 from "../../../../lib/abi/IERC20.json";
 import KlimaRetirementAggregatorV2 from "../../../../lib/abi/KlimaRetirementAggregatorV2.json";
 const LIVE_WALLET_ADDRESS = "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac";
 
-/** @temp hard  */
+/** @temp hardcoded until we can populate with other options  */
 const projectTokenAddress = "0x05e917686251e427034251087602da609e57f693";
 
 const handler: NextApiHandler = async (

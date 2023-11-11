@@ -172,8 +172,6 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
               </div>
             </div>
 
-
-
             <ButtonPrimary
               label={`Offset`}
               onClick={() => setShowModal(true)}
@@ -181,7 +179,11 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
             />
           </div>
         </div>
-        <RetireModal open={showModal} estimate={estimate} projects={props.projects} />
+        {showModal ? <RetireModal
+          open={showModal}
+          estimate={estimate}
+          projects={props.projects}
+          onToggleModal={() => setShowModal(false)} /> : null}
       </ThemeProvider>
     </>
   );

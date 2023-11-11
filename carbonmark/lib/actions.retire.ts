@@ -1,9 +1,8 @@
 // All actions related to Retirement Aggregator
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { PoolToken } from "@klimadao/lib/constants";
 import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
-import { BigNumber, Contract, providers } from "ethers";
+import { BigNumber, providers } from "ethers";
 import { parseUnits } from "ethers-v6";
 import { urls } from "lib/constants";
 import { getFiatRetirementCost } from "lib/fiat/fiatCosts";
@@ -87,39 +86,6 @@ export const getConsumptionCost = async (params: {
   }
 
   return formatUnits(sourceAmount, getTokenDecimals(params.inputToken));
-};
-
-export const approveRetireProjectToken = async (params: {
-  value: string;
-  signer: providers.JsonRpcSigner;
-  tokenAddress: string;
-  onStatus: OnStatusHandler;
-}): Promise<string> => {
-  try {
-    const contract = new Contract(
-      params.tokenAddress,
-      IERC20.abi,
-      params.signer
-    );
-    const parsedValue = parseUnits(params.value, 18);
-    params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(
-      getAddress("retirementAggregatorV2"),
-      parsedValue.toString()
-    );
-    params.onStatus("networkConfirmation", "");
-    await txn.wait(1);
-    params.onStatus("done", "Approval was successful");
-    return formatUnits(parsedValue, 18);
-  } catch (error: any) {
-    if (error.code === 4001) {
-      params.onStatus("error", "userRejected");
-      throw error;
-    }
-    params.onStatus("error");
-    console.error(error);
-    throw error;
-  }
 };
 
 export const retireCarbonTransaction = async (params: {
