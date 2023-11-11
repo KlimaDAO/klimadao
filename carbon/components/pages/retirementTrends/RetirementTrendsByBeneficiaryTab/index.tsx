@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import RetirementsByBeneficiaryListCard from "components/cards/retirementTrends/RetirementsByBeneficiaryListCard";
 import DetailPage from "components/pages/DetailPage";
+import { PageLinks } from "lib/PageLinks";
 import layout from "theme/layout.module.scss";
 
 /**
@@ -15,6 +16,7 @@ export default function RetirementTrendsByBeneficiaryTab() {
         content: t`Lorem Ipsum`,
         source: "ai",
       }}
+      backButtonHref={PageLinks.RetirementTrends}
     />
   );
 }

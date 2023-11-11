@@ -3,7 +3,6 @@ import { Thunk } from "state";
 import { setAppState } from "state/app";
 
 import {
-  fetchBlockRate,
   getContract,
   getEstimatedDailyRebases,
   getTreasuryBalance,
@@ -35,22 +34,15 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
         stakingContract.index(),
         getTreasuryBalance(),
         distributorContract.nextEpochBlock(),
-        fetchBlockRate(),
       ];
-      const [
-        info,
-        circSupply,
-        currentIndex,
-        treasuryBalance,
-        rebaseBlock,
-        blockRate,
-      ] = await Promise.all(promises);
+      const [info, circSupply, currentIndex, treasuryBalance, rebaseBlock] =
+        await Promise.all(promises);
 
       const promises2 = [distributorContract.nextRewardAt(info.rate)];
 
       const [stakingReward] = await Promise.all(promises2);
 
-      const estimatedDailyRebases = getEstimatedDailyRebases(blockRate);
+      const estimatedDailyRebases = getEstimatedDailyRebases();
       const stakingRebase = stakingReward / circSupply;
       const fiveDayRate =
         Math.pow(1 + stakingRebase, 5 * estimatedDailyRebases) - 1;
@@ -66,7 +58,6 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
           stakingRebase,
           treasuryBalance,
           rebaseBlock: rebaseBlock.toNumber(),
-          blockRate,
         })
       );
     } catch (error: any) {

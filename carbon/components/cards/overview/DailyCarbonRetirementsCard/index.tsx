@@ -18,8 +18,9 @@ export default function DailyCarbonRetirementsCard(props: CardProps) {
   return (
     <ChartCard
       {...props}
+      name="retirements"
       title={t`On-chain retirements`}
-      detailUrl="/details/digital-carbon-retirements-snapshot"
+      detailUrl="/overview/digital-carbon-retirements-snapshot"
       bottomOptions={getChainsOptionsWithoutCelo()}
       charts={charts}
     />

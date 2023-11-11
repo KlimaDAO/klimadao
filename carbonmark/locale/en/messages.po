@@ -75,7 +75,7 @@ msgid "Change language"
 msgstr "Change language"
 
 #. js-lingui-explicit-id
-#: components/CopyAddressButton/index.tsx:36
+#: components/CopyAddressButton/index.tsx:37
 msgid "Copy"
 msgstr "Copy"
 
@@ -127,13 +127,7 @@ msgid "Toggle Select Project"
 msgstr "Toggle Select Project"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:153
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
-msgid "{amount} tonnes"
-msgstr "{amount} tonnes"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:158
+#: components/CreateListing/index.tsx:152
 msgid "Create a listing"
 msgstr "Create a listing"
 
@@ -270,7 +264,7 @@ msgid "Not Connected"
 msgstr "Not Connected"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:99
+#: components/Layout/index.tsx:95
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "Login"
@@ -679,22 +673,22 @@ msgid "View a complete overview of the digital carbon that you own in your Retir
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:197
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retire carbon credits for yourself, or on behalf of another person or organization."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:203
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:211
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
 msgid "<0>* </0> Required Field"
 msgstr "<0>* </0> Required Field"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "Beneficiary wallet address (optional)"
@@ -1721,22 +1715,22 @@ msgid "Create your own retirement"
 msgstr "Create your own retirement"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:9
+#: components/pages/Users/Badge/index.tsx:10
 msgid "Invalid"
 msgstr "Invalid"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:11
+#: components/pages/Users/Badge/index.tsx:12
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:14
+#: components/pages/Users/Badge/index.tsx:15
 msgid "Expired"
 msgstr "Expired"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:16
+#: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 
@@ -1928,12 +1922,12 @@ msgid "No active listings."
 msgstr "No active listings."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:189
 msgid "Edit"
 msgstr "Edit"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "Edit listing"
 msgstr "Edit listing"
 
@@ -2157,12 +2151,12 @@ msgid "purchase.input.amount.required"
 msgstr "Amount is required"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
 msgid "offset.amount_in_tonnes_2"
 msgstr "Available: {balance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:373
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.back_button"
 msgstr "back"
 
@@ -2177,7 +2171,7 @@ msgid "portfolio.balances.title"
 msgstr "Balances"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:352
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
 msgid "offset_disclaimer"
 msgstr "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 
@@ -2187,7 +2181,7 @@ msgid "retirement.single.beneficiary_address.title"
 msgstr "Beneficiary Address:"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:274
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
 msgid "offset.retirement_beneficiary_name"
 msgstr "Beneficiary Name"
 
@@ -2277,7 +2271,7 @@ msgid "purchase.transaction.modal.title.confirm"
 msgstr "Confirm Purchase"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:395
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
 msgid "offset.retire_carbon"
 msgstr "Confirm Retirement"
 
@@ -2287,12 +2281,12 @@ msgid "connectModal.wallet"
 msgstr "connect a wallet"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:96
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:100
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -2322,12 +2316,12 @@ msgid "profile.addListing_modal.submit"
 msgstr "Create Listing"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:311
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
 msgid "offset.default_retirement_address"
 msgstr "Defaults to the connected wallet address"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:216
 msgid "profile.listing.edit.delete_listing"
 msgstr "Delete Listing"
 
@@ -2337,7 +2331,7 @@ msgid "retirement.single.project_description.title"
 msgstr "Description"
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:94
+#: components/pages/Blog/Post/index.tsx:95
 msgid "blog.disclaimer.title"
 msgstr "Disclaimer:"
 
@@ -2352,7 +2346,7 @@ msgid "profile.edit_your_profile"
 msgstr "Edit your profile to add a description."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:244
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
 msgid "offset.offset_quantity"
 msgstr "Enter quantity to offset"
 
@@ -2368,7 +2362,7 @@ msgid "transaction_modal.button.go_back"
 msgstr "Go back"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:219
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
 msgid "offset.amount_in_tonnes"
 msgstr "How many tonnes of carbon would you like to offset? <0>* </0>"
 
@@ -2376,11 +2370,6 @@ msgstr "How many tonnes of carbon would you like to offset? <0>* </0>"
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
 msgid "retirement.single.transaction_record.title"
 msgstr "Immutable transaction record"
-
-#. js-lingui-explicit-id
-#: components/Layout/index.tsx:94
-msgid "connectModal.institutional"
-msgstr "institutional"
 
 #. js-lingui-explicit-id
 #: components/Layout/NavMenu/index.tsx:35
@@ -2513,7 +2502,7 @@ msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:80
+#: components/pages/Blog/Post/index.tsx:81
 msgid "shared.resourcecenter"
 msgstr "Resource Center"
 
@@ -2523,7 +2512,7 @@ msgid "menu.retire"
 msgstr "Retire"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:364
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
 msgid "retire.submit_button"
 msgstr "Retire Carbon"
 
@@ -2533,12 +2522,12 @@ msgid "retirement.totals.retired_assets"
 msgstr "Retired Assets"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.retirement_message"
 msgstr "Retirement message"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:331
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
 msgid "offset.retirement_retirement_message"
 msgstr "Retirement Message"
 
@@ -2671,7 +2660,7 @@ msgstr "The first step is to grant the approval to transfer your payment asset f
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:97
+#: components/pages/Blog/Post/index.tsx:98
 msgid "blog.disclaimer.description"
 msgstr "The information provided in this blog post pertaining to KlimaDAO (“KlimaDAO”), its crypto-assets, business assets, strategy, and operations, is for general informational purposes only and is not a formal offer to sell or a solicitation of an offer to buy any securities, options, futures, or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws. Information contained in this blog post should not be relied upon as advice to buy or sell or hold such securities or as an offer to sell such securities. This blog post does not take into account nor does it provide any tax, legal or investment advice or opinion regarding the specific investment objectives or financial situation of any person. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders make no representation or warranties, expressed or implied, as to the accuracy of such information and KlimaDAO expressly disclaims any and all liability that may be based on such information or errors or omissions thereof. KlimaDAO reserves the right to amend or replace the information contained herein, in part or entirely, at any time, and undertakes no obligation to provide the recipient with access to the amended information or to notify the recipient thereof. The information contained in this blog post supersedes any prior blog post or conversation concerning the same, similar or related information. Any information, representations or statements not contained herein shall not be relied upon for any purpose. Neither KlimaDAO nor any of its representatives shall have any liability whatsoever, under contract, tort, trust or otherwise, to you or any person resulting from the use of the information in this blog post by you or any of your representatives or for omissions from the information in this blog post. Additionally, KlimaDAO undertakes no obligation to comment on the expectations of, or statements made by, third parties in respect of the matters discussed in this blog post."
 
@@ -2812,7 +2801,7 @@ msgid "connect_modal.error_message_default"
 msgstr "We had some trouble connecting. Please try again."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:262
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
 msgid "offset.retirement_credit"
 msgstr "Who will this retirement be credited to?"
 

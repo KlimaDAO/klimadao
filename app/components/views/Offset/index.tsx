@@ -985,7 +985,7 @@ export const Offset = (props: Props) => {
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}
-          retirementUrl={`${urls.retirements}/${
+          retirementUrl={`${urls.retirements_carbonmark}/${
             beneficiaryAddress || props.address
           }/${retirementTotals}`}
         />

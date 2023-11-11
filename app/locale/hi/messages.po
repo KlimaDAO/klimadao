@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-03 16:06+0000\n"
+"POT-Creation-Date: 2023-11-10 17:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,7 +10,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:84
 msgid "Acknowledge and Accept"
-msgstr ""
+msgstr "स्वीकार करें और स्वीकार करें"
 
 #. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
@@ -88,12 +88,12 @@ msgstr "अपर्याप्त शेषराशि"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:29
 msgid "Investment Risk Disclaimer"
-msgstr ""
+msgstr "निवेश जोखिम अस्वीकरण"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
-msgstr ""
+msgstr "तरलता की कमी: $KLIMA के लिए कोई सक्रिय बाज़ार नहीं हो सकता है, जिसके परिणामस्वरूप यदि आपको अपने टोकन जल्दी बेचने की आवश्यकता होगी तो नुकसान हो सकता है।"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:411
@@ -128,19 +128,19 @@ msgid "Loading..."
 msgstr "लोड हो रहा है..."
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:181
+#: components/views/Home/index.tsx:177
 msgid "Login"
 msgstr "लॉग इन करें"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:39
 msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
-msgstr ""
+msgstr "निवेश का नुकसान: $KLIMA और अन्य क्रिप्टोकरेंसी का मूल्य किसी भी समय तेजी से बढ़ या घट सकता है। परिणामस्वरूप, आपको महत्वपूर्ण और तीव्र हानि का अनुभव हो सकता है, जिसमें निवेश किए गए सभी धन की हानि भी शामिल है।"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:68
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
-msgstr ""
+msgstr "कोई गारंटी नहीं: इस बात की कोई गारंटी नहीं है कि KlimaDAO प्लेटफ़ॉर्म या $KLIMA टोकन अपने उद्देश्यों को प्राप्त करेगा या प्रोटोकॉल में कोई मूल्य बरकरार रखा जाएगा।"
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:166
@@ -165,7 +165,7 @@ msgstr "12 अप्रैल, 2022 को हम \"dapp\" (डैप) से \"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:60
 msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
-msgstr ""
+msgstr "परिचालन जोखिम: KlimaDAO प्लेटफ़ॉर्म पॉलीगॉन नेटवर्क और अन्य डिजिटल परिसंपत्तियों से संबंधित विभिन्न तकनीकों पर निर्भर करता है। ये प्रौद्योगिकियाँ परिवर्तन के अधीन हैं, और ऐसे परिवर्तन आपके निवेश पर प्रतिकूल प्रभाव डाल सकते हैं।"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:681
@@ -191,12 +191,12 @@ msgstr "प्रोजेक्ट विवरण <0/>"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
-msgstr ""
+msgstr "$KLIMA टोकन सहित क्रिप्टोकरेंसी खरीदने में उच्च स्तर का जोखिम शामिल है और इसे अत्यधिक सट्टा माना जाना चाहिए। यहां विचार करने योग्य कुछ महत्वपूर्ण बिंदु दिए गए हैं:"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
-msgstr ""
+msgstr "नियामक कार्रवाइयां और परिवर्तन: क्रिप्टोकरेंसी के लिए नियामक वातावरण विकसित हो रहा है और विनियमन में बदलाव आपके निवेश पर प्रतिकूल प्रभाव डाल सकता है।"
 
 #. js-lingui-explicit-id
 #: components/views/Redeem/index.tsx:388
@@ -232,7 +232,7 @@ msgstr "इस लागत में स्लिपेज और पूल द
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
-msgstr ""
+msgstr "यह सारांश जोखिम चेतावनी $KLIMA में निवेश से जुड़े सभी जोखिमों का खुलासा नहीं करती है। आपको कोई भी निवेश निर्णय लेने से पहले अपना उचित परिश्रम करना चाहिए और वित्तीय सलाहकार से परामर्श लेना चाहिए।"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
@@ -275,7 +275,7 @@ msgstr "आपको प्राप्त हुया"
 #: components/views/Offset/index.tsx:920
 #: components/views/Redeem/index.tsx:499
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
-msgstr ""
+msgstr "आपकी शेष राशि लेनदेन की लागत से कम से कम 1% अधिक होनी चाहिए।"
 
 #. Long sentence
 #. js-lingui-explicit-id
@@ -624,11 +624,6 @@ msgid "choose_bond.ubo.description"
 msgstr "C3 यूनिवर्सल बेसिक ऑफ़सेट"
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:176
-msgid "connectModal.institutional"
-msgstr "संस्थागत"
-
-#. js-lingui-explicit-id
 #: components/views/Home/index.tsx:168
 msgid "connectModal.torus"
 msgstr "ईमेल या सोशल"
@@ -639,7 +634,7 @@ msgid "connectModal.wallet"
 msgstr "वॉलेट कनेक्ट करें"
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:182
+#: components/views/Home/index.tsx:178
 msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
@@ -659,7 +654,7 @@ msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से ही प्रोसेस हो रही है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:186
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 

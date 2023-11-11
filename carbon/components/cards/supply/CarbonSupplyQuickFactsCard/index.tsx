@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import PercentageChange from "components/PercentageChange";
 import { CoinTileDataFact } from "components/charts/helpers/CoinTiles";
+import { PageLinks } from "lib/PageLinks";
 import {
   getCarbonMetrics7daysAgo,
   getLatestCarbonMetrics,
@@ -22,7 +23,7 @@ export default function CarbonSupplyQuickFactsCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Quick facts`}
-      detailUrl="/details/digital-carbon-supply-quick-facts"
+      detailUrl={`${PageLinks.Supply}/digital-carbon-supply-quick-facts`}
       chart={chart}
     />
   );

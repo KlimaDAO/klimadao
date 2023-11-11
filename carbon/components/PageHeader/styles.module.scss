@@ -30,7 +30,7 @@
   font-size: 2.4rem;
   margin: 0;
 
-  span[role="button"] {
+  a[role="button"] {
     color: var(--lightmode-font-01);
     cursor: pointer;
     display: flex;
@@ -66,10 +66,10 @@
   font-size: 1.4rem;
   padding: 0 2.4rem;
   height: 4.8rem;
-  color: var(--brand-white);
-  background-color: var(--brand-blue);
+  color: var(--brand-black);
+  background-color: var(--brand-green);
 
   &:hover {
-    background-color: var(--brand-blue);
+    background-color: var(--brand-green);
   }
 }

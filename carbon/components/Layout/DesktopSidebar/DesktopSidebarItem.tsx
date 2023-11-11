@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const DesktopSidebarItem: FC<Props> = ({ navItem }) => {
-  const active = useIsPathnameActive(navItem.url);
+  const active = useIsPathnameActive(navItem);
 
   return (
     <Link

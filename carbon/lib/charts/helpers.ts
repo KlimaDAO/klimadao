@@ -184,25 +184,30 @@ export async function getMergedVolumes(
 }
 
 // Date helpers
-export const dateForQuery = function (date: number) {
+export function dateForQuery(date: number): string {
   return new Date(date).toISOString().split(".")[0];
-};
+}
 
 // Common formatters
-export const formatQuantityAsMillionsOfTons = function (
-  quantity: number
-): string {
+export function formatQuantityAsMillionsOfTons(quantity: number): string {
   quantity = Math.floor(quantity / 1000000);
   return `${quantity} MT`;
-};
-export const formatQuantityAsKiloTons = function (quantity: number): string {
+}
+export function formatQuantityAsKiloTons(quantity: number): string {
   quantity = Math.floor(quantity / 1000);
   return `${quantity} KT`;
-};
-export const formatQuantityAsTons = function (quantity: number): string {
+}
+export function formatQuantityAsTons(quantity: number): string {
   quantity = Math.floor(quantity);
   return `${quantity} T`;
-};
+}
+export function getTonsFormatter(quantity: number) {
+  return quantity < 10 ** 4
+    ? formatQuantityAsTons
+    : quantity < 10 ** 7
+    ? formatQuantityAsKiloTons
+    : formatQuantityAsMillionsOfTons;
+}
 export const formatPrice = function (price: number): string {
   // Enforce prices formatting in english locale ($0.00)
   return new Intl.NumberFormat("en", {

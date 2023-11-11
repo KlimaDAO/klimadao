@@ -1,5 +1,8 @@
 "use client";
-import { ExpandLess, ExpandMore, UnfoldMore } from "@mui/icons-material";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
+
 import { SortQueryParams } from "lib/charts/types";
 import { ConfigurationKey, getColumns } from "../configurations";
 import tableStyles from "../configurations/styles.module.scss";
@@ -42,11 +45,12 @@ export default function VerticalTableHeader<P>(props: {
   }
   /** Computes the button associated to the header */
   function sortButtonComponent(key: string): JSX.Element {
-    let Element = UnfoldMore;
+    let Element = UnfoldMoreIcon;
     const dataKey = columns[key].dataKey;
 
     if (props.sortParams.sort_by == dataKey) {
-      Element = props.sortParams.sort_order == "asc" ? ExpandLess : ExpandMore;
+      Element =
+        props.sortParams.sort_order == "asc" ? ExpandLessIcon : ExpandMoreIcon;
     }
     return <Element onClick={() => setSortParamsWrapper(key)} />;
   }

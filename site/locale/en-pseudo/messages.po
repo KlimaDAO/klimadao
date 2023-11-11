@@ -98,8 +98,8 @@ msgid "Frequently Asked Questions"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
 msgid "Login"
 msgstr ""
 
@@ -487,7 +487,7 @@ msgid "pledges.form.errors.walletAddress.required"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:432
+#: components/pages/Buy/index.tsx:434
 msgid "buy.answer_exchange"
 msgstr ""
 
@@ -557,7 +557,7 @@ msgid "shared.app"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:365
+#: components/pages/Buy/index.tsx:367
 msgid "buy.what_are_bonds"
 msgstr ""
 
@@ -628,7 +628,7 @@ msgid "resources.list.filter.type.blog"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:379
+#: components/pages/Buy/index.tsx:381
 msgid "buy.bond_description_capacity"
 msgstr ""
 
@@ -669,7 +669,7 @@ msgid "infinity.getStarted_calculate_subtitle"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:384
+#: components/pages/Buy/index.tsx:386
 msgid "buy.bond_question_credit_card"
 msgstr ""
 
@@ -820,7 +820,7 @@ msgid "pledge.modal.confirm"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:194
+#: components/pages/Pledge/PledgeDashboard/index.tsx:190
 msgid "pledges.form.confirm_delete"
 msgstr ""
 
@@ -851,14 +851,14 @@ msgid "pledges.home.hero.connecting"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:118
-#: components/pages/Pledge/PledgeDashboard/index.tsx:176
+#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/index.tsx:172
 msgid "connect_modal.connecting"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/PledgeDashboard/index.tsx:180
+#: components/pages/Pledge/index.tsx:118
+#: components/pages/Pledge/PledgeDashboard/index.tsx:176
 msgid "connect_modal.error_title"
 msgstr ""
 
@@ -1018,7 +1018,7 @@ msgid "web3modal.torus.name"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:203
+#: components/pages/Pledge/index.tsx:199
 msgid "pledges.home.search.label"
 msgstr ""
 
@@ -1068,7 +1068,7 @@ msgid "pledges.form.errors.categoryQuantity.min"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:209
+#: components/pages/Pledge/index.tsx:205
 msgid "pledges.form.error"
 msgstr ""
 
@@ -1079,7 +1079,7 @@ msgid "shared.enter_app"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:197
+#: components/pages/Pledge/index.tsx:193
 msgid "pledges.home.search.placeholder"
 msgstr ""
 
@@ -1114,7 +1114,7 @@ msgid "community.etcgroup_logo"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:370
+#: components/pages/Buy/index.tsx:372
 msgid "buy.bond_description1"
 msgstr ""
 
@@ -1129,7 +1129,7 @@ msgid "shared.dcm_cta"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:318
+#: components/pages/Buy/index.tsx:320
 msgid "buy.faq_title"
 msgstr ""
 
@@ -1144,7 +1144,7 @@ msgid "resources.page.header.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:309
+#: components/pages/Buy/index.tsx:311
 msgid "buy.staking_description3"
 msgstr ""
 
@@ -1327,14 +1327,8 @@ msgid "shared.info"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:415
+#: components/pages/Buy/index.tsx:417
 msgid "buy.bond_answer_cex2"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/PledgeDashboard/index.tsx:170
-msgid "connectModal.institutional"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1391,7 +1385,7 @@ msgid "buy.how_to_paragraph_part_1"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:407
+#: components/pages/Buy/index.tsx:409
 msgid "buy.bond_answer_cex1"
 msgstr ""
 
@@ -1516,7 +1510,7 @@ msgid "community.head.metadescription"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:167
+#: components/pages/Pledge/index.tsx:163
 msgid "pledges.home.hero.learn_more"
 msgstr ""
 
@@ -1859,7 +1853,7 @@ msgid "pledges.form.confirm_remove"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:24
 msgid "connect_modal.error_processing"
 msgstr ""
 
@@ -1917,7 +1911,7 @@ msgid "web3modal.walletconnect.desc"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:223
+#: components/pages/Pledge/index.tsx:219
 msgid "pledges.home.search.submit"
 msgstr ""
 
@@ -1952,7 +1946,7 @@ msgid "resources.form.categories.subheader"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:351
+#: components/pages/Buy/index.tsx:353
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr ""
 
@@ -2045,7 +2039,7 @@ msgid "buy.staking_cta"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:337
+#: components/pages/Buy/index.tsx:339
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr ""
 
@@ -2065,7 +2059,7 @@ msgid "infinity.carousel_info_title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:344
+#: components/pages/Buy/index.tsx:346
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr ""
 
@@ -2092,7 +2086,7 @@ msgid "blog.disclaimer.description"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:326
+#: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic_answer"
 msgstr ""
 
@@ -2296,12 +2290,12 @@ msgid "resources.list.filter.tag.user_guides"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:25
+#: lib/constants.ts:20
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:358
+#: components/pages/Buy/index.tsx:360
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr ""
 
@@ -2337,7 +2331,7 @@ msgid "buy.wallet_connect_example_qr_code"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:21
+#: lib/constants.ts:16
 msgid "connect_modal.error_message_default"
 msgstr ""
 
@@ -2365,7 +2359,7 @@ msgid "pledges.form.input.profileWebsiteUrl.label"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:426
+#: components/pages/Buy/index.tsx:428
 msgid "buy.question_exchange"
 msgstr ""
 
@@ -2395,12 +2389,12 @@ msgid "buy.connect_torus_sushi_description4"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:400
+#: components/pages/Buy/index.tsx:402
 msgid "buy.bond_question_cex"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:321
+#: components/pages/Buy/index.tsx:323
 msgid "buy.question_why_matic"
 msgstr ""
 
@@ -2426,7 +2420,7 @@ msgid "pledges.dashboard.pledge.default_text"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:389
+#: components/pages/Buy/index.tsx:391
 msgid "buy.bond_answer_cedit_card"
 msgstr ""
 
@@ -2457,7 +2451,7 @@ msgid "pledge.modal.wallet_add_confirm"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:190
+#: components/pages/Pledge/PledgeDashboard/index.tsx:186
 msgid "pledges.form.title"
 msgstr ""
 
