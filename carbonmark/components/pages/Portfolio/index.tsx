@@ -24,11 +24,14 @@ export const Portfolio: NextPage = () => {
     initializing,
     networkLabel,
   } = useWeb3();
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser({
-    params: { walletOrHandle: address },
-    //Since we're fetching for the current user fetch all listings
-    query: { network: networkLabel, expiresAfter: "0" },
-  }, { disabled: !address });
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser(
+    {
+      params: { walletOrHandle: address },
+      //Since we're fetching for the current user fetch all listings
+      query: { network: networkLabel, expiresAfter: "0" },
+    },
+    { disabled: !address }
+  );
 
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

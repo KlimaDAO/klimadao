@@ -33,11 +33,14 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
     provider,
     initializing,
   } = useWeb3();
-  const { carbonmarkUser, isLoading } = useFetchUser({
-    params: { walletOrHandle: address },
-    // Current user, fetch all listings
-    query: { expiresAfter: "0" },
-  }, { disabled: !address });
+  const { carbonmarkUser, isLoading } = useFetchUser(
+    {
+      params: { walletOrHandle: address },
+      // Current user, fetch all listings
+      query: { expiresAfter: "0" },
+    },
+    { disabled: !address }
+  );
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
   const isConnectedUser = isConnected && address;

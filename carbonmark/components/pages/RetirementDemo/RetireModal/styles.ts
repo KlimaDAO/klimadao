@@ -12,8 +12,8 @@ export const card = css`
   width: 22rem;
   height: 22rem;
   //Override to hide the card image and vintage by matching classNames
-  [class$="cardImage"],
-  [class$="text-vintage"] {
+  .cardImage,
+  .text-vintage {
     display: none;
   }
 `;

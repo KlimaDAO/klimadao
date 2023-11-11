@@ -21,7 +21,7 @@ export const SimpleProjectCard: FC<Props> = (props) => {
       {...omit(props, "className", "project")}
       className={cx(styles.card, props.className)}
     >
-      <div className={styles.cardImage}>
+      <div className={cx("cardImage", styles.cardImage)}>
         <ProjectImage category={getCategoryFromProject(props.project)} />
       </div>
       <div className={styles.cardContent}>
@@ -35,7 +35,7 @@ export const SimpleProjectCard: FC<Props> = (props) => {
             t`No project description found`}
         </Text>
         <div className={styles.tags}>
-          <Vintage vintage={props.project.vintage} />
+          <Vintage vintage={props.project.vintage} className={"text-vintage"} />
           {props.project?.methodologies?.length > 1 ? (
             props.project.methodologies.map((methodology, index) => (
               <Category
