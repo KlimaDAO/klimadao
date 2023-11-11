@@ -14,6 +14,7 @@ import { KG_CARBON_KM_FLIGHT } from "./constants";
 import * as styles from "./styles";
 import { Point, haversine } from "./utils";
 
+import { FeatureCollection, LineString } from "@turf/helpers";
 import dynamic from "next/dynamic";
 import { Place } from "../../GooglePlacesSelect";
 import { RetireModal } from "./RetireModal";
@@ -63,8 +64,25 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
     if (notNil(sourceCoords) && notNil(destCoords)) {
       const distance = haversine(sourceCoords, destCoords);
       setDistance(distance);
+
+
     }
   }, [source, destination]);
+
+      //Center the map on changed route
+  useEffect(() => {
+    const sourceCoords = latLngToPoint(source?.geometry?.location);
+    const destCoords = latLngToPoint(destination?.geometry?.location);
+
+    if (notNil(sourceCoords) && notNil(destCoords)) {
+      map.current?.fitBounds([
+          [sourceCoords.lng, sourceCoords.lat],
+          [destCoords.lng, destCoords.lat]
+        ], {
+          padding: { top: 10, bottom: 25, left: 15, right: 5 }
+        });
+      }
+  }, [source, destination])
 
   // Initial mapbox load
   useEffect(() => {
@@ -79,51 +97,54 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const mapRef = map.current;
+  useEffect(() => {
+    const mapRef = map.current;
 
-  //   if (!mapRef?.isStyleLoaded()) return;
+    if (!mapRef?.isStyleLoaded()) return;
 
-  //   // A simple line from origin to destination.
-  //   const route: FeatureCollection<LineString> = {
-  //     type: "FeatureCollection",
-  //     features: [
-  //       {
-  //         type: "Feature",
-  //         geometry: {
-  //           type: "LineString",
-  //           coordinates: [
-  //             [source?.coordinates.lng ?? 0, source?.coordinates.lat ?? 0],
-  //             [
-  //               destination?.coordinates.lng ?? 0,
-  //               destination?.coordinates.lat ?? 0,
-  //             ],
-  //           ],
-  //         },
-  //         properties: {},
-  //       },
-  //     ],
-  //   };
+    // A simple line from origin to destination.
+    const route: FeatureCollection<LineString> = {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          geometry: {
+            type: "LineString",
+            coordinates: [
+              [
+                source?.geometry?.location?.lng() ?? 0,
+                source?.geometry?.location?.lat() ?? 0
+              ],
+              [
+                destination?.geometry?.location?.lng() ?? 0,
+                destination?.geometry?.location?.lat() ?? 0,
+              ],
+            ],
+          },
+          properties: {},
+        },
+      ],
+    };
 
-  //   if (mapRef?.getSource("route")) mapRef?.removeSource("route");
-  //   if (mapRef?.getLayer("route")) mapRef?.removeLayer("route");
+    if (mapRef?.getLayer("route")) mapRef?.removeLayer("route");
+    if (mapRef?.getSource("route")) mapRef?.removeSource("route");
 
-  //   if (!mapRef?.getSource("route"))
-  //     map.current?.addSource("route", {
-  //       type: "geojson",
-  //       data: route,
-  //     });
-  //   if (!mapRef?.getLayer("route"))
-  //     map.current?.addLayer({
-  //       id: "route",
-  //       source: "route",
-  //       type: "line",
-  //       paint: {
-  //         "line-width": 2,
-  //         "line-color": "#007cbf",
-  //       },
-  //     });
-  // }, [source, destination]);
+    if (!mapRef?.getSource("route"))
+      map.current?.addSource("route", {
+        type: "geojson",
+        data: route,
+      });
+    if (!mapRef?.getLayer("route"))
+      map.current?.addLayer({
+        id: "route",
+        source: "route",
+        type: "line",
+        paint: {
+          "line-width": 2,
+          "line-color": "#007cbf",
+        },
+      });
+  }, [source, destination]);
 
   return (
     <>
