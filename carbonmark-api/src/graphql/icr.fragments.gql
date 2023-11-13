@@ -1,4 +1,4 @@
-fragment ProjectFragment on Project {
+fragment ICRProjectFragment on Project {
   id
   projectAddress
   projectName
