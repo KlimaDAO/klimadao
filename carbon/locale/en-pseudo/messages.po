@@ -387,12 +387,12 @@ msgid "The total number of digital carbon credits bridged via {bridgeLabel} brok
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:9
+#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:10
 msgid "{bridgeLabel} distribution of methodologies"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:13
+#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:14
 msgid "A breakdown of the methodologies used to validate and issue each carbon credit bridged via {bridgeLabel}."
 msgstr ""
 
