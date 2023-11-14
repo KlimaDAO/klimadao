@@ -13,8 +13,8 @@ import {
 import type { Metadata } from "next";
 import "./globals.css";
 export const metadata: Metadata = {
-  title: "Carbon Dashboard",
-  description: "Carbon Dashboard",
+  title: "Klima Data",
+  description: "Klima Data",
 };
 
 export default async function RootLayout(
