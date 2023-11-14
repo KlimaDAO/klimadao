@@ -1,4 +1,5 @@
 import { helpers } from "lib/charts";
+import { getTonsFormatter } from "lib/charts/helpers";
 import { ChartData } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import { Text, YAxisProps } from "recharts";
@@ -95,12 +96,7 @@ export function KlimaYAxisTonsProps<CI, T>(
   );
   const max = helpers.getDataChartMax(data, dataKeys);
   // Select formatter
-  const tickFormatter =
-    max < 10 ** 4
-      ? helpers.formatQuantityAsTons
-      : max < 10 ** 7
-      ? helpers.formatQuantityAsKiloTons
-      : helpers.formatQuantityAsMillionsOfTons;
+  const tickFormatter = getTonsFormatter(max);
 
   return Object.assign({}, BASE_YAXIS_PROPS, {
     tickFormatter,

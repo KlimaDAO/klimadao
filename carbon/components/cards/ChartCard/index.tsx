@@ -21,6 +21,7 @@ export type CardProps = {
 };
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
+ * name: Name of the chart for state persistence
  * charts: A dictionnary contaning the possible charts to be displayed
  * chart: A single chart if the card has no options
  * title: Title of the chart
@@ -34,6 +35,7 @@ export type CardProps = {
  */
 export default function ChartCard<T extends Key, B extends Key>(
   props: {
+    name?: string;
     charts?: Record<string, React.ReactNode>;
     chart?: React.ReactNode;
     title: string;
@@ -44,6 +46,7 @@ export default function ChartCard<T extends Key, B extends Key>(
     isColumnCard?: boolean;
   } & CardProps
 ) {
+  const name = props.name || "chart";
   const [topOptionKey, setTopOptionKey] = useState<T | undefined>(
     props.topOptions ? props.topOptions[0].value : undefined
   );
@@ -111,7 +114,6 @@ export default function ChartCard<T extends Key, B extends Key>(
   if (bottomOptionsPosition == "center") {
     footerClassName = `${footerClassName} ${styles.overlapLegend}`;
   }
-
   return (
     <div
       className={cx(cardClassName, props.className)}
@@ -122,6 +124,7 @@ export default function ChartCard<T extends Key, B extends Key>(
         {props.topOptions && (
           <div className={styles.cardHeaderSwitcher}>
             <OptionsSwitcher
+              name={`${name}_top`}
               options={props.topOptions}
               onSelectionChange={setTopOptionKey}
             ></OptionsSwitcher>
@@ -136,6 +139,7 @@ export default function ChartCard<T extends Key, B extends Key>(
         {props.topOptions && (
           <div className={styles.cardFooterSwitcher}>
             <OptionsSwitcher
+              name={`${name}_top`}
               options={props.topOptions}
               onSelectionChange={setTopOptionKey}
             ></OptionsSwitcher>
@@ -143,6 +147,7 @@ export default function ChartCard<T extends Key, B extends Key>(
         )}
         {props.bottomOptions && (
           <OptionsSwitcher
+            name={`${name}_bottom`}
             options={props.bottomOptions}
             onSelectionChange={setBottomOptionKey}
           />

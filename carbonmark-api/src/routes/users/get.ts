@@ -1,7 +1,6 @@
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { Activity } from "../../models/Activity.model";
-import { Listing } from "../../models/Listing.model";
 import { User } from "../../models/User.model";
 import {
   getProfileByAddress,
@@ -68,7 +67,7 @@ const handler = (fastify: FastifyInstance) =>
         addresses: getUniqueWallets(user?.activities ?? []),
       });
 
-      let activities =
+      const activities =
         user?.activities?.map((a): Activity => {
           // remember: not all users have profiles.
           const buyer = !!a.buyer?.id && {
@@ -92,16 +91,7 @@ const handler = (fastify: FastifyInstance) =>
           };
         }) || [];
 
-      let listings = user?.listings?.map(formatListing) || [];
-
-      // TEMP HOTFIX until we have a mainnet graph url
-      // https://github.com/KlimaDAO/klimadao/issues/1604
-      if (listings.length && request.query.network !== "mumbai") {
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- temp fix
-        listings = [] as Listing[];
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- temp fix
-        activities = [] as Activity[];
-      }
+      const listings = user?.listings?.map(formatListing) || [];
 
       const response: User = {
         createdAt: profile?.createdAt || 0,

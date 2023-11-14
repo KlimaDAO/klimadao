@@ -1,4 +1,5 @@
-import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { formatPercentage } from "lib/charts/helpers";
 import styles from "./styles.module.scss";
 
@@ -13,9 +14,9 @@ export default function PercentageChange(props: {
 
   const icon =
     percentage > 0 ? (
-      <ArrowDropUp color={"success"}></ArrowDropUp>
+      <ArrowDropUpIcon color={"success"} />
     ) : (
-      <ArrowDropDown color={"error"}></ArrowDropDown>
+      <ArrowDropDownIcon color={"error"} />
     );
   return (
     <span className={styles.priceChangeValue}>

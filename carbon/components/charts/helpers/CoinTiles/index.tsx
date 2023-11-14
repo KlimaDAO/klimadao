@@ -1,9 +1,11 @@
-import { ReactNode } from "react";
+import { Tooltip } from "@mui/material";
+import { FC, ReactNode } from "react";
 import styles from "./styles.module.scss";
 
 export interface CoinTileDataFact {
   value: ReactNode;
   label: ReactNode;
+  tooltip?: string;
 }
 type CoinTileData = {
   title: string;
@@ -30,16 +32,41 @@ export function CoinTile(props: { data: CoinTileData }) {
         </div>
       </div>
       <div className={styles.content}>
-        {props.data.facts.map((fact, index) => (
-          <div key={index} className={styles.fact}>
-            <div aria-describedby="value">{fact.value}</div>
-            <div aria-describedby="label">{fact.label}</div>
-          </div>
-        ))}
+        {props.data.facts.map((fact, index) => {
+          if (fact.tooltip) {
+            return (
+              <Tooltip
+                leaveTouchDelay={2500}
+                enterTouchDelay={0}
+                title={<div className={styles.tooltip}>{fact.tooltip}</div>}
+                disableFocusListener
+              >
+                <Fact fact={fact} index={index} clickable />
+              </Tooltip>
+            );
+          }
+          return <Fact fact={fact} index={index} />;
+        })}
       </div>
     </div>
   );
 }
+
+const Fact: FC<{
+  index: number;
+  fact: CoinTileDataFact;
+  clickable?: boolean;
+}> = ({ index, fact, clickable = false }) => {
+  return (
+    <div
+      key={index}
+      className={`${styles.fact} ${clickable && styles.clickable}`}
+    >
+      <div aria-describedby="value">{fact.value}</div>
+      <div aria-describedby="label">{fact.label}</div>
+    </div>
+  );
+};
 
 /** A component that renders tiles */
 export function CoinTiles(props: Props) {

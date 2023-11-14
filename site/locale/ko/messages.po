@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-03 16:06+0000\n"
+"POT-Creation-Date: 2023-11-14 18:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,8 +84,8 @@ msgid "Location: {0}"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
 msgid "Login"
 msgstr ""
 
@@ -168,42 +168,42 @@ msgid "blog.disclaimer.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:432
+#: components/pages/Buy/index.tsx:434
 msgid "buy.answer_exchange"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:389
+#: components/pages/Buy/index.tsx:391
 msgid "buy.bond_answer_cedit_card"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:407
+#: components/pages/Buy/index.tsx:409
 msgid "buy.bond_answer_cex1"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:415
+#: components/pages/Buy/index.tsx:417
 msgid "buy.bond_answer_cex2"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:370
+#: components/pages/Buy/index.tsx:372
 msgid "buy.bond_description1"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:379
+#: components/pages/Buy/index.tsx:381
 msgid "buy.bond_description_capacity"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:400
+#: components/pages/Buy/index.tsx:402
 msgid "buy.bond_question_cex"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:384
+#: components/pages/Buy/index.tsx:386
 msgid "buy.bond_question_credit_card"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgid "buy.create_wallet_item"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:318
+#: components/pages/Buy/index.tsx:320
 msgid "buy.faq_title"
 msgstr ""
 
@@ -319,37 +319,37 @@ msgid "buy.load_wallet_description3"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:426
+#: components/pages/Buy/index.tsx:428
 msgid "buy.question_exchange"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:321
+#: components/pages/Buy/index.tsx:323
 msgid "buy.question_why_matic"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:326
+#: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic_answer"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:337
+#: components/pages/Buy/index.tsx:339
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:344
+#: components/pages/Buy/index.tsx:346
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:351
+#: components/pages/Buy/index.tsx:353
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:358
+#: components/pages/Buy/index.tsx:360
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr ""
 
@@ -369,7 +369,7 @@ msgid "buy.staking_description2"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:309
+#: components/pages/Buy/index.tsx:311
 msgid "buy.staking_description3"
 msgstr ""
 
@@ -445,7 +445,7 @@ msgid "buy.wallet_connect_example_qr_code"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:365
+#: components/pages/Buy/index.tsx:367
 msgid "buy.what_are_bonds"
 msgstr ""
 
@@ -620,12 +620,6 @@ msgid "concat.careers"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/PledgeDashboard/index.tsx:170
-msgid "connectModal.institutional"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/pages/Pledge/index.tsx:104
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "connectModal.torus"
@@ -638,29 +632,29 @@ msgid "connectModal.wallet"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:118
-#: components/pages/Pledge/PledgeDashboard/index.tsx:176
+#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/index.tsx:172
 msgid "connect_modal.connecting"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:21
+#: lib/constants.ts:16
 msgid "connect_modal.error_message_default"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:25
+#: lib/constants.ts:20
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:24
 msgid "connect_modal.error_processing"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/PledgeDashboard/index.tsx:180
+#: components/pages/Pledge/index.tsx:118
+#: components/pages/Pledge/PledgeDashboard/index.tsx:176
 msgid "connect_modal.error_title"
 msgstr ""
 
@@ -1585,7 +1579,7 @@ msgid "pledges.form.awaiting_signature"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:194
+#: components/pages/Pledge/PledgeDashboard/index.tsx:190
 msgid "pledges.form.confirm_delete"
 msgstr ""
 
@@ -1600,7 +1594,7 @@ msgid "pledges.form.confirm_remove_cancel"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:209
+#: components/pages/Pledge/index.tsx:205
 msgid "pledges.form.error"
 msgstr ""
 
@@ -1775,7 +1769,7 @@ msgid "pledges.form.submit_button"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:190
+#: components/pages/Pledge/PledgeDashboard/index.tsx:186
 msgid "pledges.form.title"
 msgstr ""
 
@@ -1820,7 +1814,7 @@ msgid "pledges.home.hero.create"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:167
+#: components/pages/Pledge/index.tsx:163
 msgid "pledges.home.hero.learn_more"
 msgstr ""
 
@@ -1830,17 +1824,17 @@ msgid "pledges.home.hero.view"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:203
+#: components/pages/Pledge/index.tsx:199
 msgid "pledges.home.search.label"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:197
+#: components/pages/Pledge/index.tsx:193
 msgid "pledges.home.search.placeholder"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:223
+#: components/pages/Pledge/index.tsx:219
 msgid "pledges.home.search.submit"
 msgstr ""
 

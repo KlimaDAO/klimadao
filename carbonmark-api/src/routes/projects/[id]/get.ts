@@ -1,9 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
-import { Activity } from "../../../models/Activity.model";
 import { DetailedProject } from "../../../models/DetailedProject.model";
-import { Listing } from "../../../models/Listing.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
@@ -57,15 +55,6 @@ const handler = (fastify: FastifyInstance) =>
     if (!projectDetails) {
       // only render pages if project details exist (render even if there are no listings!)
       return reply.notFound();
-    }
-
-    // TEMP EMERGENCY HOTFIX until we have a mainnet graph url
-    // https://github.com/KlimaDAO/klimadao/issues/1604
-    if (listings.length && request.query.network !== "mumbai") {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- temp fix
-      listings = [] as Listing[];
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- temp fix
-      activities = [] as Activity[];
     }
 
     const poolPriceValues = poolPrices.map((p) => Number(p.singleUnitPrice));

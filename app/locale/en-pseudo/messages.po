@@ -151,7 +151,7 @@ msgid "Capacity"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:181
+#: components/views/Home/index.tsx:177
 msgid "Login"
 msgstr ""
 
@@ -664,12 +664,12 @@ msgid "web3modal.injected.des"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:182
+#: components/views/Home/index.tsx:178
 msgid "connect_modal.connecting"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:186
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.error_title"
 msgstr ""
 
@@ -896,11 +896,6 @@ msgstr ""
 #: components/views/Offset/index.tsx:632
 #: components/views/Redeem/index.tsx:353
 msgid "offset.incompatible"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Home/index.tsx:176
-msgid "connectModal.institutional"
 msgstr ""
 
 #. js-lingui-explicit-id

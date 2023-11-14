@@ -111,6 +111,12 @@
               "key": "purchaseId",
               "value": "0x03bac372ddee7c014b6c610d1ead2d20d8b01b5e2714436a3b346c488ed26885"
             }
+          ],
+          "query": [
+            {
+              "key": "network",
+              "value": "mumbai"
+            }
           ]
         }
       },

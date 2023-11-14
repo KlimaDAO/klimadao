@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-03 16:06+0000\n"
+"POT-Creation-Date: 2023-11-14 18:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "500 - Server error occurred"
 msgstr "500 - Serverfehler aufgetreten"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:211
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> Pflichtfeld"
 
@@ -172,7 +172,7 @@ msgstr "Verfügbarer Vorrat überschritten"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:101
 msgid "Available to list: {0}"
-msgstr ""
+msgstr "Für Angebote verfügbar: {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
@@ -240,7 +240,7 @@ msgid "Beneficiary name"
 msgstr "Name des Begünstigten"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "Wallet-Adresse des Begünstigten (optional)"
@@ -412,7 +412,7 @@ msgid "Continue"
 msgstr "Weiter"
 
 #. js-lingui-explicit-id
-#: components/CopyAddressButton/index.tsx:36
+#: components/CopyAddressButton/index.tsx:37
 msgid "Copy"
 msgstr "Kopieren"
 
@@ -444,9 +444,9 @@ msgid "Create Profile"
 msgstr "Profil erstellen"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:158
+#: components/CreateListing/index.tsx:152
 msgid "Create a listing"
-msgstr ""
+msgstr "Angebot erstellen"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:222
@@ -566,7 +566,7 @@ msgid "Downloading ..."
 msgstr "Wird heruntergeladen ..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:189
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -576,9 +576,9 @@ msgid "Edit Profile"
 msgstr "Profil bearbeiten"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "Edit listing"
-msgstr ""
+msgstr "Angebot bearbeiten"
 
 #. js-lingui-explicit-id
 #: lib/getCategoryInfo.ts:47
@@ -588,12 +588,12 @@ msgstr "Energieeffizienz"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
 msgid "Expiration"
-msgstr ""
+msgstr "Ablauf"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:14
+#: components/pages/Users/Badge/index.tsx:15
 msgid "Expired"
-msgstr ""
+msgstr "Abgelaufen"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
@@ -687,7 +687,7 @@ msgstr "Dies ist eine Liste aus reichhaltig verfügbaren, vergünstigten CO2-Tok
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:74
 msgid "How many tonnes do you want to list for sale?"
-msgstr ""
+msgstr "Wie viele Tonnen möchten Sie zum Verkauf anbieten?"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:90
@@ -726,7 +726,7 @@ msgid "Introducing Carbonmark"
 msgstr "Über Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:9
+#: components/pages/Users/Badge/index.tsx:10
 msgid "Invalid"
 msgstr "Ungültig"
 
@@ -817,7 +817,7 @@ msgid "Log out"
 msgstr "Abmelden"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:99
+#: components/Layout/index.tsx:95
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "Anmelden"
@@ -1140,7 +1140,7 @@ msgstr "Menge ist erforderlich"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:127
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
-msgstr ""
+msgstr "Angebotene Menge: {listedQuantity}, nicht angebotene Menge {unlistedQuantity}, insgesamt verfügbar: {totalAvailableQuantity}"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:103
@@ -1200,7 +1200,7 @@ msgstr "Erneuerbare Energie"
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
 msgid "Request Demo"
-msgstr ""
+msgstr "Demo anfordern"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:171
@@ -1250,7 +1250,7 @@ msgid "Retire Carbon"
 msgstr "CO2-Fußabdruck ausgleichen"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:197
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Gleichen Sie Ihren eigenen CO2-Fußabdruck aus oder handeln Sie im Auftrag anderer Personen oder Organisationen"
 
@@ -1382,7 +1382,7 @@ msgstr "Zum Kaufen anmelden/verbinden"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:129
 msgid "Single unit price"
-msgstr ""
+msgstr "Stückpreis"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:106
@@ -1481,12 +1481,12 @@ msgstr "Der Universelle CO2-Marktplatz"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:50
 msgid "The allowance below reflects the sum of all your listings for this specific token."
-msgstr ""
+msgstr "Der unten genannte Wert ist die Summe aller Angebote für dieses spezifische Token."
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:43
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
-msgstr ""
+msgstr "Die Assets werden erst aus Ihrer Wallet transferiert, wenn der Verkauf abgeschlossen ist. Sie können diese Bewilligung jederzeit widerrufen."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:34
@@ -1499,7 +1499,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "Im ersten Schritt bewilligen Sie den Transfer des Zahlungstokens aus Ihrer Wallet zu Carbonmark. Im nächsten Schritt genehmigen Sie den eigentlichen Transfer und schließen den Kauf ab."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:203
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "Die unten angegebenen Informationen werden öffentlich einsehbar sein, um Ihren CO2-Ausgleich zu verifizieren. Diese Transaktion ist endgültig; die enthaltenen Informationen können nicht verändert werden, sobald die Transaktion abgeschlossen ist."
 
@@ -1562,14 +1562,14 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "Die App funktioniert nur im Polygon-Mainnet."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:16
+#: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "Das Angebot ist abgelaufen und wird auf dem Marktplatz ausgeblendet. Bitte stellen Sie das Angebot erneut ein oder löschen Sie es."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:11
+#: components/pages/Users/Badge/index.tsx:12
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "Das Angebot ist nicht mehr gültig und wird auf dem Marktplatz ausgeblendet. Bitte stellen Sie das Angebot erneut ein oder löschen Sie es."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
@@ -1666,7 +1666,7 @@ msgstr "Gesamter CO2-Ausgleich"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:59
 msgid "Total allowance"
-msgstr ""
+msgstr "Insgesamt bewilligt"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:70
@@ -1705,7 +1705,7 @@ msgstr "Gesamtverkaufskosten"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:106
 msgid "USDC per tonne"
-msgstr ""
+msgstr "USDC pro Tonne"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:111
@@ -1715,7 +1715,7 @@ msgstr "Stückpreis ist erforderlich"
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 msgid "Unlisted tonnes:"
-msgstr ""
+msgstr "Nicht angebotene Tonnen:"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -1725,7 +1725,7 @@ msgstr "Beispiellose Transparenz auf dem gesamten Digitalen CO2-Markt."
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
 msgid "Update listing"
-msgstr ""
+msgstr "Angebot aktualisieren"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:86
@@ -1950,7 +1950,7 @@ msgstr "Ihre Walletadresse"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:374
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
-msgstr ""
+msgstr "Ihr Guthaben muss die Kosten der Transaktion um mindestens 1 % übersteigen."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
@@ -1997,12 +1997,12 @@ msgstr "bei"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:97
+#: components/pages/Blog/Post/index.tsx:98
 msgid "blog.disclaimer.description"
 msgstr "Die in diesem Blogbeitrag bereitgestellten Informationen zu KlimaDAO („KlimaDAO“), seinen Krypto-Assets, Geschäftsvermögen, Strategie und Betrieb dienen nur allgemeinen Informationszwecken und sind kein formelles Verkaufsangebot oder eine Aufforderung zur Abgabe eines Angebots von Wertpapieren, Optionen, Futures oder andere Derivaten im Zusammenhang mit Wertpapieren in jeglicher Rechtsordnung, und der Inhalt ist nicht durch Wertpapiergesetze vorgeschrieben. Die in diesem Blogbeitrag enthaltenen Informationen sollten nicht als Empfehlung zum Kauf oder Verkauf oder Halten solcher Wertpapiere oder als Angebot zum Verkauf solcher Wertpapiere angesehen werden. Dieser Blog-Beitrag berücksichtigt weder Steuer-, Rechts- oder Anlageberatung noch gibt er eine Stellungnahme zu den spezifischen Anlagezielen oder der finanziellen Situation einer Person ab. KlimaDAO und seine Vertreter, Berater, Direktoren, leitenden Angestellten, Mitarbeiter und Aktionäre geben keine ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Richtigkeit dieser Informationen ab, und KlimaDAO lehnt ausdrücklich jegliche Haftung ab, die auf solchen Informationen oder Fehlern oder Auslassungen beruhen könnte. KlimaDAO behält sich das Recht vor, die hierin enthaltenen Informationen ganz oder teilweise jederzeit zu ändern oder zu ersetzen, und übernimmt keine Verpflichtung, dem Empfänger die geänderten Informationen zugänglich zu machen oder den Empfänger hiervon in Kenntnis zu setzen. Die in diesem Blog-Beitrag enthaltenen Informationen ersetzen alle in früheren Blog-Beiträge oder Konversationen ähnlichen oder verwandten Informationen. Auf Informationen, Darstellungen oder Aussagen, die hier nicht enthalten sind, darf für keinen Zweck vertraut werden. Weder KlimaDAO noch einer seiner Vertreter haften Ihnen oder einer anderen Person gegenüber aus jeglichen Gründen, die sich aus der Verwendung oder Nichtverwendung der Informationen in diesem Blog-Beitrag durch Sie oder einen Ihrer Vertreter ergibt. Darüber hinaus übernimmt KlimaDAO keine Verpflichtung, die Erwartungen oder Aussagen Dritter in Bezug auf die in diesem Blogbeitrag erörterten Angelegenheiten zu kommentieren."
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:94
+#: components/pages/Blog/Post/index.tsx:95
 msgid "blog.disclaimer.title"
 msgstr "Haftungsausschluss:"
 
@@ -2017,11 +2017,6 @@ msgid "buy"
 msgstr "Kaufen"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:94
-msgid "connectModal.institutional"
-msgstr "institutionell"
-
-#. js-lingui-explicit-id
 #: components/Layout/index.tsx:86
 msgid "connectModal.torus"
 msgstr "Social- oder E-Mail-Login"
@@ -2032,7 +2027,7 @@ msgid "connectModal.wallet"
 msgstr "Wallet verbinden"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:96
 msgid "connect_modal.connecting"
 msgstr "Verbinde..."
 
@@ -2052,7 +2047,7 @@ msgid "connect_modal.error_processing"
 msgstr "Anfrage in Bearbeitung. Bitte öffnen Sie Ihre Wallet und schließen Sie die Anfrage ab."
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:100
 msgid "connect_modal.error_title"
 msgstr "Verbindungsfehler"
 
@@ -2119,47 +2114,47 @@ msgid "menu.retire"
 msgstr "Kompensieren"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:219
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
 msgid "offset.amount_in_tonnes"
 msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen? <0>*</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
 msgid "offset.amount_in_tonnes_2"
 msgstr "Verfügbar: {balance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:311
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
 msgid "offset.default_retirement_address"
 msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:244
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
 msgid "offset.offset_quantity"
 msgstr "Auszugleichende Menge angeben"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:395
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
 msgid "offset.retire_carbon"
 msgstr "CO2-Ausgleich bestätigen"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:274
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
 msgid "offset.retirement_beneficiary_name"
 msgstr "Name des Begünstigten"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:262
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
 msgid "offset.retirement_credit"
 msgstr "Wem soll dieser CO2-Ausgleich gewidmet werden?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.retirement_message"
 msgstr "Möchtest du eine Nachricht anhängen?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:331
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
 msgid "offset.retirement_retirement_message"
 msgstr "Ausgleichsnachricht"
 
@@ -2180,7 +2175,7 @@ msgid "offset.successModal.body3"
 msgstr "Ihre Transaktion wurde erfolgreich verarbeitet, doch die Indexierung dauert länger als erwartet. Sie wird demnächst in Ihren <0>CO2-Kompensierungen</0> erscheinen."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:352
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
 msgid "offset_disclaimer"
 msgstr "Achten Sie darauf, keine persönlichen Daten (wie E-Mail-Adressen) im Ausgleichsnamen oder der -nachricht anzugeben. Die hier eingegebenen Informationen werden auf einer öffentlichen Blockchain für immer einsehbar sein und können nicht bearbeitet werden."
 
@@ -2215,7 +2210,7 @@ msgid "profile.listing.delete.error"
 msgstr "Eintrag konnte nicht gelöscht werden. Bitte versuchen Sie es erneut."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:216
 msgid "profile.listing.edit.delete_listing"
 msgstr "Eintrag löschen"
 
@@ -2365,12 +2360,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Überprüfen Sie Ihre Suche auf Tippfehler oder versuchen Sie es mit einem anderen Suchbegriff."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:373
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.back_button"
 msgstr "zurück"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:364
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
 msgid "retire.submit_button"
 msgstr "CO2-Fußabdruck ausgleichen"
 
@@ -2611,7 +2606,7 @@ msgid "shared.head.description"
 msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:80
+#: components/pages/Blog/Post/index.tsx:81
 msgid "shared.resourcecenter"
 msgstr "Ressourcen"
 
@@ -2824,7 +2819,7 @@ msgstr "Maximal {0} für Kreditkarten"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/index.tsx:61
 msgid "{0} tonnes"
-msgstr ""
+msgstr "{0} Tonnen"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
@@ -2834,13 +2829,7 @@ msgstr "{0} | Profil | Carbonmark"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:153
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
-msgid "{amount} tonnes"
-msgstr ""
+msgstr "{DEFAULT_EXPIRATION_DAYS} Tage ({expirationDatestring})"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

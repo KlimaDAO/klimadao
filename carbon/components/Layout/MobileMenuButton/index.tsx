@@ -1,6 +1,7 @@
 "use client";
 
-import { Clear, Menu } from "@mui/icons-material";
+import ClearIcon from "@mui/icons-material/Clear";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Button, Drawer } from "@mui/material";
 import { useState } from "react";
 import { navItems } from "../NavItems";
@@ -16,8 +17,8 @@ export function MobileMenuButton() {
   return (
     <>
       <Button onClick={toggleDrawer} className={layoutStyles.topBarButton}>
-        {!showDrawer && <Menu />}
-        {showDrawer && <Clear />}
+        {!showDrawer && <MenuIcon />}
+        {showDrawer && <ClearIcon />}
       </Button>
       <Drawer anchor="bottom" open={showDrawer} onClick={toggleDrawer}>
         <div className={styles.wrapper}>

@@ -5,8 +5,12 @@ import { AggregatedCreditsChartConfiguration } from "lib/charts/aggregators/getA
 import { queryAggregatedCreditsByBridge } from "lib/charts/queries";
 import { palette } from "theme/palette";
 
+export type Props = {
+  sourceHref: string;
+} & CardProps;
+
 /** Verra Credits Card */
-export default function TokenizedCreditsByBridgeCard(props: CardProps) {
+export default function TokenizedCreditsByBridgeCard(props: Props) {
   const chart = (
     /* @ts-expect-error async Server component */
     <TokenizedCreditsByBridgeChart
@@ -17,7 +21,7 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Tokenized credits by bridge`}
-      detailUrl="/details/verra-credits-tokenized-by-bridge"
+      detailUrl={`${props.sourceHref}/verra-credits-tokenized-by-bridge`}
       detailUrlPosition="top"
       chart={chart}
     />

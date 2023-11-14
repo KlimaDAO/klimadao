@@ -5,11 +5,13 @@ import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
+import { Registry } from "components/Registry";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { InputField, TextareaField } from "components/shared/Form";
 import { ethers, providers } from "ethers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type {
   AssetForRetirement,
@@ -17,16 +19,13 @@ import type {
 } from "lib/types/carbonmark.types";
 import { CategoryName } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RetireModal } from "../RetireModal";
 import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
 import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
-
-import { Registry } from "components/Registry";
-import { getAddress } from "lib/networkAware/getAddress";
-import { useRouter } from "next/router";
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -440,7 +439,7 @@ export const RetireForm = (props: RetireFormProps) => {
         (subgraphIndexStatus === "indexed" ||
           subgraphIndexStatus === "timeout") && (
           <RetirementStatusModal
-            retirementUrl={`${urls.retirements}/${
+            retirementUrl={`${urls.retirements_carbonmark}/${
               retirement.beneficiaryAddress || props.address
             }/${retirementTotals}`}
             polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
