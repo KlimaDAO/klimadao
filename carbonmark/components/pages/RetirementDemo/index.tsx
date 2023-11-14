@@ -64,25 +64,26 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
     if (notNil(sourceCoords) && notNil(destCoords)) {
       const distance = haversine(sourceCoords, destCoords);
       setDistance(distance);
-
-
     }
   }, [source, destination]);
 
-      //Center the map on changed route
+  //Center the map on changed route
   useEffect(() => {
     const sourceCoords = latLngToPoint(source?.geometry?.location);
     const destCoords = latLngToPoint(destination?.geometry?.location);
 
     if (notNil(sourceCoords) && notNil(destCoords)) {
-      map.current?.fitBounds([
+      map.current?.fitBounds(
+        [
           [sourceCoords.lng, sourceCoords.lat],
-          [destCoords.lng, destCoords.lat]
-        ], {
-          padding: { top: 10, bottom: 25, left: 15, right: 5 }
-        });
-      }
-  }, [source, destination])
+          [destCoords.lng, destCoords.lat],
+        ],
+        {
+          padding: { top: 10, bottom: 25, left: 15, right: 5 },
+        }
+      );
+    }
+  }, [source, destination]);
 
   // Initial mapbox load
   useEffect(() => {
@@ -113,7 +114,7 @@ export const RetirementDemo: NextPage<PageProps> = (props) => {
             coordinates: [
               [
                 source?.geometry?.location?.lng() ?? 0,
-                source?.geometry?.location?.lat() ?? 0
+                source?.geometry?.location?.lat() ?? 0,
               ],
               [
                 destination?.geometry?.location?.lng() ?? 0,
