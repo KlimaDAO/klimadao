@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-14 06:34+0000\n"
+"POT-Creation-Date: 2023-11-14 14:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -750,7 +750,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: app/[locale]/overview/page.tsx:15
 #: app/[locale]/overview/page.tsx:18
-msgid "State of the digital carbon market"
+msgid "State of the Digital Carbon Market"
 msgstr ""
 
 #. js-lingui-explicit-id
