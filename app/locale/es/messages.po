@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-10 17:22+0000\n"
+"POT-Creation-Date: 2023-11-14 02:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,7 +10,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:84
 msgid "Acknowledge and Accept"
-msgstr ""
+msgstr "Reconocer y aceptar"
 
 #. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
@@ -88,12 +88,12 @@ msgstr "Saldo insuficiente"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:29
 msgid "Investment Risk Disclaimer"
-msgstr ""
+msgstr "Descargo de responsabilidad sobre el riesgo de inversión"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
-msgstr ""
+msgstr "Falta de Liquidez: Es posible que no exista un mercado activo para $KLIMA, lo que puede ocasionar pérdidas si necesita vender sus tokens rápidamente."
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:411
@@ -135,12 +135,12 @@ msgstr "Iniciar sesión"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:39
 msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
-msgstr ""
+msgstr "Pérdida de la inversión: El valor de $KLIMA y otras criptomonedas puede aumentar o disminuir rápidamente en cualquier momento. Como resultado, usted podría experimentar pérdidas significativas y rápidas, incluyendo la pérdida de todo el dinero invertido."
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:68
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
-msgstr ""
+msgstr "Sin garantía: No hay garantía de que la plataforma KlimaDAO o el token $KLIMA logren sus objetivos o de que se conserve algún valor en el Protocolo."
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:166
@@ -165,7 +165,7 @@ msgstr "El 12 de abril de 2022 migramos de \"dapp\" a \"app\". Por favor, actual
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:60
 msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
-msgstr ""
+msgstr "Riesgos operativos: La plataforma KlimaDAO se basa en diversas tecnologías relacionadas con la red Polygon y otros activos digitales. Estas tecnologías están sujetas a cambios, y dichos cambios podrían afectar negativamente a su inversión."
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:681
@@ -191,12 +191,12 @@ msgstr "Detalles del proyecto <0/>"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
-msgstr ""
+msgstr "La compra de criptomonedas, incluyendo el token $KLIMA, implica un alto grado de riesgo y debe considerarse extremadamente especulativa. Estos son algunos puntos importantes a tener en cuenta:"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
-msgstr ""
+msgstr "Acciones y cambios regulatorios:El entorno normativo de las criptomonedas está evolucionando y los cambios en la regulación podrían afectar negativamente a su inversión."
 
 #. js-lingui-explicit-id
 #: components/views/Redeem/index.tsx:388
@@ -232,7 +232,7 @@ msgstr "Este coste incluye el slippage y las comisiones de reembolso cobradas po
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
-msgstr ""
+msgstr "Esta advertencia de riesgo resumida no revela todos los riesgos asociados a la inversión en $KLIMA.Usted debe llevar a cabo su propia diligencia debida y consultar con un asesor financiero antes de tomar cualquier decisión de inversión."
 
 #. js-lingui-explicit-id
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
