@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { initLayout } from "app/[locale]/layout";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import TokenVolumeOverTimeCard from "components/cards/tokenDetails/TokenVolumeOverTimeCard";
 import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
 import { BridgePageParams, TokenDetailPageProps } from "components/pages/props";
@@ -16,7 +16,7 @@ function description(params: BridgePageParams) {
 
 export async function generateMetadata({ params }: TokenDetailPageProps) {
   return {
-    title: title(params),
+    title: metaDataTitle(title(params)),
     description: description(params),
   };
 }

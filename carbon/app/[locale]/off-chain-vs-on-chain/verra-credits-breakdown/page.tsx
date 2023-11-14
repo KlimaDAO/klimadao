@@ -1,4 +1,5 @@
 import { t } from "@lingui/macro";
+import { metaDataTitle } from "app/[locale]/layout";
 import cardStyles from "components/cards/ChartCard/styles.module.scss";
 import VerraCreditsBreakdownCard from "components/cards/offVsOnChain/VerraCreditsBreakdownCard";
 import DetailPage from "components/pages/DetailPage";
@@ -13,7 +14,7 @@ function description() {
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }
