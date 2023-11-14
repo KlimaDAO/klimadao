@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-14 14:00+0000\n"
+"POT-Creation-Date: 2023-11-14 14:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -167,6 +167,11 @@ msgid "C3 retired VCUs"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: app/[locale]/layout.tsx:44
+msgid "Carbon Dashboard"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:25
 msgid "Carbon pool redemptions / retirements"
 msgstr ""
@@ -328,6 +333,11 @@ msgid "Distribution of vintage start dates"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: app/[locale]/token-details/page.tsx:18
+msgid "Dive deep into different digital carbon token pools, including C3, Toucan, and Moss-bridged carbon tonnes."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:42
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:48
 #: lib/charts/options.ts:50
@@ -347,6 +357,21 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/PageHeader/PageHeader.tsx:37
 msgid "Explore Marketplace"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: app/[locale]/off-chain-vs-on-chain/page.tsx:18
+msgid "Explore Off and On-chain digital carbon trends using the Klima Data Carbon Dashboard."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: app/[locale]/retirement-trends/page.tsx:14
+msgid "Explore digital carbon retirement trends by public blockhchain, digtial carbon token, and retirement beneficiary using the Klima Data Carbon Dashboard."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: app/[locale]/supply/page.tsx:18
+msgid "Explore digital carbon supply on Polygon, Ethereum, Celo and more using the Klima Data Carbon Dashboard."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -382,6 +407,11 @@ msgid ""
 "advantage of digital carbon is that it is a 'money Lego' – it is\n"
 "programmable and can be used to power applications, enable new use cases,\n"
 "and ultimately, dramatically scale financing to carbon reduction projects."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: app/[locale]/layout.tsx:44
+msgid "Klima Data"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -543,7 +573,6 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/off-chain-vs-on-chain/page.tsx:15
-#: app/[locale]/off-chain-vs-on-chain/page.tsx:18
 msgid "Off vs On-chain carbon"
 msgstr ""
 
@@ -723,7 +752,6 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/retirement-trends/page.tsx:11
-#: app/[locale]/retirement-trends/page.tsx:14
 msgid "Retirement trends"
 msgstr ""
 
@@ -749,7 +777,6 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/overview/page.tsx:15
-#: app/[locale]/overview/page.tsx:18
 msgid "State of the Digital Carbon Market"
 msgstr ""
 
@@ -765,10 +792,14 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/supply/page.tsx:15
-#: app/[locale]/supply/page.tsx:18
 #: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:24
 #: components/Layout/NavItems/index.tsx:31
 msgid "Supply"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: app/[locale]/overview/page.tsx:18
+msgid "The Klima Data Carbon Dashboard provides a complete overview of digital carbon pricing, volumes, and retirement trends for the Digital Carbon Market. It is made available to anyone by KlimaDAO as a public good, creating transparency for the DCM."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -807,6 +838,11 @@ msgid ""
 msgstr ""
 
 #. js-lingui-explicit-id
+#: app/[locale]/overview/digital-carbon/page.tsx:15
+msgid "The term 'digital carbon' refers to a carbon credit that has been bridged from an off-chain carbon registry and tokenized, so that the credit now exists solely on a public blockchain."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: app/[locale]/off-chain-vs-on-chain/verra-credits-retired-off-chain-over-time/page.tsx:12
 msgid "The total number of carbon credits issued by carbon registry Verra and retired over time. Off-chain refers carbon credits retired via legacy methods as compared to on-chain digital carbon credits bridged and tokenized on a public blockchain."
 msgstr ""
@@ -842,7 +878,7 @@ msgid "The total number of carbon credits that have been issued by carbon regist
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/off-chain-vs-on-chain/verra-credits-breakdown/page.tsx:11
+#: app/[locale]/off-chain-vs-on-chain/verra-credits-breakdown/page.tsx:12
 msgid "The total number of carbon credits that have been issued by carbon registry Verra and what portion have been bridged, tokenized, and retired on-chain."
 msgstr ""
 
@@ -923,7 +959,6 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/token-details/page.tsx:15
-#: app/[locale]/token-details/page.tsx:18
 msgid "Token details"
 msgstr ""
 
@@ -1048,7 +1083,7 @@ msgid "Verra credits"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/off-chain-vs-on-chain/verra-credits-breakdown/page.tsx:8
+#: app/[locale]/off-chain-vs-on-chain/verra-credits-breakdown/page.tsx:9
 #: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:29
 msgid "Verra credits breakdown"
 msgstr ""
@@ -1106,7 +1141,6 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/overview/digital-carbon/page.tsx:12
-#: app/[locale]/overview/digital-carbon/page.tsx:15
 #: app/[locale]/overview/digital-carbon/page.tsx:42
 #: app/[locale]/overview/page.tsx:37
 msgid "What is digital carbon?"
