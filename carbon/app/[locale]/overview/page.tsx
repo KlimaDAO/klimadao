@@ -12,10 +12,10 @@ import { LocalizedPageProps } from "components/pages/props";
 import { initLayout } from "../layout";
 
 function title() {
-  return t`State of the digital carbon market`;
+  return t`State of the Digital Carbon Market`;
 }
 function description() {
-  return t`State of the digital carbon market`;
+  return t`State of the Digital Carbon Market`;
 }
 
 export async function generateMetadata() {
