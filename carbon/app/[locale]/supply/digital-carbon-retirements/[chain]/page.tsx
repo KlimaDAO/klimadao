@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { initLayout } from "app/[locale]/layout";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import DailyEthRetirementsCard from "components/cards/supply/DailyEthRetirementsCard";
 import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
 import DetailPage from "components/pages/DetailPage";
@@ -18,7 +18,7 @@ function description(props: ChainDetailPageProps) {
 
 export async function generateMetadata(props: ChainDetailPageProps) {
   return {
-    title: title(props),
+    title: metaDataTitle(title(props)),
     description: description(props),
   };
 }

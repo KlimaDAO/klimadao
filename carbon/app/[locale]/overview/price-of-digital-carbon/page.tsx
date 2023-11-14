@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { initLayout } from "app/[locale]/layout";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import HistoricalPriceCard from "components/cards/overview/HistoricalPriceCard";
 import TokensPriceCard from "components/cards/overview/TokensPriceCard";
 import DetailPage from "components/pages/DetailPage";
@@ -16,7 +16,7 @@ function description() {
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }

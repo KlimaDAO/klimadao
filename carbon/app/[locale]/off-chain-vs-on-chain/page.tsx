@@ -8,19 +8,19 @@ import OffVsOnChainTab from "components/pages/offVsOnChain/OffVsOnChainTab";
 import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 import layout from "theme/layout.module.scss";
-import { initLayout } from "../layout";
+import { initLayout, metaDataTitle } from "../layout";
 import styles from "./styles.module.scss";
 
 function title() {
   return t`Off vs On-chain carbon`;
 }
 function description() {
-  return t`Off vs On-chain carbon`;
+  return t`Explore Off and On-chain digital carbon trends using the Klima Data Carbon Dashboard.`;
 }
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }

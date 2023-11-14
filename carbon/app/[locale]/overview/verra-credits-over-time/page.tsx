@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { initLayout } from "app/[locale]/layout";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import DailyVerraCreditsCard from "components/cards/overview/DailyVerraCreditsOverviewCard";
 import DetailPage from "components/pages/DetailPage";
 import { LocalizedPageProps } from "components/pages/props";
@@ -14,7 +14,7 @@ function description() {
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }

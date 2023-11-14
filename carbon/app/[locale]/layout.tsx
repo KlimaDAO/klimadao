@@ -1,3 +1,4 @@
+import { t } from "@lingui/macro";
 import Layout from "components/Layout";
 import {
   LocalizedPageParams,
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
   title: "Klima Data",
   description: "Klima Data",
 };
+
 export default async function RootLayout(
   props: LocalizedPageProps & { children: React.ReactNode }
 ) {
@@ -36,4 +38,8 @@ export async function initLayout(params: LocalizedPageParams) {
     const translation = await loadTranslation(params.locale);
     activateLocale(locale, translation);
   }
+}
+
+export function metaDataTitle(title: string) {
+  return title + " | " + t`Klima Data` + " | " + t`Carbon Dashboard`;
 }
