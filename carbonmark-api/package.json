@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
-    "dev": "tsnd --respawn --transpile-only --exit-child src/server.ts --port 3003",
+    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --exit-child src/server.ts --port 3003",
     "test": "jest --coverage",
     "lint": "eslint . --ext .ts && tsc --noEmit",
     "start:test": "npm run build && fastify start -l info dist/app.js --port 3003",
@@ -36,7 +36,8 @@
     "fastify-plugin": "^4.5.1",
     "firebase-admin": "^11.7.0",
     "graphql-request": "^6.1.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@graphql-codegen/add": "^5.0.0",
