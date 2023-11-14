@@ -92,7 +92,7 @@ function GooglePlacesSelect(props: Props) {
       }
       filterOptions={(x) => x}
       options={options}
-      isOptionEqualToValue={(a, b) => a.id === b.id}
+      isOptionEqualToValue={(a, b) => a?.id === b?.id}
       // includeInputInList
       // filterSelectedOptions
       noOptionsText="No locations"
