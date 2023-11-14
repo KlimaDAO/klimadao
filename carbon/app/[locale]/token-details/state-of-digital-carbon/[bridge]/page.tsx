@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { initLayout } from "app/[locale]/layout";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import TokenStateOfDigitalCarbonCard from "components/cards/tokenDetails/TokenStateOfDigitalCarbonCard";
 import DetailPage from "components/pages/DetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
@@ -17,7 +17,7 @@ function description(props: TokenDetailPageProps) {
 
 export async function generateMetadata(props: TokenDetailPageProps) {
   return {
-    title: title(props),
+    title: metaDataTitle(title(props)),
     description: description(props),
   };
 }

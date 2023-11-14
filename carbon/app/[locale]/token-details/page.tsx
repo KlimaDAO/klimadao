@@ -9,18 +9,18 @@ import {
   getToucanPoolsOptions,
 } from "lib/charts/options";
 import { NodeDictionnary } from "lib/charts/types";
-import { initLayout } from "../layout";
+import { initLayout, metaDataTitle } from "../layout";
 
 function title() {
   return t`Token details`;
 }
 function description() {
-  return t`Token details`;
+  return t`Dive deep into different digital carbon token pools, including C3, Toucan, and Moss-bridged carbon tonnes.`;
 }
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }

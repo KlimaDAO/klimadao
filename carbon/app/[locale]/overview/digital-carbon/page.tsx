@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 
-import { initLayout } from "app/[locale]/layout";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import { PageHeader } from "components/PageHeader/PageHeader";
 import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
@@ -12,12 +12,12 @@ function title() {
   return t`What is digital carbon?`;
 }
 function description() {
-  return t`What is digital carbon?`;
+  return t`The term 'digital carbon' refers to a carbon credit that has been bridged from an off-chain carbon registry and tokenized, so that the credit now exists solely on a public blockchain.`;
 }
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }
