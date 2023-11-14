@@ -1,6 +1,5 @@
 import { cx } from "@emotion/css";
-import CheckIcon from "@mui/icons-material/Check";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Check, ContentCopy } from "@mui/icons-material";
 
 import React, { FC, useEffect, useState } from "react";
 
@@ -30,7 +29,7 @@ export const CopyValueButton: FC<Props> = (props) => {
       variant={"transparent"}
       {...props}
       className={className}
-      icon={copied ? <CheckIcon /> : <ContentCopyIcon />}
+      icon={copied ? <Check /> : <ContentCopy />}
       onClick={() => cachedValue && doCopy(cachedValue)}
       iconPos="suffix"
     />
