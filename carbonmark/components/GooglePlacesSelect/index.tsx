@@ -28,7 +28,7 @@ type OnChangeProps = UseAutocompleteProps<
 >["onChange"];
 
 export type Place = google.maps.places.AutocompletePrediction &
-  Partial<Pick<google.maps.places.PlaceResult, "geometry">>;
+  Partial<Pick<google.maps.places.PlaceResult, "geometry">> & { id?: string };
 
 type Props = {
   //The label for the displayed Textfield
