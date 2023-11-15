@@ -41,6 +41,8 @@ export const fetchPoolPricesAndStats = async (
       singleUnitPrice: poolInfo.isPoolDefault
         ? allPoolPrices[poolName].defaultPrice
         : allPoolPrices[poolName].selectiveRedeemPrice,
+      singleUnitBuyPrice: allPoolPrices[poolName].selectiveRedeemPrice,
+      singleUnitSellPrice: allPoolPrices[poolName].selectiveRetirePrice,
     });
     return arr;
   }, initialPrices);
