@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/DisclaimerModal/index.tsx:29
-msgid "Risk Disclaimer"
-msgstr "Risk Disclaimer"
-
-#. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:124
 msgid "Balances"
 msgstr "Balances"
@@ -47,6 +42,11 @@ msgstr "You need to load your wallet with USDC, KLIMA or a carbon pool token. Cr
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:29
+msgid "Risk Disclaimer"
+msgstr "Risk Disclaimer"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:32

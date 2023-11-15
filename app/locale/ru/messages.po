@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-15 17:47+0000\n"
+"POT-Creation-Date: 2023-11-15 19:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,11 +83,6 @@ msgstr "Сколько тонн вы хотели бы приобрести?"
 #: components/views/Stake/index.tsx:247
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/DisclaimerModal/index.tsx:29
-msgid "Investment Risk Disclaimer"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -196,6 +191,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:29
+msgid "Risk Disclaimer"
 msgstr ""
 
 #. js-lingui-explicit-id

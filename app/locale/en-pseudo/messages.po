@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/DisclaimerModal/index.tsx:29
-msgid "Risk Disclaimer"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:124
 msgid "Balances"
 msgstr ""
@@ -46,6 +41,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:29
+msgid "Risk Disclaimer"
 msgstr ""
 
 #. js-lingui-explicit-id
