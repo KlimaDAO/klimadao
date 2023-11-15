@@ -40,6 +40,13 @@ describe("GET /projects/:id", () => {
     nock(GRAPH_URLS["polygon"].marketplace).post("").reply(200, {
       data: {},
     });
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("", /.*getActivitiesByProjectId.*/i)
+      .reply(200, {
+        data: {
+          activities: [],
+        },
+      });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-191-2008`,
@@ -76,6 +83,13 @@ describe("GET /projects/:id", () => {
     nock(GRAPH_URLS["polygon"].marketplace).post("").reply(200, {
       data: {},
     });
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("", /.*getActivitiesByProjectId.*/i)
+      .reply(200, {
+        data: {
+          activities: [],
+        },
+      });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-191-2008?network=polygon`,
@@ -111,6 +125,13 @@ describe("GET /projects/:id", () => {
     nock(GRAPH_URLS["polygon"].marketplace).post("").reply(200, {
       data: {},
     });
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("", /.*getActivitiesByProjectId.*/i)
+      .reply(200, {
+        data: {
+          activities: [],
+        },
+      });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-981-2017`,
