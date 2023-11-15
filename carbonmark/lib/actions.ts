@@ -312,10 +312,14 @@ export type AssetWithProject = Asset & {
 };
 
 const idFromSymbol = (symbol: string) => {
-  const [_bridge, registry, registryProjectId, vintage] = symbol
-    .toUpperCase()
-    .split("-");
-  return `${registry}-${registryProjectId}-${vintage}`;
+  if (symbol.startsWith("ICR")) {
+    return symbol;
+  } else {
+    const [_bridge, registry, registryProjectId, vintage] = symbol
+      .toUpperCase()
+      .split("-");
+    return `${registry}-${registryProjectId}-${vintage}`;
+  }
 };
 
 export const addProjectsToAssets = async (params: {
@@ -332,13 +336,16 @@ export const addProjectsToAssets = async (params: {
     );
 
     const ProjectMap = projects.reduce((PMap, p) => {
+      if (p?.key.startsWith("ICR")) {
+        PMap.set(p.key, p);
+      }
       if (p?.key) PMap.set(`${p.key}-${p.vintage}`, p);
       return PMap;
     }, new Map<string, Project>());
 
-    return params.assets.map((a) => ({
-      ...a,
-      project: ProjectMap.get(idFromSymbol(a.token.symbol)) ?? null,
+    return params.assets.map((asset) => ({
+      ...asset,
+      project: ProjectMap.get(idFromSymbol(asset.token.symbol)) ?? null,
     }));
   } catch (e) {
     throw e;

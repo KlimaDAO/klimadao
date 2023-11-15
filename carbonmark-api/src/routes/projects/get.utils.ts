@@ -243,5 +243,6 @@ export const composeProjectEntries = (
     // TODO: Maybe this should be controlled via a query parameter
     if (project.hasSupply) entries.push(project);
   });
+
   return entries;
 };

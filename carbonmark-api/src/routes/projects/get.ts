@@ -44,29 +44,42 @@ const handler = (fastify: FastifyInstance) =>
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify);
 
-    const [
-      marketplaceProjectsData,
-      poolProjectsData,
-      cmsProjects,
-      allPoolPrices,
-    ] = await Promise.all([
-      sdk.marketplace.getProjects({
-        search: request.query.search ?? "",
-        category: args.category ?? allOptions.category,
-        country: args.country ?? allOptions.country,
-        vintage: args.vintage ?? allOptions.vintage,
-        expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
-      }),
-      sdk.digital_carbon.findDigitalCarbonProjects({
-        search: request.query.search ?? "",
-        category: args.category ?? allOptions.category,
-        country: args.country ?? allOptions.country,
-        vintage: (args.vintage ?? allOptions.vintage).map(Number),
-      }),
-      fetchAllCarbonProjects(sdk),
-      fetchAllPoolPrices(sdk),
-    ]);
-
+    const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
+      await Promise.all([
+        sdk.marketplace.getProjects({
+          search: request.query.search ?? "",
+          category: args.category ?? allOptions.category,
+          country: args.country ?? allOptions.country,
+          vintage: args.vintage ?? allOptions.vintage,
+          expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
+        }),
+        sdk.digital_carbon.findDigitalCarbonProjects({
+          search: request.query.search ?? "",
+          category: args.category ?? allOptions.category,
+          country: args.country ?? allOptions.country,
+          vintage: (args.vintage ?? allOptions.vintage).map(Number),
+        }),
+        fetchAllCarbonProjects(sdk),
+        fetchAllPoolPrices(sdk),
+      ]);
+    const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
+      await Promise.all([
+        sdk.marketplace.getProjects({
+          search: request.query.search ?? "",
+          category: args.category ?? allOptions.category,
+          country: args.country ?? allOptions.country,
+          vintage: args.vintage ?? allOptions.vintage,
+          expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
+        }),
+        sdk.digital_carbon.findDigitalCarbonProjects({
+          search: request.query.search ?? "",
+          category: args.category ?? allOptions.category,
+          country: args.country ?? allOptions.country,
+          vintage: (args.vintage ?? allOptions.vintage).map(Number),
+        }),
+        fetchAllCarbonProjects(sdk),
+        fetchAllPoolPrices(sdk),
+      ]);
     const CMSDataMap: CMSDataMap = new Map();
     const ProjectMap: ProjectDataMap = new Map();
 
@@ -75,6 +88,9 @@ const handler = (fastify: FastifyInstance) =>
       const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
       CMSDataMap.set(`${standard}-${registryProjectId}`, project);
     });
+
+    // @todo can add later in compose Project Entries if marketplaceProjectData isn't necessary
+    // @todo marketplace Data only for listed projects/pool/projects where are subgraph mappings?
 
     /** Assign valid pool projects to map */
     poolProjectsData.carbonProjects.forEach((project) => {
@@ -128,14 +144,7 @@ const handler = (fastify: FastifyInstance) =>
     const minSupply = request.query.minSupply || 0;
 
     /** Compose all the data together to unique entries (unsorted) */
-    const entries = composeProjectEntries(
-      ProjectMap,
-      CMSDataMap,
-      allPoolPrices,
-      network,
-      minSupply
-    );
-
+    const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
     // Send the transformed projects array as a JSON string in the response
     return reply
