@@ -24,8 +24,13 @@ You will need to be authenticated to the following in order to run the project:
 
 ### Link your local copy of the project with vercel
 
+Install the vercel CLI
 
-Run the following from the root of the repository, accepting all options:
+```sh
+npm i -g vercel
+```
+
+Run the following from the root of the repository, accepting all options and using KlimaDAO as the project scope:
 
 ```sh
 vercel link -p carbonmark-api
