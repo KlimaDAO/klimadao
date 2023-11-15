@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import PageWithTabs from "components/pages/PageWithTabs";
 import TokenDetailsTab from "components/pages/TokenDetailsTab";
+import { LocalizedPageProps } from "components/pages/props";
 import {
   getC3PoolsOptions,
   getDateFilteringOptions,
@@ -8,17 +9,18 @@ import {
   getToucanPoolsOptions,
 } from "lib/charts/options";
 import { NodeDictionnary } from "lib/charts/types";
+import { initLayout, metaDataTitle } from "../layout";
 
 function title() {
   return t`Token details`;
 }
 function description() {
-  return t`Token details`;
+  return t`Dive deep into different digital carbon token pools, including C3, Toucan, and Moss-bridged carbon tonnes.`;
 }
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }
@@ -27,7 +29,9 @@ export async function generateMetadata() {
  * Uses a Client Component (PageWithTabs) to handle tab and options navigation
  * Tabs are actually Components rendered Server side passed to the Client Component as props
  */
-export default function TokenDetailsPage() {
+export default async function TokenDetailsPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
+
   const c3Contents: NodeDictionnary = {};
   const toucanContents: NodeDictionnary = {};
   const mossContents: NodeDictionnary = {};

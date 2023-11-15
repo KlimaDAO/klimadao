@@ -1,6 +1,8 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import DailyCarbonRetirementsCard from "components/cards/overview/DailyCarbonRetirementsCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 
 function title() {
@@ -12,12 +14,15 @@ function description() {
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }
 
-export default function DigitalCarbonRetirementsPage() {
+export default async function DigitalCarbonRetirementsPage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
       pageTitle={title()}

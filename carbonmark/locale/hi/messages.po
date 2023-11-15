@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-09 20:06+0000\n"
+"POT-Creation-Date: 2023-11-15 01:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2455,7 +2455,7 @@ msgstr "कार्यप्रणाली:"
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
-msgstr "MC02 क्रेडिट उन परियोजनाओं द्वारा उत्पन्न होते हैं जो एमेज़ोन वन को संरक्षित करते हैं, जिसमें स्थानीय नौकरियों के निर्माण और स्थानीय जैव विविधता के संरक्षण जैसी सभी प्रकार की सकारात्मक बाहरी चीजें शामिल होती हैं। <0>carbon.klimadao.finance</0> पर MCO2 का अन्वेषण करें."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60

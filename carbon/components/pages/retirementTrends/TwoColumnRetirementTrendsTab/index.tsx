@@ -4,10 +4,9 @@ import layout from "theme/layout.module.scss";
 export const TwoColumnRetirementTrendsTab: FC<{
   leftColumn: Array<ReactNode>;
   rightColumn: Array<ReactNode>;
-  className?: string;
-}> = ({ leftColumn, rightColumn, className }) => {
+}> = ({ leftColumn, rightColumn }) => {
   return (
-    <div className={`${layout.twoColumns} ${className ? className : ""}`}>
+    <div className={layout.twoColumns}>
       <div className={layout.cardStackedRows}>
         {leftColumn.map((node, key) => {
           return (

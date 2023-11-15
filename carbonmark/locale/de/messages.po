@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-09 20:06+0000\n"
+"POT-Creation-Date: 2023-11-15 01:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2447,7 +2447,7 @@ msgstr "Methodik:"
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
-msgstr "MCO2-Zertifikate entstehen durch Projekte, die den Amazonas-Regenwald schützen. Dies ermöglicht weitere positive externe Effekte, wie die Schaffung lokaler Arbeitsplätze und den Schutz der Biodiversität vor Ort. Entdecken Sie MCO2 auf <0>carbon.klimadao.finance</0>."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60

@@ -18,12 +18,22 @@ export default function TokenPoolBreakdownCard(
   let chart = <></>;
   switch (props.bridge) {
     case "toucan":
-      /* @ts-expect-error async Server component */
-      chart = <TokenPoolBreakdownChartToucanChart {...props} />;
+      chart = (
+        /* @ts-expect-error async Server component */
+        <TokenPoolBreakdownChartToucanChart
+          {...props}
+          showPercentageInLegend={props.isDetailPage}
+        />
+      );
       break;
     case "c3":
-      /* @ts-expect-error async Server component */
-      chart = <TokenPoolBreakdownChartC3Chart {...props} />;
+      chart = (
+        /* @ts-expect-error async Server component */
+        <TokenPoolBreakdownChartC3Chart
+          {...props}
+          showPercentageInLegend={props.isDetailPage}
+        />
+      );
       break;
     default:
       return <></>;
@@ -40,7 +50,9 @@ export default function TokenPoolBreakdownCard(
 }
 
 /** Async server component that renders a Recharts client component */
-async function TokenPoolBreakdownChartToucanChart() {
+async function TokenPoolBreakdownChartToucanChart(props: {
+  showPercentageInLegend?: boolean;
+}) {
   const configuration: ChartConfiguration<"bct" | "nct" | "not_pooled"> = [
     {
       id: "bct",
@@ -77,11 +89,19 @@ async function TokenPoolBreakdownChartToucanChart() {
     },
   ];
 
-  return <KPieChart data={chartData} configuration={configuration} />;
+  return (
+    <KPieChart
+      data={chartData}
+      configuration={configuration}
+      showPercentageInLegend={props.showPercentageInLegend}
+    />
+  );
 }
 
 /** Async server component that renders a Recharts client component */
-async function TokenPoolBreakdownChartC3Chart() {
+async function TokenPoolBreakdownChartC3Chart(props: {
+  showPercentageInLegend?: boolean;
+}) {
   const configuration: ChartConfiguration<"nbo" | "ubo" | "not_pooled"> = [
     {
       id: "ubo",
@@ -117,5 +137,11 @@ async function TokenPoolBreakdownChartC3Chart() {
       id: "not_pooled",
     },
   ];
-  return <KPieChart data={chartData} configuration={configuration} />;
+  return (
+    <KPieChart
+      data={chartData}
+      configuration={configuration}
+      showPercentageInLegend={props.showPercentageInLegend}
+    />
+  );
 }

@@ -64,8 +64,8 @@ export const ProjectDetail: FC<Props> = (props) => {
       )}
       {props.isMossOffset && (
         <div className="button_link">
-          <A href={`${urls.carbonDashboard}/MCO2`}>
-            <Trans>Explore MCO2 on carbon.klimadao.finance</Trans>
+          <A href={`${urls.carbonDashboard}/token-details?tab=moss`}>
+            <Trans>Explore MCO2 on data.klimadao.finance</Trans>
           </A>
         </div>
       )}

@@ -1,34 +1,36 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import DailyCeloCarbonSupplyCard from "components/cards/supply/DailyCeloCarbonSupplyCard";
 import DailyEthCarbonSupplyCard from "components/cards/supply/DailyEthCarbonSupplyCard";
 import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCarbonSupplyCard";
 import DetailPage from "components/pages/DetailPage";
-import { ChainDetailPageProps, ChainPageParams } from "components/pages/props";
+import { ChainDetailPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 import { getChainLabel } from "lib/chains";
 
-function title(params: ChainPageParams) {
-  const chainLabel = getChainLabel(params.chain);
+function title(props: ChainDetailPageProps) {
+  const chainLabel = getChainLabel(props.params.chain);
   return t`Digital carbon supply - ${chainLabel}`;
 }
-function description(params: ChainPageParams) {
-  const chainLabel = getChainLabel(params.chain);
-  console.log(params);
+function description(props: ChainDetailPageProps) {
+  const chainLabel = getChainLabel(props.params.chain);
+  console.log(props.params);
   return t`The current supply of digital carbon on the ${chainLabel} blockchain broken down by digital carbon pool.`;
 }
 
-export async function generateMetadata({ params }: ChainDetailPageProps) {
+export async function generateMetadata(props: ChainDetailPageProps) {
   return {
-    title: title(params),
-    description: description(params),
+    title: metaDataTitle(title(props)),
+    description: description(props),
   };
 }
 
-export default function DigitalDailyCarbonSupplyPage({
-  params,
-}: ChainDetailPageProps) {
+export default async function DigitalDailyCarbonSupplyPage(
+  props: ChainDetailPageProps
+) {
+  await initLayout(props.params);
   let card = <></>;
-  switch (params.chain) {
+  switch (props.params.chain) {
     case "polygon":
       card = <DailyPolygonCarbonSupplyCard isDetailPage={true} />;
       break;
@@ -41,9 +43,9 @@ export default function DigitalDailyCarbonSupplyPage({
   }
   return (
     <DetailPage
-      pageTitle={title(params)}
+      pageTitle={title(props)}
       card={card}
-      overview={description(params)}
+      overview={description(props)}
       backButtonHref={PageLinks.Supply}
     />
   );

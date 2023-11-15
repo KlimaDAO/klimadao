@@ -1,32 +1,34 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import DailyEthRetirementsCard from "components/cards/supply/DailyEthRetirementsCard";
 import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
 import DetailPage from "components/pages/DetailPage";
-import { ChainDetailPageProps, ChainPageParams } from "components/pages/props";
+import { ChainDetailPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 import { getChainLabel } from "lib/chains";
 
-function title(params: ChainPageParams) {
-  const chainLabel = getChainLabel(params.chain);
+function title(props: ChainDetailPageProps) {
+  const chainLabel = getChainLabel(props.params.chain);
   return t`Digital carbon retirements - ${chainLabel}`;
 }
-function description(params: ChainPageParams) {
-  const chainLabel = getChainLabel(params.chain);
+function description(props: ChainDetailPageProps) {
+  const chainLabel = getChainLabel(props.params.chain);
   return t`The total number of digital carbon credits retired over time on the ${chainLabel} blockchain.`;
 }
 
-export async function generateMetadata({ params }: ChainDetailPageProps) {
+export async function generateMetadata(props: ChainDetailPageProps) {
   return {
-    title: title(params),
-    description: description(params),
+    title: metaDataTitle(title(props)),
+    description: description(props),
   };
 }
 
-export default function DigitalDailyRetirementsPage({
-  params,
-}: ChainDetailPageProps) {
+export default async function DigitalDailyRetirementsPage(
+  props: ChainDetailPageProps
+) {
+  await initLayout(props.params);
   let card = <></>;
-  switch (params.chain) {
+  switch (props.params.chain) {
     case "polygon":
       card = <DailyPolygonRetirementsCard isDetailPage={true} />;
       break;
@@ -36,9 +38,9 @@ export default function DigitalDailyRetirementsPage({
   }
   return (
     <DetailPage
-      pageTitle={title(params)}
+      pageTitle={title(props)}
       card={card}
-      overview={description(params)}
+      overview={description(props)}
       backButtonHref={PageLinks.Supply}
     />
   );

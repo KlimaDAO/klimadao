@@ -1,6 +1,8 @@
 import { t } from "@lingui/macro";
 
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import { PageHeader } from "components/PageHeader/PageHeader";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 import Image from "next/image";
 import banner from "./banner.png";
@@ -10,18 +12,19 @@ function title() {
   return t`What is digital carbon?`;
 }
 function description() {
-  return t`What is digital carbon?`;
+  return t`The term 'digital carbon' refers to a carbon credit that has been bridged from an off-chain carbon registry and tokenized, so that the credit now exists solely on a public blockchain.`;
 }
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }
 
 /** Overview page (index/landing page) captured via rewrite in next.config.js*/
-export default function OverviewPage() {
+export default async function OverviewPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
   return (
     <>
       <PageHeader title={title()} backButtonHref={PageLinks.Overview} />

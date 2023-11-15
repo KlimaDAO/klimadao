@@ -8,23 +8,26 @@ import DailyCarbonSupplyOverviewCard from "components/cards/overview/DailyCarbon
 import HistoricalPriceCard from "components/cards/overview/HistoricalPriceCard";
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import TokensPriceCard from "components/cards/overview/TokensPriceCard";
+import { LocalizedPageProps } from "components/pages/props";
+import { initLayout, metaDataTitle } from "../layout";
 
 function title() {
-  return t`State of the digital carbon market`;
+  return t`State of the Digital Carbon Market`;
 }
 function description() {
-  return t`State of the digital carbon market`;
+  return t`The Klima Data Carbon Dashboard provides a complete overview of digital carbon pricing, volumes, and retirement trends for the Digital Carbon Market. It is made available to anyone by KlimaDAO as a public good, creating transparency for the DCM.`;
 }
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }
 
 /** Overview page (index/landing page) captured by app/[locale]/page.tsx */
-export default function OverviewPage() {
+export default async function OverviewPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
   return (
     <>
       <PageHeader

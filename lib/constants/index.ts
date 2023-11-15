@@ -105,7 +105,7 @@ export const urls = {
   retirements: "https://www.klimadao.finance/retirements",
   retirements_carbonmark: "https://www.carbonmark.com/retirements",
   buy: "https://www.klimadao.finance/buy",
-  carbonDashboard: "https://carbon.klimadao.finance",
+  carbonDashboard: "https://data.klimadao.finance",
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",

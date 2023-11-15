@@ -1,7 +1,9 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import HistoricalPriceCard from "components/cards/overview/HistoricalPriceCard";
 import TokensPriceCard from "components/cards/overview/TokensPriceCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 import layout from "theme/layout.module.scss";
 
@@ -14,12 +16,15 @@ function description() {
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }
 
-export default function PriceOfDigitalCarbonPage() {
+export default async function PriceOfDigitalCarbonPage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
       pageTitle={title()}

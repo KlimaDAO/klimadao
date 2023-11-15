@@ -1,4 +1,5 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import TokenDistributionOfProjectsCard from "components/cards/tokenDetails/TokenDistributionOfProjectsCard";
 import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
 import { BridgePageParams, TokenDetailPageProps } from "components/pages/props";
@@ -15,14 +16,15 @@ function description(params: BridgePageParams) {
 
 export async function generateMetadata({ params }: TokenDetailPageProps) {
   return {
-    title: title(params),
+    title: metaDataTitle(title(params)),
     description: description(params),
   };
 }
 
-export default function TokenDistributionOfProjectsPage(
+export default async function TokenDistributionOfProjectsPage(
   props: TokenDetailPageProps
 ) {
+  await initLayout(props.params);
   return (
     <TokenDetailsDetailPage
       pageTitle={title(props.params)}
