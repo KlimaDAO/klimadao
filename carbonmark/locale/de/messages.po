@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-15 15:35+0000\n"
+"POT-Creation-Date: 2023-11-15 17:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "500 - Server error occurred"
 msgstr "500 - Serverfehler aufgetreten"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:216
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> Pflichtfeld"
 
@@ -197,6 +197,11 @@ msgid "Available: {0}"
 msgstr "Verfügbar: {0}"
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
+msgid "Available: {unlistedBalance}"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
 msgstr "BETA"
@@ -240,7 +245,7 @@ msgid "Beneficiary name"
 msgstr "Name des Begünstigten"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "Wallet-Adresse des Begünstigten (optional)"
@@ -667,7 +672,7 @@ msgstr "Name sollte keine Sonderzeichen enthalten"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:117
-#: components/pages/Portfolio/Retire/index.tsx:116
+#: components/pages/Portfolio/Retire/index.tsx:117
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Haben Sie schon Ihr <0>Carbonmark-Profil</0> erstellt?"
 
@@ -772,7 +777,7 @@ msgid "List your projects for sale in just a few clicks"
 msgstr "Bieten Sie Ihre Projekte mit wenigen Klicks zum Verkauf an"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:77
+#: components/pages/Portfolio/AssetProject/index.tsx:78
 msgid "Listed tonnes:"
 msgstr "Gelistete Tonnen:"
 
@@ -1240,7 +1245,7 @@ msgid "Results"
 msgstr "Ergebnisse"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:84
+#: components/pages/Portfolio/AssetProject/index.tsx:85
 msgid "Retire"
 msgstr "Kompensieren"
 
@@ -1250,7 +1255,7 @@ msgid "Retire Carbon"
 msgstr "CO2-Fußabdruck ausgleichen"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Gleichen Sie Ihren eigenen CO2-Fußabdruck aus oder handeln Sie im Auftrag anderer Personen oder Organisationen"
 
@@ -1353,8 +1358,8 @@ msgid "See your retirement receipt"
 msgstr "Ihr Ausgleichszertifikat ansehen"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:94
-#: components/pages/Portfolio/AssetProject/index.tsx:102
+#: components/pages/Portfolio/AssetProject/index.tsx:98
+#: components/pages/Portfolio/AssetProject/index.tsx:106
 msgid "Sell"
 msgstr "Verkaufen"
 
@@ -1411,7 +1416,7 @@ msgstr "Leider existiert dieser Name bereits"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Portfolio/Retire/index.tsx:111
+#: components/pages/Portfolio/Retire/index.tsx:112
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Leider konnten wir auf Carbonmark keine Daten für diesen Nutzer finden."
 
@@ -1499,7 +1504,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "Im ersten Schritt bewilligen Sie den Transfer des Zahlungstokens aus Ihrer Wallet zu Carbonmark. Im nächsten Schritt genehmigen Sie den eigentlichen Transfer und schließen den Kauf ab."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:208
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "Die unten angegebenen Informationen werden öffentlich einsehbar sein, um Ihren CO2-Ausgleich zu verifizieren. Diese Transaktion ist endgültig; die enthaltenen Informationen können nicht verändert werden, sobald die Transaktion abgeschlossen ist."
 
@@ -1713,7 +1718,7 @@ msgid "Unit price is required"
 msgstr "Stückpreis ist erforderlich"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:73
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Unlisted tonnes:"
 msgstr "Nicht angebotene Tonnen:"
 
@@ -2114,47 +2119,42 @@ msgid "menu.retire"
 msgstr "Kompensieren"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:224
 msgid "offset.amount_in_tonnes"
 msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen? <0>*</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
-msgid "offset.amount_in_tonnes_2"
-msgstr "Verfügbar: {balance}"
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:314
 msgid "offset.default_retirement_address"
 msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
 msgid "offset.offset_quantity"
 msgstr "Auszugleichende Menge angeben"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:398
 msgid "offset.retire_carbon"
 msgstr "CO2-Ausgleich bestätigen"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:277
 msgid "offset.retirement_beneficiary_name"
 msgstr "Name des Begünstigten"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:265
 msgid "offset.retirement_credit"
 msgstr "Wem soll dieser CO2-Ausgleich gewidmet werden?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
 msgid "offset.retirement_message"
 msgstr "Möchtest du eine Nachricht anhängen?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:334
 msgid "offset.retirement_retirement_message"
 msgstr "Ausgleichsnachricht"
 
@@ -2175,7 +2175,7 @@ msgid "offset.successModal.body3"
 msgstr "Ihre Transaktion wurde erfolgreich verarbeitet, doch die Indexierung dauert länger als erwartet. Sie wird demnächst in Ihren <0>CO2-Kompensierungen</0> erscheinen."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:355
 msgid "offset_disclaimer"
 msgstr "Achten Sie darauf, keine persönlichen Daten (wie E-Mail-Adressen) im Ausgleichsnamen oder der -nachricht anzugeben. Die hier eingegebenen Informationen werden auf einer öffentlichen Blockchain für immer einsehbar sein und können nicht bearbeitet werden."
 
@@ -2360,12 +2360,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Überprüfen Sie Ihre Suche auf Tippfehler oder versuchen Sie es mit einem anderen Suchbegriff."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
 msgid "retire.back_button"
 msgstr "zurück"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:367
 msgid "retire.submit_button"
 msgstr "CO2-Fußabdruck ausgleichen"
 

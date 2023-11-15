@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-15 15:35+0000\n"
+"POT-Creation-Date: 2023-11-15 17:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "500 - Server error occurred"
 msgstr "500 - Une erreur de serveur est survenue"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:216
 msgid "<0>* </0> Required Field"
 msgstr "<0>* </0> Champ requis"
 
@@ -199,6 +199,11 @@ msgid "Available: {0}"
 msgstr "Disponible : {0}"
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
+msgid "Available: {unlistedBalance}"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
 msgstr "BETA"
@@ -242,7 +247,7 @@ msgid "Beneficiary name"
 msgstr "Nom du bénéficiaire"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "Adresse du portefeuille du bénéficiaire (facultatif)"
@@ -669,7 +674,7 @@ msgstr "Le pseudonyme ne doit pas contenir de caractères spéciaux"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:117
-#: components/pages/Portfolio/Retire/index.tsx:116
+#: components/pages/Portfolio/Retire/index.tsx:117
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Avez-vous déjà créé votre <0>profil</0> Carbonmark  ?"
 
@@ -774,7 +779,7 @@ msgid "List your projects for sale in just a few clicks"
 msgstr "Mettez vos projets en vente en quelques clics"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:77
+#: components/pages/Portfolio/AssetProject/index.tsx:78
 msgid "Listed tonnes:"
 msgstr "Tonnes à la vente :"
 
@@ -1242,7 +1247,7 @@ msgid "Results"
 msgstr "Résultats"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:84
+#: components/pages/Portfolio/AssetProject/index.tsx:85
 msgid "Retire"
 msgstr "Retirer du marché"
 
@@ -1252,7 +1257,7 @@ msgid "Retire Carbon"
 msgstr "Retirer du marché des crédits Carbone"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retirer du marché des crédits carbone pour vous-même ou pour le compte d'une autre personne ou entreprise."
 
@@ -1355,8 +1360,8 @@ msgid "See your retirement receipt"
 msgstr "Voir votre justificatif de retrait du marché"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:94
-#: components/pages/Portfolio/AssetProject/index.tsx:102
+#: components/pages/Portfolio/AssetProject/index.tsx:98
+#: components/pages/Portfolio/AssetProject/index.tsx:106
 msgid "Sell"
 msgstr "Vendre"
 
@@ -1413,7 +1418,7 @@ msgstr "Désolé, ce pseudonyme existe déjà"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Portfolio/Retire/index.tsx:111
+#: components/pages/Portfolio/Retire/index.tsx:112
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Désolé. Nous n'avons pas trouvé de données Carbonmark pour votre utilisateur."
 
@@ -1501,7 +1506,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "La première étape est de donner l'autorisation à Carbonmark de transférer le type d'actif utilisé lors du paiement de votre portefeuille, l'étape suivante est d'approuver le transfert et de finaliser votre achat."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:208
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "Les informations ci-dessous seront diffusées publiquement pour vérifier votre déclaration environnementale. Cette transaction est permanente ; les informations ne peuvent pas être modifiées une fois la transaction terminée."
 
@@ -1715,7 +1720,7 @@ msgid "Unit price is required"
 msgstr "Le prix unitaire est requis"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:73
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Unlisted tonnes:"
 msgstr "Tonnes hors annonces :"
 
@@ -2116,47 +2121,42 @@ msgid "menu.retire"
 msgstr "Retirer du marché"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:224
 msgid "offset.amount_in_tonnes"
 msgstr "Combien de tonnes de carbone souhaitez-vous compenser ? <0>*</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
-msgid "offset.amount_in_tonnes_2"
-msgstr "Disponible : {balance}"
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:314
 msgid "offset.default_retirement_address"
 msgstr "Par défaut, l'adresse du portefeuille connecté"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
 msgid "offset.offset_quantity"
 msgstr "Entrez la quantité à compenser"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:398
 msgid "offset.retire_carbon"
 msgstr "Confirmer le Retrait"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:277
 msgid "offset.retirement_beneficiary_name"
 msgstr "Nom du Bénéficiaire"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:265
 msgid "offset.retirement_credit"
 msgstr "A qui ce retrait du marché carbone sera-t-elle créditée ?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
 msgid "offset.retirement_message"
 msgstr "Message de retrait du marché"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:334
 msgid "offset.retirement_retirement_message"
 msgstr "Message de Retrait du marché"
 
@@ -2177,7 +2177,7 @@ msgid "offset.successModal.body3"
 msgstr "Votre transaction a été traitée avec succès, mais son indexation prend plus de temps que d'habitude. Elle apparaîtra bientôt dans vos <0>retraits</0>."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:355
 msgid "offset_disclaimer"
 msgstr "Veillez à ne pas inclure d'informations personnelles sensibles (telles qu'une adresse électronique) dans votre nom de retrait ou votre message. Les informations que vous saisissez ici ne peuvent pas être modifiées une fois qu'elles ont été soumises et existeront de manière permanente sur une blockchain publique."
 
@@ -2362,12 +2362,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou essayez un autre terme de recherche."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
 msgid "retire.back_button"
 msgstr "précédent"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:367
 msgid "retire.submit_button"
 msgstr "Retirer du marché des crédits Carbone"
 

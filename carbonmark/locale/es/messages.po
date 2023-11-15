@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-15 15:35+0000\n"
+"POT-Creation-Date: 2023-11-15 17:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "500 - Server error occurred"
 msgstr "500 - Se ha producido un error en el servidor"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:216
 msgid "<0>* </0> Required Field"
 msgstr "<0>* </0> Campo obligatorio"
 
@@ -197,6 +197,11 @@ msgid "Available: {0}"
 msgstr "Disponible: {0}"
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
+msgid "Available: {unlistedBalance}"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
 msgstr "BETA"
@@ -240,7 +245,7 @@ msgid "Beneficiary name"
 msgstr "Nombre del Beneficiario"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "Dirección del monedero del beneficiario (opcional)"
@@ -667,7 +672,7 @@ msgstr "El nombre no puede contener caracteres especiales"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:117
-#: components/pages/Portfolio/Retire/index.tsx:116
+#: components/pages/Portfolio/Retire/index.tsx:117
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "¿Ha creado ya su Carbonmark <0>Profile</0>?"
 
@@ -772,7 +777,7 @@ msgid "List your projects for sale in just a few clicks"
 msgstr "Ponga a la venta sus proyectos en unos pocos clicks"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:77
+#: components/pages/Portfolio/AssetProject/index.tsx:78
 msgid "Listed tonnes:"
 msgstr "Toneladas listadas:"
 
@@ -1240,7 +1245,7 @@ msgid "Results"
 msgstr "Resultados"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:84
+#: components/pages/Portfolio/AssetProject/index.tsx:85
 msgid "Retire"
 msgstr "Retirar"
 
@@ -1250,7 +1255,7 @@ msgid "Retire Carbon"
 msgstr "RETIRA CARBONO"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retire créditos de carbono para usted mismo o en nombre de otra persona u organización."
 
@@ -1353,8 +1358,8 @@ msgid "See your retirement receipt"
 msgstr "Ver su recibo de retiro"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:94
-#: components/pages/Portfolio/AssetProject/index.tsx:102
+#: components/pages/Portfolio/AssetProject/index.tsx:98
+#: components/pages/Portfolio/AssetProject/index.tsx:106
 msgid "Sell"
 msgstr "Vender"
 
@@ -1411,7 +1416,7 @@ msgstr "Lo sentimos, este nombre ya existe"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Portfolio/Retire/index.tsx:111
+#: components/pages/Portfolio/Retire/index.tsx:112
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Lo sentimos. No hemos podido encontrar datos sobre Carbonmark para tu usuario."
 
@@ -1499,7 +1504,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "El primer paso es conceder la aprobación para transferir su activo de pago desde su monedero a Carbonmark, el siguiente paso es aprobar la transferencia real y completar su compra."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:208
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "La información que figura a continuación se difundirá públicamente para verificar su declaración medioambiental. Esta transacción es permanente; la información no puede modificarse una vez completada su transacción."
 
@@ -1713,7 +1718,7 @@ msgid "Unit price is required"
 msgstr "Se requiere precio unitario"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:73
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Unlisted tonnes:"
 msgstr "Toneladas no listadas:"
 
@@ -2116,47 +2121,42 @@ msgid "menu.retire"
 msgstr "Retirar"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:224
 msgid "offset.amount_in_tonnes"
 msgstr "¿Cuántas toneladas de carbono desea compensar? <0>* </0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
-msgid "offset.amount_in_tonnes_2"
-msgstr "Disponible: {balance}"
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:314
 msgid "offset.default_retirement_address"
 msgstr "Por defecto, la dirección del monedero conectado"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
 msgid "offset.offset_quantity"
 msgstr "Ingrese la cantidad a compensar"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:398
 msgid "offset.retire_carbon"
 msgstr "Confirmar Retiro"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:277
 msgid "offset.retirement_beneficiary_name"
 msgstr "Nombre del beneficiario"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:265
 msgid "offset.retirement_credit"
 msgstr "¿A quién se acreditará esta retirada?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
 msgid "offset.retirement_message"
 msgstr "Mensaje de Retiro"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:334
 msgid "offset.retirement_retirement_message"
 msgstr "Mensaje de Retiro"
 
@@ -2177,7 +2177,7 @@ msgid "offset.successModal.body3"
 msgstr "Su transacción se ha procesado correctamente pero está tardando más de lo normal en indexarse. Pronto aparecerá en tus <0>jubilaciones</0>."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:355
 msgid "offset_disclaimer"
 msgstr "Tenga cuidado de no incluir ninguna información personal sensible (como una dirección de correo electrónico) en su nombre de retiro o mensaje. La información que introduzca aquí no podrá editarse una vez enviada y existirá permanentemente en una blockchain pública."
 
@@ -2362,12 +2362,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Compruebe si hay errores tipográficos en su búsqueda o pruebe con otro término de búsqueda."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
 msgid "retire.back_button"
 msgstr "atrás"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:367
 msgid "retire.submit_button"
 msgstr "RETIRA CARBONO"
 
