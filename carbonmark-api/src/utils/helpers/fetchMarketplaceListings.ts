@@ -5,7 +5,7 @@ import { Activity } from "../../models/Activity.model";
 import { Listing } from "../../models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { GQL_SDK } from "../gqlSdk";
-import { formatListing } from "../marketplace.utils";
+import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
 
 type Params = {
@@ -16,7 +16,7 @@ type Params = {
   expiresAfter?: string;
 };
 
-const filterUnsoldActivity = (activity: { activityType?: string }) =>
+const filterUnsoldActivity = (activity: { activityType?: string | null }) =>
   activity.activityType !== "Sold";
 
 export const getCreditListings = async (
@@ -37,25 +37,11 @@ export const getCreditListings = async (
   return project;
 };
 
-/**
- * Query the subgraph for active marketplace listings and project data for the given project
- * Filters out deleted, sold-out and inactive listings
- * Fetches seller profile info from firebase
- */
-export const fetchMarketplaceListings = async (
-  sdk: GQL_SDK,
-  { key, vintage, expiresAfter, fastify }: Params
-): Promise<[Listing[], Activity[]]> => {
-  const { project } = await sdk.marketplace.getProjectById({
-    projectId: key + "-" + vintage,
-    expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
-  });
-  const filteredListings = project?.listings?.filter(isActiveListing) || [];
-  const filteredActivities =
-    project?.activities?.filter(filterUnsoldActivity) || [];
-
-  const formattedListings = filteredListings.map(formatListing);
-
+const formatActivities = async (
+  activities: Activity[],
+  fastify: FastifyInstance
+): Promise<Activity[]> => {
+  const filteredActivities = activities?.filter(filterUnsoldActivity) || [];
   const formattedActivities = filteredActivities.map((activity) => ({
     ...activity,
     price: activity.price ? utils.formatUnits(activity.price, 6) : null,
@@ -67,17 +53,49 @@ export const fetchMarketplaceListings = async (
       ? utils.formatUnits(activity.previousAmount, 18)
       : null,
   }));
-
   const userIds = new Set<string>();
-  formattedListings.forEach((listing) =>
-    userIds.add(listing.seller.id.toLowerCase())
-  );
   formattedActivities.forEach((activity) => {
-    userIds.add(activity.seller.id.toLowerCase());
+    if (activity.seller) {
+      userIds.add(activity.seller.id.toLowerCase());
+    }
     if (activity.buyer) {
       userIds.add(activity.buyer.id.toLowerCase());
     }
   });
+  const addresses = sortBy(Array.from(userIds));
+
+  const profilesMap = await getUserProfilesByIds({
+    firebase: fastify.firebase,
+    addresses,
+  });
+  const activitiesWithProfiles = formattedActivities.map((act) => {
+    const activityWithHandles = { ...act };
+    if (act.seller) {
+      const sellerData = profilesMap.get(act.seller.id.toLowerCase());
+      if (sellerData) {
+        set(activityWithHandles, "seller.handle", sellerData.handle);
+      }
+    }
+    if (act.buyer) {
+      const buyerData = profilesMap.get(act.buyer.id.toLowerCase());
+      if (buyerData && buyerData.handle) {
+        set(activityWithHandles, "buyer.handle", buyerData.handle);
+      }
+    }
+    return activityWithHandles;
+  });
+  return activitiesWithProfiles;
+};
+
+const formatListings = async (
+  listings: GetProjectListing[],
+  fastify: FastifyInstance
+): Promise<Listing[]> => {
+  const formattedListings = listings.map(formatListing);
+  const userIds = new Set<string>();
+  formattedListings.forEach((listing) =>
+    userIds.add(listing.seller.id.toLowerCase())
+  );
 
   const addresses = sortBy(Array.from(userIds));
 
@@ -96,21 +114,47 @@ export const fetchMarketplaceListings = async (
       },
     };
   });
+  return listingsWithProfiles;
+};
 
-  const activitiesWithProfiles = formattedActivities.map((act) => {
-    const activityWithHandles = { ...act };
-    const sellerData = profilesMap.get(act.seller.id.toLowerCase());
-    if (sellerData) {
-      set(activityWithHandles, "seller.handle", sellerData.handle);
-    }
-    if (act.buyer) {
-      const buyerData = profilesMap.get(act.buyer.id.toLowerCase());
-      if (buyerData && buyerData.handle) {
-        set(activityWithHandles, "buyer.handle", buyerData.handle);
-      }
-    }
-    return activityWithHandles;
+/**
+ * Query the subgraph for active marketplace listings and project data for the given project
+ * Filters out deleted, sold-out and inactive listings
+ * Fetches seller profile info from firebase
+ */
+export const fetchMarketplaceListings = async (
+  sdk: GQL_SDK,
+  { key, vintage, expiresAfter, fastify }: Params
+): Promise<[Listing[], Activity[]]> => {
+  const { project } = await sdk.marketplace.getProjectById({
+    projectId: key + "-" + vintage,
+    expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
   });
+  const filteredListings = project?.listings?.filter(isActiveListing) || [];
+  const filteredActivities =
+    project?.activities?.filter(filterUnsoldActivity) || [];
+
+  const activitiesWithProfiles = await formatActivities(
+    filteredActivities,
+    fastify
+  );
+  const listingsWithProfiles = await formatListings(filteredListings, fastify);
 
   return [listingsWithProfiles, activitiesWithProfiles];
+};
+
+/**
+ * Query the subgraph for activities for the given project
+ */
+export const fetchProjectActivities = async (
+  sdk: GQL_SDK,
+  { key, vintage, fastify }: Params
+): Promise<Activity[]> => {
+  const activities = (
+    await sdk.marketplace.getActivitiesByProjectId({
+      projectId: key + "-" + vintage,
+    })
+  ).activities;
+  const activitiesWithProfiles = await formatActivities(activities, fastify);
+  return activitiesWithProfiles;
 };
