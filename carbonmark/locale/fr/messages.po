@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-14 18:37+0000\n"
+"POT-Creation-Date: 2023-11-15 00:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2449,7 +2449,7 @@ msgstr "Méthodologie :"
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
-msgstr "Les crédits MC02 sont générés par des projets qui préservent la forêt amazonienne, avec toutes sortes de retombées positives telles que la création d'emplois locaux et la préservation de la biodiversité locale. Découvrez MCO2 sur <0>carbon.klimadao.finance</0>."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
