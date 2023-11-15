@@ -76,8 +76,13 @@ query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
   }
 }
 
-query getActivitiesByProjectId($projectId: ID!) {
-  activities(where: { project_: { id: $projectId } }) {
+query getActivitiesByProjectId(
+  $projectId: ID!
+  $activityType: [ActivityType!]
+) {
+  activities(
+    where: { project_: { id: $projectId }, activityType_in: $activityType }
+  ) {
     ...ActivityFragment
   }
 }

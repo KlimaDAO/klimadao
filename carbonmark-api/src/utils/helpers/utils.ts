@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { compact, concat, isArray } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
+  ActivityType,
   Category,
   Country,
   Listing,
@@ -144,6 +145,10 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   return result;
 }
 
+export function getAllActivityTypes() {
+  return Object.values(ActivityType);
+}
+
 export type PriceType = Pick<Listing, "leftToSell" | "tokenAddress"> &
   Partial<Pick<Listing, "singleUnitPrice">> & {
     name: string;
@@ -219,3 +224,24 @@ export const isMatchingCmsProject = (
   { registry, projectId }: IsMatchingCmsProjectArgs,
   project: CarbonProject
 ) => project?.registryProjectId === projectId && project.registry === registry;
+
+/**
+ * Converts a String into an ActivityType without breaking typescript checks
+ */
+export const stringToActivityType = (str: string): ActivityType | undefined => {
+  for (const [key, value] of Object.entries(ActivityType)) {
+    if (key == str) {
+      return value;
+    }
+  }
+};
+/**
+ * Converts an array of Strings into an array of ActivityType without breaking typescript checks
+ * FIXME: this method will silently filter out strings that do not relate to an actually activity type
+ * potentially misleading people using the API
+ */
+export const stringsToActivityTypes = (strs: string[]): ActivityType[] => {
+  return strs
+    .map(stringToActivityType)
+    .filter((str): str is ActivityType => !!str);
+};

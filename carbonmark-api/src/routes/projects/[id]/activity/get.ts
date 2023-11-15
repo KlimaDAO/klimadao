@@ -1,9 +1,14 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { mapValues } from "lodash";
+import { split } from "lodash/fp";
+import { ActivityType } from "src/.generated/types/marketplace.types";
+import { stringsToActivityTypes } from "src/utils/helpers/utils";
 import { Activity } from "../../../../models/Activity.model";
 import { CreditId } from "../../../../utils/CreditId";
 import { gql_sdk } from "../../../../utils/gqlSdk";
 import { fetchProjectActivities } from "../../../../utils/helpers/fetchMarketplaceListings";
+import { getDefaultQueryArgs } from "../../get.utils";
 import { schema } from "./get.schema";
 
 /**
@@ -22,13 +27,18 @@ const handler = (fastify: FastifyInstance) =>
     const { id } = request.params;
     const sdk = gql_sdk(request.query.network);
     const { vintage, projectId: key } = new CreditId(id);
+    const args = mapValues(request.query, split(","));
+    const allOptions = await getDefaultQueryArgs(sdk, fastify);
+    const activityType: ActivityType[] = args.activityType
+      ? stringsToActivityTypes(args.activityType)
+      : allOptions.activityType;
 
     const activities = await fetchProjectActivities(sdk, {
       key,
       vintage,
       fastify,
+      activityType,
     });
-    console.debug(activities);
 
     // Send the transformed projects array as a JSON string in the response
     return reply

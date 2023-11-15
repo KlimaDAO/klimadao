@@ -1329,6 +1329,7 @@ export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?
 
 export type GetActivitiesByProjectIdQueryVariables = Exact<{
   projectId: Scalars['ID'];
+  activityType: InputMaybe<Array<ActivityType> | ActivityType>;
 }>;
 
 
@@ -1474,8 +1475,8 @@ export const GetProjectByIdDocument = gql`
 ${ListingFragmentFragmentDoc}
 ${ActivityFragmentFragmentDoc}`;
 export const GetActivitiesByProjectIdDocument = gql`
-    query getActivitiesByProjectId($projectId: ID!) {
-  activities(where: {project_: {id: $projectId}}) {
+    query getActivitiesByProjectId($projectId: ID!, $activityType: [ActivityType!]) {
+  activities(where: {project_: {id: $projectId}, activityType_in: $activityType}) {
     ...ActivityFragment
   }
 }
