@@ -3,11 +3,11 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues } from "lodash";
 import { split } from "lodash/fp";
 import { ActivityType } from "src/.generated/types/marketplace.types";
-import { stringsToActivityTypes } from "src/utils/helpers/utils";
 import { Activity } from "../../../../models/Activity.model";
 import { CreditId } from "../../../../utils/CreditId";
 import { gql_sdk } from "../../../../utils/gqlSdk";
 import { fetchProjectActivities } from "../../../../utils/helpers/fetchMarketplaceListings";
+import { stringsToActivityTypes } from "../../../../utils/helpers/utils";
 import { getDefaultQueryArgs } from "../../get.utils";
 import { schema } from "./get.schema";
 
