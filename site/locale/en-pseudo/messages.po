@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
+msgid "Explore MCO2 on data.klimadao.finance"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr ""
@@ -155,11 +160,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
 msgid "{trimCurrentSupply} Tonnes remaining"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
 msgstr ""
 
 #. js-lingui-explicit-id
