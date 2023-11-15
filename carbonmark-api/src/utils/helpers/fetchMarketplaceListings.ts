@@ -9,6 +9,7 @@ import { CreditId } from "../CreditId";
 import { GQL_SDK } from "../gqlSdk";
 import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
+import { getAllActivityTypes } from "./utils";
 
 type ListingsParams = {
   key: string; // Project key `"VCS-981"`
@@ -23,9 +24,6 @@ type ActivitiesParams = {
   activityType: ActivityType[]; // Activity type
   fastify: FastifyInstance; // Fastify instance
 };
-
-const filterUnsoldActivity = (activity: { activityType?: string | null }) =>
-  activity.activityType !== "Sold";
 
 export const getCreditListings = async (
   sdk: GQL_SDK,
@@ -133,18 +131,19 @@ export const fetchMarketplaceListings = async (
   sdk: GQL_SDK,
   { key, vintage, expiresAfter, fastify }: ListingsParams
 ): Promise<[Listing[], Activity[]]> => {
+  const projectId = key + "-" + vintage;
   const { project } = await sdk.marketplace.getProjectById({
-    projectId: key + "-" + vintage,
+    projectId,
     expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
   });
   const filteredListings = project?.listings?.filter(isActiveListing) || [];
-  const filteredActivities =
-    project?.activities?.filter(filterUnsoldActivity) || [];
 
-  const activitiesWithProfiles = await mapUserToActivities(
-    filteredActivities,
-    fastify
-  );
+  const activitiesWithProfiles = await fetchProjectActivities(sdk, {
+    projectId: [projectId],
+    activityType: getAllActivityTypes().filter((t) => t != "Sold"),
+    fastify,
+  });
+
   const listingsWithProfiles = await formatListings(filteredListings, fastify);
 
   return [listingsWithProfiles, activitiesWithProfiles];
