@@ -159,7 +159,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
+msgid "Explore MCO2 on data.klimadao.finance"
 msgstr ""
 
 #. js-lingui-explicit-id

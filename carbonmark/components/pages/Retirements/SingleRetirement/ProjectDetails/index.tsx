@@ -78,7 +78,7 @@ export const ProjectDetails: FC<Props> = (props) => {
                 Forest, with all sorts of positive externalities such as the
                 creation of local jobs and preservation of local biodiversity.
                 Explore MCO2 on{" "}
-                <A href={urls.carbonDashboard}>carbon.klimadao.finance</A>.
+                <A href={urls.carbonDashboard}>data.klimadao.finance</A>.
               </Trans>
             ) : (
               <Text as="span" className="description">
