@@ -1325,7 +1325,7 @@ export type GetProjectByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } | null };
+export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } | null };
 
 export type GetActivitiesByProjectIdQueryVariables = Exact<{
   projectId: InputMaybe<Array<Scalars['ID']> | Scalars['ID']>;
@@ -1473,14 +1473,10 @@ export const GetProjectByIdDocument = gql`
     listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
-    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-      ...ActivityFragment
-    }
   }
 }
     ${ProjectFragmentFragmentDoc}
-${ListingFragmentFragmentDoc}
-${ActivityFragmentFragmentDoc}`;
+${ListingFragmentFragmentDoc}`;
 export const GetActivitiesByProjectIdDocument = gql`
     query getActivitiesByProjectId($projectId: [ID!], $activityType: [ActivityType!]) {
   activities(
