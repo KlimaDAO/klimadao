@@ -3,13 +3,12 @@ import type {
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
-import type { ResponseConfig } from "../../../lib/api/client";
-import client from "../../../lib/api/client";
+import client from "../../client";
 import type {
   PostUsers403,
   PostUsersMutationRequest,
   PostUsersMutationResponse,
-} from "../types/PostUsers";
+} from "../models/PostUsers";
 
 /**
  * @summary Create user profile
@@ -21,34 +20,14 @@ export function usePostUsers<
   TError = PostUsers403,
   TVariables = PostUsersMutationRequest,
 >(options?: {
-  mutation?: SWRMutationConfiguration<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
-  >;
+  mutation?: SWRMutationConfiguration<TData, TError, string, TVariables>;
   client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
-  shouldFetch?: boolean;
-}): SWRMutationResponse<
-  ResponseConfig<TData>,
-  TError,
-  string | null,
-  TVariables
-> {
-  const {
-    mutation: mutationOptions,
-    client: clientOptions = {},
-    shouldFetch = true,
-  } = options ?? {};
+}): SWRMutationResponse<TData, TError, string, TVariables> {
+  const { mutation: mutationOptions, client: clientOptions = {} } =
+    options ?? {};
 
-  const url = shouldFetch ? `/users` : null;
-  return useSWRMutation<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
-  >(
-    url,
+  return useSWRMutation<TData, TError, string, TVariables>(
+    `/users`,
     (url, { arg: data }) => {
       return client<TData, TError, TVariables>({
         method: "post",

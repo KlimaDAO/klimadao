@@ -46,11 +46,3 @@ export type PutUsersWalletMutationResponse = {
    */
   handle?: string;
 };
-
-export type PutUsersWalletPathParams = {
-  /**
-   * @description The target wallet address
-   * @type string
-   */
-  wallet: string;
-};

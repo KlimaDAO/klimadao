@@ -5,7 +5,7 @@ import type {
   GetUsersWalletorhandlePathParams,
   GetUsersWalletorhandleQueryParams,
   GetUsersWalletorhandleQueryResponse,
-} from "../types/GetUsersWalletorhandle";
+} from "../models/GetUsersWalletorhandle";
 
 export function getUsersWalletorhandleQueryOptions<
   TData = GetUsersWalletorhandleQueryResponse,
@@ -24,7 +24,7 @@ export function getUsersWalletorhandleQueryOptions<
         params,
 
         ...options,
-      }).then((res) => res.data);
+      });
     },
   };
 }
@@ -44,17 +44,11 @@ export function useGetUsersWalletorhandle<
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
-    shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
-  const {
-    query: queryOptions,
-    client: clientOptions = {},
-    shouldFetch = true,
-  } = options ?? {};
+  const { query: queryOptions, client: clientOptions = {} } = options ?? {};
 
-  const url = shouldFetch ? `/users/${walletOrHandle}` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
+  const query = useSWR<TData, TError, string>(`/users/${walletOrHandle}`, {
     ...getUsersWalletorhandleQueryOptions<TData, TError>(
       walletOrHandle,
       params,

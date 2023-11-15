@@ -3,12 +3,11 @@ import type {
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
-import type { ResponseConfig } from "../../../lib/api/client";
-import client from "../../../lib/api/client";
+import client from "../../client";
 import type {
   PostUsersLoginVerifyMutationRequest,
   PostUsersLoginVerifyMutationResponse,
-} from "../types/PostUsersLoginVerify";
+} from "../models/PostUsersLoginVerify";
 
 /**
  * @description Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.
@@ -21,34 +20,14 @@ export function usePostUsersLoginVerify<
   TError = unknown,
   TVariables = PostUsersLoginVerifyMutationRequest,
 >(options?: {
-  mutation?: SWRMutationConfiguration<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
-  >;
+  mutation?: SWRMutationConfiguration<TData, TError, string, TVariables>;
   client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
-  shouldFetch?: boolean;
-}): SWRMutationResponse<
-  ResponseConfig<TData>,
-  TError,
-  string | null,
-  TVariables
-> {
-  const {
-    mutation: mutationOptions,
-    client: clientOptions = {},
-    shouldFetch = true,
-  } = options ?? {};
+}): SWRMutationResponse<TData, TError, string, TVariables> {
+  const { mutation: mutationOptions, client: clientOptions = {} } =
+    options ?? {};
 
-  const url = shouldFetch ? `/users/login/verify` : null;
-  return useSWRMutation<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
-  >(
-    url,
+  return useSWRMutation<TData, TError, string, TVariables>(
+    `/users/login/verify`,
     (url, { arg: data }) => {
       return client<TData, TError, TVariables>({
         method: "post",

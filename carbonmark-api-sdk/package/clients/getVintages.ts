@@ -1,25 +1,19 @@
-import type { ResponseConfig } from "../client";
 import client from "../client";
-import type {
-  GetVintagesQueryParams,
-  GetVintagesQueryResponse,
-} from "../types/GetVintages";
+import type { GetVintagesQueryResponse } from "../models/GetVintages";
 
 /**
  * @description Retrieve an array of the vintages of available carbon projects
  * @summary Vintages
  * @link /vintages
  */
-export async function getVintages<TData = GetVintagesQueryResponse>(
-  params?: GetVintagesQueryParams,
+
+export function getVintages<TData = GetVintagesQueryResponse>(
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData>({
+): Promise<TData> {
+  return client<TData>({
     method: "get",
     url: `/vintages`,
-    params,
+
     ...options,
   });
-
-  return resData;
 }

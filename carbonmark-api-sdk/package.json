@@ -1,11 +1,11 @@
 {
   "name": "carbonmark-api-sdk",
-  "version": "2.0.0-7",
+  "version": "2.0.0",
   "description": "A generated SDK to allow interaction with the Carbonmark API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "generate": "tsx ./fetch-schema.ts && kubb",
+    "generate": "tsx ./fetch-schema.ts && rm -rf package && kubb",
     "build": "tsc"
   },
   "author": "",

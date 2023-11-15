@@ -4,7 +4,7 @@ import client from "../../client";
 import type {
   GetProjectsQueryParams,
   GetProjectsQueryResponse,
-} from "../types/GetProjects";
+} from "../models/GetProjects";
 
 export function getProjectsQueryOptions<
   TData = GetProjectsQueryResponse,
@@ -22,7 +22,7 @@ export function getProjectsQueryOptions<
         params,
 
         ...options,
-      }).then((res) => res.data);
+      });
     },
   };
 }
@@ -41,17 +41,11 @@ export function useGetProjects<
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
-    shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
-  const {
-    query: queryOptions,
-    client: clientOptions = {},
-    shouldFetch = true,
-  } = options ?? {};
+  const { query: queryOptions, client: clientOptions = {} } = options ?? {};
 
-  const url = shouldFetch ? `/projects` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
+  const query = useSWR<TData, TError, string>(`/projects`, {
     ...getProjectsQueryOptions<TData, TError>(params, clientOptions),
     ...queryOptions,
   });

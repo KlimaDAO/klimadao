@@ -3,12 +3,11 @@ import type {
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
-import type { ResponseConfig } from "../../../lib/api/client";
-import client from "../../../lib/api/client";
+import client from "../../client";
 import type {
   PostUsersLoginMutationRequest,
   PostUsersLoginMutationResponse,
-} from "../types/PostUsersLogin";
+} from "../models/PostUsersLogin";
 
 /**
  * @description Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.
@@ -21,34 +20,14 @@ export function usePostUsersLogin<
   TError = unknown,
   TVariables = PostUsersLoginMutationRequest,
 >(options?: {
-  mutation?: SWRMutationConfiguration<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
-  >;
+  mutation?: SWRMutationConfiguration<TData, TError, string, TVariables>;
   client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
-  shouldFetch?: boolean;
-}): SWRMutationResponse<
-  ResponseConfig<TData>,
-  TError,
-  string | null,
-  TVariables
-> {
-  const {
-    mutation: mutationOptions,
-    client: clientOptions = {},
-    shouldFetch = true,
-  } = options ?? {};
+}): SWRMutationResponse<TData, TError, string, TVariables> {
+  const { mutation: mutationOptions, client: clientOptions = {} } =
+    options ?? {};
 
-  const url = shouldFetch ? `/users/login` : null;
-  return useSWRMutation<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
-  >(
-    url,
+  return useSWRMutation<TData, TError, string, TVariables>(
+    `/users/login`,
     (url, { arg: data }) => {
       return client<TData, TError, TVariables>({
         method: "post",

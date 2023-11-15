@@ -1,4 +1,7 @@
+//@ts-ignore -- this file is only a template so ignore import errors
 import { urls } from "lib/constants";
+// We may need to use this
+// import { version as API_VERSION } from "./package.json";
 
 export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";
@@ -21,7 +24,7 @@ export const fetchClient = async <
   TVariables = unknown,
 >(
   request: RequestConfig<TVariables>
-): Promise<ResponseConfig<TData>> => {
+): Promise<TData> => {
   const response = await fetch(
     `${urls.api.base}${request.url}${request.params ?? ""}`,
     {
@@ -42,7 +45,7 @@ export const fetchClient = async <
     };
   }
   const data = await response.json();
-  return { data };
+  return data;
 };
 
 export default fetchClient;

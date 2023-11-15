@@ -1,16 +1,12 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
 import client from "../../client";
-import type {
-  GetVintagesQueryParams,
-  GetVintagesQueryResponse,
-} from "../types/GetVintages";
+import type { GetVintagesQueryResponse } from "../models/GetVintages";
 
 export function getVintagesQueryOptions<
   TData = GetVintagesQueryResponse,
   TError = unknown,
 >(
-  params?: GetVintagesQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
 ): SWRConfiguration<TData, TError> {
   return {
@@ -19,10 +15,8 @@ export function getVintagesQueryOptions<
         method: "get",
         url: `/vintages`,
 
-        params,
-
         ...options,
-      }).then((res) => res.data);
+      });
     },
   };
 }
@@ -36,23 +30,14 @@ export function getVintagesQueryOptions<
 export function useGetVintages<
   TData = GetVintagesQueryResponse,
   TError = unknown,
->(
-  params?: GetVintagesQueryParams,
-  options?: {
-    query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
-    shouldFetch?: boolean;
-  }
-): SWRResponse<TData, TError> {
-  const {
-    query: queryOptions,
-    client: clientOptions = {},
-    shouldFetch = true,
-  } = options ?? {};
+>(options?: {
+  query?: SWRConfiguration<TData, TError>;
+  client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+}): SWRResponse<TData, TError> {
+  const { query: queryOptions, client: clientOptions = {} } = options ?? {};
 
-  const url = shouldFetch ? `/vintages` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getVintagesQueryOptions<TData, TError>(params, clientOptions),
+  const query = useSWR<TData, TError, string>(`/vintages`, {
+    ...getVintagesQueryOptions<TData, TError>(clientOptions),
     ...queryOptions,
   });
 

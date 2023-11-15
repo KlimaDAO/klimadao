@@ -3,13 +3,11 @@ import type {
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
-import type { ResponseConfig } from "../../../lib/api/client";
-import client from "../../../lib/api/client";
+import client from "../../client";
 import type {
   PutUsersWalletMutationRequest,
   PutUsersWalletMutationResponse,
-  PutUsersWalletPathParams,
-} from "../types/PutUsersWallet";
+} from "../models/PutUsersWallet";
 
 /**
  * @summary Update user profile
@@ -20,38 +18,15 @@ export function usePutUsersWallet<
   TData = PutUsersWalletMutationResponse,
   TError = unknown,
   TVariables = PutUsersWalletMutationRequest,
->(
-  wallet: PutUsersWalletPathParams["wallet"],
-  options?: {
-    mutation?: SWRMutationConfiguration<
-      ResponseConfig<TData>,
-      TError,
-      string | null,
-      TVariables
-    >;
-    client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
-    shouldFetch?: boolean;
-  }
-): SWRMutationResponse<
-  ResponseConfig<TData>,
-  TError,
-  string | null,
-  TVariables
-> {
-  const {
-    mutation: mutationOptions,
-    client: clientOptions = {},
-    shouldFetch = true,
-  } = options ?? {};
+>(options?: {
+  mutation?: SWRMutationConfiguration<TData, TError, string, TVariables>;
+  client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
+}): SWRMutationResponse<TData, TError, string, TVariables> {
+  const { mutation: mutationOptions, client: clientOptions = {} } =
+    options ?? {};
 
-  const url = shouldFetch ? `/users/${wallet}` : null;
-  return useSWRMutation<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
-  >(
-    url,
+  return useSWRMutation<TData, TError, string, TVariables>(
+    `/users/${wallet}`,
     (url, { arg: data }) => {
       return client<TData, TError, TVariables>({
         method: "put",

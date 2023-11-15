@@ -1,14 +1,12 @@
 import { concatAddress } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { getUsersWalletorhandle } from "carbonmark-api-sdk";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { getUsersWalletorhandleKey } from "lib/api/swr.keys";
 import { fetcher } from "lib/fetcher";
 import { User } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
-import { SWRConfig, unstable_serialize } from "swr";
+import { SWRConfig } from "swr";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";
 
@@ -60,10 +58,8 @@ export const Users: NextPage<PageProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        // https://swr.vercel.app/docs/with-nextjs#complex-keys
-        [unstable_serialize(
-          getUsersWalletorhandleKey({}, { walletOrHandle: props.userAddress })
-        )]: props.carbonmarkUser,
+        /** @todo we need to programmatically grab this key to ensure this breaks on path changes */
+        [`/users/${props.userAddress}`]: props.carbonmarkUser,
       },
     }}
   >
