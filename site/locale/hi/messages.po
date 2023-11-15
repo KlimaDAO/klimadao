@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-06 15:35+0000\n"
+"POT-Creation-Date: 2023-11-15 01:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,8 +61,8 @@ msgstr "प्रत्येक क्लीमाडाओ सेवानि�
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr "MCO2 को Carbon.klimadao.finance पर एक्सप्लोर करें"
+msgid "Explore MCO2 on data.klimadao.finance"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Infinity/index.tsx:530
@@ -84,8 +84,8 @@ msgid "Location: {0}"
 msgstr "स्थान:{0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
 msgid "Login"
 msgstr "लॉग इन करें"
 
@@ -168,42 +168,42 @@ msgid "blog.disclaimer.title"
 msgstr "अस्वीकरण:"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:432
+#: components/pages/Buy/index.tsx:434
 msgid "buy.answer_exchange"
 msgstr "उन्नत उपयोगकर्ता <0>Polygon Bridge</0> का उपयोग कर सकते हैं एथेरियम से पॉलीगॉन, और/या <1>Polygon Gas Swap</1> में किसी भी संपत्ति को स्थानांतरित करने के लिए MATIC के लिए USDC जैसी संपत्तियों की अदला-बदली करना।"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:389
+#: components/pages/Buy/index.tsx:391
 msgid "buy.bond_answer_cedit_card"
 msgstr "हां, कुछ ऑन-रैंप प्रदाता जैसे <0>Transak</0> शुल्क देकर आप सीधे क्रेडिट कार्ड से KLIMA खरीद सकते हैं। हालांकि, यदि आपके बटुए में MATIC नहीं है, तो आप अन्य कार्यों को स्थानांतरित करने या निष्पादित करने में सक्षम नहीं होंगे। इस कारण से, और सर्वोत्तम बाजार दर की गारंटी देने के लिए, हम इसके बजाय सीधे MATIC खरीदने और Sushi.com पर KLIMA के लिए अपने MATIC की अदला-बदली करने की सलाह देते हैं।"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:407
+#: components/pages/Buy/index.tsx:409
 msgid "buy.bond_answer_cex1"
 msgstr "KLIMA को कॉइनबेस, बिनेंस या क्रिप्टो डॉट कॉम जैसे केंद्रीकृत एक्सचेंज पर कारोबार नहीं किया जाता है क्योंकि ये एक्सचेंज आमतौर पर बहुत अधिक लिस्टिंग शुल्क लेते हैं और महंगे बाजार निर्माताओं से वित्तपोषण की आवश्यकता होती है।"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:415
+#: components/pages/Buy/index.tsx:417
 msgid "buy.bond_answer_cex2"
 msgstr "इसके बजाय, KLIMA टोकन एक \"विकेंद्रीकृत एक्सचेंज\" (DEX) पर कारोबार करते हैं जो स्मार्ट अनुबंधों द्वारा संचालित होता है और सीधे ब्लॉकचेन पर चलता है। DEX के कुछ प्रमुख लाभ हैं। DEX ने DAO के लिए अधिकांश तरलता का स्वामित्व संभव बना दिया है, इसलिए यह पूर्ण स्वायत्तता बनाए रख सकता है और योगदानकर्ताओं को भुगतान करने के लिए राजस्व उत्पन्न कर सकता है। हमने सुशी की DEX तकनीक का उपयोग करना चुना क्योंकि यह पहले से ही प्रतिदिन करोड़ों डॉलर के लेन-देन की सुविधा प्रदान करती है।"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:370
+#: components/pages/Buy/index.tsx:372
 msgid "buy.bond_description1"
 msgstr "अनुभवी क्रिप्टो उपयोगकर्ता सीधे KLIMA को बॉन्ड के माध्यम से प्रोटोकॉल से खरीद सकते हैं। KLIMA को बांड के माध्यम से प्राप्त करने के लिए, आप एक कार्बन टोकन या तरलता टोकन प्रदान करते हैं और बदले में KLIMA टोकन पर छूट प्राप्त करते हैं। यह वह तंत्र है जिसका उपयोग DAO अपने डिजिटल कार्बन के खजाने को बढ़ाने के लिए करता है।"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:379
+#: components/pages/Buy/index.tsx:381
 msgid "buy.bond_description_capacity"
 msgstr "बांड की क्षमता सीमित है और बांड हमेशा उपलब्ध नहीं होते हैं।"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:400
+#: components/pages/Buy/index.tsx:402
 msgid "buy.bond_question_cex"
 msgstr "मुझे कॉइनबेस या अन्य केंद्रीकृत एक्सचेंजों पर KLIMA क्यों नहीं मिल रहा है? मुझे <0>Sushi.com</0> का उपयोग क्यों करना है?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:384
+#: components/pages/Buy/index.tsx:386
 msgid "buy.bond_question_credit_card"
 msgstr "क्या मैं KLIMA को सीधे क्रेडिट कार्ड से खरीद सकता हूँ?"
 
@@ -268,7 +268,7 @@ msgid "buy.create_wallet_item"
 msgstr "1. वॉलेट बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:318
+#: components/pages/Buy/index.tsx:320
 msgid "buy.faq_title"
 msgstr "सामान्य प्रश्न"
 
@@ -319,37 +319,37 @@ msgid "buy.load_wallet_description3"
 msgstr "<0>Be sure to buy and send the MATIC through the Polygon network!</0> कॉइनबेस जैसे कुछ एक्सचेंज आपसे पूछेंगे कि किस नेटवर्क पर MATIC टोकन भेजना है। हमेशा बहुभुज चुनना सुनिश्चित करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:426
+#: components/pages/Buy/index.tsx:428
 msgid "buy.question_exchange"
 msgstr "क्या होगा अगर मैं एक अलग एक्सचेंज का उपयोग करना चाहता हूं, लेकिन वे पॉलीगॉन MATIC नहीं बेचते हैं?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:321
+#: components/pages/Buy/index.tsx:323
 msgid "buy.question_why_matic"
 msgstr "मुझे पहले मैटिक क्यों खरीदना चाहिए?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:326
+#: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic_answer"
 msgstr "KLIMA टोकन और प्रोटोकॉल पॉलीगॉन ब्लॉकचेन पर रहता है। MATIC वह \"गैस\" है जो बहुभुज पर प्रत्येक लेनदेन को शक्ति प्रदान करती है। लेन-देन शुल्क का भुगतान किए बिना लेन-देन निष्पादित करना संभव नहीं है। इसका मतलब है कि आपको निम्नलिखित कार्यों के लिए MATIC के कुछ सेंट मूल्य का भुगतान करना होगा:"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:337
+#: components/pages/Buy/index.tsx:339
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr "क्लिमा दाँव पर लगाएँ"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:344
+#: components/pages/Buy/index.tsx:346
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr "विभिन्न टोकन के बीच अदला-बदली"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:351
+#: components/pages/Buy/index.tsx:353
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr "दूसरे वॉलेट में टोकन भेजना"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:358
+#: components/pages/Buy/index.tsx:360
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr "क्लिमाडाओ के माध्यम से ऑफ़सेट किए गए कार्बन टन"
 
@@ -369,7 +369,7 @@ msgid "buy.staking_description2"
 msgstr "आप KLIMA खर्च करने और ब्लॉकचेन पर <0>retire digital carbon</0> (डिजिटल कार्बन को रिटायर करने) के लिए भी ऐप का उपयोग कर सकते हैं।"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:309
+#: components/pages/Buy/index.tsx:311
 msgid "buy.staking_description3"
 msgstr "अंत में, <0>ongoing votes</0> नज़र रखें और प्रोटोकॉल को सही दिशा में निर्देशित करने में मदद करें।"
 
@@ -445,7 +445,7 @@ msgid "buy.wallet_connect_example_qr_code"
 msgstr "वॉलेट कनेक्ट qr कोड उदाहरण"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:365
+#: components/pages/Buy/index.tsx:367
 msgid "buy.what_are_bonds"
 msgstr "क्या KLIMA प्राप्त करने के अन्य तरीके हैं? बांड क्या हैं?"
 
@@ -620,12 +620,6 @@ msgid "concat.careers"
 msgstr "करियर"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/PledgeDashboard/index.tsx:170
-msgid "connectModal.institutional"
-msgstr "संस्थागत"
-
-#. js-lingui-explicit-id
 #: components/pages/Pledge/index.tsx:104
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "connectModal.torus"
@@ -638,29 +632,29 @@ msgid "connectModal.wallet"
 msgstr "वॉलेट कनेक्ट करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:118
-#: components/pages/Pledge/PledgeDashboard/index.tsx:176
+#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/index.tsx:172
 msgid "connect_modal.connecting"
 msgstr "संपर्क"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:21
+#: lib/constants.ts:16
 msgid "connect_modal.error_message_default"
 msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें।"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:25
+#: lib/constants.ts:20
 msgid "connect_modal.error_message_refused"
 msgstr "उपयोगकर्ता ने कनेक्शन अस्वीकार कर दिया।"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:24
 msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से ही प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/PledgeDashboard/index.tsx:180
+#: components/pages/Pledge/index.tsx:118
+#: components/pages/Pledge/PledgeDashboard/index.tsx:176
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
@@ -1585,7 +1579,7 @@ msgid "pledges.form.awaiting_signature"
 msgstr "हस्ताक्षर की प्रतीक्षा में..."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:194
+#: components/pages/Pledge/PledgeDashboard/index.tsx:190
 msgid "pledges.form.confirm_delete"
 msgstr "हटाने की पुष्टि करें"
 
@@ -1600,7 +1594,7 @@ msgid "pledges.form.confirm_remove_cancel"
 msgstr "रद्द करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:209
+#: components/pages/Pledge/index.tsx:205
 msgid "pledges.form.error"
 msgstr "वॉलेट पता, .klima अथवा .eth डोमेन दर्ज करें"
 
@@ -1775,7 +1769,7 @@ msgid "pledges.form.submit_button"
 msgstr "प्लेज सेव करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:190
+#: components/pages/Pledge/PledgeDashboard/index.tsx:186
 msgid "pledges.form.title"
 msgstr "आपकी प्रतिज्ञा"
 
@@ -1820,7 +1814,7 @@ msgid "pledges.home.hero.create"
 msgstr "एक प्रतिज्ञा बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:167
+#: components/pages/Pledge/index.tsx:163
 msgid "pledges.home.hero.learn_more"
 msgstr "और जानें"
 
@@ -1830,17 +1824,17 @@ msgid "pledges.home.hero.view"
 msgstr "अपनी प्रतिज्ञा देखें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:203
+#: components/pages/Pledge/index.tsx:199
 msgid "pledges.home.search.label"
 msgstr "ENS या 0x पता दर्ज करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:197
+#: components/pages/Pledge/index.tsx:193
 msgid "pledges.home.search.placeholder"
 msgstr "ईनस (ENS) , केनस (KNS) या 0x पता दर्ज करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:223
+#: components/pages/Pledge/index.tsx:219
 msgid "pledges.home.search.submit"
 msgstr "खोज"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-06 15:37+0000\n"
+"POT-Creation-Date: 2023-11-15 01:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "500 - Server error occurred"
 msgstr "500 - 服务器发生错误"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:211
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0>必填项目"
 
@@ -240,7 +240,7 @@ msgid "Beneficiary name"
 msgstr "受益人姓名"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "收益人钱包地址（可选）"
@@ -412,7 +412,7 @@ msgid "Continue"
 msgstr "继续"
 
 #. js-lingui-explicit-id
-#: components/CopyAddressButton/index.tsx:36
+#: components/CopyAddressButton/index.tsx:37
 msgid "Copy"
 msgstr "复制"
 
@@ -444,7 +444,7 @@ msgid "Create Profile"
 msgstr "创建个人资料"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:158
+#: components/CreateListing/index.tsx:152
 msgid "Create a listing"
 msgstr "创建挂牌"
 
@@ -566,7 +566,7 @@ msgid "Downloading ..."
 msgstr "正在下载..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:189
 msgid "Edit"
 msgstr "编辑"
 
@@ -576,7 +576,7 @@ msgid "Edit Profile"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "Edit listing"
 msgstr "编辑挂牌"
 
@@ -591,7 +591,7 @@ msgid "Expiration"
 msgstr "到期"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:14
+#: components/pages/Users/Badge/index.tsx:15
 msgid "Expired"
 msgstr "已到期"
 
@@ -726,7 +726,7 @@ msgid "Introducing Carbonmark"
 msgstr "介绍 Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:9
+#: components/pages/Users/Badge/index.tsx:10
 msgid "Invalid"
 msgstr "无效的"
 
@@ -817,7 +817,7 @@ msgid "Log out"
 msgstr "登出"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:99
+#: components/Layout/index.tsx:95
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "登录"
@@ -1257,7 +1257,7 @@ msgid "Retire Carbon"
 msgstr "碳停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:197
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "为自己或代表其他人或组织停用碳信用额度。"
 
@@ -1506,7 +1506,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "第一步是批准将您的支付资产从您的钱包转移到 Carbonmark，下一步是批准实际转移并完成您的购买。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:203
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "以下信息将公开广播以验证您的环保声明。该交易是永久性的；一旦您的交易完成，信息将无法更改。"
 
@@ -1569,12 +1569,12 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:16
+#: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "此挂牌已过期并已从市场上隐藏。请重新提交或删除挂牌。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:11
+#: components/pages/Users/Badge/index.tsx:12
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "此挂牌已不再有效，并已从市场上隐藏。请重新提交或删除此挂牌。"
 
@@ -2004,12 +2004,12 @@ msgstr "在"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:97
+#: components/pages/Blog/Post/index.tsx:98
 msgid "blog.disclaimer.description"
 msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资产、商业资产、战略和运营的信息仅供一般参考之用，并非正式的出售要约或要约邀请在任何司法管辖区购买与证券相关的任何证券、期权、期货或其他衍生品，其内容不受证券法的规定。本博文中包含的信息不应被视为购买或出售或持有此类证券的建议或出售此类证券的要约。本博文不考虑也不提供关于任何人的具体投资目标或财务状况的任何税务、法律或投资建议或意见。 KlimaDAO 及其代理人、顾问、董事、管理人员、员工和股东对此类信息的准确性不作任何明示或暗示的陈述或保证，且 KlimaDAO 明确否认可能基于此类信息或错误或遗漏的任何和所有责任。 KlimaDAO 保留随时部分或全部修改或替换此处包含的信息的权利，并且不承担向接收者提供访问修改后的信息或通知接收者的义务。本博文中包含的信息将取代之前任何关于相同、相似或相关信息的博文或对话。不得出于任何目的依赖此处未包含的任何信息、陈述或声明。 KlimaDAO 或其任何代表，均不对您或任何人因您或您的任何代表使用本博客文章中的信息或遗漏而导致的合同、侵权、信托或其他方式产生的结果承担任何责任。此外，KlimaDAO 不承担评论第三方对本博文中讨论的事项的期望或声明的义务。"
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:94
+#: components/pages/Blog/Post/index.tsx:95
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
@@ -2024,11 +2024,6 @@ msgid "buy"
 msgstr "购买"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:94
-msgid "connectModal.institutional"
-msgstr "机构的"
-
-#. js-lingui-explicit-id
 #: components/Layout/index.tsx:86
 msgid "connectModal.torus"
 msgstr "社交或电子邮件"
@@ -2039,7 +2034,7 @@ msgid "connectModal.wallet"
 msgstr "连接钱包"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:96
 msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
@@ -2059,7 +2054,7 @@ msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:100
 msgid "connect_modal.error_title"
 msgstr "连接错误"
 
@@ -2126,47 +2121,47 @@ msgid "menu.retire"
 msgstr "停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:219
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
 msgid "offset.amount_in_tonnes"
 msgstr "您想抵消多少吨碳？ <0>*</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
 msgid "offset.amount_in_tonnes_2"
 msgstr "可用：{balance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:311
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
 msgid "offset.default_retirement_address"
 msgstr "默认的已连接钱包地址"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:244
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
 msgid "offset.offset_quantity"
 msgstr "输入要抵消的数量"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:395
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
 msgid "offset.retire_carbon"
 msgstr "确认退休"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:274
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
 msgid "offset.retirement_beneficiary_name"
 msgstr "受益人姓名"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:262
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
 msgid "offset.retirement_credit"
 msgstr "本次碳停用将归功于谁？"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.retirement_message"
 msgstr "停用消息"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:331
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
 msgid "offset.retirement_retirement_message"
 msgstr "停用消息"
 
@@ -2187,7 +2182,7 @@ msgid "offset.successModal.body3"
 msgstr "您的交易已成功处理，但索引所需的时间比正常情况要长。很快它将出现在您的<0>停用碳</0>栏中。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:352
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
 msgid "offset_disclaimer"
 msgstr "请注意不要在您的碳停用姓名或消息中包含任何敏感的个人信息（例如电子邮件地址）。您在此处输入的信息一旦提交将无法更改，并将永久存在于公共区块链上。"
 
@@ -2222,7 +2217,7 @@ msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:216
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
@@ -2372,12 +2367,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "检查您的搜索是否有错别字或尝试不同的搜索词。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:373
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.back_button"
 msgstr "返回"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:364
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
 msgid "retire.submit_button"
 msgstr "碳停用"
 
@@ -2459,7 +2454,7 @@ msgstr "方法："
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
-msgstr "MC02 信用由保护亚马逊森林的项目产生，具有各种积极的外部性，例如创造当地就业机会和保护当地生物多样性。在 <0>carbon.klimadao.finance </0>上了解 MCO2."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
@@ -2618,7 +2613,7 @@ msgid "shared.head.description"
 msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:80
+#: components/pages/Blog/Post/index.tsx:81
 msgid "shared.resourcecenter"
 msgstr "资源中心"
 
@@ -2842,12 +2837,6 @@ msgstr "{0} | 简介 | Carbonmark"
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr "{DEFAULT_EXPIRATION_DAYS} 天 ({expirationDatestring})"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:153
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
-msgid "{amount} tonnes"
-msgstr "{amount} 吨"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

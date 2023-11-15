@@ -1,18 +1,35 @@
 import { t } from "@lingui/macro";
 import PageWithTabs from "components/pages/PageWithTabs";
+import { LocalizedPageProps } from "components/pages/props";
 import RetirementTrendsByBeneficiaryTab from "components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab";
 import RetirementTrendsByChainTab from "components/pages/retirementTrends/RetirementTrendsByChainTab";
 import RetirementTrendsByPoolTab from "components/pages/retirementTrends/RetirementTrendsByPoolTab";
 import RetirementTrendsByTokenTab from "components/pages/retirementTrends/RetirementTrendsByTokenTab";
+import { initLayout, metaDataTitle } from "../layout";
+
+function title() {
+  return t`Retirement trends`;
+}
+function description() {
+  return t`Explore digital carbon retirement trends by public blockhchain, digtial carbon token, and retirement beneficiary using the Klima Data Carbon Dashboard.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: metaDataTitle(title()),
+    description: description(),
+  };
+}
 
 /** Retirement Trends Page
- * Uses a Client Component (RetirementTrendsPage) to handle tab navigation
+ * Uses a Client Component (PageWithTabs) to handle tab navigation
  * Tabs are actually Components rendered Server side passed to the Client Component as props
  */
-export default function RetirementTrends() {
+export default async function RetirementTrends(props: LocalizedPageProps) {
+  await initLayout(props.params);
   return (
     <PageWithTabs
-      title={t`Retirement trends`}
+      title={title()}
       tabs={[
         {
           key: "byPool",

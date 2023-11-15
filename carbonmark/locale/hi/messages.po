@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-06 15:37+0000\n"
+"POT-Creation-Date: 2023-11-15 01:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "500 - Server error occurred"
 msgstr "500 - सर्वर त्रुटि हो गई"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:211
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> आवश्यक क्षेत्र"
 
@@ -82,7 +82,7 @@ msgstr "सभी संपत्तियां प्रमुख रजिस
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Submit.tsx:41
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
-msgstr ""
+msgstr "लगभग समाप्त! अंतिम चरण सूची बनाना और उसे सिस्टम में सबमिट करना है। कृपया नीचे दी गई मात्रा और कीमत सत्यापित करें।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
@@ -120,7 +120,7 @@ msgstr "मंज़ूरी दें"
 #: components/CreateListing/Form/index.tsx:59
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:80
 msgid "Asset"
-msgstr ""
+msgstr "एसेट"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
@@ -136,7 +136,7 @@ msgstr "एसेट आईडी"
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
 msgid "Asset details"
-msgstr ""
+msgstr "एसेट विवरण"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:113
@@ -149,7 +149,7 @@ msgid ""
 "At this time, Carbonmark cannot process credit card payments\n"
 "exceeding {0}. Please adjust the\n"
 "quantity and try again later."
-msgstr ""
+msgstr "इस समय, कार्बनमार्क {0} से अधिक क्रेडिट कार्ड भुगतान संसाधित नहीं कर सकता है। कृपया मात्रा समायोजित करें और बाद में पुनः प्रयास करें।"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
@@ -172,7 +172,7 @@ msgstr "उपलब्ध आपूर्तिराशि पार हो �
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:101
 msgid "Available to list: {0}"
-msgstr ""
+msgstr "उपलब्ध: {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
@@ -215,7 +215,7 @@ msgstr "बैलेंस"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:93
 msgid "Balance exceeded"
-msgstr ""
+msgstr "उपलब्ध जमाराशि पार हो गई"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:101
@@ -240,7 +240,7 @@ msgid "Beneficiary name"
 msgstr "लाभार्थी का नाम"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr "लाभार्थी वॉलेट पता (वैकल्पिक)"
@@ -412,7 +412,7 @@ msgid "Continue"
 msgstr "जारी रखें"
 
 #. js-lingui-explicit-id
-#: components/CopyAddressButton/index.tsx:36
+#: components/CopyAddressButton/index.tsx:37
 msgid "Copy"
 msgstr ""
 "\n"
@@ -446,9 +446,9 @@ msgid "Create Profile"
 msgstr "प्रोफ़ाइल बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:158
+#: components/CreateListing/index.tsx:152
 msgid "Create a listing"
-msgstr ""
+msgstr "सूची बनाएँ"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:222
@@ -483,12 +483,12 @@ msgstr "बन गई:"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:96
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr ""
+msgstr "क्रेडिट कार्ड से न्यूनतम खरीदारी ${formattedFiatMinimum} है"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:75
 msgid "Credit card minimum purchase is {0}"
-msgstr ""
+msgstr "क्रेडिट कार्ड से न्यूनतम खरीदारी {0} है"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:222
@@ -568,7 +568,7 @@ msgid "Downloading ..."
 msgstr "डाउनलोड हो रहा है..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:189
 msgid "Edit"
 msgstr "संपादित करें"
 
@@ -578,9 +578,11 @@ msgid "Edit Profile"
 msgstr "प्रोफ़ाइल संपादित करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:209
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "Edit listing"
 msgstr ""
+"सूची बदलें\n"
+""
 
 #. js-lingui-explicit-id
 #: lib/getCategoryInfo.ts:47
@@ -590,12 +592,12 @@ msgstr "ऊर्जा दक्षता"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
 msgid "Expiration"
-msgstr ""
+msgstr "समय सीमा समाप्ति"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:14
+#: components/pages/Users/Badge/index.tsx:15
 msgid "Expired"
-msgstr ""
+msgstr "समय सीमा समाप्त"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
@@ -620,7 +622,7 @@ msgstr "कार्बनमार्क प्लैटफ़ॉर्म का 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:37
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
-msgstr ""
+msgstr "सबसे पहले, अपनी ओर से इस संपत्ति को स्थानांतरित करने के लिए कार्बनमार्क प्रणाली को मंजूरी दें।"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:343
@@ -689,7 +691,7 @@ msgstr "यहां शीघ्र और आसानी से रिटा�
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:74
 msgid "How many tonnes do you want to list for sale?"
-msgstr ""
+msgstr "आप कितने टन बिक्री के लिए सूचीबद्ध करना चाहते हैं?"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:90
@@ -728,9 +730,9 @@ msgid "Introducing Carbonmark"
 msgstr "कार्बनमार्क का परिचय"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:9
+#: components/pages/Users/Badge/index.tsx:10
 msgid "Invalid"
-msgstr ""
+msgstr "अमान्य"
 
 #. js-lingui-explicit-id
 #: components/Footer/index.tsx:38
@@ -776,7 +778,7 @@ msgstr "बस कुछ ही क्लिक में बिक्री क
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 msgid "Listed tonnes:"
-msgstr ""
+msgstr "सूचीबद्ध टन:"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:128
@@ -819,7 +821,7 @@ msgid "Log out"
 msgstr "लॉग आउट"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:99
+#: components/Layout/index.tsx:95
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "लॉग इन करें"
@@ -827,7 +829,7 @@ msgstr "लॉग इन करें"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:342
 msgid "Login to pay with USDC"
-msgstr ""
+msgstr "यूएसडीसी से भुगतान करने के लिए लॉगिन करें"
 
 #. js-lingui-explicit-id
 #: components/shared/Navigation/index.tsx:63
@@ -916,12 +918,12 @@ msgstr "कोई प्रॉजेक्ट विवरण मौजूद �
 #. js-lingui-explicit-id
 #: components/pages/Projects/index.tsx:83
 msgid "No projects found with current filters"
-msgstr ""
+msgstr "मौजूदा फ़िल्टर वाला कोई प्रोजेक्ट नहीं मिला"
 
 #. js-lingui-explicit-id
 #: components/ProjectCard/index.tsx:63
 msgid "No props.project description found"
-msgstr ""
+msgstr "कोई props.project विवरण नहीं मिला"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
@@ -1056,7 +1058,7 @@ msgstr "गोपनीयता नीति"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:353
 msgid "Processing Fee:"
-msgstr ""
+msgstr "प्रोसेसिंग शुल्क:"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:83
@@ -1142,7 +1144,7 @@ msgstr "मात्रा आवश्यक है"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:127
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
-msgstr ""
+msgstr "सूचीबद्ध मात्रा: {listedQuantity}, असूचीबद्ध मात्रा: {unlistedQuantity}, कुल उपलब्ध: {totalAvailableQuantity}"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:103
@@ -1202,7 +1204,7 @@ msgstr "नवीकरणीय ऊर्जा"
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
 msgid "Request Demo"
-msgstr ""
+msgstr "डेमो का अनुरोध करें"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:171
@@ -1252,7 +1254,7 @@ msgid "Retire Carbon"
 msgstr "कार्बन रिटायर करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:197
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "अपने लिए या किसी अन्य व्यक्ति या संगठन की ओर से कार्बन क्रेडिट रिटायर करें।"
 
@@ -1384,7 +1386,7 @@ msgstr "साइन इन / कनेक्ट टु बाय"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:129
 msgid "Single unit price"
-msgstr ""
+msgstr "एकल यूनिट मूल्य"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:106
@@ -1483,12 +1485,12 @@ msgstr "यूनिवर्सल कार्बन मार्केटप�
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:50
 msgid "The allowance below reflects the sum of all your listings for this specific token."
-msgstr ""
+msgstr "नीचे दिया गया भत्ता इस विशिष्ट टोकन के लिए आपकी सभी लिस्टिंग का योग दर्शाता है।"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:43
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
-msgstr ""
+msgstr "बिक्री पूरी होने पर ही संपत्ति आपके वॉलेट से स्थानांतरित की जाएगी। आप इस भत्ते को किसी भी समय रद्द कर सकते हैं।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:34
@@ -1501,7 +1503,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी ख़रीदारी संपन्न करनी है।"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:203
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "आपके पर्यावरणीय दावे को सत्यापित करने के लिए नीचे दी गई जानकारी सार्वजनिक रूप से प्रसारित की जाएगी। यह लेन-देन स्थायी है; आपके लेन-देन पूरे हो जाने के बाद जानकारी को बदला नहीं जा सकता।"
 
@@ -1564,14 +1566,14 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "यह ऐप केवल पॉलीगॉन मेननेट पर ही काम करता है।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:16
+#: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "यह सूची समाप्त हो गई है और बाज़ार से छिपी हुई है। कृपया सूची पुनः सबमिट करें या हटाएँ।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:11
+#: components/pages/Users/Badge/index.tsx:12
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "यह सूची अब मान्य नहीं है और बाज़ार से छिपी हुई है। कृपया सूची पुनः सबमिट करें या हटाएँ।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
@@ -1670,7 +1672,7 @@ msgstr "कुल रिटायरमेन्ट्स:"
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:59
 msgid "Total allowance"
-msgstr ""
+msgstr "कुल भत्ता"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:70
@@ -1709,17 +1711,17 @@ msgstr "कुल बिक्री लागत"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:106
 msgid "USDC per tonne"
-msgstr ""
+msgstr "यूएसडीसी प्रति टन"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:111
 msgid "Unit price is required"
-msgstr ""
+msgstr "यूनिट मूल्य आवश्यक है"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 msgid "Unlisted tonnes:"
-msgstr ""
+msgstr "असूचीबद्ध टन:"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -1729,7 +1731,7 @@ msgstr "डिजिटल कार्बन बाज़ार में अ�
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
 msgid "Update listing"
-msgstr ""
+msgstr "सूची अपडेट करें"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:86
@@ -1914,7 +1916,7 @@ msgstr "आप अपने बटुए में किसी भी कार
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Submit.tsx:47
 msgid "You can delete this listing at any time."
-msgstr ""
+msgstr "आप इस सूची को किसी भी समय हटा सकते हैं."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
@@ -1956,7 +1958,7 @@ msgstr "आपका वॉलेट पता:"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:374
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
-msgstr ""
+msgstr "आपकी शेष राशि लेनदेन की लागत से कम से कम 1% अधिक होनी चाहिए।"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
@@ -2003,12 +2005,12 @@ msgstr "पर"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:97
+#: components/pages/Blog/Post/index.tsx:98
 msgid "blog.disclaimer.description"
 msgstr "क्लीमाडाओ (“KlimaDAO”), इसकी क्रिप्टो-संपत्ति, व्यावसायिक संपत्ति, रणनीति और संचालन से संबंधित इस ब्लॉग पोस्ट में प्रदान की गई जानकारी केवल सामान्य ज्ञानवर्द्धन संबंधी उद्देश्यों के चलते दी गयी है और यह किसी भी न्यायक्षेत्र में कोई प्रतिभूति, ऑप्शंस, फ़्यूचर्स, या प्रतिभूतियों से संबंधित अन्य डेरिवेटिव्ज़ को ख़रीदने अथवा बेचने हेतु कोई औपचारिक प्रस्ताव या उकसावा नहीं है और इसकी सामग्री प्रतिभूति क़ानूनों पर आधारित नहीं है। इस ब्लॉग पोस्ट में निहित जानकारी पर ऐसी प्रतिभूतियों को ख़रीदने या बेचने या होल्ड करने की सलाह या ऐसी प्रतिभूतियों को बेचने के प्रस्ताव के रूप में भरोसा नहीं किया जाना चाहिए। यह ब्लॉग पोस्ट किसी व्यक्ति के विशिष्ट निवेश उद्देश्यों या वित्तीय स्थिति के बारे में कोई कर, क़ानूनी या निवेश सलाह या राय प्रदान नहीं करता है और न ही इसे ध्यान में रखता है। KlimaDAO और उसके एजेंट, सलाहकार, निदेशक, अधिकारी, कर्मचारी और शेयरधारक ऐसी जानकारी की सटीकता के रूप में व्यक्त या निहित कोई प्रतिनिधित्व या वारंटी नहीं देते हैं और KlimaDAO स्पष्ट रूप से ऐसी जानकारी या त्रुटियों या चूक पर आधारित किसी भी और समस्त दायित्व को अस्वीकार करता है। KlimaDAO किसी भी समय, आंशिक रूप से या पूरी तरह से, इसमें निहित जानकारी को संशोधित करने या बदलने का अधिकार सुरक्षित रखता है, और प्राप्तकर्ता को संशोधित जानकारी तक पहुंच प्रदान करने या उसके प्राप्तकर्ता को सूचित करने का कोई दायित्व नहीं लेता है। इस ब्लॉग पोस्ट में निहित जानकारी समान, मिलती-जुलती या संबंधित जानकारी से संबंधित किसी भी पूर्व ब्लॉग पोस्ट या बातचीत को सुपरसीड करती है। कोई भी सूचना, अभ्यावेदन या कथन जो इसमें शामिल नहीं है, किसी भी उद्देश्य के लिए उस पर भरोसा नहीं किया जाएगा। आपके या आपके किसी प्रतिनिधि द्वारा इस ब्लॉग पोस्ट में दी गई जानकारी के उपयोग के परिणामस्वरूप या आपके द्वारा या आपके किसी भी प्रतिनिधि द्वारा चूक के परिणामस्वरूप न तो क्लीमाडाओ और न ही इसके किसी प्रतिनिधि का, अनुबंध, अपकृत्य, विश्वास या अन्यथा, आपके या किसी भी व्यक्ति के लिए कोई दायित्व नहीं होगा। इसके अतिरिक्त, क्लीमाडाओ इस ब्लॉग पोस्ट में चर्चा किए गए मामलों के संबंध में तृतीय पक्षों की अपेक्षाओं, या उनके द्वारा दिए गए बयानों पर टिप्पणी करने के लिए कोई दायित्व नहीं लेता है।"
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:94
+#: components/pages/Blog/Post/index.tsx:95
 msgid "blog.disclaimer.title"
 msgstr "अस्वीकरण:"
 
@@ -2023,11 +2025,6 @@ msgid "buy"
 msgstr "ख़रीदें"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:94
-msgid "connectModal.institutional"
-msgstr "संस्थागत"
-
-#. js-lingui-explicit-id
 #: components/Layout/index.tsx:86
 msgid "connectModal.torus"
 msgstr "सोशल या ईमेल"
@@ -2038,7 +2035,7 @@ msgid "connectModal.wallet"
 msgstr "कोई वॉलेट कनेक्ट करें"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:96
 msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
@@ -2058,7 +2055,7 @@ msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:100
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
@@ -2125,47 +2122,47 @@ msgid "menu.retire"
 msgstr "रिटायर"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:219
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
 msgid "offset.amount_in_tonnes"
 msgstr "आप कितने टन कार्बन को ऑफ़सेट करना चाहेंगे?<0>* </0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
 msgid "offset.amount_in_tonnes_2"
 msgstr "उपलब्ध: {balance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:311
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
 msgid "offset.default_retirement_address"
 msgstr "कनेक्टेड वॉलेट का पते पर किए गए डिफ़ॉल्ट"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:244
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
 msgid "offset.offset_quantity"
 msgstr "ऑफ़सेट करने के लिए मात्रा दर्ज करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:395
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
 msgid "offset.retire_carbon"
 msgstr "रिटायरमेंट की पुष्टि करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:274
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
 msgid "offset.retirement_beneficiary_name"
 msgstr "लाभार्थी का नाम"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:262
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
 msgid "offset.retirement_credit"
 msgstr "यह रिटायरमेंट किसके खाते में जाएगी?"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.retirement_message"
 msgstr "रिटायरमेंट संदेश"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:331
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
 msgid "offset.retirement_retirement_message"
 msgstr "रिटायरमेंट सन्देश"
 
@@ -2186,7 +2183,7 @@ msgid "offset.successModal.body3"
 msgstr "आप की लेन-देन सफलतापूर्वक प्रोसेस हो गयी है लेकिन इन्डेक्स होने में सामान्य से अधिक समय लग रहा है। यह आपकी <0>रिटायरमैंट</0> में जल्द ही दिखाई देगा ।"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:352
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
 msgid "offset_disclaimer"
 msgstr "अपने रिटायरमैंट नाम या संदेश में किसी भी संवेदनशील व्यक्तिगत जानकारी (जैसे ईमेल पता) को शामिल करते सयय सावधान रहें। आपके द्वारा यहां दर्ज की गई जानकारी को एक बार जमा करने के बाद संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
@@ -2221,7 +2218,7 @@ msgid "profile.listing.delete.error"
 msgstr "सूची मिटायी नहीं जा सकी। कृपया पुनः कोशिश करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:224
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:216
 msgid "profile.listing.edit.delete_listing"
 msgstr "सूची मिटाएँ"
 
@@ -2371,12 +2368,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "टाइपो-त्रुटियों के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज-शब्द आज़माएँ।"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:373
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.back_button"
 msgstr "वापस"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:364
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
 msgid "retire.submit_button"
 msgstr "कार्बन रिटायर करें"
 
@@ -2458,7 +2455,7 @@ msgstr "कार्यप्रणाली:"
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
-msgstr "MC02 क्रेडिट उन परियोजनाओं द्वारा उत्पन्न होते हैं जो एमेज़ोन वन को संरक्षित करते हैं, जिसमें स्थानीय नौकरियों के निर्माण और स्थानीय जैव विविधता के संरक्षण जैसी सभी प्रकार की सकारात्मक बाहरी चीजें शामिल होती हैं। <0>carbon.klimadao.finance</0> पर MCO2 का अन्वेषण करें."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
@@ -2617,7 +2614,7 @@ msgid "shared.head.description"
 msgstr "क्लआीमेट ऐक्शन प्रयत्न करें और कार्बन-समर्थित डिजिटल मुद्रा के रूप में पुरस्कार अर्जित करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Blog/Post/index.tsx:80
+#: components/pages/Blog/Post/index.tsx:81
 msgid "shared.resourcecenter"
 msgstr "संसाधन केंद्र"
 
@@ -2820,7 +2817,7 @@ msgstr "यह सुविधा केवल उन उपयोगकर्�
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:174
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:293
@@ -2830,7 +2827,7 @@ msgstr "{0} क्रेडिट कार्ड के लिए अधिक�
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/index.tsx:61
 msgid "{0} tonnes"
-msgstr ""
+msgstr "{0} टन"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
@@ -2840,13 +2837,7 @@ msgstr "{0} | प्रोफ़ाइल | कार्बनमार्क"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:153
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
-msgid "{amount} tonnes"
-msgstr ""
+msgstr "{DEFAULT_EXPIRATION_DAYS} दिन ({expirationDatestring})"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

@@ -42,7 +42,7 @@ var SOURCE_TOKEN = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; //Polygon USDC
 var POOL_TOKEN = "0xd838290e877e0188a4a44700463419ed96c16107"; //Toucan Protocol NCT - Polygon
 
 // specific retirements
-// acquire this parameter on https://carbon.klimadao.finance/bct
+// acquire the token address from the API
 // PROJECT_TOKEN = address coressponding to Verra project id ([VCS-1525](https://registry.verra.org/app/projectDetail/VCS/1577))
 //                      and other characteristics: vintage = 2015, country = china, VM0010 methodology, proj type = Agriculture Forestry and Other Land Use
 var PROJECT_TOKEN = "0x04943c19896c776c78770429ec02c5384ee78292";

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-06 15:35+0000\n"
+"POT-Creation-Date: 2023-11-15 01:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,8 +61,8 @@ msgstr "Chaque retrait du marché de KlimaDAO est lié à un projet vérifié. C
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr "Découvrez MCO2 sur carbon.klimadao.finance"
+msgid "Explore MCO2 on data.klimadao.finance"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Infinity/index.tsx:530
@@ -84,8 +84,8 @@ msgid "Location: {0}"
 msgstr "Lieu : {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
 msgid "Login"
 msgstr "Se connecter"
 
@@ -168,42 +168,42 @@ msgid "blog.disclaimer.title"
 msgstr "Avertissement légal"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:432
+#: components/pages/Buy/index.tsx:434
 msgid "buy.answer_exchange"
 msgstr "Les utilisateurs avancés peuvent utiliser le <0>Polygon Bridge</0> pour déplacer n'importe quel actif d'Ethereum vers Polygon, et/ou le <1>Polygon Gas Swap</1> pour échanger des actifs comme USDC contre MATIC."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:389
+#: components/pages/Buy/index.tsx:391
 msgid "buy.bond_answer_cedit_card"
 msgstr "Oui, certains fournisseurs \"on-ramp\" comme <0>Transak</0> vous permettent d'acheter des KLIMA directement avec une carte de crédit, moyennant des frais. Cependant, si votre portefeuille n'a pas de MATIC, vous ne pourrez pas effectuer de transfert ou d'autres actions. Pour cette raison, et pour garantir le meilleur taux du marché, nous vous recommandons d'acheter directement des MATIC et d'échanger vos MATIC contre des KLIMA sur Sushi.com."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:407
+#: components/pages/Buy/index.tsx:409
 msgid "buy.bond_answer_cex1"
 msgstr "KLIMA n'est pas négocié sur une bourse centralisée comme Coinbase, Binance ou Crypto.com, car ces bourses facturent généralement des frais de cotation très élevés et nécessitent le financement de teneurs de marché coûteux."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:415
+#: components/pages/Buy/index.tsx:417
 msgid "buy.bond_answer_cex2"
 msgstr "Au lieu de cela, les jetons KLIMA sont échangés sur un \"échange décentralisé\" (DEX) qui est alimenté par des contrats intelligents (smart contrats) et fonctionne directement sur la blockchain. Les DEX présentent des avantages majeurs. Les DEX ont permis à la DAO de détenir la majorité des liquidités, ce qui lui permet de conserver une autonomie totale et de générer des revenus pour rémunérer les contributeurs. Nous avons choisi d'utiliser la technologie DEX de Sushi car elle facilite déjà des dizaines de millions de dollars de transactions par jour."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:370
+#: components/pages/Buy/index.tsx:372
 msgid "buy.bond_description1"
 msgstr "Les utilisateurs de crypto expérimentés peuvent acheter des KLIMA directement à partir du protocole via des obligations. Pour acquérir des KLIMA par le biais d'obligations, vous fournissez un jeton carbone ou un jeton de liquidité et obtenez en retour des jetons KLIMA à prix réduit. C'est le mécanisme que la DAO utilise pour accroître sa réserve de carbone numérique."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:379
+#: components/pages/Buy/index.tsx:381
 msgid "buy.bond_description_capacity"
 msgstr "La capacité de financement est limitée et les obligations ne sont pas toujours disponibles."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:400
+#: components/pages/Buy/index.tsx:402
 msgid "buy.bond_question_cex"
 msgstr "Pourquoi ne puis-je pas trouver KLIMA sur Coinbase ou d'autres échanges centralisés ? Pourquoi dois-je utiliser <0>Sushi.com</0> ?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:384
+#: components/pages/Buy/index.tsx:386
 msgid "buy.bond_question_credit_card"
 msgstr "Puis-je acheter des KLIMA directement avec une carte de crédit ?"
 
@@ -268,7 +268,7 @@ msgid "buy.create_wallet_item"
 msgstr "1. Créer un portefeuille"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:318
+#: components/pages/Buy/index.tsx:320
 msgid "buy.faq_title"
 msgstr "FAQ"
 
@@ -319,37 +319,37 @@ msgid "buy.load_wallet_description3"
 msgstr "<0>Assurez-vous d'acheter et d'envoyer des MATIC par le réseau Polygon !</0> Certains échanges comme Coinbase vous demanderont sur quel réseau envoyer les jetons MATIC. Vérifiez que vous choisissez toujours Polygon."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:426
+#: components/pages/Buy/index.tsx:428
 msgid "buy.question_exchange"
 msgstr "Que se passe-t-il si je veux utiliser un autre échange, mais qu'il ne vend pas de jetons MATIC de Polygon ?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:321
+#: components/pages/Buy/index.tsx:323
 msgid "buy.question_why_matic"
 msgstr "Pourquoi dois-je d'abord acheter des jetons MATIC ?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:326
+#: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic_answer"
 msgstr "Le jeton et le protocole KLIMA vivent sur la blockchain Polygon. Le MATIC est le \"gaz\" qui fait fonctionner chaque transaction sur Polygon. Il n'est pas possible d'exécuter une transaction sans payer les frais de transaction. Cela signifie que vous devrez payer quelques centimes de MATIC pour les actions suivantes :"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:337
+#: components/pages/Buy/index.tsx:339
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr "Mettre en jeu des KLIMA pour des sKLIMA"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:344
+#: components/pages/Buy/index.tsx:346
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr "Échange entre différents jetons"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:351
+#: components/pages/Buy/index.tsx:353
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr "Envoi de jetons vers un autre portefeuille"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:358
+#: components/pages/Buy/index.tsx:360
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr "Utilisation de jetons KLIMA ou autres pour compenser les émissions carbone"
 
@@ -369,7 +369,7 @@ msgid "buy.staking_description2"
 msgstr "Vous pouvez également utiliser l'application pour dépenser des KLIMA et <0> retirer du marché des émissions de carbone numérique</0> sur la blockchain."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:309
+#: components/pages/Buy/index.tsx:311
 msgid "buy.staking_description3"
 msgstr "Enfin, gardez un œil sur les <0>votes en cours</0> et contribuez à faire évoluer le protocole dans la bonne direction."
 
@@ -445,7 +445,7 @@ msgid "buy.wallet_connect_example_qr_code"
 msgstr "exemple de QR code wallet connect"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:365
+#: components/pages/Buy/index.tsx:367
 msgid "buy.what_are_bonds"
 msgstr "Y a-t-il d'autres moyens d'obtenir KLIMA ? Que sont les obligations ?"
 
@@ -622,12 +622,6 @@ msgid "concat.careers"
 msgstr "Carrières"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/PledgeDashboard/index.tsx:170
-msgid "connectModal.institutional"
-msgstr "entreprise"
-
-#. js-lingui-explicit-id
 #: components/pages/Pledge/index.tsx:104
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "connectModal.torus"
@@ -640,29 +634,29 @@ msgid "connectModal.wallet"
 msgstr "connecter un portefeuille"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:118
-#: components/pages/Pledge/PledgeDashboard/index.tsx:176
+#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/index.tsx:172
 msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:21
+#: lib/constants.ts:16
 msgid "connect_modal.error_message_default"
 msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:25
+#: lib/constants.ts:20
 msgid "connect_modal.error_message_refused"
 msgstr "L'utilisateur a refusé la connexion."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:24
 msgid "connect_modal.error_processing"
 msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et valider la requête."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/PledgeDashboard/index.tsx:180
+#: components/pages/Pledge/index.tsx:118
+#: components/pages/Pledge/PledgeDashboard/index.tsx:176
 msgid "connect_modal.error_title"
 msgstr "Erreur de connexion"
 
@@ -1590,7 +1584,7 @@ msgid "pledges.form.awaiting_signature"
 msgstr "En attente de signature..."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:194
+#: components/pages/Pledge/PledgeDashboard/index.tsx:190
 msgid "pledges.form.confirm_delete"
 msgstr "Confirmer la compensation"
 
@@ -1605,7 +1599,7 @@ msgid "pledges.form.confirm_remove_cancel"
 msgstr "annuler"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:209
+#: components/pages/Pledge/index.tsx:205
 msgid "pledges.form.error"
 msgstr "Entrez une adresse de portefeuille, un domaine .klima ou .eth"
 
@@ -1780,7 +1774,7 @@ msgid "pledges.form.submit_button"
 msgstr "Sauvegarder l'engagement"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:190
+#: components/pages/Pledge/PledgeDashboard/index.tsx:186
 msgid "pledges.form.title"
 msgstr "Votre engagement"
 
@@ -1825,7 +1819,7 @@ msgid "pledges.home.hero.create"
 msgstr "Créer un engagement"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:167
+#: components/pages/Pledge/index.tsx:163
 msgid "pledges.home.hero.learn_more"
 msgstr "En savoir plus"
 
@@ -1835,17 +1829,17 @@ msgid "pledges.home.hero.view"
 msgstr "Voir votre engagement"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:203
+#: components/pages/Pledge/index.tsx:199
 msgid "pledges.home.search.label"
 msgstr "Adresse ENS ou 0x"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:197
+#: components/pages/Pledge/index.tsx:193
 msgid "pledges.home.search.placeholder"
 msgstr "Entrez une adresse ENS, KNS ou 0x"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:223
+#: components/pages/Pledge/index.tsx:219
 msgid "pledges.home.search.submit"
 msgstr "Recherche"
 

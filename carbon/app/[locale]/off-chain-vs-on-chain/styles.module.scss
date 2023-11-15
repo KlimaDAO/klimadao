@@ -1,0 +1,10 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
+.firstRow {
+  min-height: auto;
+  max-width: auto;
+  height: auto;
+  @include breakpoints.desktopLarge {
+    max-height: 28.4rem;
+  }
+}

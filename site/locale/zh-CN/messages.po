@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-06 15:35+0000\n"
+"POT-Creation-Date: 2023-11-15 01:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,8 +61,8 @@ msgstr "每一个 KlimaDAO 停用都与一个经过验证的补偿项目相关�
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr "在 carbon.klimadao.finance 上探索 MCO2"
+msgid "Explore MCO2 on data.klimadao.finance"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Infinity/index.tsx:530
@@ -84,8 +84,8 @@ msgid "Location: {0}"
 msgstr "位置：{0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
 msgid "Login"
 msgstr "登录"
 
@@ -168,44 +168,44 @@ msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:432
+#: components/pages/Buy/index.tsx:434
 msgid "buy.answer_exchange"
 msgstr "高级用户可以使用<0>Polygon Bridge</0>将任何资产从以太坊转移到 Polygon，和/或 <1>Polygon Gas Swap</1>将 USDC 等资产换成 MATIC。"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:389
+#: components/pages/Buy/index.tsx:391
 msgid "buy.bond_answer_cedit_card"
 msgstr ""
 "是的，像 <0>Transak</0> 这样的一些入口供应商，允许您使用信用卡直接购买 KLIMA，但会收取一定的费用。但如果您的钱包没有 MATIC，您将无法转帐或执行其他操作。出于这个原因，也为了保证最佳市场利率，我们建议直接购买 MATIC，然后在 Sushi.com 上将 MATIC 换成 KLIMA。\n"
 ""
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:407
+#: components/pages/Buy/index.tsx:409
 msgid "buy.bond_answer_cex1"
 msgstr "KLIMA 不在像 Coinbase, Binance 或 Crypto.com 这样的中心化交易所进行交易，因为这些交易所通常收取非常高的挂牌费用，且需要昂贵的做市商的融资。"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:415
+#: components/pages/Buy/index.tsx:417
 msgid "buy.bond_answer_cex2"
 msgstr "相反，KLIMA 代币在“去中心化交易所”（DEX）上交易，该交易所由智能合约提供支持并直接在区块链上运行。 DEX 有一些主要优势。 DEX 使 DAO 拥有大部分流动性成为可能，因此它可以保持完全自治并产生收入来支付贡献者。我们选择使用 Sushi 的 DEX 技术，因为它已经每天处理数千万美元的交易。"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:370
+#: components/pages/Buy/index.tsx:372
 msgid "buy.bond_description1"
 msgstr "有经验的加密货币用户可以通过债券直接从协议购买KLIMA。要通过债券获得KLIMA，您需要提供一种碳代币或流动性代币，并获得折扣后的KLIMA代币作为回报。这是DAO用来增加其数字碳储备的机制。"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:379
+#: components/pages/Buy/index.tsx:381
 msgid "buy.bond_description_capacity"
 msgstr "债券的发行额是有限的，且并非始终易得。"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:400
+#: components/pages/Buy/index.tsx:402
 msgid "buy.bond_question_cex"
 msgstr "为什么我在 Coinbase 或其他中心化交易所找不到 KLIMA？为什么我必须使用 <0>Sushi.com</0> ？"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:384
+#: components/pages/Buy/index.tsx:386
 msgid "buy.bond_question_credit_card"
 msgstr "我可以直接用信用卡购买 KLIMA 吗？"
 
@@ -270,7 +270,7 @@ msgid "buy.create_wallet_item"
 msgstr "1.创建钱包"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:318
+#: components/pages/Buy/index.tsx:320
 msgid "buy.faq_title"
 msgstr "常见问题"
 
@@ -321,37 +321,37 @@ msgid "buy.load_wallet_description3"
 msgstr "<0>请务必通过 Polygon 网络购买和发送 MATIC！</0> Coinbase 等一些交易所会询问您在哪个网络上发送 MATIC 代币。确保始终选择Polygon。"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:426
+#: components/pages/Buy/index.tsx:428
 msgid "buy.question_exchange"
 msgstr "如果我想使用不同的交易所，但他们不出售 Polygon MATIC 怎么办？"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:321
+#: components/pages/Buy/index.tsx:323
 msgid "buy.question_why_matic"
 msgstr "为什么我必须先购买 MATIC？"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:326
+#: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic_answer"
 msgstr "KLIMA 代币和协议存在于 Polygon 区块链上。MATIC 是 Polygon 上每个交易所需的“燃料”。没有支付交易费用，就无法执行交易。这意味着您需要支付几美分的 MATIC 来执行以下操作："
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:337
+#: components/pages/Buy/index.tsx:339
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr "质押KLIMA以获取sKLIMA"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:344
+#: components/pages/Buy/index.tsx:346
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr "在不同的代币之间转换"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:351
+#: components/pages/Buy/index.tsx:353
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr "发送代币到另一个钱包"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:358
+#: components/pages/Buy/index.tsx:360
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr "使用 KLIMA 或其他代币抵消碳排放"
 
@@ -371,7 +371,7 @@ msgid "buy.staking_description2"
 msgstr "在区块链上，您还可以使用该应用程序花出您的 KLIMA 并<0>停用数字碳</0>。"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:309
+#: components/pages/Buy/index.tsx:311
 msgid "buy.staking_description3"
 msgstr "最后，请留意<0>正在进行的投票</0>并帮助指导协议朝着正确的方向发展。"
 
@@ -447,7 +447,7 @@ msgid "buy.wallet_connect_example_qr_code"
 msgstr "钱包连接二维码示例"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:365
+#: components/pages/Buy/index.tsx:367
 msgid "buy.what_are_bonds"
 msgstr "还有其他方法可以获得 KLIMA 吗？什么是债券？"
 
@@ -622,12 +622,6 @@ msgid "concat.careers"
 msgstr "求职"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/PledgeDashboard/index.tsx:170
-msgid "connectModal.institutional"
-msgstr "机构的"
-
-#. js-lingui-explicit-id
 #: components/pages/Pledge/index.tsx:104
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "connectModal.torus"
@@ -640,29 +634,29 @@ msgid "connectModal.wallet"
 msgstr "连接钱包"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:118
-#: components/pages/Pledge/PledgeDashboard/index.tsx:176
+#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/index.tsx:172
 msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:21
+#: lib/constants.ts:16
 msgid "connect_modal.error_message_default"
 msgstr "我们在连接时遇到了一些问题，请重试。"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:25
+#: lib/constants.ts:20
 msgid "connect_modal.error_message_refused"
 msgstr "用户拒绝连接。"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:24
 msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/PledgeDashboard/index.tsx:180
+#: components/pages/Pledge/index.tsx:118
+#: components/pages/Pledge/PledgeDashboard/index.tsx:176
 msgid "connect_modal.error_title"
 msgstr "连接错误"
 
@@ -1587,7 +1581,7 @@ msgid "pledges.form.awaiting_signature"
 msgstr "等待签名..."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:194
+#: components/pages/Pledge/PledgeDashboard/index.tsx:190
 msgid "pledges.form.confirm_delete"
 msgstr "确认移除"
 
@@ -1602,7 +1596,7 @@ msgid "pledges.form.confirm_remove_cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:209
+#: components/pages/Pledge/index.tsx:205
 msgid "pledges.form.error"
 msgstr "输入钱包地址，.klima 或 .eth 的域名"
 
@@ -1777,7 +1771,7 @@ msgid "pledges.form.submit_button"
 msgstr "保存承诺"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:190
+#: components/pages/Pledge/PledgeDashboard/index.tsx:186
 msgid "pledges.form.title"
 msgstr "您的承诺"
 
@@ -1822,7 +1816,7 @@ msgid "pledges.home.hero.create"
 msgstr "创建承诺"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:167
+#: components/pages/Pledge/index.tsx:163
 msgid "pledges.home.hero.learn_more"
 msgstr "了解更多"
 
@@ -1832,17 +1826,17 @@ msgid "pledges.home.hero.view"
 msgstr "查看您的承诺"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:203
+#: components/pages/Pledge/index.tsx:199
 msgid "pledges.home.search.label"
 msgstr "ENS 或 0x 地址"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:197
+#: components/pages/Pledge/index.tsx:193
 msgid "pledges.home.search.placeholder"
 msgstr "输入 ENS、KNS 或 0x 地址"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:223
+#: components/pages/Pledge/index.tsx:219
 msgid "pledges.home.search.submit"
 msgstr "搜索"
 

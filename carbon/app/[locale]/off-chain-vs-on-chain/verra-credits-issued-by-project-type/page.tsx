@@ -1,19 +1,37 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfProjectsCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 
-export default function VerraCreditsIssuedByProjectTypePage() {
+function title() {
+  return t`Credits issued by project type`;
+}
+function description() {
+  return t`The total number of carbon credits that have been issued by carbon registry Verra sorted by carbon project type.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: metaDataTitle(title()),
+    description: description(),
+  };
+}
+export default async function VerraCreditsIssuedByProjectTypePage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
-      pageTitle={t`Credits issued by project type`}
+      pageTitle={title()}
       card={
         <VerraCreditsDistributionOfProjectsCard
           isDetailPage={true}
           status="issued"
         />
       }
-      overview={t`The total number of carbon credits that have been issued by carbon registry Verra sorted by carbon project type.`}
+      overview={description()}
       backButtonHref={PageLinks.OffChainVsOnChain}
     />
   );

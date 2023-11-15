@@ -1,8 +1,5 @@
-import {
-  fetchBlockRate,
-  getStakingRewards,
-  getTreasuryBalance,
-} from "@klimadao/lib/utils";
+import { AVERAGE_BLOCK_RATE } from "@klimadao/lib/constants";
+import { getStakingRewards, getTreasuryBalance } from "@klimadao/lib/utils";
 import { Home, Props } from "components/pages/Home";
 import { fetchCMSContent } from "lib/fetchCMSContent";
 import { loadTranslation } from "lib/i18n";
@@ -15,10 +12,9 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
     locale: ctx.locale,
   });
   const translation = await loadTranslation(ctx.locale);
-  const blockRate = await fetchBlockRate();
   const monthlyStakingRewards = await getStakingRewards({
     days: 31,
-    blockRate,
+    blockRate: AVERAGE_BLOCK_RATE,
     infuraId: INFURA_ID,
   });
 

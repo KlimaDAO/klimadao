@@ -1,27 +1,43 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import TokenVolumeOverTimeCard from "components/cards/tokenDetails/TokenVolumeOverTimeCard";
-import DetailPage from "components/pages/DetailPage";
-import { TokenDetailPageProps } from "components/pages/props";
-import { PageLinks } from "lib/PageLinks";
-import { capitalize } from "lodash";
+import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
+import { BridgePageParams, TokenDetailPageProps } from "components/pages/props";
+import { getBridgeLabel } from "lib/bridges";
 
-export default function TokenVolumeOverTimePage({
-  params,
-  searchParams,
-}: TokenDetailPageProps) {
-  const bridgeLabel = capitalize(params.bridge);
+function title(params: BridgePageParams) {
+  const bridgeLabel = getBridgeLabel(params.bridge);
+  return t`${bridgeLabel} volume over time`;
+}
+function description(params: BridgePageParams) {
+  const bridgeLabel = getBridgeLabel(params.bridge);
+  return t`The volume of digital carbon credits in ${bridgeLabel} digital carbon pools over a given time period.`;
+}
+
+export async function generateMetadata({ params }: TokenDetailPageProps) {
+  return {
+    title: metaDataTitle(title(params)),
+    description: description(params),
+  };
+}
+
+export default async function TokenVolumeOverTimePage(
+  props: TokenDetailPageProps
+) {
+  await initLayout(props.params);
+
   return (
-    <DetailPage
-      pageTitle={t`${bridgeLabel} volume over Time`}
+    <TokenDetailsDetailPage
+      pageTitle={title(props.params)}
       card={
         <TokenVolumeOverTimeCard
           isDetailPage={true}
-          {...params}
-          {...searchParams}
+          {...props.params}
+          {...props.searchParams}
         />
       }
-      overview={t`The volume of digital carbon credits in ${bridgeLabel} digital carbon pools over a given time period.`}
-      backButtonHref={`${PageLinks.TokenDetails}?tab=${params.bridge}`}
+      overview={description(props.params)}
+      {...props}
     />
   );
 }

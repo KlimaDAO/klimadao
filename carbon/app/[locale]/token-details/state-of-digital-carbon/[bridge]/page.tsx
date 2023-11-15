@@ -1,27 +1,43 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import TokenStateOfDigitalCarbonCard from "components/cards/tokenDetails/TokenStateOfDigitalCarbonCard";
 import DetailPage from "components/pages/DetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
-import { capitalize } from "lodash";
+import { getBridgeLabel } from "lib/bridges";
 
-export default function TokenStateOfDigitalCarbonPage({
-  params,
-  searchParams,
-}: TokenDetailPageProps) {
-  const bridgeLabel = capitalize(params.bridge);
+function title(props: TokenDetailPageProps) {
+  const bridgeLabel = getBridgeLabel(props.params.bridge);
+  return t`State of ${bridgeLabel} digital carbon`;
+}
+function description(props: TokenDetailPageProps) {
+  const bridgeLabel = getBridgeLabel(props.params.bridge);
+  return t`The total number of digital carbon credits bridged via ${bridgeLabel} broken down by the current outstanding supply and retired digital carbon credits.`;
+}
+
+export async function generateMetadata(props: TokenDetailPageProps) {
+  return {
+    title: metaDataTitle(title(props)),
+    description: description(props),
+  };
+}
+
+export default async function TokenStateOfDigitalCarbonPage(
+  props: TokenDetailPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
-      pageTitle={t`State of ${bridgeLabel} digital carbon`}
+      pageTitle={title(props)}
       card={
         <TokenStateOfDigitalCarbonCard
           isDetailPage={true}
-          {...params}
-          {...searchParams}
+          {...props.params}
+          {...props.searchParams}
         />
       }
-      overview={t`The total number of digital carbon credits bridged via ${bridgeLabel} broken down by the current outstanding supply and retired digital carbon credits.`}
-      backButtonHref={`${PageLinks.TokenDetails}?tab=${params.bridge}`}
+      overview={description(props)}
+      backButtonHref={`${PageLinks.TokenDetails}?tab=${props.params.bridge}`}
     />
   );
 }

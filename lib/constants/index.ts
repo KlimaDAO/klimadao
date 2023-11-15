@@ -101,15 +101,11 @@ export const urls = {
   offset: "https://app.klimadao.finance/#/offset",
   pledges: "https://www.klimadao.finance/pledge",
   info: "https://app.klimadao.finance/info",
-  resources: "https://www.klimadao.finance/resources",
   siteBlog: "https://www.klimadao.finance/blog",
   retirements: "https://www.klimadao.finance/retirements",
   retirements_carbonmark: "https://www.carbonmark.com/retirements",
-  contact: "https://www.klimadao.finance/contact",
-  community: "https://www.klimadao.finance/community",
   buy: "https://www.klimadao.finance/buy",
-  infinity: "https://www.klimadao.finance/infinity",
-  carbonDashboard: "https://carbon.klimadao.finance",
+  carbonDashboard: "https://data.klimadao.finance",
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",
@@ -225,9 +221,7 @@ export const allowancesContracts = {
 } as const;
 
 export const EPOCH_INTERVAL = 11520;
-export const FALLBACK_BLOCK_RATE = 2.3;
-
-export const API_BASE_URL = "https://www.klimadao.finance/api";
+export const AVERAGE_BLOCK_RATE = 2.21;
 
 /** CMS stuff  */
 export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";

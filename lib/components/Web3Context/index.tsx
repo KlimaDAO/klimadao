@@ -20,7 +20,7 @@ export const Web3ContextProvider: FC<Props> = ({
   showMumbaiOption,
   walletConnectProjectId,
 }) => {
-  const providerState = useProvider();
+  const providerState = useProvider(walletConnectProjectId);
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal((s) => !s);
   const renderModal = useCallback(

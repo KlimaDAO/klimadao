@@ -1,27 +1,43 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import TokenDistributionOfVintageCard from "components/cards/tokenDetails/TokenDistributionOfVintageCard";
-import DetailPage from "components/pages/DetailPage";
-import { TokenDetailPageProps } from "components/pages/props";
-import { PageLinks } from "lib/PageLinks";
-import { capitalize } from "lodash";
 
-export default function TokenDistributionOfVintageDatePage({
-  params,
-  searchParams,
-}: TokenDetailPageProps) {
-  const bridgeLabel = capitalize(params.bridge);
+import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
+import { BridgePageParams, TokenDetailPageProps } from "components/pages/props";
+import { getBridgeLabel } from "lib/bridges";
+
+function title(params: BridgePageParams) {
+  const bridgeLabel = getBridgeLabel(params.bridge);
+  return t`${bridgeLabel} Distribution of vintage start dates`;
+}
+function description(params: BridgePageParams) {
+  const bridgeLabel = getBridgeLabel(params.bridge);
+  return t`A breakdown of the vintage dates of each carbon credit bridged via ${bridgeLabel}.`;
+}
+
+export async function generateMetadata({ params }: TokenDetailPageProps) {
+  return {
+    title: metaDataTitle(title(params)),
+    description: description(params),
+  };
+}
+
+export default async function TokenDistributionOfVintageDatePage(
+  props: TokenDetailPageProps
+) {
+  await initLayout(props.params);
   return (
-    <DetailPage
-      pageTitle={t`${bridgeLabel} Distribution of vintage start dates`}
+    <TokenDetailsDetailPage
+      pageTitle={title(props.params)}
       card={
         <TokenDistributionOfVintageCard
           isDetailPage={true}
-          {...params}
-          {...searchParams}
+          {...props.params}
+          {...props.searchParams}
         />
       }
-      overview={t`A breakdown of the vintage dates of each carbon credit bridged via ${bridgeLabel}.`}
-      backButtonHref={`${PageLinks.TokenDetails}?tab=${params.bridge}`}
+      overview={description(props.params)}
+      {...props}
     />
   );
 }

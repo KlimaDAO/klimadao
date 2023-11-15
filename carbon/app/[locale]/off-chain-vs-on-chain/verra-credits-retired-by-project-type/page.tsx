@@ -1,20 +1,39 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfProjectsCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 
-export default function VerraCreditsRetiredByProjectTypePage() {
+function title() {
+  return t`Credits retired by project type`;
+}
+function description() {
+  return t`The total number of carbon credits that have been issued by carbon registry Verra and retired sorted by carbon project type.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: metaDataTitle(title()),
+    description: description(),
+  };
+}
+
+export default async function VerraCreditsRetiredByProjectTypePage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
-      pageTitle={t`Credits retired by project type`}
+      pageTitle={title()}
       card={
         <VerraCreditsDistributionOfProjectsCard
           isDetailPage={true}
           status="all_retired"
         />
       }
-      overview={t`The total number of carbon credits that have been issued by carbon registry Verra and retired sorted by carbon project type.`}
-      backButtonHref={PageLinks.OffChainVsOnChain}
+      overview={description()}
+      backButtonHref={`${PageLinks.OffChainVsOnChain}?status=retired`}
     />
   );
 }

@@ -1,14 +1,33 @@
 import { t } from "@lingui/macro";
+import { initLayout, metaDataTitle } from "app/[locale]/layout";
 import CarbonSupplyByBlockChainCard from "components/cards/supply/CarbonSupplyByBlockchainCard";
 import DetailPage from "components/pages/DetailPage";
+import { LocalizedPageProps } from "components/pages/props";
 import { PageLinks } from "lib/PageLinks";
 
-export default function DigitalCarbonSupplyByBlockchainPage() {
+function title() {
+  return t`Digital carbon supply by Blockchain`;
+}
+function description() {
+  return t`A breakdown of the current supply of digital carbon credits available on public blockchains.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: metaDataTitle(title()),
+    description: description(),
+  };
+}
+
+export default async function DigitalCarbonSupplyByBlockchainPage(
+  props: LocalizedPageProps
+) {
+  await initLayout(props.params);
   return (
     <DetailPage
-      pageTitle={t`Digital carbon supply by Blockchain`}
+      pageTitle={title()}
       card={<CarbonSupplyByBlockChainCard isDetailPage={true} />}
-      overview={t`A breakdown of the current supply of digital carbon credits available on public blockchains.`}
+      overview={description()}
       backButtonHref={PageLinks.Supply}
     />
   );
