@@ -2,6 +2,7 @@ import type { IcrProject } from "../ICR/icr.types";
 import { ICR_API } from "./ICR_API_endpoints";
 
 export const convertIcrCountryCodeToName = (code: string) => {
+  if (!code) return;
   const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
   const country = regionNames.of(code);
   return country;
