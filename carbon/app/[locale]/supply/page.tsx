@@ -9,18 +9,18 @@ import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCa
 import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
 import { LocalizedPageProps } from "components/pages/props";
 import layout from "theme/layout.module.scss";
-import { initLayout } from "../layout";
+import { initLayout, metaDataTitle } from "../layout";
 
 function title() {
   return t`Supply`;
 }
 function description() {
-  return t`Supply`;
+  return t`Explore digital carbon supply on Polygon, Ethereum, Celo and more using the Klima Data Carbon Dashboard.`;
 }
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }

@@ -5,18 +5,18 @@ import RetirementTrendsByBeneficiaryTab from "components/pages/retirementTrends/
 import RetirementTrendsByChainTab from "components/pages/retirementTrends/RetirementTrendsByChainTab";
 import RetirementTrendsByPoolTab from "components/pages/retirementTrends/RetirementTrendsByPoolTab";
 import RetirementTrendsByTokenTab from "components/pages/retirementTrends/RetirementTrendsByTokenTab";
-import { initLayout } from "../layout";
+import { initLayout, metaDataTitle } from "../layout";
 
 function title() {
   return t`Retirement trends`;
 }
 function description() {
-  return t`Retirement trends`;
+  return t`Explore digital carbon retirement trends by public blockhchain, digtial carbon token, and retirement beneficiary using the Klima Data Carbon Dashboard.`;
 }
 
 export async function generateMetadata() {
   return {
-    title: title(),
+    title: metaDataTitle(title()),
     description: description(),
   };
 }

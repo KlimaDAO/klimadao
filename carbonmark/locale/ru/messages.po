@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-10 17:22+0000\n"
+"POT-Creation-Date: 2023-11-15 01:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2447,7 +2447,7 @@ msgstr "Методология:"
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
-msgstr "Кредиты MC02 генерируются проектами, которые сохраняют лес Амазонки, со всеми видами положительных внешних эффектов, таких как создание местных рабочих мест и сохранение местного биоразнообразия. Узнайте больше о MCO2 на <0>carbon.klimadao.finance</0> ."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
