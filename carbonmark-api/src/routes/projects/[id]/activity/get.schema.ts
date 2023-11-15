@@ -5,7 +5,7 @@ import { Params } from "../get.schema";
 
 export const QueryString = Type.Object({
   network: Type.Optional(NetworkParamModel),
-  activity_types: Type.Optional(
+  activityType: Type.Optional(
     Type.String({
       description: "Desired types of the project activities",
     })

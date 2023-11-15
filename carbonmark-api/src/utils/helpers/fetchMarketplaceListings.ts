@@ -1,6 +1,7 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
+import { ActivityType } from "src/.generated/types/marketplace.types";
 import { Activity } from "../../models/Activity.model";
 import { Listing } from "../../models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
@@ -8,12 +9,19 @@ import { GQL_SDK } from "../gqlSdk";
 import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
 
-type Params = {
+type ListingsParams = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
   fastify: FastifyInstance; // Fastify instance
   /** UNIX seconds - default is current system timestamp */
   expiresAfter?: string;
+};
+
+type ActivitiesParams = {
+  key: string; // Project key `"VCS-981"`
+  vintage: string; // Vintage string `"2017"`
+  activityType: ActivityType[]; // Activity type
+  fastify: FastifyInstance; // Fastify instance
 };
 
 const filterUnsoldActivity = (activity: { activityType?: string | null }) =>
@@ -124,7 +132,7 @@ const formatListings = async (
  */
 export const fetchMarketplaceListings = async (
   sdk: GQL_SDK,
-  { key, vintage, expiresAfter, fastify }: Params
+  { key, vintage, expiresAfter, fastify }: ListingsParams
 ): Promise<[Listing[], Activity[]]> => {
   const { project } = await sdk.marketplace.getProjectById({
     projectId: key + "-" + vintage,
@@ -148,11 +156,12 @@ export const fetchMarketplaceListings = async (
  */
 export const fetchProjectActivities = async (
   sdk: GQL_SDK,
-  { key, vintage, fastify }: Params
+  { key, vintage, activityType, fastify }: ActivitiesParams
 ): Promise<Activity[]> => {
   const activities = (
     await sdk.marketplace.getActivitiesByProjectId({
       projectId: key + "-" + vintage,
+      activityType,
     })
   ).activities;
   const activitiesWithProfiles = await formatActivities(activities, fastify);
