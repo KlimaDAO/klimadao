@@ -1,7 +1,7 @@
 export const operations = {
   get_categories: { path: "/categories", method: "get" },
-  get_countries: { path: "/countries", method: "get" },
   get_projects: { path: "/projects", method: "get" },
+  get_countries: { path: "/countries", method: "get" },
   "get_users-walletorhandle": { path: "/users/:walletOrHandle", method: "get" },
   post_users: { path: "/users", method: "post" },
   "put_users-wallet": { path: "/users/:wallet", method: "put" },

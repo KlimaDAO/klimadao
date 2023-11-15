@@ -13,13 +13,28 @@ export interface Column<RI> {
   cellStyle: string;
   /** Formatter for the data to be displayed */
   formatter: Formatter<RI>;
+  /** Can we sort using this column */
+  sortable?: boolean;
 }
 
 export interface Columns<RI> {
   [key: string]: Column<RI>;
 }
 
-export type DataRenderer<RI> = (props: {
+export interface DataRendererProps<RI, P> {
   data: PaginatedResponse<RI>;
+  params?: P;
+}
+export type DataRenderer<RI, P> = (
+  props: DataRendererProps<RI, P>
+) => JSX.Element;
+export type ItemRenderer<RI, P> = (props: {
+  item: RI;
+  params?: P;
 }) => JSX.Element;
-export type ItemRenderer<RI> = (props: { item: RI }) => JSX.Element;
+export type DataRendererKey =
+  | "vertical-table"
+  | "horizontal-table"
+  | "cards"
+  | "void";
+export type DataRendererType = "desktop" | "mobile";

@@ -10,7 +10,7 @@ And enable css to be passed to items of all rows except the last one
   grid-template-columns: repeat($rowSize, 1fr);
   @for $i from 0 to $nbTilesNotOnLastRow {
     > div:nth-child(#{$i + 1}) {
-      border-bottom: 1px solid var(--text-color-03);
+      border-bottom: 1px solid var(--lightmode-font-03);
     }
   }
 }
@@ -18,7 +18,7 @@ And enable css to be passed to items of all rows except the last one
   display: grid;
   gap: 24px;
   > div:not(:last-child) {
-    border-bottom: 1px solid var(--text-color-03);
+    border-bottom: 1px solid var(--lightmode-font-03);
   }
 }
 .tiles_row_layout {
@@ -37,7 +37,7 @@ And enable css to be passed to items of all rows except the last one
     @include configureGrid(3);
   }
   @include breakpoints.desktopLarge {
-    @include configureGrid(4);
+    @include configureGrid(3);
   }
 }
 .tile {
@@ -46,7 +46,7 @@ And enable css to be passed to items of all rows except the last one
   padding-bottom: 10px;
   padding-top: 10px;
   gap: 10px;
-  color: var(--text-color-01);
+  color: var(--lightmode-font-01);
 }
 .header {
   display: flex;
@@ -59,14 +59,14 @@ And enable css to be passed to items of all rows except the last one
     font-weight: bold;
   }
   [aria-describedby="fact"] {
-    color: var(--text-color-06);
+    color: var(--lightmode-font-02);
   }
 }
 .iconBox {
   padding: 4px;
   border: 1px solid;
-  border-color: var(--surface-06);
-  background-color: var(--surface-03);
+  border-color: var(--brand-border);
+  background-color: var(--brand-background);
   border-radius: 4px;
   line-height: 0;
 }
@@ -81,10 +81,28 @@ And enable css to be passed to items of all rows except the last one
   [aria-describedby="value"] {
     font-weight: bold;
     font-size: 24px;
+
+    span {
+      display: flex;
+      align-items: center;
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
   }
   [aria-describedby="label"] {
     text-transform: uppercase;
     font-size: 8px;
-    color: var(--text-color-06);
+    color: var(--lightmode-font-02);
   }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.tooltip {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
 }

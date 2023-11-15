@@ -46,7 +46,7 @@ export const CarbonTonnesRetiredCard: FC = () => {
             target="_blank"
             variant="transparent"
             icon={<LaunchOutlinedIcon />}
-            href={`${urls.retirements}/${address}`}
+            href={`${urls.retirements_carbonmark}/${address}`}
             className={styles.button}
             label={t({
               id: "offset.view_retirements",

@@ -1,7 +1,8 @@
+import client from ".generated/carbonmark-api-sdk/client";
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
 import { t, Trans } from "@lingui/macro";
-import { useGetUsersWalletorhandle } from "carbonmark-api-sdk";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
@@ -12,6 +13,7 @@ import type {
   AssetForRetirement,
   PcbProject,
 } from "lib/types/carbonmark.types";
+import { notNil } from "lib/utils/functional.utils";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -28,7 +30,7 @@ export type RetirePageProps = {
 export const Retire: NextPage<RetirePageProps> = (props) => {
   const {
     isConnected,
-    address,
+    address = "",
     toggleModal,
     provider,
     initializing,
@@ -37,7 +39,8 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
 
   const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
     address ?? "",
-    { network: networkLabel }
+    { network: networkLabel, expiresAfter: "0" },
+    { query: { fetcher: notNil(address) ? client : async () => undefined } }
   );
 
   const [retirementAsset, setRetirementAsset] =

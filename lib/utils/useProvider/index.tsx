@@ -33,7 +33,9 @@ const getWeb3Provider = (p: any): TypedProvider => {
 };
 
 /** React Hook to create and manage the web3Modal lifecycle */
-export const useProvider = (): Web3ModalState => {
+export const useProvider = (
+  walletConnectProjectId?: string
+): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
 
   const disconnect = async () => {
@@ -44,7 +46,7 @@ export const useProvider = (): Web3ModalState => {
       isWalletConnectProvider(web3state.provider?.provider) ||
       isCoinbaseProvider(web3state.provider?.provider)
     ) {
-      await web3state.provider?.provider?.close();
+      await web3state.provider?.provider?.disconnect();
     }
     window.location.reload();
   };
@@ -82,14 +84,20 @@ export const useProvider = (): Web3ModalState => {
         wallet === "walletConnect" ||
         connectedWallet === "walletConnect"
       ) {
-        const { default: WalletConnectProvider } = await import(
-          "@walletconnect/web3-provider"
+        if (!options?.walletConnectProjectId) {
+          console.error("Failed to connect: missing walletConnectProjectId");
+          return;
+        }
+        const { default: EthereumProvider } = await import(
+          "@walletconnect/ethereum-provider"
         );
-        const walletConnectProvider = new WalletConnectProvider({
-          rpc: {
-            137: urls.polygonMainnetRpc,
-          },
+
+        const walletConnectProvider = await EthereumProvider.init({
+          projectId: options.walletConnectProjectId,
+          chains: [137],
+          showQrModal: true,
         });
+
         await walletConnectProvider.enable();
         provider = getWeb3Provider(walletConnectProvider);
         localStorage.setItem("web3-wallet", "walletConnect");
@@ -169,7 +177,7 @@ export const useProvider = (): Web3ModalState => {
   useEffect(() => {
     const wallet = localStorage.getItem("web3-wallet") as WalletLabel | null;
     if (wallet) {
-      connect(wallet, { useCache: true });
+      connect(wallet, { useCache: true, walletConnectProjectId });
     } else {
       setWeb3State((s) => ({ ...s, initializing: false }));
     }
@@ -181,7 +189,8 @@ export const useProvider = (): Web3ModalState => {
       // no need to listen to torus events. They do not have any external control
       return;
     }
-    const handleAccountsChanged = (accts: string[]) => {
+    // @todo -> Makka fix types and remove any.
+    const handleAccountsChanged = (accts: string[] | any) => {
       if (accts.length > 0) {
         window.location.reload();
       } else {

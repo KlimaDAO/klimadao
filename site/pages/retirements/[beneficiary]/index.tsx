@@ -68,7 +68,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
         klimaRetires: klimaRetires || null,
         beneficiaryAddress: beneficiaryAddress,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
-        canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}`,
+        canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}`,
         translation,
       },
       revalidate: 240,

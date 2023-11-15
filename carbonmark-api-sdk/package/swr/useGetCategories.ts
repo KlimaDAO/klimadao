@@ -1,7 +1,7 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../client";
-import type { GetCategoriesQueryResponse } from "../models/GetCategories";
+import client from "../../../lib/api/client";
+import type { GetCategoriesQueryResponse } from "../types/GetCategories";
 
 export function getCategoriesQueryOptions<
   TData = GetCategoriesQueryResponse,
@@ -16,7 +16,7 @@ export function getCategoriesQueryOptions<
         url: `/categories`,
 
         ...options,
-      });
+      }).then((res) => res.data);
     },
   };
 }
@@ -33,10 +33,16 @@ export function useGetCategories<
 >(options?: {
   query?: SWRConfiguration<TData, TError>;
   client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+  shouldFetch?: boolean;
 }): SWRResponse<TData, TError> {
-  const { query: queryOptions, client: clientOptions = {} } = options ?? {};
+  const {
+    query: queryOptions,
+    client: clientOptions = {},
+    shouldFetch = true,
+  } = options ?? {};
 
-  const query = useSWR<TData, TError, string>(`/categories`, {
+  const url = shouldFetch ? `/categories` : null;
+  const query = useSWR<TData, TError, string | null>(url, {
     ...getCategoriesQueryOptions<TData, TError>(clientOptions),
     ...queryOptions,
   });

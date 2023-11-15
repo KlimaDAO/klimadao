@@ -4,7 +4,7 @@
   box-sizing: border-box;
   box-shadow: var(--box-shadow);
   border-radius: 0.8rem;
-  background-color: var(--surface-04);
+  background-color: var(--brand-white);
   padding: 0 1.4rem;
   padding-top: 1.2rem;
   display: flex;
@@ -32,24 +32,21 @@
 .cardHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 1.2rem;
 }
 
 .cardHeaderTitle {
-  white-space: nowrap;
-  flex: 1 1 0;
+  @include breakpoints.desktopLarge {
+    min-width: auto;
+  }
+  flex: 3 1 0;
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
 }
-
-.blubb {
-  flex: 1 1 0;
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
+.cardHeaderTitleNoGrow {
+  flex-grow: 1;
 }
 
 .cardHeaderDetailsLink {
@@ -62,7 +59,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 0.4rem;
-    color: var(--text-color-05);
+    color: var(--brand-blue);
     flex: 1 0;
     text-align: right;
     font-size: 1.4rem;
@@ -82,6 +79,11 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 1.2rem;
+
+  @include breakpoints.desktop {
+    margin: 0;
+  }
 }
 
 .overlapLegend {

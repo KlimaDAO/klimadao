@@ -18,15 +18,22 @@ import { ImageModel } from "../models/Utility.model";
 import { version } from "../../package.json";
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
+  // This enables codegen utilities to target the relevant urls
+  servers: [{ url: `https://v${packageJson.version}.api.carbonmark.com` }],
   info: {
     title: "Carbonmark REST API",
     description: `
-Welcome to the API Reference docs for **version ${packageJson.version}** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.
+Welcome to the API Reference docs for **version ${packageJson.version}** of the Carbonmark REST API.
+
+Use this API to view assets, prices, supply, activity and more.
+
+Looking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).
+
 ## Quick start
 Be sure to prefix a version number, otherwise your application will be exposed to breaking changes.
 
 ~~~ts
-const res = await fetch("https://v1.api.carbonmark.com/projects");
+const res = await fetch("https://v${packageJson.version}.api.carbonmark.com/projects");
 const projects = await res.json();
 ~~~
 

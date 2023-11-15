@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
-import PercentageChange from "components/PercentageChage";
+import PercentageChange from "components/PercentageChange";
 import { CoinTileDataFact } from "components/charts/helpers/CoinTiles";
+import { PageLinks } from "lib/PageLinks";
 import {
   getCarbonMetrics7daysAgo,
   getLatestCarbonMetrics,
@@ -13,21 +14,23 @@ import styles from "./styles.module.scss";
 export default function CarbonSupplyQuickFactsCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <CarbonSupplyQuickFactsChart></CarbonSupplyQuickFactsChart>
+    <CarbonSupplyQuickFactsChart
+      isDetailPage={props.isDetailPage}
+    ></CarbonSupplyQuickFactsChart>
   );
 
   return (
     <ChartCard
       {...props}
       title={t`Quick facts`}
-      detailUrl="/details/digital-carbon-supply-quick-facts"
+      detailUrl={`${PageLinks.Supply}/digital-carbon-supply-quick-facts`}
       chart={chart}
     />
   );
 }
 
 /** Async server component that renders a Recharts client component */
-async function CarbonSupplyQuickFactsChart() {
+async function CarbonSupplyQuickFactsChart(props: { isDetailPage?: boolean }) {
   const metricsNow = await getLatestCarbonMetrics();
   const metrics7DaysAgo = await getCarbonMetrics7daysAgo();
 
@@ -113,9 +116,12 @@ async function CarbonSupplyQuickFactsChart() {
       </div>
     );
   }
+  const wrapperclassName = props.isDetailPage
+    ? `${styles.wrapper} ${styles.detailsPageWrapper}`
+    : styles.wrapper;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={wrapperclassName}>
       {data.map((item) => CarbonSupplyQuickFactsColumn(item))}
     </div>
   );

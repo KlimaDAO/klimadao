@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
+import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCredits";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 import {
@@ -13,8 +13,8 @@ import { queryAggregatedCreditsByPoolAndVintage } from "lib/charts/queries";
 export default function TokenDistributionOfVintageCard(
   props: CardProps & TokenDetailsProps
 ) {
-  // No vintage card for retired credits on particular pools
-  if (props.pool != "all" && props.status != "retired") {
+  // No vintage distribution card for retired credits on particular pools
+  if (props.pool != "all" && props.status == "retired") {
     return <></>;
   }
   const chart = (

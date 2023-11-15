@@ -4,6 +4,13 @@ const withBundleAnalyzer = require("@next/bundle-analyzer");
 
 const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 
+// For local development we need to source envs
+if (
+  !["preview", "production"].includes(process.env.NEXT_PUBLIC_VERCEL_ENV ?? "")
+) {
+  require("dotenv").config({ path: ".env.local" });
+}
+
 module.exports = async (phase, { defaultConfig }) => {
   const getLocales = (await import("../lib/out/utils/getLocales/index.js"))
     .getLocales;
@@ -81,7 +88,7 @@ module.exports = async (phase, { defaultConfig }) => {
       deviceSizes,
     },
     experimental: {
-      appDir: false,
+      optimizePackageImports: ["@klimadao/lib/utils"],
     },
   };
   return withBundleAnalyzer({

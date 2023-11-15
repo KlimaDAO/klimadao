@@ -1,5 +1,4 @@
 import { GridContainer } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Footer } from "components/Footer";
@@ -54,7 +53,9 @@ export const PostPage = (props: PostProps) => {
           title={props.post.title}
           mediaTitle={props.post.title}
           metaDescription={props.post.summary}
-          mediaImageSrc={props.post.imageUrl || urls.mediaImage}
+          mediaImageSrc={
+            props.post.imageUrl || `${carbonmarkUrls.baseUrl}/og-media.png`
+          }
           isArticle={true}
         />
 

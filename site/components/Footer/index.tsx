@@ -1,6 +1,5 @@
 import { cx } from "@emotion/css";
 import { Trans } from "@lingui/macro";
-import { createLinkWithLocaleQuery } from "lib/i18n";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -17,6 +16,7 @@ import {
   YoutubeIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import { createLinkWithLocaleQuery } from "lib/i18n";
 import * as styles from "./styles";
 
 interface Props {

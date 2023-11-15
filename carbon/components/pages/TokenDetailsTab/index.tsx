@@ -1,3 +1,4 @@
+import PoolVolumeOverTimeCard from "components/cards/tokenDetails/PoolVolumeOverTimeCard";
 import TokenDistributionOfMethodologiesCard from "components/cards/tokenDetails/TokenDistributionOfMethodologiesCard";
 import TokenDistributionOfProjectsCard from "components/cards/tokenDetails/TokenDistributionOfProjectsCard";
 import TokenDistributionOfVintageCard from "components/cards/tokenDetails/TokenDistributionOfVintageCard";
@@ -11,13 +12,51 @@ export default function TokenDetailsTab(props: TokenDetailsProps) {
   return (
     <div>
       <div className={`${layout.cardRow} ${layout.cardRowWrap}`}>
-        <TokenStateOfDigitalCarbonCard {...props} />
-        <TokenPoolBreakdownCard {...props} />
-        <TokenVolumeOverTimeCard {...props} />
-        <TokenDistributionOfVintageCard {...props} />
-        <TokenDistributionOfMethodologiesCard {...props} />
-        <TokenDistributionOfProjectsCard {...props} />
-        <TokenOriginsCard {...props} />
+        {props.pool == "all" && (
+          <>
+            <TokenStateOfDigitalCarbonCard
+              {...props}
+              className={layout.zIndexSeven}
+            />
+            <TokenPoolBreakdownCard {...props} className={layout.zIndexSix} />
+            <TokenVolumeOverTimeCard {...props} className={layout.zIndexFive} />
+          </>
+        )}
+        {props.pool != "all" && props.status == "bridged" && (
+          <PoolVolumeOverTimeCard
+            {...props}
+            status="deposited"
+            className={layout.zIndexFive}
+          />
+        )}
+        {props.pool != "all" && props.status == "retired" && (
+          <>
+            <PoolVolumeOverTimeCard
+              {...props}
+              status="redeemed"
+              className={layout.zIndexFive}
+            />
+            <PoolVolumeOverTimeCard
+              {...props}
+              status="retired"
+              className={layout.zIndexFive}
+            />
+          </>
+        )}
+
+        <TokenDistributionOfVintageCard
+          {...props}
+          className={layout.zIndexFour}
+        />
+        <TokenDistributionOfMethodologiesCard
+          {...props}
+          className={layout.zIndexThree}
+        />
+        <TokenDistributionOfProjectsCard
+          {...props}
+          className={layout.zIndexTwo}
+        />
+        <TokenOriginsCard {...props} className={layout.zIndexOne} />
       </div>
     </div>
   );

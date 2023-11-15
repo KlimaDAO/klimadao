@@ -1,8 +1,32 @@
 @use "~@klimadao/lib/theme/breakpoints.scss";
 
-.wrapper {
-  width: fit-content;
+.scrollWrapper {
+  overflow-x: auto;
+  display: grid;
+}
+
+.paginationWrapper {
+  position: sticky;
+  justify-self: end;
+  right: 0;
+}
+
+.table {
+  color: var(--lightmode-font-01);
+  width: 100%;
+}
+.desktopOnly {
+  display: none;
+
   @include breakpoints.medium {
-    width: 100%;
+    display: table;
+  }
+}
+
+.mobileOnly {
+  display: table;
+
+  @include breakpoints.medium {
+    display: none;
   }
 }

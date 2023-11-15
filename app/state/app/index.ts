@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { FALLBACK_BLOCK_RATE } from "@klimadao/lib/constants";
+import { AVERAGE_BLOCK_RATE } from "@klimadao/lib/constants";
 
 export type TxnStatus =
   | "userConfirmation"
@@ -35,7 +35,7 @@ const initialState: AppState = {
   stakingRebase: undefined,
   treasuryBalance: undefined,
   rebaseBlock: undefined,
-  blockRate: FALLBACK_BLOCK_RATE,
+  blockRate: AVERAGE_BLOCK_RATE,
   locale: undefined,
   notificationStatus: null,
 };

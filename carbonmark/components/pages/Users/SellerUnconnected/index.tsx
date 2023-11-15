@@ -24,6 +24,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
     props.userAddress,
     {
       network: networkLabel,
+      expiresAfter: address === props.userAddress ? "0" : undefined,
     }
   );
 

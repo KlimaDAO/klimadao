@@ -13,13 +13,19 @@ import { createProjectLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getFeatureFlag } from "lib/getFeatureFlag";
 import { LO } from "lib/luckyOrange";
-import { CategoryName } from "lib/types/carbonmark.types";
+import { CategoryName, Listing } from "lib/types/carbonmark.types";
+import {
+  getListedBalance,
+  getUnlistedBalance,
+  hasListableBalance,
+} from "lib/utils/listings.utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
+  listings: Listing[];
   asset: AssetWithProject;
   onSell: () => void;
 }
@@ -27,6 +33,11 @@ interface Props {
 export const AssetProject: FC<Props> = (props) => {
   const { locale } = useRouter();
   const category = props.asset.project?.methodologies?.[0]?.category || "Other";
+
+  const isSellable = hasListableBalance(props.asset, props.listings);
+  const listedBalance = getListedBalance(props.asset, props.listings);
+  const unlistedBalance = getUnlistedBalance(props.asset, props.listings);
+
   return (
     <Card>
       {props.asset.project && (
@@ -56,14 +67,22 @@ export const AssetProject: FC<Props> = (props) => {
           </Link>
         </div>
       )}
-      <Text t="body1">
-        <Trans>Available Tonnes:</Trans>{" "}
-        <strong>{formatToTonnes(props.asset.amount, locale)}</strong>
-      </Text>
+
+      <div className={styles.tonnes}>
+        <Text t="body1">
+          <Trans>Unlisted tonnes:</Trans>{" "}
+          <strong>{formatToTonnes(unlistedBalance, locale)}</strong>
+        </Text>
+        <Text t="body1">
+          <Trans>Listed tonnes:</Trans>{" "}
+          <strong>{formatToTonnes(listedBalance, locale)}</strong>
+        </Text>
+      </div>
 
       <div className={styles.buttons}>
         <ButtonPrimary
           label={<Trans>Retire</Trans>}
+          disabled={unlistedBalance <= 0}
           href={`/portfolio/${props.asset.token.id}/retire`}
           renderLink={(linkProps) => <Link {...linkProps} />}
           onClick={() => {
@@ -74,6 +93,7 @@ export const AssetProject: FC<Props> = (props) => {
           <CarbonmarkButton
             label={<Trans>Sell</Trans>}
             onClick={props.onSell}
+            disabled={!isSellable}
           />
         ) : (
           <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">

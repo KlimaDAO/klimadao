@@ -13,7 +13,7 @@ import * as styles from "./styles";
 import { Value } from "./types";
 
 interface Props {
-  amount: Value;
+  amount: string;
   price?: Value;
   spenderAddress: string;
   onApproval: () => void;
@@ -59,12 +59,9 @@ export const Approve: FC<Props> = (props) => {
               </Trans>
             </Text>
           }
-          value={props.amount.value}
-          icon={
-            props.amount.token &&
-            carbonmarkTokenInfoMap[props.amount.token].icon
-          }
-          iconName={props.amount.token}
+          value={props.amount}
+          icon={carbonmarkTokenInfoMap["usdc"].icon}
+          iconName="usdc"
         />
         {!!props.price && (
           <HighlightValue

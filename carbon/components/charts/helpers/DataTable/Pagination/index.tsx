@@ -1,9 +1,7 @@
-import {
-  KeyboardArrowLeft,
-  KeyboardArrowRight,
-  KeyboardDoubleArrowLeft,
-  KeyboardDoubleArrowRight,
-} from "@mui/icons-material";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import styles from "./styles.module.scss";
 
 /** Client component that renders a Data Table pagination element
@@ -24,13 +22,13 @@ export default function Pagination(props: {
             className={styles.paginationIcon}
             onClick={() => props.onPageChange(0)}
           >
-            <KeyboardDoubleArrowLeft></KeyboardDoubleArrowLeft>
+            <KeyboardDoubleArrowLeftIcon />
           </div>
           <div
             className={styles.paginationIcon}
             onClick={() => props.onPageChange(props.page - 1)}
           >
-            <KeyboardArrowLeft></KeyboardArrowLeft>
+            <KeyboardArrowLeftIcon />
           </div>
         </div>
       )}
@@ -45,13 +43,13 @@ export default function Pagination(props: {
             onClick={() => props.onPageChange(props.page + 1)}
             role="button"
           >
-            <KeyboardArrowRight></KeyboardArrowRight>
+            <KeyboardArrowRightIcon />
           </div>
           <div
             className={styles.paginationIcon}
             onClick={() => props.onPageChange(props.pages_count - 1)}
           >
-            <KeyboardDoubleArrowRight></KeyboardDoubleArrowRight>
+            <KeyboardDoubleArrowRightIcon />
           </div>
         </div>
       )}

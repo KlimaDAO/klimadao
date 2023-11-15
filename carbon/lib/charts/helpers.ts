@@ -1,9 +1,16 @@
-import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils/lightIndex";
+import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { currentLocale } from "lib/i18n";
 import moment from "moment";
 import { DateTimeFormatOptions } from "next-intl";
-import { ChartData } from "./types";
+import { queryAggregatedPoolVolumesByDates } from "./queries";
+import {
+  ChartData,
+  DailyCreditsChartData,
+  DailyCreditsChartDataItem,
+  DailyCreditsQueryConfiguration,
+  DateAggregationFrequency,
+} from "./types";
 /*
   This function takes ChartData and transform values into percentages given a chart configuration
   Params:
@@ -59,15 +66,20 @@ export function cumulativeSum<CI extends object>(
   data: ChartData<CI>,
   configuration: ChartConfiguration<keyof CI>
 ): ChartData<CI> {
-  data.forEach((item, index) => {
+  const newData = data.map((item) => {
+    return { ...item };
+  });
+  newData.forEach((item, index) => {
     configuration.forEach((conf) => {
-      if (index > 0)
-        (item[conf.id] as number) += data[index - 1][conf.id] as number;
+      if (index > 0) {
+        const previousValue = newData[index - 1][conf.id];
+        if (previousValue) (item[conf.id] as number) += previousValue as number;
+      }
     });
   });
-  return data;
+  return newData;
 }
-// This function fills missing months in query results
+
 /** 
   Returns chart data where there are no rows with all charted data equals 0
 */
@@ -82,26 +94,120 @@ export function pruneNullRows<CI>(
     });
   });
 }
+/**
+ * Queries multiple times a credits and pool endpoints and merge the results
+ */
+export async function getMergedVolumes(
+  freq: DateAggregationFrequency,
+  configuration: DailyCreditsQueryConfiguration,
+  queryFunction: typeof queryAggregatedPoolVolumesByDates
+) {
+  const granularity = freq == "monthly" ? "M" : "d";
+  // Fetch data
+  const datasets = await Promise.all(
+    configuration.map((configurationItem) =>
+      queryFunction(freq, {
+        ...configurationItem.query,
+        ...{
+          page_size: -1,
+          sort_order: "asc",
+        },
+      })
+    )
+  );
+
+  // Use a dictionnary to merge data and find the smallest and biggest dates
+  const records: Record<string, DailyCreditsChartDataItem> = {};
+  let minDate = 0;
+  let maxDate = 0;
+  for (const i in datasets) {
+    const mapping = configuration[i].mapping;
+    const dateField = mapping.dateField;
+    const dataset = datasets[i];
+    dataset?.items.forEach((item) => {
+      const date = Date.parse(item[dateField] as string);
+      const id = moment(date).startOf(granularity).toISOString();
+      records[id] = records[id] || {};
+      const record = records[id];
+      record.date = date;
+      // TODO: solve data typing properly
+      record[mapping.destination] = item[mapping.source] as number;
+      minDate = minDate || date;
+      maxDate = maxDate || date;
+      if (date < minDate) minDate = date;
+      if (date > maxDate) maxDate = date;
+    });
+  }
+
+  // Create a new dataset with every dates represented
+  const chartData: DailyCreditsChartData = [];
+
+  // Exit quickly if the dataset is empty
+  if (Object.keys(records).length == 0) return chartData;
+
+  const emptyRecord: DailyCreditsChartDataItem = {
+    date: 0,
+    bct_quantity: 0,
+    nct_quantity: 0,
+    nbo_quantity: 0,
+    ubo_quantity: 0,
+    mco2_quantity: 0,
+    not_pooled_quantity: 0,
+    offchain_quantity: 0,
+    not_bridge_quantity: 0,
+    bridge_quantity: 0,
+    toucan_quantity: 0,
+    c3_quantity: 0,
+    moss_quantity: 0,
+    total_quantity: 0,
+    bridge_ratio: 0,
+  };
+
+  const now = moment();
+  let date = moment(minDate);
+  while (date.isSameOrBefore(now, granularity)) {
+    const id = date.startOf(granularity).toISOString();
+    let record: DailyCreditsChartDataItem = records[id];
+    if (record === undefined) {
+      record = Object.assign({ ...emptyRecord });
+    }
+    configuration.forEach((configurationItem) => {
+      const destination = configurationItem.mapping
+        .destination as keyof DailyCreditsChartDataItem;
+      record[destination] ||= 0;
+    });
+    record.date = date.unix() * 1000;
+    chartData.push(record as DailyCreditsChartDataItem);
+    date = date.add("1", granularity);
+  }
+  return chartData;
+}
+
 // Date helpers
-export const dateForQuery = function (date: number) {
+export function dateForQuery(date: number): string {
   return new Date(date).toISOString().split(".")[0];
-};
+}
 
 // Common formatters
-export const formatQuantityAsMillionsOfTons = function (
-  quantity: number
-): string {
+export function formatQuantityAsMillionsOfTons(quantity: number): string {
   quantity = Math.floor(quantity / 1000000);
   return `${quantity} MT`;
-};
-export const formatQuantityAsKiloTons = function (quantity: number): string {
+}
+export function formatQuantityAsKiloTons(quantity: number): string {
   quantity = Math.floor(quantity / 1000);
   return `${quantity} KT`;
-};
-export const formatQuantityAsTons = function (quantity: number): string {
+}
+export function formatQuantityAsTons(quantity: number): string {
   quantity = Math.floor(quantity);
   return `${quantity} T`;
-};
+}
+export function getTonsFormatter(quantity: number) {
+  return quantity < 10 ** 4
+    ? formatQuantityAsTons
+    : quantity < 10 ** 7
+    ? formatQuantityAsKiloTons
+    : formatQuantityAsMillionsOfTons;
+}
 export const formatPrice = function (price: number): string {
   // Enforce prices formatting in english locale ($0.00)
   return new Intl.NumberFormat("en", {

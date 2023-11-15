@@ -1,4 +1,3 @@
-import { urls } from "@klimadao/lib/constants";
 import { getLocales } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
@@ -54,17 +53,5 @@ async function initLocale(localeFromURL: string | null) {
   await load(locale);
   return locale;
 }
-
-export const createLinkWithLocaleSubPath = (
-  url: string,
-  locale = "en"
-): string => {
-  // ensure that the locale is added right after the main Site URL
-  // klimadao.finance/LOCALE/the/other/sub/page
-  if (url.startsWith(urls.home)) {
-    return url.replace(urls.home, `${urls.home}/${locale}`);
-  }
-  return `${url}/${locale}`;
-};
 
 export { activate, initLocale };

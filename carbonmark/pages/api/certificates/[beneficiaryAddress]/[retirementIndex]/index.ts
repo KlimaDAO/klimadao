@@ -51,7 +51,7 @@ export default async function handler(
     const certificateParams = {
       retirement,
       retirementIndex,
-      retirementUrl: `${urls.retirements}/${retirement.beneficiaryAddress}/${retirementIndex}`,
+      retirementUrl: `${urls.retirements_carbonmark}/${retirement.beneficiaryAddress}/${retirementIndex}`,
       retiredToken: getRetirementTokenByAddress(retirement.pool),
     };
 

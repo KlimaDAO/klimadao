@@ -35,7 +35,7 @@ export const editSignMessage = (nonce: string): string =>
 
 export const EditProfile: FC<Props> = (props) => {
   const isExistingUser = !!props.user?.handle;
-  const { address, signer } = useWeb3();
+  const { address, signer, networkLabel: network } = useWeb3();
 
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
@@ -53,12 +53,14 @@ export const EditProfile: FC<Props> = (props) => {
   const fetchIsNewHandle = async (handle?: string | null) => {
     if (isNil(handle)) return true;
     try {
-      const handleFromApi = await getUsersWalletorhandle(handle);
+      const handleFromApi = await getUsersWalletorhandle(handle.toLowerCase(), {
+        network,
+      });
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
     } catch (error) {
       console.error(error);
-      if (error.message === "Not Found") {
+      if (error.status === 404) {
         return true;
       }
       return false;

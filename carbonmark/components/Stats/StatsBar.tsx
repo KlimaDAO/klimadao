@@ -1,6 +1,6 @@
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { InfoOutlined } from "@mui/icons-material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { DetailedProject } from "lib/types/carbonmark.types";
@@ -40,7 +40,7 @@ export const StatsBar: FC<Props> = (props) => {
               align="start"
               tooltip={t`Amount of credits from this project/vintage combination that have been retired.`}
             >
-              <InfoOutlined className={styles.tooltipIcon} />
+              <InfoOutlinedIcon className={styles.tooltipIcon} />
             </TextInfoTooltip>
           </div>
 
@@ -60,7 +60,7 @@ export const StatsBar: FC<Props> = (props) => {
               align="start"
               tooltip={t`Amount of credits that have been bridged from this project/vintage combination but not yet retired.`}
             >
-              <InfoOutlined className={styles.tooltipIcon} />
+              <InfoOutlinedIcon className={styles.tooltipIcon} />
             </TextInfoTooltip>
           </div>
 

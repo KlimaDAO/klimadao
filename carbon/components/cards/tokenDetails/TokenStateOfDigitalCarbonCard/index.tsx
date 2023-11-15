@@ -8,8 +8,8 @@ import {
 } from "components/cards/tokenDetails/helpers";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import CustomLegendItem from "components/charts/helpers/CustomLegendItem";
-import { formatTonnes } from "components/charts/helpers/DataTable/configurations/helpers";
 import KPieChart from "components/charts/helpers/KPieChart";
+import { formatPercentage, getTonsFormatter } from "lib/charts/helpers";
 import { queryAggregatedCredits } from "lib/charts/queries";
 import { capitalize } from "lodash";
 import styles from "./styles.module.scss";
@@ -34,7 +34,9 @@ export default function TokenStateOfDigitalCarbonCard(
 }
 
 /** Async server component that renders a Recharts client component */
-async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
+async function TokenStateOfDigitalCarbonChart(
+  props: TokenDetailsProps & CardProps
+) {
   const bridged = (
     await queryAggregatedCredits({ bridge: props.bridge, status: "bridged" })
   ).quantity;
@@ -46,7 +48,7 @@ async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
     {
       id: "retired",
       label: t`Retired`,
-      color: palette.charts.color3,
+      color: palette.charts.color1,
       legendOrder: 1,
     },
     {
@@ -68,24 +70,54 @@ async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
   ];
 
   return (
+    <KPieChart
+      data={data}
+      configuration={configuration}
+      legendContent={
+        <StateOfDigitalCarbonLegendContent
+          retired={retired}
+          bridged={bridged}
+          outstanding={outstanding}
+          showPercentageInLegend={props.isDetailPage ?? false}
+        />
+      }
+    />
+  );
+}
+function StateOfDigitalCarbonLegendContent(props: {
+  bridged: number;
+  retired: number;
+  outstanding: number;
+  showPercentageInLegend: boolean;
+}) {
+  const retiredText = props.showPercentageInLegend
+    ? t`${formatPercentage({
+        value: props.retired / props.bridged,
+        fractionDigits: 0,
+      })} retired`
+    : t`Retired`;
+  const outstandingText = props.showPercentageInLegend
+    ? t`${formatPercentage({
+        value: props.outstanding / props.bridged,
+        fractionDigits: 0,
+      })} outstanding`
+    : t`Outstanding`;
+  const bridgedText = t`${getTonsFormatter(props.bridged)(
+    props.bridged
+  )} Bridged`;
+
+  return (
     <div className={styles.cardContent}>
       <div className={styles.legend}>
         <div>
+          <CustomLegendItem color={palette.charts.color1} text={retiredText} />
           <CustomLegendItem
             color={palette.charts.color5}
-            text={t`${formatTonnes(bridged)} tonnes bridged`}
+            text={outstandingText}
           />
-          <CustomLegendItem
-            color={palette.charts.color3}
-            text={t`${formatTonnes(retired)} tonnes retired`}
-          />
-          <CustomLegendItem
-            color={palette.charts.color1}
-            text={t`${formatTonnes(outstanding)} tonnes outstanding`}
-          />
+          {bridgedText}
         </div>
       </div>
-      <KPieChart data={data} configuration={configuration} showLegend={false} />
     </div>
   );
 }

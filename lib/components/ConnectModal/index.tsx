@@ -5,10 +5,8 @@ import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
 import { providers } from "ethers";
 import React, { useEffect, useState } from "react";
 import {
-  Anchor,
   BraveIcon,
   ButtonPrimary,
-  CircleWalletIcon,
   CoinbaseWalletIcon,
   DiscordColorIcon,
   FacebookColorIcon,
@@ -30,7 +28,6 @@ export interface ConnectModalProps {
   appName?: string;
   torusText: string;
   walletText: string;
-  institutionalText: string;
   titles: {
     connect: string;
     loading: string;
@@ -46,6 +43,7 @@ export interface ConnectModalProps {
   onClose?: () => void;
   showModal: boolean;
   showMumbaiOption?: boolean;
+  walletConnectProjectId?: string;
 }
 
 type WindowEthereum = providers.ExternalProvider & {
@@ -99,7 +97,9 @@ export const ConnectModal = (props: ConnectModalProps) => {
       } else if (params.wallet === "coinbase") {
         await connect("coinbase");
       } else if (params.wallet === "walletConnect") {
-        await connect("walletConnect");
+        await connect("walletConnect", {
+          walletConnectProjectId: props.walletConnectProjectId,
+        });
       } else if (params.wallet === "torus") {
         await connect("torus");
       } else if (params.wallet === "torus-mumbai") {
@@ -232,19 +232,6 @@ export const ConnectModal = (props: ConnectModalProps) => {
                   <WalletConnectIcon />
                   <p className={styles.button}>walletconnect</p>
                 </button>
-              </div>
-              <div className={styles.buttonsContainer}>
-                <span className={styles.textBox}>
-                  <div className={styles.leftLine} />
-                  <p className={styles.subText}>{props.institutionalText}</p>
-                  <div className={styles.rightLine} />
-                </span>
-                <Anchor href="https://www.carbonmark.com/blog/circle-institutional-custody-solution">
-                  <button className={styles.walletButtonCircle}>
-                    <CircleWalletIcon className={styles.browserWalletIcon} />
-                    <p className={styles.button}>circle custody</p>
-                  </button>
-                </Anchor>
               </div>
             </div>
           )}

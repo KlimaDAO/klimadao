@@ -14,24 +14,7 @@
   & > div:first-child {
     width: 100%;
     flex-grow: 1;
-  }
-
-  & > div:nth-child(2) {
-    @include breakpoints.desktop {
-      max-width: 36rem;
-    }
-  }
-}
-
-.twoColumns {
-  @include breakpoints.desktop {
-    display: flex;
-    gap: 2rem;
-  }
-
-  & > div:first-child {
-    width: 100%;
-    flex-grow: 1;
+    overflow: hidden;
   }
 
   & > div:nth-child(2) {
@@ -57,14 +40,14 @@
 
   @include breakpoints.desktop {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
   }
 }
 .cardRowWrap {
   @include breakpoints.desktop {
     flex-wrap: wrap;
     & > div {
-      flex-basis: 49%;
+      flex-basis: calc(50% - 2rem);
       flex-grow: 0;
     }
   }
@@ -81,6 +64,10 @@ div.card50percent {
   flex-basis: 50%;
   flex-grow: 0;
 }
+div.card66percent {
+  flex-basis: 66%;
+  flex-grow: 0;
+}
 
 .mobileOnly {
   @include breakpoints.large {
@@ -95,7 +82,6 @@ div.card50percent {
     display: unset;
   }
 }
-
 .textLeft {
   text-align: left;
 }
@@ -105,6 +91,20 @@ div.card50percent {
 }
 .blockRight {
   :first-child {
+    width: fit-content;
+    margin-left: auto;
+  }
+}
+.blockLeft {
+  :first-child {
+    width: fit-content;
+    margin-right: auto;
+  }
+}
+.blockCenter {
+  :first-child {
+    width: fit-content;
+    margin-right: auto;
     margin-left: auto;
   }
 }
@@ -118,4 +118,38 @@ div.card50percent {
 
 .tenRowsSkeleton {
   min-height: 42.8rem;
+}
+
+.zIndexOne {
+  z-index: 1;
+}
+
+.zIndexTwo {
+  z-index: 2;
+}
+
+.zIndexThree {
+  z-index: 3;
+}
+
+.zIndexFour {
+  z-index: 4;
+}
+
+.zIndexFive {
+  z-index: 5;
+}
+
+.zIndexSix {
+  z-index: 6;
+}
+
+.zIndexSeven {
+  z-index: 7;
+}
+.hidden {
+  display: none;
+}
+.noOverflow {
+  overflow: hidden;
 }

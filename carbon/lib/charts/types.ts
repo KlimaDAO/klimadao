@@ -1,16 +1,17 @@
-import { Key } from "react";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 
 // API level Query parameters
 export const BRIDGES = ["toucan", "c3", "moss"];
 export const CHAIN = ["polygon", "eth", "celo"];
 export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
 export const PROTOCOLS = ["c3t", "tco2", "mco2"];
-export type Pool = "ubo" | "nbo" | "nct" | "bct" | "all";
+export type Pool = "ubo" | "nbo" | "nct" | "bct" | "moss" | "all";
 export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
 export type Chain = (typeof CHAIN)[number];
 export type Token = (typeof TOKENS)[number];
 export type Protocol = (typeof PROTOCOLS)[number];
 export type DateFilteringOption = "lifetime" | "last30d" | "last7d";
+export type DateAggregationFrequency = "daily" | "monthly";
 
 export interface DateFieldInterface {
   bridged_date?: string;
@@ -40,9 +41,7 @@ export type Status =
   | "all_retired"
   | "issued"
   | "deposited";
-export interface AggregationQueryParams {
-  operator?: "sum" | "cumsum";
-}
+
 export interface CarbonSupplyQueryParams {
   chain: Chain;
 }
@@ -51,11 +50,13 @@ export type CreditsQueryParams = {
   pool?: Pool;
   status?: Status;
 } & DateFieldQueryParamsInterface;
-export interface PaginationQueryParams {
+export interface SortQueryParams {
+  sort_by?: string;
+  sort_order?: "asc" | "desc";
+}
+export interface PaginationQueryParams extends SortQueryParams {
   page_size?: number;
   page?: number;
-  sort_by?: string;
-  sort_order?: string;
 }
 export interface CarbonMetricsQueryParams {
   sample?: string;
@@ -72,12 +73,14 @@ export interface PaginatedResponse<RI> {
   current_page: number;
 }
 export interface BridgeQuantitiesInterface {
-  toucan_quantity?: number;
-  c3_quantity?: number;
-  moss_quantity?: number;
-  offchain_quantity?: number;
-  total_quantity?: number;
-  not_bridged_quantity?: number;
+  toucan_quantity: number;
+  c3_quantity: number;
+  moss_quantity: number;
+  offchain_quantity: number;
+  total_quantity: number;
+  bridge_quantity: number;
+  bridge_ratio: number;
+  not_bridge_quantity?: number;
 }
 export interface PoolQuantitiesInterface {
   bct_quantity: number;
@@ -90,11 +93,14 @@ export interface OriginInterface {
   country: string;
   country_code: string;
 }
-
-export interface DailyCreditsItem extends DateFieldInterface {
+export interface ProjecTypeInterface {
+  project_type: string;
+}
+export interface AggregatedCreditsByDatesItem extends DateFieldInterface {
   quantity: number;
 }
-export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
+export type AggregatedCreditsByDates =
+  PaginatedResponse<AggregatedCreditsByDatesItem>;
 
 export interface CarbonMetricsItem {
   date: string;
@@ -138,38 +144,20 @@ export interface CarbonMetricsItem {
 }
 
 export type CarbonMetrics = PaginatedResponse<CarbonMetricsItem>;
-export interface AggregatedCreditsByProjectsItem {
+export interface AggregatedCreditsByProjectItem {
   project_type: string;
   quantity: number;
 }
-export type AggregatedCreditsByProjects =
-  PaginatedResponse<AggregatedCreditsByProjects>;
-export interface DailyPolygonCarbonMetricsItem {
-  date: string;
-  bct_supply: number;
-  nct_supply: number;
-  mco2_supply: number;
-  ubo_supply: number;
-  nbo_supply: number;
-  bct_redeemed: number;
-  nct_redeemed: number;
-  ubo_redeemed: number;
-  nbo_redeemed: number;
-  total_carbon_supply: number;
-  mco2_retired: number;
-  tco2_retired: number;
-  c3t_retired: number;
-  total_retirements: number;
-  bct_klima_retired: number;
-  nct_klima_retired: number;
-  mco2_klima_retired: number;
-  ubo_klima_retired: number;
-  nco_klima_retired: number;
-  total_klima_retirements: number;
-  tco2_klima_retired: number;
-  c3t_klima_retired: number;
-  not_klima_retired: number;
+export type AggregatedCreditsByProject =
+  PaginatedResponse<AggregatedCreditsByProjectItem>;
+
+export interface AggregatedCreditsByMethodologyItem
+  extends PoolQuantitiesInterface {
+  methodology: string;
+  quantity: number;
 }
+export type AggregatedCreditsByMethodology =
+  PaginatedResponse<AggregatedCreditsByMethodologyItem>;
 
 export interface AggregatedCredits {
   quantity: number;
@@ -254,16 +242,14 @@ export interface PoolQuantitiesInterface {
   mco2_quantity: number;
   ubo_quantity: number;
   nbo_quantity: number;
+  not_pooled_quantity: number;
+  total_quantity: number;
 }
+export type AggregatedCreditsByPool = PoolQuantitiesInterface;
+
 export interface MonthlyAggregatedCreditsByPoolItem
   extends PoolQuantitiesInterface,
-    DateFieldInterface {
-  bct_quantity: number;
-  nct_quantity: number;
-  mco2_quantity: number;
-  ubo_quantity: number;
-  nbo_quantity: number;
-}
+    DateFieldInterface {}
 export type MonthlyAggregatedCreditsByPool =
   PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>;
 
@@ -283,13 +269,24 @@ export interface AggregatedCreditsByPoolAndMethodologyItem
 export type AggregatedCreditsByPoolAndMethodology =
   PaginatedResponse<AggregatedCreditsByPoolAndMethodologyItem>;
 
-export interface AggregatedCreditsByCountryItem {
-  country: string;
-  country_code: string;
+export interface AggregatedCreditsByPoolAndProjectItem
+  extends PoolQuantitiesInterface,
+    ProjecTypeInterface {}
+export type AggregatedCreditsByPoolAndProject =
+  PaginatedResponse<AggregatedCreditsByPoolAndProjectItem>;
+
+export interface AggregatedCreditsByCountryItem extends OriginInterface {
   quantity: number;
 }
 export type AggregatedCreditsByCountry =
   PaginatedResponse<AggregatedCreditsByCountryItem>;
+
+export interface AggregatedCreditsByVintageItem {
+  quantity: number;
+  vintage: number;
+}
+export type AggregatedCreditsByVintage =
+  PaginatedResponse<AggregatedCreditsByVintageItem>;
 
 export interface AggregatedCreditsByBridgeAndVintageItem
   extends BridgeQuantitiesInterface {
@@ -298,14 +295,26 @@ export interface AggregatedCreditsByBridgeAndVintageItem
 export type AggregatedCreditsByBridgeAndVintage =
   ChartData<AggregatedCreditsByBridgeAndVintageItem>;
 
+export interface AggregatedCreditsByBridgeAndProjectItem
+  extends BridgeQuantitiesInterface,
+    ProjecTypeInterface {}
+export type AggregatedCreditsByBridgeAndProject =
+  ChartData<AggregatedCreditsByBridgeAndProjectItem>;
+
 export interface AggregatedCreditsByBridgeAndOriginItem
   extends BridgeQuantitiesInterface,
-    OriginInterface {
-  total_bridged: number;
-  percentage?: number;
-}
+    OriginInterface {}
 export type AggregatedCreditsByBridgeAndOrigin =
   ChartData<AggregatedCreditsByBridgeAndOriginItem>;
+
+export interface AggregatedCreditsByBridgeAndDateItem
+  extends BridgeQuantitiesInterface {
+  issuance_date: number;
+}
+export type AggregatedCreditsByBridgeAndDate =
+  ChartData<AggregatedCreditsByBridgeAndDateItem>;
+
+export type AggregatedCreditsByBridge = BridgeQuantitiesInterface;
 
 export interface MonthlyAggregatedCreditsByPoolItem
   extends PoolQuantitiesInterface,
@@ -341,18 +350,28 @@ export type GenericDailyChartDataItem = {
 export type DailyChartData<CI extends GenericDailyChartDataItem> =
   ChartData<CI>;
 
+// Chart data: credits
 export interface DailyCreditsChartDataItem
   extends GenericDailyChartDataItem,
+    PoolQuantitiesInterface,
     BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 
+export type DailyCreditsQueryConfiguration = Array<{
+  query: CreditsQueryParams;
+  mapping: ChartDateMappingParams<
+    AggregatedCreditsByDatesItem,
+    DailyCreditsChartDataItem
+  >;
+}>;
+export type DailyCreditsChartConfiguration = ChartConfiguration<Bridge>;
+
 // Chat Data: Treemaps
-export interface TreeMapItem {
-  name: string;
-  size?: number;
-  children?: TreeMapData;
-}
-export type TreeMapData = Array<TreeMapItem>;
+export type TreeMapItem<P> = P & {
+  name?: string;
+  children?: TreeMapData<P>;
+};
+export type TreeMapData<P> = Array<TreeMapItem<P>>;
 
 /** Node dictionnary for cards or tab */
-export type NodeDictionnary = Record<Key, React.ReactNode>;
+export type NodeDictionnary = Record<string | number | symbol, React.ReactNode>;

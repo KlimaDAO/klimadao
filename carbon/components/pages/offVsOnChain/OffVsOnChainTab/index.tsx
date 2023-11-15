@@ -14,15 +14,24 @@ export default function OffVsOnChainTab(props: { status: Status }) {
   return (
     <>
       <div className={layout.cardRow}>
-        <DailyVerraCreditsCard {...props} />
-        <DailyCarbonSupplyByProtocolCard {...props} />
+        <DailyVerraCreditsCard {...props} className={layout.zIndexFive} />
+        <DailyCarbonSupplyByProtocolCard
+          {...props}
+          className={layout.zIndexFive}
+        />
       </div>
       <div className={layout.cardRow}>
-        <VerraCreditsByBridgeAndVintageCard {...props} />
-        <VerraCreditsDistributionOfProjectsCard {...props} />
+        <VerraCreditsByBridgeAndVintageCard
+          {...props}
+          className={layout.zIndexFour}
+        />
+        <VerraCreditsDistributionOfProjectsCard
+          {...props}
+          className={layout.xIndexThree}
+        />
       </div>
-      <div className={layout.cardRow}>
-        <VerraCreditsOriginCard {...props} />
+      <div className={`${layout.cardRow} ${layout.desktopOnly}`}>
+        <VerraCreditsOriginCard {...props} className={layout.zIndexTwo} />
       </div>
     </>
   );

@@ -1,18 +1,17 @@
 import { t } from "@lingui/macro";
 import { helpers } from "lib/charts";
 import { queryKlimaMonthlyRetirementsByPool } from "lib/charts/queries";
-import {
-  KlimaMonthlyRetirementsByTokenItem,
-  PaginatedResponse,
-} from "lib/charts/types";
-import { currentLocale } from "lib/i18n";
+import { KlimaMonthlyRetirementsByTokenItem } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import styles from "./styles.module.scss";
 
-import { Columns } from "./types";
+import { Columns, DataRendererKey } from "./types";
 
-export default class KlimaRetirementsByPoolSummaryConfiguration extends AbstractTableConfiguration<KlimaMonthlyRetirementsByTokenItem> {
+export default class KlimaRetirementsByPoolSummaryConfiguration extends AbstractTableConfiguration<
+  KlimaMonthlyRetirementsByTokenItem,
+  undefined
+> {
   async fetchFunction(_page: number) {
     const data = await queryKlimaMonthlyRetirementsByPool({
       sort_by: "retirement_date",
@@ -25,13 +24,13 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
     return data;
   }
   getColumns(): Columns<KlimaMonthlyRetirementsByTokenItem> {
-    const locale = currentLocale();
     return {
       retirement_date: {
         header: "",
         cellStyle: `${styles.header} ${layout.nowrap}`,
         dataKey: "retirement_date",
         formatter: helpers.formatDateAsMonthsShort,
+        sortable: false,
       },
       amount_retired: {
         header: t`Amount Retired`,
@@ -39,12 +38,14 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
         dataKey: "amount_retired",
         formatter: (x: string | number) =>
           helpers.formatTonnes({ amount: Number(x), minimumFractionDigits: 2 }),
+        sortable: false,
       },
       number_of_retirements: {
         header: t`Number of transactions`,
         cellStyle: styles.row,
         dataKey: "number_of_retirements",
         formatter: (x: string | number) => x,
+        sortable: false,
       },
       avgTonnesPerTransaction: {
         header: t`Avg tonnes per transaction`,
@@ -58,21 +59,10 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
             amount: item.amount_retired / item.number_of_retirements,
           });
         },
+        sortable: false,
       },
     };
   }
-  desktopRenderer = (props: {
-    data: PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>;
-  }) => {
-    return this.HorizontalTableLayout({
-      data: props.data,
-    });
-  };
-  mobileRenderer = (props: {
-    data: PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>;
-  }) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
-  };
+  desktopRenderer: DataRendererKey = "horizontal-table";
+  mobileRenderer: DataRendererKey = "vertical-table";
 }

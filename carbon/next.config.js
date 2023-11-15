@@ -12,22 +12,6 @@ module.exports = async (phase, { defaultConfig }) => {
     reactStrictMode: true,
     //Provide source maps on preview deployments
     productionBrowserSourceMaps: !IS_PRODUCTION,
-    async rewrites() {
-      return [
-        {
-          source: "/:locale",
-          destination: "/:locale/overview",
-        },
-        {
-          source: "/:locale/token-details",
-          destination: "/:locale/token-details",
-        },
-        {
-          source: "/:locale/retirement_trends",
-          destination: "/:locale/retirement_trends/by-pool",
-        },
-      ];
-    },
     async headers() {
       return [
         {
@@ -60,6 +44,9 @@ module.exports = async (phase, { defaultConfig }) => {
           ],
         },
       ];
+    },
+    experimental: {
+      optimizePackageImports: ["@klimadao/lib/utils"],
     },
   };
   return withBundleAnalyzer({

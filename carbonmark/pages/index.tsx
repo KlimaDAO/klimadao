@@ -1,6 +1,7 @@
 import { getProjectsId } from "carbonmark-api-sdk";
 import { Home } from "components/pages/Home";
 import { loadTranslation } from "lib/i18n";
+import { compact } from "lodash";
 import { GetStaticProps } from "next";
 
 const defaultProjectKeys = ["VCS-674-2014", "VCS-292-2020", "VCS-981-2017"];
@@ -12,7 +13,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   );
   return {
     props: {
-      projects,
+      projects: compact(projects),
       translation,
       fixedThemeName: "theme-light",
     },

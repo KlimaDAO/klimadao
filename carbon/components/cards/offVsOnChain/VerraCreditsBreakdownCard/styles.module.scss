@@ -1,8 +1,34 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
+.card {
+  @include breakpoints.large {
+    height: 28.4rem;
+    min-height: 28.4rem;
+  }
+}
 .wrapper {
-  display: flex;
   line-height: normal;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  & > div:nth-child(1) {
+    flex: 10 1 0;
+  }
+  & > div:nth-child(2) {
+    flex: 0 0 0;
+    display: flex;
+    justify-content: center;
+  }
+  @include breakpoints.large {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.wrapperDetailsPage {
   & > div {
-    flex: 1 1 0;
+    @include breakpoints.desktopLarge {
+      min-width: 46rem;
+    }
   }
 }
 .issuedvsTokenizedWrapper {
@@ -12,7 +38,7 @@
   justify-content: center;
   div[aria-describedby="chart"] {
     max-width: calc(100% - 1rem);
-    min-height: 2.4rem;
+    height: 2.4rem;
   }
 }
 .issuedvsRetiredWrapper {
@@ -22,13 +48,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  min-width: 14rem;
 }
 .pieChartWrapper {
   max-width: calc(100% - 1rem);
   min-width: calc(100% - 1rem);
-  // FIXME: Using a non fixed value here makes recharts increase the pie height forever
-  min-height: 14rem;
-  max-height: 15rem;
+  height: 14rem;
+
+  position: relative;
+  flex-grow: 10;
 }
 .pieChartInnerLegend {
   div[aria-describedby="value"] {
@@ -48,10 +76,23 @@
 }
 .value {
   font-size: 2rem;
-  color: var(--text-color-01);
+  color: var(--lightmode-font-01);
   font-weight: 500;
   text-wrap: nowrap;
 }
 .highlight {
-  color: var(--brand-colors-klima-green);
+  color: var(--brand-green);
+}
+// Layout adjustments for dettail page
+[aria-roledescription="detailPage"] {
+  &.card {
+    height: auto;
+  }
+  .issuedvsRetiredWrapper {
+    width: 24rem;
+  }
+  .pieChartWrapper {
+    min-height: 24rem;
+    height: 24rem;
+  }
 }

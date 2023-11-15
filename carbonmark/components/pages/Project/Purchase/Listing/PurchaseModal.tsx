@@ -6,17 +6,13 @@ import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
-import { CarbonmarkToken } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "../styles";
 
 export interface Props {
   hasApproval: boolean;
-  amount: {
-    value: string;
-    token: CarbonmarkToken;
-  };
+  amount: string;
   isProcessing: boolean;
   status: TransactionStatusMessage | null;
   showModal: boolean;

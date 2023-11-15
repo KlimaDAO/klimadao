@@ -41,7 +41,6 @@ import { isAddress, parseUnits } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
-import { createLinkWithLocaleSubPath } from "lib/i18n";
 import C3T from "public/icons/C3T.png";
 import Fiat from "public/icons/Fiat.png";
 import TCO2 from "public/icons/TCO2.png";
@@ -432,7 +431,9 @@ export const Offset = (props: Props) => {
       );
     }
     if (paymentMethod === "fiat") return false;
-    return Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+    return (
+      Number(getApprovalValue()) > Number(balances?.[paymentMethod] ?? "0")
+    );
   };
 
   const invalidCost = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
@@ -454,7 +455,7 @@ export const Offset = (props: Props) => {
     return (
       !!allowances?.[paymentMethod] &&
       !!Number(allowances?.[paymentMethod]) &&
-      Number(cost) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
+      Number(getApprovalValue()) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
     );
   };
 
@@ -861,7 +862,7 @@ export const Offset = (props: Props) => {
                   </TextInfoTooltip>
                 </div>
               }
-              amount={Number(cost)?.toLocaleString(locale)}
+              amount={cost}
               icon={costIcon}
               name={paymentMethod}
               loading={cost === "loading"}
@@ -895,23 +896,34 @@ export const Offset = (props: Props) => {
             labelAlignment="start"
           />
           {!isRetiringOwnCarbon && (
-            <DropdownWithModal
-              label={t({
-                id: "offset.dropdown_payWith.label",
-                message: "Pay with",
-              })}
-              modalTitle={t({
-                id: "offset.modal_payWith.title",
-                message: "Select Token",
-              })}
-              currentItem={paymentMethod}
-              items={paymentMethodItems}
-              isModalOpen={isInputTokenModalOpen}
-              onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-              onItemSelect={(str) =>
-                handleSelectInputToken(str as OffsetPaymentMethod)
-              }
-            />
+            <div className={styles.pay_with_dropdown}>
+              <DropdownWithModal
+                label={t({
+                  id: "offset.dropdown_payWith.label",
+                  message: "Pay with",
+                })}
+                modalTitle={t({
+                  id: "offset.modal_payWith.title",
+                  message: "Select Token",
+                })}
+                warn={insufficientBalance()}
+                currentItem={paymentMethod}
+                items={paymentMethodItems}
+                isModalOpen={isInputTokenModalOpen}
+                onToggleModal={() => setInputTokenModalOpen((s) => !s)}
+                onItemSelect={(str) =>
+                  handleSelectInputToken(str as OffsetPaymentMethod)
+                }
+              />
+              {insufficientBalance() && (
+                <Text t="caption" className="warn">
+                  <Trans>
+                    Your balance must equal at least 1% more than the cost of
+                    the transaction.
+                  </Trans>
+                </Text>
+              )}
+            </div>
           )}
           <div className="disclaimer">
             <GppMaybeOutlined />
@@ -973,12 +985,9 @@ export const Offset = (props: Props) => {
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}
-          retirementUrl={createLinkWithLocaleSubPath(
-            `${urls.retirements}/${
-              beneficiaryAddress || props.address
-            }/${retirementTotals}`,
-            locale
-          )}
+          retirementUrl={`${urls.retirements_carbonmark}/${
+            beneficiaryAddress || props.address
+          }/${retirementTotals}`}
         />
       )}
     </>

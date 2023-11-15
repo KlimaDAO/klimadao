@@ -1,5 +1,4 @@
 import { t } from "@lingui/macro";
-import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
 import { palette } from "theme/palette";
 import ChartCard, { CardProps } from "../../ChartCard";
 
@@ -9,7 +8,7 @@ import {
 } from "components/cards/tokenDetails/helpers";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KPieChart from "components/charts/helpers/KPieChart";
-import { queryAggregatedCredits } from "lib/charts/queries";
+import { queryAggregatedCreditsByPool } from "lib/charts/queries";
 import { capitalize } from "lodash";
 
 export default function TokenPoolBreakdownCard(
@@ -19,12 +18,22 @@ export default function TokenPoolBreakdownCard(
   let chart = <></>;
   switch (props.bridge) {
     case "toucan":
-      /* @ts-expect-error async Server component */
-      chart = <TokenPoolBreakdownChartToucanChart {...props} />;
+      chart = (
+        /* @ts-expect-error async Server component */
+        <TokenPoolBreakdownChartToucanChart
+          {...props}
+          showPercentageInLegend={props.isDetailPage}
+        />
+      );
       break;
     case "c3":
-      /* @ts-expect-error async Server component */
-      chart = <TokenPoolBreakdownChartC3Chart {...props} />;
+      chart = (
+        /* @ts-expect-error async Server component */
+        <TokenPoolBreakdownChartC3Chart
+          {...props}
+          showPercentageInLegend={props.isDetailPage}
+        />
+      );
       break;
     default:
       return <></>;
@@ -41,36 +50,14 @@ export default function TokenPoolBreakdownCard(
 }
 
 /** Async server component that renders a Recharts client component */
-async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps({
-    ...props,
-    ...{ since: "lifetime", status: "bridged" },
-  });
-  const bct = (
-    await queryAggregatedCredits({
-      ...params,
-      ...{ pool: "bct", bridge: "toucan" },
-    })
-  ).quantity;
-  const nct = (
-    await queryAggregatedCredits({
-      ...params,
-      ...{ pool: "nct", bridge: "toucan" },
-    })
-  ).quantity;
-  const all = (
-    await queryAggregatedCredits({
-      ...params,
-      ...{ pool: "all", bridge: "toucan" },
-    })
-  ).quantity;
-
-  const not_pooled = all - (bct + nct);
+async function TokenPoolBreakdownChartToucanChart(props: {
+  showPercentageInLegend?: boolean;
+}) {
   const configuration: ChartConfiguration<"bct" | "nct" | "not_pooled"> = [
     {
       id: "bct",
       label: t`BCT`,
-      color: palette.charts.color5,
+      color: palette.charts.color1,
       legendOrder: 1,
     },
     {
@@ -82,59 +69,44 @@ async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
     {
       id: "not_pooled",
       label: t`Not pooled`,
-      color: palette.charts.color1,
+      color: palette.charts.color5,
       legendOrder: 3,
     },
   ];
-  const data = [
+  const data = await queryAggregatedCreditsByPool({ bridge: "toucan" });
+  const chartData = [
     {
-      quantity: bct,
+      quantity: data.bct_quantity,
       id: "bct",
     },
     {
-      quantity: nct,
+      quantity: data.nct_quantity,
       id: "nct",
     },
     {
-      quantity: not_pooled,
+      quantity: data.not_pooled_quantity,
       id: "not_pooled",
     },
   ];
 
-  return <KPieChart data={data} configuration={configuration} />;
+  return (
+    <KPieChart
+      data={chartData}
+      configuration={configuration}
+      showPercentageInLegend={props.showPercentageInLegend}
+    />
+  );
 }
 
 /** Async server component that renders a Recharts client component */
-async function TokenPoolBreakdownChartC3Chart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps({
-    ...props,
-    ...{ since: "lifetime", status: "bridged" },
-  });
-  const nbo = (
-    await queryAggregatedCredits({
-      ...params,
-      ...{ pool: "ubo", bridge: "c3" },
-    })
-  ).quantity;
-  const ubo = (
-    await queryAggregatedCredits({
-      ...params,
-      ...{ pool: "nbo", bridge: "c3" },
-    })
-  ).quantity;
-  const all = (
-    await queryAggregatedCredits({
-      ...params,
-      ...{ pool: "all", bridge: "c3" },
-    })
-  ).quantity;
-
-  const not_pooled = all - (nbo + ubo);
+async function TokenPoolBreakdownChartC3Chart(props: {
+  showPercentageInLegend?: boolean;
+}) {
   const configuration: ChartConfiguration<"nbo" | "ubo" | "not_pooled"> = [
     {
       id: "ubo",
       label: t`UBO`,
-      color: palette.charts.color5,
+      color: palette.charts.color1,
       legendOrder: 1,
     },
     {
@@ -146,23 +118,30 @@ async function TokenPoolBreakdownChartC3Chart(props: TokenDetailsProps) {
     {
       id: "not_pooled",
       label: t`Not pooled`,
-      color: palette.charts.color1,
+      color: palette.charts.color5,
       legendOrder: 3,
     },
   ];
-  const data = [
+  const data = await queryAggregatedCreditsByPool({ bridge: "c3" });
+  const chartData = [
     {
-      quantity: nbo,
+      quantity: data.ubo_quantity,
       id: "ubo",
     },
     {
-      quantity: ubo,
+      quantity: data.nbo_quantity,
       id: "nbo",
     },
     {
-      quantity: not_pooled,
+      quantity: data.not_pooled_quantity,
       id: "not_pooled",
     },
   ];
-  return <KPieChart data={data} configuration={configuration} />;
+  return (
+    <KPieChart
+      data={chartData}
+      configuration={configuration}
+      showPercentageInLegend={props.showPercentageInLegend}
+    />
+  );
 }

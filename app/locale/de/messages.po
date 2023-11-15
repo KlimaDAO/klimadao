@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-11 15:36+0000\n"
+"POT-Creation-Date: 2023-11-14 18:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8,12 +8,17 @@ msgstr ""
 "Language: de\n"
 
 #. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:84
+msgid "Acknowledge and Accept"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:548
-#: components/views/Redeem/index.tsx:270
-#: components/views/Stake/index.tsx:251
-#: components/views/Wrap/index.tsx:229
+#: components/views/Offset/index.tsx:549
+#: components/views/Redeem/index.tsx:286
+#: components/views/Stake/index.tsx:252
+#: components/views/Wrap/index.tsx:230
 msgid "Approve"
 msgstr "Genehmigen"
 
@@ -23,23 +28,23 @@ msgid "Balances"
 msgstr "Guthaben"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:816
+#: components/views/Offset/index.tsx:817
 msgid "Beneficiary 0x address (optional)"
 msgstr "0x-Adresse des Begünstigten"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:804
+#: components/views/Offset/index.tsx:805
 msgid "Beneficiary name"
 msgstr "Name des Begünstigten"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:359
+#: components/views/Redeem/index.tsx:375
 msgid "Buy & Redeem Carbon"
 msgstr "CO2-Tokens kaufen und freistellen"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:499
+#: components/NavMenu/index.tsx:202
+#: components/views/Redeem/index.tsx:526
 msgid "Buy Carbon"
 msgstr "CO2 kaufen"
 
@@ -49,7 +54,7 @@ msgid "Capacity"
 msgstr "Kapazität"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:275
+#: components/views/Redeem/index.tsx:291
 msgid "Continue"
 msgstr "Weiter"
 
@@ -59,25 +64,35 @@ msgid "Enter Quantity"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:485
-#: components/views/Redeem/index.tsx:244
-#: components/views/Redeem/index.tsx:415
-#: components/views/Stake/index.tsx:241
-#: components/views/Wrap/index.tsx:211
+#: components/views/Offset/index.tsx:486
+#: components/views/Redeem/index.tsx:260
+#: components/views/Redeem/index.tsx:431
+#: components/views/Stake/index.tsx:242
+#: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
 msgstr "Menge eingeben"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:397
+#: components/views/Redeem/index.tsx:413
 msgid "How many tonnes would you like to acquire?"
 msgstr "Wie viele CO2-Tonnen möchten Sie kaufen?"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:538
-#: components/views/Redeem/index.tsx:265
-#: components/views/Stake/index.tsx:246
-#: components/views/Wrap/index.tsx:224
+#: components/views/Offset/index.tsx:539
+#: components/views/Redeem/index.tsx:281
+#: components/views/Stake/index.tsx:247
+#: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:29
+msgid "Investment Risk Disclaimer"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:47
+msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -101,21 +116,31 @@ msgstr "Projektinformationen werden geladen..."
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:472
-#: components/views/Offset/index.tsx:610
-#: components/views/Redeem/index.tsx:239
-#: components/views/Redeem/index.tsx:323
-#: components/views/Stake/index.tsx:429
-#: components/views/Stake/index.tsx:436
-#: components/views/Stake/index.tsx:443
-#: components/views/Wrap/index.tsx:206
+#: components/views/Offset/index.tsx:473
+#: components/views/Offset/index.tsx:611
+#: components/views/Redeem/index.tsx:255
+#: components/views/Redeem/index.tsx:339
+#: components/views/Stake/index.tsx:431
+#: components/views/Stake/index.tsx:438
+#: components/views/Stake/index.tsx:445
+#: components/views/Wrap/index.tsx:207
 msgid "Loading..."
 msgstr "Lade..."
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:181
+#: components/views/Home/index.tsx:177
 msgid "Login"
 msgstr "Login"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:39
+msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:68
+msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:166
@@ -128,7 +153,7 @@ msgid "Not Connected"
 msgstr "Nicht verbunden"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:677
+#: components/views/Offset/index.tsx:678
 msgid "Offset"
 msgstr "Ausgleichen"
 
@@ -138,17 +163,22 @@ msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update you
 msgstr "Am 12. April haben wir unsere URL von \"dapp\" auf \"app\" geändert. Aktualisiere daher bitte deine Lesezeichen."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:680
+#: components/DisclaimerModal/index.tsx:60
+msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:681
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "Bezahlen Sie mit Fiat- oder Kryptowährungen oder nutzen Sie CO2-Credits, die Sie bereits besitzen. Ihre Nachricht und Daten werden permanent in der Blockchain gespeichert. Erfahren Sie mehr über die unterstützten Tokens in unserer <0>Dokumentation</0>."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:471
+#: components/views/Redeem/index.tsx:487
 msgid "Payment Method"
 msgstr "Zahlungsmethode"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:470
+#: components/views/Redeem/index.tsx:486
 msgid "Payment method"
 msgstr "Zahlungsmethode"
 
@@ -159,18 +189,28 @@ msgid "Project details <0/>"
 msgstr "Projektdetails <0/>"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:372
-#: components/views/Redeem/index.tsx:373
+#: components/DisclaimerModal/index.tsx:32
+msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:53
+msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/views/Redeem/index.tsx:388
+#: components/views/Redeem/index.tsx:389
 msgid "Select carbon pool"
 msgstr "CO2-Pool auswählen"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:691
+#: components/views/Offset/index.tsx:692
 msgid "Select carbon token to retire"
 msgstr "CO2-Token für Ausgleich auswählen"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:692
+#: components/views/Offset/index.tsx:693
 msgid "Select token"
 msgstr "Token auswählen"
 
@@ -185,9 +225,14 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "Die App funktioniert nur im Polygon-Mainnet."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:439
+#: components/views/Redeem/index.tsx:455
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr "Diese Kosten beinhalten Handelsgebühren und jegliche vom Pool erhobene Freistellungsgebühren"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:75
+msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
@@ -222,9 +267,15 @@ msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Cre
 msgstr "Sie müssen USDC, KLIMA oder CO2-Tokens in Ihre Wallet übertragen. Die Unterstützung für Kreditkarten ist demnächst verfügbar."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:459
+#: components/views/Redeem/index.tsx:475
 msgid "You receive"
 msgstr "Du erhältst"
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:920
+#: components/views/Redeem/index.tsx:499
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr ""
 
 #. Long sentence
 #. js-lingui-explicit-id
@@ -450,28 +501,28 @@ msgid "bond.you_will_get.tooltip"
 msgstr "Menge an gebondetem KLIMA, die du für die angegebene Eingangsmenge bekommst"
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:29
+#: components/views/Buy/index.tsx:31
 msgid "buy.buy_klima"
 msgstr "KLIMA kaufen"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:57
+#: components/views/Buy/index.tsx:59
 msgid "buy.connect_to_buy"
 msgstr "Diese Funktion steht nur für eingeloggte Nutzer zur Verfügung. Loggen Sie sich bitte ein oder erstellen Sie über den Button einen Account."
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:32
+#: components/views/Buy/index.tsx:34
 msgid "buy.cta_1"
 msgstr "Bist du Anfänger, empfehlen wir dir unser Schritt-für-Schritt-Tutorial: <0>So kaufst du KLIMA</0>."
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:40
 msgid "buy.cta_2"
 msgstr "Andernfalls kannst du KLIMA über <0>Sushi.com</0> kaufen, wenn du eine Wallet mit etwas MATIC auf dem Polygon-Netzwerk hast. Bezahlst du lieber direkt mit einer Kreditkarte, kannst du KLIMA über <1>Transak</1> kaufen."
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:52
+#: components/views/Buy/index.tsx:54
 msgid "buy.please_log_in"
 msgstr "Logge dich bitte ein oder verbinde eine Wallet"
 
@@ -504,80 +555,75 @@ msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ Überprüfe diese URL und richte sie dir als Lesezeichen ein!"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:89
+#: components/views/ChooseBond/index.tsx:90
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan Base Carbon Tonne"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:198
+#: components/views/ChooseBond/index.tsx:200
 msgid "choose_bond.bond_carbon"
 msgstr "CO2 bonden"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:201
+#: components/views/ChooseBond/index.tsx:203
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "Der beste Weg, KLIMA zu kaufen. Übertrage CO2-Tokens in unsere Schatzkammer und bekomme dafür vergünstigtes KLIMA. Alle Bonds (außer Inverse Bonds) haben eine obligatorische Sperrfrist von fünf Tagen."
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:225
+#: components/views/ChooseBond/index.tsx:227
 msgid "choose_bond.choose_bond"
 msgstr "Bond auswählen"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:105
+#: components/views/ChooseBond/index.tsx:106
 msgid "choose_bond.inverse_usdc"
 msgstr "KLIMA überweisen, USDC bekommen"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:97
+#: components/views/ChooseBond/index.tsx:98
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "KLIMA/BCT Sushiswap-Liquidität"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:93
+#: components/views/ChooseBond/index.tsx:94
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/USDC Sushiswap-Liquidität"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:85
+#: components/views/ChooseBond/index.tsx:86
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "MOSS Carbon Credit Token"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:101
+#: components/views/ChooseBond/index.tsx:102
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "KLIMA/MCO2 Quickswap-Liquidität"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:81
+#: components/views/ChooseBond/index.tsx:82
 msgid "choose_bond.nbo.description"
 msgstr "C3 Nature Based Offset"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:228
+#: components/views/ChooseBond/index.tsx:230
 msgid "choose_bond.percent_discount"
 msgstr "% Rabatt"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:254
+#: components/views/ChooseBond/index.tsx:256
 msgid "choose_bond.sold_out"
 msgstr "AUSVERKAUFT"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:215
+#: components/views/ChooseBond/index.tsx:217
 msgid "choose_bond.treasury_balance"
 msgstr "Schatzkammerguthaben"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:77
+#: components/views/ChooseBond/index.tsx:78
 msgid "choose_bond.ubo.description"
 msgstr "C3 Universal Basic Offset"
-
-#. js-lingui-explicit-id
-#: components/views/Home/index.tsx:176
-msgid "connectModal.institutional"
-msgstr "institutionell"
 
 #. js-lingui-explicit-id
 #: components/views/Home/index.tsx:168
@@ -590,27 +636,27 @@ msgid "connectModal.wallet"
 msgstr "Wallet verbinden"
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:182
+#: components/views/Home/index.tsx:178
 msgid "connect_modal.connecting"
 msgstr "Verbinde..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:32
 msgid "connect_modal.error_message_default"
 msgstr "Wir hatten einige Verbindungsprobleme. Bitte versuche es erneut."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:33
+#: lib/constants.ts:36
 msgid "connect_modal.error_message_refused"
 msgstr "Benutzer verweigerte Verbindung."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:37
+#: lib/constants.ts:40
 msgid "connect_modal.error_processing"
 msgstr "Anfrage ist bereits in Bearbeitung. Bitte öffnen Sie Ihre Wallet und schließen Sie die Anfrage ab."
 
 #. js-lingui-explicit-id
-#: components/views/Home/index.tsx:186
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.error_title"
 msgstr "Verbindungsfehler"
 
@@ -620,7 +666,7 @@ msgid "error.404.page.text"
 msgstr "Entschuldigung, sieht so aus, als hätten wir dich in die falsche Richtung geschickt. <0/>Bitte wähle einen Zielort aus dem Menü aus."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:871
+#: components/views/Offset/index.tsx:872
 msgid "fiat.max_quantity"
 msgstr "${0} Maximalsumme für Kreditkarten"
 
@@ -697,47 +743,47 @@ msgid "invalid_rpc.modal.title"
 msgstr "Überprüfe deine Netzwerkeinstellungen"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:180
+#: components/NavMenu/index.tsx:178
 msgid "menu.bond_carbon"
 msgstr "CO2 bonden"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:164
+#: components/NavMenu/index.tsx:162
 msgid "menu.buy_klima"
 msgstr "KLIMA kaufen"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:212
+#: components/NavMenu/index.tsx:210
 msgid "menu.info"
 msgstr "Info"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:215
 msgid "menu.just_for_you"
 msgstr "NUR FÜR DICH"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:69
+#: components/NavMenu/index.tsx:68
 msgid "menu.not_connected"
 msgstr "NICHT VERBUNDEN"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:196
+#: components/NavMenu/index.tsx:194
 msgid "menu.offset"
 msgstr "Ausgleichen"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:172
+#: components/NavMenu/index.tsx:170
 msgid "menu.stake_klima"
 msgstr "KLIMA staken"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:51
+#: components/NavMenu/index.tsx:50
 msgid "menu.wallet_address"
 msgstr "Deine Walletadresse"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:188
+#: components/NavMenu/index.tsx:186
 msgid "menu.wrap_klima"
 msgstr "sKLIMA wrappen"
 
@@ -767,27 +813,27 @@ msgid "nav.back"
 msgstr "ZURÜCK"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:854
+#: components/views/Offset/index.tsx:855
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Die Kosten beinhalten Handelsgebühren und die Aggregatorgebühr von 1 %."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:733
+#: components/views/Offset/index.tsx:734
 msgid "offset.amount_in_tonnes"
 msgstr "Wie viele Tonnen CO2 möchtest du ausgleichen?"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:543
+#: components/views/Offset/index.tsx:544
 msgid "offset.checkout"
 msgstr "Kasse"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:819
+#: components/views/Offset/index.tsx:820
 msgid "offset.default_retirement_address"
 msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:899
+#: components/views/Offset/index.tsx:901
 msgid "offset.dropdown_payWith.label"
 msgstr "Bezahle mit"
 
@@ -797,30 +843,30 @@ msgid "offset.enter_address"
 msgstr "0x-Adresse eingeben"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:631
-#: components/views/Redeem/index.tsx:337
+#: components/views/Offset/index.tsx:632
+#: components/views/Redeem/index.tsx:353
 msgid "offset.incompatible"
 msgstr "INPUT-TOKEN INKOMPATIBEL"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:514
-#: components/views/Redeem/index.tsx:249
+#: components/views/Offset/index.tsx:515
+#: components/views/Redeem/index.tsx:265
 msgid "offset.insufficient_project_tonnage"
 msgstr "Unzureichende CO2-Tonnen in diesem Projekt"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:777
-#: components/views/Redeem/index.tsx:424
+#: components/views/Offset/index.tsx:778
+#: components/views/Redeem/index.tsx:440
 msgid "offset.invalid_project_tonnage"
 msgstr "Maximal verfügbare CO2-Tonnen dieses Projekts kann nicht überschritten werden"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:786
+#: components/views/Offset/index.tsx:787
 msgid "offset.min_quantity_fiat"
 msgstr "Mindestabnahme eine Tonne. Nur ganze Tonnen."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:903
+#: components/views/Offset/index.tsx:905
 msgid "offset.modal_payWith.title"
 msgstr "Token auswählen"
 
@@ -830,12 +876,12 @@ msgid "offset.number_of_retirements"
 msgstr "Insgesamt ausgeglichen"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:765
+#: components/views/Offset/index.tsx:766
 msgid "offset.offset_quantity"
 msgstr "Auszugleichende Menge angeben"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:946
+#: components/views/Offset/index.tsx:958
 msgid "offset.retire_carbon"
 msgstr "CO2-Fußabdruck ausgleichen"
 
@@ -850,24 +896,24 @@ msgid "offset.retire_specific_tooltip"
 msgstr "Eine zusätzliche Gebühr - erhoben vom ausgewählten Pool und gezahlt an den Bridge-Provider - könnte anfallen."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:796
+#: components/views/Offset/index.tsx:797
 msgid "offset.retirement_credit"
 msgstr "Wem soll dieser CO2-Ausgleich gewidmet werden?"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:830
+#: components/views/Offset/index.tsx:831
 msgid "offset.retirement_message"
 msgstr "Möchtest du eine Nachricht anhängen?"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:839
+#: components/views/Offset/index.tsx:840
 msgid "offset.retirement_purpose"
 msgstr ""
 "Beschreibe den Zweck dieses Ausgleichs\n"
 ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:884
+#: components/views/Offset/index.tsx:885
 msgid "offset.retiring"
 msgstr "Ausgleich nach Gebührenabzug"
 
@@ -1002,13 +1048,13 @@ msgid "offset.you_have_retired"
 msgstr "Bislang ausgeglichen"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:850
-#: components/views/Redeem/index.tsx:435
+#: components/views/Offset/index.tsx:851
+#: components/views/Redeem/index.tsx:451
 msgid "offset_cost"
 msgstr "Kosten"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:919
+#: components/views/Offset/index.tsx:931
 msgid "offset_disclaimer"
 msgstr "Achte darauf, keine wichtigen persönlichen Daten zu veröffentlichen. Deine Nachricht kann nicht verändert werden und existiert für immer auf einer öffentlichen Blockchain."
 
@@ -1094,7 +1140,7 @@ msgid "pklima.update"
 msgstr "Der aktualisierte Vertrag geht davon aus, dass pKLIMA-Besitzer ehemals beanspruchte Tokens gestakt und Belohnungen dafür erhalten haben. Vor dem November-Fix wurden diese Staking-Belohnungen nicht gegen dein Supply-Share-Limit aufgerechnet, was bedeutet, dass dein Anteil am totalen KLIMA-Supply das in deinen Bedingungen angegebene Limit überschreiten konnte."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:362
+#: components/views/Redeem/index.tsx:378
 msgid "redeem.description"
 msgstr "Kaufen Sie Tokens eines bestimmten CO2-Projektes. Die Projekttokens werden von einem CO2-Pool freigestellt und in Ihre Wallet übertragen, damit Sie damit handeln oder sie für einen CO2-Ausgleich nutzen können."
 
@@ -1121,82 +1167,82 @@ msgstr "Sprache wechseln"
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:432
 #: components/views/PKlima/index.tsx:165
-#: components/views/Wrap/index.tsx:219
+#: components/views/Wrap/index.tsx:220
 msgid "shared.confirming"
 msgstr "Bestätigen..."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:236
+#: components/views/Stake/index.tsx:237
 msgid "shared.connect_wallet"
 msgstr "Lade..."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:258
-#: components/views/Stake/index.tsx:267
+#: components/views/Stake/index.tsx:259
+#: components/views/Stake/index.tsx:268
 msgid "shared.enter_amount"
 msgstr "Menge eingeben"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:490
+#: components/views/Offset/index.tsx:491
 msgid "shared.enter_beneficiary"
 msgstr "Name des Begünstigten eingeben"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:498
+#: components/views/Offset/index.tsx:499
 msgid "shared.enter_retirement_message"
 msgstr "Ausgleichs-Message angeben"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:275
-#: components/views/Wrap/index.tsx:246
+#: components/views/Stake/index.tsx:276
+#: components/views/Wrap/index.tsx:247
 msgid "shared.error"
 msgstr "FEHLER"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:507
 msgid "shared.invalid_beneficiary_addr"
 msgstr "Ungültige Empfängeradresse"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:530
-#: components/views/Redeem/index.tsx:257
+#: components/views/Offset/index.tsx:531
+#: components/views/Redeem/index.tsx:273
 msgid "shared.invalid_project_address"
 msgstr "Ungültige Projektadresse"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:522
+#: components/views/Offset/index.tsx:523
 msgid "shared.invalid_quantity"
 msgstr "Ungültige Menge"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:397
-#: components/views/Buy/index.tsx:63
+#: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:153
-#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:465
 #: components/views/PKlima/index.tsx:149
-#: components/views/Redeem/index.tsx:231
-#: components/views/Stake/index.tsx:228
-#: components/views/Wrap/index.tsx:198
+#: components/views/Redeem/index.tsx:247
+#: components/views/Stake/index.tsx:229
+#: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"
 msgstr "Anmelden / Verbinden"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:370
-#: components/views/Wrap/index.tsx:344
+#: components/views/Stake/index.tsx:372
+#: components/views/Wrap/index.tsx:346
 msgid "shared.max"
 msgstr "Max"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:477
+#: components/views/Offset/index.tsx:478
 msgid "shared.redirecting_checkout"
 msgstr "Weiterleitung zur Kasse..."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:553
+#: components/views/Offset/index.tsx:554
 msgid "shared.retire"
 msgstr "CO2-Fußabdruck ausgleichen"
 
@@ -1206,32 +1252,32 @@ msgid "shared.sold_out"
 msgstr "Ausverkauft"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:383
+#: components/views/Stake/index.tsx:385
 msgid "stake.5_day_rewards"
 msgstr "ROI über fünf Tage"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:386
+#: components/views/Stake/index.tsx:388
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Ungefähre Belohnungen inklusive Zinseszinseffekt, falls du über fünf Tage gestaket bleibst."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:399
+#: components/views/Stake/index.tsx:401
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:402
+#: components/views/Stake/index.tsx:404
 msgid "stake.akr.tooltip"
 msgstr "Jährliche KLIMA-Belohnungen, Zinseszinseffekte inbegriffen, sofern die aktuelle Belohnungsrate über zwölf Monate identisch bleibt (Rate kann sich ändern)."
 
 #. Long sentence
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:76
-#: components/views/Stake/index.tsx:292
+#: components/views/Buy/index.tsx:78
+#: components/views/Stake/index.tsx:294
 msgid "stake.balancescard.tooltip"
 msgstr "Stake deine KLIMA-Tokens, um sKLIMA zu erhalten. Nach jedem Rebase wird dein sKLIMA um die angegebene Prozentwahl wachsen."
 
@@ -1241,28 +1287,28 @@ msgid "stake.estimated_payout"
 msgstr "Geschätzte Auszahlung (sKLIMA)"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:413
+#: components/views/Stake/index.tsx:415
 msgid "stake.index"
 msgstr "Index"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:416
+#: components/views/Stake/index.tsx:418
 msgid "stake.index.tooltip"
 msgstr "Menge an KLIMA, die du heute hättest, wenn du 1 KLIMA am Starttag gestaket hättest. Nützlich für Buchführungszwecke."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:54
+#: components/views/Stake/index.tsx:55
 msgid "stake.inputplaceholder.stake"
 msgstr "Zu stakende Menge"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:58
+#: components/views/Stake/index.tsx:59
 msgid "stake.inputplaceholder.unstake"
 msgstr "Zu unstakende Menge"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:313
+#: components/views/Stake/index.tsx:315
 msgid "stake.lifi"
 msgstr "Cross-Chain-CO2-Ausgleich wird durch <0>LI.FI und Etherspot</0> ermöglicht. Zahlreiche Blockchains und Tokens werden unterstützt."
 
@@ -1287,30 +1333,30 @@ msgid "stake.rebase.info"
 msgstr "Das Protokoll generiert und verteilt automatisch Belohnungen. Deine Auszahlung wird als Prozentsatz deines sKLIMA-Guthabens berechnet."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:333
+#: components/views/Stake/index.tsx:335
 msgid "stake.stake"
 msgstr "Staken"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:307
+#: components/views/Stake/index.tsx:309
 msgid "stake.stake_hold_earn"
 msgstr "Stake, behalte und verdiene automatisch verzinstes sKLIMA."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:257
-#: components/views/Stake/index.tsx:304
-#: components/views/Stake/index.tsx:469
+#: components/views/Stake/index.tsx:258
+#: components/views/Stake/index.tsx:306
+#: components/views/Stake/index.tsx:471
 msgid "stake.stake_klima"
 msgstr "KLIMA staken"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:345
+#: components/views/Stake/index.tsx:347
 msgid "stake.unstake"
 msgstr "Unstaken"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:266
-#: components/views/Stake/index.tsx:471
+#: components/views/Stake/index.tsx:267
+#: components/views/Stake/index.tsx:473
 msgid "stake.unstake_klima"
 msgstr "KLIMA unstaken"
 
@@ -1340,7 +1386,7 @@ msgid "status.user_rejected"
 msgstr "Du hast die Transaktion abgebrochen"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:224
+#: components/NavMenu/index.tsx:222
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
@@ -1425,64 +1471,64 @@ msgid "web3modal.walletlink.desc"
 msgstr "Mit Coinbase scannen, um dich zu verbinden"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:372
+#: components/views/Wrap/index.tsx:374
 msgid "wrap.balance"
 msgstr "Guthaben"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:267
+#: components/views/Wrap/index.tsx:269
 msgid "wrap.balances_tooltip"
 msgstr "sKLIMA wrappen, um indexbereinigstes wsKLIMA zu erhalten"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:359
+#: components/views/Wrap/index.tsx:361
 msgid "wrap.index"
 msgstr "Index"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:362
+#: components/views/Wrap/index.tsx:364
 msgid "wrap.index.tooltip"
 msgstr "Menge an KLIMA, die du heute besitzen würdest, wenn du 1 KLIMA am Starttag gestaket hättest. Wird zur Berechnung des wsKLIMA-Wertes genutzt."
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:50
+#: components/views/Wrap/index.tsx:51
 msgid "wrap.sklima_to_wrap"
 msgstr "Zu wrappendes sKLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:322
+#: components/views/Wrap/index.tsx:324
 msgid "wrap.unwrap"
 msgstr "Unwrappen"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:311
+#: components/views/Wrap/index.tsx:313
 msgid "wrap.wrap"
 msgstr "Wrappen"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:277
+#: components/views/Wrap/index.tsx:279
 msgid "wrap.wrap_sklima"
 msgstr "sKLIMA wrappen"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:289
+#: components/views/Wrap/index.tsx:291
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Manche finden dies für Buchhaltungszwecke nützlich, die Belohnungen unterscheiden sich jedoch nicht. Der aktuelle Index wird herangezogen, um die Wrap- und Unwrap-Werte zu berechnen."
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:280
+#: components/views/Wrap/index.tsx:282
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "sKLIMA wrappen, um wsKLIMA zu erhalten. Anders als bei sKLIMA wird dein wsKLIMA-Guthaben konstant bleiben, der Gewinn ist jedoch identisch."
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:54
+#: components/views/Wrap/index.tsx:55
 msgid "wrap.wsklima_to_unwrap"
 msgstr "Zu unwrappendes wsKLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:375
+#: components/views/Wrap/index.tsx:377
 msgid "wrap.you_will_get"
 msgstr "Du erhältst"
 

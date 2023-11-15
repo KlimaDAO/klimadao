@@ -5,8 +5,9 @@
 .selectiveFee {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 0.4rem;
 }
-.selectiveFeeIcon {
-  font-size: 10px;
+
+.tooltipText {
+  font-size: 1.2rem;
 }

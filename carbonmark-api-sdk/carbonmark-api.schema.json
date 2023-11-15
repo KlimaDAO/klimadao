@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 2.0.0-7** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 2.0.0** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "2.0.0-7"
+    "version": "2.0.0"
   },
   "components": {
     "schemas": {
@@ -101,18 +101,14 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "Feature"
-                    ]
+                    "enum": ["Feature"]
                   },
                   "geometry": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "enum": [
-                          "Point"
-                        ]
+                        "enum": ["Point"]
                       },
                       "coordinates": {
                         "minItems": 2,
@@ -123,16 +119,10 @@
                         }
                       }
                     },
-                    "required": [
-                      "type",
-                      "coordinates"
-                    ]
+                    "required": ["type", "coordinates"]
                   }
                 },
-                "required": [
-                  "type",
-                  "geometry"
-                ]
+                "required": ["type", "geometry"]
               },
               {
                 "type": "null"
@@ -158,9 +148,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "id"
-            ]
+            "required": ["id"]
           },
           "region": {
             "type": "string"
@@ -308,9 +296,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "id"
-                      ]
+                      "required": ["id"]
                     },
                     "expiration": {
                       "description": "Unix Timestamp (seconds) when the listing expires.",
@@ -388,10 +374,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "url",
-                    "caption"
-                  ]
+                  "required": ["url", "caption"]
                 }
               },
               {
@@ -477,18 +460,14 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "Feature"
-                    ]
+                    "enum": ["Feature"]
                   },
                   "geometry": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "enum": [
-                          "Point"
-                        ]
+                        "enum": ["Point"]
                       },
                       "coordinates": {
                         "minItems": 2,
@@ -499,16 +478,10 @@
                         }
                       }
                     },
-                    "required": [
-                      "type",
-                      "coordinates"
-                    ]
+                    "required": ["type", "coordinates"]
                   }
                 },
-                "required": [
-                  "type",
-                  "geometry"
-                ]
+                "required": ["type", "geometry"]
               },
               {
                 "type": "null"
@@ -638,11 +611,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "totalBridged",
-              "totalRetired",
-              "totalSupply"
-            ]
+            "required": ["totalBridged", "totalRetired", "totalSupply"]
           },
           "prices": {
             "type": "array",
@@ -654,27 +623,19 @@
                   "anyOf": [
                     {
                       "type": "string",
-                      "enum": [
-                        "ubo"
-                      ]
+                      "enum": ["ubo"]
                     },
                     {
                       "type": "string",
-                      "enum": [
-                        "nbo"
-                      ]
+                      "enum": ["nbo"]
                     },
                     {
                       "type": "string",
-                      "enum": [
-                        "bct"
-                      ]
+                      "enum": ["bct"]
                     },
                     {
                       "type": "string",
-                      "enum": [
-                        "nct"
-                      ]
+                      "enum": ["nct"]
                     }
                   ]
                 },
@@ -847,9 +808,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "id"
-                  ]
+                  "required": ["id"]
                 },
                 "expiration": {
                   "description": "Unix Timestamp (seconds) when the listing expires.",
@@ -995,9 +954,7 @@
                           ]
                         }
                       },
-                      "required": [
-                        "id"
-                      ]
+                      "required": ["id"]
                     },
                     {
                       "type": "null"
@@ -1023,9 +980,7 @@
                           ]
                         }
                       },
-                      "required": [
-                        "id"
-                      ]
+                      "required": ["id"]
                     },
                     {
                       "type": "null"
@@ -1033,9 +988,7 @@
                   ]
                 }
               },
-              "required": [
-                "id"
-              ]
+              "required": ["id"]
             }
           },
           "price": {
@@ -1141,9 +1094,7 @@
                     ]
                   }
                 },
-                "required": [
-                  "id"
-                ]
+                "required": ["id"]
               },
               {
                 "type": "null"
@@ -1169,9 +1120,7 @@
                     ]
                   }
                 },
-                "required": [
-                  "id"
-                ]
+                "required": ["id"]
               },
               {
                 "type": "null"
@@ -1179,9 +1128,7 @@
             ]
           }
         },
-        "required": [
-          "id"
-        ]
+        "required": ["id"]
       },
       "Category": {
         "type": "object",
@@ -1190,9 +1137,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "id"
-        ]
+        "required": ["id"]
       },
       "Country": {
         "type": "object",
@@ -1201,9 +1146,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "id"
-        ]
+        "required": ["id"]
       },
       "Listing": {
         "description": "Marketplace listing with per-tonne price and project info.",
@@ -1341,9 +1284,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "id"
-            ]
+            "required": ["id"]
           },
           "expiration": {
             "description": "Unix Timestamp (seconds) when the listing expires.",
@@ -1437,24 +1378,17 @@
         }
       },
       "NetworkParam": {
-        "examples": [
-          "polygon",
-          "mumbai"
-        ],
+        "examples": ["polygon", "mumbai"],
         "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet).",
         "default": "polygon",
         "anyOf": [
           {
             "type": "string",
-            "enum": [
-              "polygon"
-            ]
+            "enum": ["polygon"]
           },
           {
             "type": "string",
-            "enum": [
-              "mumbai"
-            ]
+            "enum": ["mumbai"]
           }
         ]
       },
@@ -1470,9 +1404,7 @@
           },
           "amount": {
             "description": "Quantity of credits purchased",
-            "examples": [
-              "1.0"
-            ],
+            "examples": ["1.0"],
             "type": "string"
           },
           "listing": {
@@ -1480,30 +1412,36 @@
             "properties": {
               "id": {
                 "description": "ID of the listing that was purchased",
-                "examples": [
-                  "0x1"
-                ],
+                "examples": ["0x1"],
                 "type": "string"
+              },
+              "tokenAddress": {
+                "description": "Address of the asset that was purchased",
+                "type": "string"
+              },
+              "seller": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "Address of the seller",
+                    "type": "string"
+                  }
+                },
+                "required": ["id"]
               },
               "project": {
                 "type": "object",
                 "properties": {
                   "country": {
-                    "examples": [
-                      "China"
-                    ],
+                    "examples": ["China"],
                     "type": "string"
                   },
                   "key": {
-                    "examples": [
-                      "VCS-191"
-                    ],
+                    "examples": ["VCS-191"],
                     "type": "string"
                   },
                   "methodology": {
-                    "examples": [
-                      "ACM0002"
-                    ],
+                    "examples": ["ACM0002"],
                     "type": "string"
                   },
                   "name": {
@@ -1513,15 +1451,11 @@
                     "type": "string"
                   },
                   "projectID": {
-                    "examples": [
-                      "191"
-                    ],
+                    "examples": ["191"],
                     "type": "string"
                   },
                   "vintage": {
-                    "examples": [
-                      "2008"
-                    ],
+                    "examples": ["2008"],
                     "type": "string"
                   }
                 },
@@ -1535,25 +1469,15 @@
                 ]
               }
             },
-            "required": [
-              "id",
-              "project"
-            ]
+            "required": ["id", "tokenAddress", "seller", "project"]
           },
           "price": {
             "description": "Total purchase price (USDC)",
-            "examples": [
-              "5.0"
-            ],
+            "examples": ["5.0"],
             "type": "string"
           }
         },
-        "required": [
-          "id",
-          "amount",
-          "listing",
-          "price"
-        ]
+        "required": ["id", "amount", "listing", "price"]
       },
       "User": {
         "type": "object",
@@ -1738,9 +1662,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "id"
-                  ]
+                  "required": ["id"]
                 },
                 "expiration": {
                   "description": "Unix Timestamp (seconds) when the listing expires.",
@@ -1886,9 +1808,7 @@
                           ]
                         }
                       },
-                      "required": [
-                        "id"
-                      ]
+                      "required": ["id"]
                     },
                     {
                       "type": "null"
@@ -1914,9 +1834,7 @@
                           ]
                         }
                       },
-                      "required": [
-                        "id"
-                      ]
+                      "required": ["id"]
                     },
                     {
                       "type": "null"
@@ -1924,9 +1842,7 @@
                   ]
                 }
               },
-              "required": [
-                "id"
-              ]
+              "required": ["id"]
             }
           },
           "assets": {
@@ -1953,22 +1869,13 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "id",
-                    "name",
-                    "symbol",
-                    "decimals"
-                  ]
+                  "required": ["id", "name", "symbol", "decimals"]
                 },
                 "amount": {
                   "type": "string"
                 }
               },
-              "required": [
-                "id",
-                "token",
-                "amount"
-              ]
+              "required": ["id", "token", "amount"]
             }
           }
         },
@@ -2004,22 +1911,13 @@
                 "type": "number"
               }
             },
-            "required": [
-              "id",
-              "name",
-              "symbol",
-              "decimals"
-            ]
+            "required": ["id", "name", "symbol", "decimals"]
           },
           "amount": {
             "type": "string"
           }
         },
-        "required": [
-          "id",
-          "token",
-          "amount"
-        ]
+        "required": ["id", "token", "amount"]
       },
       "TokenPrice": {
         "type": "object",
@@ -2029,27 +1927,19 @@
             "anyOf": [
               {
                 "type": "string",
-                "enum": [
-                  "ubo"
-                ]
+                "enum": ["ubo"]
               },
               {
                 "type": "string",
-                "enum": [
-                  "nbo"
-                ]
+                "enum": ["nbo"]
               },
               {
                 "type": "string",
-                "enum": [
-                  "bct"
-                ]
+                "enum": ["bct"]
               },
               {
                 "type": "string",
-                "enum": [
-                  "nct"
-                ]
+                "enum": ["nct"]
               }
             ]
           },
@@ -2112,53 +2002,37 @@
         "type": "object",
         "properties": {
           "network": {
-            "examples": [
-              "polygon",
-              "mumbai"
-            ],
+            "examples": ["polygon", "mumbai"],
             "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet).",
             "default": "polygon",
             "anyOf": [
               {
                 "type": "string",
-                "enum": [
-                  "polygon"
-                ]
+                "enum": ["polygon"]
               },
               {
                 "type": "string",
-                "enum": [
-                  "mumbai"
-                ]
+                "enum": ["mumbai"]
               }
             ],
             "title": "http://api.carbonmark.com/schemas/querystring/network"
           }
         },
-        "required": [
-          "network"
-        ],
+        "required": ["network"],
         "title": "http://api.carbonmark.com/schemas"
       },
       "def-1": {
-        "examples": [
-          "polygon",
-          "mumbai"
-        ],
+        "examples": ["polygon", "mumbai"],
         "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet).",
         "default": "polygon",
         "anyOf": [
           {
             "type": "string",
-            "enum": [
-              "polygon"
-            ]
+            "enum": ["polygon"]
           },
           {
             "type": "string",
-            "enum": [
-              "mumbai"
-            ]
+            "enum": ["mumbai"]
           }
         ],
         "title": "http://api.carbonmark.com/schemas/querystring/network"
@@ -2184,9 +2058,7 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "id"
-                    ]
+                    "required": ["id"]
                   }
                 },
                 "examples": [
@@ -2210,8 +2082,8 @@
     },
     "/countries": {
       "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "summary": "Categories",
+        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -2226,21 +2098,19 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "id"
-                    ]
+                    "required": ["id"]
                   }
                 },
                 "examples": [
                   [
                     {
-                      "id": "Brazil"
+                      "id": "Blue Carbon"
                     },
                     {
-                      "id": "Bulgaria"
+                      "id": "Forestry"
                     },
                     {
-                      "id": "China"
+                      "id": "Other"
                     }
                   ]
                 ]
@@ -2253,9 +2123,7 @@
     "/projects": {
       "get": {
         "summary": "List projects",
-        "tags": [
-          "Projects"
-        ],
+        "tags": ["Projects"],
         "description": "Retrieve an array of carbon projects filtered by desired query parameters",
         "parameters": [
           {
@@ -2405,18 +2273,14 @@
                             "properties": {
                               "type": {
                                 "type": "string",
-                                "enum": [
-                                  "Feature"
-                                ]
+                                "enum": ["Feature"]
                               },
                               "geometry": {
                                 "type": "object",
                                 "properties": {
                                   "type": {
                                     "type": "string",
-                                    "enum": [
-                                      "Point"
-                                    ]
+                                    "enum": ["Point"]
                                   },
                                   "coordinates": {
                                     "minItems": 2,
@@ -2427,16 +2291,10 @@
                                     }
                                   }
                                 },
-                                "required": [
-                                  "type",
-                                  "coordinates"
-                                ]
+                                "required": ["type", "coordinates"]
                               }
                             },
-                            "required": [
-                              "type",
-                              "geometry"
-                            ]
+                            "required": ["type", "geometry"]
                           },
                           {
                             "type": "null"
@@ -2462,9 +2320,7 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "id"
-                        ]
+                        "required": ["id"]
                       },
                       "region": {
                         "type": "string"
@@ -2612,9 +2468,7 @@
                                       "type": "string"
                                     }
                                   },
-                                  "required": [
-                                    "id"
-                                  ]
+                                  "required": ["id"]
                                 },
                                 "expiration": {
                                   "description": "Unix Timestamp (seconds) when the listing expires.",
@@ -2692,10 +2546,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "url",
-                                "caption"
-                              ]
+                              "required": ["url", "caption"]
                             }
                           },
                           {
@@ -2728,9 +2579,7 @@
     "/users/{walletOrHandle}": {
       "get": {
         "summary": "User details",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "Get a user's profile and activity",
         "parameters": [
           {
@@ -2957,9 +2806,7 @@
                                 "type": "string"
                               }
                             },
-                            "required": [
-                              "id"
-                            ]
+                            "required": ["id"]
                           },
                           "expiration": {
                             "description": "Unix Timestamp (seconds) when the listing expires.",
@@ -3105,9 +2952,7 @@
                                     ]
                                   }
                                 },
-                                "required": [
-                                  "id"
-                                ]
+                                "required": ["id"]
                               },
                               {
                                 "type": "null"
@@ -3133,9 +2978,7 @@
                                     ]
                                   }
                                 },
-                                "required": [
-                                  "id"
-                                ]
+                                "required": ["id"]
                               },
                               {
                                 "type": "null"
@@ -3143,9 +2986,7 @@
                             ]
                           }
                         },
-                        "required": [
-                          "id"
-                        ]
+                        "required": ["id"]
                       }
                     },
                     "assets": {
@@ -3172,22 +3013,13 @@
                                 "type": "number"
                               }
                             },
-                            "required": [
-                              "id",
-                              "name",
-                              "symbol",
-                              "decimals"
-                            ]
+                            "required": ["id", "name", "symbol", "decimals"]
                           },
                           "amount": {
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "id",
-                          "token",
-                          "amount"
-                        ]
+                        "required": ["id", "token", "amount"]
                       }
                     }
                   },
@@ -3210,18 +3042,12 @@
     "/users": {
       "post": {
         "summary": "Create user profile",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "handle",
-                  "username",
-                  "wallet"
-                ],
+                "required": ["handle", "username", "wallet"],
                 "type": "object",
                 "properties": {
                   "handle": {
@@ -3271,11 +3097,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": [
-                    "handle",
-                    "username",
-                    "wallet"
-                  ],
+                  "required": ["handle", "username", "wallet"],
                   "type": "object",
                   "properties": {
                     "handle": {
@@ -3329,9 +3151,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "error"
-                  ]
+                  "required": ["error"]
                 }
               }
             }
@@ -3342,9 +3162,7 @@
     "/users/{wallet}": {
       "put": {
         "summary": "Update user profile",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -3366,13 +3184,14 @@
                   },
                   "profileImgUrl": {
                     "type": "string"
+                  },
+                  "handle": {
+                    "minLength": 3,
+                    "maxLength": 24,
+                    "type": "string"
                   }
                 },
-                "required": [
-                  "wallet",
-                  "username",
-                  "description"
-                ]
+                "required": ["wallet", "username", "description"]
               }
             }
           },
@@ -3413,13 +3232,14 @@
                     },
                     "profileImgUrl": {
                       "type": "string"
+                    },
+                    "handle": {
+                      "minLength": 3,
+                      "maxLength": 24,
+                      "type": "string"
                     }
                   },
-                  "required": [
-                    "wallet",
-                    "username",
-                    "description"
-                  ]
+                  "required": ["wallet", "username", "description"]
                 }
               }
             }
@@ -3480,9 +3300,7 @@
     "/projects/{id}": {
       "get": {
         "summary": "Project details",
-        "tags": [
-          "Projects"
-        ],
+        "tags": ["Projects"],
         "description": "Retrieve a carbon project by its project ID",
         "parameters": [
           {
@@ -3506,7 +3324,7 @@
           {
             "schema": {
               "type": "string",
-              "pattern": "^(VCS|PURO|ICR)-\\d+-(19\\d{2}|20\\d{2})$"
+              "pattern": "^(VCS|PURO|ICR|GS)-\\d+-(19\\d{2}|20\\d{2})$"
             },
             "example": "VCS-191-2008",
             "in": "path",
@@ -3583,18 +3401,14 @@
                           "properties": {
                             "type": {
                               "type": "string",
-                              "enum": [
-                                "Feature"
-                              ]
+                              "enum": ["Feature"]
                             },
                             "geometry": {
                               "type": "object",
                               "properties": {
                                 "type": {
                                   "type": "string",
-                                  "enum": [
-                                    "Point"
-                                  ]
+                                  "enum": ["Point"]
                                 },
                                 "coordinates": {
                                   "minItems": 2,
@@ -3605,16 +3419,10 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "type",
-                                "coordinates"
-                              ]
+                              "required": ["type", "coordinates"]
                             }
                           },
-                          "required": [
-                            "type",
-                            "geometry"
-                          ]
+                          "required": ["type", "geometry"]
                         },
                         {
                           "type": "null"
@@ -3760,27 +3568,19 @@
                             "anyOf": [
                               {
                                 "type": "string",
-                                "enum": [
-                                  "ubo"
-                                ]
+                                "enum": ["ubo"]
                               },
                               {
                                 "type": "string",
-                                "enum": [
-                                  "nbo"
-                                ]
+                                "enum": ["nbo"]
                               },
                               {
                                 "type": "string",
-                                "enum": [
-                                  "bct"
-                                ]
+                                "enum": ["bct"]
                               },
                               {
                                 "type": "string",
-                                "enum": [
-                                  "nct"
-                                ]
+                                "enum": ["nct"]
                               }
                             ]
                           },
@@ -3953,9 +3753,7 @@
                                 "type": "string"
                               }
                             },
-                            "required": [
-                              "id"
-                            ]
+                            "required": ["id"]
                           },
                           "expiration": {
                             "description": "Unix Timestamp (seconds) when the listing expires.",
@@ -4101,9 +3899,7 @@
                                     ]
                                   }
                                 },
-                                "required": [
-                                  "id"
-                                ]
+                                "required": ["id"]
                               },
                               {
                                 "type": "null"
@@ -4129,9 +3925,7 @@
                                     ]
                                   }
                                 },
-                                "required": [
-                                  "id"
-                                ]
+                                "required": ["id"]
                               },
                               {
                                 "type": "null"
@@ -4139,9 +3933,7 @@
                             ]
                           }
                         },
-                        "required": [
-                          "id"
-                        ]
+                        "required": ["id"]
                       }
                     },
                     "price": {
@@ -4209,9 +4001,7 @@
                     },
                     "amount": {
                       "description": "Quantity of credits purchased",
-                      "examples": [
-                        "1.0"
-                      ],
+                      "examples": ["1.0"],
                       "type": "string"
                     },
                     "listing": {
@@ -4219,30 +4009,22 @@
                       "properties": {
                         "id": {
                           "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
+                          "examples": ["0x1"],
                           "type": "string"
                         },
                         "project": {
                           "type": "object",
                           "properties": {
                             "country": {
-                              "examples": [
-                                "China"
-                              ],
+                              "examples": ["China"],
                               "type": "string"
                             },
                             "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
+                              "examples": ["VCS-191"],
                               "type": "string"
                             },
                             "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
+                              "examples": ["ACM0002"],
                               "type": "string"
                             },
                             "name": {
@@ -4252,15 +4034,11 @@
                               "type": "string"
                             },
                             "projectID": {
-                              "examples": [
-                                "191"
-                              ],
+                              "examples": ["191"],
                               "type": "string"
                             },
                             "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
+                              "examples": ["2008"],
                               "type": "string"
                             }
                           },
@@ -4274,25 +4052,15 @@
                           ]
                         }
                       },
-                      "required": [
-                        "id",
-                        "project"
-                      ]
+                      "required": ["id", "project"]
                     },
                     "price": {
                       "description": "Total purchase price (USDC)",
-                      "examples": [
-                        "5.0"
-                      ],
+                      "examples": ["5.0"],
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "id",
-                    "amount",
-                    "listing",
-                    "price"
-                  ]
+                  "required": ["id", "amount", "listing", "price"]
                 }
               }
             }
@@ -4303,17 +4071,13 @@
     "/users/login": {
       "post": {
         "summary": "Get nonce",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "wallet"
-                ],
+                "required": ["wallet"],
                 "type": "object",
                 "properties": {
                   "wallet": {
@@ -4339,9 +4103,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "nonce"
-                  ]
+                  "required": ["nonce"]
                 }
               }
             }
@@ -4352,18 +4114,13 @@
     "/users/login/verify": {
       "post": {
         "summary": "Verify signed data",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "description": "Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "wallet",
-                  "signature"
-                ],
+                "required": ["wallet", "signature"],
                 "type": "object",
                 "properties": {
                   "wallet": {
@@ -4392,9 +4149,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "token"
-                  ]
+                  "required": ["token"]
                 }
               }
             }
@@ -4403,6 +4158,11 @@
       }
     }
   },
+  "servers": [
+    {
+      "url": "https://v2.0.0.api.carbonmark.com"
+    }
+  ],
   "externalDocs": {
     "url": "https://docs.carbonmark.com/",
     "description": "Additional documentation. The complete product and platform knowledge base for Carbonmark can be found here."

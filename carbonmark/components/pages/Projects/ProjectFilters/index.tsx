@@ -1,4 +1,4 @@
-import { Close } from "@mui/icons-material";
+import CloseIcon from "@mui/icons-material/Close";
 import { Text } from "components/Text";
 import { useElementWidth } from "hooks/useElementWidth";
 import { FilterValues } from "hooks/useProjectsFilterParams";
@@ -47,7 +47,7 @@ export const ProjectFilters: FC<Props> = (props) => {
           {filters?.map((filter: string, key: number) => (
             <div key={key} className={styles.pill}>
               <span>{filter}</span>
-              <Close onClick={() => handleRemoveFilter(filter)} />
+              <CloseIcon onClick={() => handleRemoveFilter(filter)} />
             </div>
           ))}
           {hasOverflow && (

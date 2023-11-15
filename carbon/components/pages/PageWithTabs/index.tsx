@@ -7,10 +7,9 @@ import { Tab } from "@mui/material";
 import { MobileTabSelector } from "components/MobileTabSelector";
 import OptionsSwitcher from "components/OptionsSwitcher";
 import { PageHeader } from "components/PageHeader/PageHeader";
+import { useQueryParam } from "hooks/useQueryParam";
 import { Options } from "lib/charts/options";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Key, ReactNode, useEffect, useState } from "react";
-import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 
 type TabParam = {
@@ -26,10 +25,12 @@ export default function PageWithTabs(props: {
   title: string;
   tabs: TabParams;
 }) {
-  const queryParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState(
-    queryParams.get("tab") || props.tabs[0].key
-  );
+  const [activeTab, setActiveTab] = useQueryParam<string>({
+    key: "tab",
+    defaultValue: props.tabs[0].key,
+    readonly: false,
+  });
+
   /** By default, the first option of each widget is selected */
   const getDetaultOptions = () => {
     return props.tabs.map((tab) =>
@@ -62,22 +63,6 @@ export default function PageWithTabs(props: {
   }
 
   let tabsDynamicOptionsList: Options<string>[][] = getTabsDynamicOptionsList();
-
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const handleChange = (_: React.SyntheticEvent, newTab: string) => {
-    router.push(`${pathname}?tab=${newTab}`);
-    setActiveTab(newTab);
-  };
-
-  // Get Tab from URL
-  useEffect(() => {
-    const queryKey = queryParams.get("tab");
-    if (queryKey != null && props.tabs.some((tab) => tab.key == queryKey)) {
-      setActiveTab(queryKey);
-    }
-  }, []);
 
   useEffect(() => {
     tabsDynamicOptionsList = getTabsDynamicOptionsList();
@@ -115,17 +100,20 @@ export default function PageWithTabs(props: {
       <PageHeader title={props.title} />
       <TabContext value={activeTab}>
         <div className={styles.tabRoot}>
-          <MobileTabSelector
-            value={activeTab}
-            options={props.tabs.map((tab) => {
-              return { label: tab.label, value: tab.key };
-            })}
-            onSelectionChanged={(key: string) => setActiveTab(key)}
-            className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
-          />
+          <div className={styles.mobileTabSelectorWrapper}>
+            <MobileTabSelector
+              value={activeTab}
+              options={props.tabs.map((tab) => {
+                return { label: tab.label, value: tab.key };
+              })}
+              onSelectionChanged={(key: string) => setActiveTab(key)}
+            />
+          </div>
           <TabList
-            onChange={handleChange}
-            className={`${layout.desktopOnly} ${styles.tabList}`}
+            onChange={(_: React.SyntheticEvent, newTab: string) => {
+              setActiveTab(newTab);
+            }}
+            className={`${styles.tabList}`}
           >
             {props.tabs.map((tab) => (
               <Tab
@@ -136,44 +124,36 @@ export default function PageWithTabs(props: {
               ></Tab>
             ))}
           </TabList>
-          {props.tabs.map(
-            (tab, tabIndex) =>
-              tabsDynamicOptionsList[tabIndex] && (
-                <TabPanel
-                  key={tabIndex}
-                  value={tab.key}
-                  className={styles.noPadding}
-                >
-                  <div className={styles.optionsSwitchers}>
-                    {tabsDynamicOptionsList[tabIndex].map(
-                      (options, widgetIndex) => (
-                        <div
-                          key={widgetIndex}
-                          className={styles.optionsSwitcherWrapper}
-                        >
-                          <OptionsSwitcher
-                            options={options}
-                            onSelectionChange={onOptionChange(
-                              tabIndex,
-                              widgetIndex
-                            )}
-                            value={optionKeys[tabIndex][widgetIndex]}
-                            className={styles.optionsSwitcher}
-                          />
-                        </div>
-                      )
-                    )}
-                  </div>
-                </TabPanel>
-              )
-          )}
 
           {props.tabs.map((tab, tabIndex) => (
             <TabPanel
               key={tabIndex}
               value={tab.key}
-              className={styles.noPadding}
+              className={styles.topPadding}
             >
+              {tabsDynamicOptionsList[tabIndex].length > 0 && (
+                <div className={styles.optionsSwitchers}>
+                  {tabsDynamicOptionsList[tabIndex].map(
+                    (options, widgetIndex) => (
+                      <div
+                        key={widgetIndex}
+                        className={styles.optionsSwitcherWrapper}
+                      >
+                        <OptionsSwitcher
+                          name={`option_${tab.key}_${widgetIndex}`}
+                          options={options}
+                          onSelectionChange={onOptionChange(
+                            tabIndex,
+                            widgetIndex
+                          )}
+                          value={optionKeys[tabIndex][widgetIndex]}
+                          className={styles.optionsSwitcher}
+                        />
+                      </div>
+                    )
+                  )}
+                </div>
+              )}
               {displayedTab(tabIndex)}
             </TabPanel>
           ))}

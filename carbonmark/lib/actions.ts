@@ -16,6 +16,8 @@ import {
   DetailedProject,
   PcbProject,
 } from "lib/types/carbonmark.types";
+import { getExpirationTimestamp } from "lib/utils/listings.utils";
+import { isNil } from "lodash";
 import { DEFAULT_EXPIRATION_DAYS, DEFAULT_MIN_FILL_AMOUNT } from "./constants";
 
 const getSignerNetwork = (
@@ -120,19 +122,11 @@ export const approveTokenSpend = async (params: {
   }
 };
 
-/** Takes a `days` argument, converts it to seconds and adds it to the current date timestamp
- * @returns {string} timestamp in Unix seconds
- */
-const getExpirationTimestamp = (days: number): string => {
-  // 1000ms/s * 60s/m * 60m/hr * 24hr/d * days
-  const milliseconds = 1000 * 60 * 60 * 24 * days;
-  const expireTimestamp = Date.now() + milliseconds;
-  return Math.floor(expireTimestamp / 1000).toString(); // ms to seconds
-};
-
 export const createListingTransaction = async (params: {
   /** 0x address of asset to sell */
   tokenAddress: string;
+  /** Integer id for ERC1155 MultiToken contracts */
+  tokenId?: string;
   /** Amount to list (tonnes) @example "123.456" */
   amount: string;
   /** Price per tonne (usdc) @example "12.45" */
@@ -150,13 +144,26 @@ export const createListingTransaction = async (params: {
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await carbonmarkContract.createListing(
+    /** Handle overloaded method definition */
+    const fnSignature = isNil(params.tokenId)
+      ? "createListing(address,uint256,uint256,uint256,uint256)"
+      : // tokenId is second argument
+        "createListing(address,uint256,uint256,uint256,uint256,uint256)";
+
+    const args = [
       params.tokenAddress,
       parseUnits(params.amount, 18),
       parseUnits(params.unitPrice, getTokenDecimals("usdc")),
       parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
-      getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
-    );
+      getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS), // deadline (aka expiration)
+    ];
+
+    if (!isNil(params.tokenId)) {
+      // insert tokenId as second argument to match fnSignature
+      args.splice(1, 0, params.tokenId);
+    }
+
+    const listingTxn = await carbonmarkContract[fnSignature](...args);
 
     params.onStatus("networkConfirmation", "");
     await listingTxn.wait(1);
@@ -240,8 +247,8 @@ export const makePurchase = async (params: {
       params.sellerAddress,
       params.creditTokenAddress,
       parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
-      parseUnits(params.quantity, 18), // C3 token
-      parseUnits(maxCost, 6)
+      parseUnits(params.quantity, 18),
+      parseUnits(maxCost, getTokenDecimals("usdc"))
     );
 
     params.onStatus("networkConfirmation", "");

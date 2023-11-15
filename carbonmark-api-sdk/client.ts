@@ -1,53 +1,51 @@
-import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
-import axios from "axios";
 //@ts-ignore -- this file is only a template so ignore import errors
-import { version as API_VERSION } from "./package.json";
-
-/**
- * This client is necessary only so that we can set the base url for our api and it's generated sdk
- * I'm sure there is a better way..
- * See: https://www.kubb.dev/plugins/swagger-client/client#default-client
- */
+import { urls } from "lib/constants";
+// We may need to use this
+// import { version as API_VERSION } from "./package.json";
 
 export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";
   url: string;
   params?: unknown;
-  data?: TVariables;
-  responseType?:
-    | "arraybuffer"
-    | "blob"
-    | "document"
-    | "json"
-    | "text"
-    | "stream";
-  signal?: AbortSignal;
-  headers?: AxiosRequestConfig["headers"];
+  data?: TVariables | unknown;
+  headers?: HeadersInit;
 };
 
-export const axiosInstance = axios.create({
-  baseURL: `https://v${API_VERSION}.api.carbonmark.com`,
-  headers:
-    typeof "{}" !== "undefined"
-      ? (JSON.parse("{}") as AxiosHeaders)
-      : undefined,
-});
+export type ResponseConfig<TData> = { data: TData };
 
-export const axiosClient = async <
+export type ApiError<TError> = {
+  message: string;
+  data?: TError;
+};
+
+export const fetchClient = async <
   TData,
   TError = unknown,
   TVariables = unknown,
 >(
-  config: RequestConfig<TVariables>
-): Promise<TData> => {
-  const promise = axiosInstance
-    .request<TData>({ ...config })
-    .then(({ data }) => data)
-    .catch((e: AxiosError<TError>) => {
-      throw e;
-    });
+  request: RequestConfig<TVariables>
+): Promise<ResponseConfig<TData>> => {
+  const response = await fetch(
+    `${urls.api.base}${request.url}${request.params ?? ""}`,
+    {
+      method: request.method,
+      body: JSON.stringify(request.data),
+      headers: {
+        "Content-Type": "application/json",
+        ...request.headers,
+      },
+    }
+  );
 
-  return promise;
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw {
+      message: `HTTP error! status: ${response.status}`,
+      data: errorData as TError,
+    };
+  }
+  const data = await response.json();
+  return { data };
 };
 
-export default axiosClient;
+export default fetchClient;

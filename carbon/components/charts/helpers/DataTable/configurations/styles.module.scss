@@ -7,7 +7,7 @@
 }
 
 .header {
-  background-color: var(--surface-01);
+  background-color: var(--lightmode-surface-02);
   @include breakpoints.medium {
     white-space: nowrap;
   }
@@ -16,23 +16,23 @@
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.8rem;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-family: Poppins;
   }
 }
 
 .row {
-  border-bottom: 1px solid var(--text-color-07);
+  border-bottom: 0.1rem solid var(--lightmode-surface-02);
   td {
     padding: 1.2rem 0.8rem 1.2rem 0.8rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
 // Cards styling
 .cards {
   display: flex;
-  width: fit-content;
+  width: 100%;
   flex-direction: column;
   gap: 0.8rem;
 }
@@ -42,19 +42,19 @@
   flex-direction: column;
   padding: 0.4rem 0 0.6rem 1.4rem;
   gap: 0.8rem;
-  border-left: 2px solid var(--text-color-03);
+  border-left: 0.2rem solid var(--lightmode-font-03);
   font-size: 1.2rem;
 }
 
 .cardTitle {
-  color: var(--text-color-01);
+  color: var(--lightmode-font-01);
   font-weight: bold;
 }
 
 .facts {
   display: flex;
   justify-content: space-between;
-  color: var(--text-color-01);
+  color: var(--lightmode-font-01);
   opacity: 0.8;
 }
 
@@ -67,7 +67,7 @@
   font-size: 1rem;
   padding: 0.4rem;
   border-radius: 0.4rem;
-  background-color: var(--text-color-03);
+  background-color: var(--lightmode-font-03);
   width: fit-content;
-  color: var(--text-color-04);
+  color: var(--brand-white);
 }

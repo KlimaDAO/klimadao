@@ -3,7 +3,7 @@
 import type { CoinbaseWalletProvider } from "@coinbase/wallet-sdk";
 import type Torus from "@toruslabs/torus-embed";
 import type { TorusInpageProvider } from "@toruslabs/torus-embed";
-import type Web3Provider from "@walletconnect/web3-provider";
+import type EthereumProvider from "@walletconnect/ethereum-provider";
 import type { providers } from "ethers";
 
 // Function overloads because "accountsChanged" returns an array of strings, but the others don't.
@@ -23,7 +23,7 @@ interface WrappedWeb3Provider extends providers.ExternalProvider {
   removeListener: typeof ProviderEventHandler;
 }
 export type TorusProvider = TorusInpageProvider & { torus: Torus };
-export type WalletConnectProvider = Web3Provider;
+export type WalletConnectProvider = EthereumProvider;
 /** Coinbase has these methods, but the types are wrong. */
 export type CoinbaseProvider = CoinbaseWalletProvider & {
   sendAsync: providers.ExternalProvider["sendAsync"];
@@ -48,14 +48,25 @@ export interface Web3ModalStrings {
   torus_desc: string;
 }
 
+/**
+ * Interface for the state when the Web3 connection is established.
+ */
 export interface ConnectedWeb3State {
+  /** Indicates if the connection is established */
   isConnected: true;
+  /** The provider used for the connection */
   provider: TypedProvider;
+  /** The address of the connected account */
   address: string;
+  /** The signer used for signing transactions */
   signer: providers.JsonRpcSigner;
+  /** The network to which the connection is established */
   network: providers.Network;
+  /** The label of the network */
   networkLabel: "polygon" | "mumbai";
+  /** Indicates if the connection is being initialized */
   initializing: false;
+  /** Indicates if the connection is from cache */
   isConnectionFromCache: boolean;
 }
 
@@ -70,7 +81,6 @@ export interface DisconnectedWeb3State {
 export interface RenderModalProps {
   torusText: string;
   walletText: string;
-  institutionalText: string;
   titles: {
     connect: string;
     loading: string;
@@ -98,7 +108,7 @@ export type WalletLabel =
 
 export type ConnectFn = (
   wallet?: WalletLabel,
-  options?: { useCache?: boolean }
+  options?: { useCache?: boolean; walletConnectProjectId?: string }
 ) => Promise<void>;
 
 /** Union of two interfaces because connect() and disconnect() logic is only available after the modal is instantiated, at runtime */

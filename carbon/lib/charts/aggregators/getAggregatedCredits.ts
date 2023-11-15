@@ -2,18 +2,24 @@ import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { CreditsFilteringProps } from "components/charts/helpers/props";
 import {
   AggregatedCredits,
+  AggregatedCreditsByBridgeAndProjectItem,
+  AggregatedCreditsByPoolAndProjectItem,
   Bridge,
   ChartData,
   CreditsQueryParams,
   DateFieldParam,
+  SortQueryParams,
   Status,
   TreeMapData,
+  TreeMapItem,
 } from "lib/charts/types";
+import moment from "moment";
 import { statusToDateFieldGt } from "../dateField";
 import { dateForQuery } from "../helpers";
 import {
   queryAggregatedCredits,
-  queryAggregatedCreditsByProjects,
+  queryAggregatedCreditsByBridgeAndProject,
+  queryAggregatedCreditsByPoolAndProject,
 } from "../queries";
 export type AggregatedCreditsChartDataItem = AggregatedCredits;
 
@@ -40,10 +46,12 @@ export function creditsQueryParamsFromProps(
 
   const dateField: DateFieldParam = statusToDateFieldGt(status);
   if (props.since == "last7d") {
-    queryParams[dateField] = dateForQuery(Date.now() - 60 * 60 * 24 * 7 * 1000);
+    queryParams[dateField] = dateForQuery(
+      moment().add(-7, "day").startOf("day").unix() * 1000
+    );
   } else if (props.since == "last30d") {
     queryParams[dateField] = dateForQuery(
-      Date.now() - 60 * 60 * 24 * 30 * 1000
+      moment().add(-1, "month").startOf("day").unix() * 1000
     );
   }
   return queryParams;
@@ -69,21 +77,45 @@ export async function getAggregatedCredits(
 }
 
 /* Fetches aggregated credits by projects and format them for a tree chart */
-export async function getAggregatedCreditsByProjects(
+export async function getAggregatedCreditsByBridgeAndProject(
   props: CreditsFilteringProps
-): Promise<TreeMapData> {
+): Promise<TreeMapData<AggregatedCreditsByBridgeAndProjectItem>> {
   const params = creditsQueryParamsFromProps(props);
 
   const finalParams = Object.assign({}, params, {
-    sort_by: "quantity",
+    sort_by: "total_quantity",
     sort_order: "desc",
-  });
-  const data = await queryAggregatedCreditsByProjects(finalParams);
-  const chartData: TreeMapData = data.items.map((item) => {
-    return {
-      name: item.project_type,
-      size: item.quantity,
-    };
-  });
+  } as SortQueryParams);
+  const data = await queryAggregatedCreditsByBridgeAndProject(finalParams);
+  const chartData: TreeMapData<AggregatedCreditsByBridgeAndProjectItem> =
+    data.items.map((item) => {
+      const newItem = {
+        ...item,
+      } as TreeMapItem<AggregatedCreditsByBridgeAndProjectItem>;
+      newItem.name = item.project_type;
+      return newItem;
+    });
+  return chartData;
+}
+
+/* Fetches aggregated credits by projects and format them for a tree chart */
+export async function getAggregatedCreditsByPoolAndProject(
+  props: CreditsFilteringProps
+): Promise<TreeMapData<AggregatedCreditsByPoolAndProjectItem>> {
+  const params = creditsQueryParamsFromProps(props);
+
+  const finalParams = Object.assign({}, params, {
+    sort_by: "total_quantity",
+    sort_order: "desc",
+  } as SortQueryParams);
+  const data = await queryAggregatedCreditsByPoolAndProject(finalParams);
+  const chartData: TreeMapData<AggregatedCreditsByPoolAndProjectItem> =
+    data.items.map((item) => {
+      const newItem = {
+        ...item,
+      } as TreeMapItem<AggregatedCreditsByPoolAndProjectItem>;
+      newItem.name = item.project_type;
+      return newItem;
+    });
   return chartData;
 }

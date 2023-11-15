@@ -1,15 +1,16 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import KPieChart from "components/charts/helpers/KPieChart";
-import {
-  AggregatedCreditsChartConfiguration,
-  AggregatedCreditsQueryConfiguration,
-  getAggregatedCredits,
-} from "lib/charts/aggregators/getAggregatedCredits";
+import { AggregatedCreditsChartConfiguration } from "lib/charts/aggregators/getAggregatedCredits";
+import { queryAggregatedCreditsByBridge } from "lib/charts/queries";
 import { palette } from "theme/palette";
 
+export type Props = {
+  sourceHref: string;
+} & CardProps;
+
 /** Verra Credits Card */
-export default function TokenizedCreditsByBridgeCard(props: CardProps) {
+export default function TokenizedCreditsByBridgeCard(props: Props) {
   const chart = (
     /* @ts-expect-error async Server component */
     <TokenizedCreditsByBridgeChart
@@ -20,7 +21,8 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Tokenized credits by bridge`}
-      detailUrl="/details/verra-credits-tokenized-by-bridge"
+      detailUrl={`${props.sourceHref}/verra-credits-tokenized-by-bridge`}
+      detailUrlPosition="top"
       chart={chart}
     />
   );
@@ -30,7 +32,6 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
 async function TokenizedCreditsByBridgeChart(props: {
   showPercentageInLegend?: boolean;
 }) {
-  const status = "bridged";
   const chartConfiguration: AggregatedCreditsChartConfiguration = [
     {
       id: "toucan",
@@ -51,31 +52,17 @@ async function TokenizedCreditsByBridgeChart(props: {
       legendOrder: 3,
     },
   ];
-  const queryConfiguration: AggregatedCreditsQueryConfiguration = [
-    {
-      query: {
-        bridge: "toucan",
-        status,
-      },
-    },
-    {
-      query: {
-        bridge: "moss",
-        status,
-      },
-    },
-    {
-      query: {
-        bridge: "c3",
-        status,
-      },
-    },
+
+  const data = await queryAggregatedCreditsByBridge();
+  const chartData = [
+    { id: "toucan", quantity: data.toucan_quantity },
+    { id: "moss", quantity: data.moss_quantity },
+    { id: "c3", quantity: data.c3_quantity },
   ];
-  const data = await getAggregatedCredits(queryConfiguration);
 
   return (
     <KPieChart
-      data={data}
+      data={chartData}
       configuration={chartConfiguration}
       showPercentageInLegend={props.showPercentageInLegend}
       YAxis="tons"

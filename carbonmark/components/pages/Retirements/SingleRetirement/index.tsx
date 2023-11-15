@@ -5,6 +5,7 @@ import {
   formatTonnes,
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
+  safeSub,
 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { Footer } from "components/Footer";
@@ -53,7 +54,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       // check if its available yet
       const result = await queryKlimaRetireByIndex(
         props.beneficiaryAddress,
-        Number(props.retirementIndex) - 1 // totals does not include index 0
+        Number(safeSub(props.retirementIndex, "1")) // totals does not include index 0
       );
       if (result) {
         return window.location.reload();

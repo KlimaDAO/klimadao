@@ -1,20 +1,20 @@
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import { Transaction } from "components/CreateListing/Transaction";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
-import { Text } from "components/Text";
-import { Transaction } from "components/Transaction";
 import {
   approveTokenSpend,
   createListingTransaction,
   getCarbonmarkAllowance,
 } from "lib/actions";
-import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
-import { isListableToken } from "lib/isListableToken";
 import { LO } from "lib/luckyOrange";
-import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Asset, Listing } from "lib/types/carbonmark.types";
+import {
+  getUnlistedBalance,
+  hasListableBalance,
+} from "lib/utils/listings.utils";
 import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
@@ -34,7 +34,7 @@ export const CreateListing: FC<Props> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
-  const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
+  const [currentAllowance, setCurrentAllowance] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
   const isPending =
@@ -43,12 +43,12 @@ export const CreateListing: FC<Props> = (props) => {
 
   const showSuccessScreen = success && !!props.successScreen;
   const showTransactionView =
-    !!inputValues && !!allowanceValue && !showSuccessScreen;
+    !!inputValues && !!currentAllowance && !showSuccessScreen;
   const showForm = !showTransactionView && !isLoading && !showSuccessScreen;
 
   const resetStateAndCloseModal = () => {
     setInputValues(null);
-    setAllowanceValue(null);
+    setCurrentAllowance(null);
     setStatus(null);
     setSuccess(false);
     props.onModalClose();
@@ -70,23 +70,13 @@ export const CreateListing: FC<Props> = (props) => {
         userAddress: address,
         network: networkLabel,
       });
-      setAllowanceValue(allowance);
+      setCurrentAllowance(allowance);
       setInputValues(values);
       setIsLoading(false);
     } catch (e) {
       console.error(e);
       setIsLoading(false);
     }
-  };
-
-  // if a listing exists, subtract the listed amount from the asset balance
-  const getListableBalance = (asset: Asset): number => {
-    if (!isListableToken(asset)) return 0;
-    const listing = props.listings.find(
-      (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
-    );
-    if (!listing) return Number(asset.amount);
-    return Number(asset.amount) - Number(listing.leftToSell);
   };
 
   /** Return the value of all other listings of this same asset, plus the new listing quantity */
@@ -96,9 +86,8 @@ export const CreateListing: FC<Props> = (props) => {
       .filter(
         (l) => l.tokenAddress.toLowerCase() === form.tokenAddress.toLowerCase()
       )
-      .reduce((a, b) => a + Number(b.leftToSell), 0);
-
-    return sumOtherListings + Number(form?.amount || "0");
+      .reduce((a, b) => safeAdd(a, b.leftToSell), "0");
+    return Number(safeAdd(sumOtherListings, form?.amount || "0"));
   };
 
   /**
@@ -107,7 +96,9 @@ export const CreateListing: FC<Props> = (props) => {
    */
   const hasApproval = () => {
     if (!Number(inputValues?.amount)) return false;
-    return Number(allowanceValue || "0") === getTotalAssetApproval(inputValues);
+    return (
+      Number(currentAllowance || "0") === getTotalAssetApproval(inputValues)
+    );
   };
 
   const handleApproval = async () => {
@@ -115,13 +106,15 @@ export const CreateListing: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
+      const newAllowanceValue = getTotalAssetApproval(inputValues).toString();
       await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: getTotalAssetApproval(inputValues).toString(),
+        value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
+      setCurrentAllowance(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
@@ -147,58 +140,12 @@ export const CreateListing: FC<Props> = (props) => {
     }
   };
 
-  const CreateApproval = () => {
-    return (
-      <div className={styles.formatParagraph}>
-        <Text t="body1" color="lighter">
-          <Trans>
-            First, approve the Carbonmark system to transfer this asset on your
-            behalf.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans>
-            You can revoke this approval at any time. The assets will only be
-            transferred out of your wallet when a sale is completed.
-          </Trans>
-        </Text>
-        {getTotalAssetApproval(inputValues) > Number(inputValues?.amount) && (
-          <Text t="body1" color="lighter">
-            <Trans>
-              The value below reflects the sum of all of your listings for this
-              specific token.
-            </Trans>
-          </Text>
-        )}
-      </div>
-    );
-  };
-
-  const CreateSubmit = () => {
-    return (
-      <div className={styles.formatParagraph}>
-        <Text t="body1" color="lighter">
-          <Trans>
-            Almost finished! The last step is to create the listing and submit
-            it to the system. Please verify the quantity and price below.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans>You can delete this listing at any time.</Trans>
-        </Text>
-      </div>
-    );
-  };
-
-  /** Filter out tokens that are not listable or don't have enough balance */
-  const hasListableBalance = (asset: Asset): boolean => {
-    return getListableBalance(asset) > DEFAULT_MIN_LISTING_QUANTITY;
-  };
-
-  const listableAssets = props.assets.filter(hasListableBalance).map((a) => ({
-    ...a,
-    amount: getListableBalance(a).toString(),
-  }));
+  const listableAssets = props.assets
+    .filter((a) => hasListableBalance(a, props.listings))
+    .map((a) => ({
+      ...a,
+      amount: getUnlistedBalance(a, props.listings).toString(),
+    }));
 
   return (
     <Modal
@@ -222,20 +169,12 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          amount={{
-            value: t`${
-              hasApproval()
-                ? Number(inputValues?.amount)
-                : getTotalAssetApproval(inputValues)
-            } tonnes`,
-          }}
+          allowance={getTotalAssetApproval(inputValues).toString()}
+          quantity={Number(inputValues?.amount || 0).toString()}
           price={{
             value: inputValues.unitPrice,
             token: "usdc",
           }}
-          approvalText={<CreateApproval />}
-          submitText={<CreateSubmit />}
-          spenderAddress={getAddress("carbonmark", networkLabel)}
           onApproval={handleApproval}
           onSubmit={onAddListing}
           onCancel={resetStateAndCloseModal}
@@ -243,7 +182,7 @@ export const CreateListing: FC<Props> = (props) => {
           onResetStatus={() => setStatus(null)}
           onGoBack={() => {
             setStatus(null);
-            setAllowanceValue(null); // this will hide the Transaction View and re-checks the allowance again
+            setCurrentAllowance(null); // this will hide the Transaction View and re-checks the allowance again
           }}
         />
       )}

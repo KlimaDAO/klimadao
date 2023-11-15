@@ -1,0 +1,41 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+@use "theme/typography.module.scss";
+
+.mobileBottomNav {
+  position: sticky;
+  bottom: 0;
+  z-index: 700;
+  display: flex;
+  width: 100%;
+  background-color: var(--darkmode-surface-02);
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  @include breakpoints.desktop {
+    display: none;
+  }
+
+  > * {
+    flex: 1;
+  }
+}
+
+.mobileBottomNavItem {
+  display: flex;
+  padding: 0.4rem;
+  height: 3.6rem;
+  justify-content: center;
+  align-items: center;
+
+  &[aria-selected="true"] {
+    background-color: var(--darkmode-surface-03);
+    color: var(--brand-green);
+  }
+
+  color: var(--darkmode-font-03);
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}

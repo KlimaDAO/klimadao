@@ -59,7 +59,7 @@ const fetchTestnetHoldings = async (params: {
       },
     };
   });
-  return holdings.map(formatHolding);
+  return holdings.map(formatHolding).filter((h) => Number(h.amount) > 0);
 };
 
 /** Network-aware fetcher for marketplace user data (listings and activities) */
@@ -71,11 +71,11 @@ export const getUserByWallet = async (params: {
   const sdk = gql_sdk(params.network);
   const expiresAfter =
     params.expiresAfter || Math.floor(Date.now() / 1000).toString();
-  const { users } = await sdk.marketplace.getUserByWallet({
+  const { listings, activities } = await sdk.marketplace.getUserByWallet({
     wallet: params.address.toLowerCase(),
     expiresAfter,
   });
-  return users.at(0);
+  return { listings, activities };
 };
 
 /** Network-aware fetcher for users holdings */

@@ -1,7 +1,7 @@
-import { formatTonnes } from "@klimadao/lib/utils/lightIndex";
+import { formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { ArrowDropDown, ArrowDropUp, InfoOutlined } from "@mui/icons-material";
-import PercentageChange from "components/PercentageChage";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import PercentageChange from "components/PercentageChange";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import {
   CoinTiles,
@@ -31,7 +31,7 @@ export default function TokensPriceCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Digital carbon pricing`}
-      detailUrl="/details/price-of-digital-carbon"
+      detailUrl="/overview/price-of-digital-carbon"
       detailUrlPosition="bottom"
       chart={chart}
       isColumnCard={true}
@@ -39,8 +39,7 @@ export default function TokensPriceCard(props: CardProps) {
   );
 }
 
-/** Async server component
- */
+/** Async server component */
 async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
   const locale = currentLocale();
   const prices7daysAgo: PricesItem = (
@@ -65,12 +64,6 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
         prices7daysAgo[`${token}_price` as Extract<keyof PricesItem, number>];
       const priceChangePercentage =
         ((tokenInfo.price - price7DaysAgo) * 100) / tokenInfo.price;
-      const priceChangeIcon =
-        priceChangePercentage > 0 ? (
-          <ArrowDropUp color={"success"}></ArrowDropUp>
-        ) : (
-          <ArrowDropDown color={"error"}></ArrowDropDown>
-        );
 
       // Selective cost
       const selectiveCostInfo =
@@ -89,17 +82,13 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
           },
           {
             label: (
-              <span className={styles.selectiveFee}>
-                <span>{t`Selective fee`}</span>
-                <span
-                  className={styles.selectiveFeeIcon}
-                  title={selectiveFeeDescription}
-                >
-                  <InfoOutlined fontSize={"inherit"} />
-                </span>
-              </span>
+              <div className={styles.selectiveFee}>
+                {t`Selective cost`}
+                <InfoOutlinedIcon fontSize={"inherit"} />
+              </div>
             ),
             value: selectiveCostInfo,
+            tooltip: selectiveFeeDescription,
           },
           {
             label: t`Last 7 days`,
@@ -107,7 +96,7 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
               <PercentageChange
                 currentValue={tokenInfo.price}
                 previousValue={price7DaysAgo}
-              ></PercentageChange>
+              />
             ),
           },
         ],

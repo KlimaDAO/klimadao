@@ -1,4 +1,4 @@
-import { getLocales } from "@klimadao/lib/utils/lightIndex";
+import { getLocales } from "@klimadao/lib/utils";
 import { i18n, Messages } from "@lingui/core";
 import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
 
@@ -25,4 +25,7 @@ export const loadTranslation = async (locale = "en"): Promise<Messages> => {
 };
 export function currentLocale(): string {
   return i18n.locale;
+}
+export function currentTranslation(): Messages {
+  return i18n.messages;
 }

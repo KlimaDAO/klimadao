@@ -1,0 +1,24 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
+.wrapper {
+  height: 100%;
+}
+.charts {
+  height: 48rem;
+  @include breakpoints.desktop {
+    display: flex;
+    height: 24rem;
+  }
+  > div {
+    width: 100%;
+    height: 24rem;
+  }
+}
+.legend {
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+  @include breakpoints.desktop {
+    justify-content: start;
+  }
+}

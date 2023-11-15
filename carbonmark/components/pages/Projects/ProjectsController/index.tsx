@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
-import { GridViewOutlined, ListOutlined } from "@mui/icons-material";
+import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
+import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { useGetProjects } from "carbonmark-api-sdk";
 import { LoginButton } from "components/LoginButton";
@@ -28,7 +29,7 @@ const ProjectsController = () => {
 
   const viewOptions = [
     {
-      content: <GridViewOutlined />,
+      content: <GridViewOutlinedIcon />,
       value: "grid",
       tooltip: "Grid view",
     },
@@ -42,7 +43,7 @@ const ProjectsController = () => {
   // If we're on desktop let the user select the list view
   if (isDesktop)
     viewOptions.splice(1, 0, {
-      content: <ListOutlined />,
+      content: <ListOutlinedIcon />,
       value: "list",
       tooltip: "List view",
     });

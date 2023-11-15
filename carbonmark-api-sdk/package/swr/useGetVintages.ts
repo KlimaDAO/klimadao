@@ -4,7 +4,7 @@ import client from "../../client";
 import type {
   GetVintagesQueryParams,
   GetVintagesQueryResponse,
-} from "../models/GetVintages";
+} from "../types/GetVintages";
 
 export function getVintagesQueryOptions<
   TData = GetVintagesQueryResponse,
@@ -22,7 +22,7 @@ export function getVintagesQueryOptions<
         params,
 
         ...options,
-      });
+      }).then((res) => res.data);
     },
   };
 }
@@ -41,11 +41,17 @@ export function useGetVintages<
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
-  const { query: queryOptions, client: clientOptions = {} } = options ?? {};
+  const {
+    query: queryOptions,
+    client: clientOptions = {},
+    shouldFetch = true,
+  } = options ?? {};
 
-  const query = useSWR<TData, TError, string>(`/vintages`, {
+  const url = shouldFetch ? `/vintages` : null;
+  const query = useSWR<TData, TError, string | null>(url, {
     ...getVintagesQueryOptions<TData, TError>(params, clientOptions),
     ...queryOptions,
   });

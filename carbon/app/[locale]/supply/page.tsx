@@ -7,31 +7,51 @@ import DailyEthCarbonSupplyCard from "components/cards/supply/DailyEthCarbonSupp
 import DailyEthRetirementsCard from "components/cards/supply/DailyEthRetirementsCard";
 import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCarbonSupplyCard";
 import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
+import { LocalizedPageProps } from "components/pages/props";
 import layout from "theme/layout.module.scss";
+import { initLayout, metaDataTitle } from "../layout";
 
-export default function SupplyPage() {
+function title() {
+  return t`Supply`;
+}
+function description() {
+  return t`Explore digital carbon supply on Polygon, Ethereum, Celo and more using the Klima Data Carbon Dashboard.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: metaDataTitle(title()),
+    description: description(),
+  };
+}
+
+export default async function SupplyPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
+
   return (
     <div>
       <>
-        <PageHeader title={t`Supply`} />
+        <PageHeader title={title()} />
       </>
       <div className={layout.cardStackedRows}>
         <div></div>
         <div className={layout.cardRow}>
-          <CarbonSupplyQuickFactsCard />
-          <CarbonSupplyByBlockChainCard />
+          <CarbonSupplyQuickFactsCard
+            className={`${layout.zIndexSeven} ${layout.card66percent}`}
+          />
+          <CarbonSupplyByBlockChainCard className={layout.zIndexSix} />
         </div>
         <div className={layout.cardRow}>
-          <DailyPolygonCarbonSupplyCard />
-          <DailyPolygonRetirementsCard />
+          <DailyPolygonCarbonSupplyCard className={layout.zIndexFive} />
+          <DailyPolygonRetirementsCard className={layout.zIndexFour} />
         </div>
         <div className={layout.cardRow}>
-          <DailyEthCarbonSupplyCard />
-          <DailyEthRetirementsCard />
+          <DailyEthCarbonSupplyCard className={layout.zIndexThree} />
+          <DailyEthRetirementsCard className={layout.zIndexTwo} />
         </div>
         <div className={layout.cardRow}>
           <div className={layout.card50percent}>
-            <DailyCeloCarbonSupplyCard />
+            <DailyCeloCarbonSupplyCard className={layout.zIndexOne} />
           </div>
         </div>
       </div>

@@ -1,11 +1,14 @@
 import { Web3ContextProvider } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
 import { i18n } from "@lingui/core";
 import { PageHead } from "components/PageHead";
 import { WithIsomorphicRouter } from "components/WithIsomorphicRouter";
 import { WithRedux } from "components/WithRedux";
 import { Home } from "components/views/Home";
-import { IS_PRODUCTION } from "lib/constants";
+import {
+  BASE_URL,
+  IS_PRODUCTION,
+  WALLETCONNECT_PROJECT_ID,
+} from "lib/constants";
 import { NextPage } from "next";
 import { ReactNode } from "react";
 import { useSelector } from "react-redux";
@@ -24,7 +27,11 @@ export async function getStaticProps() {
 /** Wrap in component so we can render as child of WithRedux and invoke useSelector */
 const LocalizedWeb3ContextProvider = (props: { children: ReactNode }) => {
   useSelector(selectLocale); // trigger re-render
-  return <Web3ContextProvider>{props.children}</Web3ContextProvider>;
+  return (
+    <Web3ContextProvider walletConnectProjectId={WALLETCONNECT_PROJECT_ID}>
+      {props.children}
+    </Web3ContextProvider>
+  );
 };
 
 const HomePage: NextPage = () => {
@@ -37,7 +44,7 @@ const HomePage: NextPage = () => {
             title="KlimaDAO | Official App"
             mediaTitle="KlimaDAO | Official App"
             metaDescription="Use the KLIMA web app to bond, stake and earn rewards."
-            mediaImageSrc={urls.mediaImage}
+            mediaImageSrc={`${BASE_URL}/og-media.png`}
           />
           <Home />
         </WithIsomorphicRouter>

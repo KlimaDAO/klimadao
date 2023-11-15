@@ -16,6 +16,7 @@ import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
+import { hasListableAssets } from "lib/utils/listings.utils";
 import { FC, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
@@ -31,12 +32,15 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const { networkLabel } = useWeb3();
+  const { address, networkLabel: network } = useWeb3();
   const {
     data: carbonmarkUser,
     isLoading,
     mutate,
-  } = useGetUsersWalletorhandle(props.userAddress, { network: networkLabel });
+  } = useGetUsersWalletorhandle(props.userAddress, {
+    network,
+    expiresAfter: address === props.userAddress ? "0" : undefined,
+  });
   const [isPending, setIsPending] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
@@ -56,7 +60,9 @@ export const SellerConnected: FC<Props> = (props) => {
   const onEditProfile = async (profileData: User) => {
     try {
       // get fresh data again
-      const userFromApi = await getUsersWalletorhandle(props.userAddress);
+      const userFromApi = await getUsersWalletorhandle(props.userAddress, {
+        network,
+      });
 
       // Merge with data from Updated Profile as backend might be slow!
       const newUser = { ...userFromApi, ...profileData };
@@ -82,7 +88,7 @@ export const SellerConnected: FC<Props> = (props) => {
         ),
         retryInterval: 2000,
         maxAttempts: 50,
-        network: networkLabel,
+        network,
       });
       await mutate(newUser, {
         optimisticData: newUser,
@@ -145,6 +151,12 @@ export const SellerConnected: FC<Props> = (props) => {
               onClick={() => {
                 setShowCreateListingModal(true);
               }}
+              disabled={
+                !hasListableAssets(
+                  carbonmarkUser.assets,
+                  carbonmarkUser.listings
+                )
+              }
             />
           ) : (
             <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">

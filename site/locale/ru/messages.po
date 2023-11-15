@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-11 15:35+0000\n"
+"POT-Creation-Date: 2023-11-14 18:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,8 +84,8 @@ msgid "Location: {0}"
 msgstr "Местоположение: {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
 msgid "Login"
 msgstr "Авторизоваться"
 
@@ -168,42 +168,42 @@ msgid "blog.disclaimer.title"
 msgstr "Отказ от ответственности"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:432
+#: components/pages/Buy/index.tsx:434
 msgid "buy.answer_exchange"
 msgstr "Продвинутые пользователи могут использовать <0>Polygon Bridge</0> для перевода любого актива из Ethereum в Polygon, и/или <1>Polygon Gas Swap</1> для обмена таких активов, как USDC на MATIC."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:389
+#: components/pages/Buy/index.tsx:391
 msgid "buy.bond_answer_cedit_card"
 msgstr "Да, некоторые провайдеры, например <0>Transak</0>, позволяют покупать KLIMA напрямую с помощью кредитной карты за определенную плату. Однако, если в вашем кошельке нет MATIC, вы не сможете осуществить перевод или другие действия. По этой причине, а также для обеспечения наилучшего рыночного курса, мы рекомендуем покупать MATIC напрямую и обменивать MATIC на KLIMA на Sushi.com."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:407
+#: components/pages/Buy/index.tsx:409
 msgid "buy.bond_answer_cex1"
 msgstr "KLIMA не торгуется на централизованных биржах, таких как Coinbase, Binance или Crypto.com, поскольку эти биржи обычно взимают очень высокие комиссии за листинг и требуют финансирования со стороны дорогих маркет-мейкеров."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:415
+#: components/pages/Buy/index.tsx:417
 msgid "buy.bond_answer_cex2"
 msgstr "Вместо этого токены KLIMA торгуются на «децентрализованной бирже» (DEX), которая работает на основе смарт-контрактов и работает непосредственно на блокчейне. У DEX есть несколько важных преимуществ. DEX позволили DAO владеть большей частью ликвидности, поэтому он может сохранять полную автономию и получать доход для выплаты вкладчикам. Мы решили использовать технологию DEX от Sushi, поскольку она уже обеспечивает транзакции на десятки миллионов долларов в день."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:370
+#: components/pages/Buy/index.tsx:372
 msgid "buy.bond_description1"
 msgstr "Опытные пользователи криптовалют могут купить KLIMA прямо из протокола через облигации. Чтобы приобрести KLIMA через облигации, вы предоставляете токен углерода или токен ликвидности и получаете взамен токены KLIMA со скидкой. Это механизм, который DAO использует для увеличения своей сокровищницы цифрового углерода."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:379
+#: components/pages/Buy/index.tsx:381
 msgid "buy.bond_description_capacity"
 msgstr "Возможности облигаций ограничены, и облигации не всегда доступны."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:400
+#: components/pages/Buy/index.tsx:402
 msgid "buy.bond_question_cex"
 msgstr "Почему я не могу найти KLIMA на Coinbase или других централизованных биржах? Почему я должен использовать <0>Sushi.com</0> ?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:384
+#: components/pages/Buy/index.tsx:386
 msgid "buy.bond_question_credit_card"
 msgstr "Могу ли я купить KLIMA напрямую с помощью кредитной карты?"
 
@@ -268,7 +268,7 @@ msgid "buy.create_wallet_item"
 msgstr "1. Создайте кошелек"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:318
+#: components/pages/Buy/index.tsx:320
 msgid "buy.faq_title"
 msgstr "Часто задаваемые вопросы"
 
@@ -319,37 +319,37 @@ msgid "buy.load_wallet_description3"
 msgstr "<0>Обязательно купите и отправьте MATIC через сеть Polygon!</0> Некоторые биржи, такие как Coinbase, спросят вас, в какую сеть отправлять токены MATIC. Обязательно всегда выбирайте Polygon."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:426
+#: components/pages/Buy/index.tsx:428
 msgid "buy.question_exchange"
 msgstr "Что делать, если я хочу использовать другую биржу, а они не продают Polygon MATIC?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:321
+#: components/pages/Buy/index.tsx:323
 msgid "buy.question_why_matic"
 msgstr "Почему я должен сначала купить MATIC?"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:326
+#: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic_answer"
 msgstr "Токен и протокол KLIMA находятся в блокчейне Polygon. MATIC - это \"газ\", который питает каждую транзакцию на Polygon. Невозможно выполнить транзакцию, не заплатив комиссию за транзакцию. Это означает, что вам придется заплатить несколько центов MATIC за следующие действия:"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:337
+#: components/pages/Buy/index.tsx:339
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr "Стейкинг KLIMA для sKLIMA"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:344
+#: components/pages/Buy/index.tsx:346
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr "Обмен между разными токенами"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:351
+#: components/pages/Buy/index.tsx:353
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr "Отправка токенов на другой кошелек"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:358
+#: components/pages/Buy/index.tsx:360
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr "Использование KLIMA или других токенов для компенсации выбросов углерода"
 
@@ -369,7 +369,7 @@ msgid "buy.staking_description2"
 msgstr "Вы также можете использовать приложение, чтобы потратить KLIMA и <0>отказаться от цифрового углерода.</0> на блокчейне."
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:309
+#: components/pages/Buy/index.tsx:311
 msgid "buy.staking_description3"
 msgstr "Наконец, следите за <0>продолжающимися голосованиями</0> и помогайте направлять протокол в правильном направлении."
 
@@ -445,7 +445,7 @@ msgid "buy.wallet_connect_example_qr_code"
 msgstr "пример кода qr для подключения кошелька"
 
 #. js-lingui-explicit-id
-#: components/pages/Buy/index.tsx:365
+#: components/pages/Buy/index.tsx:367
 msgid "buy.what_are_bonds"
 msgstr "Есть ли другие способы получить KLIMA? Что такое облигации?"
 
@@ -620,12 +620,6 @@ msgid "concat.careers"
 msgstr "Карьера"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/PledgeDashboard/index.tsx:170
-msgid "connectModal.institutional"
-msgstr "институциональный"
-
-#. js-lingui-explicit-id
 #: components/pages/Pledge/index.tsx:104
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "connectModal.torus"
@@ -638,29 +632,29 @@ msgid "connectModal.wallet"
 msgstr "подключите кошелек"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:118
-#: components/pages/Pledge/PledgeDashboard/index.tsx:176
+#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/index.tsx:172
 msgid "connect_modal.connecting"
 msgstr "Подключение..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:18
+#: lib/constants.ts:16
 msgid "connect_modal.error_message_default"
 msgstr "У нас возникли проблемы с подключением. Пожалуйста, попробуйте еще раз."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:22
+#: lib/constants.ts:20
 msgid "connect_modal.error_message_refused"
 msgstr "Пользователь отказался от подключения."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:26
+#: lib/constants.ts:24
 msgid "connect_modal.error_processing"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/PledgeDashboard/index.tsx:180
+#: components/pages/Pledge/index.tsx:118
+#: components/pages/Pledge/PledgeDashboard/index.tsx:176
 msgid "connect_modal.error_title"
 msgstr "Ошибка подключения"
 
@@ -1591,7 +1585,7 @@ msgid "pledges.form.awaiting_signature"
 msgstr "Ожидание подписи..."
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:194
+#: components/pages/Pledge/PledgeDashboard/index.tsx:190
 msgid "pledges.form.confirm_delete"
 msgstr "подтвердить удаление"
 
@@ -1606,7 +1600,7 @@ msgid "pledges.form.confirm_remove_cancel"
 msgstr "Отмена"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:209
+#: components/pages/Pledge/index.tsx:205
 msgid "pledges.form.error"
 msgstr "Введите адрес кошелька, домен .klima или .eth"
 
@@ -1781,7 +1775,7 @@ msgid "pledges.form.submit_button"
 msgstr "Сохранить залог"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/PledgeDashboard/index.tsx:190
+#: components/pages/Pledge/PledgeDashboard/index.tsx:186
 msgid "pledges.form.title"
 msgstr "Ваше обязательство"
 
@@ -1828,7 +1822,7 @@ msgid "pledges.home.hero.create"
 msgstr "Создать обязательство"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:167
+#: components/pages/Pledge/index.tsx:163
 msgid "pledges.home.hero.learn_more"
 msgstr "Подробнее"
 
@@ -1838,17 +1832,17 @@ msgid "pledges.home.hero.view"
 msgstr "Просмотреть свой залог"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:203
+#: components/pages/Pledge/index.tsx:199
 msgid "pledges.home.search.label"
 msgstr "ENS или 0x адрес"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:197
+#: components/pages/Pledge/index.tsx:193
 msgid "pledges.home.search.placeholder"
 msgstr "Введите адрес ENS, KNS или 0x"
 
 #. js-lingui-explicit-id
-#: components/pages/Pledge/index.tsx:223
+#: components/pages/Pledge/index.tsx:219
 msgid "pledges.home.search.submit"
 msgstr "Поиск"
 

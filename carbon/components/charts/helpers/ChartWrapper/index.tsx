@@ -1,4 +1,4 @@
-"use client"; // use client for recharts animations
+"use client";
 import Skeleton from "components/Skeleton";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
@@ -10,9 +10,14 @@ import NoDataWrapper, { NoDataWrapperProps } from "../NoDataWrapper";
 // the method is debounced to 200ms after which it returns to being false.
 export const useIsResizing = () => {
   const [isBeingResized, setIsBeingResized] = useState(false);
-
+  let width = 0;
+  let height = 0;
   const reset = useCallback(
     debounce(() => {
+      if (typeof window !== "undefined") {
+        width = document.documentElement.clientWidth;
+        height = document.documentElement.clientHeight;
+      }
       setIsBeingResized(false);
     }, 200),
     []
@@ -20,8 +25,14 @@ export const useIsResizing = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsBeingResized(true);
-      reset();
+      if (
+        typeof window !== "undefined" &&
+        (height != document.documentElement.clientHeight ||
+          width != document.documentElement.clientWidth)
+      ) {
+        setIsBeingResized(true);
+        reset();
+      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -31,6 +42,7 @@ export const useIsResizing = () => {
     };
   }, [setIsBeingResized]);
 
+  reset();
   return isBeingResized;
 };
 
@@ -38,11 +50,17 @@ export const useIsResizing = () => {
  * Does not display charts during resize event to avoid sluggish recharts animations
  * See: https://github.com/recharts/recharts/issues/1767
  */
-export default function ChartWrapper<T>(props: NoDataWrapperProps<T>) {
+export default function ChartWrapper<T>(
+  props: NoDataWrapperProps<T> & { className?: string }
+) {
   const isBeingResized = useIsResizing();
   const content = !isBeingResized ? (
     <NoDataWrapper {...props}>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer
+        width="100%"
+        height="100%"
+        className={props.className}
+      >
         {props.children}
       </ResponsiveContainer>
     </NoDataWrapper>
