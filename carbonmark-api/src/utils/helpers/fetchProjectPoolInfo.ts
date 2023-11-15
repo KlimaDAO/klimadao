@@ -89,7 +89,7 @@ type CarbonCredits = CarbonCredit[];
  * @returns
  */
 
-const fetchAndNormalizeICRProjectTokens = async (
+const fetchAndNormalizeICRProjectCredits = async (
   sdk: GQL_SDK,
   serialization: string
 ): Promise<CarbonCredit[]> => {
@@ -128,7 +128,7 @@ export const fetchProjectPoolInfo = async (
   let tokens: CarbonCredits = [];
 
   if (params.icrSerialization) {
-    const icrData = fetchAndNormalizeICRProjectTokens(
+    const icrData = fetchAndNormalizeICRProjectCredits(
       sdk,
       params.icrSerialization
     );

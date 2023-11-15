@@ -2,7 +2,9 @@ import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
 import { map, mapValues, toLower, trim } from "lodash/fp";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
-import { Geopoint } from "../../.generated/types/cms.types";
+import type { IcrProject } from "src/utils/ICR/icr.types";
+import { convertIcrCountryCodeToName } from "../../../src/utils/ICR/icr.utils";
+import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";
@@ -250,7 +252,8 @@ const pickBestPrice = (
 export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
-  poolPrices: Record<string, PoolPrice>
+  poolPrices: Record<string, PoolPrice>,
+  IcrListProjects: IcrProject[]
 ): Project[] => {
   const entries: Project[] = [];
   projectDataMap.forEach((data) => {
@@ -262,6 +265,53 @@ export const composeProjectEntries = (
       standard: registry,
       registryProjectId,
     } = new CreditId(data.key);
+
+    // create alternate construction function for ICR or convert to switch statement
+    if (registry === "ICR") {
+      const icrProject = IcrListProjects.find(
+        (project) => project.num === Number(registryProjectId)
+      );
+
+      if (!icrProject) {
+        throw new Error(
+          `Could not find ICR project with num ${registryProjectId}`
+        );
+      }
+
+      const IcrEntry: Project = {
+        methodologies: [
+          {
+            id: icrProject.methodology?.id,
+            name: icrProject.methodology?.title,
+            category: "Other", // @todo replace with correct category from CM mapping
+          },
+        ],
+        description: icrProject?.shortDescription ?? null,
+        short_description: icrProject.shortDescription ?? null,
+        name: icrProject.fullName ?? "",
+        location: toGeoJSON(icrProject?.geoLocation),
+        country: {
+          id: convertIcrCountryCodeToName(icrProject.countryCode) ?? "",
+        },
+        images:
+          icrProject.media?.map((img) => ({
+            url: img.uri ?? "",
+            caption: img?.description ?? "",
+          })) ?? [],
+        key: projectId,
+        registry,
+        region: icrProject.geographicalRegion?.id ?? "",
+        projectID: registryProjectId,
+        vintage: market?.vintage ?? "",
+        creditTokenAddress: icrProject.projectContracts?.[0].address ?? "",
+        updatedAt: pickUpdatedAt(data),
+        price: pickBestPrice(data, poolPrices) || "0",
+        listings: market?.listings?.map(formatListing) || null,
+      };
+
+      entries.push(IcrEntry);
+    }
+
     const carbonProject = cmsDataMap.get(projectId);
     /** If there are no prices hide this project */
     const price = pickBestPrice(data, poolPrices);
@@ -298,5 +348,6 @@ export const composeProjectEntries = (
 
     entries.push(entry);
   });
+
   return entries;
 };

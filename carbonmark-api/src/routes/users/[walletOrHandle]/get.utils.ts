@@ -20,6 +20,7 @@ const fetchTestnetHoldings = async (params: {
   address: string;
 }): Promise<Holding[]> => {
   const provider = new providers.JsonRpcProvider(RPC_URLS.polygonTestnetRpc);
+  const sdk = gql_sdk("mumbai");
   // we hardcode known testnet tokens here
   const TOKEN_INFO = [
     {
@@ -43,23 +44,55 @@ const fetchTestnetHoldings = async (params: {
       decimals: 18,
     },
   ];
+
   const balancePromises = TOKEN_INFO.map((tco2) =>
     new Contract(tco2.address, ERC20, provider).balanceOf(params.address)
   );
-  const tco2Balances: bigint[] = await Promise.all(balancePromises);
-  const holdings: Holding[] = tco2Balances.map((balance, i) => {
-    return {
-      amount: balance.toString(),
-      id: `0x_mock_holding_id_${i}`,
+
+  const fetchTco2Balances = Promise.all(balancePromises);
+  const fetchIcrHoldings = sdk.icr.getHoldingsByAddress({ id: params.address });
+
+  const [tco2Balances, IcrBalances] = await Promise.all([
+    fetchTco2Balances,
+    fetchIcrHoldings,
+  ]);
+
+  type MultipleTokenStandardType = Holding & { token: { tokenId?: string } };
+
+  const tco2Holdings: MultipleTokenStandardType[] = tco2Balances.map(
+    (balance, i) => {
+      return {
+        amount: balance.toString(),
+        id: `0x_mock_holding_id_${i}`,
+        token: {
+          decimals: 18,
+          id: TOKEN_INFO.at(i)?.address ?? "",
+          name: TOKEN_INFO.at(i)?.symbol ?? "",
+          symbol: TOKEN_INFO.at(i)?.symbol ?? "",
+        },
+      };
+    }
+  );
+
+  let icrHoldings: MultipleTokenStandardType[] = [];
+  if (IcrBalances.holder?.exPostAmounts) {
+    icrHoldings = IcrBalances.holder.exPostAmounts.map((item) => ({
+      amount: utils.parseUnits(item.amount, 18).toString(),
+      id: item.exPost.serialization,
       token: {
         decimals: 18,
-        id: TOKEN_INFO.at(i)?.address ?? "",
-        name: TOKEN_INFO.at(i)?.symbol ?? "",
-        symbol: TOKEN_INFO.at(i)?.symbol ?? "",
+        id: item.exPost.project.id,
+        name: item.exPost.project.projectName,
+        symbol: item.exPost.serialization,
+        tokenId: item.exPost.tokenId,
       },
-    };
-  });
-  return holdings.map(formatHolding).filter((h) => Number(h.amount) > 0);
+    }));
+  }
+
+  const combinedHoldings = [...tco2Holdings, ...icrHoldings];
+  return combinedHoldings
+    .map(formatHolding)
+    .filter((h) => Number(h.amount) > 0);
 };
 
 /** Network-aware fetcher for marketplace user data (listings and activities) */
@@ -90,7 +123,7 @@ export const getHoldingsByWallet = async (params: {
     });
   }
   const sdk = gql_sdk(params.network);
-  // TODO: should be `polygon-digital-carbon` instead of `assets` subgraph
+  // @todo : should be `polygon-digital-carbon` instead of `assets` subgraph
   const { accounts } = await sdk.assets.getHoldingsByWallet({
     wallet: params.address,
   });

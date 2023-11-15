@@ -1,14 +1,15 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
-
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
   GetCmsProjectQuery,
   ProjectContent,
 } from "../../.generated/types/cms.types";
+import { convertIcrCountryCodeToName } from "../ICR/icr.utils";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
+import { ICR_API } from "./../../../src/utils/ICR/ICR_API_endpoints";
 
 export type ProjectImage = {
   asset?: {
@@ -57,28 +58,25 @@ export const fetchCMSProject = async (
   sdk: FetchCarbonProjectMethod,
   args: FetchCarbonProjectArgs
 ) => {
-  // come up with better way to check registry type that satisfies typescript
+  /** @todo come up with better way to check registry type that satisfies typescript */
   if ("serialization" in args && typeof sdk === "string") {
     const url = `${sdk}/public/projects?creditSerialization=${args.serialization}`;
 
     /**
-     * @todo change polygon to correct network when verified for polygon api
+     * @todo change polygon to correct network when verified for polygon api in helper function below
      */
-    const api_key =
-      args.network === "polygon"
-        ? process.env.ICR_MUMBAI_API_KEY
-        : process.env.ICR_MUMBAI_API_KEY;
+
+    const { ICR_API_KEY } = ICR_API(args.network);
+
     try {
       const response = await fetch(url, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${api_key}`,
           "Content-Type": "application/json",
+          Authorization: `Bearer ${ICR_API_KEY}`,
         },
       });
       const apiData = await response.json();
-
-      const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
 
       // make common type to export
       const images: ProjectImage[] =
@@ -88,28 +86,27 @@ export const fetchCMSProject = async (
             caption: image.fileName,
           },
         })) || [];
-      const registryProjectId = args.serialization
-        .split("-")
-        .slice(1)
-        .join("-");
+
+      const registry = apiData.ghgProgram?.id.toUpperCase() || null;
 
       return {
+        // slice off the -<vintage> from the end of the serialization to fit existing key format
         key: args.serialization,
-        country: regionNames.of(apiData.countryCode) || null,
+        country: convertIcrCountryCodeToName(apiData.countryCode) || null,
         description: apiData.shortDescription || null,
         name: apiData.fullName || null,
         region: apiData.geographicalRegion || null,
-        registry: apiData.ghgProgram?.id.toUpperCase() || null,
+        registry: registry || null,
         url: apiData.website || null,
-        registryProjectId,
-        id: apiData.onChainId || null,
+        registryProjectId: apiData.num || null,
+        id: `${registry}-${apiData.num}` || null, // args.serialization,
         geolocation: apiData.geoLocation || null,
         methodologies:
           [
             {
               id: apiData.methodology.id,
               /**
-               * @todo replace with correct category
+               * @todo replace with correct category once added to mapping
                */
               category: "Other",
               name: apiData.methodology.title,
@@ -118,8 +115,8 @@ export const fetchCMSProject = async (
         shortDescription: apiData.shortDescription || null,
         longDescription: apiData.description || null,
         project: {
-          registry: apiData.ghgProgram?.id || null,
-          registryProjectId: apiData._id || null,
+          registry: registry || null,
+          registryProjectId: apiData.num || null,
         },
         coverImage: apiData.documents?.[0]?.uri || null,
         images,
@@ -153,6 +150,7 @@ export const fetchCMSProject = async (
  * Fetches all carbon projects and their content
  * @returns {Promise<CarbonProject[]>} An array of all fetched projects.
  */
+
 export const fetchAllCarbonProjects = async (
   sdk: GQL_SDK
 ): Promise<CarbonProject[]> => {

@@ -4,3 +4,19 @@ fragment ICRProjectFragment on Project {
   projectName
   transactionHash
 }
+
+fragment exPostAmountsFragment on ExPostHolder {
+  id
+  amount
+  updatedAt
+  retiredAmount
+  exPost {
+    tokenId
+    vintage
+    serialization
+    project {
+      id
+      projectName
+    }
+  }
+}

@@ -40,10 +40,11 @@ export const GRAPH_URLS = {
 
 /** ICR API URLS */
 /**
- * @todo update to polygon to a mainnet url when available or throw when no valid api key for that */
+ * @todo update to polygon to a mainnet url when available or throw when no valid api key for that i.e. https://api.carbonregistry.com/
+ */
 export const ICR_API_URLS = {
-  polygon: "https://gaia-api-dev.mojoflower.io/api/v0",
-  mumbai: "https://gaia-api-dev.mojoflower.io/api/v0",
+  polygon: "https://gaia-api-dev.mojoflower.io/v0",
+  mumbai: "https://gaia-api-dev.mojoflower.io/v0",
 };
 
 export const TOKEN_ADDRESSES = {

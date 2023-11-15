@@ -1650,7 +1650,9 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
-export type ProjectFragmentFragment = { __typename?: 'Project', id: any, projectAddress: any, projectName: string, transactionHash: any };
+export type IcrProjectFragmentFragment = { __typename?: 'Project', id: any, projectAddress: any, projectName: string, transactionHash: any };
+
+export type ExPostAmountsFragmentFragment = { __typename?: 'ExPostHolder', id: any, amount: string, updatedAt: string, retiredAmount: string, exPost: { __typename?: 'ExPost', tokenId: string, vintage: string, serialization: string, project: { __typename?: 'Project', id: any, projectName: string } } };
 
 export type GetExPostInfoViaSerializationQueryVariables = Exact<{
   serialization: Scalars['String'];
@@ -1659,12 +1661,36 @@ export type GetExPostInfoViaSerializationQueryVariables = Exact<{
 
 export type GetExPostInfoViaSerializationQuery = { __typename?: 'Query', exPosts: Array<{ __typename?: 'ExPost', serialization: string, supply: string, retiredAmount: string, estimatedAmount: string, cancelledAmount: string, id: any, lastVerificationTimestamp: string, tokenId: string, verificationPeriodEnd: string, verificationPeriodStart: string, vintage: string, project: { __typename?: 'Project', id: any, projectAddress: any, projectName: string, transactionHash: any } }> };
 
-export const ProjectFragmentFragmentDoc = gql`
-    fragment ProjectFragment on Project {
+export type GetHoldingsByAddressQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetHoldingsByAddressQuery = { __typename?: 'Query', holder: { __typename?: 'Holder', id: any, exPostAmounts: Array<{ __typename?: 'ExPostHolder', id: any, amount: string, updatedAt: string, retiredAmount: string, exPost: { __typename?: 'ExPost', tokenId: string, vintage: string, serialization: string, project: { __typename?: 'Project', id: any, projectName: string } } }> } | null };
+
+export const IcrProjectFragmentFragmentDoc = gql`
+    fragment ICRProjectFragment on Project {
   id
   projectAddress
   projectName
   transactionHash
+}
+    `;
+export const ExPostAmountsFragmentFragmentDoc = gql`
+    fragment exPostAmountsFragment on ExPostHolder {
+  id
+  amount
+  updatedAt
+  retiredAmount
+  exPost {
+    tokenId
+    vintage
+    serialization
+    project {
+      id
+      projectName
+    }
+  }
 }
     `;
 export const GetExPostInfoViaSerializationDocument = gql`
@@ -1678,7 +1704,7 @@ export const GetExPostInfoViaSerializationDocument = gql`
     id
     lastVerificationTimestamp
     project {
-      ...ProjectFragment
+      ...ICRProjectFragment
     }
     tokenId
     verificationPeriodEnd
@@ -1686,7 +1712,17 @@ export const GetExPostInfoViaSerializationDocument = gql`
     vintage
   }
 }
-    ${ProjectFragmentFragmentDoc}`;
+    ${IcrProjectFragmentFragmentDoc}`;
+export const GetHoldingsByAddressDocument = gql`
+    query getHoldingsByAddress($id: ID!) {
+  holder(id: $id) {
+    id
+    exPostAmounts {
+      ...exPostAmountsFragment
+    }
+  }
+}
+    ${ExPostAmountsFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -1697,6 +1733,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     getExPostInfoViaSerialization(variables: GetExPostInfoViaSerializationQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetExPostInfoViaSerializationQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetExPostInfoViaSerializationQuery>(GetExPostInfoViaSerializationDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getExPostInfoViaSerialization', 'query');
+    },
+    getHoldingsByAddress(variables: GetHoldingsByAddressQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHoldingsByAddressQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetHoldingsByAddressQuery>(GetHoldingsByAddressDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByAddress', 'query');
     }
   };
 }

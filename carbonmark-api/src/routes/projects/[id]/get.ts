@@ -30,7 +30,6 @@ const handler = (fastify: FastifyInstance) =>
     const { id } = request.params;
 
     const sdk = gql_sdk(request.query.network);
-
     const {
       vintage,
       standard: registry,
@@ -43,14 +42,16 @@ const handler = (fastify: FastifyInstance) =>
     let icrSerialization: string | undefined;
 
     switch (registry) {
-      case REGISTRIES["ICR"].id:
-        fetchCarbonProjectMethod = ICR_API(request.query.network);
+      case REGISTRIES["ICR"].id: {
+        const { ICR_API_URL } = ICR_API(request.query.network);
+        fetchCarbonProjectMethod = ICR_API_URL;
         fetchCarbonProjectArgs = {
           serialization: id,
           network: request.query.network || "polygon",
         };
         icrSerialization = id;
         break;
+      }
       default:
         fetchCarbonProjectMethod = sdk;
         fetchCarbonProjectArgs = {

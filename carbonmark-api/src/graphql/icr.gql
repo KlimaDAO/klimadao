@@ -16,3 +16,12 @@ query getExPostInfoViaSerialization($serialization: String!) {
     vintage
   }
 }
+
+query getHoldingsByAddress($id: ID!) {
+  holder(id: $id) {
+    id
+    exPostAmounts {
+      ...exPostAmountsFragment
+    }
+  }
+}

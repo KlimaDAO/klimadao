@@ -3,6 +3,7 @@ import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
 import { Project } from "../../models/Project.model";
 import { CreditId } from "../../utils/CreditId";
+import { fetchAllICRProjects } from "../../utils/ICR/icr.utils";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/cms.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
@@ -45,24 +46,33 @@ const handler = (fastify: FastifyInstance) =>
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify);
 
-    const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
-      await Promise.all([
-        sdk.marketplace.getProjects({
-          search: request.query.search ?? "",
-          category: args.category ?? allOptions.category,
-          country: args.country ?? allOptions.country,
-          vintage: args.vintage ?? allOptions.vintage,
-          expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
-        }),
-        sdk.digital_carbon.findDigitalCarbonProjects({
-          search: request.query.search ?? "",
-          category: args.category ?? allOptions.category,
-          country: args.country ?? allOptions.country,
-          vintage: (args.vintage ?? allOptions.vintage).map(Number),
-        }),
-        fetchAllCarbonProjects(sdk),
-        fetchAllPoolPrices(sdk),
-      ]);
+    const network = request.query.network ?? "polygon";
+
+    const [
+      marketplaceProjectsData,
+      poolProjectsData,
+      cmsProjects,
+      poolPrices,
+      IcrListProjects,
+    ] = await Promise.all([
+      sdk.marketplace.getProjects({
+        search: request.query.search ?? "",
+        category: args.category ?? allOptions.category,
+        country: args.country ?? allOptions.country,
+        vintage: args.vintage ?? allOptions.vintage,
+        expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
+      }),
+      sdk.digital_carbon.findDigitalCarbonProjects({
+        search: request.query.search ?? "",
+        category: args.category ?? allOptions.category,
+        country: args.country ?? allOptions.country,
+        vintage: (args.vintage ?? allOptions.vintage).map(Number),
+      }),
+      fetchAllCarbonProjects(sdk),
+      fetchAllPoolPrices(sdk),
+      fetchAllICRProjects(network),
+    ]);
+
     const CMSDataMap: CMSDataMap = new Map();
     const ProjectMap: ProjectDataMap = new Map();
 
@@ -70,6 +80,52 @@ const handler = (fastify: FastifyInstance) =>
       if (!CreditId.isValidProjectId(project.id)) return;
       const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
       CMSDataMap.set(`${standard}-${registryProjectId}`, project);
+    });
+
+    // @todo can add later in compose Project Entries if marketplaceProjectData isn't necessary
+    // @todo marketplace Data only for listed projects/pool/projects where are subgraph mappings?
+
+    IcrListProjects.forEach((project) => {
+      const splitArray = project.carbonCredits[0].serialization.split("-");
+
+      const id = [splitArray[0], splitArray[3]].join("-");
+
+      // @todo create entries for each credit/vintage below?
+      if (!CreditId.isValidProjectId(id)) return;
+
+      const [standard, registryProjectId] = CreditId.splitProjectId(id); // type guard and capitalize
+
+      // create project map entries for each vintage @todo temp for testing. Otherwise only one vintage
+
+      for (const credit of project.carbonCredits) {
+        const serialization = credit.serialization;
+        const { creditId: key } = new CreditId({
+          standard,
+          registryProjectId,
+          vintage: credit.vintage,
+        });
+
+        ProjectMap.set(key, {
+          marketplaceProjectData: {
+            __typename: "Project",
+            id: serialization,
+            key: "",
+            vintage: credit.vintage,
+            name: "",
+            methodology: "",
+            listings: [],
+            category: {
+              __typename: "Category",
+              id: "",
+            },
+            country: {
+              __typename: "Country",
+              id: "",
+            },
+          },
+          key: key,
+        });
+      }
     });
 
     /** Assign valid pool projects to map */
@@ -124,7 +180,13 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     /** Compose all the data together to unique entries (unsorted) */
-    const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
+    const entries = composeProjectEntries(
+      ProjectMap,
+      CMSDataMap,
+      poolPrices,
+      IcrListProjects
+    );
+
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
     // Send the transformed projects array as a JSON string in the response
     return reply
