@@ -163,10 +163,13 @@ export type ProjectInfo = {
 };
 
 export type AssetForRetirement = {
+  id: string;
+  amount: string;
   tokenName: string;
   balance: string;
   tokenSymbol: string; // 1: C3T, 2: TCO2
   project: PcbProject;
+  token: Asset["token"];
 };
 
 export type Methodology = {

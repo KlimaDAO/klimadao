@@ -14,12 +14,12 @@ const ENVIRONMENT: "production" | "preview" | "development" = IS_PRODUCTION
 const config = {
   urls: {
     baseUrl: {
-      production: "https://carbon.klimadao.finance",
+      production: "https://data-api.klimadao.finance",
       preview: "https://" + process.env.NEXT_PUBLIC_VERCEL_URL, // note: won't take custom subdomains like staging.carbonmark.com, takes the vercel generated url instead
       development: "http://localhost:3003",
     },
     api: {
-      production: "https://carbon.klimadao.finance/api/v1",
+      production: "https://data-api.klimadao.finance/api/v1",
       preview:
         "https://staging-carbon-dashboard-9yimq.ondigitalocean.app/api/v1",
       //Allow the developer to set the carbonmark api url to point to their local instance if necessary

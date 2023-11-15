@@ -24,9 +24,17 @@ export type PoolInfo = {
   poolAddress: string;
   lpAddress: string;
   poolName: string;
-  feeAdd: boolean;
-  fee: number;
+  poolFeeRatio: number;
+  assetSwapFeeRatio: number;
+  retirementServiceFeeRatio: number;
 };
+
+function c3PoolFee(fee: number) {
+  return fee;
+}
+function toucanPoolFee(fee: number) {
+  return 1 / (1 - fee) - 1;
+}
 
 /** Single Source of Truth for all pool info. Everything should derive from this.
  */
@@ -36,31 +44,35 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     poolAddress: POOL_ADDRESSES["nbo"],
     lpAddress: LP_ADDRESSES["nbo"],
     poolName: "nbo",
-    feeAdd: true, // C3 contracts: input the desired tonnage to redeem -> approve and spend that cost PLUS fee
-    fee: 0.0225,
+    poolFeeRatio: c3PoolFee(0.025),
+    assetSwapFeeRatio: 0.003,
+    retirementServiceFeeRatio: 0.01,
   },
   ubo: {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["ubo"],
     poolAddress: POOL_ADDRESSES["ubo"],
     lpAddress: LP_ADDRESSES["ubo"],
     poolName: "ubo",
-    feeAdd: true, // C3 contracts: input the desired tonnage to redeem -> approve and spend that cost PLUS fee
-    fee: 0.0225,
+    poolFeeRatio: c3PoolFee(0.025),
+    assetSwapFeeRatio: 0.003,
+    retirementServiceFeeRatio: 0.01,
   },
   bct: {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["bct"],
     poolAddress: POOL_ADDRESSES["bct"],
     lpAddress: LP_ADDRESSES["bct"],
     poolName: "bct",
-    feeAdd: false,
-    fee: 0.25,
+    poolFeeRatio: toucanPoolFee(0.25),
+    assetSwapFeeRatio: 0.006,
+    retirementServiceFeeRatio: 0.01,
   },
   nct: {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["nct"],
     poolAddress: POOL_ADDRESSES["nct"],
     lpAddress: LP_ADDRESSES["nct"],
     poolName: "nct",
-    feeAdd: false, // Toucan contracts: fee is subtracted from whatever value you input
-    fee: 0.1,
+    poolFeeRatio: toucanPoolFee(0.1),
+    assetSwapFeeRatio: 0.003,
+    retirementServiceFeeRatio: 0.01,
   },
 };

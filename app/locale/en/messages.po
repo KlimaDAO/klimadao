@@ -45,8 +45,8 @@ msgstr "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update yo
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:29
-msgid "Investment Risk Disclaimer"
-msgstr "Investment Risk Disclaimer"
+msgid "Risk Disclaimer"
+msgstr "Risk Disclaimer"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:32

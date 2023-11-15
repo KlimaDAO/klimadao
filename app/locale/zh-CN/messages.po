@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-14 18:37+0000\n"
+"POT-Creation-Date: 2023-11-15 19:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,11 +84,6 @@ msgstr "您想要多少吨碳？"
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
 msgstr "余额不足"
-
-#. js-lingui-explicit-id
-#: components/DisclaimerModal/index.tsx:29
-msgid "Investment Risk Disclaimer"
-msgstr "投资风险免责声明"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:47
@@ -197,6 +192,11 @@ msgstr "购买加密货币，包括$KLIMA代币，涉及高度风险，应被视
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
 msgstr "监管行动和变化：加密货币的监管环境在不断发展，监管政策的变化可能对您的投资产生不利影响。"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:29
+msgid "Risk Disclaimer"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Redeem/index.tsx:388

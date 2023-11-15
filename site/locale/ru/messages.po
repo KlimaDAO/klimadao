@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-14 18:37+0000\n"
+"POT-Creation-Date: 2023-11-15 19:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,8 +61,8 @@ msgstr "Каждое выбивание углерода KlimaDAO привяза
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr "Узнайте больше о MCO2 на сайте carbon.klimadao.finance"
+msgid "Explore MCO2 on data.klimadao.finance"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Infinity/index.tsx:530

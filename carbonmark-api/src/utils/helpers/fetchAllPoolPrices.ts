@@ -7,13 +7,23 @@ import { GQL_SDK } from "../gqlSdk";
 export type PoolPrice = {
   poolName: string; // 0x address of the liquidity pool
   defaultPrice: string; // formatted number string e.g. "1.23456" for USDC price of 1 token
-  selectiveRedeemPrice: string; // formatted number string e.g. "1.23456" for USDC price of 1 token inc. fee calculation
+  selectiveRedeemPrice: string; // formatted number string e.g. "1.23456" for USDC price of 1 token inc. redeeming fee calculation
+  selectiveRetirePrice: string; // formatted number string e.g. "1.23456" for USDC price of 1 token inc. retirement fee calculation
 };
 
-const calculateSelectivePrice = (defaultPrice: number, poolName: string) => {
-  const { feeAdd, fee } = POOL_INFO[poolName];
+const calculateSelectivePrice = (
+  defaultPrice: number,
+  poolName: string,
+  withAggregatorFee: boolean
+) => {
+  const { poolFeeRatio, assetSwapFeeRatio, retirementServiceFeeRatio } =
+    POOL_INFO[poolName];
   const priceNum = defaultPrice;
-  const feeAmount = feeAdd ? priceNum * fee : (1 / (1 - fee) - 1) * priceNum;
+  const feePercentage =
+    poolFeeRatio +
+    assetSwapFeeRatio +
+    (withAggregatorFee ? retirementServiceFeeRatio : 0);
+  const feeAmount = priceNum * feePercentage;
   const priceWithFee = priceNum + feeAmount;
   return priceWithFee.toFixed(6);
 };
@@ -37,7 +47,13 @@ export const fetchAllPoolPrices = async (sdk: GQL_SDK) => {
         defaultPrice: Number(defaultPrice).toFixed(6),
         selectiveRedeemPrice: calculateSelectivePrice(
           Number(defaultPrice),
-          poolName
+          poolName,
+          false
+        ),
+        selectiveRetirePrice: calculateSelectivePrice(
+          Number(defaultPrice),
+          poolName,
+          true
         ),
       };
       return prev;

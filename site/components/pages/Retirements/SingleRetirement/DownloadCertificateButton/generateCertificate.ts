@@ -257,7 +257,7 @@ export const generateCertificate = (params: Params): void => {
     doc.setFont("Poppins", "Bold");
     doc.setTextColor(SECONDARY_FONT_COLOR);
     doc.textWithLink(linkText, spacing.margin, spacing.projectDetails + 11, {
-      url: `${urls.carbonDashboard}/MCO2`,
+      url: `${urls.carbonDashboard}/token-details?tab=moss`,
     });
     doc.setTextColor(PRIMARY_FONT_COLOR);
     doc.text(

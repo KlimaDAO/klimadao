@@ -45,7 +45,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:29
-msgid "Investment Risk Disclaimer"
+msgid "Risk Disclaimer"
 msgstr ""
 
 #. js-lingui-explicit-id
