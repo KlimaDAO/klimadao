@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
+msgid "Available: {unlistedBalance}"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -587,23 +592,23 @@ msgid "Terms of use"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:73
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Unlisted tonnes:"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:77
+#: components/pages/Portfolio/AssetProject/index.tsx:78
 msgid "Listed tonnes:"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:84
+#: components/pages/Portfolio/AssetProject/index.tsx:85
 msgid "Retire"
 msgstr "<<<<<<< HEAD"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:94
-#: components/pages/Portfolio/AssetProject/index.tsx:102
+#: components/pages/Portfolio/AssetProject/index.tsx:98
+#: components/pages/Portfolio/AssetProject/index.tsx:106
 msgid "Sell"
 msgstr ""
 
@@ -643,13 +648,13 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Portfolio/Retire/index.tsx:111
+#: components/pages/Portfolio/Retire/index.tsx:112
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:117
-#: components/pages/Portfolio/Retire/index.tsx:116
+#: components/pages/Portfolio/Retire/index.tsx:117
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr ""
 
@@ -673,22 +678,22 @@ msgid "View a complete overview of the digital carbon that you own in your Retir
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:196
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:208
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:210
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:216
 msgid "<0>* </0> Required Field"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:290
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Beneficiary wallet address (optional)"
 msgstr ""
@@ -2148,12 +2153,7 @@ msgid "purchase.input.amount.required"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:228
-msgid "offset.amount_in_tonnes_2"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
 msgid "retire.back_button"
 msgstr ""
 
@@ -2168,7 +2168,7 @@ msgid "portfolio.balances.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:351
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:355
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -2178,7 +2178,7 @@ msgid "retirement.single.beneficiary_address.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:273
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:277
 msgid "offset.retirement_beneficiary_name"
 msgstr ""
 
@@ -2268,7 +2268,7 @@ msgid "purchase.transaction.modal.title.confirm"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:398
 msgid "offset.retire_carbon"
 msgstr ""
 
@@ -2313,7 +2313,7 @@ msgid "profile.addListing_modal.submit"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:310
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:314
 msgid "offset.default_retirement_address"
 msgstr ""
 
@@ -2343,7 +2343,7 @@ msgid "profile.edit_your_profile"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:243
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
 msgid "offset.offset_quantity"
 msgstr ""
 
@@ -2359,7 +2359,7 @@ msgid "transaction_modal.button.go_back"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:218
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:224
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
@@ -2509,7 +2509,7 @@ msgid "menu.retire"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:363
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:367
 msgid "retire.submit_button"
 msgstr ""
 
@@ -2519,12 +2519,12 @@ msgid "retirement.totals.retired_assets"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
 msgid "offset.retirement_message"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:330
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:334
 msgid "offset.retirement_retirement_message"
 msgstr ""
 
@@ -2798,7 +2798,7 @@ msgid "connect_modal.error_message_default"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:261
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:265
 msgid "offset.retirement_credit"
 msgstr ""
 
