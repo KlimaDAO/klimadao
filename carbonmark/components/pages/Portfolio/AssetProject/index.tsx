@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -82,9 +83,12 @@ export const AssetProject: FC<Props> = (props) => {
       <div className={styles.buttons}>
         <ButtonPrimary
           label={<Trans>Retire</Trans>}
-          disabled={unlistedBalance <= 0}
           href={`/portfolio/${props.asset.token.id}/retire`}
-          renderLink={(linkProps) => <Link {...linkProps} />}
+          renderLink={(linkProps) => (
+            <div className={cx({ [styles.disabled]: unlistedBalance <= 0 })}>
+              <Link {...linkProps} />
+            </div>
+          )}
           onClick={() => {
             LO.track("Retire: Retire Button Clicked");
           }}

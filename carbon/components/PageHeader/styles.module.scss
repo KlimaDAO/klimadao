@@ -60,19 +60,3 @@
     gap: 1.2rem;
   }
 }
-
-.exploreButton {
-  white-space: nowrap;
-  font-size: 1.4rem;
-  padding: 0 2.4rem;
-  height: 4.8rem;
-  color: var(--brand-black);
-  background-color: var(--brand-green);
-  border-radius: 4rem;
-  font-family: Poppins;
-  font-weight: 600;
-
-  &:hover {
-    background-color: var(--brand-green);
-  }
-}

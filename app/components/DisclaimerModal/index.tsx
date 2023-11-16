@@ -26,7 +26,7 @@ export const DisclamerModal: FC = () => {
   }
 
   return (
-    <Modal title={t`Investment Risk Disclaimer`} className={styles.modal}>
+    <Modal title={t`Risk Disclaimer`} className={styles.modal}>
       <div className={styles.content}>
         <Text t="body2">
           <Trans>

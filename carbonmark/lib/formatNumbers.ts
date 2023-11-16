@@ -40,3 +40,9 @@ export const formatList = (
 ) => {
   return new Intl.ListFormat(locale, { style }).format(value);
 };
+
+export const formatToDecimals = (value: number, minimumFractionDigits = 1) => {
+  return new Intl.NumberFormat(navigator.language, {
+    minimumFractionDigits,
+  }).format(value);
+};
