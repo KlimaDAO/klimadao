@@ -103,6 +103,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
           )}
           {isCarbonmarkUser && retirementAsset && (
             <RetireForm
+              user={carbonmarkUser}
               address={address}
               asset={retirementAsset}
               provider={provider}

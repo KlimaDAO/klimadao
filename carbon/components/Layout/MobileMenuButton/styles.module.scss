@@ -1,16 +1,32 @@
 .wrapper {
   padding-top: 6.4rem;
   height: 100vh;
+  height: 100dvh;
   display: flex;
+  flex-direction: column;
   pointer-events: all;
 }
+
+.exploreMarketplaceButton {
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--brand-white);
+  padding: 0 1.6rem;
+  padding-top: 4rem;
+  padding-bottom: 7.2rem;
+}
+
 .links {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  padding: 1.2rem 2.4rem;
-  background-color: var(--brand-white);
 }
 
 .button {
