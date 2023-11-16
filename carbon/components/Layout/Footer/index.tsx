@@ -14,16 +14,20 @@ export const Footer: FC = () => {
     <div className={styles.footer}>
       <div className={styles.footerNavLinks}>
         <Link href={urls.app} className={layout.mobileOnly}>
+          KlimaDAO
+        </Link>
+        <Link href={urls.app} className={layout.mobileOnly}>
           App
+        </Link>
+        <Link href={urls.carbonmark}>Carbonmark</Link>
+        <Link href={urls.app} className={layout.desktopOnly}>
+          KlimaDAO
         </Link>
         <Link href={urls.officialDocs} className={layout.mobileOnly}>
           Docs
         </Link>
         <Link href={urls.app} className={layout.desktopOnly}>
           Klima App
-        </Link>
-        <Link href={urls.carbonmark} className={layout.desktopOnly}>
-          Carbonmark
         </Link>
         <Link href={urls.officialDocs} className={layout.desktopOnly}>
           Official Docs
