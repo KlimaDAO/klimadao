@@ -3,6 +3,7 @@ import nock from "nock";
 import { GRAPH_URLS, SANITY_URLS } from "../../../../src/app.constants";
 import carbonProjects from "../../../fixtures/carbonProjects";
 import digitalCarbon from "../../../fixtures/digitalCarbon";
+import fixtures from "../../../fixtures/marketplace";
 import tokens from "../../../fixtures/tokens";
 import { build } from "../../../helper";
 import { DEV_URL } from "../../../test.constants";
@@ -44,7 +45,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: [],
+          activities: fixtures.activities,
         },
       });
     const response = await fastify.inject({
@@ -87,7 +88,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: [],
+          activities: fixtures.activities,
         },
       });
     const response = await fastify.inject({
@@ -129,7 +130,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: [],
+          activities: fixtures.activities,
         },
       });
     const response = await fastify.inject({
