@@ -1,7 +1,7 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
-import { ActivityType } from "src/.generated/types/marketplace.types";
+import { ActivityType } from "../../.generated/types/marketplace.types";
 import { Activity } from "../../models/Activity.model";
 import { Listing } from "../../models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
@@ -9,7 +9,6 @@ import { CreditId } from "../CreditId";
 import { GQL_SDK } from "../gqlSdk";
 import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
-import { getAllActivityTypes } from "./utils";
 
 type ListingsParams = {
   key: string; // Project key `"VCS-981"`
@@ -139,9 +138,9 @@ export const fetchMarketplaceListings = async (
   const filteredListings = project?.listings?.filter(isActiveListing) || [];
 
   const activitiesWithProfiles = await fetchProjectActivities(sdk, {
-    projectId: [projectId],
-    activityType: getAllActivityTypes().filter((t) => t != "Sold"),
     fastify,
+    projectId: [projectId],
+    activityType: Object.values(ActivityType).filter((t) => t != "Sold"),
   });
 
   const listingsWithProfiles = await formatListings(filteredListings, fastify);

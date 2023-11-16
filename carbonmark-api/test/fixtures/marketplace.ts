@@ -74,6 +74,7 @@ const activities: GetActivitiesByProjectIdQuery["activities"] = [
     seller: { id: "0x488bb718a2556970081e9cd6a8f17af2dffaa" },
   },
 ];
+
 /** Fixtures for the marketplace subgraph */
 const fixtures = {
   projectWithListing,
