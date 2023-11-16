@@ -124,7 +124,7 @@ msgstr "By pool"
 msgid "By token"
 msgstr "By token"
 
-#: app/[locale]/token-details/page.tsx:78
+#: app/[locale]/token-details/page.tsx:94
 msgid "C3"
 msgstr "C3"
 
@@ -861,7 +861,7 @@ msgstr "Total tonnes redeemed"
 msgid "Total tonnes retired"
 msgstr "Total tonnes retired"
 
-#: app/[locale]/token-details/page.tsx:94
+#: app/[locale]/token-details/page.tsx:78
 msgid "Toucan"
 msgstr "Toucan"
 
