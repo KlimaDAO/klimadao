@@ -5,57 +5,10 @@ import { parseUnits } from "ethers-v6";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { LIVE_OFFSET_WALLET_MNEMONIC } from "lib/shared/secrets";
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
+import { fetchGasPrices } from "utils/polygon.utils";
 import IERC20 from "../../../../lib/abi/IERC20.json";
 import KlimaRetirementAggregatorV2 from "../../../../lib/abi/KlimaRetirementAggregatorV2.json";
 const LIVE_WALLET_ADDRESS = "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac";
-
-interface Fees {
-  maxPriorityFee: number;
-  maxFee: number;
-}
-
-interface GasStationResponse {
-  safeLow: Fees;
-  standard: Fees;
-  fast: Fees;
-  estimatedBaseFee: number;
-  blockTime: number;
-  blockNumber: number;
-}
-
-interface GasOptions {
-  maxFeePerGas: bigint;
-  maxPriorityFeePerGas: bigint;
-}
-
-/** Invoke this immediately before dispatching a txn */
-export const fetchGasPrices = async (): Promise<GasOptions> => {
-  try {
-    const res = await fetch("https://gasstation.polygon.technology/v2", {
-      headers: {
-        "Cache-Control": "max-age=1800 s-maxage=1800",
-      },
-    });
-    const json: GasStationResponse = await res.json();
-    // json.fast.maxFee gives us the block.baseFee + maxPriorityFee
-    // but if the block fee increases during high traffic, we are underpriced
-    // multiply maxFee by 3 to support a theoretical minimum of 10 blocks (+12.5% each block)
-    const maxFeePerGas = Math.floor(json.fast.maxFee * 3).toString();
-    const maxPriorityFeePerGas = Math.floor(
-      json.fast.maxPriorityFee * 1.1
-    ).toString();
-    return {
-      maxFeePerGas: parseUnits(maxFeePerGas, "gwei"),
-      maxPriorityFeePerGas: parseUnits(maxPriorityFeePerGas, "gwei"),
-    };
-  } catch (e) {
-    console.error(e);
-    return {
-      maxFeePerGas: parseUnits("300", "gwei"),
-      maxPriorityFeePerGas: parseUnits("80", "gwei"),
-    };
-  }
-};
 
 /** @temp hardcoded until we can populate with other options  */
 const projectTokenAddress = "0x05e917686251e427034251087602da609e57f693";
