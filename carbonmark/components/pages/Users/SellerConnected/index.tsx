@@ -230,7 +230,6 @@ export const SellerConnected: FC<Props> = (props) => {
           isCarbonmarkUser={isCarbonmarkUser}
         />
       </Modal>
-
       {!!carbonmarkUser?.assets?.length && (
         <CreateListing
           onModalClose={() => setShowCreateListingModal(false)}
