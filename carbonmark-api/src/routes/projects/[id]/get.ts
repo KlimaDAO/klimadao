@@ -27,26 +27,25 @@ const handler = (fastify: FastifyInstance) =>
       registryProjectId,
       projectId: key,
     } = new CreditId(id);
-    let poolPrices, stats, listings, activities, projectDetails;
+    let poolPrices, stats, listings, projectDetails;
     try {
-      [[poolPrices, stats], [listings, activities], projectDetails] =
-        await Promise.all([
-          fetchPoolPricesAndStats(sdk, {
-            key,
-            vintage,
-            network: request.query.network || "polygon",
-          }),
-          fetchMarketplaceListings(sdk, {
-            key,
-            vintage,
-            fastify,
-            expiresAfter: request.query.expiresAfter,
-          }),
-          fetchCarbonProject(sdk, {
-            registry,
-            registryProjectId,
-          }),
-        ]);
+      [[poolPrices, stats], [listings], projectDetails] = await Promise.all([
+        fetchPoolPricesAndStats(sdk, {
+          key,
+          vintage,
+          network: request.query.network || "polygon",
+        }),
+        fetchMarketplaceListings(sdk, {
+          key,
+          vintage,
+          fastify,
+          expiresAfter: request.query.expiresAfter,
+        }),
+        fetchCarbonProject(sdk, {
+          registry,
+          registryProjectId,
+        }),
+      ]);
     } catch (error) {
       console.error(error);
       throw error;
@@ -87,7 +86,6 @@ const handler = (fastify: FastifyInstance) =>
           caption: image?.asset?.altText,
           url: image?.asset?.url,
         })) ?? [],
-      activities,
       listings,
       vintage,
       stats,

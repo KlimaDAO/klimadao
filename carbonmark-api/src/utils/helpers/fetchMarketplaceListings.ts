@@ -129,7 +129,7 @@ const formatListings = async (
 export const fetchMarketplaceListings = async (
   sdk: GQL_SDK,
   { key, vintage, expiresAfter, fastify }: ListingsParams
-): Promise<[Listing[], Activity[]]> => {
+): Promise<[Listing[]]> => {
   const projectId = key + "-" + vintage;
   const { project } = await sdk.marketplace.getProjectById({
     projectId,
@@ -137,15 +137,9 @@ export const fetchMarketplaceListings = async (
   });
   const filteredListings = project?.listings?.filter(isActiveListing) || [];
 
-  const activitiesWithProfiles = await fetchProjectActivities(sdk, {
-    fastify,
-    projectId: [projectId],
-    activityType: Object.values(ActivityType).filter((t) => t != "Sold"),
-  });
-
   const listingsWithProfiles = await formatListings(filteredListings, fastify);
 
-  return [listingsWithProfiles, activitiesWithProfiles];
+  return [listingsWithProfiles];
 };
 
 /**
