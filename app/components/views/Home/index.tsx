@@ -41,9 +41,7 @@ export const Home: FC = () => {
   const localeFromURL = useLocaleFromParams();
 
   const { pathname } = useLocation();
-  const [showCheckURLBanner, setShowCheckURLBanner] = useState(
-    !skipCheckURLBanner()
-  );
+  const [showCheckURLBanner, setShowCheckURLBanner] = useState(false);
 
   const { locale } = useSelector(selectAppState);
 
@@ -65,6 +63,10 @@ export const Home: FC = () => {
       });
     }
   }, [localeFromURL]);
+
+  useEffect(() => {
+    setShowCheckURLBanner(!skipCheckURLBanner());
+  }, []);
 
   useEffect(() => {
     if (pathname === "/") {
