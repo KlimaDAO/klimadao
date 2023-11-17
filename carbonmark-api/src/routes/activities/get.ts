@@ -5,7 +5,7 @@ import { schema } from "./get.schema";
 import { getActivities } from "./get.utils";
 
 /**
- * This handler fetches activities for a carbon project
+ * This handler fetches activities accross carbon projects
  *
  * @returns
  */
@@ -16,7 +16,6 @@ const handler = (fastify: FastifyInstance) =>
     }>,
     reply: FastifyReply
   ): Promise<Activity[]> {
-    request.query;
     return getActivities(fastify, reply, request.query, request.query.network);
   };
 

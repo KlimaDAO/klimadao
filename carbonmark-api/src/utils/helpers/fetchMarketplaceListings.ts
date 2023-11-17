@@ -49,8 +49,7 @@ const formatActivities = async (
   activities: Activity[],
   fastify: FastifyInstance
 ): Promise<Activity[]> => {
-  const filteredActivities = activities?.filter(filterUnsoldActivity) || [];
-  const formattedActivities = filteredActivities.map((activity) => ({
+  const formattedActivities = activities.map((activity) => ({
     ...activity,
     price: activity.price ? utils.formatUnits(activity.price, 6) : null,
     previousPrice: activity.previousPrice

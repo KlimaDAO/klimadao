@@ -145,10 +145,6 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   return result;
 }
 
-export function getAllActivityTypes() {
-  return Object.values(ActivityType);
-}
-
 export type PriceType = Pick<Listing, "leftToSell" | "tokenAddress"> &
   Partial<Pick<Listing, "singleUnitPrice">> & {
     name: string;
