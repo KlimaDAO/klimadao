@@ -5,6 +5,7 @@ import { ActivityType } from "src/.generated/types/marketplace.types";
 import { Activity } from "../../models/Activity.model";
 import { Listing } from "../../models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
+import { CreditId } from "../CreditId";
 import { GQL_SDK } from "../gqlSdk";
 import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
@@ -18,8 +19,7 @@ type ListingsParams = {
 };
 
 type ActivitiesParams = {
-  key: string; // Project key `"VCS-981"`
-  vintage: string; // Vintage string `"2017"`
+  projectId: string[]; // Project Id `"VCS-981-2017"`
   activityType: ActivityType[]; // Activity type
   fastify: FastifyInstance; // Fastify instance
 };
@@ -156,14 +156,30 @@ export const fetchMarketplaceListings = async (
  */
 export const fetchProjectActivities = async (
   sdk: GQL_SDK,
-  { key, vintage, activityType, fastify }: ActivitiesParams
+  { projectId, activityType, fastify }: ActivitiesParams
 ): Promise<Activity[]> => {
-  const activities = (
-    await sdk.marketplace.getActivitiesByProjectId({
-      projectId: key + "-" + vintage,
+  let data;
+  // FIXME: Is it possible to do that with the same gql query template?
+  // I suppose we could generate the gql programmatically but I think we do not want to bypass the templating system
+  if (projectId.length) {
+    // Activities for a set of projects
+    const formattedProjectId = projectId.map((projectId) => {
+      const { vintage, projectId: key } = new CreditId(projectId);
+      return key + "-" + vintage;
+    });
+    data = await sdk.marketplace.getActivitiesByProjectId({
+      projectId: formattedProjectId,
       activityType,
-    })
-  ).activities;
-  const activitiesWithProfiles = await formatActivities(activities, fastify);
+    });
+  } else {
+    // Activities accross all projects
+    data = await sdk.marketplace.getActivitiesAccrossAllProjects({
+      activityType,
+    });
+  }
+  const activitiesWithProfiles = await formatActivities(
+    data.activities,
+    fastify
+  );
   return activitiesWithProfiles;
 };
