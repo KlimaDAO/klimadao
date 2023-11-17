@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-16 15:36+0000\n"
+"POT-Creation-Date: 2023-11-16 18:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "By token"
 msgstr ""
 
-#: app/[locale]/token-details/page.tsx:78
+#: app/[locale]/token-details/page.tsx:94
 msgid "C3"
 msgstr ""
 
@@ -842,7 +842,7 @@ msgstr ""
 msgid "Total tonnes retired"
 msgstr ""
 
-#: app/[locale]/token-details/page.tsx:94
+#: app/[locale]/token-details/page.tsx:78
 msgid "Toucan"
 msgstr ""
 

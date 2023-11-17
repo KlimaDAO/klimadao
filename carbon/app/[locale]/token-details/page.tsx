@@ -74,22 +74,6 @@ export default async function TokenDetailsPage(props: LocalizedPageProps) {
       title={title()}
       tabs={[
         {
-          key: "c3",
-          label: t`C3`,
-          optionsList: [
-            getC3PoolsOptions(),
-            getDateFilteringOptions(),
-            getPoolStatusOptions(),
-          ],
-          contents: c3Contents,
-        },
-        {
-          key: "moss",
-          label: t`Moss`,
-          optionsList: [getDateFilteringOptions()],
-          contents: mossContents,
-        },
-        {
           key: "toucan",
           label: t`Toucan`,
           optionsList: [
@@ -98,6 +82,22 @@ export default async function TokenDetailsPage(props: LocalizedPageProps) {
             getPoolStatusOptions(),
           ],
           contents: toucanContents,
+        },
+        {
+          key: "moss",
+          label: t`Moss`,
+          optionsList: [getDateFilteringOptions()],
+          contents: mossContents,
+        },
+        {
+          key: "c3",
+          label: t`C3`,
+          optionsList: [
+            getC3PoolsOptions(),
+            getDateFilteringOptions(),
+            getPoolStatusOptions(),
+          ],
+          contents: c3Contents,
         },
       ]}
     />
