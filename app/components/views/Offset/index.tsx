@@ -15,7 +15,7 @@ export const Offset = (props: Props) => {
   return (
     <>
       <div className={styles.columnRight}>
-        <CarbonTonnesRetiredCard />
+        <CarbonTonnesRetiredCard isConnected={props.isConnected} />
         <CarbonBalancesCard isConnected={props.isConnected} />
       </div>
 
