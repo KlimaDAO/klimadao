@@ -48,7 +48,6 @@ export const Home: FC = () => {
   const {
     address,
     isConnected,
-    initializing,
     disconnect,
     toggleModal,
     network,
@@ -234,28 +233,11 @@ export const Home: FC = () => {
             />
             <Route
               path="/offset"
-              element={
-                <Offset
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  initializing={initializing}
-                  onRPCError={handleRPCError}
-                  toggleModal={toggleModal}
-                />
-              }
+              element={<Offset isConnected={isConnected} />}
             />
             <Route
               path="/redeem"
-              element={
-                <Redeem
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  onRPCError={handleRPCError}
-                  toggleModal={toggleModal}
-                />
-              }
+              element={<Redeem isConnected={isConnected} />}
             />
             <Route path="/info" element={<Info provider={provider} />} />
             <Route path="/bonds" element={<ChooseBond />} />
