@@ -20,7 +20,6 @@ import { GQL_SDK } from "../../utils/gqlSdk";
 import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import {
-  getAllActivityTypes,
   getAllCategories,
   getAllCountries,
   getAllVintages,
@@ -43,18 +42,16 @@ export const getDefaultQueryArgs = async (
   fastify: FastifyInstance
 ) => {
   //Fetch all possible parameter values
-  const [category, country, vintage, activityType] = await Promise.all([
+  const [category, country, vintage] = await Promise.all([
     getAllCategories(sdk, fastify).then(map(extract("id"))),
     getAllCountries(sdk, fastify).then(map(extract("id"))),
     getAllVintages(sdk, fastify),
-    getAllActivityTypes(),
   ]);
 
   return {
     category,
     country,
     vintage,
-    activityType,
     search: "",
     expiresAfter: Math.floor(Date.now() / 1000).toString(),
   };
