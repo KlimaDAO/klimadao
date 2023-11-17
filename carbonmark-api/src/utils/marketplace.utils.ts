@@ -32,13 +32,22 @@ export type GetProjectListing = NonNullable<
 >[number];
 
 /** Formats a gql.marketplace listing to match Listing.model, and formats integers */
+
 export const formatListing = (listing: GetProjectListing): ListingModel => {
+  // ICR (ERC1155) returns integers while ERC20 returns bigints, handle accordingly below
+  const normalizeValues = (value: string, decimals: number) => {
+    return listing.project.key.startsWith("ICR")
+      ? value
+      : utils.formatUnits(value, decimals);
+  };
+
   return {
     ...formatGraphTimestamps(listing),
-    leftToSell: utils.formatUnits(listing.leftToSell, 18),
-    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
-    minFillAmount: utils.formatUnits(listing.minFillAmount, 18),
-    totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
+
+    leftToSell: normalizeValues(listing.leftToSell, 18),
+    singleUnitPrice: normalizeValues(listing.singleUnitPrice, 6),
+    minFillAmount: normalizeValues(listing.minFillAmount, 18),
+    totalAmountToSell: normalizeValues(listing.totalAmountToSell, 18),
     expiration: Number(listing.expiration),
     project: {
       ...listing.project,

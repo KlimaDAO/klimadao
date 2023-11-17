@@ -75,7 +75,7 @@ const testnet: typeof mainnet = {
   retirementAggregatorV2: "",
   liveOffsetWallet: "",
   liveOffsetContract: "",
-  carbonmark: "0x5dc7083cd6ff9a46c36661750fabcbb9ae2abed2", // v2 Diamond
+  carbonmark: "0xD973F90a4C49607EABeFdb2C45d4F39436c7e7fA", // v2 Diamond
 };
 
 export const addresses = {

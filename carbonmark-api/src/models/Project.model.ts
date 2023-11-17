@@ -29,6 +29,7 @@ export const ProjectModel = Type.Object({
       })
     )
   ),
+  serialization: Type.Optional(Type.String()),
 });
 
 export type Project = Static<typeof ProjectModel>;

@@ -22,7 +22,7 @@ const POLYGON_URLS = {
 
 const MUMBAI_URLS = {
   ...POLYGON_URLS,
-  marketplace: `${GRAPH_API_ROOT_ID}/QmdrYranfueu9Ann3kYCkEKTmTRReusybzFZ2nYz8YM6WF`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmTHkJjuW5bvrK5ubpczEoxmZDex2PsNksREXqwQsAZozT`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
@@ -71,5 +71,6 @@ export const TOKEN_ADDRESSES = {
 };
 
 export const RPC_URLS = {
-  polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
+  polygonTestnetRpc:
+    "https://polygon-mumbai.infura.io/v3/e44c8e037cfc4b0ba488b653b3740823",
 };
