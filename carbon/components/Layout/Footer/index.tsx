@@ -6,28 +6,16 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link } from "@mui/material";
 import { FC } from "react";
-import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 
 export const Footer: FC = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerNavLinks}>
-        <Link href={urls.app} className={layout.mobileOnly}>
-          App
-        </Link>
-        <Link href={urls.officialDocs} className={layout.mobileOnly}>
-          Docs
-        </Link>
-        <Link href={urls.app} className={layout.desktopOnly}>
-          Klima App
-        </Link>
-        <Link href={urls.carbonmark} className={layout.desktopOnly}>
-          Carbonmark
-        </Link>
-        <Link href={urls.officialDocs} className={layout.desktopOnly}>
-          Official Docs
-        </Link>
+        <Link href={urls.home}>KlimaDAO</Link>
+        <Link href={urls.app}>Klima App</Link>
+        <Link href={urls.carbonmark}>Carbonmark</Link>
+        <Link href={urls.officialDocs}>Official Docs</Link>
         <Link href={urls.disclaimer}>Disclaimer</Link>
       </div>
       <div className={styles.footerSocialLinks}>
@@ -40,7 +28,7 @@ export const Footer: FC = () => {
         <Link href={urls.discordInvite}>
           <DiscordSvg />
         </Link>
-        <Link href={urls.github} className={layout.mobileOnly}>
+        <Link href={urls.github}>
           <GitHubIcon />
         </Link>
         <Link href={urls.linkedIn}>

@@ -191,15 +191,15 @@ export function dateForQuery(date: number): string {
 // Common formatters
 export function formatQuantityAsMillionsOfTons(quantity: number): string {
   quantity = Math.floor(quantity / 1000000);
-  return `${quantity} MT`;
+  return `${quantity}m`;
 }
 export function formatQuantityAsKiloTons(quantity: number): string {
   quantity = Math.floor(quantity / 1000);
-  return `${quantity} KT`;
+  return `${quantity}k`;
 }
 export function formatQuantityAsTons(quantity: number): string {
   quantity = Math.floor(quantity);
-  return `${quantity} T`;
+  return `${quantity}`;
 }
 export function getTonsFormatter(quantity: number) {
   return quantity < 10 ** 4
