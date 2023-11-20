@@ -1,4 +1,5 @@
 import { Type } from "@sinclair/typebox";
+import { ActivityType } from "../../.generated/types/marketplace.types";
 import { ActivityModel } from "../../models/Activity.model";
 import { NetworkParamModel } from "../../models/NetworkParam.model";
 
@@ -10,9 +11,7 @@ export const QueryString = Type.Object({
     })
   ),
   activityType: Type.Optional(
-    Type.String({
-      description: "Desired types of the project activities",
-    })
+    Type.Union(Object.keys(ActivityType).map((key) => Type.Literal(key)))
   ),
 });
 

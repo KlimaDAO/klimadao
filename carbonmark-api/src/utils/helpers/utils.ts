@@ -233,8 +233,8 @@ export const stringToActivityType = (str: string): ActivityType | undefined => {
 };
 /**
  * Converts an array of Strings into an array of ActivityType without breaking typescript checks
- * FIXME: this method will silently filter out strings that do not relate to an actually activity type
- * potentially misleading people using the API
+ * This method will silently filter out strings that do not relate to an actually activity type
+ * so make sure the handler checks for correct activity type input
  */
 export const stringsToActivityTypes = (strs: string[]): ActivityType[] => {
   return strs
