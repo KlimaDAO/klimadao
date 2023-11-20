@@ -6,8 +6,7 @@ export const QueryString = Type.Object({
   network: Type.Optional(NetworkParamModel),
   projectId: Type.Optional(
     Type.String({
-      description:
-        "Filter returned activities by project",
+      description: "Filter returned activities by project",
     })
   ),
   activityType: Type.Optional(

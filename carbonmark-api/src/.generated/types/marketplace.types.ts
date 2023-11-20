@@ -1335,12 +1335,12 @@ export type GetActivitiesByProjectIdQueryVariables = Exact<{
 
 export type GetActivitiesByProjectIdQuery = { __typename?: 'Query', activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> };
 
-export type GetActivitiesAccrossAllProjectsQueryVariables = Exact<{
+export type GetAllActivitiesQueryVariables = Exact<{
   activityType: InputMaybe<Array<ActivityType> | ActivityType>;
 }>;
 
 
-export type GetActivitiesAccrossAllProjectsQuery = { __typename?: 'Query', activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> };
+export type GetAllActivitiesQuery = { __typename?: 'Query', activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> };
 
 export const ProjectFragmentFragmentDoc = gql`
     fragment ProjectFragment on Project {
@@ -1490,8 +1490,8 @@ export const GetActivitiesByProjectIdDocument = gql`
   }
 }
     ${ActivityFragmentFragmentDoc}`;
-export const GetActivitiesAccrossAllProjectsDocument = gql`
-    query getActivitiesAccrossAllProjects($activityType: [ActivityType!]) {
+export const GetAllActivitiesDocument = gql`
+    query getAllActivities($activityType: [ActivityType!]) {
   activities(where: {activityType_in: $activityType}) {
     ...ActivityFragment
   }
@@ -1529,8 +1529,8 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     getActivitiesByProjectId(variables?: GetActivitiesByProjectIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetActivitiesByProjectIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetActivitiesByProjectIdQuery>(GetActivitiesByProjectIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getActivitiesByProjectId', 'query');
     },
-    getActivitiesAccrossAllProjects(variables?: GetActivitiesAccrossAllProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetActivitiesAccrossAllProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetActivitiesAccrossAllProjectsQuery>(GetActivitiesAccrossAllProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getActivitiesAccrossAllProjects', 'query');
+    getAllActivities(variables?: GetAllActivitiesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllActivitiesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllActivitiesQuery>(GetAllActivitiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllActivities', 'query');
     }
   };
 }
