@@ -217,6 +217,64 @@
       "response": []
     },
     {
+      "name": "getActivities",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/activities",
+          "host": ["{{url}}"],
+          "path": ["activities"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProjectActivities",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/projects/:id/activity",
+          "host": ["{{url}}"],
+          "path": ["projects", ":id", "activity"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "VCS-191-2008"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "getUserByWallet",
       "event": [
         {
