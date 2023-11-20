@@ -1,5 +1,6 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
+import { expectMatchesActivitiesFixture } from "test/routes/activities/get.utils";
 import { GRAPH_URLS } from "../../../../../src/app.constants";
 import marketplace from "../../../../fixtures/marketplace";
 import { build } from "../../../../helper";
@@ -32,6 +33,6 @@ describe("GET /projects/[id]/activity", () => {
     });
     const data = await response.json();
     expect(response.statusCode).toEqual(200);
-    expect(data.length).toEqual(2);
+    expectMatchesActivitiesFixture(data);
   });
 });
