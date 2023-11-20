@@ -1,8 +1,10 @@
-import bctIcon from "@klimadao/app/public/icons/BCT.png";
-import mco2Icon from "@klimadao/app/public/icons/MCO2.png";
-import nboIcon from "@klimadao/app/public/icons/NBO.png";
-import nctIcon from "@klimadao/app/public/icons/NCT.png";
-import uboIcon from "@klimadao/app/public/icons/UBO.png";
+import {
+  BCTIcon,
+  MCO2Icon,
+  NBOIcon,
+  NCTIcon,
+  UBOIcon,
+} from "@klimadao/lib/resources";
 import { t } from "@lingui/macro";
 import OverviewCardIcon from "components/Graphics/OverviewCardIcon";
 import { queryTokenInfo } from "./charts/queries";
@@ -20,11 +22,11 @@ export function getTokenFullName(token: Token) {
 
 /** Returns an Icon representing the given Coin */
 export function getTokenIcon(token: Token) {
-  let icon: typeof bctIcon = bctIcon;
-  if (token == "nct") icon = nctIcon;
-  if (token == "mco2") icon = mco2Icon;
-  if (token == "ubo") icon = uboIcon;
-  if (token == "nbo") icon = nboIcon;
+  let icon: typeof BCTIcon = BCTIcon;
+  if (token == "nct") icon = NCTIcon;
+  if (token == "mco2") icon = MCO2Icon;
+  if (token == "ubo") icon = UBOIcon;
+  if (token == "nbo") icon = NBOIcon;
   return <OverviewCardIcon icon={icon} alt={token} />;
 }
 
