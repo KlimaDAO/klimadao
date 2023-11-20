@@ -7,7 +7,7 @@ export const QueryString = Type.Object({
   projectId: Type.Optional(
     Type.String({
       description:
-        "Desired projectID of the of the project the activities are related to",
+        "Filter returned activities by project",
     })
   ),
   activityType: Type.Optional(
