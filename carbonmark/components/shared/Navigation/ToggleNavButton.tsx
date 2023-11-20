@@ -14,7 +14,7 @@ export const ToggleNavButton: FC<Props> = (props) => {
       className={styles.buttonToggleNav}
       onClick={props.onClick}
     >
-      <Twirl size={20} />
+      <Twirl size={20} toggled={props.isToggled} />
     </button>
   );
 };
