@@ -45,7 +45,7 @@ export const getCreditListings = async (
   return project;
 };
 
-const formatActivities = async (
+const mapUserToActivities = async (
   activities: Activity[],
   fastify: FastifyInstance
 ): Promise<Activity[]> => {
@@ -141,7 +141,7 @@ export const fetchMarketplaceListings = async (
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];
 
-  const activitiesWithProfiles = await formatActivities(
+  const activitiesWithProfiles = await mapUserToActivities(
     filteredActivities,
     fastify
   );
@@ -176,7 +176,7 @@ export const fetchProjectActivities = async (
       activityType,
     });
   }
-  const activitiesWithProfiles = await formatActivities(
+  const activitiesWithProfiles = await mapUserToActivities(
     data.activities,
     fastify
   );
