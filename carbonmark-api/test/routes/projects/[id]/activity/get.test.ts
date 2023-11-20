@@ -1,9 +1,9 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { expectMatchesActivitiesFixture } from "test/routes/activities/get.utils";
 import { GRAPH_URLS } from "../../../../../src/app.constants";
 import marketplace from "../../../../fixtures/marketplace";
 import { build } from "../../../../helper";
+import { expectMatchesActivitiesFixture } from "../../../../routes/activities/get.utils";
 import { DEV_URL } from "../../../../test.constants";
 
 describe("GET /projects/[id]/activity", () => {
