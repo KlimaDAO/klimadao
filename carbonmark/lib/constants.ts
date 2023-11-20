@@ -55,6 +55,9 @@ export const ENVIRONMENT: Environment =
   }).first() ?? "preview";
 
 export const MINIMUM_TONNE_PRICE = 0.1;
+
+export const MINIMUM_TONNE_QUANTITY = 0.001;
+
 export const CARBONMARK_FEE = 0.0; // 0%
 /** No special chars */
 export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
