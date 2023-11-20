@@ -33,6 +33,7 @@
     "ethers-v6": "npm:ethers@^6.7.1",
     "fets": "^0.4.13",
     "firebase-admin": "^11.7.0",
+    "hamburger-react": "^2.5.0",
     "jspdf": "^2.5.1",
     "lodash": "^4.17.21",
     "mapbox-gl": "^2.14.1",
