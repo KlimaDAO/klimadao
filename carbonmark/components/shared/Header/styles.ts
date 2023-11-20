@@ -60,7 +60,6 @@ export const headerMobile = css`
   display: flex;
   gap: 1rem;
   align-items: center;
-  --justify-content: space-between;
   height: var(--header-height);
   z-index: 1;
   padding: 0 1.6rem;
