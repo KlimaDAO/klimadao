@@ -59,7 +59,7 @@ const activities: GetActivitiesByProjectIdQuery["activities"] = [
     activityType: ActivityType.Sold,
     project: { key: "VCS-981", vintage: "2017" },
     buyer: null,
-    seller: { id: "0xx88bb718a2556970081e9cd6a8f17af2dffaa" },
+    seller: { id: "0x988bb718a2556970081e9cd6a8f17af2dffaa" },
   },
   {
     id: "0xd17ffb681569c5186783b3f31d778aaf58bf268795df8704b1b42cd500746c69ListingUpdated",
@@ -71,7 +71,7 @@ const activities: GetActivitiesByProjectIdQuery["activities"] = [
     activityType: ActivityType.UpdatedPrice,
     project: { key: "VCS-981", vintage: "2017" },
     buyer: null,
-    seller: { id: "0xx88bb718a2556970081e9cd6a8f17af2dffaa" },
+    seller: { id: "0x488bb718a2556970081e9cd6a8f17af2dffaa" },
   },
 ];
 /** Fixtures for the marketplace subgraph */
