@@ -1,18 +1,20 @@
 import { Spinner, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import {
+  BCTIcon,
+  C3TIcon,
+  KLIMAIcon,
+  MCO2Icon,
+  NBOIcon,
+  NCTIcon,
+  TCO2Icon,
+  UBOIcon,
+  USDCIcon,
+} from "@klimadao/lib/resources";
 import { Trans } from "@lingui/macro";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Image, { StaticImageData } from "next/image";
-import BCT from "public/icons/BCT.png";
-import C3T from "public/icons/C3T.png";
-import KLIMA from "public/icons/KLIMA.png";
-import MCO2 from "public/icons/MCO2.png";
-import NBO from "public/icons/NBO.png";
-import NCT from "public/icons/NCT.png";
-import TCO2 from "public/icons/TCO2.png";
-import UBO from "public/icons/UBO.png";
-import USDC from "public/icons/USDC.png";
 import { useSelector } from "react-redux";
 import {
   selectBalances,
@@ -22,17 +24,17 @@ import {
 import * as styles from "./styles";
 
 export const iconMap = {
-  ubo: UBO,
-  nbo: NBO,
-  bct: BCT,
-  nct: NCT,
-  tco2: TCO2,
-  c3t: C3T,
-  klima: KLIMA,
-  sklima: KLIMA,
-  wsklima: KLIMA,
-  usdc: USDC,
-  mco2: MCO2,
+  ubo: UBOIcon,
+  nbo: NBOIcon,
+  bct: BCTIcon,
+  nct: NCTIcon,
+  tco2: TCO2Icon,
+  c3t: C3TIcon,
+  klima: KLIMAIcon,
+  sklima: KLIMAIcon,
+  wsklima: KLIMAIcon,
+  usdc: USDCIcon,
+  mco2: MCO2Icon,
 };
 
 /**
@@ -106,7 +108,7 @@ export const CarbonBalancesCard = (props: {
     if (!projectTokens[addr]) return;
     const { symbol, quantity } = projectTokens[addr];
     const formattedBalance = formatTonnes({ amount: quantity, locale });
-    const icon = symbol.startsWith("TCO2-") ? TCO2 : C3T;
+    const icon = symbol.startsWith("TCO2-") ? TCO2Icon : C3TIcon;
     assetInfo.push({
       assetName: symbol,
       balance: formattedBalance,

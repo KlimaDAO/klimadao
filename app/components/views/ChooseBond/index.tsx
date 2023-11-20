@@ -1,8 +1,17 @@
 import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
 import { Bond } from "@klimadao/lib/constants";
+import {
+  BCTIcon,
+  KLIMABCTLPIcon,
+  KLIMAMCO2LPIcon,
+  KLIMAUSDCLPIcon,
+  MCO2Icon,
+  NBOIcon,
+  UBOIcon,
+} from "@klimadao/lib/resources";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { calcBondDetails, getIsInverse } from "actions/bonds";
 import { DisclamerModal } from "components/DisclaimerModal";
@@ -53,14 +62,14 @@ export const useBond = (bond: Bond) => {
     discount: bondState?.bondDiscount,
     disabled: disabledBonds[bond],
     icon: {
-      ubo: "/icons/UBO.png",
-      nbo: "/icons/NBO.png",
-      mco2: "/icons/MCO2.png",
-      bct: "/icons/BCT.png",
-      klima_bct_lp: "/icons/BCT-KLIMA-LP.png",
-      klima_usdc_lp: "/icons/KLIMA-USDC-LP.png",
-      klima_mco2_lp: "/icons/KLIMA-MCO2-LP.png",
-      inverse_usdc: "/icons/KLIMA-USDC-LP.png",
+      ubo: UBOIcon,
+      nbo: NBOIcon,
+      mco2: MCO2Icon,
+      bct: BCTIcon,
+      klima_bct_lp: KLIMABCTLPIcon,
+      klima_usdc_lp: KLIMAUSDCLPIcon,
+      klima_mco2_lp: KLIMAMCO2LPIcon,
+      inverse_usdc: KLIMAUSDCLPIcon,
       // future bond names go here
     }[bond],
     name: {
