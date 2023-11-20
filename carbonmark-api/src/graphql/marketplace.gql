@@ -87,7 +87,7 @@ query getActivitiesByProjectId(
   }
 }
 
-query getActivitiesAccrossAllProjects($activityType: [ActivityType!]) {
+query getAllActivities($activityType: [ActivityType!]) {
   activities(where: { activityType_in: $activityType }) {
     ...ActivityFragment
   }

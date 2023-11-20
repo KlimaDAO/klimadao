@@ -172,7 +172,7 @@ export const fetchProjectActivities = async (
     });
   } else {
     // Activities accross all projects
-    data = await sdk.marketplace.getActivitiesAccrossAllProjects({
+    data = await sdk.marketplace.getAllActivities({
       activityType,
     });
   }
