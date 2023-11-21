@@ -52,6 +52,7 @@ export class MethodologyCategories {
     map.set('ACM0002', 'Renewable Energy')
     map.set('AMS-I.D.', 'Renewable Energy')
     map.set('AMS-I.C.', 'Renewable Energy')
+    map.set('ACM0017', 'Renewable Energy')
     map.set('ACM0018', 'Renewable Energy')
 
     //Energy Efficiency
@@ -106,6 +107,8 @@ export class MethodologyCategories {
     map.set('AMS-III.BF', 'Agriculture')
     map.set('VM0017', 'Agriculture')
     map.set('AMS-III.D.', 'Agriculture')
+    map.set('ACM0010', 'Agriculture')
+    map.set('GS402', 'Agriculture')
 
     //Forestry
     map.set('VM0004', 'Forestry')
@@ -131,6 +134,7 @@ export class MethodologyCategories {
     map.set('AR-AMS0003', 'Forestry')
     map.set('AR-AMS0007', 'Forestry')
     map.set('AR-ACM0001', 'Forestry')
+    map.set('FCC', 'Forestry')
 
     // Blue Carbon
     map.set('AR-AM0014', 'Blue Carbon')
@@ -149,8 +153,9 @@ export class MethodologyCategories {
     map.set('AM0092', 'Industrial Processing')
     map.set('AM0095', 'Industrial Processing')
     map.set('AM0096', 'Industrial Processing')
-    map.set('AMS-III.M.', 'Industrial Processing ')
+    map.set('AMS-III.M.', 'Industrial Processing')
     map.set('AM0025', 'Industrial Processing')
+    map.set('AMS-III.AJ.', 'Industrial Processing')
 
     //Other
     map.set('AM0052', 'Other')
@@ -213,6 +218,8 @@ export class MethodologyCategories {
     map.set('AMS-III.G.', 'Other')
     map.set('AM0009', 'Other')
     map.set('AMS-III.H.', 'Other')
+    map.set('AMS-III.H', 'Other')
+    map.set('ISO 14064-2', 'Other')
 
     return map
   }
