@@ -14,6 +14,7 @@ export type FormValues = {
   amount: string;
   unitPrice: string;
   tokenAddress: string;
+  tokenId?: string;
 };
 
 type Props = {
@@ -24,6 +25,7 @@ type Props = {
 
 const defaultValues: FormValues = {
   tokenAddress: "",
+  tokenId: "",
   amount: "",
   unitPrice: "",
 };
@@ -39,6 +41,7 @@ export const CreateListingForm: FC<Props> = (props) => {
         tokenAddress:
           props.values?.tokenAddress.toLowerCase() ||
           props.assets[0].token.id.toLowerCase(),
+        tokenId: props.values?.tokenId || props.assets[0].token.tokenId,
       },
     });
 
@@ -61,6 +64,7 @@ export const CreateListingForm: FC<Props> = (props) => {
         <ProjectTokenDropDown
           onTokenSelect={(asset) => {
             setValue("tokenAddress", asset.token.id.toLowerCase());
+            setValue("tokenId", asset.token.tokenId);
           }}
           assets={props.assets}
           selectedAsset={selectedAsset}

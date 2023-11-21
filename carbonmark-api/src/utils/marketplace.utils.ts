@@ -40,12 +40,11 @@ export const formatListing = (listing: GetProjectListing): ListingModel => {
       ? value
       : utils.formatUnits(value, decimals);
   };
-
   return {
     ...formatGraphTimestamps(listing),
 
     leftToSell: normalizeValues(listing.leftToSell, 18),
-    singleUnitPrice: normalizeValues(listing.singleUnitPrice, 6),
+    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
     minFillAmount: normalizeValues(listing.minFillAmount, 18),
     totalAmountToSell: normalizeValues(listing.totalAmountToSell, 18),
     expiration: Number(listing.expiration),
