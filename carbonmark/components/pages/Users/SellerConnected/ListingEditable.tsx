@@ -179,7 +179,7 @@ export const ListingEditable: FC<Props> = (props) => {
 
   return (
     <>
-      {props.listings.map((listing) => (
+      {enhancedListings.map((listing) => (
         <div
           className={props.isUpdatingData ? styles.loadingOverlay : ""}
           key={listing.id}

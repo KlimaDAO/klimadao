@@ -3,10 +3,11 @@ import { Project, TokenPrice } from "lib/types/carbonmark.types";
 type ProjectData = {
   key: Project["key"];
   vintage: Project["vintage"];
+  serialization?: Project["serialization"];
 };
 export const createProjectLink = (project: ProjectData) => {
   if (project.key.startsWith("ICR")) {
-    return `/projects/${project.key}`;
+    return `/projects/${project.serialization}`;
   } else {
     return `/projects/${project.key}-${project.vintage}`;
   }

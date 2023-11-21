@@ -1,5 +1,6 @@
 import { Trans, t } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { constants } from "ethers";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { FC, useState } from "react";
 import { Approve } from "./Approve";
@@ -58,7 +59,13 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          amount={t`${props.allowance} tonnes`}
+          amount={t`${
+            props.allowance === constants.MaxUint256.toString()
+              ? "Maximum allowance of"
+              : Number(props.allowance) > 10000000
+              ? Number(props.allowance).toExponential(2)
+              : props.allowance
+          } tonnes`}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
