@@ -82,7 +82,9 @@ const handler = (fastify: FastifyInstance) =>
           };
           return {
             ...a,
-            amount: utils.formatUnits(a.amount || "0", 18),
+            amount: a.project.key.startsWith("ICR")
+              ? a.amount
+              : utils.formatUnits(a.amount || "0", 18),
             price: utils.formatUnits(a.price || "0", 6),
             previousAmount: utils.formatUnits(a.previousAmount || "0", 18),
             previousPrice: utils.formatUnits(a.previousPrice || "0", 6),

@@ -22,7 +22,7 @@ const POLYGON_URLS = {
 
 const MUMBAI_URLS = {
   ...POLYGON_URLS,
-  marketplace: `${GRAPH_API_ROOT_ID}/QmeqQ6NP2z9EodKR1iTArGEm4t3D7YHuZCXJpywSfRf2JR`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmUUnZTeRnfsJsQaTwLeiHmAQ5xvtk2jBW7VeP3AEW5bnv`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
