@@ -97,9 +97,9 @@ export class CreditId {
     if (!CreditId.isValidStandard(standard)) {
       throw new Error("Invalid Standard");
     }
-
-    if (standard === "ICR") {
-      const registryProjectId = parts[1];
+    // handle ICR serialization case
+    if (standard === "ICR" && parts.length > 3) {
+      const registryProjectId = parts[3];
       const vintage = parts[parts.length - 1];
       return [standard, registryProjectId, vintage];
     } else {
