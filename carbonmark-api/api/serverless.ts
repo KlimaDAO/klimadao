@@ -15,6 +15,10 @@ const fastify = Fastify({
   logger: false,
 });
 
+console.warn("---------------------------------");
+console.warn(process.env.SENTRY_DSN);
+console.warn(process.env.VERCEL_GIT_COMMIT_REF);
+console.warn(packageJson.version);
 // Registry sentry plugin
 fastify.register(import("@immobiliarelabs/fastify-sentry"), {
   dsn: process.env.SENTRY_DSN,
