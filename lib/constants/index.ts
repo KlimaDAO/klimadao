@@ -158,6 +158,10 @@ export const urls = {
   carbonmark: "https://www.carbonmark.com",
   carbonmarkRetirePage: "https://www.carbonmark.com/retire",
   carbonmarkProjectsPage: "https://www.carbonmark.com/projects",
+  carbonmarkDocRetirements:
+    "https://docs.klimadao.finance/developers/contracts/retirement",
+  carbonmarkDocDeploymentAddresses:
+    "https://docs.klimadao.finance/developers/contracts/deployment-addresses",
   marketplace: "https://www.carbonmark.com/projects",
   portfolio: "https://www.carbonmark.com/portfolio",
   resourcesCarbonmark: "https://www.carbonmark.com/resources",

@@ -18,19 +18,30 @@ export const Redeem = (props: Props) => {
 
       <div className={styles.ctaCard}>
         <div className={styles.ctaCard_header}>
-          <Text t="h4" className={styles.ctaCard_header_title}>
-            <RedeemOutlined />
-            <Trans>Buy & Redeem Carbon</Trans>
-          </Text>
-          <Text t="caption" color="lightest">
-            <Trans id="redeem.cta">
-              <A href={urls.carbonmark}> Carbonmark </A>is now the main hub to
-              acquire and retire carbon from verified projects. Features from
-              the aggregator are progressively being moved. To acquire carbon,
-              please visit the{" "}
-              <A href={urls.carbonmarkProjectsPage}>projects page</A>.
-            </Trans>
-          </Text>
+          <div>
+            <Text t="h4" className={styles.ctaCard_header_title}>
+              <RedeemOutlined />
+              <Trans>Buy & Redeem Carbon</Trans>
+            </Text>
+            <Text t="caption" className={styles.ctaCard_header_subtitle}>
+              <Trans id="redeem.cta_1">
+                KlimaDAO's digital carbon liquidity pools are common resources
+                available for driving environmental impact.
+              </Trans>
+            </Text>
+            <Text t="caption" className={styles.ctaCard_header_subtitle}>
+              <Trans id="redeem.cta_2">
+                Visit our{" "}
+                <a href={urls.carbonmarkDocDeploymentAddresses}>
+                  {" "}
+                  documentation{" "}
+                </a>{" "}
+                to find the LP contract addresses, or visit{" "}
+                <A href={urls.carbonmarkProjectsPage}> Carbonmark </A> to
+                acquire carbon via a simple user interface.
+              </Trans>
+            </Text>
+          </div>
         </div>
       </div>
     </>
