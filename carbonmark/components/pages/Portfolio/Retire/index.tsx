@@ -7,10 +7,7 @@ import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { createCompositeAsset } from "lib/actions";
-import type {
-  AssetForRetirement,
-  DigitalCarbonCredit,
-} from "lib/types/carbonmark.types";
+import type { AssetForRetirement } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
 import { NextPage } from "next";
