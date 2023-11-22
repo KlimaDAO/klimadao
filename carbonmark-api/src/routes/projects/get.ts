@@ -36,7 +36,10 @@ const handler = (fastify: FastifyInstance) =>
     request: FastifyRequest<{ Querystring: Querystring }>,
     reply: FastifyReply
   ): Promise<Project[]> {
-    const sdk = gql_sdk(request.query.network);
+    // @todo temp for testing. default is always polygon atm even when on mumbai
+    // const network = request.query.network ?? "polygon";
+    const network = "mumbai";
+    const sdk = gql_sdk(network);
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(
       omit(request.query, "search", "expiresAfter"),
@@ -44,10 +47,7 @@ const handler = (fastify: FastifyInstance) =>
     );
 
     //Get the default args to return all results unless specified
-    const allOptions = await getDefaultQueryArgs(sdk, fastify);
-
-    const network = request.query.network ?? "polygon";
-
+    const allOptions = await getDefaultQueryArgs(sdk, fastify, network);
     const [
       marketplaceProjectsData,
       poolProjectsData,
@@ -78,54 +78,10 @@ const handler = (fastify: FastifyInstance) =>
 
     cmsProjects.forEach((project) => {
       if (!CreditId.isValidProjectId(project.id)) return;
+
       const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
+
       CMSDataMap.set(`${standard}-${registryProjectId}`, project);
-    });
-
-    // @todo can add later in compose Project Entries if marketplaceProjectData isn't necessary
-    // @todo marketplace Data only for listed projects/pool/projects where are subgraph mappings?
-
-    IcrListProjects.forEach((project) => {
-      const splitArray = project.carbonCredits[0].serialization.split("-");
-
-      const id = [splitArray[0], splitArray[3]].join("-");
-
-      // @todo create entries for each credit/vintage below?
-      if (!CreditId.isValidProjectId(id)) return;
-
-      const [standard, registryProjectId] = CreditId.splitProjectId(id); // type guard and capitalize
-
-      // create project map entries for each vintage @todo temp for testing. Otherwise only one vintage
-
-      for (const credit of project.carbonCredits) {
-        const serialization = credit.serialization;
-        const { creditId: key } = new CreditId({
-          standard,
-          registryProjectId,
-          vintage: credit.vintage,
-        });
-
-        ProjectMap.set(key, {
-          marketplaceProjectData: {
-            __typename: "Project",
-            id: serialization,
-            key: "",
-            vintage: credit.vintage,
-            name: "",
-            methodology: "",
-            listings: [],
-            category: {
-              __typename: "Category",
-              id: "",
-            },
-            country: {
-              __typename: "Country",
-              id: "",
-            },
-          },
-          key: key,
-        });
-      }
     });
 
     /** Assign valid pool projects to map */

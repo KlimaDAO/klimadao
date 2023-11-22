@@ -19,7 +19,7 @@ import {
   Asset,
   AssetForRetirement,
   DetailedProject,
-  PcbProject,
+  PbcProject,
 } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { isNil } from "lodash";
@@ -405,7 +405,7 @@ export const addProjectsToAssets = async (params: {
 
 interface CompositeAssetParams {
   asset: Asset;
-  project: PcbProject;
+  project: PbcProject;
 }
 
 export const createCompositeAsset = (

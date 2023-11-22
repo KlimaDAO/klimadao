@@ -29,7 +29,10 @@ const handler = (fastify: FastifyInstance) =>
   ) {
     const { id } = request.params;
 
-    const sdk = gql_sdk(request.query.network);
+    // @todo change back. this is only for testing.
+    // const sdk = gql_sdk(request.query.network);
+    const sdk = gql_sdk("mumbai");
+
     const {
       vintage,
       standard: registry,
