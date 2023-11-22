@@ -20,14 +20,16 @@ console.warn(process.env.SENTRY_DSN);
 console.warn(process.env.VERCEL_GIT_COMMIT_REF);
 console.warn(packageJson.version);
 // Registry sentry plugin
-fastify.register(import("@immobiliarelabs/fastify-sentry"), {
-  dsn: process.env.SENTRY_DSN,
-  environment: process.env.VERCEL_GIT_COMMIT_REF,
-  release: packageJson.version,
-});
-
-// Register your application as a normal plugin.
-fastify.register(app);
+fastify
+  .register(import("@immobiliarelabs/fastify-sentry"), {
+    dsn: process.env.SENTRY_DSN,
+    environment: process.env.VERCEL_GIT_COMMIT_REF,
+    release: packageJson.version,
+  })
+  .then(() => {
+    // Register your application as a normal plugin.
+    fastify.register(app);
+  });
 
 module.exports = async (req: unknown, res: unknown) => {
   await fastify.ready();
