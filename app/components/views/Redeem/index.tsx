@@ -4,6 +4,7 @@ import { Trans } from "@lingui/macro";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
 import { CarbonBalancesCard } from "components/CarbonBalancesCard";
 import * as styles from "../styles";
+import * as localStyles from "./styles";
 
 interface Props {
   isConnected: boolean;
@@ -16,7 +17,7 @@ export const Redeem = (props: Props) => {
         <CarbonBalancesCard isConnected={props.isConnected} />
       </div>
 
-      <div className={styles.ctaCard}>
+      <div className={`${styles.ctaCard} ${localStyles.redeemCard}`}>
         <div className={styles.ctaCard_header}>
           <div>
             <Text t="h4" className={styles.ctaCard_header_title}>
