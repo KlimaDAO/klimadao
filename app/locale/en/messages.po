@@ -150,12 +150,12 @@ msgid "Login"
 msgstr "Login"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:26
+#: components/views/Offset/index.tsx:27
 msgid "Offset"
 msgstr "Offset"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:23
+#: components/views/Redeem/index.tsx:24
 msgid "Buy & Redeem Carbon"
 msgstr "Buy & Redeem Carbon"
 
@@ -659,14 +659,14 @@ msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/USDC Sushiswap Liquidity"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:26
-msgid "redeem.cta"
-msgstr "KlimaDAO's digital carbon liquidity pools are common resources available for driving environmental impact. Visit our  <0> documentation </0>  to find the LP contract addresses, or visit <1> Carbonmark </1> to acquire carbon via a simple user interface."
+#: components/views/Redeem/index.tsx:27
+msgid "redeem.cta_1"
+msgstr "KlimaDAO's digital carbon liquidity pools are common resources available for driving environmental impact."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:29
-msgid "offset.cta"
-msgstr "KlimaDAO's retirement aggregator is an open-source tool that enables the retirement of digital carbon credits. Visit our  <0> documentation </0> to build it into your application, or visit <1> Carbonmark </1> to use a live implementation."
+#: components/views/Offset/index.tsx:30
+msgid "offset.cta_1"
+msgstr "KlimaDAO's retirement aggregator is an open-source tool that enables the retirement of digital carbon credits."
 
 #. js-lingui-explicit-id
 #: components/views/Stake/index.tsx:237
@@ -1079,6 +1079,16 @@ msgstr "Vesting term end"
 #: components/CarbonTonnesRetiredCard/index.tsx:61
 msgid "offset.view_retirements"
 msgstr "View Retirements"
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:36
+msgid "offset.cta_2"
+msgstr "Visit our <0> documentation </0> to build it into your application, or visit <1> Carbonmark </1> to use a live implementation."
+
+#. js-lingui-explicit-id
+#: components/views/Redeem/index.tsx:33
+msgid "redeem.cta_2"
+msgstr "Visit our <0>documentation </0> to find the LP contract addresses, or visit <1> Carbonmark </1> to acquire carbon via a simple user interface."
 
 #. js-lingui-explicit-id
 #: lib/constants.ts:32

@@ -150,12 +150,12 @@ msgid "Login"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:26
+#: components/views/Offset/index.tsx:27
 msgid "Offset"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:23
+#: components/views/Redeem/index.tsx:24
 msgid "Buy & Redeem Carbon"
 msgstr ""
 
@@ -659,13 +659,13 @@ msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:26
-msgid "redeem.cta"
+#: components/views/Redeem/index.tsx:27
+msgid "redeem.cta_1"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:29
-msgid "offset.cta"
+#: components/views/Offset/index.tsx:30
+msgid "offset.cta_1"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1078,6 +1078,16 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/CarbonTonnesRetiredCard/index.tsx:61
 msgid "offset.view_retirements"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:36
+msgid "offset.cta_2"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/views/Redeem/index.tsx:33
+msgid "redeem.cta_2"
 msgstr ""
 
 #. js-lingui-explicit-id
