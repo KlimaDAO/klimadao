@@ -20,6 +20,7 @@ msgstr "Balances"
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:129
+#: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "Not Connected"
 msgstr "Not Connected"
 
@@ -174,16 +175,6 @@ msgstr "Insufficient balance"
 #: components/views/ChooseBond/index.tsx:230
 msgid "choose_bond.percent_discount"
 msgstr "% Discount"
-
-#. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:26
-msgid "redeem.cta"
-msgstr "<0> Carbonmark </0>is now the main hub to acquire and retire carbon from verified projects. Features from the aggregator are progressively being moved. To acquire carbon, please visit the <1>projects page</1>."
-
-#. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:29
-msgid "offset.cta"
-msgstr "<0> Carbonmark </0>is now the main hub to acquire and retire carbon from verified projects. Features from the aggregator are progressively being moved. To retire carbon, please visit the <1>retirements page</1>."
 
 #. <0>app.klimadao.finance</0> is the only official domain.
 #. js-lingui-explicit-id
@@ -668,6 +659,16 @@ msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/USDC Sushiswap Liquidity"
 
 #. js-lingui-explicit-id
+#: components/views/Redeem/index.tsx:26
+msgid "redeem.cta"
+msgstr "KlimaDAO's digital carbon liquidity pools are common resources available for driving environmental impact. Visit our  <0> documentation </0>  to find the LP contract addresses, or visit <1> Carbonmark </1> to acquire carbon via a simple user interface."
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:29
+msgid "offset.cta"
+msgstr "KlimaDAO's retirement aggregator is an open-source tool that enables the retirement of digital carbon credits. Visit our  <0> documentation </0> to build it into your application, or visit <1> Carbonmark </1> to use a live implementation."
+
+#. js-lingui-explicit-id
 #: components/views/Stake/index.tsx:237
 msgid "shared.connect_wallet"
 msgstr "Loading..."
@@ -1003,7 +1004,7 @@ msgid "capacity.description_inverse"
 msgstr "This is the amount of USDC in the contract available for bonds."
 
 #. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:33
+#: components/CarbonTonnesRetiredCard/index.tsx:39
 msgid "offset.tonnes_of_carbon_retired"
 msgstr "Tonnes of carbon"
 
@@ -1014,7 +1015,7 @@ msgid "pklima.redeemed.tooltip"
 msgstr "Total KLIMA you have redeemed so far."
 
 #. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:41
+#: components/CarbonTonnesRetiredCard/index.tsx:49
 msgid "offset.number_of_retirements"
 msgstr "Total retirements"
 
@@ -1075,7 +1076,7 @@ msgid "bond.vesting_term_end"
 msgstr "Vesting term end"
 
 #. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:51
+#: components/CarbonTonnesRetiredCard/index.tsx:61
 msgid "offset.view_retirements"
 msgstr "View Retirements"
 
@@ -1148,7 +1149,7 @@ msgid "pklima.overclaim"
 msgstr "You've claimed more KLIMA than your supply-share limit. This is likely due to a fix implemented on November 24th, 2021 to the pKLIMA redemption contract."
 
 #. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:24
+#: components/CarbonTonnesRetiredCard/index.tsx:23
 msgid "offset.you_have_retired"
 msgstr "You've Retired"
 

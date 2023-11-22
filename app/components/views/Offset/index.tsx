@@ -21,19 +21,27 @@ export const Offset = (props: Props) => {
 
       <div className={`${styles.ctaCard} ${localStyles.offsetCard}`}>
         <div className={styles.ctaCard_header}>
-          <Text t="h4" className={styles.ctaCard_header_title}>
-            <ParkOutlined />
-            <Trans>Offset</Trans>
-          </Text>
-          <Text t="caption" color="lightest">
-            <Trans id="offset.cta">
-              <A href={urls.carbonmark}> Carbonmark </A>is now the main hub to
-              acquire and retire carbon from verified projects. Features from
-              the aggregator are progressively being moved. To retire carbon,
-              please visit the{" "}
-              <A href={urls.carbonmarkRetirePage}>retirements page</A>.
-            </Trans>
-          </Text>
+          <div>
+            <Text t="h4" className={styles.ctaCard_header_title}>
+              <ParkOutlined />
+              <Trans>Offset</Trans>
+            </Text>
+            <Text t="caption" className={styles.ctaCard_header_subtitle}>
+              <Trans id="offset.cta_1">
+                KlimaDAO's retirement aggregator is an open-source tool that
+                enables the retirement of digital carbon credits.
+              </Trans>
+            </Text>
+            <Text t="caption" className={styles.ctaCard_header_subtitle}>
+              <Trans id="offset.cta_2">
+                Visit our{" "}
+                <a href={urls.carbonmarkDocRetirements}> documentation </a> to
+                build it into your application, or visit{" "}
+                <A href={urls.carbonmarkRetirePage}> Carbonmark </A> to use a
+                live implementation.
+              </Trans>
+            </Text>
+          </div>
         </div>
       </div>
     </>

@@ -20,6 +20,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:129
+#: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "Not Connected"
 msgstr ""
 
@@ -173,16 +174,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/views/ChooseBond/index.tsx:230
 msgid "choose_bond.percent_discount"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:26
-msgid "redeem.cta"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:29
-msgid "offset.cta"
 msgstr ""
 
 #. <0>app.klimadao.finance</0> is the only official domain.
@@ -668,6 +659,16 @@ msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/views/Redeem/index.tsx:26
+msgid "redeem.cta"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:29
+msgid "offset.cta"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/views/Stake/index.tsx:237
 msgid "shared.connect_wallet"
 msgstr ""
@@ -1003,7 +1004,7 @@ msgid "capacity.description_inverse"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:33
+#: components/CarbonTonnesRetiredCard/index.tsx:39
 msgid "offset.tonnes_of_carbon_retired"
 msgstr ""
 
@@ -1014,7 +1015,7 @@ msgid "pklima.redeemed.tooltip"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:41
+#: components/CarbonTonnesRetiredCard/index.tsx:49
 msgid "offset.number_of_retirements"
 msgstr ""
 
@@ -1075,7 +1076,7 @@ msgid "bond.vesting_term_end"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:51
+#: components/CarbonTonnesRetiredCard/index.tsx:61
 msgid "offset.view_retirements"
 msgstr ""
 
@@ -1148,7 +1149,7 @@ msgid "pklima.overclaim"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:24
+#: components/CarbonTonnesRetiredCard/index.tsx:23
 msgid "offset.you_have_retired"
 msgstr ""
 
