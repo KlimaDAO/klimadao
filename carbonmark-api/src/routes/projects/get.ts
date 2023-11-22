@@ -85,7 +85,9 @@ const handler = (fastify: FastifyInstance) =>
 
     cmsProjects.forEach((project) => {
       if (!CreditId.isValidProjectId(project.id)) return;
+
       const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
+
       CMSDataMap.set(`${standard}-${registryProjectId}`, project);
     });
 
