@@ -9,7 +9,7 @@ import { PageHead } from "components/PageHead";
 import { createCompositeAsset } from "lib/actions";
 import type {
   AssetForRetirement,
-  PcbProject,
+  PbcProject,
 } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
@@ -21,7 +21,7 @@ import { UnregisteredMessage } from "./UnregisteredMessage";
 import * as styles from "./styles";
 
 export type RetirePageProps = {
-  project: PcbProject;
+  project: PbcProject;
   translation: Messages;
   fixedThemeName: string;
 };

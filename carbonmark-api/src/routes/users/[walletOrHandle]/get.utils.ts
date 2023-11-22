@@ -25,7 +25,7 @@ const fetchTestnetHoldings = async (params: {
   const TOKEN_INFO = [
     {
       symbol: "TCO2-VCS-981-2017",
-      address: "0xeCF4A1B92a463C843CDcB7cb7A2F2DdFe07651BB",
+      address: "0xecf4a1b92a463c843cdcb7cb7a2f2ddfe07651bb",
       decimals: 18,
     },
     {
@@ -50,7 +50,9 @@ const fetchTestnetHoldings = async (params: {
   );
 
   const fetchTco2Balances = Promise.all(balancePromises);
-  const fetchIcrHoldings = sdk.icr.getHoldingsByAddress({ id: params.address });
+  const fetchIcrHoldings = sdk.icr.getHoldingsByAddress({
+    id: params.address,
+  });
 
   const [tco2Balances, IcrBalances] = await Promise.all([
     fetchTco2Balances,
