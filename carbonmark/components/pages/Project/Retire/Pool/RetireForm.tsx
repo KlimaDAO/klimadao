@@ -131,7 +131,7 @@ export const RetireForm: FC<Props> = (props) => {
     Number(quantity) <= 0 ||
     (paymentMethod === "fiat"
       ? Number(costs) < Number(fiatMinimum)
-      : Number(costs) < Number(MINIMUM_TONNE_QUANTITY));
+      : Number(quantity) < Number(MINIMUM_TONNE_QUANTITY));
 
   const resetStateAndCancel = () => {
     setInputValues(null);
