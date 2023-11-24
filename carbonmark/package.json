@@ -43,7 +43,10 @@
     "react-hook-form": "^7.43.9",
     "recharts": "^2.5.0",
     "swr": "^2.1.5",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "@supabase/supabase-js": "^2.38.4",
+    "@supabase/auth-ui-react": "^0.4.6",
+    "@supabase/auth-ui-shared": "^0.1.8"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.6",
