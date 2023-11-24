@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-17 15:46+0000\n"
+"POT-Creation-Date: 2023-11-23 15:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -164,7 +164,7 @@ msgstr "Verfügbar: {0}"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
 msgid "Available: {unlistedBalance}"
-msgstr ""
+msgstr "Verfügbar: {unlistedBalance}"
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"

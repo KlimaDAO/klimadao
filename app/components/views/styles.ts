@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const buyCard = css`
+export const ctaCard = css`
   position: relative;
   display: flex;
   justify-content: center;
@@ -25,7 +25,7 @@ export const buyCard = css`
   }
 `;
 
-export const buyCard_header = css`
+export const ctaCard_header = css`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -38,7 +38,7 @@ export const buyCard_header = css`
   }
 `;
 
-export const buyCard_header_title = css`
+export const ctaCard_header_title = css`
   display: flex;
   width: 100%;
   text-align: left;
@@ -46,51 +46,19 @@ export const buyCard_header_title = css`
   gap: 0.8rem;
 `;
 
-export const buyCard_header_subtitle = css`
+export const ctaCard_header_subtitle = css`
   width: 100%;
   text-align: left;
   padding-top: 0.8rem;
 `;
 
-export const buyCard_ui = css`
+export const columnRight = css`
   display: grid;
   gap: 2.4rem;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
-  padding-bottom: 2.4rem;
-  ${breakpoints.medium} {
-    border: 2px solid var(--surface-03);
-    padding: 2.4rem;
-    border-radius: 1.2rem;
-  }
+  grid-column: 1 / 3;
+  align-content: start;
+
   ${breakpoints.desktop} {
-    gap: 4.8rem;
-    padding: 3.2rem;
-    max-width: 48rem;
-    justify-self: center;
-    width: 100%;
+    grid-column: 2 / 3;
   }
-`;
-
-export const submitButton = css`
-  width: 100%;
-`;
-
-export const copyButton = css`
-  margin: 0rem 2.4rem;
-  justify-self: start;
-  gap: 0.4rem;
-  ${breakpoints.desktopLarge} {
-    margin: unset;
-  }
-`;
-
-export const address = css`
-  font-family: monospace;
-  text-align: center;
-  color: var(--gray);
-`;
-
-export const connect_button = css`
-  width: 100%;
 `;

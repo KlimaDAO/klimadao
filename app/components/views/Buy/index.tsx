@@ -9,7 +9,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import { BalancesCard } from "components/BalancesCard";
 import { DisclamerModal } from "components/DisclaimerModal";
 import { ImageCard } from "components/ImageCard";
-import * as styles from "./styles";
+import * as styles from "../styles";
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -22,21 +22,21 @@ export const Buy = (props: Props) => {
   return (
     <>
       <DisclamerModal />
-      <div className={styles.buyCard}>
-        <div className={styles.buyCard_header}>
+      <div className={styles.ctaCard}>
+        <div className={styles.ctaCard_header}>
           {props.isConnected && props.address ? (
             <div>
-              <Text t="h4" className={styles.buyCard_header_title}>
+              <Text t="h4" className={styles.ctaCard_header_title}>
                 <Payment />
                 <Trans id="buy.buy_klima">Buy KLIMA</Trans>
               </Text>
-              <Text t="caption" className={styles.buyCard_header_subtitle}>
+              <Text t="caption" className={styles.ctaCard_header_subtitle}>
                 <Trans id="buy.cta_1">
                   If you are a beginner, we recommend following our step-by-step
                   tutorial: <Anchor href={urls.buy}>How to Buy KLIMA</Anchor>.
                 </Trans>
               </Text>
-              <Text t="caption" className={styles.buyCard_header_subtitle}>
+              <Text t="caption" className={styles.ctaCard_header_subtitle}>
                 <Trans id="buy.cta_2">
                   Otherwise, if you already have a wallet with MATIC on Polygon,
                   the best way to get KLIMA is to swap on{" "}
@@ -49,7 +49,7 @@ export const Buy = (props: Props) => {
             </div>
           ) : (
             <>
-              <Text t="h4" className={styles.buyCard_header_title}>
+              <Text t="h4" className={styles.ctaCard_header_title}>
                 <LoginIcon />
                 <Trans id="buy.please_log_in">
                   Please Log In Or Connect A Wallet
