@@ -19,6 +19,7 @@ import {
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { isNil } from "lodash";
 import { DEFAULT_EXPIRATION_DAYS, DEFAULT_MIN_FILL_AMOUNT } from "./constants";
+import { formatToTonnes } from "./formatNumbers";
 
 const getSignerNetwork = (
   signer: providers.JsonRpcSigner
@@ -26,6 +27,10 @@ const getSignerNetwork = (
   return isTestnetChainId(signer.provider.network.chainId)
     ? "mumbai"
     : "polygon";
+};
+
+const getFormattedSingleUnitPrice = (value: string) => {
+  return formatToTonnes(value, "en", 6);
 };
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
@@ -199,7 +204,10 @@ export const updateListingTransaction = async (params: {
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
       parseUnits(params.newAmount, 18),
-      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(
+        getFormattedSingleUnitPrice(params.singleUnitPrice),
+        getTokenDecimals("usdc")
+      ),
       parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
       getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
     );
@@ -239,14 +247,18 @@ export const makePurchase = async (params: {
     params.onStatus("userConfirmation", "");
 
     const maxCost = String(
-      Number(params.quantity) * Number(params.singleUnitPrice)
+      Number(params.quantity) *
+        Number(getFormattedSingleUnitPrice(params.singleUnitPrice))
     );
 
     const purchaseTxn = await carbonmarkContract.fillListing(
       params.listingId,
       params.sellerAddress,
       params.creditTokenAddress,
-      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(
+        getFormattedSingleUnitPrice(params.singleUnitPrice),
+        getTokenDecimals("usdc")
+      ),
       parseUnits(params.quantity, 18),
       parseUnits(maxCost, getTokenDecimals("usdc"))
     );
