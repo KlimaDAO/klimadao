@@ -3,7 +3,7 @@ import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { getUsersWalletorhandleKey } from "lib/api/swr.keys";
+import { getUsersWalletorHandleKey } from "lib/api/swr.keys";
 import { fetcher } from "lib/fetcher";
 import { User } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
@@ -63,7 +63,7 @@ export const Users: NextPage<PageProps> = (props) => (
       fallback: {
         // https://swr.vercel.app/docs/with-nextjs#complex-keys
         [unstable_serialize(
-          getUsersWalletorhandleKey({}, { walletOrHandle: props.userAddress })
+          getUsersWalletorHandleKey({}, { walletOrHandle: props.userAddress })
         )]: props.carbonmarkUser,
       },
     }}

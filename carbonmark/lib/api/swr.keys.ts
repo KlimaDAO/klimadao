@@ -8,7 +8,7 @@ import { urls } from "lib/constants";
  * Construct stable URL as key for SWR. When this key changes, data is re-fetched.
  * Always includes network default 'polygon'
  */
-export const getUsersWalletorhandleKey = (
+export const getUsersWalletorHandleKey = (
   query: GetUsersWalletorhandleQueryParams,
   params: GetUsersWalletorhandlePathParams
 ) => {
