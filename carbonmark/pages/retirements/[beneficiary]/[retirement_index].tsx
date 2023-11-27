@@ -1,9 +1,9 @@
+import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
 import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { isAddress } from "ethers-v6";
-import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
@@ -84,11 +84,9 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
-    const project =
-      !!subgraphData &&
-      (await getCarbonmarkProject(
-        `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
-      ));
+    const project = await getProjectsId(
+      `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
+    );
 
     return {
       props: {

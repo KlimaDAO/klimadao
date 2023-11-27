@@ -1,4 +1,3 @@
-import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
@@ -8,7 +7,7 @@ import { notNil } from "../../utils/functional.utils";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { querystring, schema } from "./get.schema";
+import { Querystring, schema } from "./get.schema";
 import {
   CMSDataMap,
   ProjectDataMap,
@@ -34,7 +33,7 @@ import {
  */
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Querystring: Static<typeof querystring> }>,
+    request: FastifyRequest<{ Querystring: Querystring }>,
     reply: FastifyReply
   ): Promise<Project[]> {
     const sdk = gql_sdk(request.query.network);

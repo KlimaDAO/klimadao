@@ -1,4 +1,3 @@
-import { Static } from "@sinclair/typebox";
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { isNil } from "lodash";
@@ -6,13 +5,13 @@ import { Purchase } from "../../../models/Purchase.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
-import { ParamsT, Querystring, schema } from "./get.schema";
+import { Params, Querystring, schema } from "./get.schema";
 import { isValidPurchaseId } from "./get.utils";
 
 const handler = async (
   request: FastifyRequest<{
-    Params: ParamsT;
-    Querystring: Static<typeof Querystring>;
+    Params: Params;
+    Querystring: Querystring;
   }>,
   reply: FastifyReply
 ) => {

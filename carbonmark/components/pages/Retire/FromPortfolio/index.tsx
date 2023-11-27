@@ -1,8 +1,8 @@
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets, AssetWithProject } from "lib/actions";
 import { isListableToken } from "lib/utils/listings.utils";
 import { FC, useEffect, useState } from "react";
@@ -14,9 +14,9 @@ export type Props = {
 };
 
 export const RetireFromPortfolio: FC<Props> = (props) => {
-  const { carbonmarkUser, isLoading } = useFetchUser({
-    params: { walletOrHandle: props.address },
-  });
+  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
+    props.address
+  );
 
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [assetsData, setAssetsData] = useState<AssetWithProject[] | null>(null);
