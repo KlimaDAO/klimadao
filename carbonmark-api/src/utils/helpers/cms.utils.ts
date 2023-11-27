@@ -88,6 +88,22 @@ export const fetchCMSProject = async (
         })) || [];
 
       const registry = apiData.ghgProgram?.id.toUpperCase() || null;
+      // extract the matching tokenID from the vintage in serialization
+      const vintage = args.serialization.split("-").pop();
+
+      const findTokenIdByVintage = (
+        vintage: string | undefined
+      ): string | null => {
+        if (!vintage) {
+          return null;
+        }
+        for (const credit of apiData.carbonCredits) {
+          if (credit.vintage === vintage) {
+            return credit.tokenId;
+          }
+        }
+        return null;
+      };
 
       return {
         // slice off the -<vintage> from the end of the serialization to fit existing key format
@@ -120,6 +136,8 @@ export const fetchCMSProject = async (
         },
         coverImage: apiData.documents?.[0]?.uri || null,
         images,
+        tokenId: findTokenIdByVintage(vintage) || null,
+        vintage: vintage || null,
       };
     } catch (error) {
       // catch 403s here for mainnet keys that are not verified

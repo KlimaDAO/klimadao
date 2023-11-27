@@ -28,6 +28,7 @@ import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
 import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
+
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -43,7 +44,10 @@ interface RetireFormProps {
 export const RetireForm = (props: RetireFormProps) => {
   const router = useRouter();
   const { address, asset, provider } = props;
-  const { tokenName, tokenSymbol, project } = asset;
+  const { networkLabel } = useWeb3();
+  const router = useRouter();
+
+  const { tokenName, balance, tokenSymbol, project } = asset;
 
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
@@ -93,6 +97,8 @@ export const RetireForm = (props: RetireFormProps) => {
 
     if (parts[0].toUpperCase() === "C3T") {
       return "c3";
+    } else if (parts[0].toUpperCase() === "ICR") {
+      return "icr";
     }
     return parts[0].toLowerCase();
   };
@@ -108,10 +114,12 @@ export const RetireForm = (props: RetireFormProps) => {
     async function getApproval() {
       if (provider && project.tokenAddress) {
         await hasApproval({
+          tokenStandard: project.tokenStandard,
           quantity: retirement.quantity,
           address,
           provider,
           tokenAddress: project.tokenAddress,
+          network: networkLabel,
         }).then((isApproved) => {
           setIsApproved(isApproved);
         });
@@ -185,7 +193,7 @@ export const RetireForm = (props: RetireFormProps) => {
               </Text>
               <div className={styles.tags}>
                 <Text t="h5" className={styles.projectIDText}>
-                  {project.projectID}
+                  {project.projectId}
                 </Text>
                 <Vintage vintage={project.vintageYear} />
                 <Category

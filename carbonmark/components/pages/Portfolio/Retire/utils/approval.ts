@@ -3,24 +3,38 @@ import { addresses } from "@klimadao/lib/constants";
 import { formatUnits } from "@klimadao/lib/utils";
 import { Contract, providers } from "ethers";
 import { parseUnits } from "ethers-v6";
-import { getAggregatorV2Allowance } from "lib/actions";
+import {
+  getAggregatorIsApprovedForAll,
+  getAggregatorV2Allowance,
+} from "lib/actions";
 import { OnStatusHandler, TxnStatus } from "lib/statusMessage";
 
 export const hasApproval = async (params: {
+  tokenStandard: string;
   quantity: string;
   address: string;
   provider: providers.JsonRpcProvider;
   tokenAddress: string;
+  network: "polygon" | "mumbai";
 }) => {
-  const aggregatorAllowance = await getAggregatorV2Allowance({
-    userAddress: params.address,
-    tokenAddress: params.tokenAddress,
-  });
+  if (params.tokenStandard === "ERC1155") {
+    const aggregatorApproval = await getAggregatorIsApprovedForAll({
+      userAddress: params.address,
+      tokenAddress: params.tokenAddress,
+      network: params.network,
+    });
+    return aggregatorApproval;
+  } else {
+    const aggregatorAllowance = await getAggregatorV2Allowance({
+      userAddress: params.address,
+      tokenAddress: params.tokenAddress,
+    });
 
-  return (
-    !!Number(aggregatorAllowance) &&
-    Number(aggregatorAllowance) >= Number(params.quantity)
-  );
+    return (
+      !!Number(aggregatorAllowance) &&
+      Number(aggregatorAllowance) >= Number(params.quantity)
+    );
+  }
 };
 
 export const approveProjectToken = async (params: {

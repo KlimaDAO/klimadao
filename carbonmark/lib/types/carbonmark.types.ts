@@ -167,9 +167,19 @@ export type AssetForRetirement = {
   amount: string;
   tokenName: string;
   balance: string;
-  tokenSymbol: string; // 1: C3T, 2: TCO2
-  project: PbcProject;
+  tokenSymbol: string; // 1: C3T, 2: TCO2, 3: ICR
   token: Asset["token"];
+  project: ProjectRetirementDetails;
+};
+
+export type ProjectRetirementDetails = {
+  tokenAddress: string;
+  vintageYear: string;
+  name: string;
+  registry: string;
+  methodologyCategory: string;
+  projectId: string;
+  tokenStandard: string;
 };
 
 export type Methodology = {
@@ -196,7 +206,7 @@ export type Purchase = {
   price: string;
 };
 
-export type CarbonmarkToken = "usdc" | "c3" | "tco2";
+export type CarbonmarkToken = "usdc" | "c3" | "tco2" | "icr";
 
 export type Balance = {
   tokenName: CarbonmarkToken;
