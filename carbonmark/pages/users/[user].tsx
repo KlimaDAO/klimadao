@@ -39,7 +39,7 @@ const resolveAddress = async (params: { address: string; locale?: string }) => {
     if (e.status !== 404) {
       throw e;
     } else {
-      console.error(e.message)
+      console.error(e.message);
     }
   }
 
@@ -88,7 +88,7 @@ const resolveHandle = async (params: { handle: string; locale?: string }) => {
     if (e.status !== 404) {
       throw e;
     } else {
-      console.error(e.message)
+      console.error(e.message);
     }
   }
 
