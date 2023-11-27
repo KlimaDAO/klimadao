@@ -1,4 +1,5 @@
 import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
+import { User } from ".generated/carbonmark-api-sdk/types";
 import { PageProps, Users } from "components/pages/Users";
 import { isAddress } from "ethers-v6";
 import { VALID_HANDLE_REGEX } from "lib/constants";
@@ -31,7 +32,17 @@ const getUserType = (user: string): UserType => {
  * Redirects if handle is found, otherwise render empty page props.
  * */
 const resolveAddress = async (params: { address: string; locale?: string }) => {
-  const carbonmarkUser = await getUsersWalletorhandle(params.address);
+  let carbonmarkUser: User | null = null;
+  try {
+    carbonmarkUser = await getUsersWalletorhandle(params.address);
+  } catch (e) {
+    if (e.status !== 404) {
+      throw e;
+    } else {
+      console.error(e.message)
+    }
+  }
+
   // Handle urls are canonical & more user friendly, redirect if possible
   if (carbonmarkUser?.handle) {
     return {
@@ -70,7 +81,16 @@ const resolveDomain = async (params: { domain: string; locale?: string }) => {
  * Attempts to resolve a valid user handle. Throws if handle can't be resolved.
  * */
 const resolveHandle = async (params: { handle: string; locale?: string }) => {
-  const carbonmarkUser = await getUsersWalletorhandle(params.handle);
+  let carbonmarkUser: User | null = null;
+  try {
+    carbonmarkUser = await getUsersWalletorhandle(params.handle);
+  } catch (e) {
+    if (e.status !== 404) {
+      throw e;
+    } else {
+      console.error(e.message)
+    }
+  }
 
   if (!carbonmarkUser?.wallet) {
     throw new Error(`${params.handle} could not be resolved`);
