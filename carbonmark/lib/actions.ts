@@ -1,3 +1,4 @@
+import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
@@ -17,7 +18,6 @@ import {
 } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { isNil } from "lodash";
-import { getCarbonmarkProject } from "./carbonmark";
 import { DEFAULT_EXPIRATION_DAYS, DEFAULT_MIN_FILL_AMOUNT } from "./constants";
 
 const getSignerNetwork = (
@@ -317,7 +317,7 @@ export const addProjectsToAssets = async (params: {
     });
     const projectIds = Array.from(projectIdSet);
     const projects = await Promise.all(
-      projectIds.map((id) => getCarbonmarkProject(id))
+      projectIds.map((id) => getProjectsId(id))
     );
 
     const ProjectMap = projects.reduce((PMap, p) => {
