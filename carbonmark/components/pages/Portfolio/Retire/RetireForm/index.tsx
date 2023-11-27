@@ -29,6 +29,7 @@ import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
 import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
+
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -94,6 +95,8 @@ export const RetireForm = (props: RetireFormProps) => {
 
     if (parts[0].toUpperCase() === "C3T") {
       return "c3";
+    } else if (parts[0].toUpperCase() === "ICR") {
+      return "icr";
     }
     return parts[0].toLowerCase();
   };
@@ -109,10 +112,12 @@ export const RetireForm = (props: RetireFormProps) => {
     async function getApproval() {
       if (provider && credit.id) {
         await hasApproval({
+          tokenStandard: project.tokenStandard,
           quantity: retirement.quantity,
           address,
           provider,
           tokenAddress: credit.id,
+          network: networkLabel,
         }).then((isApproved) => {
           setIsApproved(isApproved);
         });

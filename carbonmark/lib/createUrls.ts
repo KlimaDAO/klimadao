@@ -6,7 +6,7 @@ type ProjectData = {
   serialization?: Project["serialization"];
 };
 export const createProjectLink = (project: ProjectData) => {
-  if (project.key.startsWith("ICR")) {
+  if (project.key.startsWith("ICR") && project.serialization) {
     return `/projects/${project.serialization}`;
   } else {
     return `/projects/${project.key}-${project.vintage}`;

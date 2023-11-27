@@ -312,3 +312,13 @@ export const verra = {
 export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
+
+export const ICR_API_URLS = {
+  polygon: "https://gaia-api-dev.mojoflower.io/v0",
+  mumbai: "https://gaia-api-dev.mojoflower.io/v0",
+};
+
+export const ICR_API_KEYS = {
+  polygon: process.env.ICR_MAINNET_API_KEY,
+  mumbai: process.env.ICR_MUMBAI_API_KEY,
+};
