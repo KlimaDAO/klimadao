@@ -128,6 +128,8 @@ const handler = (fastify: FastifyInstance) =>
       listings,
       vintage,
       stats,
+      serialization: icrSerialization,
+      tokenId: projectDetails.tokenId,
     };
     return reply
       .header("Content-Type", "application/json; charset=utf-8")

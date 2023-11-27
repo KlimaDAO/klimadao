@@ -60,10 +60,6 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   useEffect(() => {
     if (isConnected && !isLoading && carbonmarkUser) {
       function createRetirementAsset() {
-        // const targetProject = Array.isArray(props.project)
-        //   ? props.project[0]
-        //   : undefined;
-
         const targetProject = props.project;
 
         if (targetProject && carbonmarkUser?.assets) {
