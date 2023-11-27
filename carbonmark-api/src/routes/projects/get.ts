@@ -48,7 +48,6 @@ const handler = (fastify: FastifyInstance) =>
 
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify, network);
-    console.info("allOptions", args);
 
     const [
       marketplaceProjectsData,
