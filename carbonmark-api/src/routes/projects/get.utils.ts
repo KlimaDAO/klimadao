@@ -41,26 +41,18 @@ import { formatListings } from "../../utils/marketplace.utils";
  * # this will cause a silent error. GQL Resolver needs to be updated to allow null search params
  * # to return all possible values
  */
-export const getDefaultQueryArgs = async (
-  sdk: GQL_SDK,
-  fastify: FastifyInstance,
-  network: string
-) => {
+
+export const fetchIcrData = async (network: "polygon" | "mumbai") => {
   const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
   const url = `${ICR_API_URL}/public/projects/filters`;
-  //Fetch all possible parameter values
-  const [category, country, vintage, IcrResponse] = await Promise.all([
-    getAllCategories(sdk, fastify).then(map(extract("id"))),
-    getAllCountries(sdk, fastify).then(map(extract("id"))),
-    getAllVintages(sdk, fastify),
-    await fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${ICR_API_KEY}`,
-      },
-    }),
-  ]);
+
+  const IcrResponse = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${ICR_API_KEY}`,
+    },
+  });
 
   const { vintages: IcrVintages, countryCodes: IcrCountryCodes } =
     await IcrResponse.json();
@@ -70,6 +62,23 @@ export const getDefaultQueryArgs = async (
       convertIcrCountryCodeToName(countryCode)
     )
   );
+
+  return { IcrVintages, countryNames };
+};
+
+export const getDefaultQueryArgs = async (
+  sdk: GQL_SDK,
+  fastify: FastifyInstance,
+  network: "polygon" | "mumbai"
+) => {
+  const [category, country, vintage, icrData] = await Promise.all([
+    getAllCategories(sdk, fastify).then(map(extract("id"))),
+    getAllCountries(sdk, fastify).then(map(extract("id"))),
+    getAllVintages(sdk, fastify),
+    fetchIcrData(network),
+  ]);
+
+  const { IcrVintages, countryNames } = icrData;
 
   const mergedVintages = [...vintage, ...IcrVintages];
   const uniqueVintages = [...new Set(mergedVintages)];
