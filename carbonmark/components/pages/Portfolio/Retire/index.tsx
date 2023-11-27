@@ -1,3 +1,5 @@
+import client from ".generated/carbonmark-api-sdk/client";
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
 import { t, Trans } from "@lingui/macro";
@@ -6,12 +8,12 @@ import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
-import { useFetchUser } from "hooks/useFetchUser";
 import { createCompositeAsset } from "lib/actions";
 import type {
   AssetForRetirement,
   PcbProject,
 } from "lib/types/carbonmark.types";
+import { notNil } from "lib/utils/functional.utils";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -32,12 +34,15 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
     toggleModal,
     provider,
     initializing,
+    networkLabel,
   } = useWeb3();
-  const { carbonmarkUser, isLoading } = useFetchUser({
-    params: { walletOrHandle: address },
-    // Current user, fetch all listings
-    query: { expiresAfter: "0" },
-  });
+
+  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
+    address ?? "",
+    { network: networkLabel, expiresAfter: "0" },
+    { query: { fetcher: notNil(address) ? client : async () => undefined } }
+  );
+
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
   const isConnectedUser = isConnected && address;

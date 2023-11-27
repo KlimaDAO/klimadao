@@ -1,6 +1,7 @@
+import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { Home } from "components/pages/Home";
-import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
+import { compact } from "lodash";
 import { GetStaticProps } from "next";
 
 const defaultProjectKeys = ["VCS-674-2014", "VCS-292-2020", "VCS-981-2017"];
@@ -8,11 +9,11 @@ const defaultProjectKeys = ["VCS-674-2014", "VCS-292-2020", "VCS-981-2017"];
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
   const projects = await Promise.all(
-    defaultProjectKeys.map((project) => getCarbonmarkProject(project))
+    defaultProjectKeys.map((project) => getProjectsId(project))
   );
   return {
     props: {
-      projects,
+      projects: compact(projects),
       translation,
       fixedThemeName: "theme-light",
     },
