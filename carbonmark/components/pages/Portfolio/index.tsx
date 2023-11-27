@@ -1,3 +1,5 @@
+import client from ".generated/carbonmark-api-sdk/client";
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Layout } from "components/Layout";
@@ -7,8 +9,8 @@ import { PageHead } from "components/PageHead";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { useFetchUser } from "hooks/useFetchUser";
 import { activityIsAdded, getUserUntil } from "lib/api";
+import { notNil } from "lib/utils/functional.utils";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
@@ -24,11 +26,15 @@ export const Portfolio: NextPage = () => {
     initializing,
     networkLabel,
   } = useWeb3();
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser({
-    params: { walletOrHandle: address },
-    //Since we're fetching for the current user fetch all listings
-    query: { network: networkLabel, expiresAfter: "0" },
-  });
+  const {
+    data: carbonmarkUser,
+    isLoading,
+    mutate,
+  } = useGetUsersWalletorhandle(
+    address ?? "",
+    { network: networkLabel, expiresAfter: "0" },
+    { query: { fetcher: notNil(address) ? client : async () => undefined } }
+  );
 
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -124,7 +130,9 @@ export const Portfolio: NextPage = () => {
             </Col>
 
             <Col>
-              <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />
+              {carbonmarkUser && (
+                <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />
+              )}
             </Col>
           </TwoColLayout>
         </div>

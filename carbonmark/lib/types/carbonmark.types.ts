@@ -1,25 +1,31 @@
-import type schema from ".generated/carbonmark-api.schema";
 import { BigNumber } from "ethers";
-import type { NormalizeOAS, OASModel } from "fets";
 import { CATEGORY_INFO } from "lib/getCategoryInfo";
 
 /** These types are all derived from the open-api schema from api.carbonmark.com/openapi.json */
-export type Project = OASModel<NormalizeOAS<typeof schema>, "Project">;
-export type Listing = OASModel<NormalizeOAS<typeof schema>, "Listing">;
-export type TokenPrice = OASModel<NormalizeOAS<typeof schema>, "TokenPrice">;
-export type Activity = OASModel<NormalizeOAS<typeof schema>, "Activity">;
-export type User = OASModel<NormalizeOAS<typeof schema>, "User">;
-export type Category = OASModel<NormalizeOAS<typeof schema>, "Category">;
-export type Country = OASModel<NormalizeOAS<typeof schema>, "Country">;
-export type Asset = OASModel<NormalizeOAS<typeof schema>, "Asset">;
-export type DetailedProject = OASModel<
-  NormalizeOAS<typeof schema>,
-  "DetailedProject"
->;
+import type {
+  Image,
+  Activity as SDKActivity,
+  Asset as SDKAsset,
+  Category as SDKCategory,
+  Country as SDKCountry,
+  DetailedProject as SDKDetailedProject,
+  Listing as SDKListing,
+  Project as SDKProject,
+  TokenPrice as SDKTokenPrice,
+  User as SDKUser,
+} from ".generated/carbonmark-api-sdk/types";
 
+export type Project = SDKProject;
+export type Listing = SDKListing;
+export type TokenPrice = SDKTokenPrice;
+export type Activity = SDKActivity;
+export type User = SDKUser;
+export type Category = SDKCategory;
+export type Country = SDKCountry;
+export type Asset = SDKAsset;
+export type DetailedProject = SDKDetailedProject;
+export type CarouselImage = Image;
 export type CategoryName = keyof typeof CATEGORY_INFO;
-
-export type CarouselImage = OASModel<NormalizeOAS<typeof schema>, "Image">;
 
 export interface PcbProject {
   id: string;
