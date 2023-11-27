@@ -8,7 +8,7 @@ import PortableTextRenderer from "components/pages/Resources/PortableTextRendere
 import { Navigation } from "components/shared/Navigation";
 import { Post } from "lib/cms/queries";
 import { urls as carbonmarkUrls } from "lib/constants";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import defaultImage from "public/cover-default.png";
@@ -68,8 +68,10 @@ export const PostPage = (props: PostProps) => {
                 priority={true}
                 src={props.post.imageUrl || defaultImage}
                 alt={props.post.title}
-                objectFit="cover"
-                layout="fill"
+                fill={true}
+                style={{
+                  objectFit: "cover",
+                }}
               />
             </div>
           </div>

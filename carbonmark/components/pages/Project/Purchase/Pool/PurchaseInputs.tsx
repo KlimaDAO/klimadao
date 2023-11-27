@@ -13,7 +13,7 @@ import {
   CarbonmarkPaymentMethod,
   TokenPrice,
 } from "lib/types/carbonmark.types";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useFormContext, useWatch } from "react-hook-form";

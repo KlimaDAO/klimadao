@@ -337,7 +337,6 @@ export const iconFade = css`
   transition:
     opacity 800ms linear,
     display 800ms linear;
-  display: none;
   opacity: 0;
 `;
 

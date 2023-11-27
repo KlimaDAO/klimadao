@@ -1,6 +1,6 @@
 import { CarbonToken } from "@klimadao/lib/constants";
 import { CarbonmarkToken } from "lib/types/carbonmark.types";
-import { StaticImageData } from "next/legacy/image";
+import { StaticImageData } from "next/image";
 import BCT from "public/icons/BCT.png";
 import C3T from "public/icons/C3T.png";
 import MCO2 from "public/icons/MCO2.png";

@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/macro";
 import { Text } from "components/Text";
 import { FeaturedPost } from "lib/cms/queries";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import defaultImage from "public/cover-default.png";
@@ -24,8 +24,10 @@ export const Article: FC<Props> = (props) => {
       <Image
         alt={`${props.article.title} Image`}
         src={props.article.imageUrl || defaultImage}
-        layout="fill"
-        objectFit="cover"
+        fill={true}
+        style={{
+          objectFit: "cover",
+        }}
       />
       <div className="stack">
         <div className={styles.stackContent}>

@@ -5,7 +5,7 @@ import {
   PortableTextProps,
 } from "@portabletext/react";
 import { Text } from "components/Text";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -89,8 +89,10 @@ const components: PortableTextComponents = {
           <Image
             src={value.asset.url}
             alt="inline image"
-            objectFit="contain"
-            layout="responsive"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
             width={value.asset.width}
             height={value.asset.height}
           />
