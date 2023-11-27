@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-23 15:39+0000\n"
+"POT-Creation-Date: 2023-11-27 11:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -164,7 +164,7 @@ msgstr "Disponible: {0}"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
 msgid "Available: {unlistedBalance}"
-msgstr ""
+msgstr "Disponible: {unlistedBalance}"
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
@@ -359,8 +359,8 @@ msgstr "País"
 msgid "Create Carbonmark Profile"
 msgstr "Crear perfil Carbonmark"
 
-#: components/pages/Users/SellerConnected/index.tsx:143
-#: components/pages/Users/SellerConnected/index.tsx:167
+#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:169
 msgid "Create New Listing"
 msgstr "Crear nuevo listado"
 
@@ -426,7 +426,7 @@ msgid "Data for this project and vintage"
 msgstr "Datos para este proyecto y vintage"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:97
+#: components/pages/Users/SellerUnconnected/index.tsx:101
 msgid "Data for this seller"
 msgstr "Datos de este vendedor"
 
@@ -546,8 +546,8 @@ msgstr "Nombre no puede ser una direccion"
 msgid "Handle should not contain any special characters"
 msgstr "El nombre no puede contener caracteres especiales"
 
-#: components/pages/Portfolio/Retire/index.tsx:117
-#: components/pages/Portfolio/index.tsx:117
+#: components/pages/Portfolio/Retire/index.tsx:122
+#: components/pages/Portfolio/index.tsx:123
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "¿Ha creado ya su Carbonmark <0>Profile</0>?"
 
@@ -636,8 +636,8 @@ msgstr "Ponga a la venta sus proyectos en unos pocos clicks"
 msgid "Listed tonnes:"
 msgstr "Toneladas listadas:"
 
-#: components/pages/Users/SellerConnected/index.tsx:128
-#: components/pages/Users/SellerUnconnected/index.tsx:53
+#: components/pages/Users/SellerConnected/index.tsx:130
+#: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "Listings"
 msgstr "Listados"
 
@@ -717,8 +717,8 @@ msgstr "Siguiente"
 msgid "No Activity to show."
 msgstr "No hay actividad para mostrar."
 
-#: components/pages/Users/SellerConnected/index.tsx:191
-#: components/pages/Users/SellerUnconnected/index.tsx:89
+#: components/pages/Users/SellerConnected/index.tsx:193
+#: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "No active listings."
 msgstr "No hay listados activos."
 
@@ -813,14 +813,14 @@ msgstr "Tasa de procesamiento de pagos"
 msgid "Please Log In"
 msgstr "Por favor Iniciar sesión"
 
-#: components/pages/Portfolio/index.tsx:62
+#: components/pages/Portfolio/index.tsx:68
 #: components/pages/Users/SellerConnected/index.tsx:76
 #: components/pages/Users/SellerConnected/index.tsx:102
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Por favor, actualice la página. Se ha producido un error al actualizar sus datos: {e}."
 
-#: components/pages/Portfolio/index.tsx:72
-#: components/pages/Portfolio/index.tsx:73
+#: components/pages/Portfolio/index.tsx:78
+#: components/pages/Portfolio/index.tsx:79
 msgid "Portfolio | Carbonmark"
 msgstr "Portfolio | Carbonmark"
 
@@ -1062,8 +1062,8 @@ msgstr "Retirar ahora"
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "Retire ahora o adquiera carbono para retirar más tarde: usted decide qué hacer cuando adquiera la propiedad de sus activos de carbono."
 
-#: components/pages/Portfolio/Retire/index.tsx:89
-#: components/pages/Portfolio/Retire/index.tsx:90
+#: components/pages/Portfolio/Retire/index.tsx:94
+#: components/pages/Portfolio/Retire/index.tsx:95
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -1153,8 +1153,8 @@ msgstr "Perdón, algo salió mal."
 msgid "Sorry, this handle already exists"
 msgstr "Lo sentimos, este nombre ya existe"
 
-#: components/pages/Portfolio/Retire/index.tsx:112
-#: components/pages/Portfolio/index.tsx:111
+#: components/pages/Portfolio/Retire/index.tsx:117
+#: components/pages/Portfolio/index.tsx:117
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Lo sentimos. No hemos podido encontrar datos sobre Carbonmark para tu usuario."
 
@@ -1415,7 +1415,7 @@ msgstr "Actualizar listado"
 msgid "Updated:"
 msgstr "Actualizado:"
 
-#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Updating your data..."
 msgstr "Actualizando tus datos..."
 
@@ -1449,11 +1449,11 @@ msgstr "Ver detalles del registro <0/>"
 msgid "View Results"
 msgstr "Ver resultados"
 
-#: components/pages/Portfolio/index.tsx:74
+#: components/pages/Portfolio/index.tsx:80
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Vea una visión completa del carbono digital que posee en su Portafolio."
 
-#: components/pages/Portfolio/Retire/index.tsx:91
+#: components/pages/Portfolio/Retire/index.tsx:96
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "Vea un resumen completo del carbono digital que posee en su Retiro."
 
@@ -1608,7 +1608,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Su compra aún no se ha completado. Para finalizar su compra, compruebe que toda la información es correcta y haga clic en \"Enviar\"."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:212
 msgid "Your seller data"
 msgstr "Tus datos de vendedor"
 
@@ -1786,7 +1786,7 @@ msgstr "Crear listado"
 msgid "profile.edit_modal.submit"
 msgstr "Guardar cambios"
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:219
 msgid "profile.edit_profile.title"
 msgstr "Tu perfil"
 
@@ -1988,7 +1988,7 @@ msgstr "Metodología:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
-msgstr ""
+msgstr "Los créditos MCO2 son generados por proyectos que preservan la selva amazónica, con todo tipo de externalidades positivas como la creación de empleos locales y la preservación de la biodiversidad local. Explore MCO2 en <0>data.klimadao.finance</0>."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
 msgid "retirement.single.moss_offset.name"
@@ -2098,7 +2098,7 @@ msgstr "Total de toneladas de carbono retiradas"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total de transacciones de retirada"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:76
+#: components/pages/Users/SellerUnconnected/index.tsx:79
 msgid "seller.listing.buy"
 msgstr "Comprar"
 
@@ -2107,7 +2107,7 @@ msgid "seller.listing.quantity_available"
 msgstr "Cantidad disponible:"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:66
+#: components/pages/Users/SellerUnconnected/index.tsx:69
 msgid "shared.connect_to_buy"
 msgstr "Iniciar sesión / Conectar para comprar"
 
