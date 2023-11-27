@@ -9,7 +9,7 @@ import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
 import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark.types";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useFormContext } from "react-hook-form";

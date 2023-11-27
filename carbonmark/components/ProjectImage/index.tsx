@@ -1,7 +1,7 @@
 import { getImageSizes } from "@klimadao/lib/utils";
 import { getCategoryInfo } from "lib/getCategoryInfo";
 import { CategoryName } from "lib/types/carbonmark.types";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { FC } from "react";
 
 type Props = {
@@ -15,8 +15,8 @@ export const ProjectImage: FC<Props> = (props) => {
     <Image
       src={category.imageSrc}
       alt={category.label}
-      objectFit="cover"
-      layout="fill"
+      style={{ objectFit: "cover" }}
+      fill={true}
       sizes={getImageSizes({
         desktopLarge: "1116px",
       })}

@@ -3,7 +3,7 @@ import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
-import Image, { StaticImageData } from "next/legacy/image";
+import Image, { StaticImageData } from "next/image";
 import { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import { Control, FieldValues, Path, useController } from "react-hook-form";
 import * as styles from "./styles";

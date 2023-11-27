@@ -6,7 +6,7 @@ import { Text } from "components/Text";
 import { urls } from "lib/constants";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "./styles";

@@ -28,6 +28,7 @@ export const blockQuote = css`
 
 export const inlineImage = css`
   margin: auto;
+  position: relative;
 `;
 
 export const link = css`
