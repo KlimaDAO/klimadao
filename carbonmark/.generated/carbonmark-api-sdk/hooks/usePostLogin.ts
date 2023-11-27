@@ -6,20 +6,20 @@ import useSWRMutation from "swr/mutation";
 import type { ResponseConfig } from "../../../lib/api/client";
 import client from "../../../lib/api/client";
 import type {
-  PostUsersLoginMutationRequest,
-  PostUsersLoginMutationResponse,
-} from "../types/PostUsersLogin";
+  PostLoginMutationRequest,
+  PostLoginMutationResponse,
+} from "../types/PostLogin";
 
 /**
  * @description Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.
  * @summary Get nonce
- * @link /users/login
+ * @link /login
  */
 
-export function usePostUsersLogin<
-  TData = PostUsersLoginMutationResponse,
+export function usePostLogin<
+  TData = PostLoginMutationResponse,
   TError = unknown,
-  TVariables = PostUsersLoginMutationRequest,
+  TVariables = PostLoginMutationRequest,
 >(options?: {
   mutation?: SWRMutationConfiguration<
     ResponseConfig<TData>,
@@ -41,7 +41,7 @@ export function usePostUsersLogin<
     shouldFetch = true,
   } = options ?? {};
 
-  const url = shouldFetch ? `/users/login` : null;
+  const url = shouldFetch ? `/login` : null;
   return useSWRMutation<
     ResponseConfig<TData>,
     TError,
