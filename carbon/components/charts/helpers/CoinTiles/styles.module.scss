@@ -97,3 +97,12 @@ And enable css to be passed to items of all rows except the last one
     color: var(--lightmode-font-02);
   }
 }
+
+.clickable {
+  cursor: pointer;
+}
+
+.tooltip {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}

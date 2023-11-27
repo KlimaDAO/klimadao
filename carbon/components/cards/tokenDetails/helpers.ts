@@ -1,10 +1,11 @@
 import { t } from "@lingui/macro";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { PageLinks } from "lib/PageLinks";
 import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCredits";
-import { DailyCreditsQueryConfiguration } from "lib/charts/aggregators/getDailyCredits";
 import { statusToDateField } from "lib/charts/dateField";
 import {
   Bridge,
+  DailyCreditsQueryConfiguration,
   DateFilteringOption,
   Pool,
   PoolQuantitiesInterface,
@@ -27,7 +28,7 @@ export function tokenDetailChartProps(props: TokenDetailsProps) {
   };
 }
 export function propsToDetailsURL(props: TokenDetailsProps, slug: string) {
-  return `/details/${slug}/${props.bridge}?pool=${props.pool}&status=${props.status}&since=${props.since}`;
+  return `${PageLinks.TokenDetails}/${slug}/${props.bridge}?pool=${props.pool}&status=${props.status}&since=${props.since}`;
 }
 export function getChartConfiguration(props: TokenDetailsProps) {
   const configuration: ChartConfiguration<keyof PoolQuantitiesInterface> = [];
@@ -95,7 +96,6 @@ export function getChartConfiguration(props: TokenDetailsProps) {
 export function getCreditsQueryConfiguration(
   props: TokenDetailsProps
 ): DailyCreditsQueryConfiguration {
-  const freq = props.since == "lifetime" ? "monthly" : "daily";
   const dateField = statusToDateField(props.status);
   const params = creditsQueryParamsFromProps(props);
 

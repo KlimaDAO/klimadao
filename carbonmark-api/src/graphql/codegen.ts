@@ -41,6 +41,10 @@ const generates = Object.entries(schemas).reduce(
             typeNames: "change-case-all#pascalCase",
             transformUnderscore: false,
             terminateCircularRelationships: true,
+            scalars: {
+              BigNumber: "'100000000000000000000'",
+              BigInt: "'100000000000000000000'",
+            },
           },
         },
       ],

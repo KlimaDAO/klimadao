@@ -8,13 +8,30 @@ import DailyCarbonSupplyOverviewCard from "components/cards/overview/DailyCarbon
 import HistoricalPriceCard from "components/cards/overview/HistoricalPriceCard";
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import TokensPriceCard from "components/cards/overview/TokensPriceCard";
+import { LocalizedPageProps } from "components/pages/props";
+import { initLayout, metaDataTitle } from "../layout";
 
-/** Overview page (index/landing page) captured via rewrite in next.config.js*/
-export default function OverviewPage() {
+function title() {
+  return t`State of the Digital Carbon Market`;
+}
+function description() {
+  return t`The Klima Data Carbon Dashboard provides a complete overview of digital carbon pricing, volumes, and retirement trends for the Digital Carbon Market. It is made available to anyone by KlimaDAO as a public good, creating transparency for the DCM.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: metaDataTitle(title()),
+    description: description(),
+  };
+}
+
+/** Overview page (index/landing page) captured by app/[locale]/page.tsx */
+export default async function OverviewPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
   return (
     <>
       <PageHeader
-        title={t`State of the digital carbon market`}
+        title={title()}
         subheading={{
           href: "/overview/digital-carbon",
           label: t`What is digital carbon?`,
@@ -29,6 +46,7 @@ export default function OverviewPage() {
             <TokenizedCreditsByBridgeCard
               detailUrlPosition="bottom"
               className={layout.zIndexSix}
+              sourceHref={"/overview"}
             ></TokenizedCreditsByBridgeCard>
             <HistoricalPriceCard
               className={layout.zIndexFive}

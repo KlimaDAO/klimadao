@@ -1,10 +1,10 @@
+import { getMergedCreditsByDate } from "lib/charts/aggregators/getDailyCredits";
+import { cumulativeSum } from "lib/charts/helpers";
 import {
   DailyCreditsChartConfiguration,
+  DailyCreditsChartDataItem,
   DailyCreditsQueryConfiguration,
-  getMergedCreditsByDate,
-} from "lib/charts/aggregators/getDailyCredits";
-import { cumulativeSum } from "lib/charts/helpers";
-import { DailyCreditsChartDataItem } from "lib/charts/types";
+} from "lib/charts/types";
 import { ChartConfiguration } from "../helpers/Configuration";
 import KAreaChart from "../helpers/KAreaChart";
 

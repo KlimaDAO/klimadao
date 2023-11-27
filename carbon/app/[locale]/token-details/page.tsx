@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import PageWithTabs from "components/pages/PageWithTabs";
 import TokenDetailsTab from "components/pages/TokenDetailsTab";
+import { LocalizedPageProps } from "components/pages/props";
 import {
   getC3PoolsOptions,
   getDateFilteringOptions,
@@ -8,11 +9,29 @@ import {
   getToucanPoolsOptions,
 } from "lib/charts/options";
 import { NodeDictionnary } from "lib/charts/types";
-/** Retirement Trends Page
- * Uses a Client Component (RetirementTrendsPage) to handle tab navigation
+import { initLayout, metaDataTitle } from "../layout";
+
+function title() {
+  return t`Token details`;
+}
+function description() {
+  return t`Dive deep into different digital carbon token pools, including C3, Toucan, and Moss-bridged carbon tonnes.`;
+}
+
+export async function generateMetadata() {
+  return {
+    title: metaDataTitle(title()),
+    description: description(),
+  };
+}
+
+/** Token details Page
+ * Uses a Client Component (PageWithTabs) to handle tab and options navigation
  * Tabs are actually Components rendered Server side passed to the Client Component as props
  */
-export default function TokenDetailsPage() {
+export default async function TokenDetailsPage(props: LocalizedPageProps) {
+  await initLayout(props.params);
+
   const c3Contents: NodeDictionnary = {};
   const toucanContents: NodeDictionnary = {};
   const mossContents: NodeDictionnary = {};
@@ -20,28 +39,24 @@ export default function TokenDetailsPage() {
   getDateFilteringOptions().forEach((date) => {
     getPoolStatusOptions().forEach((status) => {
       getToucanPoolsOptions().forEach((pool) => {
-        if (pool.value == "all" || status.value == "bridged") {
-          toucanContents[`${pool.value}|${date.value}|${status.value}`] = (
-            <TokenDetailsTab
-              bridge="toucan"
-              pool={pool.value}
-              status={status.value}
-              since={date.value}
-            />
-          );
-        }
+        toucanContents[`${pool.value}|${date.value}|${status.value}`] = (
+          <TokenDetailsTab
+            bridge="toucan"
+            pool={pool.value}
+            status={status.value}
+            since={date.value}
+          />
+        );
       });
       getC3PoolsOptions().forEach((pool) => {
-        if (pool.value == "all" || status.value == "bridged") {
-          c3Contents[`${pool.value}|${date.value}|${status.value}`] = (
-            <TokenDetailsTab
-              bridge="c3"
-              pool={pool.value}
-              status={status.value}
-              since={date.value}
-            />
-          );
-        }
+        c3Contents[`${pool.value}|${date.value}|${status.value}`] = (
+          <TokenDetailsTab
+            bridge="c3"
+            pool={pool.value}
+            status={status.value}
+            since={date.value}
+          />
+        );
       });
     });
     mossContents[`${date.value}`] = (
@@ -56,24 +71,8 @@ export default function TokenDetailsPage() {
 
   return (
     <PageWithTabs
-      title={t`Token details`}
+      title={title()}
       tabs={[
-        {
-          key: "c3",
-          label: t`C3`,
-          optionsList: [
-            getC3PoolsOptions(),
-            getDateFilteringOptions(),
-            getPoolStatusOptions(),
-          ],
-          contents: c3Contents,
-        },
-        {
-          key: "moss",
-          label: t`Moss`,
-          optionsList: [getDateFilteringOptions()],
-          contents: mossContents,
-        },
         {
           key: "toucan",
           label: t`Toucan`,
@@ -83,6 +82,22 @@ export default function TokenDetailsPage() {
             getPoolStatusOptions(),
           ],
           contents: toucanContents,
+        },
+        {
+          key: "moss",
+          label: t`Moss`,
+          optionsList: [getDateFilteringOptions()],
+          contents: mossContents,
+        },
+        {
+          key: "c3",
+          label: t`C3`,
+          optionsList: [
+            getC3PoolsOptions(),
+            getDateFilteringOptions(),
+            getPoolStatusOptions(),
+          ],
+          contents: c3Contents,
         },
       ]}
     />

@@ -35,7 +35,7 @@ const mainnet = {
   retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
-  carbonmark: "", // TODO: v2 Diamond
+  carbonmark: "0x7B51dBc2A8fD98Fe0924416E628D5755f57eB821",
 };
 
 const testnet: typeof mainnet = {
@@ -101,14 +101,11 @@ export const urls = {
   offset: "https://app.klimadao.finance/#/offset",
   pledges: "https://www.klimadao.finance/pledge",
   info: "https://app.klimadao.finance/info",
-  resources: "https://www.klimadao.finance/resources",
   siteBlog: "https://www.klimadao.finance/blog",
   retirements: "https://www.klimadao.finance/retirements",
-  contact: "https://www.klimadao.finance/contact",
-  community: "https://www.klimadao.finance/community",
+  retirements_carbonmark: "https://www.carbonmark.com/retirements",
   buy: "https://www.klimadao.finance/buy",
-  infinity: "https://www.klimadao.finance/infinity",
-  carbonDashboard: "https://carbon.klimadao.finance",
+  carbonDashboard: "https://data.klimadao.finance",
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",
@@ -138,6 +135,8 @@ export const urls = {
     "https://share-eu1.hsforms.com/1fEb0LUdcRlKGTzNCVYz6igfhhlr",
   klimaInfinityContactForm:
     "https://share-eu1.hsforms.com/1g2uooleDQ06MaRpylL5irwfhhlr",
+  carbonmarkDemoForm:
+    "https://share-eu1.hsforms.com/1aI5EZsiYQsCBvi7rml_bIAfhhlr",
   pressEmail: "mailto:press@klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
   lifiStake:
@@ -157,6 +156,12 @@ export const urls = {
   transakMatic:
     "https://global.transak.com/?fiatCurrency=EUR&network=polygon&cryptoCurrencyCode=MATIC",
   carbonmark: "https://www.carbonmark.com",
+  carbonmarkRetirePage: "https://www.carbonmark.com/retire",
+  carbonmarkProjectsPage: "https://www.carbonmark.com/projects",
+  carbonmarkDocRetirements:
+    "https://docs.klimadao.finance/developers/contracts/retirement",
+  carbonmarkDocDeploymentAddresses:
+    "https://docs.klimadao.finance/developers/deployment-addresses",
   marketplace: "https://www.carbonmark.com/projects",
   portfolio: "https://www.carbonmark.com/portfolio",
   resourcesCarbonmark: "https://www.carbonmark.com/resources",
@@ -222,9 +227,7 @@ export const allowancesContracts = {
 } as const;
 
 export const EPOCH_INTERVAL = 11520;
-export const FALLBACK_BLOCK_RATE = 2.3;
-
-export const API_BASE_URL = "https://www.klimadao.finance/api";
+export const AVERAGE_BLOCK_RATE = 2.21;
 
 /** CMS stuff  */
 export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";

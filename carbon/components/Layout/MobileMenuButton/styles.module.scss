@@ -1,0 +1,53 @@
+.wrapper {
+  padding-top: 6.4rem;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  pointer-events: all;
+}
+
+.exploreMarketplaceButton {
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--brand-white);
+  padding: 0 1.6rem;
+  padding-top: 4rem;
+  padding-bottom: 7.2rem;
+}
+
+.links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.button {
+  white-space: nowrap;
+  font-size: 1.4rem;
+  color: var(--lightmode-font-01);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  font-weight: 600;
+
+  &:hover {
+    color: var(--brand-green);
+  }
+  &[aria-selected="true"] span {
+    color: var(--brand-green);
+  }
+  span {
+    display: flex;
+    align-items: center;
+  }
+}

@@ -5,28 +5,29 @@ import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
+import { Registry } from "components/Registry";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { InputField, TextareaField } from "components/shared/Form";
 import { ethers, providers } from "ethers";
+import { formatToDecimals } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type {
   AssetForRetirement,
   CarbonmarkToken,
 } from "lib/types/carbonmark.types";
-import { CategoryName } from "lib/types/carbonmark.types";
+import { CategoryName, User } from "lib/types/carbonmark.types";
+import { getUnlistedBalance } from "lib/utils/listings.utils";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RetireModal } from "../RetireModal";
 import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
 import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
-
-import { Registry } from "components/Registry";
-import { getAddress } from "lib/networkAware/getAddress";
-import { useRouter } from "next/router";
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -34,15 +35,15 @@ export const isPoolToken = (str: string): str is PoolToken =>
 
 interface RetireFormProps {
   address: string;
+  user: User | null;
   asset: AssetForRetirement;
   provider?: providers.JsonRpcProvider;
 }
 
 export const RetireForm = (props: RetireFormProps) => {
-  const { address, asset, provider } = props;
   const router = useRouter();
-
-  const { tokenName, balance, tokenSymbol, project } = asset;
+  const { address, asset, provider } = props;
+  const { tokenName, tokenSymbol, project } = asset;
 
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
@@ -58,9 +59,13 @@ export const RetireForm = (props: RetireFormProps) => {
     useState<boolean>(false);
   const [processingRetirement, setProcessingRetirement] = useState(false);
 
+  const unlistedBalance = formatToDecimals(
+    getUnlistedBalance(props.asset, props.user?.listings || [])
+  );
+
   const [retirement, setRetirement] = useState({
     quantity: "0",
-    maxQuantity: parseFloat(balance),
+    maxQuantity: parseFloat(unlistedBalance),
     beneficiaryName: "",
     beneficiaryAddress: "",
     retirementMessage: "",
@@ -226,9 +231,7 @@ export const RetireForm = (props: RetireFormProps) => {
                       color="lightest"
                       className={styles.detailsText}
                     >
-                      <Trans id="offset.amount_in_tonnes_2">
-                        Available: {balance}
-                      </Trans>
+                      <Trans>Available: {unlistedBalance}</Trans>
                     </Text>
                   </div>
                 </label>
@@ -340,7 +343,7 @@ export const RetireForm = (props: RetireFormProps) => {
               <div className={styles.sideBarBelowLarge}>
                 {" "}
                 <RetirementSidebar
-                  balance={balance}
+                  balance={unlistedBalance}
                   retirementAsset={asset}
                   icon={carbonTokenInfo.icon}
                 />
@@ -382,7 +385,7 @@ export const RetireForm = (props: RetireFormProps) => {
 
         <Col className={styles.sideBarLargeAndAbove}>
           <RetirementSidebar
-            balance={balance}
+            balance={unlistedBalance}
             retirementAsset={asset}
             icon={carbonTokenInfo.icon}
           />
@@ -440,7 +443,7 @@ export const RetireForm = (props: RetireFormProps) => {
         (subgraphIndexStatus === "indexed" ||
           subgraphIndexStatus === "timeout") && (
           <RetirementStatusModal
-            retirementUrl={`${urls.retirements}/${
+            retirementUrl={`${urls.retirements_carbonmark}/${
               retirement.beneficiaryAddress || props.address
             }/${retirementTotals}`}
             polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}

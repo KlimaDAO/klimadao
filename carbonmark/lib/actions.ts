@@ -16,6 +16,7 @@ import {
   PcbProject,
 } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
+import { isNil } from "lodash";
 import { getCarbonmarkProject } from "./carbonmark";
 import { DEFAULT_EXPIRATION_DAYS, DEFAULT_MIN_FILL_AMOUNT } from "./constants";
 
@@ -64,7 +65,7 @@ export const getAggregatorV2Allowance = async (params: {
     getAddress("retirementAggregatorV2")
   );
 
-  return ethersFormatUnits(allowance, 18);
+  return ethersFormatUnits(BigInt(allowance), 18);
 };
 
 /** Approve a known `tokenName`, or `tokenAddress` to be spent by the `spender` contract */
@@ -124,6 +125,8 @@ export const approveTokenSpend = async (params: {
 export const createListingTransaction = async (params: {
   /** 0x address of asset to sell */
   tokenAddress: string;
+  /** Integer id for ERC1155 MultiToken contracts */
+  tokenId?: string;
   /** Amount to list (tonnes) @example "123.456" */
   amount: string;
   /** Price per tonne (usdc) @example "12.45" */
@@ -141,13 +144,26 @@ export const createListingTransaction = async (params: {
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await carbonmarkContract.createListing(
+    /** Handle overloaded method definition */
+    const fnSignature = isNil(params.tokenId)
+      ? "createListing(address,uint256,uint256,uint256,uint256)"
+      : // tokenId is second argument
+        "createListing(address,uint256,uint256,uint256,uint256,uint256)";
+
+    const args = [
       params.tokenAddress,
       parseUnits(params.amount, 18),
       parseUnits(params.unitPrice, getTokenDecimals("usdc")),
       parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
-      getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
-    );
+      getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS), // deadline (aka expiration)
+    ];
+
+    if (!isNil(params.tokenId)) {
+      // insert tokenId as second argument to match fnSignature
+      args.splice(1, 0, params.tokenId);
+    }
+
+    const listingTxn = await carbonmarkContract[fnSignature](...args);
 
     params.onStatus("networkConfirmation", "");
     await listingTxn.wait(1);
@@ -332,6 +348,9 @@ export const createCompositeAsset = (
   }
 
   const compositeAsset: AssetForRetirement = {
+    id: asset.id,
+    amount: asset.amount,
+    token: { ...asset.token },
     tokenName: asset.token.name,
     balance: asset.amount,
     tokenSymbol: asset.token.symbol,

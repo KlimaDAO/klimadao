@@ -2,6 +2,7 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KBarChart from "components/charts/helpers/KBarChart";
+import { PageLinks } from "lib/PageLinks";
 import { getKlimaMonthlyRetirementsByPoolInPercent } from "lib/charts/aggregators/getKlimaMonthlyRetirementsByPoolInPercent";
 import { KlimaMonthlyRetirementsByTokenItem } from "lib/charts/types";
 import { palette } from "theme/palette";
@@ -17,7 +18,7 @@ export default function RetirementsByPoolBarCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`KlimaDAO retirements by pool`}
-      detailUrl="/details/retirement-trends-by-pool"
+      detailUrl={`${PageLinks.RetirementTrends}/retirement-trends-by-pool`}
       chart={chart}
     />
   );

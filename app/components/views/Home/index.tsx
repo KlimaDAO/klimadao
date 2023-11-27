@@ -41,16 +41,13 @@ export const Home: FC = () => {
   const localeFromURL = useLocaleFromParams();
 
   const { pathname } = useLocation();
-  const [showCheckURLBanner, setShowCheckURLBanner] = useState(
-    !skipCheckURLBanner()
-  );
+  const [showCheckURLBanner, setShowCheckURLBanner] = useState(false);
 
   const { locale } = useSelector(selectAppState);
 
   const {
     address,
     isConnected,
-    initializing,
     disconnect,
     toggleModal,
     network,
@@ -65,6 +62,10 @@ export const Home: FC = () => {
       });
     }
   }, [localeFromURL]);
+
+  useEffect(() => {
+    setShowCheckURLBanner(!skipCheckURLBanner());
+  }, []);
 
   useEffect(() => {
     if (pathname === "/") {
@@ -173,10 +174,6 @@ export const Home: FC = () => {
                 message: "connect a wallet",
                 id: "connectModal.wallet",
               }),
-              institutionalText: t({
-                message: "institutional",
-                id: "connectModal.institutional",
-              }),
               titles: {
                 connect: t`Login`,
                 loading: t({
@@ -236,28 +233,11 @@ export const Home: FC = () => {
             />
             <Route
               path="/offset"
-              element={
-                <Offset
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  initializing={initializing}
-                  onRPCError={handleRPCError}
-                  toggleModal={toggleModal}
-                />
-              }
+              element={<Offset isConnected={isConnected} />}
             />
             <Route
               path="/redeem"
-              element={
-                <Redeem
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  onRPCError={handleRPCError}
-                  toggleModal={toggleModal}
-                />
-              }
+              element={<Redeem isConnected={isConnected} />}
             />
             <Route path="/info" element={<Info provider={provider} />} />
             <Route path="/bonds" element={<ChooseBond />} />

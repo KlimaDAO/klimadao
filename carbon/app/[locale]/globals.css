@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Inter:regular,bold,italic&subset=latin,latin-ext");
-@import url("https://fonts.googleapis.com/css?family=Poppins:regular,bold,italic&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
 
 body {
   padding: 0;
@@ -15,6 +14,7 @@ body {
   --blue-4: #88c2ff;
   --blue-5: #cce4ff;
 
+  --brand-black: #000000;
   --brand-green: #00cc33;
   --brand-red: #fc3503;
   --brand-white: #ffffff;
@@ -74,4 +74,14 @@ a {
 .recharts-tooltip-wrapper {
   position: relative;
   z-index: 999;
+}
+
+/** Styles for the mui drawer 
+ * FIXME: should we use a MuiTheme for this?
+*/
+.MuiDrawer-paper,
+.MuiModal-backdrop,
+.MuiDrawer-modal {
+  background-color: transparent;
+  pointer-events: none;
 }

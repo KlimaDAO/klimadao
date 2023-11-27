@@ -41,3 +41,12 @@ export const link = css`
     color: blue;
   }
 `;
+
+export const disabled = css`
+  opacity: 0.4;
+  cursor: not-allowed;
+
+  & a {
+    pointer-events: none;
+  }
+`;

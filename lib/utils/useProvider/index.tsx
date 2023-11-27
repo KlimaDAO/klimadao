@@ -33,7 +33,9 @@ const getWeb3Provider = (p: any): TypedProvider => {
 };
 
 /** React Hook to create and manage the web3Modal lifecycle */
-export const useProvider = (): Web3ModalState => {
+export const useProvider = (
+  walletConnectProjectId?: string
+): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
 
   const disconnect = async () => {
@@ -175,7 +177,7 @@ export const useProvider = (): Web3ModalState => {
   useEffect(() => {
     const wallet = localStorage.getItem("web3-wallet") as WalletLabel | null;
     if (wallet) {
-      connect(wallet, { useCache: true });
+      connect(wallet, { useCache: true, walletConnectProjectId });
     } else {
       setWeb3State((s) => ({ ...s, initializing: false }));
     }

@@ -9,6 +9,7 @@ import {
   getXAxisProps,
   getYAxisProps,
 } from "../props";
+import styles from "../styles.module.scss";
 
 /** FIXME: Refactor to KlimaAreaChart */
 export default function KAreaChart<T extends object>(props: ChartProps<T>) {
@@ -22,7 +23,11 @@ export default function KAreaChart<T extends object>(props: ChartProps<T>) {
     );
 
   return (
-    <ChartWrapper data={props.data} noDataText={props.noDataText}>
+    <ChartWrapper
+      data={props.data}
+      noDataText={props.noDataText}
+      className={styles.mobileCenteredLegend}
+    >
       <AreaChart data={props.data}>
         {KlimaStackedAreas(props.configuration)}
         <XAxis {...getXAxisProps(props)} />

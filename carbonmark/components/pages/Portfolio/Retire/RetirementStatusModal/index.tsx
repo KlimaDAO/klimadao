@@ -1,6 +1,6 @@
 import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
-import { CelebrationOutlined } from "@mui/icons-material";
+import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Modal } from "components/shared/Modal";
 import Link from "next/link";
@@ -20,7 +20,7 @@ export const RetirementStatusModal: FC<Props> = (props) => (
   <Modal
     title={
       <div className={styles.title}>
-        <CelebrationOutlined fontSize="large" />
+        <CelebrationOutlinedIcon fontSize="large" />
         <Trans>Retirement Successful!</Trans>
       </div>
     }

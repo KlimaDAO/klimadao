@@ -1,11 +1,12 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
+import { PageLinks } from "lib/PageLinks";
+import { statusToDateField } from "lib/charts/dateField";
 import {
   DailyCreditsChartConfiguration,
   DailyCreditsQueryConfiguration,
-} from "lib/charts/aggregators/getDailyCredits";
-import { statusToDateField } from "lib/charts/dateField";
+} from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import { palette } from "theme/palette";
 import { OffVsOnChainProps } from "../helpers";
@@ -49,13 +50,13 @@ export default function DailyVerraCreditsCard(
   );
   const title =
     props.status == "issued"
-      ? t`Cummulative Verra registry credits issued over time`
+      ? t`Cumulative Verra registry credits issued over time`
       : t`Off-Chain Verra credits retired over time`;
 
   const detailUrl =
     props.status == "issued"
-      ? "/details/verra-credits-issued-over-time"
-      : "/details/verra-credits-retired-off-chain-over-time";
+      ? `${PageLinks.OffChainVsOnChain}/verra-credits-issued-over-time`
+      : `${PageLinks.OffChainVsOnChain}/verra-credits-retired-off-chain-over-time`;
   return (
     <ChartCard
       {...props}

@@ -35,7 +35,9 @@ export async function getTokenSelectiveFeeDescription(token: Token) {
 
   if (tokenInfo.fee_redeem_factor == 0)
     return t`There is no selective redemption/retirement functionality for ${tokenInfo.name}.`;
-  return t`This cost includes the asset spot price + the ${tokenInfo.fee_redeem_factor.toFixed(
+  return t`This cost includes the asset spot price + the ${(
+    tokenInfo.fee_redeem_factor * 100
+  ).toFixed(
     2
   )}% fee to selectively redeem or retire an underlying carbon project charged by ${
     tokenInfo.bridge

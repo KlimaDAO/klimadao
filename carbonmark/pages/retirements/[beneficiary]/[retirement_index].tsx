@@ -94,7 +94,7 @@ export const getStaticProps: GetStaticProps<
       props: {
         project: project || null,
         beneficiaryAddress: beneficiaryAddress,
-        canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}/${params.retirement_index}`,
+        canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
         retirement: retirement || null,
         retirementIndex: params.retirement_index,

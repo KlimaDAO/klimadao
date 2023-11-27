@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import DistributionOfProjectsChart from "components/charts/DistributionOfProjectsChart";
 import { CreditsFilteringProps } from "components/charts/helpers/props";
+import { PageLinks } from "lib/PageLinks";
 import { getAggregatedCreditsByBridgeAndProject } from "lib/charts/aggregators/getAggregatedCredits";
 import ChartCard, { CardProps } from "../../ChartCard";
 import { OffVsOnChainProps } from "../helpers";
@@ -20,8 +21,8 @@ export default function VerraCreditsDistributionOfProjectsCard(
   );
   const detailUrl =
     props.status == "issued"
-      ? "/details/verra-credits-issued-by-project-type"
-      : "/details/verra-credits-retired-by-project-type";
+      ? `${PageLinks.OffChainVsOnChain}/verra-credits-issued-by-project-type`
+      : `${PageLinks.OffChainVsOnChain}/verra-credits-retired-by-project-type`;
 
   return (
     <ChartCard

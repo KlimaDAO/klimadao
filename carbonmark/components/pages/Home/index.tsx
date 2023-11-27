@@ -300,11 +300,11 @@ export const Home: NextPage<Props> = (props) => {
               </div>
             </div>
             <ButtonPrimary
-              href="/users/login"
-              label={<Trans>Create Profile</Trans>}
+              href={urls.carbonmarkDemoForm}
+              label={<Trans>Request Demo</Trans>}
               className={styles.browseButton}
               renderLink={(linkProps) => (
-                <Link data-mobile-only {...linkProps} />
+                <Link target="_blank" data-mobile-only {...linkProps} />
               )}
             />
           </div>
@@ -324,11 +324,11 @@ export const Home: NextPage<Props> = (props) => {
               </Trans>
             </Text>
             <ButtonPrimary
-              href="/users/login"
-              label={<Trans>Create Profile</Trans>}
+              href={urls.carbonmarkDemoForm}
+              label={<Trans>Request Demo</Trans>}
               className={styles.browseButton}
               renderLink={(linkProps) => (
-                <Link data-desktop-only {...linkProps} />
+                <Link target="_blank" data-desktop-only {...linkProps} />
               )}
             />
           </div>

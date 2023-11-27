@@ -1,7 +1,6 @@
 import { formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { InfoOutlined } from "@mui/icons-material";
-import { Tooltip } from "@mui/material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import PercentageChange from "components/PercentageChange";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import {
@@ -32,7 +31,7 @@ export default function TokensPriceCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`Digital carbon pricing`}
-      detailUrl="/details/price-of-digital-carbon"
+      detailUrl="/overview/price-of-digital-carbon"
       detailUrlPosition="bottom"
       chart={chart}
       isColumnCard={true}
@@ -83,22 +82,13 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
           },
           {
             label: (
-              <span className={styles.selectiveFee}>
-                <span>{t`Selective cost`}</span>
-                <Tooltip
-                  title={
-                    <span className={styles.tooltipText}>
-                      {selectiveFeeDescription}
-                    </span>
-                  }
-                >
-                  <span className={styles.selectiveFeeIcon}>
-                    <InfoOutlined fontSize={"inherit"} />
-                  </span>
-                </Tooltip>
-              </span>
+              <div className={styles.selectiveFee}>
+                {t`Selective cost`}
+                <InfoOutlinedIcon fontSize={"inherit"} />
+              </div>
             ),
             value: selectiveCostInfo,
+            tooltip: selectiveFeeDescription,
           },
           {
             label: t`Last 7 days`,
@@ -106,7 +96,7 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
               <PercentageChange
                 currentValue={tokenInfo.price}
                 previousValue={price7DaysAgo}
-              ></PercentageChange>
+              />
             ),
           },
         ],

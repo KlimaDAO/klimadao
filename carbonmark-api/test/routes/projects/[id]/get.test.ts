@@ -3,6 +3,7 @@ import nock from "nock";
 import { GRAPH_URLS, SANITY_URLS } from "../../../../src/app.constants";
 import carbonProjects from "../../../fixtures/carbonProjects";
 import digitalCarbon from "../../../fixtures/digitalCarbon";
+import tokens from "../../../fixtures/tokens";
 import { build } from "../../../helper";
 import { DEV_URL } from "../../../test.constants";
 
@@ -17,7 +18,6 @@ describe("GET /projects/:id", () => {
       console.error("/projects/:id get.test.ts setup failed", e);
     }
   });
-
   test("Returns project from CMS without prices or listings", async () => {
     nock(SANITY_URLS.carbonProjects)
       .post("")
@@ -28,9 +28,11 @@ describe("GET /projects/:id", () => {
           allProjectContent: [carbonProjects.projectContent],
         },
       });
-    nock(GRAPH_URLS["polygon"].tokens).post("").reply(200, {
-      data: {},
-    });
+    nock(GRAPH_URLS["polygon"].tokens)
+      .post("")
+      .reply(200, {
+        data: { prices: tokens.prices },
+      });
     nock(GRAPH_URLS["polygon"].digitalCarbon).post("").twice().reply(200, {
       data: {},
     });
@@ -58,9 +60,11 @@ describe("GET /projects/:id", () => {
           allProjectContent: [carbonProjects.projectContent],
         },
       });
-    nock(GRAPH_URLS["polygon"].tokens).post("").reply(200, {
-      data: {},
-    });
+    nock(GRAPH_URLS["polygon"].tokens)
+      .post("")
+      .reply(200, {
+        data: { prices: tokens.prices },
+      });
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, {
@@ -79,6 +83,8 @@ describe("GET /projects/:id", () => {
     const project = await response.json();
     expect(response.statusCode).toEqual(200);
     expect(project.prices).toHaveLength(2);
+    expect(project.prices[0].singleUnitBuyPrice).toBe("0.681502");
+    expect(project.prices[0].singleUnitSellPrice).toBe("0.688131");
   });
 
   test("Empty network param default is polygon", async () => {

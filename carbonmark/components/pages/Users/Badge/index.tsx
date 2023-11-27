@@ -1,5 +1,6 @@
 import { t } from "@lingui/macro";
-import { ErrorOutlineOutlined, TimerOffOutlined } from "@mui/icons-material";
+import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
+import TimerOffOutlinedIcon from "@mui/icons-material/TimerOffOutlined";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -7,12 +8,12 @@ import * as styles from "./styles";
 const BadgeType = {
   Invalid: {
     title: t`Invalid`,
-    icon: <ErrorOutlineOutlined />,
+    icon: <ErrorOutlineOutlinedIcon />,
     tooltipText: t`This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing.`,
   },
   Expired: {
     title: t`Expired`,
-    icon: <TimerOffOutlined />,
+    icon: <TimerOffOutlinedIcon />,
     tooltipText: t`This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing.`,
   },
 };
