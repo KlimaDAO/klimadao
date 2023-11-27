@@ -22,17 +22,18 @@ export const fetchClient = async <
 >(
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
-  const response = await fetch(
-    `${urls.api.base}${request.url}${request.params ?? ""}`,
-    {
-      method: request.method,
-      body: JSON.stringify(request.data),
-      headers: {
-        "Content-Type": "application/json",
-        ...request.headers,
-      },
-    }
-  );
+  const params = new URLSearchParams(
+    request.params as Record<string, string>
+  ).toString();
+
+  const response = await fetch(`${urls.api.base}${request.url}?${params}`, {
+    method: request.method,
+    body: JSON.stringify(request.data),
+    headers: {
+      "Content-Type": "application/json",
+      ...request.headers,
+    },
+  });
 
   if (!response.ok) {
     const errorData = await response.json();

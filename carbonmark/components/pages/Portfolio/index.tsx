@@ -1,4 +1,3 @@
-import client from ".generated/carbonmark-api-sdk/client";
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
@@ -33,7 +32,7 @@ export const Portfolio: NextPage = () => {
   } = useGetUsersWalletorhandle(
     address ?? "",
     { network: networkLabel, expiresAfter: "0" },
-    { query: { fetcher: notNil(address) ? client : async () => undefined } }
+    { shouldFetch: notNil(address) }
   );
 
   const [isPending, setIsPending] = useState(false);
