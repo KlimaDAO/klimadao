@@ -17,7 +17,12 @@ export type ApiError<TError> = {
 };
 
 /** Removes all undefined or null values  */
-const definedParams = pickBy((value) => value !== undefined && value !== null);
+const definedParams = (obj: Record<string, unknown>) => {
+  const filteredObj = pickBy((value) => value !== undefined && value !== null)(
+    obj
+  );
+  return Object.keys(filteredObj).length > 0 ? filteredObj : null;
+};
 
 export const fetchClient = async <
   TData,
@@ -26,14 +31,14 @@ export const fetchClient = async <
 >(
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
-  const params = new URLSearchParams(
-    definedParams(request.params as Record<string, string>) as Record<
-      string,
-      string
-    >
-  ).toString();
+  const paramsObject = definedParams(
+    request.params as Record<string, string>
+  ) as Record<string, string>;
+  const params = paramsObject
+    ? "?" + new URLSearchParams(paramsObject).toString()
+    : "";
 
-  const response = await fetch(`${urls.api.base}${request.url}?${params}`, {
+  const response = await fetch(`${urls.api.base}${request.url}${params}`, {
     method: request.method,
     body: JSON.stringify(request.data),
     headers: {
