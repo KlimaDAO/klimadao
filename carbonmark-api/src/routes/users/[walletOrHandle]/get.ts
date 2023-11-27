@@ -29,6 +29,7 @@ const handler = (fastify: FastifyInstance) =>
   ): Promise<User | void> {
     try {
       const { query, params } = request;
+      const network = query.network ?? "polygon";
 
       const walletOrHandle = params.walletOrHandle.toLowerCase();
 
@@ -53,12 +54,12 @@ const handler = (fastify: FastifyInstance) =>
       const [user, assets] = await Promise.all([
         getUserByWallet({
           address: profile.address,
-          network: query.network,
+          network: network,
           expiresAfter: query.expiresAfter,
         }),
         getHoldingsByWallet({
           address: profile.address,
-          network: query.network,
+          network: network,
         }),
       ]);
 

@@ -100,6 +100,9 @@ export const getAggregatorIsApprovedForAll = async (params: {
   tokenAddress: string;
   network: "mumbai" | "polygon";
 }): Promise<boolean> => {
+  if (params.network === "mumbai") {
+    throw new Error("There is no retirementAggregator on mumbai. Use polygon");
+  }
   const tokenContract = new Contract(
     params.tokenAddress,
     IERC1155.abi,
@@ -112,6 +115,7 @@ export const getAggregatorIsApprovedForAll = async (params: {
     params.userAddress,
     getAddress("retirementAggregatorV2", params.network)
   );
+
   return isApproved;
 };
 
