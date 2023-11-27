@@ -1,14 +1,18 @@
+import {
+  getCategories,
+  getCountries,
+  getProjects,
+  getVintages,
+} from ".generated/carbonmark-api-sdk/clients";
 import { Projects } from "components/pages/Projects";
-import { urls } from "lib/constants";
-import { fetcher } from "lib/fetcher";
 import { loadTranslation } from "lib/i18n";
 import {
   Category,
-  CategoryName,
   Country,
   Project,
   Vintage,
 } from "lib/types/carbonmark.types";
+import { trim, update } from "lodash/fp";
 import { GetStaticProps } from "next";
 
 export interface ProjectsPageStaticProps {
@@ -22,14 +26,12 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
   ctx
 ) => {
   try {
-    const projects = await fetcher<Project[]>(urls.api.projects);
-    const vintages = await fetcher<string[]>(urls.api.vintages);
-    let categories = await fetcher<Category[]>(urls.api.categories);
+    const projects = await getProjects();
+    const vintages = await getVintages();
+    const countries = await getCountries();
     /** @note because the API is returning trailing empty spaces on some categories, trim them here */
-    categories = categories.map((category) => ({
-      id: category.id.trim() as CategoryName,
-    }));
-    const countries = await fetcher<Country[]>(urls.api.countries);
+    const categories = (await getCategories()).map(update("id", trim));
+
     const translation = await loadTranslation(ctx.locale);
 
     if (!translation) {
@@ -48,7 +50,7 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
       revalidate: 10,
     };
   } catch (e) {
-    console.error("Failed to generate Carbonmark Projects Page", e);
+    console.error("Failed to generate Carbonmark Projects Page", e.message);
     return {
       notFound: true,
       revalidate: 10,
