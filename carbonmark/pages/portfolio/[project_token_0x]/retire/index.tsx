@@ -13,6 +13,8 @@ interface Params extends ParsedUrlQuery {
   project_token_0x: string;
   network: string;
 }
+
+// @todo break out info correct files
 const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
 
 // @todo change polygon to correct subgraph when api key authenticated
@@ -61,7 +63,7 @@ export const getServerSideProps: GetServerSideProps<
   try {
     let project: ProjectRetirementDetails | null = null;
 
-    // vintage only necessary for ICR projects to look up specific vintage on project contract
+    // vintage only necessary for ICR projects to look up specific vintage on project contracts that hold multiple vintages
     if (!!vintage) {
       const IcrResponse = await fetch(subgraphUrls[network], {
         method: "POST",
@@ -88,7 +90,9 @@ export const getServerSideProps: GetServerSideProps<
     } else {
       switch (network) {
         case "mumbai":
-          console.log("No project info currently available for mumbai");
+          console.log(
+            "No project info for retirement currently available for mumbai"
+          );
           break;
         case "polygon":
           const PbcResponse: PbcProject =
