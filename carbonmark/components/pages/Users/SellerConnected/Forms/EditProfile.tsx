@@ -1,13 +1,12 @@
-import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
+import { getUsersWalletorhandle, postLogin, postLoginVerify, postUsers, putUsersWallet } from ".generated/carbonmark-api-sdk/clients";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Spinner } from "components/shared/Spinner";
-import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
-import { loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { VALID_HANDLE_REGEX } from "lib/constants";
 import { User } from "lib/types/carbonmark.types";
 import { isNil } from "lodash";
@@ -74,28 +73,32 @@ export const EditProfile: FC<Props> = (props) => {
       setIsLoading(true);
 
       if (!address) return;
-      const loginRes = await loginUser(address);
+      const loginRes = await postLogin(address);
 
       if (!signer) return;
       const signature = await signer.signMessage(
         editSignMessage(loginRes.nonce)
       );
 
-      const verifyResponse = await verifyUser({
+      const verifyResponse = await postLoginVerify({
         address,
         signature,
       });
 
-      let response;
+      let response: User;
       if (isExistingUser) {
-        response = await putUser({
-          user: values,
-          token: verifyResponse.token,
+        response = await putUsersWallet(values.wallet, values, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${verifyResponse.token}`,
+          }
         });
       } else {
-        response = await postUser({
-          user: values,
-          token: verifyResponse.token,
+        response = await postUsers(values, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${verifyResponse.token}`,
+          }
         });
       }
 
@@ -147,23 +150,23 @@ export const EditProfile: FC<Props> = (props) => {
               "handle",
               !isExistingUser // validate only if handle can be changed
                 ? {
-                    required: {
-                      value: true,
-                      message: t`Handle is required`,
-                    },
-                    pattern: {
-                      value: VALID_HANDLE_REGEX, // no special characters!
-                      message: t`Handle should not contain any special characters`,
-                    },
-                    validate: {
-                      isAddress: (v) =>
-                        !isAddress(v) || // do not allow polygon addresses
-                        t`Handle should not be an address`,
-                      isNewHandle: async (v) =>
-                        (await fetchIsNewHandle(v)) || // ensure unique handles
-                        t`Sorry, this handle already exists`,
-                    },
-                  }
+                  required: {
+                    value: true,
+                    message: t`Handle is required`,
+                  },
+                  pattern: {
+                    value: VALID_HANDLE_REGEX, // no special characters!
+                    message: t`Handle should not contain any special characters`,
+                  },
+                  validate: {
+                    isAddress: (v) =>
+                      !isAddress(v) || // do not allow polygon addresses
+                      t`Handle should not be an address`,
+                    isNewHandle: async (v) =>
+                      (await fetchIsNewHandle(v)) || // ensure unique handles
+                      t`Sorry, this handle already exists`,
+                  },
+                }
                 : undefined
             ),
           }}
