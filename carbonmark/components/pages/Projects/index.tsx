@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
@@ -32,6 +33,8 @@ const views = {
 const Page: NextPage = () => {
   const router = useRouter();
   const { isMobile } = useResponsive();
+  const { networkLabel } = useWeb3();
+
   const { params, updateQueryParams } = useProjectsParams();
   const { data: projects = [], isLoading, isValidating } = useFetchProjects();
 
