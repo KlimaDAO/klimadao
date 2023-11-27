@@ -26,6 +26,7 @@ const getUserType = (user: string): UserType => {
   );
 };
 
+
 /**
  * Attempts to resolve a valid 0x address string to a user handle.
  * Redirects if handle is found, otherwise render empty page props.
