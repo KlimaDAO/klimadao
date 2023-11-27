@@ -1,3 +1,4 @@
+import { useWeb3 } from "@klimadao/lib/utils";
 import { PROJECT_SORT_OPTIONS } from "components/ProjectFilterModal/constants";
 import { flatMap, omit } from "lodash";
 import { useRouter } from "next/router";
@@ -24,6 +25,11 @@ export const defaultParams: FilterValues = {
 export const useProjectsParams = () => {
   const router = useRouter();
   const [filterCount, setFilterCount] = useState(0);
+  const { networkLabel } = useWeb3();
+
+  useEffect(() => {
+    resetQueryParams();
+  }, [networkLabel]);
 
   useEffect(() => {
     const filters = flatMap(omit(router.query, ["search", "sort", "layout"]));

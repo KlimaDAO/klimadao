@@ -46,6 +46,7 @@ export const useFetchProjects = () => {
   return projects;
 };
 // @todo fixit
+// import { useWeb3 } from "@klimadao/lib/utils";
 // import { urls } from "lib/constants";
 // import { fetcher } from "lib/fetcher";
 // import { getProjectsQueryString } from "lib/getProjectsQueryString";
@@ -54,30 +55,34 @@ export const useFetchProjects = () => {
 // import { negate } from "lodash/fp";
 // import { useRouter } from "next/router";
 // import { useEffect, useState } from "react";
-// import useSWR from "swr";
+// import useSWR, { mutate } from "swr";
 
-// /** SWR hook that listens to the router for query param changes */
-// export const useFetchProjects = (network: "polygon" | "mumbai") => {
+// export const useFetchProjects = () => {
 //   const router = useRouter();
 //   const queryString = getProjectsQueryString(router.query);
+//   const { networkLabel } = useWeb3();
 
-//   const [storedNetwork, setStoredNetwork] = useState(network);
+//   const [currentNetwork, setCurrentNetwork] = useState(networkLabel);
 
 //   useEffect(() => {
-//     if (network && network !== storedNetwork) {
-//       setStoredNetwork(network);
+//     if (networkLabel && networkLabel !== currentNetwork) {
+//       setCurrentNetwork(networkLabel);
+//       const path = `${urls.api.projects}${queryString}${
+//         queryString ? "&" : "?"
+//       }network=${networkLabel}`;
+//       mutate(path);
 //     }
-//   }, [network, storedNetwork]);
+//   }, [networkLabel, queryString]);
 
-//   const swrKey = storedNetwork
+//   const path = currentNetwork
 //     ? `${urls.api.projects}${queryString}${
 //         queryString ? "&" : "?"
-//       }network=${storedNetwork}`
+//       }network=${currentNetwork}`
 //     : null;
 
-//   const { data, ...rest } = useSWR<Project[]>(swrKey, fetcher, {
+//   const { data, ...rest } = useSWR<Project[]>(path, fetcher, {
 //     revalidateOnMount: true,
 //   });
-//   /** Remove any null or undefined projects */
+
 //   const projects = data?.filter(negate(isNil)) ?? [];
 //   return { projects, ...rest };

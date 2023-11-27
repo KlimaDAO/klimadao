@@ -36,7 +36,8 @@ const handler = (fastify: FastifyInstance) =>
     request: FastifyRequest<{ Querystring: Querystring }>,
     reply: FastifyReply
   ): Promise<Project[]> {
-    const network = request.query.network ?? "polygon";
+    // const network = request.query.network ?? "polygon";
+    const network = "mumbai";
 
     const sdk = gql_sdk(network);
     //Transform the list params (category, country etc) provided so as to be an array of strings
@@ -47,6 +48,8 @@ const handler = (fastify: FastifyInstance) =>
 
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify, network);
+    console.info("allOptions", args);
+
     const [
       marketplaceProjectsData,
       poolProjectsData,
@@ -60,6 +63,7 @@ const handler = (fastify: FastifyInstance) =>
         country: args.country ?? allOptions.country,
         vintage: args.vintage ?? allOptions.vintage,
         expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
+        country: args.country ?? allOptions.country,
       }),
       sdk.digital_carbon.findDigitalCarbonProjects({
         search: request.query.search ?? "",
