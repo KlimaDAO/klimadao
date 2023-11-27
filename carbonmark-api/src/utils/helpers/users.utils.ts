@@ -11,13 +11,19 @@ export interface UserProfile {
   username: string;
 }
 
+export interface UiUserProfile
+  extends Omit<UserProfile, "createdAt" | "updatedAt"> {
+  createdAt: string;
+  updatedAt: string;
+}
+
 /**
  * This function retrieves a user by their wallet address from the Firestore database.
  */
 export const getProfileByAddress = async (params: {
   firebase: app.App;
   address: string;
-}): Promise<UserProfile | null> => {
+}): Promise<UiUserProfile | null> => {
   const doc = await params.firebase
     .firestore()
     .collection("users")
@@ -26,7 +32,7 @@ export const getProfileByAddress = async (params: {
 
   if (!doc.exists) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known type
-  return doc.data() as UserProfile;
+  return getUiUserProfile(doc.data() as UserProfile);
 };
 
 /**
@@ -36,8 +42,8 @@ export const getProfileByAddress = async (params: {
 export const getUserProfilesByIds = async (params: {
   firebase: app.App;
   addresses: string[];
-}): Promise<Map<string, UserProfile>> => {
-  const UserProfileMap = new Map<string, UserProfile>();
+}): Promise<Map<string, UiUserProfile>> => {
+  const UserProfileMap = new Map<string, UiUserProfile>();
 
   const chunks = chunk(params.addresses, 30);
   // .where "in" query is more performant than .getAll(..docIds)
@@ -55,7 +61,7 @@ export const getUserProfilesByIds = async (params: {
     .forEach((d) => {
       if (!d.exists) return;
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known
-      const profile = d.data() as UserProfile;
+      const profile = getUiUserProfile(d.data() as UserProfile);
       UserProfileMap.set(profile.address, profile);
     });
   return UserProfileMap;
@@ -67,7 +73,7 @@ export const getUserProfilesByIds = async (params: {
 export const getProfileByHandle = async (params: {
   firebase: app.App;
   handle: string;
-}): Promise<UserProfile | null> => {
+}): Promise<UiUserProfile | null> => {
   const snapshot = await params.firebase
     .firestore()
     .collection("users")
@@ -78,5 +84,21 @@ export const getProfileByHandle = async (params: {
   if (snapshot.empty) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- apply known type
   const profile = snapshot.docs.at(0)?.data() as UserProfile | undefined;
-  return profile || null;
+  return profile ? getUiUserProfile(profile) : null;
 };
+
+/**
+ * Converts backend profile information into frontend profile information
+ * @param timestamp
+ * @returns
+ */
+export function getUiUserProfile(profile: UserProfile): UiUserProfile {
+  return {
+    address: profile.address,
+    description: profile.description,
+    handle: profile.handle,
+    username: profile.username,
+    createdAt: (profile.createdAt / 1000).toFixed(0),
+    updatedAt: (profile.updatedAt / 1000).toFixed(0),
+  };
+}

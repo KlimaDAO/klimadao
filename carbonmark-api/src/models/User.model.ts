@@ -10,8 +10,8 @@ export const UserModel = Type.Object({
   username: Type.String(),
   description: Nullable(Type.String()),
   profileImgUrl: Nullable(Type.String()),
-  updatedAt: Type.Number(),
-  createdAt: Type.Number(),
+  updatedAt: Type.String(),
+  createdAt: Type.String(),
   wallet: Type.String(),
   listings: Type.Array(ListingModel),
   activities: Type.Array(ActivityModel),
@@ -28,8 +28,8 @@ export function isUser(obj: any): obj is User {
     typeof obj.username === "string" &&
     typeof obj.description === "string" &&
     (obj.profileImgUrl === null || typeof obj.profileImgUrl === "string") &&
-    typeof obj.updatedAt === "number" &&
-    typeof obj.createdAt === "number" &&
+    typeof obj.updatedAt === "string" &&
+    typeof obj.createdAt === "string" &&
     typeof obj.wallet === "string" &&
     Array.isArray(obj.listings) &&
     Array.isArray(obj.activities) &&
