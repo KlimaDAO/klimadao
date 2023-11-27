@@ -1353,6 +1353,7 @@ export type GetProjectsQueryVariables = Exact<{
   country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['BigInt']> | Scalars['BigInt']>;
+  country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
