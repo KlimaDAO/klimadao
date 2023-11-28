@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { ListingModel } from "./CommonSchema.model";
+import { ListingModel } from "./Listing.model";
 import { MethodologyModel } from "./Methodology.model";
 import { GeoJSONPointModel, Nullable } from "./Utility.model";
 

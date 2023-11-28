@@ -1,6 +1,7 @@
 import { Static, Type } from "@sinclair/typebox";
+import { ActivityModel } from "./Activity.model";
 import { AssetModel } from "./Asset.model";
-import { ActivityModel, ListingModel } from "./CommonSchema.model";
+import { ListingModel } from "./Listing.model";
 import { Nullable } from "./Utility.model";
 
 //This model matches the document structure in https://console.firebase.google.com/project/klimadao-staging
