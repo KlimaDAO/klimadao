@@ -1,8 +1,8 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 import { NetworkParamModel } from "../../models/NetworkParam.model";
 import { UserModel } from "../../models/User.model";
 
-export const Params = Type.Object(
+export const params = Type.Object(
   {
     walletOrHandle: Type.String({
       description: "A user handle or wallet address",
@@ -12,8 +12,10 @@ export const Params = Type.Object(
   { required: ["walletOrHandle"] }
 );
 
-export const QueryString = Type.Object({
-  network: Type.Optional(NetworkParamModel),
+export type Params = Static<typeof params>;
+
+export const querystring = Type.Object({
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
   expiresAfter: Type.Optional(
     Type.String({
       description:
@@ -23,12 +25,14 @@ export const QueryString = Type.Object({
   ),
 });
 
+export type Querystring = Static<typeof querystring>;
+
 export const schema = {
   summary: "User details",
   description: "Get a user's profile and activity",
   tags: ["Users"],
-  querystring: QueryString,
-  params: Params,
+  querystring,
+  params,
   response: {
     200: {
       description: "Successful response",

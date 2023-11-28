@@ -1,3 +1,5 @@
+import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
@@ -10,8 +12,7 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { useFetchUser } from "hooks/useFetchUser";
-import { activityIsAdded, getUserUntil, refreshUser } from "lib/api";
+import { activityIsAdded, getUserUntil } from "lib/api";
 import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark.types";
@@ -32,15 +33,15 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const { networkLabel } = useWeb3();
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser({
-    params: { walletOrHandle: props.userAddress },
-    query: {
-      expiresAfter: "0",
-      network: networkLabel,
-    },
+  const { address, networkLabel: network } = useWeb3();
+  const {
+    data: carbonmarkUser,
+    isLoading,
+    mutate,
+  } = useGetUsersWalletorhandle(props.userAddress, {
+    network,
+    expiresAfter: address === props.userAddress ? "0" : undefined,
   });
-
   const [isPending, setIsPending] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
@@ -60,9 +61,8 @@ export const SellerConnected: FC<Props> = (props) => {
   const onEditProfile = async (profileData: User) => {
     try {
       // get fresh data again
-      const userFromApi = await refreshUser({
-        walletOrHandle: props.userAddress,
-        network: networkLabel,
+      const userFromApi = await getUsersWalletorhandle(props.userAddress, {
+        network,
       });
 
       // Merge with data from Updated Profile as backend might be slow!
@@ -89,7 +89,7 @@ export const SellerConnected: FC<Props> = (props) => {
         ),
         retryInterval: 2000,
         maxAttempts: 50,
-        network: networkLabel,
+        network,
       });
       await mutate(newUser, {
         optimisticData: newUser,
@@ -116,11 +116,13 @@ export const SellerConnected: FC<Props> = (props) => {
         <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
-        <ProfileHeader
-          carbonmarkUser={carbonmarkUser}
-          userName={props.userName}
-          userAddress={props.userAddress}
-        />
+        {carbonmarkUser && (
+          <ProfileHeader
+            carbonmarkUser={carbonmarkUser}
+            userName={props.userName}
+            userAddress={props.userAddress}
+          />
+        )}
       </div>
       <div className={styles.listings}>
         <div className={styles.listingsHeader}>
@@ -203,11 +205,13 @@ export const SellerConnected: FC<Props> = (props) => {
         </Col>
 
         <Col>
-          <ProfileSidebar
-            user={carbonmarkUser}
-            isPending={isPending}
-            title={t`Your seller data`}
-          />
+          {carbonmarkUser && (
+            <ProfileSidebar
+              user={carbonmarkUser}
+              isPending={isPending}
+              title={t`Your seller data`}
+            />
+          )}
         </Col>
       </TwoColLayout>
 
@@ -219,11 +223,13 @@ export const SellerConnected: FC<Props> = (props) => {
         showModal={showEditProfileModal}
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
-        <EditProfile
-          user={carbonmarkUser}
-          onSubmit={onEditProfile}
-          isCarbonmarkUser={isCarbonmarkUser}
-        />
+        {carbonmarkUser && (
+          <EditProfile
+            user={carbonmarkUser}
+            onSubmit={onEditProfile}
+            isCarbonmarkUser={isCarbonmarkUser}
+          />
+        )}
       </Modal>
 
       {!!carbonmarkUser?.assets?.length && (

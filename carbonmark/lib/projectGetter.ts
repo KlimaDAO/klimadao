@@ -16,7 +16,7 @@ export const getCategoryFromProject = (
 export const asCategoryName = (name?: string | null): CategoryName =>
   isCategoryName(name) ? name : "Other"; // fallback for Staging Testnet Data
 
-export const getMethodologyFromProject = (project: Project) =>
+export const getMethodologyFromProject = (project: DetailedProject) =>
   project.methodologies?.[0]?.id ?? "Unknown";
 
 export const getFullProjectId = (project: DetailedProject | Project) =>

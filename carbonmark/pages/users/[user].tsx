@@ -1,11 +1,10 @@
+import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { PageProps, Users } from "components/pages/Users";
 import { isAddress } from "ethers-v6";
-import { client } from "lib/api/client";
 import { VALID_HANDLE_REGEX } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { User } from "lib/types/carbonmark.types";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -28,26 +27,11 @@ const getUserType = (user: string): UserType => {
 };
 
 /**
- * Fetches a Carbonmark user information
- */
-const getCarbonMarkUser = async (address: string): Promise<User | null> => {
-  try {
-    const response = await client["/users/{walletOrHandle}"].get({
-      params: { walletOrHandle: address },
-    });
-    if (!!response.ok) return await response.json();
-  } catch (e) {
-    // Lets 404 or invalid API response silently fail (page can still render)
-  }
-  return null;
-};
-
-/**
  * Attempts to resolve a valid 0x address string to a user handle.
  * Redirects if handle is found, otherwise render empty page props.
  * */
 const resolveAddress = async (params: { address: string; locale?: string }) => {
-  const carbonmarkUser = await getCarbonMarkUser(params.address);
+  const carbonmarkUser = await getUsersWalletorhandle(params.address);
   // Handle urls are canonical & more user friendly, redirect if possible
   if (carbonmarkUser?.handle) {
     return {
@@ -86,11 +70,8 @@ const resolveDomain = async (params: { domain: string; locale?: string }) => {
  * Attempts to resolve a valid user handle. Throws if handle can't be resolved.
  * */
 const resolveHandle = async (params: { handle: string; locale?: string }) => {
-  const response = await client["/users/{walletOrHandle}"].get({
-    params: { walletOrHandle: params.handle },
-  });
+  const carbonmarkUser = await getUsersWalletorhandle(params.handle);
 
-  const carbonmarkUser = !!response.ok ? await response.json() : null;
   if (!carbonmarkUser?.wallet) {
     throw new Error(`${params.handle} could not be resolved`);
   }

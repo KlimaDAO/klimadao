@@ -1,8 +1,8 @@
 import { Static, Type } from "@sinclair/typebox";
-import { CommonSchema } from "../../../models/CommonSchema.model";
+import { NetworkParamModel } from "../../../models/NetworkParam.model";
 import { PurchaseModel } from "../../../models/Purchase.model";
 
-const Params = Type.Object(
+const params = Type.Object(
   {
     id: Type.String({
       description: "ID (transaction hash) of the purchase to retrieve",
@@ -16,14 +16,16 @@ const Params = Type.Object(
   }
 );
 
-export const Querystring = CommonSchema;
+export const querystring = Type.Object({
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
+});
 
 export const schema = {
   summary: "Purchase details",
   description:
     "Retrieve the details of a purchase by its ID (transaction hash)",
-  querystring: Querystring,
-  params: Params,
+  querystring,
+  params,
   response: {
     200: {
       description: "Successful response with listing details",
@@ -36,4 +38,5 @@ export const schema = {
   },
 };
 
-export type ParamsT = Static<typeof Params>;
+export type Querystring = Static<typeof querystring>;
+export type Params = Static<typeof params>;

@@ -20,8 +20,7 @@ const SCHEMA_URL = `${urls.api.base}/openapi.json`;
 
   const schema = await resp.json();
   fs.writeFileSync(
-    path.join(__dirname, "../.generated", "carbonmark-api.schema.ts"),
-    // Client is unable to infer directly from json see: https://github.com/microsoft/TypeScript/issues/32063
-    `export default ${JSON.stringify(schema, null, 2)} as const`
+    path.join(__dirname, "../.generated", "carbonmark-api.schema.json"),
+    JSON.stringify(schema, null, 2)
   );
 })();
