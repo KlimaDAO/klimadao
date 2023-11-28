@@ -8,6 +8,7 @@ import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
+import { ActivityActions } from "components/Activities/Activities.constants";
 import Carousel from "components/Carousel/Carousel";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -18,6 +19,7 @@ import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
+import { useFetchProjectActivities } from "hooks/useFetchProjectActivities";
 import { urls } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
@@ -45,6 +47,14 @@ export type PageProps = {
 
 const Page: NextPage<PageProps> = (props) => {
   const { data: project } = useGetProjectsId(props.projectID);
+  const { activities } = useFetchProjectActivities({
+    query: {
+      activityType: Object.keys(ActivityActions)
+        .filter((a) => a != "Sold")
+        .join(","),
+    },
+    params: { id: props.projectID },
+  });
   const [isExpanded, setIsExpanded] = useState(false);
   const bestPrice = project?.price;
 
@@ -245,7 +255,7 @@ const Page: NextPage<PageProps> = (props) => {
               allListings={listings}
               activeListings={activeListings}
             />
-            <Activities activities={project.activities} />
+            <Activities activities={activities} />
           </div>
         </div>
       </Layout>
