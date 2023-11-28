@@ -181,7 +181,7 @@ const Page: NextPage<PageProps> = (props) => {
                   <ProjectMap
                     lat={project.location?.geometry.coordinates[1]}
                     lng={project.location?.geometry.coordinates[0]}
-                    zoom={5}
+                    zoom={1.5}
                   />
                 </div>
               )}
