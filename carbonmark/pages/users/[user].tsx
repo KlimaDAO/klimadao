@@ -135,7 +135,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         return resolveHandle({ handle: params.user, locale });
     }
   } catch (e) {
-
     console.error("Failed to generate Carbonmark Users Page", e);
     return {
       notFound: true,
@@ -151,4 +150,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default withConditionalErrorBoundary(Users, { fallback: <h1>User cannot be found</h1>, predicate: isNotFoundError })
+export default withConditionalErrorBoundary(Users, {
+  fallback: <h1>User cannot be found</h1>,
+  predicate: isNotFoundError,
+});
