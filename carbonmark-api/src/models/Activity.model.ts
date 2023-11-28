@@ -21,6 +21,6 @@ export const ActivityModel = Type.Object({
       handle: Type.Optional(Nullable(Type.String())),
     })
   ),
-});
+}, { $id: "ActivityModel" });
 
 export type Activity = Static<typeof ActivityModel>;

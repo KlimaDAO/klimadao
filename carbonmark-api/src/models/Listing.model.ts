@@ -50,6 +50,7 @@ export const ListingModel = Type.Object(
     }),
   },
   {
+    $id: "ListingModel",
     description: "Marketplace listing with per-tonne price and project info.",
   }
 );
