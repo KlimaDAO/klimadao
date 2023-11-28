@@ -38,10 +38,14 @@ export const SellerConnected: FC<Props> = (props) => {
     data: carbonmarkUser,
     isLoading,
     mutate,
-  } = useGetUsersWalletorhandle(props.userAddress, {
-    network,
-    expiresAfter: address === props.userAddress ? "0" : undefined,
-  });
+  } = useGetUsersWalletorhandle(
+    props.userAddress,
+    {
+      network,
+      expiresAfter: address === props.userAddress ? "0" : undefined,
+    },
+    { shouldFetch: notNil(address) }
+  );
   const [isPending, setIsPending] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);

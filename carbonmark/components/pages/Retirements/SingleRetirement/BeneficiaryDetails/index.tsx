@@ -5,6 +5,7 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { Text } from "components/Text";
 import { urls } from "lib/constants";
+import { notNil } from "lib/utils/functional.utils";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -15,7 +16,9 @@ type Props = {
 
 export const BeneficiaryDetails: FC<Props> = (props) => {
   const { data: carbonmarkUser } = useGetUsersWalletorhandle(
-    props.beneficiaryAddress
+    props.beneficiaryAddress,
+    {},
+    { shouldFetch: notNil(props.beneficiaryAddress) }
   );
   return (
     <div className={styles.beneficiaryCard}>
