@@ -46,9 +46,7 @@ export const RetireForm = (props: RetireFormProps) => {
   const { address, asset, provider } = props;
   const { networkLabel } = useWeb3();
   const router = useRouter();
-
   const { tokenName, balance, tokenSymbol, project } = asset;
-
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [isApproved, setIsApproved] = useState<boolean>(false);
@@ -418,6 +416,8 @@ export const RetireForm = (props: RetireFormProps) => {
             retirementQuantity: retirement.quantity,
             updateStatus: updateStatus,
             tokenAddress: project.tokenAddress,
+            tokenStandard: project.tokenStandard,
+            network: networkLabel,
           })
         }
         onSubmit={() =>
@@ -432,6 +432,9 @@ export const RetireForm = (props: RetireFormProps) => {
             retirementToken: tokenName,
             tokenSymbol: tokenSymbol,
             tokenAddress: project.tokenAddress,
+            tokenId: project.tokenId,
+            tokenStandard: project.tokenStandard,
+            network: networkLabel,
             setRetireModalOpen,
             setRetirementTransactionHash,
             setRetirementTotals,
@@ -454,7 +457,11 @@ export const RetireForm = (props: RetireFormProps) => {
             retirementUrl={`${urls.retirements_carbonmark}/${
               retirement.beneficiaryAddress || props.address
             }/${retirementTotals}`}
-            polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
+            polygonScanUrl={
+              networkLabel === "polygon"
+                ? `${urls.polygonscan}/tx/${retirementTransactionHash}`
+                : `${urls.mumbaiPolygonscan}/tx/${retirementTransactionHash}`
+            }
             showModal={!!retirementTransactionHash}
             user={props.address}
             retirementIndex={retirementTotals}

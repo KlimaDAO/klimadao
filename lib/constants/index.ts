@@ -72,7 +72,7 @@ const testnet: typeof mainnet = {
   staking: "0x2960DCE5aE04eF503b36f8581EA5Ac5238632092",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "",
-  retirementAggregatorV2: "",
+  retirementAggregatorV2: "0x62d3897089C93A0fa2B0746A6975Ec4693c13cb8",
   liveOffsetWallet: "",
   liveOffsetContract: "",
   carbonmark: "0xD973F90a4C49607EABeFdb2C45d4F39436c7e7fA", // v2 Diamond
@@ -146,6 +146,7 @@ export const urls = {
     "https://transferto.xyz/showcase/carbon-offset?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
   polyscanGasStation: "https://gasstation.polygon.technology/v2",
   polygonscan: "https://polygonscan.com",
+  mumbaiPolygonscan: "https://mumbai.polygonscan.com",
   polygonBridge: "https://wallet.polygon.technology/polygon/bridge/deposit",
   polygonTor: "https://polygon.tor.us/",
   creolIndividualCalculator: "https://klima.creol.io/#/footprint",
@@ -311,7 +312,7 @@ export const verra = {
 export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
-
+// polygon: "https://api.carbonregistry.com",
 export const ICR_API_URLS = {
   polygon: "https://gaia-api-dev.mojoflower.io/v0",
   mumbai: "https://gaia-api-dev.mojoflower.io/v0",

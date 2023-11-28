@@ -77,6 +77,7 @@ export const getServerSideProps: GetServerSideProps<
       const projectDetails = IcrProject.data.exPosts[0];
       project = {
         tokenAddress: projectDetails.project.projectAddress,
+        tokenId: projectDetails.tokenId,
         vintageYear: projectDetails.vintage,
         name: projectDetails.project.projectName,
         registry: projectDetails.serialization.split("-")[0],
@@ -87,34 +88,32 @@ export const getServerSideProps: GetServerSideProps<
           projectDetails.serialization.split("-")[3],
         tokenStandard: "ERC1155",
       };
+    } else if (network === "polygon") {
+      const PbcResponse: PbcProject[] =
+        await getProjectInfoFromPolygonBridgedCarbon(
+          params.project_token_0x.toLowerCase()
+        );
+      const targetProject = PbcResponse[0];
+      project = {
+        tokenAddress: targetProject.tokenAddress,
+        tokenId: "",
+        vintageYear: targetProject.vintageYear,
+        name: targetProject.name,
+        registry: targetProject.registry,
+        methodologyCategory: targetProject.methodologyCategory,
+        projectId: targetProject.projectID,
+        tokenStandard: "ERC20",
+      };
+    } else if (network === "mumbai") {
+      throw new Error("Mumbai not supported yet for non IRC projects");
     } else {
-      switch (network) {
-        case "mumbai":
-          console.log(
-            "No project info for retirement currently available for mumbai"
-          );
-          break;
-        case "polygon":
-          const PbcResponse: PbcProject =
-            await getProjectInfoFromPolygonBridgedCarbon(
-              params.project_token_0x.toLowerCase()
-            );
-          project = {
-            tokenAddress: PbcResponse.tokenAddress,
-            vintageYear: PbcResponse.vintageYear,
-            name: PbcResponse.name,
-            registry: PbcResponse.registry,
-            methodologyCategory: PbcResponse.methodologyCategory,
-            projectId: PbcResponse.projectID,
-            tokenStandard: "ERC20",
-          };
-          break;
-        default:
-          throw new Error("Unsupported network type: " + network);
-      }
+      throw new Error("Invalid network");
     }
 
-    if (!project) {
+    if (
+      !project ||
+      Object.values(project).some((val) => val === null || val === undefined)
+    ) {
       throw new Error("Project could not be determined.");
     }
 

@@ -63,10 +63,6 @@ export const fetchCMSProject = async (
   if ("serialization" in args && typeof sdk === "string") {
     const url = `${sdk}/public/projects?creditSerialization=${args.serialization}`;
 
-    /**
-     * @todo change polygon to correct network when verified for polygon api in helper function below
-     */
-
     const { ICR_API_KEY } = ICR_API(args.network);
 
     try {
@@ -105,10 +101,7 @@ export const fetchCMSProject = async (
         }
         return null;
       };
-      console.info(
-        "apiData",
-        getCategoryFromMethodology(apiData.methodology.id)
-      );
+
       return {
         // slice off the -<vintage> from the end of the serialization to fit existing key format
         key: args.serialization,
@@ -124,11 +117,8 @@ export const fetchCMSProject = async (
         methodologies:
           [
             {
-              id: apiData.methodology.id,
-              /**
-               * @todo need to figure out how to import getCategoryFromMethodology to convert id to category name
-               */
-              category: getCategoryFromMethodology(apiData.methodology.id),
+              id: apiData?.methodology?.id,
+              category: getCategoryFromMethodology(apiData?.methodology?.id),
               name: apiData.methodology.title,
             },
           ] || null,
