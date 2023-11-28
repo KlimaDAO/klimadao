@@ -1,5 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
-import { ActivityModel, ListingModel } from "./CommonSchema.model";
+import { ActivityModel } from "./Activity.model";
+import { ListingModel } from "./Listing.model";
 import { MethodologyModel } from "./Methodology.model";
 import { TokenPriceModel } from "./TokenPrice.model";
 import { GeoJSONPointModel, ImageModel, Nullable } from "./Utility.model";
