@@ -11,7 +11,9 @@ export const QueryString = Type.Object({
     })
   ),
   activityType: Type.Optional(
-    Type.Union(Object.keys(ActivityType).map((key) => Type.Literal(key)))
+    Type.Array(
+      Type.Union(Object.keys(ActivityType).map((key) => Type.Literal(key)))
+    )
   ),
 });
 
