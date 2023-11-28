@@ -1,5 +1,5 @@
 import { Static } from "@sinclair/typebox";
-import { FastifyInstance, FastifyReply } from "fastify";
+import { FastifyInstance } from "fastify";
 import { mapValues } from "lodash";
 import { split } from "lodash/fp";
 import { ActivityType } from "../../.generated/types/marketplace.types";
@@ -15,9 +15,8 @@ import { schema } from "./get.schema";
  *
  * @returns
  */
-export const getActivities = async (
+export const getActivities = (
   fastify: FastifyInstance,
-  reply: FastifyReply,
   query: Static<typeof schema.querystring>,
   network?: NetworkParam
 ): Promise<Activity[]> => {
@@ -27,14 +26,9 @@ export const getActivities = async (
     ? stringsToActivityTypes(args.activityType)
     : Object.values(ActivityType);
   const projectId = args.projectId || [];
-  const activities = await fetchProjectActivities(sdk, {
+  return fetchProjectActivities(sdk, {
     projectId,
     activityType,
     fastify,
   });
-  // Send the transformed projects array as a JSON string in the response
-  return reply
-    .status(200)
-    .header("Content-Type", "application/json; charset=utf-8")
-    .send(activities);
 };

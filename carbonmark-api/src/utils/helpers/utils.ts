@@ -1,4 +1,4 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance, FastifyReply } from "fastify";
 import { compact, concat, isArray } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
@@ -241,3 +241,17 @@ export const stringsToActivityTypes = (strs: string[]): ActivityType[] => {
     .map(stringToActivityType)
     .filter((str): str is ActivityType => !!str);
 };
+
+/**
+ * Sends a standard success reply
+ * @param reply
+ */
+export function asResponse<ReplyType>(
+  reply: FastifyReply,
+  payload?: ReplyType
+) {
+  return reply
+    .status(200)
+    .header("Content-Type", "application/json; charset=utf-8")
+    .send(payload);
+}
