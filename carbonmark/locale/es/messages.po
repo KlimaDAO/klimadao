@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-27 15:35+0000\n"
+"POT-Creation-Date: 2023-11-28 15:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -959,7 +959,7 @@ msgstr "Leer más"
 #: components/pages/Home/index.tsx:475
 #: components/pages/Home/index.tsx:502
 #: components/pages/Resources/BlogPostCard/index.tsx:38
-#: components/pages/Resources/FeaturedArticles/Article.tsx:43
+#: components/pages/Resources/FeaturedArticles/Article.tsx:45
 msgid "Read more"
 msgstr "Leer más"
 
@@ -1629,13 +1629,13 @@ msgid "at"
 msgstr "a"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:98
+#: components/pages/Blog/Post/index.tsx:100
 msgid "blog.disclaimer.description"
 msgstr ""
 "La información proporcionada en este post relativo a KlimaDAO (\"KlimaDAO\"), sus criptoactivos, activos comerciales, estrategia y operaciones, tiene únicamente fines informativos generales y no es una oferta formal de venta ni una solicitud de oferta de compra de valores, opciones, futuros u otros derivados relacionados con valores en ninguna jurisdicción y su contenido no está prescrito por las leyes de valores.\n"
 " La información contenida en este post no debe ser considerada como un consejo para comprar o vender o mantener dichos valores o como una oferta para venderlos. Esta post no tiene en cuenta ni proporciona ningún tipo de asesoramiento fiscal, jurídico o de inversión, ni opinión sobre los objetivos de inversión específicos o la situación financiera de ninguna persona.  KlimaDAO y sus agentes, asesores, directores, funcionarios, empleados y accionistas no ofrecen ninguna declaración ni garantía, expresa o implícita, en cuanto a la exactitud de dicha información y KlimaDAO renuncia expresamente a toda responsabilidad que pueda basarse en dicha información o en errores u omisiones de la misma. KlimaDAO se reserva el derecho de modificar o sustituir la información contenida en este documento, en parte o en su totalidad, en cualquier momento, y no se compromete a facilitar al destinatario el acceso a la información modificada ni a notificárselo. La información contenida en este post sustituye a cualquier post o conversación anterior relativa a la misma información, similar o relacionada. Cualquier información, representación o declaración que no esté contenida en el presente documento no deberá ser considerada para ningún propósito. Ni KlimaDAO ni ninguno de sus representantes tendrán responsabilidad alguna, contractual, extracontractual, fiduciaria o de otro tipo, frente a usted o a cualquier persona que resulte del uso de la información contenida en esta entrada de blog por parte de usted o de cualquiera de sus representantes, o por las omisiones de la información contenida en este post. Además, KlimaDAO no asume ninguna obligación de comentar las expectativas o declaraciones de terceros con respecto a los asuntos tratados en este post."
 
-#: components/pages/Blog/Post/index.tsx:95
+#: components/pages/Blog/Post/index.tsx:97
 msgid "blog.disclaimer.title"
 msgstr "Aviso legal:"
 
@@ -2115,7 +2115,7 @@ msgstr "Iniciar sesión / Conectar para comprar"
 msgid "shared.head.description"
 msgstr "Impulsa la acción climática y gana recompensas con una moneda digital respaldada por carbono."
 
-#: components/pages/Blog/Post/index.tsx:81
+#: components/pages/Blog/Post/index.tsx:83
 msgid "shared.resourcecenter"
 msgstr "Centro de Recursos"
 

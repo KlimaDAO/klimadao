@@ -79,7 +79,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             <div className={styles.slide} key={`slide-${index}`}>
               {props.location && index === 0 ? (
                 <ProjectMap
-                  zoom={5}
+                  zoom={1.5}
                   lat={props.location?.geometry.coordinates[1]}
                   lng={props.location?.geometry.coordinates[0]}
                 />
