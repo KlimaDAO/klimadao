@@ -12,5 +12,5 @@ import { Static, Type } from "@sinclair/typebox";
 //   Type.Literal("Blue Carbon"),
 // ]);
 
-export const CategoryModel = Type.Object({ id: Type.String() });
+export const CategoryModel = Type.Object({ id: Type.String() }, { $id: "CategoryModel" });
 export type Category = Static<typeof CategoryModel>;

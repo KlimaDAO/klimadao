@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { ListingModel } from "./Listing.model";
+import { ListingModel } from "./CommonSchema.model";
 import { MethodologyModel } from "./Methodology.model";
 import { GeoJSONPointModel, Nullable } from "./Utility.model";
 
@@ -20,7 +20,7 @@ export const ProjectModel = Type.Object({
   country: Type.Object({ id: Type.String() }),
   region: Type.String(),
   price: Type.String(),
-  listings: Nullable(Type.Array(ListingModel)), // null when listings are empty
+  listings: Nullable(Type.Array(Type.Ref(ListingModel))), // null when listings are empty
   images: Nullable(
     Type.Array(
       Type.Object({
@@ -29,6 +29,7 @@ export const ProjectModel = Type.Object({
       })
     )
   ),
-});
+}, { $id: "ProjectModel" }
+);
 
 export type Project = Static<typeof ProjectModel>;

@@ -1,6 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { ActivityModel } from "./Activity.model";
-import { ListingModel } from "./Listing.model";
+import { ActivityModel, ListingModel } from "./CommonSchema.model";
 import { MethodologyModel } from "./Methodology.model";
 import { TokenPriceModel } from "./TokenPrice.model";
 import { GeoJSONPointModel, ImageModel, Nullable } from "./Utility.model";
@@ -24,10 +23,11 @@ export const DetailedProjectModel = Type.Object({
     totalSupply: Type.Number(),
   }),
   prices: Type.Array(TokenPriceModel),
-  listings: Type.Array(ListingModel),
+  listings: Type.Array(Type.Ref(ListingModel)),
   activities: Type.Array(ActivityModel),
   price: Type.String(),
   vintage: Type.String(),
-});
+},
+{ $id: "DetailedProjectModel" });
 
 export type DetailedProject = Static<typeof DetailedProjectModel>;

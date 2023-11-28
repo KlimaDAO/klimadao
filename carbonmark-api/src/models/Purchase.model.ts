@@ -49,6 +49,8 @@ export const PurchaseModel = Type.Object({
     description: "Total purchase price (USDC)",
     examples: ["5.0"],
   }),
-});
+},
+{ $id: "PurchaseModel" }
+);
 
 export type Purchase = Static<typeof PurchaseModel>;

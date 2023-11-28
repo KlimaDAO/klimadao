@@ -13,7 +13,7 @@ export const Params = Type.Object(
 );
 
 export const QueryString = Type.Object({
-  network: Type.Optional(NetworkParamModel),
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
   expiresAfter: Type.Optional(
     Type.String({
       description:

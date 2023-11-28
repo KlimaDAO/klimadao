@@ -3,7 +3,7 @@ import { NetworkParamModel } from "../../models/NetworkParam.model";
 import { VintageModel } from "../../models/Vintage.model";
 
 export const Querystring = Type.Object({
-  network: Type.Optional(NetworkParamModel),
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
 });
 
 export const schema = {

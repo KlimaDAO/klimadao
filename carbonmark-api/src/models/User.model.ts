@@ -1,7 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
-import { ActivityModel } from "./Activity.model";
 import { AssetModel } from "./Asset.model";
-import { ListingModel } from "./Listing.model";
+import { ActivityModel, ListingModel } from "./CommonSchema.model";
 import { Nullable } from "./Utility.model";
 
 //This model matches the document structure in https://console.firebase.google.com/project/klimadao-staging
@@ -13,10 +12,11 @@ export const UserModel = Type.Object({
   updatedAt: Type.Number(),
   createdAt: Type.Number(),
   wallet: Type.String(),
-  listings: Type.Array(ListingModel),
-  activities: Type.Array(ActivityModel),
-  assets: Type.Array(AssetModel),
-});
+  listings: Type.Array(Type.Ref(ListingModel)),
+  activities: Type.Array(Type.Ref(ActivityModel)),
+  assets: Type.Array(Type.Ref(AssetModel)),
+}, { $id: "UserModel" }
+);
 
 export type User = Static<typeof UserModel>;
 

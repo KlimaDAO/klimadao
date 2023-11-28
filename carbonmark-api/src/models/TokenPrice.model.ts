@@ -32,6 +32,7 @@ export const TokenPriceModel = Type.Object({
   singleUnitPrice: Type.String({
     description: "formatted USDC price for 1 tonne e.g. '0.123456'",
   }),
-});
+}, { $id: "TokenPriceModel" }
+);
 
 export type TokenPriceT = Static<typeof TokenPriceModel>;
