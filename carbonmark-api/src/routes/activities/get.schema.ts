@@ -4,7 +4,7 @@ import { ActivityModel } from "../../models/Activity.model";
 import { NetworkParamModel } from "../../models/NetworkParam.model";
 
 export const QueryString = Type.Object({
-  network: Type.Optional(NetworkParamModel),
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
   projectId: Type.Optional(
     Type.String({
       description: "Filter returned activities by project",

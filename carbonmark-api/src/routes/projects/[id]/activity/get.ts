@@ -2,6 +2,7 @@ import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { Activity } from "../../../../models/Activity.model";
 import { getActivities } from "../../../../routes/activities/get.utils";
+import { asResponse } from "../../../../utils/helpers/utils";
 import { schema } from "./get.schema";
 
 /**
@@ -10,7 +11,7 @@ import { schema } from "./get.schema";
  * @returns
  */
 const handler = (fastify: FastifyInstance) =>
-  function (
+  async function (
     request: FastifyRequest<{
       Params: Static<typeof schema.params>;
       Querystring: Static<typeof schema.querystring>;
@@ -18,7 +19,10 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ): Promise<Activity[]> {
     request.query.projectId = request.params.id;
-    return getActivities(fastify, reply, request.query, request.query.network);
+    return asResponse(
+      reply,
+      await getActivities(fastify, request.query, request.query.network)
+    );
   };
 
 export default async (fastify: FastifyInstance) => {

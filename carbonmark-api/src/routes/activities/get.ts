@@ -1,6 +1,7 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { Activity } from "../../models/Activity.model";
+import { asResponse } from "../../utils/helpers/utils";
 import { schema } from "./get.schema";
 import { getActivities } from "./get.utils";
 
@@ -10,13 +11,16 @@ import { getActivities } from "./get.utils";
  * @returns
  */
 const handler = (fastify: FastifyInstance) =>
-  function (
+  async function (
     request: FastifyRequest<{
       Querystring: Static<typeof schema.querystring>;
     }>,
     reply: FastifyReply
   ): Promise<Activity[]> {
-    return getActivities(fastify, reply, request.query, request.query.network);
+    return asResponse(
+      reply,
+      await getActivities(fastify, request.query, request.query.network)
+    );
   };
 
 export default async (fastify: FastifyInstance) => {
