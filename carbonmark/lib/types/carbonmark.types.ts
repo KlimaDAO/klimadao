@@ -156,6 +156,7 @@ export type ProjectRetirementDetails = {
   methodologyCategory: string;
   projectId: string;
   tokenStandard: string;
+  tokenId: string;
 };
 
 export type Methodology = {

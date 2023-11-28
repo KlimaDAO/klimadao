@@ -456,7 +456,11 @@ export const RetireForm = (props: RetireFormProps) => {
             retirementUrl={`${urls.retirements_carbonmark}/${
               retirement.beneficiaryAddress || props.address
             }/${retirementTotals}`}
-            polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
+            polygonScanUrl={
+              networkLabel === "polygon"
+                ? `${urls.polygonscan}/tx/${retirementTransactionHash}`
+                : `${urls.mumbaiPolygonscan}/tx/${retirementTransactionHash}`
+            }
             showModal={!!retirementTransactionHash}
             user={props.address}
             retirementIndex={retirementTotals}
