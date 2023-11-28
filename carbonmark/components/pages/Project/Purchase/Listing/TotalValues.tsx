@@ -7,7 +7,7 @@ import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import { useFormContext, useWatch } from "react-hook-form";
