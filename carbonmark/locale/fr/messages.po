@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-17 15:46+0000\n"
+"POT-Creation-Date: 2023-11-28 09:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -361,8 +361,8 @@ msgstr "Pays"
 msgid "Create Carbonmark Profile"
 msgstr "Créer un profil Carbonmark"
 
-#: components/pages/Users/SellerConnected/index.tsx:143
-#: components/pages/Users/SellerConnected/index.tsx:167
+#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:169
 msgid "Create New Listing"
 msgstr "Créer une nouvelle annonce"
 
@@ -428,7 +428,7 @@ msgid "Data for this project and vintage"
 msgstr "Données pour ce projet et année"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:97
+#: components/pages/Users/SellerUnconnected/index.tsx:101
 msgid "Data for this seller"
 msgstr "Données pour ce vendeur"
 
@@ -548,8 +548,8 @@ msgstr "Le pseudonyme ne peut pas être une adresse"
 msgid "Handle should not contain any special characters"
 msgstr "Le pseudonyme ne doit pas contenir de caractères spéciaux"
 
-#: components/pages/Portfolio/Retire/index.tsx:117
-#: components/pages/Portfolio/index.tsx:117
+#: components/pages/Portfolio/Retire/index.tsx:122
+#: components/pages/Portfolio/index.tsx:123
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Avez-vous déjà créé votre <0>profil</0> Carbonmark  ?"
 
@@ -638,8 +638,8 @@ msgstr "Mettez vos projets en vente en quelques clics"
 msgid "Listed tonnes:"
 msgstr "Tonnes à la vente :"
 
-#: components/pages/Users/SellerConnected/index.tsx:128
-#: components/pages/Users/SellerUnconnected/index.tsx:53
+#: components/pages/Users/SellerConnected/index.tsx:130
+#: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "Listings"
 msgstr "Annonces"
 
@@ -719,8 +719,8 @@ msgstr "Suivant"
 msgid "No Activity to show."
 msgstr "Aucune activité à montrer"
 
-#: components/pages/Users/SellerConnected/index.tsx:191
-#: components/pages/Users/SellerUnconnected/index.tsx:89
+#: components/pages/Users/SellerConnected/index.tsx:193
+#: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "No active listings."
 msgstr "Aucune annonce active."
 
@@ -815,14 +815,14 @@ msgstr "Frais de traitement du paiement"
 msgid "Please Log In"
 msgstr "Veuillez vous connecter"
 
-#: components/pages/Portfolio/index.tsx:62
+#: components/pages/Portfolio/index.tsx:68
 #: components/pages/Users/SellerConnected/index.tsx:76
 #: components/pages/Users/SellerConnected/index.tsx:102
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Veuillez actualiser la page. Une erreur s'est produite lors de la mise à jour de vos données : {e}."
 
-#: components/pages/Portfolio/index.tsx:72
-#: components/pages/Portfolio/index.tsx:73
+#: components/pages/Portfolio/index.tsx:78
+#: components/pages/Portfolio/index.tsx:79
 msgid "Portfolio | Carbonmark"
 msgstr "Portefeuille | Carbonmark"
 
@@ -961,7 +961,7 @@ msgstr "En savoir plus"
 #: components/pages/Home/index.tsx:475
 #: components/pages/Home/index.tsx:502
 #: components/pages/Resources/BlogPostCard/index.tsx:38
-#: components/pages/Resources/FeaturedArticles/Article.tsx:43
+#: components/pages/Resources/FeaturedArticles/Article.tsx:45
 msgid "Read more"
 msgstr "En savoir plus"
 
@@ -1064,8 +1064,8 @@ msgstr "Retirer du marché"
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "Retirez maintenant ou acquérez du carbone pour le retirer plus tard - c'est vous qui décidez dès lors que vous devenez propriétaire de vos actifs carbone."
 
-#: components/pages/Portfolio/Retire/index.tsx:89
-#: components/pages/Portfolio/Retire/index.tsx:90
+#: components/pages/Portfolio/Retire/index.tsx:94
+#: components/pages/Portfolio/Retire/index.tsx:95
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -1155,8 +1155,8 @@ msgstr "Désolé, un problème est survenu."
 msgid "Sorry, this handle already exists"
 msgstr "Désolé, ce pseudonyme existe déjà"
 
-#: components/pages/Portfolio/Retire/index.tsx:112
-#: components/pages/Portfolio/index.tsx:111
+#: components/pages/Portfolio/Retire/index.tsx:117
+#: components/pages/Portfolio/index.tsx:117
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Désolé. Nous n'avons pas trouvé de données Carbonmark pour votre utilisateur."
 
@@ -1417,7 +1417,7 @@ msgstr "Mettre à jour l'annonce"
 msgid "Updated:"
 msgstr "Mis à jour :"
 
-#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Updating your data..."
 msgstr "Mise à jour de vos données..."
 
@@ -1451,11 +1451,11 @@ msgstr "Voir les détails du registre <0/>"
 msgid "View Results"
 msgstr "Voir les résultats"
 
-#: components/pages/Portfolio/index.tsx:74
+#: components/pages/Portfolio/index.tsx:80
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Voir un aperçu complet du carbone numérique que vous possédez dans votre Portefeuille."
 
-#: components/pages/Portfolio/Retire/index.tsx:91
+#: components/pages/Portfolio/Retire/index.tsx:96
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "Voir un aperçu complet du carbone numérique que vous possédez dans votre Retrait du marché."
 
@@ -1610,7 +1610,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Votre achat n'a pas encore été finalisé. Pour finaliser votre achat, vérifiez que toutes les informations sont correctes et cliquez sur \"envoyer\" ci-dessous."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:212
 msgid "Your seller data"
 msgstr "Vos données de vendeur"
 
@@ -1631,11 +1631,11 @@ msgid "at"
 msgstr "à"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:98
+#: components/pages/Blog/Post/index.tsx:100
 msgid "blog.disclaimer.description"
 msgstr "Les informations fournies dans cet article de blog concernant KlimaDAO (\"KlimaDAO\"), ses crypto-actifs, ses actifs commerciaux, sa stratégie et ses opérations, sont fournis uniquement à des fins d'information générale et ne constituent pas une offre formelle de vente ou une sollicitation d'offre visant à l'achat de valeurs mobilières, d'options, de contrats à terme ou d'autres dérivés liés à des valeurs mobilières dans quelque juridiction que ce soit et dont le contenu n'est pas prescrit par les lois sur les valeurs mobilières. Les informations contenues dans cet article de blog ne constituent pas des conseils pour acheter, vendre ou détenir des titres ou une proposition de vente de titres. Cet article de blog ne prend pas en compte et ne fournit aucun conseil ou avis fiscal, juridique ou d'investissement concernant les objectifs d'investissement spécifiques ou la situation financière particulière d'un individu. KlimaDAO et ses agents, conseillers, administrateurs, dirigeants, employés et actionnaires ne font aucune déclaration ni ne promettent aucune garantie, expresse ou implicite, quant à l'exactitude de ces informations et KlimaDAO décline expressément toute responsabilité concernant des erreurs ou des oublis pouvant y être présentes. KlimaDAO se réserve le droit de modifier ou de remplacer à tout moment tout ou partie des informations contenues dans ce document, et n'assume aucune obligation d'en prévenir le lecteur ni de lui fournir l'accès aux informations modifiées. Les informations contenues dans cet article de blog remplacent tout article de blog ou conversation antérieure concernant des informations identiques, similaires ou connexes. Toute information, ou déclaration non contenue dans le présent document ne pourra être invoquée à quelque fin que ce soit. La responsabilité contractuelle, délictuelle, fiduciaire ou autre de KlimaDAO ni d'aucun de ses représentants ne pourra être invoquée, par vous ou toute autre personne dans le cas de l'utilisation des informations contenues dans ce blog ou en regard a des oublis d'informations dans cet article de blog. De plus, KlimaDAO n'assume aucune obligation de commenter sur les attentes ou de commenter les déclarations faites par un tiers concernant les sujets abordés dans cet article de blog."
 
-#: components/pages/Blog/Post/index.tsx:95
+#: components/pages/Blog/Post/index.tsx:97
 msgid "blog.disclaimer.title"
 msgstr "Avertissement légal"
 
@@ -1786,7 +1786,7 @@ msgstr "Créer l'annonce"
 msgid "profile.edit_modal.submit"
 msgstr "Sauvegarder les modifications"
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:219
 msgid "profile.edit_profile.title"
 msgstr "Votre Profil"
 
@@ -2098,7 +2098,7 @@ msgstr "Total des Tonnes de Carbone Retirées du Marché"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total des Transactions de Retraits du marché"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:76
+#: components/pages/Users/SellerUnconnected/index.tsx:79
 msgid "seller.listing.buy"
 msgstr "Acheter"
 
@@ -2107,7 +2107,7 @@ msgid "seller.listing.quantity_available"
 msgstr "Quantité Disponible :"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:66
+#: components/pages/Users/SellerUnconnected/index.tsx:69
 msgid "shared.connect_to_buy"
 msgstr "Se connecter pour acheter"
 
@@ -2115,7 +2115,7 @@ msgstr "Se connecter pour acheter"
 msgid "shared.head.description"
 msgstr "Combattez le changement climatique et soyez récompensés avec une monnaie numérique garantie par du carbone."
 
-#: components/pages/Blog/Post/index.tsx:81
+#: components/pages/Blog/Post/index.tsx:83
 msgid "shared.resourcecenter"
 msgstr "Centre de Ressources"
 

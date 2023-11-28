@@ -1,17 +1,9 @@
+import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
-import {
-  CategoryName,
-  Country,
-  Project,
-  User,
-} from "lib/types/carbonmark.types";
-import { client } from "./api/client";
+import { User } from "lib/types/carbonmark.types";
 import { createDownloadLink } from "./createDownloadLink";
-import { fetcher } from "./fetcher";
-import { isCategoryName } from "./types/carbonmark.guard";
-import { extract, notNil } from "./utils/functional.utils";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch(`${urls.api.users}/login`, {
@@ -139,31 +131,6 @@ export const activityIsAdded = (prevTimeStamp: string) => (newUser: User) => {
   return Number(latestActivity?.timeStamp || 0) > Number(prevTimeStamp);
 };
 
-export const refreshUser = async (params: {
-  walletOrHandle: string;
-  network?: "mumbai" | "polygon";
-  expiresAfter?: string;
-}) => {
-  const { network = "polygon", expiresAfter } = params;
-  const response = await client["/users/{walletOrHandle}"].get(
-    {
-      params: { walletOrHandle: params.walletOrHandle.toLowerCase() },
-      query: { network, expiresAfter },
-    },
-    {
-      cache: "reload",
-      headers: {
-        "Cache-Control": "no-cache",
-      },
-    }
-  );
-  if (!response.ok) {
-    throw new Error(await response.text());
-  }
-  const user = await response.json();
-  return user;
-};
-
 export const getUserUntil = async (params: {
   address: string;
   retryUntil: (u: User) => boolean;
@@ -171,9 +138,8 @@ export const getUserUntil = async (params: {
   retryInterval?: number;
   network?: "mumbai" | "polygon";
 }): Promise<User> => {
-  const fetchUserData = () =>
-    refreshUser({
-      walletOrHandle: params.address,
+  const fetchUserData = async () =>
+    await getUsersWalletorhandle(params.address, {
       network: params.network,
       expiresAfter: "0",
     });
@@ -187,33 +153,3 @@ export const getUserUntil = async (params: {
 
   return updatedUser;
 };
-
-type GetProjectParams = {
-  search?: string;
-  country?: string;
-  category?: CategoryName;
-  vintage?: string;
-};
-
-export const getProjects = async (
-  params?: GetProjectParams
-): Promise<Project[]> => {
-  let url = urls.api.projects;
-  if (notNil(params)) url += new URLSearchParams(params);
-  return await fetcher(url);
-};
-
-export const getProject = async (projectId: string): Promise<Project> =>
-  await fetcher(`${urls.api.projects}/${projectId}`);
-
-export const getCategories = async (): Promise<CategoryName[]> => {
-  const response = await client["/categories"].get();
-  const categories = await response.json();
-  return categories.map(extract("id")).filter(isCategoryName);
-};
-
-export const getCountries = async (): Promise<Country[]> =>
-  await fetcher(urls.api.countries);
-
-export const getVintages = async (): Promise<string[]> =>
-  await fetcher(urls.api.vintages);

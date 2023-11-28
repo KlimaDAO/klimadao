@@ -12,3 +12,5 @@ export const fetcher = async <T>(...args: FetchArgs): Promise<T> => {
 
   return res.json();
 };
+
+export default fetcher;

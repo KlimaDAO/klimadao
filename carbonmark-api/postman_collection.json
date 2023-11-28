@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "4eea85ed-1464-4a25-bd36-56b3b6ff5f2c",
+    "_postman_id": "bf0cfc91-c6ef-4698-8966-8e8926382393",
     "name": "carbonmark-api",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "275500"
@@ -103,19 +103,19 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/purchases/:purchaseId",
+          "raw": "{{url}}/purchases/:purchaseId?network=mumbai",
           "host": ["{{url}}"],
           "path": ["purchases", ":purchaseId"],
-          "variable": [
-            {
-              "key": "purchaseId",
-              "value": "0x03bac372ddee7c014b6c610d1ead2d20d8b01b5e2714436a3b346c488ed26885"
-            }
-          ],
           "query": [
             {
               "key": "network",
               "value": "mumbai"
+            }
+          ],
+          "variable": [
+            {
+              "key": "purchaseId",
+              "value": "0x03bac372ddee7c014b6c610d1ead2d20d8b01b5e2714436a3b346c488ed26885"
             }
           ]
         }
@@ -293,19 +293,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/users/:walletid?type=wallet",
+          "raw": "{{url}}/users/:walletid",
           "host": ["{{url}}"],
           "path": ["users", ":walletid"],
-          "query": [
-            {
-              "key": "type",
-              "value": "wallet"
-            }
-          ],
           "variable": [
             {
               "key": "walletid",
-              "value": "0X4E78011CE80EE02D2C3E649FB657E45898257815"
+              "value": "0x702E9b5AF503Cf37f3E2d1993744d02114C5ef34"
             }
           ]
         }
@@ -344,7 +338,7 @@
           "variable": [
             {
               "key": "handle",
-              "value": "emc"
+              "value": "testklima"
             }
           ]
         }

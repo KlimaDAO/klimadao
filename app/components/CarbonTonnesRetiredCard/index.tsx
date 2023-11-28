@@ -1,5 +1,4 @@
 import { t, Trans } from "@lingui/macro";
-import { FC } from "react";
 import { useSelector } from "react-redux";
 
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
@@ -13,7 +12,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 
-export const CarbonTonnesRetiredCard: FC = () => {
+export const CarbonTonnesRetiredCard = (props: { isConnected?: boolean }) => {
   const { address } = useWeb3();
   const totalCarbonRetired = useSelector(selectCarbonRetired);
   return (
@@ -25,34 +24,47 @@ export const CarbonTonnesRetiredCard: FC = () => {
         </Text>
       </div>
       <div className="cardContent">
-        <div className="stack">
-          <Text className="value">
-            {totalCarbonRetired?.totalTonnesRetired ?? "0"}
+        {!props.isConnected && (
+          <Text t="button" color="lighter">
+            <Trans>Not Connected</Trans>
           </Text>
-          <Text className="label" color="lightest">
-            <Trans id="offset.tonnes_of_carbon_retired">Tonnes of carbon</Trans>
-          </Text>
-        </div>
-        <div className="stack">
-          <Text className="value">
-            {totalCarbonRetired?.totalRetirements ?? "0"}
-          </Text>
-          <Text className="label" color="lightest">
-            <Trans id="offset.number_of_retirements">Total retirements</Trans>
-          </Text>
-        </div>
-        {Number(totalCarbonRetired?.totalRetirements) > 0 && (
-          <ButtonPrimary
-            target="_blank"
-            variant="transparent"
-            icon={<LaunchOutlinedIcon />}
-            href={`${urls.retirements_carbonmark}/${address}`}
-            className={styles.button}
-            label={t({
-              id: "offset.view_retirements",
-              message: "View Retirements",
-            })}
-          />
+        )}
+        {props.isConnected && (
+          <>
+            <div className="stack">
+              <Text className="value">
+                {totalCarbonRetired?.totalTonnesRetired ?? "0"}
+              </Text>
+              <Text className="label" color="lightest">
+                <Trans id="offset.tonnes_of_carbon_retired">
+                  Tonnes of carbon
+                </Trans>
+              </Text>
+            </div>
+            <div className="stack">
+              <Text className="value">
+                {totalCarbonRetired?.totalRetirements ?? "0"}
+              </Text>
+              <Text className="label" color="lightest">
+                <Trans id="offset.number_of_retirements">
+                  Total retirements
+                </Trans>
+              </Text>
+            </div>
+            {Number(totalCarbonRetired?.totalRetirements) > 0 && (
+              <ButtonPrimary
+                target="_blank"
+                variant="transparent"
+                icon={<LaunchOutlinedIcon />}
+                href={`${urls.retirements_carbonmark}/${address}`}
+                className={styles.button}
+                label={t({
+                  id: "offset.view_retirements",
+                  message: "View Retirements",
+                })}
+              />
+            )}
+          </>
         )}
       </div>
     </div>

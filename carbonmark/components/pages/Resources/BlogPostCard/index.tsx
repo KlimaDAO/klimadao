@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/macro";
 import { Text } from "components/Text";
 import { PostDetails } from "lib/cms/queries";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import defaultImage from "public/cover-default.png";
@@ -42,8 +42,10 @@ export const BlogPostCard = (props: BlogPostCardProps) => {
         <Image
           src={props.post.imageUrl || defaultImage}
           alt={props.post.title}
-          objectFit="cover"
-          layout="fill"
+          fill={true}
+          style={{
+            objectFit: "cover",
+          }}
         />
       </div>
     </Link>

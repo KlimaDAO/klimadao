@@ -1,5 +1,5 @@
+import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { PageProps, Project } from "components/pages/Project";
-import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   }
 
   try {
-    const project = await getCarbonmarkProject(params.project_id);
+    const project = await getProjectsId(params.project_id);
     if (!project) {
       throw new Error("No project found");
     }

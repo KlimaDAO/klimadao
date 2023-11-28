@@ -1,9 +1,9 @@
+import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { PoolToken } from "@klimadao/lib/constants";
 import {
   ProjectPurchase,
   ProjectPurchasePageProps,
 } from "components/pages/Project/Purchase";
-import { getCarbonmarkProject } from "lib/carbonmark";
 import { isPoolToken } from "lib/getPoolData";
 import { loadTranslation } from "lib/i18n";
 import { GetServerSideProps } from "next";
@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps<
   }
 
   try {
-    const project = await getCarbonmarkProject(params.project_id);
+    const project = await getProjectsId(params.project_id);
     if (!project) {
       throw new Error("project not found");
     }
