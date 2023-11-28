@@ -128,4 +128,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default Users;
+export default withConditionalErrorBoundary(Users, { fallback: <h1>User cannot be found</h1>, predicate: isNotFoundError })
