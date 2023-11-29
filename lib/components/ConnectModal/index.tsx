@@ -1,6 +1,6 @@
 import { cx } from "@emotion/css";
+import AccountBalanceWalletIconDefault from "@mui/icons-material/AccountBalanceWallet";
 import CloseDefault from "@mui/icons-material/Close";
-import ExtensionIconDefault from "@mui/icons-material/Extension";
 import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
 import { providers } from "ethers";
 import React, { useEffect, useState } from "react";
@@ -22,7 +22,8 @@ import * as styles from "./styles";
 // ems modules and javascript are strange so we import like this
 const Close = (CloseDefault as any).default as any;
 const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
-const ExtensionIcon = (ExtensionIconDefault as any).default as any;
+const AccountBalanceWalletIcon = (AccountBalanceWalletIconDefault as any)
+  .default as any;
 
 export interface ConnectModalProps {
   appName?: string;
@@ -210,7 +211,9 @@ export const ConnectModal = (props: ConnectModalProps) => {
                     className={styles.walletButton}
                     onClick={() => handleConnect({ wallet: "injected" })}
                   >
-                    <ExtensionIcon className={styles.browserWalletIcon} />
+                    <div className={styles.browserWalletIcon}>
+                      <AccountBalanceWalletIcon />
+                    </div>
                     <p className={styles.button}>Browser Injected Wallet</p>
                   </button>
                 )}

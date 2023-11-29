@@ -1,5 +1,6 @@
 import { urls } from "lib/constants";
-import { pickBy } from "lodash/fp";
+import { notNil } from "lib/utils/functional.utils";
+import { pickBy } from "lodash";
 
 export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";
@@ -16,11 +17,11 @@ export type ApiError<TError> = {
   data?: TError;
 };
 
-/** Removes all undefined or null values  */
+type ParamsObject = Record<string, string | string[]>;
+
+/** Removes all undefined or null values from the object  */
 const definedParams = (obj: Record<string, unknown>) => {
-  const filteredObj = pickBy((value) => value !== undefined && value !== null)(
-    obj
-  );
+  const filteredObj = pickBy(obj, notNil);
   return Object.keys(filteredObj).length > 0 ? filteredObj : null;
 };
 
@@ -31,9 +32,11 @@ export const fetchClient = async <
 >(
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
-  const paramsObject = definedParams(
-    request.params as Record<string, string>
-  ) as Record<string, string>;
+  const paramsObject = definedParams(request.params as ParamsObject) as Record<
+    string,
+    string
+  >;
+
   const params = paramsObject
     ? "?" + new URLSearchParams(paramsObject).toString()
     : "";

@@ -1,4 +1,3 @@
-import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { cx } from "@emotion/css";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
@@ -7,22 +6,32 @@ import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
+import { useFetchProjects } from "hooks/useFetchProjects";
 import { FilterValues, useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
-import { isEmpty } from "lodash";
+import { isStringArray } from "lib/utils/types.utils";
+import { isEmpty, mapValues } from "lodash";
+import { pipe } from "lodash/fp";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { ProjectFilters } from "../ProjectFilters";
 import { ProjectSearch } from "../ProjectSearch";
 import { ProjectSort } from "../ProjectSort";
 import * as styles from "./styles";
-
+const joinArray = (value: string | string[]): string =>
+  isStringArray(value) ? value.join(",") : value;
+const emptyToUndefined = (value: string): string | undefined =>
+  value === "" ? undefined : value;
 const ProjectsController = () => {
   const { isDesktop } = useResponsive();
   const router = useRouter();
   const { params, updateQueryParams } = useProjectsParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
-  const { data: projects = [] } = useGetProjects();
+
+  /** convert all string arrays to comma separated string as per the api's expectation */
+  const mappedParams = mapValues(params, pipe(joinArray, emptyToUndefined));
+
+  const { data: projects = [] } = useFetchProjects(mappedParams);
 
   const toggleModal = () => setShowFilterModal((prev) => !prev);
   const isMap = params.layout === "map";

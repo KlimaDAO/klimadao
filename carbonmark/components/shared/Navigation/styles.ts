@@ -207,133 +207,17 @@ export const navMain_MobileList = css`
 `;
 
 export const buttonToggleNav = css`
-  padding: 1rem;
-  display: inline-block;
+  display: grid;
+  place-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  margin: 0;
   cursor: pointer;
-  transition-property: opacity, filter;
-  transition-duration: 0.15s;
-  transition-timing-function: linear;
-  color: var(--font-01);
-  text-transform: none;
   background-color: var(--surface-01);
   border: 0;
   border-radius: 0.4rem;
-  margin: 0;
-  overflow: visible;
-  line-height: 0;
+
   &:hover {
     opacity: 0.7;
-  }
-`;
-
-export const hamburgerOuter = css`
-  text-transform: none;
-  line-height: 0;
-  box-sizing: border-box;
-  width: 2.4rem;
-  height: 2rem;
-  display: inline-flex;
-  justify-content: center;
-  position: relative;
-`;
-
-export const hamburgerInnerToggled = css`
-  width: 2.4rem;
-  height: 0.4rem;
-  background-color: var(--font-01);
-  border-radius: 0;
-  position: absolute;
-  transition-property: transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease;
-  display: block;
-  top: 50%;
-  margin-top: -0.2rem;
-  transition-duration: 0.075s;
-  transform: rotate(45deg);
-  transition-delay: 0.12s;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  &::before {
-    width: 2.4rem;
-    height: 0.4rem;
-    background-color: var(--font-01);
-    border-radius: 0;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
-    content: "";
-    display: block;
-    bottom: 0;
-    transform: rotate(-90deg);
-    transition:
-      bottom 0.075s ease 0s,
-      transform 0.075s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
-  }
-  &::after {
-    width: 2.4rem;
-    height: 0.4rem;
-    background-color: var(--font-01);
-    border-radius: 0;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
-    content: "";
-    display: block;
-    bottom: 0;
-    transform: rotate(-90deg);
-    transition:
-      bottom 0.075s ease 0s,
-      transform 0.075s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
-  }
-`;
-
-export const hamburgerInner = css`
-  color: inherit;
-  text-transform: none;
-  line-height: 0;
-  box-sizing: border-box;
-  display: block;
-  top: 50%;
-  width: 1.6rem;
-  height: 0.2rem;
-  background-color: var(--font-01);
-  border-radius: 0;
-  position: absolute;
-  transition-property: transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease;
-  &::before {
-    transition:
-      top 0.075s ease 0.12s,
-      opacity 0.075s ease 0s;
-    top: -0.5rem;
-    content: "";
-    display: block;
-    width: 1.6rem;
-    height: 0.2rem;
-    background-color: var(--font-01);
-    border-radius: 0;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
-  }
-  &::after {
-    transition:
-      bottom 0.075s ease 0.12s,
-      transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
-    bottom: -0.5rem;
-    content: "";
-    display: block;
-    width: 1.6rem;
-    height: 0.2rem;
-    background-color: var(--font-01);
-    border-radius: 0;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
   }
 `;
