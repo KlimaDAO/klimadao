@@ -33,10 +33,9 @@ export type GetActivitiesQueryResponse = {
 export type GetActivitiesQueryParams = {
   network?: Def1;
   /**
-   * @description Filter returned activities by project
-   * @type string | undefined
+   * @type array | undefined
    */
-  projectId?: string;
+  projectId?: string[];
   /**
    * @type array | undefined
    */

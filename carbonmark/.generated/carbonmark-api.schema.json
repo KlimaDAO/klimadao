@@ -2202,12 +2202,15 @@
           },
           {
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "description": "Filter returned activities by project",
+                "type": "string"
+              }
             },
             "in": "query",
             "name": "projectId",
-            "required": false,
-            "description": "Filter returned activities by project"
+            "required": false
           },
           {
             "schema": {
@@ -4628,12 +4631,15 @@
           },
           {
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "description": "Filter returned activities by project",
+                "type": "string"
+              }
             },
             "in": "query",
             "name": "projectId",
-            "required": false,
-            "description": "Filter returned activities by project"
+            "required": false
           },
           {
             "schema": {

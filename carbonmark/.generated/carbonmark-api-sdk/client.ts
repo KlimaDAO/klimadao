@@ -33,7 +33,7 @@ function serializeQuery<TVariables = unknown>(
         value.forEach((v) => {
           query.push(`${key}=${encodeURIComponent(v)}`);
         });
-      else return query.push(`${key}=${encodeURIComponent(value)}`);
+      else if (value) return query.push(`${key}=${encodeURIComponent(value)}`);
     });
     return `?${query.join("&")}`;
   }
