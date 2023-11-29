@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-28 15:53+0000\n"
+"POT-Creation-Date: 2023-11-29 09:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1255,7 +1255,7 @@ msgstr ""
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:177
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:182
 msgid "There was an error during the checkout process. Please try again."
 msgstr ""
 
@@ -1657,15 +1657,15 @@ msgstr ""
 msgid "connect_modal.connecting"
 msgstr ""
 
-#: lib/constants.ts:71
+#: lib/constants.ts:74
 msgid "connect_modal.error_message_default"
 msgstr ""
 
-#: lib/constants.ts:75
+#: lib/constants.ts:78
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: lib/constants.ts:79
+#: lib/constants.ts:82
 msgid "connect_modal.error_processing"
 msgstr ""
 
@@ -2125,7 +2125,7 @@ msgstr ""
 msgid "sold to"
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:211
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:216
 msgid "something went wrong loading the allowance"
 msgstr ""
 
@@ -2275,7 +2275,7 @@ msgstr ""
 msgid "user.login.description"
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:174
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:179
 msgid "{0}"
 msgstr ""
 

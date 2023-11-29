@@ -1264,7 +1264,7 @@ msgstr "The previous step granted the approval to transfer your carbon asset fro
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:177
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:182
 msgid "There was an error during the checkout process. Please try again."
 msgstr "There was an error during the checkout process. Please try again."
 
@@ -1666,15 +1666,15 @@ msgstr "connect a wallet"
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
-#: lib/constants.ts:71
+#: lib/constants.ts:74
 msgid "connect_modal.error_message_default"
 msgstr "We had some trouble connecting. Please try again."
 
-#: lib/constants.ts:75
+#: lib/constants.ts:78
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
-#: lib/constants.ts:79
+#: lib/constants.ts:82
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
@@ -2134,7 +2134,7 @@ msgstr "Sort by:"
 msgid "sold to"
 msgstr "sold to"
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:211
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:216
 msgid "something went wrong loading the allowance"
 msgstr "something went wrong loading the allowance"
 
@@ -2284,7 +2284,7 @@ msgstr "Total Amount to Sell is required"
 msgid "user.login.description"
 msgstr "This feature is available only to users who are logged in. You can log in or create an account via the button below."
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:174
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:179
 msgid "{0}"
 msgstr "{0}"
 
