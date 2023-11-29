@@ -6,7 +6,7 @@ import { getUSDCBalance } from "lib/actions";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { Balance } from "lib/types/carbonmark.types";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";

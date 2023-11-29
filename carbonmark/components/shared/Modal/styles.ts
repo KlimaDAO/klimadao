@@ -81,6 +81,7 @@ export const modalContent = css`
     border: 0.4rem solid transparent;
     border-radius: 0.8rem;
     background-clip: padding-box;
+    outline-offset: -1px;
   }
 
   &::-webkit-scrollbar {

@@ -1,5 +1,5 @@
 import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
-import { StaticImageData } from "next/legacy/image";
+import { StaticImageData } from "next/image";
 import FIAT from "public/icons/Fiat.png";
 import USDC from "public/icons/USDC.png";
 

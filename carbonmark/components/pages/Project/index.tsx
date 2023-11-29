@@ -1,3 +1,4 @@
+import { useGetProjectsId } from ".generated/carbonmark-api-sdk/hooks";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
@@ -17,7 +18,6 @@ import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
-import { useFetchProject } from "hooks/useFetchProject";
 import { urls } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
@@ -44,7 +44,7 @@ export type PageProps = {
 };
 
 const Page: NextPage<PageProps> = (props) => {
-  const { project } = useFetchProject(props.projectID);
+  const { data: project } = useGetProjectsId(props.projectID);
   const [isExpanded, setIsExpanded] = useState(false);
   const bestPrice = project?.price;
 
@@ -181,7 +181,7 @@ const Page: NextPage<PageProps> = (props) => {
                   <ProjectMap
                     lat={project.location?.geometry.coordinates[1]}
                     lng={project.location?.geometry.coordinates[0]}
-                    zoom={5}
+                    zoom={1.5}
                   />
                 </div>
               )}

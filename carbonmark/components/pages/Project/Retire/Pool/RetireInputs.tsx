@@ -8,14 +8,14 @@ import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { isAddress } from "ethers-v6";
-import { urls as carbonmarkUrls } from "lib/constants";
+import { MINIMUM_TONNE_QUANTITY, urls as carbonmarkUrls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
   TokenPrice as PriceType,
 } from "lib/types/carbonmark.types";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import {
@@ -47,13 +47,13 @@ const validations = (
   usdc: {
     quantity: {
       min: {
-        value: 0.001,
+        value: MINIMUM_TONNE_QUANTITY,
         message: t`The minimum amount to retire is 0.001 Tonnes`,
       },
     },
     totalPrice: {
       min: {
-        value: 0.001,
+        value: MINIMUM_TONNE_QUANTITY,
         message: t`The minimum amount to retire is 0.001 Tonnes`,
       },
       max: {

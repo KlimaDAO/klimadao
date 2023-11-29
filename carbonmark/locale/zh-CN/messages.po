@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-23 15:39+0000\n"
+"POT-Creation-Date: 2023-11-29 14:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -164,7 +164,7 @@ msgstr "可用：{0}"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
 msgid "Available: {unlistedBalance}"
-msgstr ""
+msgstr "可用：{unlistedBalance}"
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
@@ -359,8 +359,8 @@ msgstr "国家"
 msgid "Create Carbonmark Profile"
 msgstr "创建 Carbonmark 配置文件"
 
-#: components/pages/Users/SellerConnected/index.tsx:143
-#: components/pages/Users/SellerConnected/index.tsx:167
+#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:169
 msgid "Create New Listing"
 msgstr "创建新挂牌"
 
@@ -426,7 +426,7 @@ msgid "Data for this project and vintage"
 msgstr "该项目和历史减排效益的数据"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:97
+#: components/pages/Users/SellerUnconnected/index.tsx:101
 msgid "Data for this seller"
 msgstr "该卖家的数据"
 
@@ -546,8 +546,8 @@ msgstr "用户名不应是地址"
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
 
-#: components/pages/Portfolio/Retire/index.tsx:117
-#: components/pages/Portfolio/index.tsx:117
+#: components/pages/Portfolio/Retire/index.tsx:122
+#: components/pages/Portfolio/index.tsx:123
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 
@@ -612,7 +612,7 @@ msgstr "为加速气候融资，KlimaDAO 提供了一个在全球范围内所需
 msgid "Latest First"
 msgstr "最新优先"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:99
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:100
 msgid "Learn More"
 msgstr "了解更多"
 
@@ -636,8 +636,8 @@ msgstr "只需点击几下，即可列出您的待售项目"
 msgid "Listed tonnes:"
 msgstr "已列出的吨数："
 
-#: components/pages/Users/SellerConnected/index.tsx:128
-#: components/pages/Users/SellerUnconnected/index.tsx:53
+#: components/pages/Users/SellerConnected/index.tsx:130
+#: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "Listings"
 msgstr "挂牌信息"
 
@@ -697,7 +697,7 @@ msgstr "最大限度地提高您对气候的影响。"
 msgid "Methodology"
 msgstr "方法"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
 msgid "Moss"
 msgstr "Moss"
 
@@ -717,8 +717,8 @@ msgstr "下一步"
 msgid "No Activity to show."
 msgstr "无可显示活动"
 
-#: components/pages/Users/SellerConnected/index.tsx:191
-#: components/pages/Users/SellerUnconnected/index.tsx:89
+#: components/pages/Users/SellerConnected/index.tsx:193
+#: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "No active listings."
 msgstr "无活动列表。"
 
@@ -815,14 +815,14 @@ msgstr "付款手续费"
 msgid "Please Log In"
 msgstr "请登录"
 
-#: components/pages/Portfolio/index.tsx:62
+#: components/pages/Portfolio/index.tsx:68
 #: components/pages/Users/SellerConnected/index.tsx:76
 #: components/pages/Users/SellerConnected/index.tsx:102
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "请刷新页面。更新您的数据时出错：{e}。"
 
-#: components/pages/Portfolio/index.tsx:72
-#: components/pages/Portfolio/index.tsx:73
+#: components/pages/Portfolio/index.tsx:78
+#: components/pages/Portfolio/index.tsx:79
 msgid "Portfolio | Carbonmark"
 msgstr "投资组合 | Carbonmark"
 
@@ -966,7 +966,7 @@ msgstr "阅读更多"
 #: components/pages/Home/index.tsx:475
 #: components/pages/Home/index.tsx:502
 #: components/pages/Resources/BlogPostCard/index.tsx:38
-#: components/pages/Resources/FeaturedArticles/Article.tsx:43
+#: components/pages/Resources/FeaturedArticles/Article.tsx:45
 msgid "Read more"
 msgstr "阅读更多"
 
@@ -989,7 +989,7 @@ msgstr "再生能源"
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
 msgid "Request Demo"
-msgstr ""
+msgstr "请求演示"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:171
 msgid "Required Field"
@@ -1069,8 +1069,8 @@ msgstr "现在停用"
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "现在就停用碳，或者获取数字碳待以后停用 - 当您拥有了碳资产，您就可以决定要做什么。"
 
-#: components/pages/Portfolio/Retire/index.tsx:89
-#: components/pages/Portfolio/Retire/index.tsx:90
+#: components/pages/Portfolio/Retire/index.tsx:94
+#: components/pages/Portfolio/Retire/index.tsx:95
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -1160,8 +1160,8 @@ msgstr "抱歉，出了一些问题。"
 msgid "Sorry, this handle already exists"
 msgstr "抱歉，此用户名已存在"
 
-#: components/pages/Portfolio/Retire/index.tsx:112
-#: components/pages/Portfolio/index.tsx:111
+#: components/pages/Portfolio/Retire/index.tsx:117
+#: components/pages/Portfolio/index.tsx:117
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "对不起。我们无法找到任何您的用户的相关 Carbonmark 数据。"
 
@@ -1262,7 +1262,7 @@ msgstr "上一步已批准将您的碳资产从您的钱包转移到 Carbonmark�
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr "上一步已批准将您的支付资产从您的钱包转移到 Carbonmark。"
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:177
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:182
 msgid "There was an error during the checkout process. Please try again."
 msgstr "结账过程中出现错误。请再试一次。"
 
@@ -1422,7 +1422,7 @@ msgstr "更新挂牌信息"
 msgid "Updated:"
 msgstr "已更新："
 
-#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Updating your data..."
 msgstr "正在更新您的数据..."
 
@@ -1456,11 +1456,11 @@ msgstr "查看注册表详细信息 <0/>"
 msgid "View Results"
 msgstr "查看结果"
 
-#: components/pages/Portfolio/index.tsx:74
+#: components/pages/Portfolio/index.tsx:80
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 
-#: components/pages/Portfolio/Retire/index.tsx:91
+#: components/pages/Portfolio/Retire/index.tsx:96
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
@@ -1615,7 +1615,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:212
 msgid "Your seller data"
 msgstr "您的卖家数据"
 
@@ -1636,11 +1636,11 @@ msgid "at"
 msgstr "在"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:98
+#: components/pages/Blog/Post/index.tsx:100
 msgid "blog.disclaimer.description"
 msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资产、商业资产、战略和运营的信息仅供一般参考之用，并非正式的出售要约或要约邀请在任何司法管辖区购买与证券相关的任何证券、期权、期货或其他衍生品，其内容不受证券法的规定。本博文中包含的信息不应被视为购买或出售或持有此类证券的建议或出售此类证券的要约。本博文不考虑也不提供关于任何人的具体投资目标或财务状况的任何税务、法律或投资建议或意见。 KlimaDAO 及其代理人、顾问、董事、管理人员、员工和股东对此类信息的准确性不作任何明示或暗示的陈述或保证，且 KlimaDAO 明确否认可能基于此类信息或错误或遗漏的任何和所有责任。 KlimaDAO 保留随时部分或全部修改或替换此处包含的信息的权利，并且不承担向接收者提供访问修改后的信息或通知接收者的义务。本博文中包含的信息将取代之前任何关于相同、相似或相关信息的博文或对话。不得出于任何目的依赖此处未包含的任何信息、陈述或声明。 KlimaDAO 或其任何代表，均不对您或任何人因您或您的任何代表使用本博客文章中的信息或遗漏而导致的合同、侵权、信托或其他方式产生的结果承担任何责任。此外，KlimaDAO 不承担评论第三方对本博文中讨论的事项的期望或声明的义务。"
 
-#: components/pages/Blog/Post/index.tsx:95
+#: components/pages/Blog/Post/index.tsx:97
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
@@ -1664,15 +1664,15 @@ msgstr "连接钱包"
 msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
-#: lib/constants.ts:71
+#: lib/constants.ts:74
 msgid "connect_modal.error_message_default"
 msgstr "我们在连接时遇到了一些问题，请重试。"
 
-#: lib/constants.ts:75
+#: lib/constants.ts:78
 msgid "connect_modal.error_message_refused"
 msgstr "用户拒绝连接。"
 
-#: lib/constants.ts:79
+#: lib/constants.ts:82
 msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
@@ -1791,7 +1791,7 @@ msgstr "创建挂牌"
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:219
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 
@@ -1979,7 +1979,7 @@ msgstr "碳信用停用"
 msgid "retirement.single.country_region.title"
 msgstr "国家/地区："
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:119
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:120
 msgid "retirement.single.immutable_public_records.title"
 msgstr "这代表数字碳资产的永久停用。该碳停用和相关数据是不可变的公共记录。"
 
@@ -1991,15 +1991,15 @@ msgstr "碳停用信息："
 msgid "retirement.single.methodology.title"
 msgstr "方法："
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
 msgid "retirement.single.moss_offset.description"
-msgstr ""
+msgstr "MC02 积分由保护亚马逊森林的项目产生，具有各种积极的外部性，比如创造当地就业机会和保护当地生物多样性。在 <0>data.klimadao.finance </0> 上探索 MCO2。"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
 msgid "retirement.single.moss_offset.name"
 msgstr "MOSS 地球 MC02"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:112
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:113
 msgid "retirement.single.official_certificate.title"
 msgstr "<0>Carbonmark.com</0> 提供的链上碳排放官方证书"
 
@@ -2007,15 +2007,15 @@ msgstr "<0>Carbonmark.com</0> 提供的链上碳排放官方证书"
 msgid "retirement.single.project.title"
 msgstr "项目："
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:81
 msgid "retirement.single.project_description.title"
 msgstr "描述"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
 msgid "retirement.single.project_details.title"
 msgstr "项目详情"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:54
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
 msgid "retirement.single.project_name.title"
 msgstr "项目名称"
 
@@ -2055,7 +2055,7 @@ msgstr "类型："
 msgid "retirement.single.verified_tonnes.title"
 msgstr "核实停用碳吨数"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:138
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:139
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
 
@@ -2103,7 +2103,7 @@ msgstr "总碳退休吨数"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "总碳停用交易"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:76
+#: components/pages/Users/SellerUnconnected/index.tsx:79
 msgid "seller.listing.buy"
 msgstr "购买"
 
@@ -2112,7 +2112,7 @@ msgid "seller.listing.quantity_available"
 msgstr "可用数量："
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:66
+#: components/pages/Users/SellerUnconnected/index.tsx:69
 msgid "shared.connect_to_buy"
 msgstr "登录/连接购买"
 
@@ -2120,7 +2120,7 @@ msgstr "登录/连接购买"
 msgid "shared.head.description"
 msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 
-#: components/pages/Blog/Post/index.tsx:81
+#: components/pages/Blog/Post/index.tsx:83
 msgid "shared.resourcecenter"
 msgstr "资源中心"
 
@@ -2132,7 +2132,7 @@ msgstr "排序方式："
 msgid "sold to"
 msgstr "卖给"
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:211
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:216
 msgid "something went wrong loading the allowance"
 msgstr "加载津贴时出了点问题"
 
@@ -2282,7 +2282,7 @@ msgstr "销售总额为必填项"
 msgid "user.login.description"
 msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键登录或创建帐户。"
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:174
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:179
 msgid "{0}"
 msgstr "{0}"
 

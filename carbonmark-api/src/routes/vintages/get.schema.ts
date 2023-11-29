@@ -1,15 +1,17 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 import { NetworkParamModel } from "../../models/NetworkParam.model";
 import { VintageModel } from "../../models/Vintage.model";
 
-export const Querystring = Type.Object({
-  network: Type.Optional(NetworkParamModel),
+export const querystring = Type.Object({
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
 });
+
+export type Querystring = Static<typeof querystring>;
 
 export const schema = {
   summary: "Vintages",
   description: "Retrieve an array of the vintages of available carbon projects",
-  Querystring,
+  querystring,
   response: {
     200: {
       description: "Successful response",

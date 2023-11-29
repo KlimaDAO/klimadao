@@ -1,4 +1,3 @@
-import { Static } from "@sinclair/typebox";
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { Activity } from "../../models/Activity.model";
@@ -9,7 +8,7 @@ import {
   getUserProfilesByIds,
 } from "../../utils/helpers/users.utils";
 import { formatListing } from "../../utils/marketplace.utils";
-import { Params, QueryString, schema } from "./get.schema";
+import { Params, Querystring, schema } from "./get.schema";
 import {
   getHoldingsByWallet,
   getUniqueWallets,
@@ -17,8 +16,8 @@ import {
 } from "./get.utils";
 
 type RequestT = FastifyRequest<{
-  Params: Static<typeof Params>;
-  Querystring: Static<typeof QueryString>;
+  Params: Params;
+  Querystring: Querystring;
 }>;
 
 /** Fetch the user object from firestore and the marketplace subgraph */

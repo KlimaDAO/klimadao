@@ -1,7 +1,7 @@
 import { Text } from "@klimadao/lib/components";
 import { CarbonToken } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
-import Image, { StaticImageData } from "next/legacy/image";
+import Image, { StaticImageData } from "next/image";
 import { FC } from "react";
 import * as styles from "./styles";
 

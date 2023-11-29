@@ -54,8 +54,19 @@ export const walletButtonCircle = css`
 `;
 
 export const browserWalletIcon = css`
+  display: flex;
   width: 3.6rem;
   height: 3.6rem;
+  background: white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    width: 2.6rem;
+    height: 2.6rem;
+    color: var(--manatee);
+  }
 `;
 
 export const buttonsContainer = css`
