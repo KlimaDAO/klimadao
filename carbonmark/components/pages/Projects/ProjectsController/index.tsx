@@ -18,8 +18,10 @@ import { ProjectFilters } from "../ProjectFilters";
 import { ProjectSearch } from "../ProjectSearch";
 import { ProjectSort } from "../ProjectSort";
 import * as styles from "./styles";
-const joinArray = (value: string | string[]): string => isStringArray(value) ? value.join(',') : value
-const emptyToUndefined = (value: string): string | undefined => value === '' ? undefined : value
+const joinArray = (value: string | string[]): string =>
+  isStringArray(value) ? value.join(",") : value;
+const emptyToUndefined = (value: string): string | undefined =>
+  value === "" ? undefined : value;
 const ProjectsController = () => {
   const { isDesktop } = useResponsive();
   const router = useRouter();

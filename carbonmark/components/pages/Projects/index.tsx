@@ -30,9 +30,10 @@ const views = {
   map: LazyLoadingMapView,
 };
 
-const joinArray = (value: string | string[]): string => isStringArray(value) ? value.join(',') : value
-const emptyToUndefined = (value: string): string | undefined => value === '' ? undefined : value
-
+const joinArray = (value: string | string[]): string =>
+  isStringArray(value) ? value.join(",") : value;
+const emptyToUndefined = (value: string): string | undefined =>
+  value === "" ? undefined : value;
 
 const Page: NextPage = () => {
   const router = useRouter();
@@ -43,7 +44,11 @@ const Page: NextPage = () => {
   /** convert all string arrays to comma separated string as per the api's expectation */
   const mappedParams = mapValues(params, pipe(joinArray, emptyToUndefined));
 
-  const { data: projects = [], isLoading, isValidating } = useFetchProjects(mappedParams);
+  const {
+    data: projects = [],
+    isLoading,
+    isValidating,
+  } = useFetchProjects(mappedParams);
 
   const sortFn = get(PROJECT_SORT_FNS, params.sort) ?? identity;
   const sortedProjects = sortFn(projects);
