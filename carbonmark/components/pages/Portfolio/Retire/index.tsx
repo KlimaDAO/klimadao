@@ -1,4 +1,3 @@
-import client from ".generated/carbonmark-api-sdk/client";
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
@@ -40,7 +39,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
     address ?? "",
     { network: networkLabel, expiresAfter: "0" },
-    { query: { fetcher: notNil(address) ? client : async () => undefined } }
+    { shouldFetch: notNil(address) }
   );
 
   const [retirementAsset, setRetirementAsset] =

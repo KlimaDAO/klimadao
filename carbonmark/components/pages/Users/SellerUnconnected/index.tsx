@@ -7,6 +7,7 @@ import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { createProjectPurchaseLink } from "lib/createUrls";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
+import { notNil } from "lib/utils/functional.utils";
 import { FC } from "react";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";
@@ -25,7 +26,8 @@ export const SellerUnconnected: FC<Props> = (props) => {
     {
       network: networkLabel,
       expiresAfter: address === props.userAddress ? "0" : undefined,
-    }
+    },
+    { shouldFetch: notNil(address) }
   );
 
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
