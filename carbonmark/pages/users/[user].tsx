@@ -1,11 +1,14 @@
 import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
+import { User } from ".generated/carbonmark-api-sdk/types";
 import { PageProps, Users } from "components/pages/Users";
 import { isAddress } from "ethers-v6";
+import { withConditionalErrorBoundary } from "hocs/ConditionalErrorBoundary";
 import { VALID_HANDLE_REGEX } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { GetStaticProps } from "next";
+import { isNotFoundError } from "next/dist/client/components/not-found";
 import { ParsedUrlQuery } from "querystring";
 
 interface Params extends ParsedUrlQuery {
@@ -31,7 +34,17 @@ const getUserType = (user: string): UserType => {
  * Redirects if handle is found, otherwise render empty page props.
  * */
 const resolveAddress = async (params: { address: string; locale?: string }) => {
-  const carbonmarkUser = await getUsersWalletorhandle(params.address);
+  let carbonmarkUser: User | null = null;
+  try {
+    carbonmarkUser = await getUsersWalletorhandle(params.address);
+  } catch (e) {
+    if (e.data.statusCode !== 404) {
+      throw e;
+    } else {
+      console.error(e.message);
+    }
+  }
+
   // Handle urls are canonical & more user friendly, redirect if possible
   if (carbonmarkUser?.handle) {
     return {
@@ -70,7 +83,16 @@ const resolveDomain = async (params: { domain: string; locale?: string }) => {
  * Attempts to resolve a valid user handle. Throws if handle can't be resolved.
  * */
 const resolveHandle = async (params: { handle: string; locale?: string }) => {
-  const carbonmarkUser = await getUsersWalletorhandle(params.handle);
+  let carbonmarkUser: User | null = null;
+  try {
+    carbonmarkUser = await getUsersWalletorhandle(params.handle);
+  } catch (e) {
+    if (e.data.statusCode !== 404) {
+      throw e;
+    } else {
+      console.error(e.message);
+    }
+  }
 
   if (!carbonmarkUser?.wallet) {
     throw new Error(`${params.handle} could not be resolved`);
@@ -97,13 +119,13 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   ctx
 ) => {
   const { params, locale } = ctx;
-
   if (!params || !params?.user) {
     throw new Error("No matching params found");
   }
 
   try {
     const userType = getUserType(params.user);
+
     switch (userType) {
       case "address":
         return resolveAddress({ address: params.user, locale });
@@ -128,4 +150,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default Users;
+export default withConditionalErrorBoundary(Users, {
+  fallback: <h1>User cannot be found</h1>,
+  predicate: isNotFoundError,
+});

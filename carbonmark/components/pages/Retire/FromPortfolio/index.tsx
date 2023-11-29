@@ -4,6 +4,7 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { addProjectsToAssets, AssetWithProject } from "lib/actions";
+import { notNil } from "lib/utils/functional.utils";
 import { isListableToken } from "lib/utils/listings.utils";
 import { FC, useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
@@ -15,7 +16,9 @@ export type Props = {
 
 export const RetireFromPortfolio: FC<Props> = (props) => {
   const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
-    props.address
+    props.address,
+    {},
+    { shouldFetch: notNil(props.address) }
   );
 
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
