@@ -1,3 +1,4 @@
+import { Twirl } from "hamburger-react";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -13,13 +14,7 @@ export const ToggleNavButton: FC<Props> = (props) => {
       className={styles.buttonToggleNav}
       onClick={props.onClick}
     >
-      <span className={styles.hamburgerOuter}>
-        {props.isToggled ? (
-          <span className={styles.hamburgerInnerToggled}></span>
-        ) : (
-          <span className={styles.hamburgerInner}></span>
-        )}
-      </span>
+      <Twirl size={20} toggled={props.isToggled} />
     </button>
   );
 };

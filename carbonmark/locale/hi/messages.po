@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-28 15:53+0000\n"
+"POT-Creation-Date: 2023-11-29 10:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1259,7 +1259,7 @@ msgstr "पिछले चरण में आपकी कार्बन स�
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr "पिछले चरण में आपके भुगतान ऐसेट को आपके वॉलेट से कार्बनमार्क में हस्तांतरण को मंज़ूरी मिली।"
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:177
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:182
 msgid "There was an error during the checkout process. Please try again."
 msgstr "चेकआउट प्रक्रिया के दौरान एक त्रुटि हुई. कृपया पुन: प्रयास करें।"
 
@@ -1665,15 +1665,15 @@ msgstr "कोई वॉलेट कनेक्ट करें"
 msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
-#: lib/constants.ts:71
+#: lib/constants.ts:74
 msgid "connect_modal.error_message_default"
 msgstr "कनेक्शन में कुछ गड़बड़ी हो गई। कृपया पुन: प्रयास करें।"
 
-#: lib/constants.ts:75
+#: lib/constants.ts:78
 msgid "connect_modal.error_message_refused"
 msgstr "उपयोगकर्ता ने कनेक्शन अस्वीकार कर दिया।"
 
-#: lib/constants.ts:79
+#: lib/constants.ts:82
 msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
@@ -2133,7 +2133,7 @@ msgstr "इसके अनुसार क्रमबद्ध करें"
 msgid "sold to"
 msgstr "को बेचा गया"
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:211
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:216
 msgid "something went wrong loading the allowance"
 msgstr "कुछ गड़बड़ हो गई जानकारी लोड हो रही है"
 
@@ -2283,7 +2283,7 @@ msgstr "बेची जाने वाली कुल मात्रा आ�
 msgid "user.login.description"
 msgstr "यह सुविधा केवल उन उपयोगकर्ताओं के लिए उपलब्ध है जिन्होंने लॉगिन कर रखा है। आप नीचे दिए गए बटन से लॉग इन कर सकते हैं या खाता बना सकते हैं।"
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:174
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:179
 msgid "{0}"
 msgstr "{0}"
 

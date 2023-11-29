@@ -10,7 +10,7 @@ import {
   getRetirementAllowance,
   retireCarbonTransaction,
 } from "lib/actions.retire";
-import { urls } from "lib/constants";
+import { MINIMUM_TONNE_QUANTITY, urls } from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getPoolApprovalValue } from "lib/getPoolData";
@@ -127,7 +127,12 @@ export const RetireForm: FC<Props> = (props) => {
 
   const showTransactionView = !!inputValues && !!allowanceValue;
   const disableSubmit =
-    !quantity || Number(quantity) <= 0 || Number(costs) < Number(fiatMinimum);
+    !quantity ||
+    Number(quantity) <= 0 ||
+    (paymentMethod === "fiat"
+      ? Number(costs) < Number(fiatMinimum)
+      : Number(quantity) < Number(MINIMUM_TONNE_QUANTITY));
+
   const resetStateAndCancel = () => {
     setInputValues(null);
     setAllowanceValue(null);
