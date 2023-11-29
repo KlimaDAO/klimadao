@@ -257,7 +257,7 @@ const Page: NextPage<PageProps> = (props) => {
               allListings={listings}
               activeListings={activeListings}
             />
-            <Activities activities={activities} />
+            <Activities activities={activities || []} />
           </div>
         </div>
       </Layout>
