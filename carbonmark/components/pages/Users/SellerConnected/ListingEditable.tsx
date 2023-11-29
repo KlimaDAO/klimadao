@@ -177,6 +177,25 @@ export const ListingEditable: FC<Props> = (props) => {
     return Number(safeAdd(unlistedBalance.toString(), listing.leftToSell));
   };
 
+  // @todo need better solution here. much better coming from subgraph, or even better not at all as project is in cms
+  const enhancedListings = props.listings.map((listing) => {
+    const asset = props.assets.find(
+      (asset) => asset.token.id === listing.tokenAddress
+    );
+    let serialization = null;
+    if (asset && asset.token.symbol.startsWith("ICR")) {
+      serialization = asset.id;
+    }
+
+    return {
+      ...listing,
+      project: {
+        ...listing.project,
+        serialization,
+      },
+    };
+  });
+
   return (
     <>
       {enhancedListings.map((listing) => (
