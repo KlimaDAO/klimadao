@@ -143,7 +143,7 @@ export const fetchMarketplaceListings = async (
 };
 
 /**
- * Query the subgraph for activities for the given project
+ * Query the subgraph for project activities
  */
 export const fetchProjectActivities = async (
   sdk: GQL_SDK,
