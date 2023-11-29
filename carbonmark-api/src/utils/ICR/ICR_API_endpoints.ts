@@ -1,4 +1,4 @@
-import { ICR_API_URLS } from "../../app.constants";
+import { ICR_API_URLS } from "../../../../lib/constants";
 import { NetworkParam } from "../../models/NetworkParam.model";
 
 export const ICR_API = (

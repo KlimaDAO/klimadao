@@ -1,11 +1,11 @@
 import { Contract, providers, utils } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
-import ERC20 from "../../../abis/ERC20.json";
-import { RPC_URLS } from "../../../app.constants";
-import { NetworkParam } from "../../../models/NetworkParam.model";
-import { Holding } from "../../../types/assets.types";
-import { gql_sdk } from "../../../utils/gqlSdk";
+import { urls } from "../../../../lib/constants";
+import ERC20 from "../../abis/ERC20.json";
+import { NetworkParam } from "../../models/NetworkParam.model";
+import { Holding } from "../../types/assets.types";
+import { gql_sdk } from "../../utils/gqlSdk";
 
 const formatHolding = (h: Holding): Holding => {
   return {
@@ -19,7 +19,7 @@ const formatHolding = (h: Holding): Holding => {
 const fetchTestnetHoldings = async (params: {
   address: string;
 }): Promise<Holding[]> => {
-  const provider = new providers.JsonRpcProvider(RPC_URLS.polygonTestnetRpc);
+  const provider = new providers.JsonRpcProvider(urls.polygonTestnetRpc);
   const sdk = gql_sdk("mumbai");
   // we hardcode known testnet tokens here
   const TOKEN_INFO = [
@@ -124,12 +124,30 @@ export const getHoldingsByWallet = async (params: {
       address: params.address,
     });
   }
+
   const sdk = gql_sdk(params.network);
   // @todo : should be `polygon-digital-carbon` instead of `assets` subgraph
-  const { accounts } = await sdk.assets.getHoldingsByWallet({
-    wallet: params.address,
-  });
-  return accounts.at(0)?.holdings.map(formatHolding) ?? [];
+  try {
+    const holdingsPromise = sdk.assets.getHoldingsByWallet({
+      wallet: params.address,
+    });
+    // @todo need to have ICR fetch for mainnet
+    const icrHoldingsPromise = sdk.icr.getHoldingsByAddress({
+      id: params.address,
+    });
+
+    const [holdingsResponse] = await Promise.all([
+      holdingsPromise,
+      icrHoldingsPromise,
+    ]);
+
+    // console.info("fetchIcrHoldings", icrHoldings);
+
+    return holdingsResponse.accounts.at(0)?.holdings.map(formatHolding) ?? [];
+  } catch (error) {
+    console.error("Error fetching holdings:", error);
+    return [];
+  }
 };
 
 /** Reduce an array of activities into a deduplicated sorted array of buyer and seller address strings. */

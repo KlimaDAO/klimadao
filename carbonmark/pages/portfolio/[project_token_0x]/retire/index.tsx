@@ -9,15 +9,6 @@ interface Params extends ParsedUrlQuery {
   network: string;
 }
 
-// @todo break out info correct files
-const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
-
-// @todo change polygon to correct subgraph when api key authenticated
-const subgraphUrls = {
-  polygon: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
-  mumbai: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
-};
-
 export const getServerSideProps: GetServerSideProps<
   RetirePageProps,
   Params
@@ -66,7 +57,6 @@ export const getServerSideProps: GetServerSideProps<
     }
 
     const translation = await loadTranslation(ctx.locale);
-
     if (!translation) {
       throw new Error("No translation found");
     }

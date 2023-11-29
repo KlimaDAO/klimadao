@@ -66,7 +66,3 @@ export const TOKEN_ADDRESSES = {
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   },
 };
-
-export const RPC_URLS = {
-  polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
-};
