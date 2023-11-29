@@ -18,7 +18,7 @@ const handler = (fastify: FastifyInstance) =>
     }>,
     reply: FastifyReply
   ): Promise<Activity[]> {
-    request.query.projectId = request.params.id;
+    request.query.projectId = [request.params.id];
     return asResponse(
       reply,
       await getActivities(fastify, request.query, request.query.network)

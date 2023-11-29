@@ -6,9 +6,11 @@ import { NetworkParamModel } from "../../models/NetworkParam.model";
 export const QueryString = Type.Object({
   network: Type.Optional(Type.Ref(NetworkParamModel)),
   projectId: Type.Optional(
-    Type.String({
-      description: "Filter returned activities by project",
-    })
+    Type.Array(
+      Type.String({
+        description: "Filter returned activities by project",
+      })
+    )
   ),
   activityType: Type.Optional(
     Type.Array(
