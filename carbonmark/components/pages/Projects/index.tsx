@@ -16,7 +16,7 @@ import { pipe } from "lodash/fp";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SWRConfig } from "swr";
 import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
@@ -38,6 +38,7 @@ const emptyToUndefined = (value: string): string | undefined =>
 const Page: NextPage = () => {
   const router = useRouter();
   const { isMobile } = useResponsive();
+  const [isReady, setReady] = useState(false);
 
   const { params, updateQueryParams } = useProjectsParams();
 
@@ -70,11 +71,11 @@ const Page: NextPage = () => {
   const noProjects =
     !sortedProjects?.length && !isValidating && !isLoading && !isMap;
 
-  if (!router.isReady) {
-    // need to prevent the initial grid view from flashing initially
-    // after setting the layout as "list" and reloading the browser.
-    return null;
-  }
+  // need to prevent the initial grid view from flashing initially
+  // after setting the layout as "list" and reloading the browser.
+  useEffect(() => {
+    setReady(router.isReady);
+  }, [router.isReady]);
 
   // We need to force Grid View on mobile (this stops a delay in re-render)
   const View =
@@ -88,20 +89,24 @@ const Page: NextPage = () => {
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout fullContentWidth={isMap} fullContentHeight={isMap}>
-        <ProjectsController />
-        <div
-          className={cx(styles.viewContainer, {
-            [styles.projectsList]: !isMap,
-          })}
-        >
-          {noProjects ? (
-            <Text>{t`No projects found with current filters`}</Text>
-          ) : isFetching ? (
-            <SpinnerWithLabel />
-          ) : (
-            <View projects={sortedProjects} />
-          )}
-        </div>
+        {isReady && (
+          <>
+            <ProjectsController />
+            <div
+              className={cx(styles.viewContainer, {
+                [styles.projectsList]: !isMap,
+              })}
+            >
+              {noProjects ? (
+                <Text>{t`No projects found with current filters`}</Text>
+              ) : isFetching ? (
+                <SpinnerWithLabel />
+              ) : (
+                <View projects={sortedProjects} />
+              )}
+            </div>
+          </>
+        )}
       </Layout>
     </>
   );
