@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-29 16:00+0000\n"
+"POT-Creation-Date: 2023-11-29 18:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Banner image"
 msgstr ""
 
-#: lib/tokens.tsx:13
+#: lib/tokens.tsx:15
 msgid "Base Carbon Tonne (BCT)"
 msgstr ""
 
@@ -122,7 +122,7 @@ msgstr ""
 msgid "C3"
 msgstr ""
 
-#: lib/protocols.tsx:11
+#: lib/protocols.tsx:10
 msgid "C3 Carbon Credit (C3T)"
 msgstr ""
 
@@ -383,8 +383,8 @@ msgstr ""
 msgid "Moss"
 msgstr ""
 
-#: lib/protocols.tsx:13
-#: lib/tokens.tsx:15
+#: lib/protocols.tsx:12
+#: lib/tokens.tsx:17
 msgid "Moss Carbon Credit (MCO2)"
 msgstr ""
 
@@ -433,11 +433,11 @@ msgstr ""
 msgid "NCT retired VCUs"
 msgstr ""
 
-#: lib/tokens.tsx:17
+#: lib/tokens.tsx:19
 msgid "Nature Based Offset (NBO)"
 msgstr ""
 
-#: lib/tokens.tsx:14
+#: lib/tokens.tsx:16
 msgid "Nature Carbon Tonne (NCT)"
 msgstr ""
 
@@ -765,11 +765,11 @@ msgstr ""
 msgid "The volume of retired digital carbon credits in the {poolLabel} pool over a given time period."
 msgstr ""
 
-#: lib/tokens.tsx:37
+#: lib/tokens.tsx:39
 msgid "There is no selective redemption/retirement functionality for {0}."
 msgstr ""
 
-#: lib/tokens.tsx:38
+#: lib/tokens.tsx:40
 msgid "This cost includes the asset spot price + the {0}% fee to selectively redeem or retire an underlying carbon project charged by {1}"
 msgstr ""
 
@@ -846,7 +846,7 @@ msgstr ""
 msgid "Toucan"
 msgstr ""
 
-#: lib/protocols.tsx:12
+#: lib/protocols.tsx:11
 msgid "Toucan Carbon Credit (TCO2)"
 msgstr ""
 
@@ -875,7 +875,7 @@ msgstr ""
 msgid "UBO retired VCUs"
 msgstr "यूबीओ द्वारा सेवानिवृत्त वीसीयू"
 
-#: lib/tokens.tsx:16
+#: lib/tokens.tsx:18
 msgid "Universal Basic Offset (UBO)"
 msgstr "यूनिवर्सल बेसिक ऑफसेट (UBO)"
 
