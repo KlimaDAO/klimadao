@@ -12,7 +12,6 @@ import { useResponsive } from "hooks/useResponsive";
 import { urls } from "lib/constants";
 import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect } from "react";
 import { SWRConfig } from "swr";
@@ -29,8 +28,8 @@ const views = {
 };
 
 const Page: NextPage = () => {
-  const router = useRouter();
   const { isMobile } = useResponsive();
+
   const { params, updateQueryParams } = useProjectsParams();
   const { data: projects = [], isLoading, isValidating } = useFetchProjects();
 
@@ -53,12 +52,6 @@ const Page: NextPage = () => {
 
   const noProjects =
     !sortedProjects?.length && !isValidating && !isLoading && !isMap;
-
-  if (!router.isReady) {
-    // need to prevent the initial grid view from flashing initially
-    // after setting the layout as "list" and reloading the browser.
-    return null;
-  }
 
   // We need to force Grid View on mobile (this stops a delay in re-render)
   const View =
