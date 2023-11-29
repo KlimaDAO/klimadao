@@ -59,7 +59,6 @@ export const fetchCMSProject = async (
   sdk: FetchCarbonProjectMethod,
   args: FetchCarbonProjectArgs
 ) => {
-  console.info("fetchCarbonProject", sdk, args);
   /** @todo come up with better way to check registry type that satisfies typescript */
   if ("serialization" in args && typeof sdk === "string") {
     const url = `${sdk}/public/projects?creditSerialization=${args.serialization}`;

@@ -68,23 +68,3 @@ export const Users: NextPage<PageProps> = (props) => (
     <Page {...props} />
   </SWRConfig>
 );
-// export const Users: NextPage<PageProps> = (props) => {
-//   const { networkLabel } = useWeb3();
-//   return (
-//     <SWRConfig
-//       value={{
-//         fetcher,
-//         fallback: {
-//           [fetchUserURL({
-//             params: {
-//               walletOrHandle: props.userAddress,
-//             },
-//             query: { network: networkLabel },
-//           })]: props.carbonmarkUser,
-//         },
-//       }}
-//     >
-//       <Page {...props} />
-//     </SWRConfig>
-//   );
-// };

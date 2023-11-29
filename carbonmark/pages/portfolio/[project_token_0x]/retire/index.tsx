@@ -17,6 +17,7 @@ export const getServerSideProps: GetServerSideProps<
     const { params, query } = ctx;
 
     const network = query.network as string;
+    console.info("network", network);
     const vintage = query.vintage as string;
 
     if (!params || !params.project_token_0x) {

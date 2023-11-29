@@ -1,5 +1,6 @@
 import { Text } from "@klimadao/lib/components";
 import { PoolToken, poolTokens, urls } from "@klimadao/lib/constants";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -45,8 +46,7 @@ export const RetireForm = (props: RetireFormProps) => {
   const router = useRouter();
   const { address, asset, provider } = props;
   const { networkLabel } = useWeb3();
-  const router = useRouter();
-  const { tokenName, balance, tokenSymbol, project } = asset;
+  const { tokenName, tokenSymbol, project } = asset;
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [isApproved, setIsApproved] = useState<boolean>(false);
