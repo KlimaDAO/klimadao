@@ -276,12 +276,15 @@ export const offsetCompatibility: CompatMap = {
 };
 
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
+const ICR_GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
 export const subgraphs = {
   polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
   carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
+  IcrPolygon: `${ICR_GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
+  IcrMumbai: `${ICR_GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
 /** Definitions of available registries */
