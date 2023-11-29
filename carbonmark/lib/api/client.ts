@@ -1,6 +1,4 @@
 import { urls } from "lib/constants";
-import { notNil } from "lib/utils/functional.utils";
-import { pickBy } from "lodash";
 
 export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";
@@ -19,11 +17,28 @@ export type ApiError<TError> = {
 
 type ParamsObject = Record<string, string | string[]>;
 
-/** Removes all undefined or null values from the object  */
-const definedParams = (obj: Record<string, unknown>) => {
-  const filteredObj = pickBy(obj, notNil);
-  return Object.keys(filteredObj).length > 0 ? filteredObj : null;
-};
+/**
+ * Transforms a request params object into a query string
+ * Handles Arrays
+ */
+function serializeQuery<TVariables = unknown>(
+  request: RequestConfig<TVariables>
+): string {
+  const params = request.params as ParamsObject;
+  if (params && Object.keys(params).length > 0) {
+    const query: Array<string> = [];
+    Object.keys(params).forEach((key) => {
+      const value = params[key];
+      if (Array.isArray(value))
+        value.forEach((v) => {
+          query.push(`${key}=${encodeURIComponent(v)}`);
+        });
+      else if (value) return query.push(`${key}=${encodeURIComponent(value)}`);
+    });
+    return `?${query.join("&")}`;
+  }
+  return "";
+}
 
 export const fetchClient = async <
   TData,
@@ -32,16 +47,8 @@ export const fetchClient = async <
 >(
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
-  const paramsObject = definedParams(request.params as ParamsObject) as Record<
-    string,
-    string
-  >;
-
-  const params = paramsObject
-    ? "?" + new URLSearchParams(paramsObject).toString()
-    : "";
-
-  const response = await fetch(`${urls.api.base}${request.url}${params}`, {
+  const url = `${urls.api.base}${request.url}${serializeQuery(request)}`;
+  const response = await fetch(url, {
     method: request.method,
     body: JSON.stringify(request.data),
     headers: {
@@ -49,7 +56,6 @@ export const fetchClient = async <
       ...request.headers,
     },
   });
-
   if (!response.ok) {
     const errorData = await response.json();
     throw {
