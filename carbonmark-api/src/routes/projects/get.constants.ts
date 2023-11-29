@@ -3,7 +3,6 @@ export const DEFAULT_POOL_PROJECT_TOKENS = {
   ubo: "0xd6ed6fae5b6535cae8d92f40f5ff653db807a4ea",
   bct: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
   nct: "0x6362364a37f34d39a1f4993fb595dab4116daf0d",
-  mco2: "0x0000000000000000000000000000000000000000",
 };
 
 const POOL_ADDRESSES = {
@@ -11,7 +10,6 @@ const POOL_ADDRESSES = {
   ubo: "0x2B3eCb0991AF0498ECE9135bcD04013d7993110c",
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   nct: "0xD838290e877E0188a4A44700463419ED96c16107",
-  mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
 };
 
 const LP_ADDRESSES = {
@@ -19,7 +17,6 @@ const LP_ADDRESSES = {
   nbo: "0x251ca6a70cbd93ccd7039b6b708d4cb9683c266c",
   bct: "0x9803c7ae526049210a1725f7487af26fe2c24614",
   nct: "0xdb995f975f1bfc3b2157495c47e4efb31196b2ca",
-  mco2: "0x64a3b8cA5A7e406A78e660AE10c7563D9153a739",
 };
 
 export type PoolInfo = {
@@ -77,13 +74,5 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     poolFeeRatio: toucanPoolFee(0.1),
     assetSwapFeeRatio: 0.003,
     retirementServiceFeeRatio: 0.01,
-  },
-  mco2: {
-    defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["mco2"],
-    poolAddress: POOL_ADDRESSES["mco2"],
-    lpAddress: LP_ADDRESSES["mco2"],
-    poolName: "mco2",
-    feeAdd: false,
-    fee: 0.1,
   },
 };
