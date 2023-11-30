@@ -27,7 +27,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
       network: networkLabel,
       expiresAfter: address === props.userAddress ? "0" : undefined,
     },
-    { shouldFetch: notNil(address) }
+    { shouldFetch: notNil(props.userAddress) }
   );
 
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);

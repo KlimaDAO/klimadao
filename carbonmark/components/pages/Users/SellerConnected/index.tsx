@@ -44,7 +44,7 @@ export const SellerConnected: FC<Props> = (props) => {
       network,
       expiresAfter: address === props.userAddress ? "0" : undefined,
     },
-    { shouldFetch: notNil(address) }
+    { shouldFetch: notNil(props.userAddress) }
   );
   const [isPending, setIsPending] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
@@ -227,13 +227,11 @@ export const SellerConnected: FC<Props> = (props) => {
         showModal={showEditProfileModal}
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
-        {carbonmarkUser && (
-          <EditProfile
-            user={carbonmarkUser}
-            onSubmit={onEditProfile}
-            isCarbonmarkUser={isCarbonmarkUser}
-          />
-        )}
+        <EditProfile
+          user={carbonmarkUser}
+          onSubmit={onEditProfile}
+          isCarbonmarkUser={isCarbonmarkUser}
+        />
       </Modal>
 
       {!!carbonmarkUser?.assets?.length && (
