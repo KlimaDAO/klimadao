@@ -48,9 +48,9 @@ const initialStats: BigNumberStats = {
   totalSupply: ethers.BigNumber.from(0),
 };
 export type Stats = {
-  totalBridged: string;
-  totalRetired: string;
-  totalSupply: string;
+  totalBridged: number;
+  totalRetired: number;
+  totalSupply: number;
 };
 
 /** Return Types for Digital Carbon Query */
@@ -117,9 +117,15 @@ export const fetchProjectPoolInfo = async (
 
   // project bigNumber stats
   const stats: Stats = {
-    totalBridged: ethers.utils.formatUnits(bigNumberStats.bridged, 18),
-    totalRetired: ethers.utils.formatUnits(bigNumberStats.retired, 18),
-    totalSupply: ethers.utils.formatUnits(bigNumberStats.totalSupply, 18),
+    totalBridged: parseFloat(
+      ethers.utils.formatUnits(bigNumberStats.bridged, 18)
+    ),
+    totalRetired: parseFloat(
+      ethers.utils.formatUnits(bigNumberStats.retired, 18)
+    ),
+    totalSupply: parseFloat(
+      ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
+    ),
   };
   const poolInfoMap = Object.keys(POOL_INFO).reduce<Partial<PoolInfoMap>>(
     (prevMap, poolName) => {

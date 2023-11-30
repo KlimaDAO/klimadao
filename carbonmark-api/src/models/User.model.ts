@@ -10,12 +10,12 @@ export const UserModel = Type.Object({
   username: Type.String(),
   description: Nullable(Type.String()),
   profileImgUrl: Nullable(Type.String()),
-  updatedAt: Type.String(),
-  createdAt: Type.String(),
+  updatedAt: Type.Number(),
+  createdAt: Type.Number(),
   wallet: Type.String(),
-  listings: Type.Array(ListingModel),
-  activities: Type.Array(ActivityModel),
-  assets: Type.Array(AssetModel),
+  listings: Type.Optional(Type.Array(ListingModel)),
+  activities: Type.Optional(Type.Array(ActivityModel)),
+  assets: Type.Optional(Type.Array(AssetModel)),
 });
 
 export type User = Static<typeof UserModel>;
@@ -28,8 +28,8 @@ export function isUser(obj: any): obj is User {
     typeof obj.username === "string" &&
     typeof obj.description === "string" &&
     (obj.profileImgUrl === null || typeof obj.profileImgUrl === "string") &&
-    typeof obj.updatedAt === "string" &&
-    typeof obj.createdAt === "string" &&
+    typeof obj.updatedAt === "number" &&
+    typeof obj.createdAt === "number" &&
     typeof obj.wallet === "string" &&
     Array.isArray(obj.listings) &&
     Array.isArray(obj.activities) &&

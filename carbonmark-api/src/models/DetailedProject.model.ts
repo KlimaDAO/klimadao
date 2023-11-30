@@ -19,9 +19,9 @@ export const DetailedProjectModel = Type.Object({
   short_description: Nullable(Type.String()),
   url: Nullable(Type.String()),
   stats: Type.Object({
-    totalBridged: Type.String(),
-    totalRetired: Type.String(),
-    totalSupply: Type.String(),
+    totalBridged: Type.Number(),
+    totalRetired: Type.Number(),
+    totalSupply: Type.Number(),
   }),
   prices: Type.Array(TokenPriceModel),
   listings: Type.Array(ListingModel),

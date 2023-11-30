@@ -1,5 +1,9 @@
 import { app } from "firebase-admin";
 import { chunk } from "lodash";
+import { User } from "src/models/User.model";
+import { Activity } from "../../models/Activity.model";
+import { Asset } from "../../models/Asset.model";
+import { Listing } from "../../models/Listing.model";
 
 export interface UserProfile {
   address: string;
@@ -11,19 +15,13 @@ export interface UserProfile {
   username: string;
 }
 
-export interface UiUserProfile
-  extends Omit<UserProfile, "createdAt" | "updatedAt"> {
-  createdAt: string;
-  updatedAt: string;
-}
-
 /**
  * This function retrieves a user by their wallet address from the Firestore database.
  */
 export const getProfileByAddress = async (params: {
   firebase: app.App;
   address: string;
-}): Promise<UiUserProfile | null> => {
+}): Promise<UserProfile | null> => {
   const doc = await params.firebase
     .firestore()
     .collection("users")
@@ -32,7 +30,7 @@ export const getProfileByAddress = async (params: {
 
   if (!doc.exists) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known type
-  return getUiUserProfile(doc.data() as UserProfile);
+  return formatProfile(doc.data() as UserProfile);
 };
 
 /**
@@ -42,8 +40,8 @@ export const getProfileByAddress = async (params: {
 export const getUserProfilesByIds = async (params: {
   firebase: app.App;
   addresses: string[];
-}): Promise<Map<string, UiUserProfile>> => {
-  const UserProfileMap = new Map<string, UiUserProfile>();
+}): Promise<Map<string, UserProfile>> => {
+  const UserProfileMap = new Map<string, UserProfile>();
 
   const chunks = chunk(params.addresses, 30);
   // .where "in" query is more performant than .getAll(..docIds)
@@ -61,8 +59,8 @@ export const getUserProfilesByIds = async (params: {
     .forEach((d) => {
       if (!d.exists) return;
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known
-      const profile = getUiUserProfile(d.data() as UserProfile);
-      UserProfileMap.set(profile.address, profile);
+      const profile = d.data() as UserProfile;
+      UserProfileMap.set(profile.address, formatProfile(profile));
     });
   return UserProfileMap;
 };
@@ -73,7 +71,7 @@ export const getUserProfilesByIds = async (params: {
 export const getProfileByHandle = async (params: {
   firebase: app.App;
   handle: string;
-}): Promise<UiUserProfile | null> => {
+}): Promise<UserProfile | null> => {
   const snapshot = await params.firebase
     .firestore()
     .collection("users")
@@ -84,21 +82,30 @@ export const getProfileByHandle = async (params: {
   if (snapshot.empty) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- apply known type
   const profile = snapshot.docs.at(0)?.data() as UserProfile | undefined;
-  return profile ? getUiUserProfile(profile) : null;
+  return profile ? formatProfile(profile) : null;
+};
+const formatProfile = (profile: UserProfile): UserProfile => {
+  return {
+    ...profile,
+    createdAt: Math.floor(profile.createdAt / 1000),
+    updatedAt: Math.floor(profile.updatedAt / 1000),
+  };
 };
 
-/**
- * Converts backend profile information into frontend profile information
- * @param timestamp
- * @returns
- */
-export function getUiUserProfile(profile: UserProfile): UiUserProfile {
+export const userFromProfile = (
+  profile: UserProfile,
+  props: { listings: Listing[]; activities: Activity[]; assets: Asset[] }
+): User => {
   return {
-    address: profile.address,
-    description: profile.description,
-    handle: profile.handle,
-    username: profile.username,
-    createdAt: (profile.createdAt / 1000).toFixed(0),
-    updatedAt: (profile.updatedAt / 1000).toFixed(0),
+    createdAt: profile?.createdAt || 0,
+    description: profile?.description || "", // TODO extract to nullable `profile` property.
+    handle: profile?.handle || "",
+    profileImgUrl: profile?.profileImgUrl || null,
+    updatedAt: profile?.updatedAt || 0,
+    username: profile?.username || "",
+    wallet: profile.address,
+    listings: props.listings,
+    activities: props.activities,
+    assets: props.assets,
   };
-}
+};

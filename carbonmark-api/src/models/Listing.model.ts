@@ -30,10 +30,10 @@ export const ListingModel = Type.Object(
     deleted: Type.Optional(Type.Union([Type.Boolean(), Type.Null()])),
     batches: Nullable(Type.Array(Type.String())),
     batchPrices: Nullable(Type.Array(Type.String())),
-    createdAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
-    updatedAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
+    createdAt: Type.Optional(Type.Union([Type.Number(), Type.Null()])),
+    updatedAt: Type.Optional(Type.Union([Type.Number(), Type.Null()])),
     seller: ListingSeller,
-    expiration: Type.String({
+    expiration: Type.Number({
       description: "Unix Timestamp (seconds) when the listing expires.",
     }),
     minFillAmount: Type.String({

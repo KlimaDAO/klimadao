@@ -21,7 +21,7 @@ export const fetchPoolPricesAndStats = async (
   params: Params
 ): Promise<[TokenPriceT[], Stats]> => {
   if (params.network !== "polygon") {
-    return [[], { totalBridged: "0", totalSupply: "0", totalRetired: "0" }];
+    return [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
   }
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
     fetchProjectPoolInfo(sdk, {

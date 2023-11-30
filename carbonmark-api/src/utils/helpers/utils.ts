@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { compact, concat, isArray } from "lodash";
+import { compact, concat, isArray, omit } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
   Category,
@@ -219,3 +219,14 @@ export const isMatchingCmsProject = (
   { registry, projectId }: IsMatchingCmsProjectArgs,
   project: CarbonProject
 ) => project?.registryProjectId === projectId && project.registry === registry;
+
+export function formatGraphTimestamps<
+  T extends { createdAt: string | null; updatedAt: string | null },
+>(data: T) {
+  const partialData = omit(data, ["createdAt", "updatedAt"]);
+  return {
+    ...partialData,
+    createdAt: Number(data.createdAt),
+    updatedAt: Number(data.updatedAt),
+  };
+}
