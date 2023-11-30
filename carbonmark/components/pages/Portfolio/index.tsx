@@ -1,20 +1,20 @@
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
-import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { Spinner } from "components/shared/Spinner";
 import { activityIsAdded, getUserUntil } from "lib/api";
 import { notNil } from "lib/utils/functional.utils";
 import { NextPage } from "next";
-import Link from "next/link";
 import { useState } from "react";
 import { CarbonmarkAssets } from "./CarbonmarkAssets";
 import { PortfolioSidebar } from "./PortfolioSidebar";
+import { UnregisteredMessage } from "./Retire/UnregisteredMessage";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
@@ -94,13 +94,11 @@ export const Portfolio: NextPage = () => {
                   <Spinner />
                 </div>
               )}
-
               {errorMessage && (
                 <Text t="h5" className={styles.errorMessage}>
                   {errorMessage}
                 </Text>
               )}
-
               {isCarbonmarkUser && (
                 <CarbonmarkAssets
                   address={address}
@@ -109,23 +107,7 @@ export const Portfolio: NextPage = () => {
                   onUpdateUser={onUpdateUser}
                 />
               )}
-
-              {isUnregistered && (
-                <>
-                  <Text>
-                    <Trans>
-                      Sorry. We could not find any data on Carbonmark for your
-                      user.
-                    </Trans>
-                  </Text>
-                  <Text>
-                    <Trans>
-                      Have you already created your Carbonmark{" "}
-                      <Link href={`/users/${address}`}>Profile</Link>?
-                    </Trans>
-                  </Text>
-                </>
-              )}
+              {isUnregistered && <UnregisteredMessage />}
             </Col>
 
             <Col>
