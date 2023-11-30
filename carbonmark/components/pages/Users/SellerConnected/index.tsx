@@ -227,13 +227,11 @@ export const SellerConnected: FC<Props> = (props) => {
         showModal={showEditProfileModal}
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
-        {carbonmarkUser && (
-          <EditProfile
-            user={carbonmarkUser}
-            onSubmit={onEditProfile}
-            isCarbonmarkUser={isCarbonmarkUser}
-          />
-        )}
+        <EditProfile
+          user={carbonmarkUser}
+          onSubmit={onEditProfile}
+          isCarbonmarkUser={isCarbonmarkUser}
+        />
       </Modal>
 
       {!!carbonmarkUser?.assets?.length && (
