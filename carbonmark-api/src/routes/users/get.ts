@@ -6,7 +6,6 @@ import {
   getProfileByAddress,
   getProfileByHandle,
   getUserProfilesByIds,
-  userFromProfile,
 } from "../../utils/helpers/users.utils";
 import { formatListing } from "../../utils/marketplace.utils";
 import { Params, Querystring, schema } from "./get.schema";
@@ -94,11 +93,18 @@ const handler = (fastify: FastifyInstance) =>
 
       const listings = user?.listings?.map(formatListing) || [];
 
-      const response = userFromProfile(profile, {
+      const response = {
+        createdAt: profile?.createdAt || 0,
+        description: profile?.description || "", // TODO extract to nullable `profile` property.
+        handle: profile?.handle || "",
+        profileImgUrl: profile?.profileImgUrl || null,
+        updatedAt: profile?.updatedAt || 0,
+        username: profile?.username || "",
+        wallet: profile.address,
         listings,
         activities,
         assets,
-      });
+      };
 
       return reply.send(response);
     } catch (e) {

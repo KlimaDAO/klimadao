@@ -1,9 +1,9 @@
 import { app } from "firebase-admin";
 import { chunk } from "lodash";
-import { User } from "src/models/User.model";
 import { Activity } from "../../models/Activity.model";
 import { Asset } from "../../models/Asset.model";
 import { Listing } from "../../models/Listing.model";
+import { User } from "../../models/User.model";
 
 export interface UserProfile {
   address: string;
