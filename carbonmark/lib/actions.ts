@@ -2,7 +2,11 @@ import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
-import { formatUnits, isTestnetChainId } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  isTestnetChainId,
+  trimWithLocale,
+} from "@klimadao/lib/utils";
 import { Contract, Transaction, providers } from "ethers";
 import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
 import { getAddress } from "lib/networkAware/getAddress";
@@ -19,7 +23,6 @@ import {
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { isNil } from "lodash";
 import { DEFAULT_EXPIRATION_DAYS, DEFAULT_MIN_FILL_AMOUNT } from "./constants";
-import { formatToTonnes } from "./formatNumbers";
 
 const getSignerNetwork = (
   signer: providers.JsonRpcSigner
@@ -27,10 +30,6 @@ const getSignerNetwork = (
   return isTestnetChainId(signer.provider.network.chainId)
     ? "mumbai"
     : "polygon";
-};
-
-const getFormattedSingleUnitPrice = (value: string) => {
-  return formatToTonnes(value, "en", 6);
 };
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
@@ -205,7 +204,7 @@ export const updateListingTransaction = async (params: {
       params.listingId,
       parseUnits(params.newAmount, 18),
       parseUnits(
-        getFormattedSingleUnitPrice(params.singleUnitPrice),
+        trimWithLocale(params.singleUnitPrice, 6),
         getTokenDecimals("usdc")
       ),
       parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
@@ -248,7 +247,7 @@ export const makePurchase = async (params: {
 
     const maxCost = String(
       Number(params.quantity) *
-        Number(getFormattedSingleUnitPrice(params.singleUnitPrice))
+        Number(trimWithLocale(params.singleUnitPrice, 6))
     );
 
     const purchaseTxn = await carbonmarkContract.fillListing(
@@ -256,7 +255,7 @@ export const makePurchase = async (params: {
       params.sellerAddress,
       params.creditTokenAddress,
       parseUnits(
-        getFormattedSingleUnitPrice(params.singleUnitPrice),
+        trimWithLocale(params.singleUnitPrice, 6),
         getTokenDecimals("usdc")
       ),
       parseUnits(params.quantity, 18),
