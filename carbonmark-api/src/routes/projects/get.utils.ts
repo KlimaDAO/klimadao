@@ -61,7 +61,7 @@ export const getDefaultQueryArgs = async (
  */
 type ProjectBalances = Record<
   string,
-  { balance: string; projectAddress: string }
+  { balance: string; creditTokenAddress: string }
 >;
 
 export const getDigitalCarbonTokenPrices = (
@@ -75,11 +75,11 @@ export const getDigitalCarbonTokenPrices = (
   }
 
   const tokenBalances: ProjectBalances = {
-    nbo: { balance: "0", projectAddress: "" },
-    ubo: { balance: "0", projectAddress: "" },
-    bct: { balance: "0", projectAddress: "" },
-    nct: { balance: "0", projectAddress: "" },
-    mco2: { balance: "0", projectAddress: "" },
+    nbo: { balance: "0", creditTokenAddress: "" },
+    ubo: { balance: "0", creditTokenAddress: "" },
+    bct: { balance: "0", creditTokenAddress: "" },
+    nct: { balance: "0", creditTokenAddress: "" },
+    mco2: { balance: "0", creditTokenAddress: "" },
   };
 
   /**
@@ -97,7 +97,7 @@ export const getDigitalCarbonTokenPrices = (
 
       tokenBalances[key] = {
         balance: poolBalance.balance,
-        projectAddress: credit.id, // should this be this be credit.id or poolBalance.pool.id ?
+        creditTokenAddress: credit.id,
       };
     }
   }
@@ -106,28 +106,28 @@ export const getDigitalCarbonTokenPrices = (
   if (parseFloat(tokenBalances["ubo"].balance) >= 1) {
     const isDefault =
       POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances["ubo"].projectAddress.toLowerCase();
+      tokenBalances["ubo"].creditTokenAddress.toLowerCase();
     const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
     prices.push(poolPrices.ubo[priceKey]);
   }
   if (parseFloat(tokenBalances["nbo"].balance) >= 1) {
     const isDefault =
       POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances["nbo"].projectAddress.toLowerCase();
+      tokenBalances["nbo"].creditTokenAddress.toLowerCase();
     const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
     prices.push(poolPrices.nbo[priceKey]);
   }
   if (parseFloat(tokenBalances["nct"].balance) >= 1) {
     const isDefault =
       POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances["nct"].projectAddress.toLowerCase();
+      tokenBalances["nct"].creditTokenAddress.toLowerCase();
     const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
     prices.push(poolPrices.nct[priceKey]);
   }
   if (parseFloat(tokenBalances["bct"].balance) >= 1) {
     const isDefault =
       POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances["bct"].projectAddress.toLowerCase();
+      tokenBalances["bct"].creditTokenAddress.toLowerCase();
     const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
     prices.push(poolPrices.bct[priceKey]);
   }
@@ -284,7 +284,7 @@ export const composeProjectEntries = (
         poolBalances?.carbonCredits[0].vintage.toString() ??
         market?.vintage ??
         "",
-      projectAddress: poolBalances?.carbonCredits?.[0].id ?? "",
+      creditTokenAddress: poolBalances?.carbonCredits?.[0].id ?? "",
       updatedAt: pickUpdatedAt(data),
       price: pickBestPrice(data, poolPrices),
       listings: market?.listings?.map(formatListing) || null,

@@ -136,7 +136,8 @@ describe("GET /projects", () => {
         projectID: digitalCarbon.digitalCarbonProject.projectID.split("-")[1],
         vintage:
           digitalCarbon.digitalCarbonProject.carbonCredits[0].vintage.toString(),
-        projectAddress: digitalCarbon.digitalCarbonProject.carbonCredits[0].id,
+        creditTokenAddress:
+          digitalCarbon.digitalCarbonProject.carbonCredits[0].id,
         // Takes registry tag
         registry: digitalCarbon.digitalCarbonProject.id.split("-")[0],
         updatedAt:
