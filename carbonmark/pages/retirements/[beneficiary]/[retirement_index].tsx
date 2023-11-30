@@ -84,9 +84,12 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
-    const project = await getProjectsId(
-      `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
-    );
+    let project;
+    if (retirement.offset.projectID && retirement.offset.vintageYear) {
+      project = await getProjectsId(
+        `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
+      );
+    }
 
     return {
       props: {
