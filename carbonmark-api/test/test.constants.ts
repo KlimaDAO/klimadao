@@ -46,8 +46,8 @@ export const MOCK_USER_PROFILE: UserProfile = {
 
 export const EXPECTED_USER_RESPONSE = {
   ...omit(MOCK_USER_PROFILE, ["address", "updatedAt", "createdAt"]),
-  updatedAt: "1699715108",
-  createdAt: "0",
+  updatedAt: 1699715108,
+  createdAt: 0,
   wallet: MOCK_USER_PROFILE.address,
   listings: [],
   activities: [],

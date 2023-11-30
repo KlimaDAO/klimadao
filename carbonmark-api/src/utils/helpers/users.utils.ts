@@ -1,9 +1,5 @@
 import { app } from "firebase-admin";
 import { chunk } from "lodash";
-import { Activity } from "../../models/Activity.model";
-import { Asset } from "../../models/Asset.model";
-import { Listing } from "../../models/Listing.model";
-import { User } from "../../models/User.model";
 
 export interface UserProfile {
   address: string;
@@ -89,23 +85,5 @@ const formatProfile = (profile: UserProfile): UserProfile => {
     ...profile,
     createdAt: Math.floor(profile.createdAt / 1000),
     updatedAt: Math.floor(profile.updatedAt / 1000),
-  };
-};
-
-export const userFromProfile = (
-  profile: UserProfile,
-  props: { listings: Listing[]; activities: Activity[]; assets: Asset[] }
-): User => {
-  return {
-    createdAt: profile?.createdAt || 0,
-    description: profile?.description || "", // TODO extract to nullable `profile` property.
-    handle: profile?.handle || "",
-    profileImgUrl: profile?.profileImgUrl || null,
-    updatedAt: profile?.updatedAt || 0,
-    username: profile?.username || "",
-    wallet: profile.address,
-    listings: props.listings,
-    activities: props.activities,
-    assets: props.assets,
   };
 };

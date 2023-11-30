@@ -93,7 +93,7 @@ const handler = (fastify: FastifyInstance) =>
 
       const listings = user?.listings?.map(formatListing) || [];
 
-      const response = {
+      const response: User = {
         createdAt: profile?.createdAt || 0,
         description: profile?.description || "", // TODO extract to nullable `profile` property.
         handle: profile?.handle || "",

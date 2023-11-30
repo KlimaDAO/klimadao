@@ -187,16 +187,18 @@ describe("GET /projects", () => {
         price: "99",
         updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
         listings: [
-          pick(marketplace.projectWithListing.listings![0], [
-            "active",
-            "batchPrices",
-            "batches",
-            "createdAt",
-            "deleted",
-            "updatedAt",
-            "id",
-            "tokenAddress",
-          ]),
+          {
+            ...pick(marketplace.projectWithListing.listings![0], [
+              "active",
+              "batchPrices",
+              "batches",
+              "deleted",
+              "id",
+              "tokenAddress",
+            ]),
+            createdAt: 1234,
+            updatedAt: 1234,
+          },
         ],
         location: {
           geometry: {
