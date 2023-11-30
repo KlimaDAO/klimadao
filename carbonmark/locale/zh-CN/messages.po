@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-30 10:16+0000\n"
+"POT-Creation-Date: 2023-11-30 11:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -546,11 +546,6 @@ msgstr "用户名不应是地址"
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
 
-#: components/pages/Portfolio/Retire/index.tsx:121
-#: components/pages/Portfolio/index.tsx:122
-msgid "Have you already created your Carbonmark <0>Profile</0>?"
-msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
-
 #: components/Footer/index.tsx:32
 #: components/pages/Home/index.tsx:544
 #: components/shared/Navigation/index.tsx:87
@@ -1069,8 +1064,8 @@ msgstr "现在停用"
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "现在就停用碳，或者获取数字碳待以后停用 - 当您拥有了碳资产，您就可以决定要做什么。"
 
+#: components/pages/Portfolio/Retire/index.tsx:92
 #: components/pages/Portfolio/Retire/index.tsx:93
-#: components/pages/Portfolio/Retire/index.tsx:94
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -1159,11 +1154,6 @@ msgstr "抱歉，出了一些问题。"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
 msgid "Sorry, this handle already exists"
 msgstr "抱歉，此用户名已存在"
-
-#: components/pages/Portfolio/Retire/index.tsx:116
-#: components/pages/Portfolio/index.tsx:116
-msgid "Sorry. We could not find any data on Carbonmark for your user."
-msgstr "对不起。我们无法找到任何您的用户的相关 Carbonmark 数据。"
 
 #: components/Stats/index.tsx:23
 msgid "Stats"
@@ -1283,6 +1273,10 @@ msgstr "加载总费用时出错。"
 msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
+msgid "This is your portfolio, here you will find any of the supported carbon assets you own. Assets shown here can be retired or listed for sale."
+msgstr ""
+
 #: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "此挂牌已过期并已从市场上隐藏。请重新提交或删除挂牌。"
@@ -1310,6 +1304,10 @@ msgstr "为了完成您的信用卡交易，您将被重新定向到我们的支
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:60
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
 msgstr "要完成您的碳停用，请验证所有信息是否正确，然后单击下面的“提交”。"
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:24
+msgid "To get started, be sure to complete your <0>profile</0> and then head to the <1>marketplace</1> to purchase carbon assets."
+msgstr ""
 
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:70
 msgid "Toggle Select Project"
@@ -1460,7 +1458,7 @@ msgstr "查看结果"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 
-#: components/pages/Portfolio/Retire/index.tsx:95
+#: components/pages/Portfolio/Retire/index.tsx:94
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
@@ -1577,6 +1575,10 @@ msgstr "您现在可以在<0> PolygonScan </0>上查看成功的交易。"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:110
 msgid "You chose to reject the transaction."
 msgstr "您已选择拒绝交易."
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:18
+msgid "You do not currently have any supported carbon assets available for listing."
+msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
