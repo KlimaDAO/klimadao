@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-29 18:13+0000\n"
+"POT-Creation-Date: 2023-11-30 10:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -114,7 +114,7 @@ msgstr "Actions et Évolutions Réglementaires : L'environnement réglementaire 
 
 #: components/DisclaimerModal/index.tsx:29
 msgid "Risk Disclaimer"
-msgstr ""
+msgstr "Clause de non-responsabilité concernant les risques"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -566,11 +566,11 @@ msgstr "RETOUR"
 
 #: components/views/Offset/index.tsx:30
 msgid "offset.cta_1"
-msgstr ""
+msgstr "L'agrégateur de retrait de KlimaDAO est un outil à code source libre qui permet le retrait des crédits de carbone numériques."
 
 #: components/views/Offset/index.tsx:36
 msgid "offset.cta_2"
-msgstr ""
+msgstr "Consultez notre <0> documentation </0> pour l'intégrer dans votre application, ou visitez <1> Carbonmark </1> pour utiliser une implémentation en direct."
 
 #: components/CarbonTonnesRetiredCard/index.tsx:49
 msgid "offset.number_of_retirements"
@@ -654,11 +654,11 @@ msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont mis en 
 
 #: components/views/Redeem/index.tsx:28
 msgid "redeem.cta_1"
-msgstr ""
+msgstr "Les pools de liquidités numériques de carbone de KlimaDAO sont des ressources communes disponibles pour faire progresser l'impact sur l'environnement."
 
 #: components/views/Redeem/index.tsx:34
 msgid "redeem.cta_2"
-msgstr ""
+msgstr "Visitez notre <0>documentation </0> pour trouver les adresses des contrats LP, ou visitez <1> Carbonmark </1> pour acquérir du carbone via une interface utilisateur simple."
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
