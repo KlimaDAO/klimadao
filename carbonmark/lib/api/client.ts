@@ -35,7 +35,7 @@ function serializeQuery<TVariables = unknown>(
         });
       else if (value) return query.push(`${key}=${encodeURIComponent(value)}`);
     });
-    return `?${query.join("&")}`;
+    if (query.length) return `?${query.join("&")}`;
   }
   return "";
 }
@@ -48,6 +48,7 @@ export const fetchClient = async <
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
   const url = `${urls.api.base}${request.url}${serializeQuery(request)}`;
+  console.debug(url);
   const response = await fetch(url, {
     method: request.method,
     body: JSON.stringify(request.data),
