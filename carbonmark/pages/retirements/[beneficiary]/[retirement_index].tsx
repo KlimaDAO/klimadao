@@ -1,16 +1,17 @@
 import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { urls } from "@klimadao/lib/constants";
-import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   getRetirementDetails,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
+import {
+  SingleRetirementPage,
+  SingleRetirementPageProps,
+} from "components/pages/Retirements/SingleRetirement";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { DetailedProject } from "lib/types/carbonmark.types";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -19,18 +20,6 @@ interface Params extends ParsedUrlQuery {
   beneficiary: string;
   retirement_index: string;
 }
-
-export interface SingleRetirementPageProps {
-  /** The resolved 0x address */
-  beneficiaryAddress: string;
-  retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types & remove any (offset not being picked up in types)
-  retirementIndex: Params["retirement_index"];
-  nameserviceDomain: string | null;
-  /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
-  canonicalUrl?: string;
-  project?: DetailedProject | null;
-}
-
 // second param should always be a number
 const isNumeric = (value: string) => {
   return /^\d+$/.test(value);
@@ -66,7 +55,8 @@ export const getStaticProps: GetStaticProps<
       beneficiaryAddress = beneficiaryInUrl;
     }
 
-    const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
+    /** Retirement indexes start from 0, url starts from 1 */
+    const retirementIndex = Number(params.retirement_index) - 1;
 
     const [subgraphData, translation] = await Promise.all([
       queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
@@ -121,14 +111,18 @@ export const getStaticProps: GetStaticProps<
       );
     }
 
+    const pageProps: SingleRetirementPageProps = {
+      project: project || null,
+      beneficiaryAddress: beneficiaryAddress,
+      canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,
+      nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
+      retirement: retirement || null,
+      retirementIndex: params.retirement_index,
+    };
+
     return {
       props: {
-        project: project || null,
-        beneficiaryAddress: beneficiaryAddress,
-        canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,
-        nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
-        retirement: retirement || null,
-        retirementIndex: params.retirement_index,
+        ...pageProps,
         translation,
         fixedThemeName: "theme-light",
       },
