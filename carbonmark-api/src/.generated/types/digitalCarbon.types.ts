@@ -4172,6 +4172,8 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
+export type ProvenanceRecordFragmentFragment = { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string };
+
 export type GetProjectCreditsQueryVariables = Exact<{
   projectID: Scalars['String'];
   vintage: InputMaybe<Scalars['Int']>;
@@ -4180,7 +4182,27 @@ export type GetProjectCreditsQueryVariables = Exact<{
 
 export type GetProjectCreditsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', registry: Registry, region: string, projectID: string, name: string, methodologies: string, id: string, country: string, category: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number } }> }> }> };
 
+export type GetProvenanceRecordsQueryVariables = Exact<{
+  id: InputMaybe<Array<Scalars['Bytes']> | Scalars['Bytes']>;
+}>;
 
+
+export type GetProvenanceRecordsQuery = { __typename?: 'Query', provenanceRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string }> }> };
+
+export const ProvenanceRecordFragmentFragmentDoc = gql`
+    fragment ProvenanceRecordFragment on ProvenanceRecord {
+  id
+  transactionType
+  registrySerialNumbers
+  token
+  sender
+  receiver
+  originalAmount
+  remainingAmount
+  createdAt
+  updatedAt
+}
+    `;
 export const GetProjectCreditsDocument = gql`
     query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: {projectID: $projectID}) {
@@ -4216,6 +4238,16 @@ export const GetProjectCreditsDocument = gql`
   }
 }
     `;
+export const GetProvenanceRecordsDocument = gql`
+    query getProvenanceRecords($id: [Bytes!]) {
+  provenanceRecords(where: {id_in: $id}) {
+    ...ProvenanceRecordFragment
+    priorRecords(orderBy: createdAt, orderDirection: desc) {
+      ...ProvenanceRecordFragment
+    }
+  }
+}
+    ${ProvenanceRecordFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -4226,6 +4258,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     getProjectCredits(variables: GetProjectCreditsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectCreditsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProjectCreditsQuery>(GetProjectCreditsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectCredits', 'query');
+    },
+    getProvenanceRecords(variables?: GetProvenanceRecordsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProvenanceRecordsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProvenanceRecordsQuery>(GetProvenanceRecordsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProvenanceRecords', 'query');
     }
   };
 }

@@ -31,3 +31,12 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
     }
   }
 }
+
+query getProvenanceRecords($id: [Bytes!]) {
+  provenanceRecords(where: { id_in: $id }) {
+    ...ProvenanceRecordFragment
+    priorRecords(orderBy: createdAt, orderDirection: desc) {
+      ...ProvenanceRecordFragment
+    }
+  }
+}

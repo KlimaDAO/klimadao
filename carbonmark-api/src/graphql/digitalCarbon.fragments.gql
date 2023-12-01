@@ -1,0 +1,12 @@
+fragment ProvenanceRecordFragment on ProvenanceRecord {
+  id
+  transactionType
+  registrySerialNumbers
+  token
+  sender
+  receiver
+  originalAmount
+  remainingAmount
+  createdAt
+  updatedAt
+}
