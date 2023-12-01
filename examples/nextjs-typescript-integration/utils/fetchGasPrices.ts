@@ -22,7 +22,7 @@ interface GasOptions {
 /** Invoke this immediately before dispatching a txn */
 export const fetchGasPrices = async (): Promise<GasOptions> => {
   try {
-    const res = await fetch("https://gasstation-mainnet.matic.network/v2", {
+    const res = await fetch("https://gasstation.polygon.technology/v2", {
       headers: {
         "Cache-Control": "max-age=1800 s-maxage=1800",
       },
