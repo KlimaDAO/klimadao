@@ -1,4 +1,4 @@
-import { ICR_API_URLS } from "../../../../lib/constants";
+import { ICR_CONFIG } from "../../../../lib/constants";
 import { NetworkParam } from "../../models/NetworkParam.model";
 
 export const ICR_API = (
@@ -7,16 +7,13 @@ export const ICR_API = (
   const validatedNetwork: NetworkParam =
     network === "polygon" || network === "mumbai" ? network : "polygon";
 
-  const api_key =
-    validatedNetwork === "polygon"
-      ? process.env.ICR_MAINNET_API_KEY
-      : process.env.ICR_MUMBAI_API_KEY;
+  const apiConfig = ICR_CONFIG[validatedNetwork];
 
-  if (!api_key || !ICR_API_URLS[validatedNetwork]) {
+  if (!apiConfig.apiKey || !apiConfig.url) {
     throw new Error(
       `API URL or key is undefined for network: ${validatedNetwork}`
     );
   }
 
-  return { ICR_API_URL: ICR_API_URLS[validatedNetwork], ICR_API_KEY: api_key };
+  return { ICR_API_URL: apiConfig.url, ICR_API_KEY: apiConfig.apiKey };
 };

@@ -1,4 +1,4 @@
-import { ICR_API_KEYS, subgraphs } from "@klimadao/lib/constants";
+import { ICR_CONFIG, subgraphs } from "@klimadao/lib/constants";
 import { ProjectRetirementDetails } from "./types/carbonmark.types";
 
 export const getProjectInfoFromPolygonBridgedCarbon = async (
@@ -131,7 +131,7 @@ export const fetchIcrProjectData = async (
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${ICR_API_KEYS[network]}`,
+        Authorization: `Bearer ${ICR_CONFIG[network].apiKey}`,
       },
       body: JSON.stringify({
         query: query,

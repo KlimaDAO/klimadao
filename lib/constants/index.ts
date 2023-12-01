@@ -316,12 +316,13 @@ export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
 
-export const ICR_API_URLS = {
-  polygon: "https://api.carbonregistry.com/v0",
-  mumbai: "https://gaia-api-dev.mojoflower.io/v0",
-};
-
-export const ICR_API_KEYS = {
-  polygon: process.env.ICR_MAINNET_API_KEY,
-  mumbai: process.env.ICR_MUMBAI_API_KEY,
+export const ICR_CONFIG = {
+  polygon: {
+    url: "https://api.carbonregistry.com/v0",
+    apiKey: process.env.ICR_MAINNET_API_KEY,
+  },
+  mumbai: {
+    url: "https://gaia-api-dev.mojoflower.io/v0",
+    apiKey: process.env.ICR_MUMBAI_API_KEY,
+  },
 };
