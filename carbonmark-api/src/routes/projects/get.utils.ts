@@ -71,25 +71,16 @@ export const getDefaultQueryArgs = async (
   fastify: FastifyInstance,
   network: "polygon" | "mumbai"
 ) => {
-  const [category, country, vintage, icrData] = await Promise.all([
+  const [category, country, vintage] = await Promise.all([
     getAllCategories(sdk, fastify).then(map(extract("id"))),
-    getAllCountries(sdk, fastify).then(map(extract("id"))),
-    getAllVintages(sdk, fastify),
-    fetchIcrData(network),
+    getAllCountries(sdk, fastify, network).then(map(extract("id"))),
+    getAllVintages(sdk, fastify, network),
   ]);
-
-  const { IcrVintages, countryNames } = icrData;
-
-  const mergedVintages = [...vintage, ...IcrVintages];
-  const uniqueVintages = [...new Set(mergedVintages)];
-
-  const mergedCountries = [...country, ...countryNames];
-  const uniqueCountries = [...new Set(mergedCountries)];
 
   return {
     category,
-    country: uniqueCountries,
-    vintage: uniqueVintages,
+    country,
+    vintage,
     search: "",
     expiresAfter: Math.floor(Date.now() / 1000).toString(),
   };
