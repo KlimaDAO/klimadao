@@ -1,15 +1,27 @@
-import { Project, TokenPrice } from "lib/types/carbonmark.types";
+import {
+  DetailedProject,
+  Project,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 
 type ProjectData = {
   key: Project["key"];
   vintage: Project["vintage"];
   serialization?: Project["serialization"];
 };
-export const createProjectLink = (project: ProjectData) => {
-  if (project.key.startsWith("ICR") && project.serialization) {
-    return `/projects/${project.serialization}`;
+
+// @todo clean up this workaround
+export const toProjectData = (project: DetailedProject): ProjectData => ({
+  key: project.key,
+  vintage: project.vintage,
+  serialization: project.serialization ?? undefined, // Convert null to undefined
+});
+
+export const createProjectLink = (projectData: ProjectData) => {
+  if (projectData.key.startsWith("ICR") && projectData.serialization) {
+    return `/projects/${projectData.serialization}`;
   } else {
-    return `/projects/${project.key}-${project.vintage}`;
+    return `/projects/${projectData.key}-${projectData.vintage}`;
   }
 };
 
