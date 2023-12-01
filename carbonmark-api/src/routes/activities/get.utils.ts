@@ -3,7 +3,7 @@ import { FastifyInstance } from "fastify";
 import { Activity } from "../../models/Activity.model";
 import { NetworkParam } from "../../models/NetworkParam.model";
 import { gql_sdk } from "../../utils/gqlSdk";
-import { fetchProjectActivities } from "../../utils/helpers/fetchMarketplaceListings";
+import { fetchProjectActivities } from "../../utils/helpers/activities.utils";
 import { stringsToActivityTypes } from "../../utils/helpers/utils";
 import { schema } from "./get.schema";
 
