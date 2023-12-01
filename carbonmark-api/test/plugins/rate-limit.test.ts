@@ -15,9 +15,9 @@ describe("Rate Limiter", () => {
 
   test("should limit requests", async () => {
     for (let i = 0; i < 100 + 1; i++) {
-      nock(GRAPH_URLS["polygon"].offsets)
+      nock(GRAPH_URLS["polygon"].digitalCarbon)
         .post("")
-        .reply(200, { data: { carbonOffsets: [] } });
+        .reply(200, { data: { carbonProjects: [] } });
 
       nock(GRAPH_URLS["polygon"].marketplace)
         .post("")
