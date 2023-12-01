@@ -6,6 +6,7 @@ import { Text } from "components/Text";
 import { addProjectsToAssets, AssetWithProject } from "lib/actions";
 import { notNil } from "lib/utils/functional.utils";
 import { isListableToken } from "lib/utils/listings.utils";
+import { isNil } from "lodash";
 import { FC, useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import * as styles from "./styles";
@@ -29,7 +30,7 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
     !!carbonmarkUser && !isLoadingAssets && !assetsData?.length;
   const hasAssets =
     !!carbonmarkUser && !isLoadingAssets && !!listableAssets.length;
-  const isUnregistered = props.address && !isLoading && carbonmarkUser === null;
+  const isUnregistered = props.address && !isLoading && isNil(carbonmarkUser);
 
   useEffect(() => {
     if (!hasAssets) return;

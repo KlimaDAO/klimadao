@@ -2,13 +2,11 @@ import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { User } from ".generated/carbonmark-api-sdk/types";
 import { PageProps, Users } from "components/pages/Users";
 import { isAddress } from "ethers-v6";
-import { withConditionalErrorBoundary } from "hocs/ConditionalErrorBoundary";
 import { VALID_HANDLE_REGEX } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { GetStaticProps } from "next";
-import { isNotFoundError } from "next/dist/client/components/not-found";
 import { ParsedUrlQuery } from "querystring";
 
 interface Params extends ParsedUrlQuery {
@@ -150,7 +148,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default withConditionalErrorBoundary(Users, {
-  fallback: <h1>User cannot be found</h1>,
-  predicate: isNotFoundError,
-});
+export default Users;
