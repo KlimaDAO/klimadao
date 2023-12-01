@@ -3,7 +3,6 @@ import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { getUsersWalletorHandleKey } from "lib/api/swr.keys";
 import { fetcher } from "lib/fetcher";
 import { User } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
@@ -28,12 +27,10 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <>
       <PageHead
-        title={t`${
-          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
-        } | Profile | Carbonmark`}
-        mediaTitle={`${
-          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
-        }'s Profile on Carbonmark`}
+        title={t`${props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+          } | Profile | Carbonmark`}
+        mediaTitle={`${props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+          }'s Profile on Carbonmark`}
         metaDescription={t`Create and edit listings, and track your activity with your Carbonmark profile.`}
       />
 
@@ -47,6 +44,7 @@ const Page: NextPage<PageProps> = (props) => {
 
         {isUnconnectedUser && (
           <SellerUnconnected
+            user={props.carbonmarkUser}
             userAddress={props.userAddress}
             userName={userName}
           />
@@ -63,7 +61,7 @@ export const Users: NextPage<PageProps> = (props) => (
       fallback: {
         // https://swr.vercel.app/docs/with-nextjs#complex-keys
         [unstable_serialize(
-          getUsersWalletorHandleKey({}, { walletOrHandle: props.userAddress })
+          `users/${props.userAddress}`
         )]: props.carbonmarkUser,
       },
     }}

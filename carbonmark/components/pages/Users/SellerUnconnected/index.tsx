@@ -1,4 +1,4 @@
-import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
+import { User } from ".generated/carbonmark-api-sdk/types";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
@@ -7,7 +7,6 @@ import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { createProjectPurchaseLink } from "lib/createUrls";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
-import { notNil } from "lib/utils/functional.utils";
 import { FC } from "react";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";
@@ -15,22 +14,15 @@ import { ProfileSidebar } from "../ProfileSidebar";
 import * as styles from "./styles";
 
 type Props = {
+  user: User | null;
   userName: string;
   userAddress: string;
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
-  const { address, isConnected, toggleModal, networkLabel } = useWeb3();
-  const { data: carbonmarkUser } = useGetUsersWalletorhandle(
-    props.userAddress,
-    {
-      network: networkLabel,
-      expiresAfter: address === props.userAddress ? "0" : undefined,
-    },
-    { shouldFetch: notNil(props.userAddress) }
-  );
+  const { address, isConnected, toggleModal } = useWeb3();
 
-  const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
+  const activeListings = getActiveListings(props.user?.listings ?? []);
   const hasListings = !!activeListings.length;
 
   const sortedListings =
@@ -44,9 +36,9 @@ export const SellerUnconnected: FC<Props> = (props) => {
         <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
-        {carbonmarkUser && (
+        {props.user && (
           <ProfileHeader
-            carbonmarkUser={carbonmarkUser}
+            carbonmarkUser={props.user}
             userName={props.userName}
             userAddress={props.userAddress}
           />
@@ -97,9 +89,9 @@ export const SellerUnconnected: FC<Props> = (props) => {
           )}
         </Col>
         <Col>
-          {carbonmarkUser && (
+          {props.user && (
             <ProfileSidebar
-              user={carbonmarkUser}
+              user={props.user}
               title={t`Data for this seller`}
             />
           )}
