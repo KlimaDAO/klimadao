@@ -9,7 +9,7 @@ export const ICR_API = (
 
   const api_key =
     validatedNetwork === "polygon"
-      ? process.env.ICR_MUMBAI_API_KEY
+      ? process.env.ICR_MAINNET_API_KEY
       : process.env.ICR_MUMBAI_API_KEY;
 
   if (!api_key || !ICR_API_URLS[validatedNetwork]) {

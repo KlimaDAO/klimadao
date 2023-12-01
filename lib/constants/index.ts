@@ -313,9 +313,9 @@ export const verra = {
 export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
-// polygon: "https://api.carbonregistry.com",
+
 export const ICR_API_URLS = {
-  polygon: "https://gaia-api-dev.mojoflower.io/v0",
+  polygon: "https://api.carbonregistry.com/v0",
   mumbai: "https://gaia-api-dev.mojoflower.io/v0",
 };
 
