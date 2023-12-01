@@ -202,4 +202,6 @@ export type DetailedProject = {
    * @type string
    */
   vintage: string;
+  serialization?: string | null;
+  tokenId?: string | null;
 };

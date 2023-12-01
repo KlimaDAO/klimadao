@@ -193,6 +193,10 @@ export type GetProjectsQueryResponse = {
         caption: string;
       }[]
     | null;
+  /**
+   * @type string | undefined
+   */
+  serialization?: string;
 }[];
 
 export type GetProjectsQueryParams = {

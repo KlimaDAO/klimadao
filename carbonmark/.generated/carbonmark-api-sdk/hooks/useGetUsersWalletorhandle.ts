@@ -52,12 +52,8 @@ export function useGetUsersWalletorhandle<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-  
-  let url = shouldFetch ? `/users/${walletOrHandle}` : null;
-  if (params?.network === "mumbai") {
-    url += `?network=${params.network}`;
-  }
 
+  const url = shouldFetch ? `/users/${walletOrHandle}` : null;
   const query = useSWR<TData, TError, string | null>(url, {
     ...getUsersWalletorhandleQueryOptions<TData, TError>(
       walletOrHandle,
