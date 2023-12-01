@@ -28,10 +28,9 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     const { id } = request.params;
+    const network = request.query.network ?? "polygon";
 
-    // @todo change back. this is only for testing.
-    // const sdk = gql_sdk(request.query.network);
-    const sdk = gql_sdk("mumbai");
+    const sdk = gql_sdk(network);
 
     const {
       vintage,
@@ -46,11 +45,11 @@ const handler = (fastify: FastifyInstance) =>
 
     switch (registry) {
       case REGISTRIES["ICR"].id: {
-        const { ICR_API_URL } = ICR_API(request.query.network);
+        const { ICR_API_URL } = ICR_API(network);
         fetchCarbonProjectMethod = ICR_API_URL;
         fetchCarbonProjectArgs = {
           serialization: id,
-          network: request.query.network || "polygon",
+          network: network,
         };
         icrSerialization = id;
         break;
@@ -60,7 +59,7 @@ const handler = (fastify: FastifyInstance) =>
         fetchCarbonProjectArgs = {
           registry,
           registryProjectId,
-          network: request.query.network || "polygon",
+          network: network,
         };
         break;
     }
