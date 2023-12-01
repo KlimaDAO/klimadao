@@ -1,7 +1,7 @@
 import { Contract, providers, utils } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
-import { urls } from "../../../../lib/constants";
+import { URLS } from "src/app.constants";
 import ERC20 from "../../abis/ERC20.json";
 import { NetworkParam } from "../../models/NetworkParam.model";
 import { Holding } from "../../types/assets.types";
@@ -19,7 +19,7 @@ const formatHolding = (h: Holding): Holding => {
 const fetchTestnetHoldings = async (params: {
   address: string;
 }): Promise<Holding[]> => {
-  const provider = new providers.JsonRpcProvider(urls.polygonTestnetRpc);
+  const provider = new providers.JsonRpcProvider(URLS.polygonTestnetRpc);
   const sdk = gql_sdk("mumbai");
   // we hardcode known testnet tokens here
   const TOKEN_INFO = [

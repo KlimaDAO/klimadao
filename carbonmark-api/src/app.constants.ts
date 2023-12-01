@@ -77,3 +77,26 @@ export const ICR_CONFIG = {
     apiKey: process.env.ICR_MUMBAI_API_KEY,
   },
 };
+
+export const URLS = {
+  polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
+};
+
+export const REGISTRIES = {
+  Verra: {
+    id: "VCS",
+    title: "Verra",
+    url: "https://registry.verra.org",
+    api: "https://registry.verra.org/uiapi",
+  },
+  GoldStandard: {
+    id: "GS",
+    title: "Gold Standard",
+    url: "https://registry.goldstandard.org",
+  },
+  ICR: {
+    id: "ICR",
+    title: "International Carbon Registry",
+    url: "https://www.carbonregistry.com",
+  },
+};
