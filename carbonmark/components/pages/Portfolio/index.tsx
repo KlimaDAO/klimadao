@@ -111,9 +111,7 @@ export const Portfolio: NextPage = () => {
             </Col>
 
             <Col>
-              {carbonmarkUser && (
-                <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />
-              )}
+              <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />
             </Col>
           </TwoColLayout>
         </div>
