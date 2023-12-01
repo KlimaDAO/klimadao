@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-01 16:47+0000\n"
+"POT-Creation-Date: 2023-12-01 19:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -355,12 +355,12 @@ msgstr "No se ha podido calcular el Coste Total"
 msgid "Country"
 msgstr "País"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:93
+#: components/pages/Retire/FromPortfolio/index.tsx:94
 msgid "Create Carbonmark Profile"
 msgstr "Crear perfil Carbonmark"
 
-#: components/pages/Users/SellerConnected/index.tsx:149
-#: components/pages/Users/SellerConnected/index.tsx:173
+#: components/pages/Users/SellerConnected/index.tsx:147
+#: components/pages/Users/SellerConnected/index.tsx:171
 msgid "Create New Listing"
 msgstr "Crear nuevo listado"
 
@@ -380,7 +380,7 @@ msgstr "Crear un perfil y conectarse"
 msgid "Create a seller profile"
 msgstr "Crear un perfil de vendedor"
 
-#: components/pages/Users/index.tsx:37
+#: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Cree y edite anuncios, y siga su actividad con su perfil Carbonmark."
 
@@ -426,7 +426,7 @@ msgid "Data for this project and vintage"
 msgstr "Datos para este proyecto y vintage"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:103
+#: components/pages/Users/SellerUnconnected/index.tsx:90
 msgid "Data for this seller"
 msgstr "Datos de este vendedor"
 
@@ -631,13 +631,13 @@ msgstr "Ponga a la venta sus proyectos en unos pocos clicks"
 msgid "Listed tonnes:"
 msgstr "Toneladas listadas:"
 
-#: components/pages/Users/SellerConnected/index.tsx:134
-#: components/pages/Users/SellerUnconnected/index.tsx:58
+#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "Listados"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:57
-#: components/pages/Retire/FromPortfolio/index.tsx:59
+#: components/pages/Retire/FromPortfolio/index.tsx:60
 msgid "Loading your assets"
 msgstr "Cargando sus activos"
 
@@ -712,8 +712,8 @@ msgstr "Siguiente"
 msgid "No Activity to show."
 msgstr "No hay actividad para mostrar."
 
-#: components/pages/Users/SellerConnected/index.tsx:197
-#: components/pages/Users/SellerUnconnected/index.tsx:94
+#: components/pages/Users/SellerConnected/index.tsx:195
+#: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "No hay listados activos."
 
@@ -881,7 +881,7 @@ msgstr "Perfil"
 msgid "Profile picture"
 msgstr "Foto de perfil"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:78
+#: components/pages/Retire/FromPortfolio/index.tsx:79
 msgid "Purchase Carbon"
 msgstr "Comprar Carbono"
 
@@ -1413,7 +1413,7 @@ msgstr "Actualizar listado"
 msgid "Updated:"
 msgstr "Actualizado:"
 
-#: components/pages/Users/SellerConnected/index.tsx:191
+#: components/pages/Users/SellerConnected/index.tsx:189
 msgid "Updating your data..."
 msgstr "Actualizando tus datos..."
 
@@ -1509,8 +1509,8 @@ msgstr "Vintage mas viejo"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "Aún estamos procesando su compra. Vuelve a visitar esta página dentro de unos minutos para ver tu recibo."
 
-#: components/pages/Retire/FromPortfolio/index.tsx:73
-#: components/pages/Retire/FromPortfolio/index.tsx:88
+#: components/pages/Retire/FromPortfolio/index.tsx:74
+#: components/pages/Retire/FromPortfolio/index.tsx:89
 msgid "We couldn't find any assets in your portfolio."
 msgstr "No pudimos encontrar ningún activo en su portafolio."
 
@@ -1610,7 +1610,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Su compra aún no se ha completado. Para finalizar su compra, compruebe que toda la información es correcta y haga clic en \"Enviar\"."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:216
+#: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
 msgstr "Tus datos de vendedor"
 
@@ -1788,7 +1788,7 @@ msgstr "Crear listado"
 msgid "profile.edit_modal.submit"
 msgstr "Guardar cambios"
 
-#: components/pages/Users/SellerConnected/index.tsx:223
+#: components/pages/Users/SellerConnected/index.tsx:219
 msgid "profile.edit_profile.title"
 msgstr "Tu perfil"
 
@@ -2100,7 +2100,7 @@ msgstr "Total de toneladas de carbono retiradas"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total de transacciones de retirada"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:81
+#: components/pages/Users/SellerUnconnected/index.tsx:71
 msgid "seller.listing.buy"
 msgstr "Comprar"
 
@@ -2109,7 +2109,7 @@ msgid "seller.listing.quantity_available"
 msgstr "Cantidad disponible:"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:71
+#: components/pages/Users/SellerUnconnected/index.tsx:61
 msgid "shared.connect_to_buy"
 msgstr "Iniciar sesión / Conectar para comprar"
 
@@ -2291,7 +2291,7 @@ msgstr "{0} máximo para tarjetas de crédito"
 msgid "{0} tonnes"
 msgstr "{0} toneladas"
 
-#: components/pages/Users/index.tsx:31
+#: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Perfil | Carbonmark"
 
