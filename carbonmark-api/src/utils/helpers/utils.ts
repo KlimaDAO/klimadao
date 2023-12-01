@@ -9,6 +9,7 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
+import { fetchIcrData } from "../../../src/routes/projects/get.utils";
 import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
@@ -22,7 +23,8 @@ const ENV = (process.env.VERCEL_ENV ?? "development") as
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
 export async function getAllVintages(
   sdk: GQL_SDK,
-  fastify: FastifyInstance
+  fastify: FastifyInstance,
+  network: "polygon" | "mumbai"
 ): Promise<string[]> {
   const uniqueValues = new Set<string>();
   const cacheKey = `vintages`;
@@ -32,11 +34,15 @@ export async function getAllVintages(
     return cachedResult;
   }
 
-  const [{ projects }, { carbonProjects: digitalCarbonProjects }] =
-    await Promise.all([
-      sdk.marketplace.getVintages(),
-      sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
-    ]);
+  const [
+    { projects },
+    { carbonProjects: digitalCarbonProjects },
+    { IcrVintages },
+  ] = await Promise.all([
+    sdk.marketplace.getVintages(),
+    sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
+    fetchIcrData(network),
+  ]);
 
   /** Handle invalid responses */
   if (!isArray(projects) || !isArray(digitalCarbonProjects)) {
@@ -50,6 +56,7 @@ export async function getAllVintages(
         uniqueValues.add(credit.vintage.toString());
       }
     });
+    IcrVintages.forEach((item: string) => uniqueValues.add(item));
   });
 
   const result = Array.from(uniqueValues).sort().filter(notEmptyOrNil);
@@ -116,7 +123,11 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
   return result;
 }
 
-export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
+export async function getAllCountries(
+  sdk: GQL_SDK,
+  fastify: FastifyInstance,
+  network: "polygon" | "mumbai"
+) {
   const cacheKey = `countries`;
 
   const cachedResult = await fastify.lcache?.get<Country[]>(cacheKey)?.payload;
@@ -125,11 +136,15 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
     return cachedResult;
   }
 
-  const [{ countries }, { carbonProjects: digitalCarbonProjects }] =
-    await Promise.all([
-      sdk.marketplace.getCountries(),
-      sdk.digital_carbon.getDigitalCarbonProjectsCountries(),
-    ]);
+  const [
+    { countries },
+    { carbonProjects: digitalCarbonProjects },
+    { countryNames },
+  ] = await Promise.all([
+    sdk.marketplace.getCountries(),
+    sdk.digital_carbon.getDigitalCarbonProjectsCountries(),
+    fetchIcrData(network),
+  ]);
 
   /** Handle invalid responses */
   if (!isArray(countries) || !isArray(digitalCarbonProjects)) {
@@ -147,6 +162,7 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   const result: Country[] = fn([
     countries?.map(extract("id")),
     digitalCarbonProjects.map(extract("country")),
+    countryNames,
   ]);
 
   await fastify.lcache?.set(cacheKey, { payload: result });
