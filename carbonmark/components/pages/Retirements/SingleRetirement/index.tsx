@@ -71,24 +71,20 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       <GridContainer>
         <Navigation activePage="Home" />
         <Section className={styles.section}>
-          <div className={styles.gridLayout}>
-            <Col className="column">
-              <div className={styles.pending}>
-                <div className="spinnerTitle">
-                  <Spinner />
-                  <Text>
-                    <Trans>Processing retirement...</Trans>
-                  </Text>
-                </div>
-                <Text t="button" align="center">
-                  <Trans>
-                    Your retirement was successful, but the blockchain data is
-                    still processing. This usually takes a few seconds, but
-                    might take longer if the network is congested.
-                  </Trans>
-                </Text>
-              </div>
-            </Col>
+          <div className={styles.pending}>
+            <div className="spinnerTitle">
+              <Spinner />
+              <Text t="h5">
+                <Trans>Processing retirement...</Trans>
+              </Text>
+            </div>
+            <Text align="center">
+              <Trans>
+                Your transaction was successful, but the network is taking
+                longer than expected to process the data. Your retirement
+                details should appear here in just a few seconds!
+              </Trans>
+            </Text>
           </div>
         </Section>
       </GridContainer>
