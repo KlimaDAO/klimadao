@@ -3,7 +3,7 @@ import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 import { urls } from "@klimadao/lib/constants";
-import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
+import { KlimaRetire as IKlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   getRetirementDetails,
   queryKlimaRetireByIndex,
@@ -22,7 +22,14 @@ interface Params extends ParsedUrlQuery {
   beneficiary: string;
   retirement_index: string;
 }
-
+export type KlimaRetire = IKlimaRetire & { pending?: boolean };
+export interface PendingKlimaRetire {
+  beneficiaryAddress: string;
+  beneficiary: string;
+  retirementMessage: string;
+  amount: string;
+  pending: true;
+}
 export interface SingleRetirementPageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
