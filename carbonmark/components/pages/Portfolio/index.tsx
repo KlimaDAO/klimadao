@@ -10,6 +10,7 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Spinner } from "components/shared/Spinner";
 import { activityIsAdded, getUserUntil } from "lib/api";
 import { notNil } from "lib/utils/functional.utils";
+import { isNil } from "lodash";
 import { NextPage } from "next";
 import { useState } from "react";
 import { CarbonmarkAssets } from "./CarbonmarkAssets";
@@ -41,7 +42,7 @@ export const Portfolio: NextPage = () => {
   const isConnectedUser = isConnected && address;
   const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
   const isUnregistered =
-    isConnectedUser && !isLoading && carbonmarkUser === null;
+    isConnectedUser && isNil(carbonmarkUser);
 
   const onUpdateUser = async () => {
     if (!carbonmarkUser) return;

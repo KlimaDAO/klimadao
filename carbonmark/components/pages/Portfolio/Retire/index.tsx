@@ -12,6 +12,7 @@ import type {
   PcbProject,
 } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
+import { isNil } from "lodash";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -47,7 +48,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
 
   const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
   const isUnregistered =
-    isConnectedUser && !isLoading && carbonmarkUser === null;
+    isConnectedUser && isNil(carbonmarkUser);
 
   const router = useRouter();
 
