@@ -11,6 +11,7 @@ import { MethodologyModel } from "../models/Methodology.model";
 import { NetworkParamModel } from "../models/NetworkParam.model";
 import { ProjectModel } from "../models/Project.model";
 import { PurchaseModel } from "../models/Purchase.model";
+import { RecordModel } from "../models/Record.model";
 import { TokenPriceModel } from "../models/TokenPrice.model";
 import { UserModel } from "../models/User.model";
 import { ImageModel } from "../models/Utility.model";
@@ -66,6 +67,7 @@ For a developer guides and example implementations, or to learn more about Carbo
       Asset: AssetModel,
       TokenPrice: TokenPriceModel,
       Image: ImageModel,
+      Record: RecordModel,
     },
   },
   externalDocs: {
