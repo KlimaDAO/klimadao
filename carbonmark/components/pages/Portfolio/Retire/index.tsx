@@ -1,12 +1,11 @@
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
-import { t, Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
-import { Text } from "components/Text";
 import { createCompositeAsset } from "lib/actions";
 import type {
   AssetForRetirement,
@@ -14,10 +13,10 @@ import type {
 } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
 import { NextPage } from "next";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RetireForm } from "./RetireForm";
+import { UnregisteredMessage } from "./UnregisteredMessage";
 import * as styles from "./styles";
 
 export type RetirePageProps = {
@@ -110,21 +109,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
               provider={provider}
             />
           )}
-          {isUnregistered && (
-            <>
-              <Text>
-                <Trans>
-                  Sorry. We could not find any data on Carbonmark for your user.
-                </Trans>
-              </Text>
-              <Text>
-                <Trans>
-                  Have you already created your Carbonmark{" "}
-                  <Link href={`/users/${address}`}>Profile</Link>?
-                </Trans>
-              </Text>
-            </>
-          )}
+          {isUnregistered && <UnregisteredMessage />}
         </div>
       </Layout>
     </>

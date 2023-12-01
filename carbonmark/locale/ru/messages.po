@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-29 16:00+0000\n"
+"POT-Creation-Date: 2023-12-01 00:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -546,11 +546,6 @@ msgstr "Никнейм не должен быть адресом"
 msgid "Handle should not contain any special characters"
 msgstr "Никнейм не должен содержать никаких специальных символов"
 
-#: components/pages/Portfolio/Retire/index.tsx:121
-#: components/pages/Portfolio/index.tsx:122
-msgid "Have you already created your Carbonmark <0>Profile</0>?"
-msgstr "Вы уже создали свой профиль Carbonmark <0>Profile</0>?"
-
 #: components/Footer/index.tsx:32
 #: components/pages/Home/index.tsx:544
 #: components/shared/Navigation/index.tsx:87
@@ -1062,8 +1057,8 @@ msgstr "Выбито сейчас"
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "Вывести сейчас или приобрести углерод, чтобы вывести позже — вы сами решаете, что делать, когда получаете право собственности на свои углеродные активы."
 
+#: components/pages/Portfolio/Retire/index.tsx:92
 #: components/pages/Portfolio/Retire/index.tsx:93
-#: components/pages/Portfolio/Retire/index.tsx:94
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -1152,11 +1147,6 @@ msgstr "Извините, что-то пошло не так."
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
 msgid "Sorry, this handle already exists"
 msgstr "Извините, этот никнейм уже существует"
-
-#: components/pages/Portfolio/Retire/index.tsx:116
-#: components/pages/Portfolio/index.tsx:116
-msgid "Sorry. We could not find any data on Carbonmark for your user."
-msgstr "Извините. Мы не смогли найти никаких данных по Carbonmark для вашего пользователя."
 
 #: components/Stats/index.tsx:23
 msgid "Stats"
@@ -1276,6 +1266,10 @@ msgstr "Не удалось загрузить общую стоимость."
 msgid "This app only works on Polygon Mainnet."
 msgstr "Это приложение работает только в Polygon Mainnet."
 
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
+msgid "This is your portfolio, here you will find any of the supported carbon assets you own. Assets shown here can be retired or listed for sale."
+msgstr ""
+
 #: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "Срок действия этого объявления истек, и оно скрыто от просмотра. Пожалуйста, опубликуйте объявление повторно или удалите его."
@@ -1303,6 +1297,10 @@ msgstr "Для завершения операции с кредитной ка�
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:60
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
 msgstr "Чтобы завершить выбивание, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:24
+msgid "To get started, be sure to complete your <0>profile</0> and then head to the <1>marketplace</1> to purchase carbon assets."
+msgstr ""
 
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:70
 msgid "Toggle Select Project"
@@ -1453,7 +1451,7 @@ msgstr "Посмотреть Результаты"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Просмотрите полный обзор цифрового углерода, которым вы владеете, в своем портфолио."
 
-#: components/pages/Portfolio/Retire/index.tsx:95
+#: components/pages/Portfolio/Retire/index.tsx:94
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "Просмотрите полный обзор цифрового углерода, которым вы владеете в Retire."
 
@@ -1570,6 +1568,10 @@ msgstr "Просмотреть успешную транзакцию можно 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:110
 msgid "You chose to reject the transaction."
 msgstr "Вы решили отклонить транзакцию."
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:18
+msgid "You do not currently have any supported carbon assets available for listing."
+msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "You either need to provide a beneficiary address or login with your browser wallet."

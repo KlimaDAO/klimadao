@@ -42,6 +42,7 @@ const handler = (fastify: FastifyInstance) =>
       omit(request.query, "search", "expiresAfter"),
       split(",")
     );
+
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify);
 
@@ -73,10 +74,18 @@ const handler = (fastify: FastifyInstance) =>
 
     /** Assign valid pool projects to map */
     poolProjectsData.carbonOffsets.forEach((project) => {
-      if (
-        !isValidPoolProject(project) ||
-        !CreditId.isValidProjectId(project.projectID)
-      ) {
+      if (!isValidPoolProject(project)) {
+        console.debug(
+          `Project with id ${JSON.stringify(
+            project
+          )} is considered invalid due to a balance of zero across all tokens and has been filtered`
+        );
+        return;
+      }
+      if (!CreditId.isValidProjectId(project.projectID)) {
+        console.debug(
+          `Project with id ${project.projectID} is considered to have an invalid id and has been filtered`
+        );
         return;
       }
       const [standard, registryProjectId] = project.projectID.split("-");

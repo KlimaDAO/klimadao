@@ -1,6 +1,5 @@
-import c3tIcon from "@klimadao/app/public/icons/C3T.png";
-import mco2Icon from "@klimadao/app/public/icons/MCO2.png";
-import tco2Icon from "@klimadao/app/public/icons/TCO2.png";
+import { C3TIcon, MCO2Icon, TCO2Icon } from "@klimadao/lib/resources";
+
 import { t } from "@lingui/macro";
 
 import OverviewCardIcon from "components/Graphics/OverviewCardIcon";
@@ -16,9 +15,9 @@ export function getProtocolFullName(protocol: Protocol) {
 
 /** Returns an Icon representing the given protocol */
 export function getProtocolIcon(protocol: Protocol) {
-  let icon: typeof c3tIcon = c3tIcon;
-  if (protocol == "tco2") icon = tco2Icon;
-  if (protocol == "mco2") icon = mco2Icon;
+  let icon: typeof C3TIcon = C3TIcon;
+  if (protocol == "tco2") icon = TCO2Icon;
+  if (protocol == "mco2") icon = MCO2Icon;
 
   return <OverviewCardIcon icon={icon} alt={protocol} />;
 }
