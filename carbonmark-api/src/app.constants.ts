@@ -67,17 +67,6 @@ export const TOKEN_ADDRESSES = {
   },
 };
 
-export const ICR_CONFIG = {
-  polygon: {
-    url: "https://api.carbonregistry.com/v0",
-    apiKey: process.env.ICR_MAINNET_API_KEY,
-  },
-  mumbai: {
-    url: "https://gaia-api-dev.mojoflower.io/v0",
-    apiKey: process.env.ICR_MUMBAI_API_KEY,
-  },
-};
-
 export const URLS = {
   polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
 };

@@ -1,8 +1,8 @@
 import { Contract, providers, utils } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
-import { URLS } from "src/app.constants";
 import ERC20 from "../../abis/ERC20.json";
+import { URLS } from "../../app.constants";
 import { NetworkParam } from "../../models/NetworkParam.model";
 import { Holding } from "../../types/assets.types";
 import { gql_sdk } from "../../utils/gqlSdk";
