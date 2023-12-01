@@ -45,7 +45,10 @@ Some important environment variables are stored in vercel and need to be downloa
 vercel env pull --environment=development carbonmark-api/.env.local
 ```
 
+
+
 ### Install dependencies
+
 
 ```sh
 # run from the repository root
@@ -90,8 +93,7 @@ Updates generated types and mocks from the relevant subgraphs used by the API
 
 To release a new version of the API increment the version number in `carbonmark-api/package.json` and create a pull request with that change. (Note that the format of the version should follow [SemVer](https://semver.org/) conventions)
 
-Once the pull request is merged with staging the `release_carbonmark_api` github action will:
-
+Once the pull request is merged with staging the `release_carbonmark_api` github action will: 
 1. Build and deploy that version of the API under the `vX.X.X.api.carbonmark.com` domain.
 2. Create a tag of the format `carbonmark-api/vX.X.X` at the merged commit.
 3. Create a Github [release](https://github.com/KlimaDAO/klimadao/releases) with the title `carbonmark-api-vX.X.X` containing a change-log of all the commited changes within the `carbonmark-api` directory since the last release
@@ -99,7 +101,6 @@ Once the pull request is merged with staging the `release_carbonmark_api` github
 Alternatively creating a new git tag of the format `carbonmark-api/vX.X.X` will also trigger a release but **make sure to update the package.json version** simultaneously when releasing this way. **This approach is not recommended**
 
 ### Domains
-
 The root `api.carbonmark.com` domain is always running the latest version of the code on `staging`.
 
 All previously released versions can be accessed at `vX.X.X.api.carbonmark.com`
@@ -118,13 +119,13 @@ These are generated from an OpenAPI JSON spec that is auto-generated from our Fa
 Fastify schemas are co-located with the respective route handlers, except for the root OpenAPI config, which is located in [src/plugins/open-api.ts](./src/plugins/open-api.ts). For more info see the @fastify/swagger plugin docs.
 
 ## Type Generation
-
 The API leverages several [Graph](https://thegraph.com/) gql interfaces to source the data it needs for each of it's endpoints. These GraphQL servers contain their own domain objects and so to ensure type safety our interactions with them are handled through generated typescript types in `.generated` and via the `gql_sdk`.
 
-Types should not need to be re-generated unless the subgraph that is targetted has changed (or a new one has been added).
+Types should not need to be re-generated unless the subgraph that is targetted has changed (or a new one has been added). 
 
 To re-generate:
-
-1. Update the URLs defined in `app.constants.ts`
+1. Update the URLs defined in `app.constants.ts` 
 2. Run `npm run generate:types` from within the `/carbonmark-api` directory
 3. Create a new release following the process [defined above](#creating-a-release)
+
+
