@@ -30,7 +30,7 @@ const handler = () =>
 export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "GET",
-    url: "/records/:id",
+    url: "/records/:id/provenance",
     handler: handler(),
     schema,
   });
