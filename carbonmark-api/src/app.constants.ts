@@ -66,3 +66,14 @@ export const TOKEN_ADDRESSES = {
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   },
 };
+
+export const ICR_CONFIG = {
+  polygon: {
+    url: "https://api.carbonregistry.com/v0",
+    apiKey: process.env.ICR_MAINNET_API_KEY,
+  },
+  mumbai: {
+    url: "https://gaia-api-dev.mojoflower.io/v0",
+    apiKey: process.env.ICR_MUMBAI_API_KEY,
+  },
+};
