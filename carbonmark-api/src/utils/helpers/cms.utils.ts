@@ -32,7 +32,7 @@ type SdkArgs = {
 
 type IcrArgs = {
   serialization: string;
-  network: string;
+  network: "polygon" | "mumbai";
 };
 
 export type FetchCarbonProjectMethod = GQL_SDK | string;
