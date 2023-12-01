@@ -5,7 +5,7 @@ import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
-import { createProjectLink, toProjectData } from "lib/createUrls";
+import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { asCategoryName, getCategoryFromProject } from "lib/projectGetter";
 import { Project } from "lib/types/carbonmark.types";
@@ -31,7 +31,7 @@ export const ProjectCard: FC<Props> = (props) => {
   const price = props.price || props.project.price;
   return (
     <Link
-      href={props.url || createProjectLink(toProjectData(props.project))}
+      href={props.url || createProjectLink(props.project)}
       passHref
       className={cx(styles.card, props.className)}
     >
