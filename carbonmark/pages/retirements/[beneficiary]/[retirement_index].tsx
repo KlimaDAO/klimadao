@@ -1,7 +1,10 @@
 import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
-import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
+import {
+  getRetirementDetails,
+  queryKlimaRetireByIndex,
+} from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
@@ -65,15 +68,42 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    let retirement: KlimaRetire | null;
     const [subgraphData, translation] = await Promise.all([
       queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
       loadTranslation(locale),
     ]);
+    let retirement = subgraphData;
+    let isPending = false;
 
-    if (subgraphData) {
-      retirement = subgraphData;
-    } else {
+    if (!retirement) {
+      const retirementDetails = await getRetirementDetails({
+        beneficiaryAddress,
+        index: retirementIndex,
+      });
+      isPending = !!retirementDetails; // if the details exist on-chain, we know the subgraph is slow to index
+    }
+
+    if (isPending) {
+      // retry queryKlimaRetireByIndex every half second for a maximum of 5 seconds (10 retries)
+      const timeoutMs = 500;
+      const maxRetries = 10;
+      let retries = 0;
+      while (retries < maxRetries) {
+        await new Promise((resolve) => setTimeout(resolve, timeoutMs));
+        const data = await queryKlimaRetireByIndex(
+          beneficiaryAddress,
+          retirementIndex
+        );
+        if (data) {
+          isPending = false;
+          retirement = data;
+          break;
+        }
+        retries++;
+      }
+    }
+
+    if (!retirement && !isPending) {
       return {
         notFound: true,
         revalidate: 1,
@@ -85,7 +115,7 @@ export const getStaticProps: GetStaticProps<
     }
 
     let project;
-    if (retirement.offset.projectID && retirement.offset.vintageYear) {
+    if (retirement?.offset.projectID && retirement?.offset.vintageYear) {
       project = await getProjectsId(
         `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
       );
@@ -102,7 +132,7 @@ export const getStaticProps: GetStaticProps<
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: retirement.pending ? 4 : 86400,
+      revalidate: isPending ? 1 : 86400,
     };
   } catch (e) {
     console.error("Failed to generate", e);
