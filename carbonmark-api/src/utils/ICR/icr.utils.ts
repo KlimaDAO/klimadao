@@ -9,7 +9,7 @@ export const convertIcrCountryCodeToName = (code: string) => {
 };
 
 export const fetchAllICRProjects = async (
-  network: string
+  network: "polygon" | "mumbai"
 ): Promise<IcrProject[]> => {
   const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
 
