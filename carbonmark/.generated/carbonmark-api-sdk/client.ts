@@ -21,10 +21,7 @@ type ParamsObject = Record<string, string | string[]>;
  * Transforms a request params object into a query string
  * Handles Arrays
  */
-function serializeQuery<TVariables = unknown>(
-  request: RequestConfig<TVariables>
-): string {
-  const params = request.params as ParamsObject;
+export function serializeParams(params: ParamsObject): string {
   if (params && Object.keys(params).length > 0) {
     const query: Array<string> = [];
     Object.keys(params).forEach((key) => {
@@ -35,7 +32,7 @@ function serializeQuery<TVariables = unknown>(
         });
       else if (value) return query.push(`${key}=${encodeURIComponent(value)}`);
     });
-    return `?${query.join("&")}`;
+    if (query.length) return `?${query.join("&")}`;
   }
   return "";
 }
@@ -47,8 +44,8 @@ export const fetchClient = async <
 >(
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
-  const url = `${urls.api.base}${request.url}${serializeQuery(request)}`;
-  console.debug(url);
+  const params = request.params as ParamsObject;
+  const url = `${urls.api.base}${request.url}${serializeParams(params)}`;
   const response = await fetch(url, {
     method: request.method,
     body: JSON.stringify(request.data),
