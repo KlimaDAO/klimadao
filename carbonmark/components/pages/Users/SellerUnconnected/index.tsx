@@ -36,13 +36,11 @@ export const SellerUnconnected: FC<Props> = (props) => {
         <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
-        {props.user && (
-          <ProfileHeader
-            carbonmarkUser={props.user}
-            userName={props.userName}
-            userAddress={props.userAddress}
-          />
-        )}
+        <ProfileHeader
+          carbonmarkUser={props.user}
+          userName={props.userName}
+          userAddress={props.userAddress}
+        />
       </div>
       <div className={styles.listings}>
         <div className={styles.listingsHeader}>
@@ -89,9 +87,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
           )}
         </Col>
         <Col>
-          {props.user && (
-            <ProfileSidebar user={props.user} title={t`Data for this seller`} />
-          )}
+          <ProfileSidebar user={props.user} title={t`Data for this seller`} />
         </Col>
       </TwoColLayout>
     </div>
