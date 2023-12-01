@@ -1,11 +1,11 @@
 import { cx } from "@emotion/css";
 import { GridContainer, Section } from "@klimadao/lib/components";
+import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   concatAddress,
   formatTonnes,
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
-  safeSub,
 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { Footer } from "components/Footer";
@@ -15,10 +15,9 @@ import { Col } from "components/TwoColLayout";
 import { Navigation } from "components/shared/Navigation";
 import { Spinner } from "components/shared/Spinner";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
-import { CategoryName } from "lib/types/carbonmark.types";
+import { CategoryName, DetailedProject } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
 import { useEffect } from "react";
 import { RetirementFooter } from "../Footer";
 import { BeneficiaryDetails } from "./BeneficiaryDetails";
@@ -30,11 +29,71 @@ import { ShareDetails } from "./ShareDetails";
 import { TransactionDetails } from "./TransactionDetails";
 import * as styles from "./styles";
 
+export interface SingleRetirementPageProps {
+  /** The resolved 0x address */
+  beneficiaryAddress: string;
+  retirement: KlimaRetire | null;
+  retirementIndex: string;
+  nameserviceDomain: string | null;
+  /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
+  canonicalUrl?: string;
+  project?: DetailedProject | null;
+}
+
 export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   retirement, // destructure so ts can properly narrow retirement.pending types
   ...props
 }) => {
   const { locale } = useRouter();
+
+  useEffect(() => {
+    if (retirement) return;
+    const rescursivePoller = async () => {
+      // wait 1 seconds
+      await new Promise((res) => setTimeout(res, 1000));
+      // check if its available yet
+      const result = await queryKlimaRetireByIndex(
+        props.beneficiaryAddress,
+        /** Retirement indexes start from 0, url starts from 1 */
+        Number(props.retirementIndex) - 1
+      );
+      if (result) {
+        return window.location.reload();
+      }
+      // otherwise wait 1 more second and try again
+      await rescursivePoller();
+    };
+    rescursivePoller();
+  }, []);
+
+  if (!retirement) {
+    return (
+      <GridContainer>
+        <Navigation activePage="Home" />
+        <Section className={styles.section}>
+          <div className={styles.gridLayout}>
+            <Col className="column">
+              <div className={styles.pending}>
+                <div className="spinnerTitle">
+                  <Spinner />
+                  <Text>
+                    <Trans>Processing retirement...</Trans>
+                  </Text>
+                </div>
+                <Text t="button" align="center">
+                  <Trans>
+                    Your retirement was successful, but the blockchain data is
+                    still processing. This usually takes a few seconds, but
+                    might take longer if the network is congested.
+                  </Trans>
+                </Text>
+              </div>
+            </Col>
+          </div>
+        </Section>
+      </GridContainer>
+    );
+  }
 
   const formattedAmount = formatTonnes({
     amount: retirement.amount,
@@ -46,35 +105,12 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
     props.nameserviceDomain ||
     concatAddress(props.beneficiaryAddress);
 
-  useEffect(() => {
-    if (!retirement.pending) return;
-    const rescursivePoller = async () => {
-      // wait 5 seconds
-      await new Promise((res) => setTimeout(res, 5000));
-      // check if its available yet
-      const result = await queryKlimaRetireByIndex(
-        props.beneficiaryAddress,
-        Number(safeSub(props.retirementIndex, "1")) // totals does not include index 0
-      );
-      if (result) {
-        return window.location.reload();
-      }
-      // otherwise wait 5 more seconds and try again
-      await rescursivePoller();
-    };
-    rescursivePoller();
-  }, []);
-
-  const poolTokenName =
-    !retirement.pending && getRetirementTokenByAddress(retirement.pool); // can be null
-  const projectTokenName = retirement.pending
-    ? null
-    : retirement.offset.bridge === "Toucan"
-    ? "tco2"
-    : "c3t";
+  const poolTokenName = getRetirementTokenByAddress(retirement.pool); // can be null
+  const projectTokenName =
+    retirement.offset.bridge === "Toucan" ? "tco2" : "c3t";
   const isMossOffset = retirement?.offset?.bridge === "Moss";
   const carbonTokenName = poolTokenName || projectTokenName;
-  const tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
+  const tokenData = carbonTokenInfoMap[carbonTokenName];
 
   return (
     <GridContainer>
@@ -97,61 +133,30 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       <Section className={styles.section}>
         <div className={styles.gridLayout}>
           <Col className="column">
-            {retirement.pending && (
-              <>
-                <div className={styles.pending}>
-                  <div className="spinnerTitle">
-                    <Spinner />
-                    <Text>
-                      <Trans>Processing data...</Trans>
-                    </Text>
-                  </div>
-                  <Text t="button" align="center">
-                    <Trans>
-                      We haven't finished processing the blockchain data for
-                      this retirement. This usually takes a few seconds, but
-                      might take longer if the network is congested.
-                    </Trans>
-                  </Text>
-                </div>
-                <RetirementHeader formattedAmount={formattedAmount} />
-                <BeneficiaryDetails
-                  beneficiary={retirement.beneficiary}
-                  beneficiaryAddress={props.beneficiaryAddress}
-                />
-                {retirement.retirementMessage && (
-                  <RetirementMessage message={retirement.retirementMessage} />
-                )}
-              </>
+            <RetirementDate timestamp={retirement.timestamp} />
+            <RetirementHeader formattedAmount={formattedAmount} />
+            {retirement.beneficiary && props.beneficiaryAddress && (
+              <BeneficiaryDetails
+                beneficiary={retirement.beneficiary}
+                beneficiaryAddress={props.beneficiaryAddress}
+              />
             )}
-            {!retirement.pending && tokenData && (
-              <>
-                <RetirementDate timestamp={retirement.timestamp} />
-                <RetirementHeader formattedAmount={formattedAmount} />
-                {retirement.beneficiary && props.beneficiaryAddress && (
-                  <BeneficiaryDetails
-                    beneficiary={retirement.beneficiary}
-                    beneficiaryAddress={props.beneficiaryAddress}
-                  />
-                )}
-                {retirement.retirementMessage && (
-                  <RetirementMessage message={retirement.retirementMessage} />
-                )}
-                <ShareDetails
-                  retiree={retiree}
-                  formattedAmount={formattedAmount}
-                  beneficiaryName={retirement.beneficiary}
-                  retirementIndex={props.retirementIndex}
-                  beneficiaryAddress={props.beneficiaryAddress}
-                />
-                <div className={styles.visibleDesktop}>
-                  <TransactionDetails
-                    tokenData={tokenData}
-                    retirement={retirement}
-                  />
-                </div>
-              </>
+            {retirement.retirementMessage && (
+              <RetirementMessage message={retirement.retirementMessage} />
             )}
+            <ShareDetails
+              retiree={retiree}
+              formattedAmount={formattedAmount}
+              beneficiaryName={retirement.beneficiary}
+              retirementIndex={props.retirementIndex}
+              beneficiaryAddress={props.beneficiaryAddress}
+            />
+            <div className={styles.visibleDesktop}>
+              <TransactionDetails
+                tokenData={tokenData}
+                retirement={retirement}
+              />
+            </div>
           </Col>
           <Col className="column">
             <ProjectDetails
