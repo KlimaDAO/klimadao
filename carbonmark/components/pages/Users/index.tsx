@@ -27,10 +27,12 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <>
       <PageHead
-        title={t`${props.carbonmarkUser?.handle || concatAddress(props.userAddress)
-          } | Profile | Carbonmark`}
-        mediaTitle={`${props.carbonmarkUser?.handle || concatAddress(props.userAddress)
-          }'s Profile on Carbonmark`}
+        title={t`${
+          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+        } | Profile | Carbonmark`}
+        mediaTitle={`${
+          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+        }'s Profile on Carbonmark`}
         metaDescription={t`Create and edit listings, and track your activity with your Carbonmark profile.`}
       />
 
@@ -60,9 +62,8 @@ export const Users: NextPage<PageProps> = (props) => (
       fetcher,
       fallback: {
         // https://swr.vercel.app/docs/with-nextjs#complex-keys
-        [unstable_serialize(
-          `users/${props.userAddress}`
-        )]: props.carbonmarkUser,
+        [unstable_serialize(`users/${props.userAddress}`)]:
+          props.carbonmarkUser,
       },
     }}
   >

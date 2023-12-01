@@ -116,7 +116,6 @@ const resolveHandle = async (params: { handle: string; locale?: string }) => {
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   ctx
 ) => {
-  console.log("WHATU")
   const { params, locale } = ctx;
   if (!params || !params?.user) {
     throw new Error("No matching params found");

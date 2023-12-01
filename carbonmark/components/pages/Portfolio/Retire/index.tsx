@@ -47,8 +47,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   const isConnectedUser = isConnected && address;
 
   const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
-  const isUnregistered =
-    isConnectedUser && isNil(carbonmarkUser);
+  const isUnregistered = isConnectedUser && isNil(carbonmarkUser);
 
   const router = useRouter();
 

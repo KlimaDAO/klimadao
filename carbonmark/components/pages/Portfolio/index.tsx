@@ -41,8 +41,7 @@ export const Portfolio: NextPage = () => {
 
   const isConnectedUser = isConnected && address;
   const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
-  const isUnregistered =
-    isConnectedUser && isNil(carbonmarkUser);
+  const isUnregistered = isConnectedUser && isNil(carbonmarkUser);
 
   const onUpdateUser = async () => {
     if (!carbonmarkUser) return;

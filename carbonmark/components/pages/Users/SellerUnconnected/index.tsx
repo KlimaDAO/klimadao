@@ -90,10 +90,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
         </Col>
         <Col>
           {props.user && (
-            <ProfileSidebar
-              user={props.user}
-              title={t`Data for this seller`}
-            />
+            <ProfileSidebar user={props.user} title={t`Data for this seller`} />
           )}
         </Col>
       </TwoColLayout>

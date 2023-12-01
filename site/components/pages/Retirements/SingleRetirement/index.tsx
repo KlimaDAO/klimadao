@@ -96,8 +96,8 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   const projectTokenName = retirement.pending
     ? null
     : retirement.offset.bridge === "Toucan"
-      ? "tco2"
-      : "c3t";
+    ? "tco2"
+    : "c3t";
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
 
@@ -180,8 +180,9 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                   }
                   text={
                     <Link
-                      href={`/retirements/${props.nameserviceDomain || props.beneficiaryAddress
-                        }`}
+                      href={`/retirements/${
+                        props.nameserviceDomain || props.beneficiaryAddress
+                      }`}
                       className="address"
                     >
                       {props.nameserviceDomain ||
