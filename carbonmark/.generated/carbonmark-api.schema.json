@@ -1460,6 +1460,9 @@
                     },
                     "decimals": {
                       "type": "number"
+                    },
+                    "tokenId": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -1508,6 +1511,9 @@
               },
               "decimals": {
                 "type": "number"
+              },
+              "tokenId": {
+                "type": "string"
               }
             },
             "required": [
@@ -2091,34 +2097,11 @@
         "parameters": [
           {
             "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
+              "$ref": "#/components/schemas/def-1"
             },
             "in": "query",
             "name": "network",
-            "required": false,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+            "required": false
           },
           {
             "schema": {
@@ -2876,34 +2859,11 @@
         "parameters": [
           {
             "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
+              "$ref": "#/components/schemas/def-1"
             },
             "in": "query",
             "name": "network",
-            "required": false,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+            "required": false
           },
           {
             "schema": {
@@ -3350,6 +3310,9 @@
                               },
                               "decimals": {
                                 "type": "number"
+                              },
+                              "tokenId": {
+                                "type": "string"
                               }
                             },
                             "required": [
@@ -3851,6 +3814,18 @@
           },
           "required": true
         },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
+            "in": "path",
+            "name": "wallet",
+            "required": true,
+            "description": "The target wallet address"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -3893,6 +3868,56 @@
         }
       }
     },
+    "/vintages": {
+      "get": {
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": [
+                  [
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/projects/{id}": {
       "get": {
         "summary": "Project details",
@@ -3911,9 +3936,8 @@
           },
           {
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/def-1"
             },
-            "example": "1620000000",
             "in": "query",
             "name": "expiresAfter",
             "required": false,
@@ -3933,7 +3957,7 @@
           {
             "schema": {
               "type": "string",
-              "pattern": "^(VCS|PURO|ICR|GS)-\\d+-(19\\d{2}|20\\d{2})$"
+              "pattern": "^(VCS|PURO|GS|ICR)-\\d+-(19\\d{2}|20\\d{2})$|^ICR-(?:[A-Z]+-\\d+-(\\d+-)?\\d+-[A-Z]-\\d+-(19\\d{2}|20\\d{2})|[A-Z]+-\\d+-\\d+-\\d+-[A-Z]-\\d+-\\d+)$"
             },
             "example": "VCS-191-2008",
             "in": "path",
@@ -4451,34 +4475,11 @@
         "parameters": [
           {
             "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
+              "$ref": "#/components/schemas/def-1"
             },
             "in": "query",
             "name": "network",
-            "required": true,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+            "required": false
           },
           {
             "schema": {
