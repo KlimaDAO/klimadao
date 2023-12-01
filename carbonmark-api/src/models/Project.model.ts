@@ -14,7 +14,7 @@ export const ProjectModel = Type.Object({
     description: "A GeoJSON Point feature.",
   }),
   vintage: Type.String(),
-  projectAddress: Type.String(),
+  creditTokenAddress: Type.String(),
   registry: Type.String(),
   updatedAt: Type.String(),
   country: Type.Object({ id: Type.String() }),
