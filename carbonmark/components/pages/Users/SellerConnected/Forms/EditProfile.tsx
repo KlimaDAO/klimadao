@@ -60,7 +60,7 @@ export const EditProfile: FC<Props> = (props) => {
       return apiHandle.toLowerCase() !== handle.toLowerCase();
     } catch (error) {
       console.error(error);
-      if (error.status === 404) {
+      if (error.data.statusCode === 404) {
         return true;
       }
       return false;
