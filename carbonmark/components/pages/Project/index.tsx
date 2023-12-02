@@ -6,6 +6,8 @@ import { Activity } from ".generated/carbonmark-api-sdk/types";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
+import { REGISTRIES } from "@klimadao/lib/constants";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -60,6 +62,7 @@ const Page: NextPage<PageProps> = (props) => {
   const { data: activities } = useGetProjectsIdActivity(props.projectID, {
     activityType: VISIBLE_ACTIVITIES,
   });
+
   const [isExpanded, setIsExpanded] = useState(false);
   const bestPrice = project?.price;
   // Project should always be defined from static page props!
