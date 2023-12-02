@@ -3094,56 +3094,6 @@
         }
       }
     },
-    "/vintages": {
-      "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/users/{walletOrHandle}": {
       "get": {
         "summary": "User details",
@@ -3875,10 +3825,20 @@
         }
       }
     },
-    "/categories": {
+    "/vintages": {
       "get": {
-        "summary": "Categories",
-        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -3887,28 +3847,26 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
+                    "type": "string"
                   }
                 },
                 "examples": [
                   [
-                    {
-                      "id": "Blue Carbon"
-                    },
-                    {
-                      "id": "Forestry"
-                    },
-                    {
-                      "id": "Other"
-                    }
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
                   ]
                 ]
               }
@@ -4619,6 +4577,55 @@
                     "listings",
                     "price",
                     "vintage"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "summary": "Get nonce",
+        "tags": [
+          "Auth"
+        ],
+        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "wallet"
+                ],
+                "type": "object",
+                "properties": {
+                  "wallet": {
+                    "minLength": 26,
+                    "maxLength": 64,
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nonce": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "nonce"
                   ]
                 }
               }

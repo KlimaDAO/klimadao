@@ -10,10 +10,10 @@ interface Props {
 
 /** A component that tracks user logins  */
 export const UserTracker: FC<Props> = (props) => {
-  const { address, isConnectionFromCache } = useWeb3();
+  const { address, isConnectionFromCache, networkLabel } = useWeb3();
   const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
     address ?? "",
-    {},
+    { network: networkLabel },
     { shouldFetch: notNil(address) }
   );
   useEffect(() => {
