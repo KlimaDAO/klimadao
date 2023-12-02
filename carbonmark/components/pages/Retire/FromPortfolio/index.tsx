@@ -1,8 +1,9 @@
-import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
+import { useFetchUsersWalletOrHandle } from "hooks/useFetchUsersWalletOrHandle";
 import { addProjectsToAssets, AssetWithProject } from "lib/actions";
 import { notNil } from "lib/utils/functional.utils";
 import { isListableToken } from "lib/utils/listings.utils";
@@ -16,9 +17,10 @@ export type Props = {
 };
 
 export const RetireFromPortfolio: FC<Props> = (props) => {
-  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
+  const { networkLabel } = useWeb3();
+  const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
     props.address,
-    {},
+    { network: networkLabel, expiresAfter: "0" },
     { shouldFetch: notNil(props.address) }
   );
 
@@ -41,6 +43,7 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
         if (listableAssets.length) {
           const assetsWithProject = await addProjectsToAssets({
             assets: listableAssets,
+            network: networkLabel,
           });
 
           setAssetsData(assetsWithProject);

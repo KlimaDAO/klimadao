@@ -1,4 +1,4 @@
-import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
+import { GetUsersWalletorhandleQueryParams } from ".generated/carbonmark-api-sdk/types";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
@@ -8,12 +8,14 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Spinner } from "components/shared/Spinner";
+import { useFetchUsersWalletOrHandle } from "hooks/useFetchUsersWalletOrHandle";
 import { activityIsAdded, getUserUntil } from "lib/api";
 import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
 import { first, get, pipe } from "lodash/fp";
 import { NextPage } from "next";
 import { useState } from "react";
+import { mutate } from "swr";
 import { CarbonmarkAssets } from "./CarbonmarkAssets";
 import { PortfolioSidebar } from "./PortfolioSidebar";
 import { UnregisteredMessage } from "./Retire/UnregisteredMessage";
@@ -27,13 +29,15 @@ export const Portfolio: NextPage = () => {
     initializing,
     networkLabel,
   } = useWeb3();
-  const {
-    data: carbonmarkUser,
-    isLoading,
-    mutate,
-  } = useGetUsersWalletorhandle(
+
+  const params: GetUsersWalletorhandleQueryParams = {
+    network: networkLabel,
+    expiresAfter: "0",
+  };
+
+  const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
     address ?? "",
-    { network: networkLabel, expiresAfter: "0" },
+    params,
     { shouldFetch: notNil(address) }
   );
 

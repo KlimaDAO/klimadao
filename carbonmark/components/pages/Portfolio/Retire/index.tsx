@@ -1,4 +1,3 @@
-import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
 import { t } from "@lingui/macro";
@@ -6,6 +5,7 @@ import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
+import { useFetchUsersWalletOrHandle } from "hooks/useFetchUsersWalletOrHandle";
 import { createCompositeAsset } from "lib/actions";
 import type {
   AssetForRetirement,
@@ -36,7 +36,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
     networkLabel,
   } = useWeb3();
 
-  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
+  const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
     address ?? "",
     { network: networkLabel, expiresAfter: "0" },
     { shouldFetch: notNil(address) }
