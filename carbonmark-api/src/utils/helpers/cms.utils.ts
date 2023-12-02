@@ -73,7 +73,13 @@ export const fetchCMSProject = async (
           Authorization: `Bearer ${ICR_API_KEY}`,
         },
       });
+
       const apiData = await response.json();
+
+      if (apiData.statusCode === 404) {
+        console.info("ICR API returned 404. No Project Found.");
+        return null;
+      }
 
       // make common type to export
       const images: ProjectImage[] =
