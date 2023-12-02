@@ -76,7 +76,7 @@ export const RebaseCard: FC<Props> = (props) => {
         {props.isConnected && (
           <div className="stack">
             <Text className="value">
-              {trimWithPlaceholder(nextRebaseValue, 4, locale)}
+              {trimWithPlaceholder(nextRebaseValue, 6, locale)}
             </Text>
             <Text className="label" color="lightest">
               <Trans id="stake.estimated_payout">Est. payout (sKLIMA)</Trans>
