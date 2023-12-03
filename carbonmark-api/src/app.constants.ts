@@ -17,12 +17,15 @@ const POLYGON_URLS = {
   /**
    * @todo this need to be changed to carbon-registry-polgyon when mainnet api key is verified
    */
-  icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
+  icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-polygon`,
 };
 
 const MUMBAI_URLS = {
   ...POLYGON_URLS,
+  // testing
   marketplace: `${GRAPH_API_ROOT_ID}/QmUUnZTeRnfsJsQaTwLeiHmAQ5xvtk2jBW7VeP3AEW5bnv`,
+  // cujo
+  // marketplace: `${GRAPH_API_ROOT_ID}/Qmeu2aQpLb89xn8QXaQv4efCtBm1oKzcTri37SGkjp6tXG`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
