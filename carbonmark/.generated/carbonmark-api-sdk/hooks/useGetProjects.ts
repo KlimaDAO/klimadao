@@ -1,7 +1,3 @@
-import { isStringArray } from "lib/utils/types.utils";
-import { mapValues } from "lodash";
-import { pipe } from "lodash/fp";
-import { useRouter } from "next/router";
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
 import client from "../../../lib/api/client";
@@ -24,18 +20,12 @@ export function getProjectsQueryOptions<
         url: `/projects`,
 
         params,
-        
+
         ...options,
       }).then((res) => res.data);
     },
   };
 }
-
-const joinArray = (value: string | string[]): string =>
-  isStringArray(value) ? value.join(",") : value;
-
-const emptyToUndefined = (value: string): string | undefined =>
-  value === "" ? undefined : value;
 
 /**
  * @description Retrieve an array of carbon projects filtered by desired query parameters
@@ -47,26 +37,24 @@ export function useGetProjects<
   TData = GetProjectsQueryResponse,
   TError = unknown,
 >(
+  params?: GetProjectsQueryParams,
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
-  const router = useRouter();
   const {
     query: queryOptions,
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
 
-  /** convert all string arrays to comma separated string as per the api's expectation */
-  const mappedParams = mapValues(router.query, pipe(joinArray, emptyToUndefined));
-
   const url = shouldFetch ? `/projects` : null;
   const query = useSWR<TData, TError, string | null>(url, {
-    ...getProjectsQueryOptions<TData, TError>(mappedParams, clientOptions),
+    ...getProjectsQueryOptions<TData, TError>(params, clientOptions),
     ...queryOptions,
   });
+
   return query;
 }
