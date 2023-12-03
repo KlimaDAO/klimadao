@@ -7,7 +7,7 @@ a:visited {
   color: var(--bright-blue);
 }
 
-::-webkit-scrollbar-thumb {
+[aria-modal="true"] ::-webkit-scrollbar-thumb {
   background-color: var(--surface-04);
   border: 0.4rem solid transparent;
   border-radius: 0.8rem;
@@ -15,6 +15,6 @@ a:visited {
   outline-offset: -1px;
 }
 
-::-webkit-scrollbar {
+[aria-modal="true"] ::-webkit-scrollbar {
   width: 1.6rem;
 }
