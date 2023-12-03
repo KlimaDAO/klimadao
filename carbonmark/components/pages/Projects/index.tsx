@@ -10,9 +10,7 @@ import { useFetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
 import { urls } from "lib/constants";
-import { isStringArray } from "lib/utils/types.utils";
-import { get, identity, isEmpty, mapValues } from "lodash";
-import { pipe } from "lodash/fp";
+import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
@@ -30,25 +28,11 @@ const views = {
   map: LazyLoadingMapView,
 };
 
-const joinArray = (value: string | string[]): string =>
-  isStringArray(value) ? value.join(",") : value;
-const emptyToUndefined = (value: string): string | undefined =>
-  value === "" ? undefined : value;
-
 const Page: NextPage = () => {
   const router = useRouter();
   const { isMobile } = useResponsive();
-
   const { params, updateQueryParams } = useProjectsParams();
-
-  /** convert all string arrays to comma separated string as per the api's expectation */
-  const mappedParams = mapValues(params, pipe(joinArray, emptyToUndefined));
-
-  const {
-    data: projects = [],
-    isLoading,
-    isValidating,
-  } = useFetchProjects(mappedParams);
+  const { data: projects = [], isLoading, isValidating } = useFetchProjects();
 
   const sortFn = get(PROJECT_SORT_FNS, params.sort) ?? identity;
   const sortedProjects = sortFn(projects);
@@ -88,7 +72,7 @@ const Page: NextPage = () => {
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout fullContentWidth={isMap} fullContentHeight={isMap}>
-        <ProjectsController />
+        <ProjectsController projects={projects} />
         <div
           className={cx(styles.viewContainer, {
             [styles.projectsList]: !isMap,
