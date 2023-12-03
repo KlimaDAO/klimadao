@@ -1,6 +1,7 @@
 {
   "name": "@klimadao/carbonmark",
   "private": true,
+  "alignCommits": "on",  
   "scripts": {
     "dev": "next dev -p 3002",
     "build": "npm run lingui:compile && next build",
