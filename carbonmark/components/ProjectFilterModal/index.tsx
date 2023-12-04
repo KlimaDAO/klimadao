@@ -33,7 +33,6 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps & ProjectsProps> = (
   props
 ) => {
   const router = useRouter();
-  // const { data: projects = [], isValidating } = useFetchProjects();
   const { params, updateQueryParams, resetQueryParams } = useProjectsParams();
 
   // Set the default values and override with any existing url params
