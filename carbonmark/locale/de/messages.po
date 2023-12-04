@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-04 06:38+0000\n"
+"POT-Creation-Date: 2023-12-04 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1268,7 +1268,7 @@ msgstr "Die App funktioniert nur im Polygon-Mainnet."
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
 msgid "This is your portfolio, here you will find any of the supported carbon assets you own. Assets shown here can be retired or listed for sale."
-msgstr ""
+msgstr "Dies ist Ihr Portfolio. Hier finden Sie alle in Ihrem Besitz befindlichen und von Carbonmark unterstützten CO2-Assets. Sie können alle gelisteten CO2-Assets verkaufen oder für einen CO2-Ausgleich nutzen."
 
 #: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
@@ -1300,7 +1300,7 @@ msgstr "Verifizieren Sie die Informationen und klicken Sie unten auf \"Absenden\
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:24
 msgid "To get started, be sure to complete your <0>profile</0> and then head to the <1>marketplace</1> to purchase carbon assets."
-msgstr ""
+msgstr "Um zu beginnen, sollten Sie Ihr <0>Profil</0> vollständig ausfüllen und anschließend auf dem <1>Marktplatz</1> CO2-Assets kaufen."
 
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:70
 msgid "Toggle Select Project"
@@ -1571,7 +1571,7 @@ msgstr "Sie haben die Transaktion abgelehnt"
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:18
 msgid "You do not currently have any supported carbon assets available for listing."
-msgstr ""
+msgstr "Sie besitzen aktuell keine der für den Verkauf zulässigen CO2-Assets."
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
@@ -1988,7 +1988,7 @@ msgstr "Methodik:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
 msgid "retirement.single.moss_offset.description"
-msgstr ""
+msgstr "MCO2-Zertifikate werden durch Projekte aus dem Amazonas-Regenwald generiert, die zahlreiche positiven externen Nebeneffekt mitbringen - wie die Schaffung regionaler Arbeitsplätze und den Erhalt lokaler Artenvielfalt. Entdecken Sie MCO2 auf <0>https://data.klimadao.finance/de/token-details?tab=moss</0>."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
 msgid "retirement.single.moss_offset.name"
