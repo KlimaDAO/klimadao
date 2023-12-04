@@ -132,6 +132,7 @@ export const fetchProjectPoolInfo = async (
       const poolAddress = POOL_INFO[poolName].poolAddress;
       let totalSupply = 0;
       let matchingTokenInfo: PoolBalance | undefined;
+      let matchingTokenAddress: string | undefined;
 
       for (const token of tokens) {
         const potentialMatch = token.poolBalances.find(
@@ -140,6 +141,7 @@ export const fetchProjectPoolInfo = async (
 
         if (potentialMatch) {
           matchingTokenInfo = potentialMatch;
+          matchingTokenAddress = token.id;
           const decimals = potentialMatch.pool.decimals;
           const numberBalance = parseFloat(
             ethers.utils.formatUnits(potentialMatch.balance, decimals)
@@ -148,10 +150,9 @@ export const fetchProjectPoolInfo = async (
         }
       }
 
-      if (!matchingTokenInfo) {
+      if (!matchingTokenInfo || !matchingTokenAddress) {
         return prevMap;
       }
-
       return {
         ...prevMap,
         [poolName]: {
@@ -159,7 +160,7 @@ export const fetchProjectPoolInfo = async (
           supply: totalSupply.toString(),
           poolAddress,
           isPoolDefault:
-            matchingTokenInfo.id.toLowerCase() ===
+            matchingTokenAddress.toLowerCase() ===
             POOL_INFO[poolName].defaultProjectTokenAddress.toLowerCase(),
           projectTokenAddress: get(tokens[0], "id", ""),
         },
