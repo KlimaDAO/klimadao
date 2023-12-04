@@ -36,9 +36,9 @@ export const Portfolio: NextPage = () => {
   };
 
   const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
-    address ?? "",
+    address,
     params,
-    { shouldFetch: notNil(address) }
+    { shouldFetch: address !== "" && notNil(address) }
   );
 
   const [isPending, setIsPending] = useState(false);

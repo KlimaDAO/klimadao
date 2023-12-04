@@ -14,7 +14,7 @@ export const UserTracker: FC<Props> = (props) => {
   const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
     address ?? "",
     { network: networkLabel },
-    { shouldFetch: notNil(address) }
+    { shouldFetch: address !== "" && notNil(address) }
   );
   useEffect(() => {
     // Start tracking only if we finished loading carbonmarkUser data

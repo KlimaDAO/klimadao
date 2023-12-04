@@ -21,7 +21,7 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
   const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
     props.address,
     { network: networkLabel, expiresAfter: "0" },
-    { shouldFetch: notNil(props.address) }
+    { shouldFetch: props.address !== "" && notNil(props.address) }
   );
 
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
