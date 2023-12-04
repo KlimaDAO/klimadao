@@ -13,10 +13,9 @@ const POLYGON_URLS = {
   marketplace: `${GRAPH_API_ROOT_ID}/QmTfM5TvokuyKXCGWL3wTLZ1z4TqRtQ7PdVfQRVU39ovUC`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
-  digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
-  /**
-   * @todo this need to be changed to carbon-registry-polgyon when mainnet api key is verified
-   */
+  // previous subgraph @todo delete when new subgraph below is confirmed working
+  // digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
+  digitalCarbon: `${GRAPH_API_ROOT_ID}/Qmeu2aQpLb89xn8QXaQv4efCtBm1oKzcTri37SGkjp6tXG`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-polygon`,
 };
 
@@ -24,8 +23,6 @@ const MUMBAI_URLS = {
   ...POLYGON_URLS,
   // testing
   marketplace: `${GRAPH_API_ROOT_ID}/QmUUnZTeRnfsJsQaTwLeiHmAQ5xvtk2jBW7VeP3AEW5bnv`,
-  // cujo
-  // marketplace: `${GRAPH_API_ROOT_ID}/Qmeu2aQpLb89xn8QXaQv4efCtBm1oKzcTri37SGkjp6tXG`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
