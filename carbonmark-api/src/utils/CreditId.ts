@@ -1,7 +1,7 @@
 import { includes } from "lodash";
 import { notNil } from "./functional.utils";
 
-const standards = ["VCS", "PURO", "ICR"] as const;
+const standards = ["VCS", "PURO", "ICR", "GS"] as const;
 
 /** Known supported standards on-chain */
 export type Standard = (typeof standards)[number];
