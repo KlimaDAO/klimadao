@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-04 15:35+0000\n"
+"POT-Creation-Date: 2023-12-04 15:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1274,7 +1274,7 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
-msgid "This is your portfolio, here you will find any of the supported carbon assets you own. Assets shown here can be retired or listed for sale."
+msgid "This is your portfolio. Here you will find supported carbon assets you own. Assets shown here can be retired or listed for sale in the marketplace once you have a profile."
 msgstr ""
 
 #: components/pages/Users/Badge/index.tsx:17
@@ -1305,7 +1305,7 @@ msgstr "为了完成您的信用卡交易，您将被重新定向到我们的支
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
 msgstr "要完成您的碳停用，请验证所有信息是否正确，然后单击下面的“提交”。"
 
-#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:24
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:25
 msgid "To get started, be sure to complete your <0>profile</0> and then head to the <1>marketplace</1> to purchase carbon assets."
 msgstr ""
 
@@ -1576,10 +1576,6 @@ msgstr "您现在可以在<0> PolygonScan </0>上查看成功的交易。"
 msgid "You chose to reject the transaction."
 msgstr "您已选择拒绝交易."
 
-#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:18
-msgid "You do not currently have any supported carbon assets available for listing."
-msgstr ""
-
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
 msgstr "您需要提供收款人地址或使用浏览器钱包登录。"
@@ -1588,6 +1584,10 @@ msgstr "您需要提供收款人地址或使用浏览器钱包登录。"
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:61
 msgid "You exceeded your available amount of tokens"
 msgstr "您超出了可用的代币数量"
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:19
+msgid "You must have a profile created to view carbon assets you own in your Carbonmark portfolio."
+msgstr ""
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
 msgid "You successfully acquired carbon!"

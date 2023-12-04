@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-04 15:35+0000\n"
+"POT-Creation-Date: 2023-12-04 15:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1267,7 +1267,7 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "Это приложение работает только в Polygon Mainnet."
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
-msgid "This is your portfolio, here you will find any of the supported carbon assets you own. Assets shown here can be retired or listed for sale."
+msgid "This is your portfolio. Here you will find supported carbon assets you own. Assets shown here can be retired or listed for sale in the marketplace once you have a profile."
 msgstr ""
 
 #: components/pages/Users/Badge/index.tsx:17
@@ -1298,7 +1298,7 @@ msgstr "Для завершения операции с кредитной ка�
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
 msgstr "Чтобы завершить выбивание, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
-#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:24
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:25
 msgid "To get started, be sure to complete your <0>profile</0> and then head to the <1>marketplace</1> to purchase carbon assets."
 msgstr ""
 
@@ -1569,10 +1569,6 @@ msgstr "Просмотреть успешную транзакцию можно 
 msgid "You chose to reject the transaction."
 msgstr "Вы решили отклонить транзакцию."
 
-#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:18
-msgid "You do not currently have any supported carbon assets available for listing."
-msgstr ""
-
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
 msgstr "Вам нужно либо указать адрес получателя, либо войти в систему с помощью кошелька в браузере."
@@ -1581,6 +1577,10 @@ msgstr "Вам нужно либо указать адрес получател�
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:61
 msgid "You exceeded your available amount of tokens"
 msgstr "Вы превысили доступное количество токенов"
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:19
+msgid "You must have a profile created to view carbon assets you own in your Carbonmark portfolio."
+msgstr ""
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
 msgid "You successfully acquired carbon!"
