@@ -37,9 +37,9 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   } = useWeb3();
 
   const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
-    address ?? "",
+    address,
     { network: networkLabel, expiresAfter: "0" },
-    { shouldFetch: notNil(address) }
+    { shouldFetch: address !== "" && notNil(address) }
   );
 
   const [retirementAsset, setRetirementAsset] =
