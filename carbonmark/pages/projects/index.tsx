@@ -1,10 +1,10 @@
 import {
   getCategories,
   getCountries,
-  getProjects,
   getVintages,
 } from ".generated/carbonmark-api-sdk/clients";
 import { Projects } from "components/pages/Projects";
+import { fetchProjects } from "hooks/useFetchProjects";
 import { loadTranslation } from "lib/i18n";
 import {
   Category,
@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps<
   ProjectsPageStaticProps
 > = async (ctx) => {
   try {
-    const projects = await getProjects();
+    const projects = await fetchProjects(ctx.query);
     const vintages = await getVintages();
     const countries = await getCountries();
     /** @note because the API is returning trailing empty spaces on some categories, trim them here */

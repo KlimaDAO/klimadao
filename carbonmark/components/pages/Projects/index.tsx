@@ -1,3 +1,4 @@
+import { Project } from ".generated/carbonmark-api-sdk/types";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
@@ -5,16 +6,14 @@ import { t } from "@lingui/macro";
 import { useMediaQuery } from "@mui/material";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
-import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
-import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { useFetchProjects } from "hooks/useFetchProjects";
+import { fetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
-import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SWRConfig } from "swr";
 import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
@@ -28,14 +27,25 @@ const views = {
   map: LazyLoadingMapView,
 };
 
-const Page: NextPage = () => {
+const Page: NextPage<ProjectsPageStaticProps> = (props) => {
+  const router = useRouter();
+
+  // noSsr is required because it would return the server computed value on the first render to prevent hydratation issues
   const isMobile = !useMediaQuery(breakpoints.desktop, { noSsr: true });
 
-  const { params, updateQueryParams } = useProjectsParams();
-  const { data: projects = [], isLoading, isValidating } = useFetchProjects();
+  // Initialize projects with the value computed server side
+  const [projects, setProjects] = useState<Project[]>(props.projects);
 
-  const sortFn = get(PROJECT_SORT_FNS, params.sort) ?? identity;
-  const sortedProjects = sortFn(projects);
+  const { params, updateQueryParams } = useProjectsParams();
+
+  const fetchData = async () => {
+    setProjects(await fetchProjects(router.query));
+  };
+
+  // Fetch data when the parameters change
+  useEffect(() => {
+    fetchData();
+  }, [router.query]);
 
   //Force grid view on mobile
   useEffect(() => {
@@ -46,13 +56,7 @@ const Page: NextPage = () => {
 
   const isMap = params.layout === "map";
 
-  // only show the spinner when there are no cached results to show
-  // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
-  const isFetching =
-    isEmpty(sortedProjects) && (isLoading || isValidating) && !isMap;
-
-  const noProjects =
-    !sortedProjects?.length && !isValidating && !isLoading && !isMap;
+  const noProjects = !projects?.length && !isMap;
 
   // We need to force Grid View on mobile (this stops a delay in re-render)
   const View =
@@ -66,11 +70,7 @@ const Page: NextPage = () => {
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout fullContentWidth={isMap} fullContentHeight={isMap}>
-        <ProjectsController
-          projects={projects}
-          isLoading={isLoading}
-          isValidating={isValidating}
-        />
+        <ProjectsController projects={projects} />
         <div
           className={cx(styles.viewContainer, {
             [styles.projectsList]: !isMap,
@@ -78,10 +78,8 @@ const Page: NextPage = () => {
         >
           {noProjects ? (
             <Text>{t`No projects found with current filters`}</Text>
-          ) : isFetching ? (
-            <SpinnerWithLabel />
           ) : (
-            <View projects={sortedProjects} />
+            <View projects={projects} />
           )}
         </div>
       </Layout>
@@ -103,6 +101,6 @@ export const Projects: NextPage<ProjectsPageStaticProps> = (props) => (
       },
     }}
   >
-    <Page />
+    <Page {...props} />
   </SWRConfig>
 );
