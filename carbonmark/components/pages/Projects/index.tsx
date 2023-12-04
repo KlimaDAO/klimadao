@@ -1,4 +1,3 @@
-import { Project } from ".generated/carbonmark-api-sdk/types";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
@@ -7,14 +6,12 @@ import { useMediaQuery } from "@mui/material";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
-import { fetchProjects } from "hooks/useFetchProjects";
+import { useFetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
-import { useQueryChanged } from "hooks/useQueryChanged";
 import { urls } from "lib/constants";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { SWRConfig } from "swr";
 import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
@@ -29,22 +26,16 @@ const views = {
 };
 
 const Page: NextPage<ProjectsPageStaticProps> = (props) => {
-  const router = useRouter();
-
   // noSsr is required because it would return the server computed value on the first render to prevent hydratation issues
   const isMobile = !useMediaQuery(breakpoints.desktop, { noSsr: true });
 
   // Initialize projects with the value computed server side
-  const [projects, setProjects] = useState<Project[]>(props.projects);
-
+  const { data: projects = null, isLoading, isValidating } = useFetchProjects();
   const { params, updateQueryParams } = useProjectsParams();
 
-  const fetchData = async () => {
-    setProjects(await fetchProjects(router.query));
-  };
+  const displayedProjects = projects != null ? projects : props.projects;
 
   // Fetch data when the parameters change
-  useQueryChanged(fetchData);
 
   //Force grid view on mobile
   useEffect(() => {
@@ -55,7 +46,7 @@ const Page: NextPage<ProjectsPageStaticProps> = (props) => {
 
   const isMap = params.layout === "map";
 
-  const noProjects = !projects?.length && !isMap;
+  const noProjects = !displayedProjects?.length && !isMap;
 
   // We need to force Grid View on mobile (this stops a delay in re-render)
   const View =
@@ -69,7 +60,11 @@ const Page: NextPage<ProjectsPageStaticProps> = (props) => {
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout fullContentWidth={isMap} fullContentHeight={isMap}>
-        <ProjectsController projects={projects} />
+        <ProjectsController
+          projects={displayedProjects}
+          isLoading={isLoading}
+          isValidating={isValidating}
+        />
         <div
           className={cx(styles.viewContainer, {
             [styles.projectsList]: !isMap,
@@ -78,7 +73,7 @@ const Page: NextPage<ProjectsPageStaticProps> = (props) => {
           {noProjects ? (
             <Text>{t`No projects found with current filters`}</Text>
           ) : (
-            <View projects={projects} />
+            <View projects={displayedProjects} />
           )}
         </div>
       </Layout>
