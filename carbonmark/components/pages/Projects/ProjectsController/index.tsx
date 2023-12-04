@@ -6,9 +6,9 @@ import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
+import { ProjectsProps } from "hooks/useFetchProjects";
 import { FilterValues, useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
-import { Project } from "lib/types/carbonmark.types";
 import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useState } from "react";
@@ -17,11 +17,7 @@ import { ProjectSearch } from "../ProjectSearch";
 import { ProjectSort } from "../ProjectSort";
 import * as styles from "./styles";
 
-interface Props {
-  projects: Array<Project>;
-}
-
-const ProjectsController: FC<Props> = ({ projects }) => {
+const ProjectsController: FC<ProjectsProps> = (props) => {
   const { isDesktop } = useResponsive();
   const router = useRouter();
   const { params, updateQueryParams } = useProjectsParams();
@@ -62,8 +58,8 @@ const ProjectsController: FC<Props> = ({ projects }) => {
         {/* Hide the sort on MapView */}
         {!isMap && <ProjectSort />}
 
-        {!isEmpty(projects) && !isMap && (
-          <Text t="h5">{projects.length} Results</Text>
+        {!isEmpty(props.projects) && !isMap && (
+          <Text t="h5">{props.projects.length} Results</Text>
         )}
         <Toggle
           className={styles.toggle}
@@ -78,6 +74,7 @@ const ProjectsController: FC<Props> = ({ projects }) => {
         />
       </div>
       <ProjectFilterModal
+        {...props}
         showModal={showFilterModal}
         onToggleModal={toggleModal}
         closeOnBackgroundClick
