@@ -29,13 +29,12 @@ const Page: NextPage<ProjectsPageStaticProps> = (props) => {
   // noSsr is required because it would return the server computed value on the first render to prevent hydratation issues
   const isMobile = !useMediaQuery(breakpoints.desktop, { noSsr: true });
 
-  // Initialize projects with the value computed server side
+  // Projects fetched client side
   const { data: projects = null, isLoading, isValidating } = useFetchProjects();
   const { params, updateQueryParams } = useProjectsParams();
 
+  // Display server projects if no data has been fetched by the client
   const displayedProjects = projects != null ? projects : props.projects;
-
-  // Fetch data when the parameters change
 
   //Force grid view on mobile
   useEffect(() => {

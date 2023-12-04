@@ -17,6 +17,11 @@ const joinArray = (value: string | string[]): string =>
 const emptyToUndefined = (value: string): string | undefined =>
   value === "" ? undefined : value;
 
+/**
+ * Transform query parameters into parameters for the API
+ * @param query
+ * @returns
+ */
 export const getApiParams = (query: ParsedUrlQuery) => {
   return omit(
     mapValues(
@@ -26,11 +31,14 @@ export const getApiParams = (query: ParsedUrlQuery) => {
     ["layout", "sort"]
   );
 };
-export const sortProjects = (
-  projects: Project[] | undefined,
-  query: ParsedUrlQuery
-) => {
-  if (projects === undefined) return undefined;
+
+/**
+ *  Sort projects using the sort query parameter
+ * @param projects
+ * @param query
+ * @returns
+ */
+export const sortProjects = (projects: Project[], query: ParsedUrlQuery) => {
   const sortFn =
     get(PROJECT_SORT_FNS, { ...defaultParams, ...query }.sort as string) ??
     identity;
@@ -76,5 +84,8 @@ export const useFetchProjects = () => {
     }
   }, [router.query, projects.mutate]);
 
-  return { ...projects, data: sortProjects(projects.data, router.query) };
+  return {
+    ...projects,
+    data: projects.data ? sortProjects(projects.data, router.query) : undefined,
+  };
 };
