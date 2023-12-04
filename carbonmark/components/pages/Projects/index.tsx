@@ -9,6 +9,7 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { fetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
+import { useQueryChanged } from "hooks/useQueryChanged";
 import { urls } from "lib/constants";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -43,9 +44,7 @@ const Page: NextPage<ProjectsPageStaticProps> = (props) => {
   };
 
   // Fetch data when the parameters change
-  useEffect(() => {
-    fetchData();
-  }, [router.query]);
+  useQueryChanged(fetchData);
 
   //Force grid view on mobile
   useEffect(() => {
