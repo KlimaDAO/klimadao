@@ -42,6 +42,7 @@ const handler = (fastify: FastifyInstance) =>
       omit(request.query, "search", "expiresAfter"),
       split(",")
     );
+
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify);
 
@@ -52,10 +53,10 @@ const handler = (fastify: FastifyInstance) =>
           search: request.query.search ?? "",
           expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
         }),
-        sdk.offsets.findCarbonOffsets({
+        sdk.digital_carbon.findDigitalCarbonProjects({
           category: args.category ?? allOptions.category,
           country: args.country ?? allOptions.country,
-          vintage: args.vintage ?? allOptions.vintage,
+          vintage: (args.vintage ?? allOptions.vintage).map(Number),
           search: request.query.search ?? "",
         }),
         fetchAllCarbonProjects(sdk),
@@ -72,18 +73,26 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     /** Assign valid pool projects to map */
-    poolProjectsData.carbonOffsets.forEach((project) => {
-      if (
-        !isValidPoolProject(project) ||
-        !CreditId.isValidProjectId(project.projectID)
-      ) {
+    poolProjectsData.carbonProjects.forEach((project) => {
+      if (!isValidPoolProject(project)) {
+        console.debug(
+          `Project with id ${JSON.stringify(
+            project
+          )} is considered invalid due to a balance of zero across all tokens and has been filtered`
+        );
+        return;
+      }
+      if (!CreditId.isValidProjectId(project.projectID)) {
+        console.debug(
+          `Project with id ${project.projectID} is considered to have an invalid id and has been filtered`
+        );
         return;
       }
       const [standard, registryProjectId] = project.projectID.split("-");
       const { creditId: key } = new CreditId({
         standard,
         registryProjectId,
-        vintage: project.vintageYear,
+        vintage: project.carbonCredits[0].vintage.toString(),
       });
       ProjectMap.set(key, { poolProjectData: project, key });
     });

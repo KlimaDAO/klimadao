@@ -1,0 +1,46 @@
+fragment DigitalCarbonProjectFragment on CarbonProject {
+  id
+  name
+  projectID
+  methodologies
+  country
+  category
+  registry
+  region
+}
+
+fragment CarbonCreditFragment on CarbonCredit {
+  vintage
+  currentSupply
+  id
+  crossChainSupply
+  bridgeProtocol
+  bridged
+  retired
+}
+
+fragment PoolBalancesFragment on CarbonPoolCreditBalance {
+  balance
+  id
+  deposited
+  redeemed
+  pool {
+    name
+    supply
+    id
+    decimals
+    dailySnapshots {
+      lastUpdateTimestamp
+    }
+  }
+}
+
+fragment PoolFragment on CarbonPool {
+  name
+  supply
+  id
+  decimals
+  dailySnapshots {
+    lastUpdateTimestamp
+  }
+}

@@ -13,11 +13,11 @@ describe("GET /vintages", () => {
     fastify = await build();
   });
 
-  /** A default response for offsets */
+  /** A default response for digital-carbon */
   beforeEach(() =>
-    nock(GRAPH_URLS["polygon"].offsets)
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
-      .reply(200, { data: { carbonOffsets: [] } })
+      .reply(200, { data: { carbonProjects: [] } })
   );
 
   /** The happy path */

@@ -64,7 +64,7 @@ export const RebaseCard: FC<Props> = (props) => {
         <div className="stack">
           <Text className="value">
             {stakingRebase ? (
-              `${trimWithPlaceholder(nextRebasePercent, 2, locale)}%`
+              `${trimWithPlaceholder(nextRebasePercent, 4, locale)}%`
             ) : (
               <Trans>Loading...</Trans>
             )}

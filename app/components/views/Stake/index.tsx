@@ -426,14 +426,14 @@ export const Stake = (props: Props) => {
             </div>
             <div className={styles.infoTable_value}>
               {fiveDayRatePercent ? (
-                trimWithPlaceholder(fiveDayRatePercent, 2, locale) + "%"
+                trimWithPlaceholder(fiveDayRatePercent, 3, locale) + "%"
               ) : (
                 <Trans>Loading...</Trans>
               )}
             </div>
             <div className={styles.infoTable_value}>
               {stakingAKR ? (
-                trimWithPlaceholder(stakingAKR, 0, locale) + "%"
+                trimWithPlaceholder(stakingAKR, 2, locale) + "%"
               ) : (
                 <Trans>Loading...</Trans>
               )}

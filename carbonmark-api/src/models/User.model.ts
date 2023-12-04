@@ -1,4 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
+import { isNil } from "lodash";
 import { ActivityModel } from "./Activity.model";
 import { AssetModel } from "./Asset.model";
 import { ListingModel } from "./Listing.model";
@@ -27,7 +28,7 @@ export function isUser(obj: any): obj is User {
     typeof obj.handle === "string" &&
     typeof obj.username === "string" &&
     typeof obj.description === "string" &&
-    (obj.profileImgUrl === null || typeof obj.profileImgUrl === "string") &&
+    (isNil(obj.profileImgUrl) || typeof obj.profileImgUrl === "string") &&
     typeof obj.updatedAt === "number" &&
     typeof obj.createdAt === "number" &&
     typeof obj.wallet === "string" &&

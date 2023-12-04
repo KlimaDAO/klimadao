@@ -44,7 +44,7 @@ export const SellerConnected: FC<Props> = (props) => {
       network,
       expiresAfter: address === props.userAddress ? "0" : undefined,
     },
-    { shouldFetch: notNil(address) }
+    { shouldFetch: notNil(props.userAddress) }
   );
   const [isPending, setIsPending] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
@@ -120,13 +120,11 @@ export const SellerConnected: FC<Props> = (props) => {
         <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
-        {carbonmarkUser && (
-          <ProfileHeader
-            carbonmarkUser={carbonmarkUser}
-            userName={props.userName}
-            userAddress={props.userAddress}
-          />
-        )}
+        <ProfileHeader
+          carbonmarkUser={carbonmarkUser}
+          userName={props.userName}
+          userAddress={props.userAddress}
+        />
       </div>
       <div className={styles.listings}>
         <div className={styles.listingsHeader}>
@@ -209,13 +207,11 @@ export const SellerConnected: FC<Props> = (props) => {
         </Col>
 
         <Col>
-          {carbonmarkUser && (
-            <ProfileSidebar
-              user={carbonmarkUser}
-              isPending={isPending}
-              title={t`Your seller data`}
-            />
-          )}
+          <ProfileSidebar
+            user={carbonmarkUser}
+            isPending={isPending}
+            title={t`Your seller data`}
+          />
         </Col>
       </TwoColLayout>
 
@@ -227,13 +223,11 @@ export const SellerConnected: FC<Props> = (props) => {
         showModal={showEditProfileModal}
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
-        {carbonmarkUser && (
-          <EditProfile
-            user={carbonmarkUser}
-            onSubmit={onEditProfile}
-            isCarbonmarkUser={isCarbonmarkUser}
-          />
-        )}
+        <EditProfile
+          user={carbonmarkUser}
+          onSubmit={onEditProfile}
+          isCarbonmarkUser={isCarbonmarkUser}
+        />
       </Modal>
 
       {!!carbonmarkUser?.assets?.length && (

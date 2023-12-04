@@ -5,7 +5,7 @@ import { User } from "lib/types/carbonmark.types";
 import { FC } from "react";
 
 type Props = {
-  user: User | null;
+  user?: User | null;
   isPending?: boolean;
   title: string;
 };
