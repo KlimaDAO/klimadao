@@ -10,7 +10,7 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     let response: Vintage[];
-    const network = request.query.network || "polygon";
+    const network = request.query.network ?? "polygon";
     const sdk = gql_sdk(network);
     try {
       response = await getAllVintages(sdk, fastify, network);
