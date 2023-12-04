@@ -13,7 +13,7 @@ import {
   Vintage,
 } from "lib/types/carbonmark.types";
 import { trim, update } from "lodash/fp";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 
 export interface ProjectsPageStaticProps {
   projects: Project[];
@@ -22,9 +22,9 @@ export interface ProjectsPageStaticProps {
   vintages: Vintage[];
 }
 
-export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
-  ctx
-) => {
+export const getServerSideProps: GetServerSideProps<
+  ProjectsPageStaticProps
+> = async (ctx) => {
   try {
     const projects = await getProjects();
     const vintages = await getVintages();
@@ -47,13 +47,11 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: 10,
     };
   } catch (e) {
     console.error("Failed to generate Carbonmark Projects Page", e.message);
     return {
       notFound: true,
-      revalidate: 10,
     };
   }
 };

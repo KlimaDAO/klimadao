@@ -1,6 +1,8 @@
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 import { t } from "@lingui/macro";
+import { useMediaQuery } from "@mui/material";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
@@ -8,7 +10,6 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
-import { useResponsive } from "hooks/useResponsive";
 import { urls } from "lib/constants";
 import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
@@ -28,7 +29,7 @@ const views = {
 };
 
 const Page: NextPage = () => {
-  const { isMobile } = useResponsive();
+  const isMobile = !useMediaQuery(breakpoints.desktop, { noSsr: true });
 
   const { params, updateQueryParams } = useProjectsParams();
   const { data: projects = [], isLoading, isValidating } = useFetchProjects();
