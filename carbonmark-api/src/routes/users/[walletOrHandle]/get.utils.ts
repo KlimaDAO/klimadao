@@ -138,7 +138,7 @@ export const getHoldingsByWallet = async (params: {
 
     const [holdingsResponse] = await Promise.all([
       holdingsPromise,
-      icrHoldingsPromise,
+      icrHoldingsPromise, // @todo need to merge this and the above regular holdings into unified response
     ]);
 
     // console.info("fetchIcrHoldings", icrHoldings);

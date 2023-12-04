@@ -1,3 +1,4 @@
+import type { NetworkParam } from "../../../src/models/NetworkParam.model";
 import type { IcrProject } from "../ICR/icr.types";
 import { ICR_API } from "./ICR_API_endpoints";
 
@@ -9,7 +10,7 @@ export const convertIcrCountryCodeToName = (code: string) => {
 };
 
 export const fetchAllICRProjects = async (
-  network: "polygon" | "mumbai"
+  network: NetworkParam
 ): Promise<IcrProject[]> => {
   const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
 

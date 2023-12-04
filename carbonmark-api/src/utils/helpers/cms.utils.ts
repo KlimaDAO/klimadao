@@ -1,5 +1,6 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
+import { NetworkParam } from "src/models/NetworkParam.model";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
   GetCmsProjectQuery,
@@ -32,7 +33,7 @@ type SdkArgs = {
 
 type IcrArgs = {
   serialization: string;
-  network: "polygon" | "mumbai";
+  network: NetworkParam;
 };
 
 export type FetchCarbonProjectMethod = GQL_SDK | string;

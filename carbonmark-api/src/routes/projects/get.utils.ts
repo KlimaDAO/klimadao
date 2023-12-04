@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
 import { map, mapValues, toLower, trim } from "lodash/fp";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
+import type { NetworkParam } from "src/models/NetworkParam.model";
 import type { IcrProject } from "src/utils/ICR/icr.types";
 import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
 import { convertIcrCountryCodeToName } from "../../../src/utils/ICR/icr.utils";
@@ -66,7 +67,7 @@ export const fetchIcrData = async (network: "polygon" | "mumbai") => {
 export const getDefaultQueryArgs = async (
   sdk: GQL_SDK,
   fastify: FastifyInstance,
-  network: "polygon" | "mumbai"
+  network: NetworkParam
 ) => {
   const [category, country, vintage] = await Promise.all([
     getAllCategories(sdk, fastify).then(map(extract("id"))),

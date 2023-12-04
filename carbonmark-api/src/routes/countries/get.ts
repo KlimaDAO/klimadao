@@ -9,7 +9,7 @@ const handler = (
 ): RouteHandler<{ Querystring: Static<typeof Querystring> }> =>
   async function (request, reply) {
     let response;
-    const network = request.query.network || "polygon";
+    const network = request.query.network ?? "polygon";
     const sdk = gql_sdk(network);
     try {
       response = await getAllCountries(sdk, fastify, network);
