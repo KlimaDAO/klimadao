@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<
 
     if (!listing && !IS_PRODUCTION) {
       // check testnet listings
-      project = await getProjectsId(project_id);
+      project = await getProjectsId(project_id, { network: "mumbai" });
       listing = project?.listings.find(findListing);
     }
 
