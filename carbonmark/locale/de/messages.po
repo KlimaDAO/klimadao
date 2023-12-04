@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-02 22:22+0000\n"
+"POT-Creation-Date: 2023-12-04 06:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -279,7 +279,7 @@ msgstr "Carbonmark | Der Universelle CO2-Marktplatz"
 msgid "Carbonmark's role"
 msgstr "Carbonmarks Bedeutung"
 
-#: components/ProjectFilterModal/index.tsx:129
+#: components/ProjectFilterModal/index.tsx:130
 msgid "Category"
 msgstr "Kategorie"
 
@@ -292,11 +292,11 @@ msgstr "Sprache wechseln"
 msgid "Choose a project and quantity"
 msgstr "Projekt und Menge auswählen"
 
-#: components/pages/Projects/index.tsx:88
+#: components/pages/Projects/index.tsx:72
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Kaufen, verkaufen, CO2-Fußabdruck ausgleichen: Über 20 Millionen verifizierte digitale CO2-Credits aus Hunderten Projekten stehen Ihnen zur Verfügung."
 
-#: components/ProjectFilterModal/index.tsx:161
+#: components/ProjectFilterModal/index.tsx:162
 #: components/pages/Projects/ProjectSearch/index.tsx:52
 msgid "Clear Filters"
 msgstr "Filter löschen"
@@ -317,7 +317,7 @@ msgstr "Demnächst"
 msgid "Compare prices across all sellers and trading pools"
 msgstr "Preise aller Verkäufer und Handelspools vergleichen"
 
-#: components/ProjectFilterModal/index.tsx:169
+#: components/ProjectFilterModal/index.tsx:170
 msgid "Compiling Results ..."
 msgstr "Ergebnisse werden berechnet..."
 
@@ -351,7 +351,7 @@ msgstr "Kopieren"
 msgid "Could not calculate Total Cost"
 msgstr "Gesamtkosten konnten nicht berechnet werden"
 
-#: components/ProjectFilterModal/index.tsx:118
+#: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
 msgstr "Land"
 
@@ -679,8 +679,8 @@ msgstr "Melden Sie sich an, um mit USDC zu bezahlen"
 msgid "Marketplace"
 msgstr "Marktplatz"
 
-#: components/pages/Projects/index.tsx:86
-#: components/pages/Projects/index.tsx:87
+#: components/pages/Projects/index.tsx:70
+#: components/pages/Projects/index.tsx:71
 msgid "Marketplace | Carbonmark"
 msgstr "Marktplatz | Carbonmark"
 
@@ -738,11 +738,11 @@ msgid "No listings found for this project."
 msgstr "Keine Einträge für dieses Projekt gefunden."
 
 #: components/pages/Projects/GridView/GridView.tsx:38
-#: components/pages/Projects/ListView/ListView.tsx:154
+#: components/pages/Projects/ListView/ListView.tsx:157
 msgid "No project description found"
 msgstr "Keine Projektbeschreibung gefunden"
 
-#: components/pages/Projects/index.tsx:98
+#: components/pages/Projects/index.tsx:86
 msgid "No projects found with current filters"
 msgstr "Mit den aktuellen Filtern wurden keine Projekte gefunden"
 
@@ -1002,11 +1002,11 @@ msgstr "Ressourcen"
 msgid "Resources | Carbonmark"
 msgstr "Ressourcen | Carbonmark"
 
-#: components/ProjectFilterModal/index.tsx:167
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Result"
 msgstr "Ergebnis"
 
-#: components/ProjectFilterModal/index.tsx:167
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Results"
 msgstr "Ergebnisse"
 
@@ -1443,7 +1443,7 @@ msgstr "Carbonmark-Profil anzeigen"
 msgid "View Registry Details <0/>"
 msgstr "Registrierungsdetails anzeigen <0/>"
 
-#: components/ProjectFilterModal/index.tsx:153
+#: components/ProjectFilterModal/index.tsx:154
 msgid "View Results"
 msgstr "Ergebnisse ansehen"
 
@@ -1493,7 +1493,7 @@ msgstr "Auf PolygonScan ansehen <0/>"
 msgid "View the project details and other info for this purchase."
 msgstr "Projektdetails und weitere Informationen über diesen Kauf ansehen."
 
-#: components/ProjectFilterModal/index.tsx:140
+#: components/ProjectFilterModal/index.tsx:141
 msgid "Vintage"
 msgstr "Jahrgang"
 

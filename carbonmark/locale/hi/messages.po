@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-02 22:22+0000\n"
+"POT-Creation-Date: 2023-12-04 06:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -279,7 +279,7 @@ msgstr "कार्बनमार्क | द यूनिवर्सल क�
 msgid "Carbonmark's role"
 msgstr "कार्बनमार्क की भूमिका"
 
-#: components/ProjectFilterModal/index.tsx:129
+#: components/ProjectFilterModal/index.tsx:130
 msgid "Category"
 msgstr "कैटेगरी"
 
@@ -292,11 +292,11 @@ msgstr "भाषा बदलें"
 msgid "Choose a project and quantity"
 msgstr "एक प्रोजेक्ट और मात्रा चुनें"
 
-#: components/pages/Projects/index.tsx:88
+#: components/pages/Projects/index.tsx:72
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "सैकड़ों प्रॉजेक्ट्स में से 20 मिलियन से भी अधिक सत्यापित डिजिटल कार्बन क्रेडिट्स में से चुनें - अभी कार्बन ख़रीदें, बेचें या रिटायर करें।"
 
-#: components/ProjectFilterModal/index.tsx:161
+#: components/ProjectFilterModal/index.tsx:162
 #: components/pages/Projects/ProjectSearch/index.tsx:52
 msgid "Clear Filters"
 msgstr "फ़िल्टर्स हटाएँ"
@@ -317,7 +317,7 @@ msgstr "जल्द आ रहा है"
 msgid "Compare prices across all sellers and trading pools"
 msgstr "सभी विक्रेताओं और ट्रेडिंग पूल की कीमतों की तुलना करें"
 
-#: components/ProjectFilterModal/index.tsx:169
+#: components/ProjectFilterModal/index.tsx:170
 msgid "Compiling Results ..."
 msgstr "परिणाम कम्पाईल किए जा रहे हैं..."
 
@@ -353,7 +353,7 @@ msgstr ""
 msgid "Could not calculate Total Cost"
 msgstr "कुल लागत की गणना नहीं सकी"
 
-#: components/ProjectFilterModal/index.tsx:118
+#: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
 msgstr "देश"
 
@@ -683,8 +683,8 @@ msgstr "यूएसडीसी से भुगतान करने के �
 msgid "Marketplace"
 msgstr "मार्केटप्लेस"
 
-#: components/pages/Projects/index.tsx:86
-#: components/pages/Projects/index.tsx:87
+#: components/pages/Projects/index.tsx:70
+#: components/pages/Projects/index.tsx:71
 msgid "Marketplace | Carbonmark"
 msgstr "मार्केटप्लेस | कार्बनमार्क"
 
@@ -742,11 +742,11 @@ msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
 #: components/pages/Projects/GridView/GridView.tsx:38
-#: components/pages/Projects/ListView/ListView.tsx:154
+#: components/pages/Projects/ListView/ListView.tsx:157
 msgid "No project description found"
 msgstr "कोई प्रॉजेक्ट विवरण मौजूद नहीं"
 
-#: components/pages/Projects/index.tsx:98
+#: components/pages/Projects/index.tsx:86
 msgid "No projects found with current filters"
 msgstr "मौजूदा फ़िल्टर वाला कोई प्रोजेक्ट नहीं मिला"
 
@@ -1006,11 +1006,11 @@ msgstr "संसाधन"
 msgid "Resources | Carbonmark"
 msgstr "संसाधन | कार्बनमार्क"
 
-#: components/ProjectFilterModal/index.tsx:167
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Result"
 msgstr "परिणाम"
 
-#: components/ProjectFilterModal/index.tsx:167
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Results"
 msgstr "परिणाम"
 
@@ -1451,7 +1451,7 @@ msgstr "कार्बनमार्क प्रोफ़ाइल देख�
 msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
 
-#: components/ProjectFilterModal/index.tsx:153
+#: components/ProjectFilterModal/index.tsx:154
 msgid "View Results"
 msgstr "परिणाम देखें"
 
@@ -1501,7 +1501,7 @@ msgstr "पॉलीगॉनस्कैन <0/> पर देखें"
 msgid "View the project details and other info for this purchase."
 msgstr "इस ख़रीद के लिए प्रॉजेक्ट विवरण व अन्य जानकारी देखें।"
 
-#: components/ProjectFilterModal/index.tsx:140
+#: components/ProjectFilterModal/index.tsx:141
 msgid "Vintage"
 msgstr "विंटेज"
 
