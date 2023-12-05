@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-05 07:20+0000\n"
+"POT-Creation-Date: 2023-12-05 09:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -872,9 +872,9 @@ msgstr "正在处理购买"
 msgid "Processing Retirement"
 msgstr "正在处理碳停用"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
-msgid "Processing data..."
-msgstr "处理数据..."
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "Processing retirement..."
+msgstr ""
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -1521,10 +1521,6 @@ msgstr "我们仍在处理您的成功购买。请在几分钟后再次访问此
 msgid "We couldn't find any assets in your portfolio."
 msgstr "我们在您的投资组合中找不到任何资产。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
-msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr "我们还没有完成这次碳停用的区块链数据处理。这通常需要几秒钟，但如果网络拥塞，可能需要更长时间。"
-
 #: components/pages/Retire/index.tsx:89
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "我们根据价格、真实性和全球环境影响等严格标准精心归划了一些最佳项目。"
@@ -1620,6 +1616,10 @@ msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息
 #: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
 msgstr "您的卖家数据"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
@@ -1945,15 +1945,15 @@ msgstr "Carbonmark 拥有来自数百个项目的超过 2000 万个经过验证�
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "关于 Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "由 Carbonmark 提供支持的完全透明的链上抵消。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "Carbonmark | 碳停用收据"
 

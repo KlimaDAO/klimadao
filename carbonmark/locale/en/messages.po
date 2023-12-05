@@ -877,9 +877,9 @@ msgstr "Processing Purchase"
 msgid "Processing Retirement"
 msgstr "Processing Retirement"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
-msgid "Processing data..."
-msgstr "Processing data..."
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "Processing retirement..."
+msgstr "Processing retirement..."
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -1523,10 +1523,6 @@ msgstr "We are still processing your successful purchase. Please visit this page
 msgid "We couldn't find any assets in your portfolio."
 msgstr "We couldn't find any assets in your portfolio."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
-msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-
 #: components/pages/Retire/index.tsx:89
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
@@ -1622,6 +1618,10 @@ msgstr "Your purchase has not been completed yet. To finalize your purchase, ver
 #: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
 msgstr "Your seller data"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
+msgstr "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
@@ -1947,15 +1947,15 @@ msgstr "With over 20 million verified digital carbon credits from hundreds of pr
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "About Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "Transparent, on-chain offsets powered by Carbonmark."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} retired {formattedAmount} Tonnes of carbon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "Carbonmark | Carbon Retirement Receipt"
 

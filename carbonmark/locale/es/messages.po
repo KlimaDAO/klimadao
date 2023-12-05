@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-05 07:20+0000\n"
+"POT-Creation-Date: 2023-12-05 09:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -868,9 +868,9 @@ msgstr "Procesando Compra"
 msgid "Processing Retirement"
 msgstr "Procesando la retirada"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
-msgid "Processing data..."
-msgstr "Procesando datos..."
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "Processing retirement..."
+msgstr ""
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -1514,10 +1514,6 @@ msgstr "Aún estamos procesando su compra. Vuelve a visitar esta página dentro 
 msgid "We couldn't find any assets in your portfolio."
 msgstr "No pudimos encontrar ningún activo en su portafolio."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
-msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr "No hemos terminado de procesar los datos de la blockchain para esta retirada. Esto suele tardar unos segundos, pero podría tardar más si la red está congestionada."
-
 #: components/pages/Retire/index.tsx:89
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "Hemos seleccionado a mano algunos de los mejores proyectos basándonos en criterios estrictos, como el precio, la veracidad y el impacto medioambiental global."
@@ -1613,6 +1609,10 @@ msgstr "Su compra aún no se ha completado. Para finalizar su compra, compruebe 
 #: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
 msgstr "Tus datos de vendedor"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
@@ -1940,15 +1940,15 @@ msgstr "Con más de 20 millones de créditos de carbono digitales verificados de
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "Acerca de Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "Compensaciones transparentes en el Blockchain, impulsadas por Carbonmark."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} ha retirado {formattedAmount} Toneladas de carbono"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "Carbonmark | Recibo de retirada de carbono"
 

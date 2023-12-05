@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-05 07:20+0000\n"
+"POT-Creation-Date: 2023-12-05 09:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -870,9 +870,9 @@ msgstr "Traitement de l'achat en cours"
 msgid "Processing Retirement"
 msgstr "Traitement du retrait du marché"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
-msgid "Processing data..."
-msgstr "Traitement des données..."
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "Processing retirement..."
+msgstr ""
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -1516,10 +1516,6 @@ msgstr "Nous sommes encore en train de traiter votre achat. Veuillez revenir sur
 msgid "We couldn't find any assets in your portfolio."
 msgstr "Nous n'avons trouvé aucun actif dans votre portefeuille."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
-msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr "Nous n'avons pas fini de traiter les données de la blockchain pour ce retrait du marché. Cela prend généralement quelques secondes, mais peut prendre plus longtemps si le réseau est encombré."
-
 #: components/pages/Retire/index.tsx:89
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "Nous avons soigneusement sélectionné les meilleurs projets sur la base de critères stricts, tels que le prix, la véracité et l'impact sur l'environnement au niveau mondial."
@@ -1615,6 +1611,10 @@ msgstr "Votre achat n'a pas encore été finalisé. Pour finaliser votre achat, 
 #: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
 msgstr "Vos données de vendeur"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
@@ -1940,15 +1940,15 @@ msgstr "Avec plus de 20 millions de crédits carbone vérifiés provenant de cen
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "À propos de Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "Des compensations transparentes et sur la chaîne, réalisées par Carbonmark."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} a retiré du marché {formattedAmount} Tonnes de carbone"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "Carbonmark | Reçu de Retrait du Marché Carbone"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-05 07:20+0000\n"
+"POT-Creation-Date: 2023-12-05 09:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -872,9 +872,9 @@ msgstr "विक्रय संपन्न करना"
 msgid "Processing Retirement"
 msgstr "रिटायरमेंट प्रोसेसिंग"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
-msgid "Processing data..."
-msgstr "डेटा प्रोसेसिंग..."
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "Processing retirement..."
+msgstr ""
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -1522,10 +1522,6 @@ msgstr "हम अभी आपकी सफल ख़रीदारी को प
 msgid "We couldn't find any assets in your portfolio."
 msgstr "हमें आपके पोर्टफोलियो में कोई संपत्ति नहीं मिली."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
-msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr "हमने इस रिटायरमेन्ट के लिए ब्लॉकचेन डेटा प्रोसेसिंग अभी ख़त्म नहीं की है। इसमें आमतौर पर कुछ सेकंड लगते हैं, लेकिन नेटवर्क में ट्रैफ़िक होने पर इसमें अधिक समय लग जाता है।"
-
 #: components/pages/Retire/index.tsx:89
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "हमने कीमत, सत्यता और वैश्विक पर्यावरणीय प्रभाव जैसे सख्त मानदंडों के आधार पर कुछ बेहतरीन परियोजनाओं को हाथ से तैयार किया है।"
@@ -1621,6 +1617,10 @@ msgstr "आपकी ख़रीदारी अभी पूर्ण नही�
 #: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
@@ -1946,15 +1946,15 @@ msgstr "सैकड़ों परियोजनाओं से 20 मिल
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "कार्बनमार्क के बारे में"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "कार्बनमार्क द्वारा संचालित पारदर्शी, ऑन-चेन ऑफ़सेट।"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्बन"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "कार्बनमार्क | कार्बन रिटायरमेंट रसीद"
 
