@@ -130,7 +130,6 @@ const handler = (fastify: FastifyInstance) =>
           marketplaceProjectData: project,
         });
       });
-
     /** Compose all the data together to unique entries (unsorted) */
     const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
 

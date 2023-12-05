@@ -6,7 +6,7 @@ import { useConnectedUser } from "hooks/useConnectedUser";
 import { fetcher } from "lib/fetcher";
 import { User } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
-import { SWRConfig, unstable_serialize } from "swr";
+import { SWRConfig } from "swr";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";
 
@@ -61,9 +61,7 @@ export const Users: NextPage<PageProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        // https://swr.vercel.app/docs/with-nextjs#complex-keys
-        [unstable_serialize(`users/${props.userAddress}`)]:
-          props.carbonmarkUser,
+        [`/users/${props.userAddress}`]: props.carbonmarkUser,
       },
     }}
   >
