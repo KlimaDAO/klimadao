@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-04 15:58+0000\n"
+"POT-Creation-Date: 2023-12-05 07:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1270,7 +1270,7 @@ msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
 msgid "This is your portfolio. Here you will find supported carbon assets you own. Assets shown here can be retired or listed for sale in the marketplace once you have a profile."
-msgstr ""
+msgstr "Voici votre portefeuille. Vous y trouverez les actifs carbone supportés que vous possédez. Les actifs présentés ici peuvent être retirés du marché ou mis en vente sur le marché une fois que vous aurez un profil."
 
 #: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
@@ -1582,7 +1582,7 @@ msgstr "Vous avez dépassé votre nombre de jetons disponibles"
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:19
 msgid "You must have a profile created to view carbon assets you own in your Carbonmark portfolio."
-msgstr ""
+msgstr "Vous devez avoir créé un profil pour visualiser les actifs carbone que vous possédez dans votre portefeuille Carbonmark."
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
 msgid "You successfully acquired carbon!"
