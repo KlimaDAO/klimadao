@@ -32,18 +32,25 @@ export async function getAllVintages(
     return cachedResult;
   }
 
-  const [{ projects }, { carbonOffsets }] = await Promise.all([
-    sdk.marketplace.getVintages(),
-    sdk.offsets.getCarbonOffsetsVintages(),
-  ]);
+  const [{ projects }, { carbonProjects: digitalCarbonProjects }] =
+    await Promise.all([
+      sdk.marketplace.getVintages(),
+      sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
+    ]);
 
   /** Handle invalid responses */
-  if (!isArray(projects) || !isArray(carbonOffsets)) {
+  if (!isArray(projects) || !isArray(digitalCarbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
 
   projects.forEach((item) => uniqueValues.add(item.vintage));
-  carbonOffsets.forEach((item) => uniqueValues.add(item.vintageYear));
+  digitalCarbonProjects.forEach((project) => {
+    project.carbonCredits.forEach((credit) => {
+      if (credit.vintage) {
+        uniqueValues.add(credit.vintage.toString());
+      }
+    });
+  });
 
   const result = Array.from(uniqueValues).sort().filter(notEmptyOrNil);
 
@@ -69,20 +76,21 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
   }
 
   // Fetch categories from the marketplace & carbon offsets categories
-  const [{ categories }, { carbonOffsets }] = await Promise.all([
-    sdk.marketplace.getCategories(),
-    sdk.offsets.getCarbonOffsetsCategories(),
-  ]);
+  const [{ categories }, { carbonProjects: digitalCarbonProjects }] =
+    await Promise.all([
+      sdk.marketplace.getCategories(),
+      sdk.digital_carbon.getDigitalCarbonProjectsCategories(),
+    ]);
 
   /** Handle invalid responses */
-  if (!isArray(categories) || !isArray(carbonOffsets)) {
+  if (!isArray(categories) || !isArray(digitalCarbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
 
   // Extract the required values from the fetched data
   const values = [
     categories?.map(extract("id")),
-    carbonOffsets?.map(extract("methodologyCategory")),
+    digitalCarbonProjects?.map(extract("category")),
   ];
 
   // This function pipeline combines and deduplicates categories from different sources
@@ -117,13 +125,14 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
     return cachedResult;
   }
 
-  const [{ countries }, { carbonOffsets }] = await Promise.all([
-    sdk.marketplace.getCountries(),
-    sdk.offsets.getCarbonOffsetsCountries(),
-  ]);
+  const [{ countries }, { carbonProjects: digitalCarbonProjects }] =
+    await Promise.all([
+      sdk.marketplace.getCountries(),
+      sdk.digital_carbon.getDigitalCarbonProjectsCountries(),
+    ]);
 
   /** Handle invalid responses */
-  if (!isArray(countries) || !isArray(carbonOffsets)) {
+  if (!isArray(countries) || !isArray(digitalCarbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
 
@@ -137,7 +146,7 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
 
   const result: Country[] = fn([
     countries?.map(extract("id")),
-    carbonOffsets.map(extract("country")),
+    digitalCarbonProjects.map(extract("country")),
   ]);
 
   await fastify.lcache.set(cacheKey, { payload: result });

@@ -1,29 +1,30 @@
 ## Description
 
-<!-- Does this PR need additional hands-on QA? Please make a note and notify the relevant testers -->
+<!--
+  The original ticket should describe what is being fixed or changed.
+  If the original ticket is not descriptive enough, please update it.
 
-<!-- Thank you for sending the PR! We appreciate you spending the time to work on these changes. -->
-<!-- Help us understand your motivation by explaining why you decided to make this change -->
+  The PR description should provide more context and help the reviewer understand the reasoning behind your changes.
+
+  Screenshots highly encouraged!
+-->
 
 ## Related Ticket
 
-<!-- If your changes are related to a github ticket, please provide the issue number: -->
+Closes <issue-number>
+Also related to <issue-number>
 
-Resolves #<issue-number>
+## Notes For QA
+<!--
 
-<!-- If there are UI changes, please include a before and after screenshot in the following template:
-
-## Changes
-
-| Before  | After  |
-|---------|--------|
-|img here |img here|
+* [x] This PR is low-risk or narrow in scope, QA is not needed.
 
 -->
+Specific pages, components or journeys that might be affected:
+- 
 
-## Checklist
+Relevant preview URLs:
+- 
 
-<!-- Check completed item: [X] -->
-
-- [ ] I have run `npm run build-all` without errors
-- [ ] I have formatted JS and TS files with `npm run format-all`
+Other notes:
+- 

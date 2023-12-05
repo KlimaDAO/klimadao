@@ -1,4 +1,3 @@
-import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { t } from "@lingui/macro";
 import { Accordion } from "components/Accordion";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
@@ -7,6 +6,7 @@ import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Text } from "components/Text";
 import { Modal, ModalProps } from "components/shared/Modal";
+import { ProjectsProps } from "hooks/useFetchProjects";
 import {
   FilterValues,
   defaultParams,
@@ -29,9 +29,10 @@ type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 type FilterKeys = Pick<FilterValues, "country" | "category" | "vintage">;
 const keys = ["country", "category", "vintage"] as const;
 
-export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
+export const ProjectFilterModal: FC<ProjectFilterModalProps & ProjectsProps> = (
+  props
+) => {
   const router = useRouter();
-  const { data: projects = [], isValidating } = useGetProjects();
   const { params, updateQueryParams, resetQueryParams } = useProjectsParams();
 
   // Set the default values and override with any existing url params
@@ -151,7 +152,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
           type="button"
           className="action"
           label={t`View Results`}
-          disabled={isValidating}
+          disabled={props.isValidating}
           onClick={() => props.onToggleModal?.()}
         />
         <ButtonSecondary
@@ -162,9 +163,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
           onClick={resetFilters}
         />
         <Text t="h5" align="center">
-          {!isValidating
-            ? `${projects.length} ${
-                projects.length === 1 ? t`Result` : t`Results`
+          {!props.isValidating
+            ? `${props.projects.length} ${
+                props.projects.length === 1 ? t`Result` : t`Results`
               }`
             : t`Compiling Results ...`}
         </Text>

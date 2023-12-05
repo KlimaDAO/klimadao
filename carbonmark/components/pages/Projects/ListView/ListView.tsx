@@ -91,14 +91,17 @@ export const ListView: FC<ViewProps> = ({ projects }) => {
   }, [sort]);
 
   useEffect(() => {
+    const { ...params } = router.query;
     // updates the sort dropdown when there is an update to the table sorting
     if (sortColumn === "vintage") {
       updateQueryParams({
+        ...params,
         sort: isEqual(sortOrder, "asc") ? "vintage-newest" : "vintage-oldest",
       });
     }
     if (sortColumn === "price") {
       updateQueryParams({
+        ...params,
         sort: sortOrder === "asc" ? "price-highest" : "price-lowest",
       });
     }

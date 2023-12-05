@@ -35,7 +35,10 @@ export const useProjectsParams = () => {
   };
 
   const resetQueryParams = () => {
-    router.replace({ query: defaultParams }, undefined, { shallow: true });
+    const { layout } = router.query;
+    router.replace({ query: { ...defaultParams, layout } }, undefined, {
+      shallow: true,
+    });
   };
 
   return {

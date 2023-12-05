@@ -8,7 +8,7 @@ import { Balances } from "./Balances";
 import * as styles from "./styles";
 
 type Props = {
-  user: User | null;
+  user?: User | null;
   isPending: boolean;
 };
 
