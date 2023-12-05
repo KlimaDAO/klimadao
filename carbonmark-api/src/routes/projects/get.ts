@@ -36,7 +36,9 @@ const handler = (fastify: FastifyInstance) =>
     request: FastifyRequest<{ Querystring: Querystring }>,
     reply: FastifyReply
   ): Promise<Project[]> {
-    const network = request.query.network ?? "polygon";
+    // const network = request.query.network ?? "polygon";
+    // @todo reset once network switching is stable, FOR TESTING ONLY
+    const network = "mumbai";
 
     const sdk = gql_sdk(network);
     //Transform the list params (category, country etc) provided so as to be an array of strings
