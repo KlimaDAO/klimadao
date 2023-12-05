@@ -8,7 +8,7 @@ import {
   isTestnetChainId,
   trimWithLocale,
 } from "@klimadao/lib/utils";
-import { Contract, Transaction, providers } from "ethers";
+import { Contract, Transaction, constants, providers } from "ethers";
 import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getContract } from "lib/networkAware/getContract";
