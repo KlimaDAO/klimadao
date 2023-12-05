@@ -84,7 +84,10 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       revalidate: 10,
     };
   } catch (e) {
-    console.error("Failed to generate Carbonmark Purchase Receipt Page", e);
+    console.error(
+      "Failed to generate Carbonmark Purchase Receipt Page",
+      e.message
+    );
     return {
       notFound: true,
       revalidate: 10,

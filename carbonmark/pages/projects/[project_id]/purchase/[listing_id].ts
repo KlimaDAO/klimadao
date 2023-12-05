@@ -64,7 +64,10 @@ export const getStaticProps: GetStaticProps<
       revalidate: 10,
     };
   } catch (e) {
-    console.error("Failed to generate Carbonmark Project Purchase Page", e);
+    console.error(
+      "Failed to generate Carbonmark Project Purchase Page",
+      e.message
+    );
     return {
       notFound: true,
       revalidate: 10,

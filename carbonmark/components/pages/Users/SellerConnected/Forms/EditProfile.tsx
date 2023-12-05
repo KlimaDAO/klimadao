@@ -118,7 +118,7 @@ export const EditProfile: FC<Props> = (props) => {
       if (error.code === "ACTION_REJECTED") {
         setErrorMessage(t`You chose to reject the transaction.`);
       } else {
-        setErrorMessage(t`Something went wrong. Please try again. ${error}`);
+        setErrorMessage(t`Something went wrong. Please try again. ${error.message}`);
       }
     } finally {
       setIsLoading(false);
@@ -156,23 +156,23 @@ export const EditProfile: FC<Props> = (props) => {
               "handle",
               !isExistingUser // validate only if handle can be changed
                 ? {
-                    required: {
-                      value: true,
-                      message: t`Handle is required`,
-                    },
-                    pattern: {
-                      value: VALID_HANDLE_REGEX, // no special characters!
-                      message: t`Handle should not contain any special characters`,
-                    },
-                    validate: {
-                      isAddress: (v) =>
-                        !isAddress(v) || // do not allow polygon addresses
-                        t`Handle should not be an address`,
-                      isNewHandle: async (v) =>
-                        (await fetchIsNewHandle(v)) || // ensure unique handles
-                        t`Sorry, this handle already exists`,
-                    },
-                  }
+                  required: {
+                    value: true,
+                    message: t`Handle is required`,
+                  },
+                  pattern: {
+                    value: VALID_HANDLE_REGEX, // no special characters!
+                    message: t`Handle should not contain any special characters`,
+                  },
+                  validate: {
+                    isAddress: (v) =>
+                      !isAddress(v) || // do not allow polygon addresses
+                      t`Handle should not be an address`,
+                    isNewHandle: async (v) =>
+                      (await fetchIsNewHandle(v)) || // ensure unique handles
+                      t`Sorry, this handle already exists`,
+                  },
+                }
                 : undefined
             ),
           }}
