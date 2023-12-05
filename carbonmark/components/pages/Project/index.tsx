@@ -257,8 +257,7 @@ export const Project: NextPage<PageProps> = (props) => {
       value={{
         fetcher,
         fallback: {
-          [`/projects/${props.projectID}`]:
-            props.project,
+          [`/projects/${props.projectID}`]: props.project,
         },
       }}
     >
