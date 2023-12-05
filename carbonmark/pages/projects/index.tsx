@@ -26,13 +26,17 @@ export const getServerSideProps: GetServerSideProps<
   ProjectsPageStaticProps
 > = async (ctx) => {
   try {
-    const projects = await fetchProjects(ctx.query);
-    const vintages = await getVintages();
-    const countries = await getCountries();
-    /** @note because the API is returning trailing empty spaces on some categories, trim them here */
-    const categories = (await getCategories()).map(update("id", trim));
-
-    const translation = await loadTranslation(ctx.locale);
+    const [projects, vintages, countries, categories, translation] =
+      await Promise.all([
+        fetchProjects(ctx.query),
+        getVintages(),
+        getCountries(),
+        /** @note because the API is returning trailing empty spaces on some categories, trim them here */
+        getCategories().then((categories) =>
+          categories.map(update("id", trim))
+        ),
+        loadTranslation(ctx.locale),
+      ]);
 
     if (!translation) {
       throw new Error("No translation found");
