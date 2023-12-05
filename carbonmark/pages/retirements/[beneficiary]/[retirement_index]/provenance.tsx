@@ -1,4 +1,8 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
+import {
+  getProjectsId,
+  getRecordsIdProvenance,
+} from ".generated/carbonmark-api-sdk/clients";
+import { GetRecordsIdProvenanceQueryResponse } from ".generated/carbonmark-api-sdk/types";
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
 import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
@@ -26,6 +30,7 @@ export interface RetirementProvenancePageProps {
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
   project?: DetailedProject | null;
+  provenance: GetRecordsIdProvenanceQueryResponse;
 }
 
 // second param should always be a number
@@ -34,7 +39,7 @@ const isNumeric = (value: string) => {
 };
 
 export const getStaticProps: GetStaticProps<
-RetirementProvenancePageProps,
+  RetirementProvenancePageProps,
   Params
 > = async (ctx) => {
   try {
@@ -79,10 +84,10 @@ RetirementProvenancePageProps,
         revalidate: 1,
       };
     }
-
     if (!translation) {
       throw new Error("No translation found");
     }
+    const provenance = await getRecordsIdProvenance(retirement.transaction.id);
 
     let project;
     if (retirement.offset.projectID && retirement.offset.vintageYear) {
@@ -93,6 +98,7 @@ RetirementProvenancePageProps,
 
     return {
       props: {
+        provenance,
         project: project || null,
         beneficiaryAddress: beneficiaryAddress,
         canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,

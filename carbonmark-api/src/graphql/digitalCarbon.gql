@@ -32,8 +32,8 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
   }
 }
 
-query getProvenanceRecords($id: [Bytes!]) {
-  provenanceRecords(where: { id_in: $id }) {
+query getProvenanceRecords($hash: [Bytes!]) {
+  provenanceRecords(where: { transactionHash_in: $hash }) {
     ...ProvenanceRecordFragment
     priorRecords(orderBy: createdAt, orderDirection: desc) {
       ...ProvenanceRecordFragment

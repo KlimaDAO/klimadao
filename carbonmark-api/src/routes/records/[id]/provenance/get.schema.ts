@@ -6,7 +6,7 @@ export const params = Type.Object({
   id: Type.String({
     description: "Transaction ID",
     examples: [
-      "0x0044c5a5a6f626b673224a3c0d71e851ad3d5153000000000000000000000000000000000000000006000000",
+      "0xfd59f524162d4ef2f7e5df69c5079ce394ecd6b9cf681d701d426cd221981b17",
     ],
   }),
 });

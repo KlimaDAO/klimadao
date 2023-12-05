@@ -14,7 +14,7 @@ const handler = () =>
     const { id } = request.params;
     const sdk = gql_sdk(request.query.network);
     const record = (
-      await sdk.digital_carbon.getProvenanceRecords({ id: [id] })
+      await sdk.digital_carbon.getProvenanceRecords({ hash: [id] })
     ).provenanceRecords.at(0);
 
     if (record == null) {

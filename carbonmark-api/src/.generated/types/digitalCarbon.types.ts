@@ -4183,7 +4183,7 @@ export type GetProjectCreditsQueryVariables = Exact<{
 export type GetProjectCreditsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', registry: Registry, region: string, projectID: string, name: string, methodologies: string, id: string, country: string, category: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number } }> }> }> };
 
 export type GetProvenanceRecordsQueryVariables = Exact<{
-  id: InputMaybe<Array<Scalars['Bytes']> | Scalars['Bytes']>;
+  hash: InputMaybe<Array<Scalars['Bytes']> | Scalars['Bytes']>;
 }>;
 
 
@@ -4239,8 +4239,8 @@ export const GetProjectCreditsDocument = gql`
 }
     `;
 export const GetProvenanceRecordsDocument = gql`
-    query getProvenanceRecords($id: [Bytes!]) {
-  provenanceRecords(where: {id_in: $id}) {
+    query getProvenanceRecords($hash: [Bytes!]) {
+  provenanceRecords(where: {transactionHash_in: $hash}) {
     ...ProvenanceRecordFragment
     priorRecords(orderBy: createdAt, orderDirection: desc) {
       ...ProvenanceRecordFragment
