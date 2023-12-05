@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-05 09:38+0000\n"
+"POT-Creation-Date: 2023-12-05 10:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -482,7 +482,7 @@ msgstr ""
 msgid "Energy Efficiency"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "Expiration"
 msgstr ""
 
@@ -1405,7 +1405,7 @@ msgstr ""
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:183
 msgid "Update listing"
 msgstr ""
 
@@ -2293,7 +2293,7 @@ msgstr ""
 msgid "{0} | Profile | Carbonmark"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:173
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr ""
 

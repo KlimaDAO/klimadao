@@ -491,7 +491,7 @@ msgstr "Edit listing"
 msgid "Energy Efficiency"
 msgstr "Energy Efficiency"
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "Expiration"
 msgstr "Expiration"
 
@@ -1414,7 +1414,7 @@ msgstr "Unlisted tonnes:"
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr "Unprecedented transparency across the digital carbon market."
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:183
 msgid "Update listing"
 msgstr "Update listing"
 
@@ -2302,7 +2302,7 @@ msgstr "{0} tonnes"
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Profile | Carbonmark"
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:173
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 
