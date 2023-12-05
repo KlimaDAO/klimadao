@@ -217,7 +217,7 @@ msgstr "Beneficiary wallet address (optional)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:145
+#: components/pages/Project/index.tsx:143
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -430,7 +430,7 @@ msgstr "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how t
 msgid "DATE"
 msgstr "DATE"
 
-#: components/pages/Project/index.tsx:242
+#: components/pages/Project/index.tsx:240
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -447,7 +447,7 @@ msgstr "Defaults to the connected wallet address"
 msgid "Describe the purpose of this retirement"
 msgstr "Describe the purpose of this retirement"
 
-#: components/pages/Project/index.tsx:193
+#: components/pages/Project/index.tsx:191
 msgid "Description"
 msgstr "Description"
 
@@ -697,7 +697,7 @@ msgstr "Marketplace | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Maximize your climate impact."
 
-#: components/pages/Project/index.tsx:152
+#: components/pages/Project/index.tsx:150
 msgid "Methodology"
 msgstr "Methodology"
 
@@ -742,7 +742,7 @@ msgstr "No data to show"
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:232
+#: components/pages/Project/index.tsx:230
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -951,11 +951,11 @@ msgstr "Quick Retire"
 msgid "RETIRE CARBON"
 msgstr "RETIRE CARBON"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read Less"
 msgstr "Read Less"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read More"
 msgstr "Read More"
 
@@ -1448,7 +1448,7 @@ msgstr "View"
 msgid "View Carbonmark Profile"
 msgstr "View Carbonmark Profile"
 
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:213
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
@@ -1481,7 +1481,7 @@ msgstr "View all Projects"
 msgid "View all Retirements"
 msgstr "View all Retirements"
 
-#: components/pages/Project/index.tsx:106
+#: components/pages/Project/index.tsx:104
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 

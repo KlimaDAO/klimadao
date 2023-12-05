@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-05 12:32+0000\n"
+"POT-Creation-Date: 2023-12-05 13:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgstr "Адрес кошелька получателя (необязатель
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:145
+#: components/pages/Project/index.tsx:143
 msgid "Best Price"
 msgstr "Лучшая цена"
 
@@ -421,7 +421,7 @@ msgstr "В настоящее время Carbonmark принимает толь�
 msgid "DATE"
 msgstr "ДАТА"
 
-#: components/pages/Project/index.tsx:242
+#: components/pages/Project/index.tsx:240
 msgid "Data for this project and vintage"
 msgstr "Данные для этого проекта и урожая"
 
@@ -438,7 +438,7 @@ msgstr "По умолчанию используется адрес подклю
 msgid "Describe the purpose of this retirement"
 msgstr "Опишите цель этого вывода"
 
-#: components/pages/Project/index.tsx:193
+#: components/pages/Project/index.tsx:191
 msgid "Description"
 msgstr "Описание"
 
@@ -688,7 +688,7 @@ msgstr "Торговая площадка | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Максимизируйте свое воздействие на климат."
 
-#: components/pages/Project/index.tsx:152
+#: components/pages/Project/index.tsx:150
 msgid "Methodology"
 msgstr "Методология"
 
@@ -733,7 +733,7 @@ msgstr "Нет данных для отображения"
 msgid "No listable assets found."
 msgstr "Список объектов не найден."
 
-#: components/pages/Project/index.tsx:232
+#: components/pages/Project/index.tsx:230
 msgid "No listings found for this project."
 msgstr "Не найдено объявлений для этого проекта."
 
@@ -942,11 +942,11 @@ msgstr "Быстрый вывод"
 msgid "RETIRE CARBON"
 msgstr "ВЫВЕДЕНО УГЛЕРОДА"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read Less"
 msgstr "Читать меньше"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read More"
 msgstr "Подробнее"
 
@@ -1439,7 +1439,7 @@ msgstr "Просмотр"
 msgid "View Carbonmark Profile"
 msgstr "Посмотреть профиль Carbonmark"
 
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:213
 msgid "View Registry Details <0/>"
 msgstr "Просмотр сведений о реестре <0/>"
 
@@ -1472,7 +1472,7 @@ msgstr "Посмотреть все проекты"
 msgid "View all Retirements"
 msgstr "Просмотреть всего выведено"
 
-#: components/pages/Project/index.tsx:106
+#: components/pages/Project/index.tsx:104
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Посмотреть и приобрести этот проект компенсации выбросов углерода на Carbonmark"
 
