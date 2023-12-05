@@ -1,8 +1,5 @@
-import type { Def1 } from ".generated/carbonmark-api-sdk/types";
-import { GetProjectsQueryParams } from ".generated/carbonmark-api-sdk/types";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
-import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
@@ -13,9 +10,7 @@ import { useFetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
 import { urls } from "lib/constants";
-import { isStringArray } from "lib/utils/types.utils";
 import { get, identity, isEmpty } from "lodash";
-import { mapValues, pipe } from "lodash/fp";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
@@ -34,39 +29,13 @@ const views = {
   map: LazyLoadingMapView,
 };
 
-const joinArray = (value: string | string[]): string =>
-  isStringArray(value) ? value.join(",") : value;
-const emptyToUndefined = (value: string): string | undefined =>
-  value === "" ? undefined : value;
-
-function castToDef1(networkLabel: string | undefined): Def1 | undefined {
-  if (networkLabel === "polygon") {
-    return "polygon";
-  } else if (networkLabel === "mumbai") {
-    return "mumbai";
-  } else {
-    return undefined;
-  }
-}
-
 const Page: NextPage = () => {
   const router = useRouter();
   const { isMobile } = useResponsive();
-  const { networkLabel } = useWeb3();
 
   const { params, updateQueryParams } = useProjectsParams();
 
-  /** convert all string arrays to comma separated string as per the api's expectation */
-  const mappedParams: GetProjectsQueryParams = mapValues(
-    { ...params, network: castToDef1(networkLabel) },
-    pipe(joinArray, emptyToUndefined)
-  );
-
-  const {
-    data: projects = [],
-    isLoading,
-    isValidating,
-  } = useFetchProjects(mappedParams);
+  const { data: projects = [], isLoading, isValidating } = useFetchProjects();
 
   const sortFn = get(PROJECT_SORT_FNS, params.sort) ?? identity;
   const sortedProjects = sortFn(projects);
