@@ -129,3 +129,21 @@ To re-generate:
 3. Create a new release following the process [defined above](#creating-a-release)
 
 
+## Deployment
+The deploy_carbonmark_api.yml github action:
+
+https://github.com/KlimaDAO/klimadao/blob/staging/.github/workflows/deploy_carbonmark_api.yml
+
+creates a deployment of the API seperate to the Vercel deployment that happens automatically on creation of a pull request.
+
+That deployment is aliased with the commit hash of the latest commit of the target branch for the pull request. (e.b carbonmark-api-0311caba-klimadao.vercel.app)
+
+This happens on push to the target PR branch so on the first pass of the build the aliased API does not exist yet. However, it is possible to set the `NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API` environment variable in https://vercel.com/klimadao/carbonmark/settings/environment-variables which will force carbonmark to target this preview deployment on the next build. (See: https://github.com/KlimaDAO/klimadao/blob/56bf7dff7f03e2e23d8b8d97ee9c09645c4749f8/carbonmark/lib/constants.ts#L37-L39)
+
+## Development
+It is also possible to target a local instance of the API (or any deployed version for that matter) when developing by setting the `NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API` variable when running the development script:
+
+
+```sh
+NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003 npm run dev-carbonmark
+```
