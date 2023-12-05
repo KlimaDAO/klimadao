@@ -3,6 +3,7 @@ export * from "./useGetCountries";
 export * from "./useGetProjects";
 export * from "./useGetProjectsId";
 export * from "./useGetPurchasesId";
+export * from "./useGetRecordsIdProvenance";
 export * from "./useGetUsersWalletorhandle";
 export * from "./useGetVintages";
 export * from "./usePostUsers";

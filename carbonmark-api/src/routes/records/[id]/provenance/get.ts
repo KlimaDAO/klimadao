@@ -16,7 +16,7 @@ const handler = () =>
     const record = (
       await sdk.digital_carbon.getProvenanceRecords({ id: [id] })
     ).provenanceRecords.at(0);
-    console.debug(record);
+
     if (record == null) {
       return reply.notFound();
     }
