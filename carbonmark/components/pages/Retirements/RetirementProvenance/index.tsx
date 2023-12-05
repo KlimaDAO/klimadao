@@ -13,6 +13,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { RetirementProvenancePageProps } from "pages/retirements/[beneficiary]/[retirement_index]/provenance";
 import { useEffect } from "react";
+import { ProvenanceRenderer } from "./ProvenanceRenderer";
 import * as styles from "./styles";
 
 export const RetirementProvenancePage: NextPage<RetirementProvenancePageProps> = ({
@@ -69,8 +70,9 @@ export const RetirementProvenancePage: NextPage<RetirementProvenancePageProps> =
       />
       <Navigation activePage="Home" transparent={true}/>
       <Section className={styles.section}>
-        <div className={styles.gridLayout}>
-          
+        <div>
+        <ProvenanceRenderer records={props.provenance}/>
+     
         </div>
       </Section>
       <Footer />
