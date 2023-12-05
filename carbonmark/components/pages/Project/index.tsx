@@ -8,7 +8,7 @@ import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
 import { REGISTRIES } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
