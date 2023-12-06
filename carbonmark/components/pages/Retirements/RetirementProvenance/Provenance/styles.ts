@@ -1,11 +1,18 @@
 import { css } from "@emotion/css";
 
+export const timeline = css`
+  max-width: 36rem;
+`
+
 export const content = css`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   white-space: nowrap;
 `;
+export const oppositeContent = css`
+  flex: 0;
+`
 export const contentHeader = css`
   display: flex;
   flex-direction: column;

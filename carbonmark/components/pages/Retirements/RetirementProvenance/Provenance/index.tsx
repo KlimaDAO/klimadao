@@ -13,12 +13,13 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Quantity } from "components/Quantity";
 import { useRouter } from "next/router";
 import * as styles from "./styles";
 
-interface ProvenanceRendererProps {
+interface ProvenanceProps {
   records: Record[];
 }
 
@@ -75,16 +76,18 @@ const RECORDS_INFO = {
   },
 };
 
-export const ProvenanceRenderer = (props: ProvenanceRendererProps) => {
+export const Provenance = (props: ProvenanceProps) => {
   const { locale } = useRouter();
   const recordInfo = (transactionType: string) => {
     if (Object.keys(RECORDS_INFO).includes(transactionType))
       return RECORDS_INFO[transactionType as keyof typeof RECORDS_INFO];
   };
   return (
-    <Timeline>
+    <Timeline className={styles.timeline}>
       {props.records.map((record) => (
         <TimelineItem key={record.id}>
+            <TimelineOppositeContent className={styles.oppositeContent}>
+            </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot
               sx={{
@@ -116,6 +119,7 @@ export const ProvenanceRenderer = (props: ProvenanceRendererProps) => {
               </div>
             </div>
           </TimelineContent>
+
         </TimelineItem>
       ))}
     </Timeline>
