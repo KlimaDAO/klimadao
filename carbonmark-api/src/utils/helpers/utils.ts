@@ -245,12 +245,10 @@ export const stringToActivityType = (str: string): ActivityType | undefined => {
  * This method will silently filter out strings that do not relate to an actually activity type
  * so make sure the handler checks for correct activity type input
  */
-export const stringsToActivityTypes = (
-  strs: string[] | undefined
-): ActivityType[] => {
+export const stringsToActivityTypes = (strs: string[]): ActivityType[] => {
   return strs
-    ? strs.map(stringToActivityType).filter((str): str is ActivityType => !!str)
-    : [];
+    .map(stringToActivityType)
+    .filter((str): str is ActivityType => !!str);
 };
 
 /**
