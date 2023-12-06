@@ -2,7 +2,11 @@ import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
-import { formatUnits, isTestnetChainId } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  isTestnetChainId,
+  trimWithLocale,
+} from "@klimadao/lib/utils";
 import { Contract, Transaction, providers } from "ethers";
 import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
 import { getAddress } from "lib/networkAware/getAddress";
@@ -199,7 +203,10 @@ export const updateListingTransaction = async (params: {
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
       parseUnits(params.newAmount, 18),
-      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(
+        trimWithLocale(params.singleUnitPrice, 6),
+        getTokenDecimals("usdc")
+      ),
       parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
       getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
     );
@@ -239,14 +246,18 @@ export const makePurchase = async (params: {
     params.onStatus("userConfirmation", "");
 
     const maxCost = String(
-      Number(params.quantity) * Number(params.singleUnitPrice)
+      Number(params.quantity) *
+        Number(trimWithLocale(params.singleUnitPrice, 6))
     );
 
     const purchaseTxn = await carbonmarkContract.fillListing(
       params.listingId,
       params.sellerAddress,
       params.creditTokenAddress,
-      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(
+        trimWithLocale(params.singleUnitPrice, 6),
+        getTokenDecimals("usdc")
+      ),
       parseUnits(params.quantity, 18),
       parseUnits(maxCost, getTokenDecimals("usdc"))
     );

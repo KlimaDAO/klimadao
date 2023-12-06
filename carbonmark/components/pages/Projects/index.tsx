@@ -102,7 +102,7 @@ export const Projects: NextPage<ProjectsPageStaticProps> = (props) => (
       // Prefill our API responses with server side fetched data
       // see: https://swr.vercel.app/docs/with-nextjs#pre-rendering-with-default-data
       fallback: {
-        [urls.api.projects]: props.projects,
+        ["/projects"]: props.projects,
         [urls.api.vintages]: props.vintages,
         [urls.api.categories]: props.categories,
         [urls.api.countries]: props.countries,

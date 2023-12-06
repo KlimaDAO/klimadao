@@ -143,7 +143,7 @@ export const urls = {
     "https://transferto.xyz/showcase/etherspot-klima?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
   lifiOffset:
     "https://transferto.xyz/showcase/carbon-offset?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-  polyscanGasStation: "https://gasstation-mainnet.matic.network/v2",
+  polyscanGasStation: "https://gasstation.polygon.technology/v2",
   polygonscan: "https://polygonscan.com",
   polygonBridge: "https://wallet.polygon.technology/polygon/bridge/deposit",
   polygonTor: "https://polygon.tor.us/",

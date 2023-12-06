@@ -155,6 +155,10 @@ export const EditListing: FC<Props> = (props) => {
                     )}`,
                   }),
                 },
+                pattern: {
+                  value: /^\d+(\.\d{1,6})?$/,
+                  message: `The maximum decimals allowed is 6`,
+                },
               }),
             }}
             errorMessage={formState.errors.newSingleUnitPrice?.message}
