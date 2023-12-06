@@ -1,19 +1,19 @@
 import { Record } from ".generated/carbonmark-api-sdk/types";
 import { Text } from "@klimadao/lib/components";
-import { concatAddress } from "@klimadao/lib/utils";
+import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import {
   ChangeCircleOutlined,
   DeviceHub,
   East,
   Park,
+  Token,
 } from "@mui/icons-material";
 import Timeline from "@mui/lab/Timeline";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Quantity } from "components/Quantity";
 import { useRouter } from "next/router";
@@ -21,6 +21,7 @@ import * as styles from "./styles";
 
 interface ProvenanceProps {
   records: Record[];
+  retirementId: string;
 }
 
 const getFormattedDate = (timestamp: number, locale = "en") => {
@@ -33,11 +34,11 @@ const getFormattedDate = (timestamp: number, locale = "en") => {
   const date = new Intl.DateTimeFormat(locale, {
     timeZone: "UTC",
     day: "numeric",
-    month:"long",
-    year: "numeric" 
+    month: "long",
+    year: "numeric",
   }).format(dateObj);
 
-  return `${time} | ${date}`
+  return `${time} | ${date}`;
 };
 
 const RECORDS_INFO = {
@@ -82,46 +83,74 @@ export const Provenance = (props: ProvenanceProps) => {
     if (Object.keys(RECORDS_INFO).includes(transactionType))
       return RECORDS_INFO[transactionType as keyof typeof RECORDS_INFO];
   };
-  return (
-    <Timeline className={styles.timeline}>
-      {props.records.map((record) => (
-        <TimelineItem key={record.id}>
-            <TimelineOppositeContent className={styles.oppositeContent}>
-            </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot
-              sx={{
-                backgroundColor: recordInfo(record.transactionType)
-                  ?.iconBackgroundColor,
-              }}
-            >
-              {recordInfo(record.transactionType)?.icon}
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <div className={styles.content}>
-              <div className={styles.contentHeader}>
-                <h4>{recordInfo(record.transactionType)?.label}</h4>
-                <Text t="body1">
-                  {getFormattedDate(record.createdAt, locale)}
-                </Text>
-              </div>
-              <div className={styles.contentFooter}>
-                <Quantity quantity={record.originalAmount} />
-                <div className={styles.address}>
-                  {concatAddress(record.sender)}
-                </div>
-                <East />
-                <div className={styles.address}>
-                  {concatAddress(record.receiver)}
-                </div>
-              </div>
-            </div>
-          </TimelineContent>
 
-        </TimelineItem>
-      ))}
-    </Timeline>
+  const lastRecord = props.records[0];
+  if (!lastRecord) return <></>;
+
+  const formattedAmount = formatTonnes({
+    amount: lastRecord.originalAmount.toString(),
+    locale: locale || "en",
+  });
+
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
+        <div className={styles.headerItem}>
+          <Text t="body2" color="lightest">
+            <div className={styles.iconAndText}>
+              <Token fontSize="large" />
+              <Trans>Credit ID</Trans>
+            </div>
+          </Text>
+          <Text t="h5">{props.retirementId}</Text>
+        </div>
+        <div className={styles.headerItem}>
+          <Text t="body2" color="lightest">
+            <div className={styles.iconAndText}>
+              <Token fontSize="large" />
+              <Trans>Amount</Trans>
+            </div>
+          </Text>
+          <Text t="h5">
+            <Trans>{formattedAmount} Tonnes</Trans>
+          </Text>
+        </div>
+      </div>
+      <Timeline className={styles.timeline}>
+        {props.records.map((record) => (
+          <TimelineItem key={record.id}>
+            <TimelineSeparator>
+              <TimelineDot
+                sx={{
+                  backgroundColor: recordInfo(record.transactionType)
+                    ?.iconBackgroundColor,
+                }}
+              >
+                {recordInfo(record.transactionType)?.icon}
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+              <div className={styles.content}>
+                <div className={styles.contentHeader}>
+                  <Text t="h4">
+                    {recordInfo(record.transactionType)?.label}
+                  </Text>
+                  <Text t="body3" color="lightest">
+                    {getFormattedDate(record.createdAt, locale)}
+                  </Text>
+                </div>
+                <div className={styles.contentFooter}>
+                  <Quantity quantity={record.originalAmount} />
+                  <Text t="body1">{concatAddress(record.sender)}</Text>
+                  <East />
+                  <Text t="body1">{concatAddress(record.receiver)}</Text>
+                </div>
+              </div>
+            </TimelineContent>
+          </TimelineItem>
+        ))}
+      </Timeline>
+    </div>
   );
 };

@@ -1,10 +1,5 @@
 import { GridContainer, Section, Text } from "@klimadao/lib/components";
-import {
-  concatAddress,
-  formatTonnes,
-  queryKlimaRetireByIndex,
-  safeSub,
-} from "@klimadao/lib/utils";
+import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
@@ -13,7 +8,6 @@ import { Navigation } from "components/shared/Navigation";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { RetirementProvenancePageProps } from "pages/retirements/[beneficiary]/[retirement_index]/provenance";
-import { useEffect } from "react";
 import { Provenance } from "./Provenance";
 import * as styles from "./styles";
 
@@ -35,24 +29,6 @@ export const RetirementProvenancePage: NextPage<
     props.nameserviceDomain ||
     concatAddress(props.beneficiaryAddress);
 
-  useEffect(() => {
-    if (!retirement.pending) return;
-    const rescursivePoller = async () => {
-      // wait 5 seconds
-      await new Promise((res) => setTimeout(res, 5000));
-      // check if its available yet
-      const result = await queryKlimaRetireByIndex(
-        props.beneficiaryAddress,
-        Number(safeSub(props.retirementIndex, "1")) // totals does not include index 0
-      );
-      if (result) {
-        return window.location.reload();
-      }
-      // otherwise wait 5 more seconds and try again
-      await rescursivePoller();
-    };
-    rescursivePoller();
-  }, []);
 
   return (
     <GridContainer>
@@ -74,9 +50,9 @@ export const RetirementProvenancePage: NextPage<
       <Navigation activePage="Home" transparent={false} />
       <Section className={styles.section} variant="gray">
         <div className={styles.content}>
-          <h1 className={styles.title}>
+          <Text t="h1">
             <Trans>Carbon provenance</Trans>
-          </h1>
+          </Text>
           <Text t="body1">
             <Trans>
               View the entire transaction history - from bridging event until
@@ -90,11 +66,14 @@ export const RetirementProvenancePage: NextPage<
             </Text>
             <SocialLinks
               twitterTags={["Carbonmark", "retirement"]}
-              twitterTitle={`${retirement.retiree} retired ${retirement.formattedAmount} Tonnes of carbon`}
+              twitterTitle={`${retiree} retired ${formattedAmount} Tonnes of carbon`}
             ></SocialLinks>
           </div>
 
-          <Provenance records={props.provenance} />
+          <Provenance
+            records={props.provenance}
+            retirementId={retirement.offset.id}
+          />
         </div>
       </Section>
       <Footer />

@@ -18,11 +18,12 @@ export const content = css`
   gap: 2rem;
   max-width: 64rem;
   align-items: center;
+  text-align: center;
+  margin: 16px;
 `;
 
 export const title = css`
   font-family: Poppins;
-  font-size: 6rem;
 `;
 
 export const header = css`
@@ -38,4 +39,3 @@ export const social = css`
   padding-bottom: 2rem;
   align-items: center;
 `;
-
