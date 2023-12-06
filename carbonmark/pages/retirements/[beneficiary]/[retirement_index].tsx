@@ -1,13 +1,17 @@
 import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { urls } from "@klimadao/lib/constants";
-import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
-import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
-import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
+import {
+  getRetirementDetails,
+  queryKlimaRetireByIndex,
+} from "@klimadao/lib/utils";
+import {
+  SingleRetirementPage,
+  SingleRetirementPageProps,
+} from "components/pages/Retirements/SingleRetirement";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { DetailedProject } from "lib/types/carbonmark.types";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -16,18 +20,6 @@ interface Params extends ParsedUrlQuery {
   beneficiary: string;
   retirement_index: string;
 }
-
-export interface SingleRetirementPageProps {
-  /** The resolved 0x address */
-  beneficiaryAddress: string;
-  retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types & remove any (offset not being picked up in types)
-  retirementIndex: Params["retirement_index"];
-  nameserviceDomain: string | null;
-  /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
-  canonicalUrl?: string;
-  project?: DetailedProject | null;
-}
-
 // second param should always be a number
 const isNumeric = (value: string) => {
   return /^\d+$/.test(value);
@@ -63,17 +55,45 @@ export const getStaticProps: GetStaticProps<
       beneficiaryAddress = beneficiaryInUrl;
     }
 
-    const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
+    /** Retirement indexes start from 0, url starts from 1 */
+    const retirementIndex = Number(params.retirement_index) - 1;
 
-    let retirement: KlimaRetire | null;
     const [subgraphData, translation] = await Promise.all([
       queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
       loadTranslation(locale),
     ]);
+    let retirement = subgraphData;
+    let isPending = false;
 
-    if (subgraphData) {
-      retirement = subgraphData;
-    } else {
+    if (!retirement) {
+      const retirementDetails = await getRetirementDetails({
+        beneficiaryAddress,
+        index: retirementIndex,
+      });
+      isPending = !!retirementDetails; // if the details exist on-chain, we know the subgraph is slow to index
+    }
+
+    if (isPending) {
+      // retry queryKlimaRetireByIndex every half second for a maximum of 5 seconds (10 retries)
+      const timeoutMs = 500;
+      const maxRetries = 10;
+      let retries = 0;
+      while (retries < maxRetries) {
+        await new Promise((resolve) => setTimeout(resolve, timeoutMs));
+        const data = await queryKlimaRetireByIndex(
+          beneficiaryAddress,
+          retirementIndex
+        );
+        if (data) {
+          isPending = false;
+          retirement = data;
+          break;
+        }
+        retries++;
+      }
+    }
+
+    if (!retirement && !isPending) {
       return {
         notFound: true,
         revalidate: 1,
@@ -85,24 +105,28 @@ export const getStaticProps: GetStaticProps<
     }
 
     let project;
-    if (retirement.offset.projectID && retirement.offset.vintageYear) {
+    if (retirement?.offset.projectID && retirement?.offset.vintageYear) {
       project = await getProjectsId(
         `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
       );
     }
 
+    const pageProps: SingleRetirementPageProps = {
+      project: project || null,
+      beneficiaryAddress: beneficiaryAddress,
+      canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,
+      nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
+      retirement: retirement || null,
+      retirementIndex: params.retirement_index,
+    };
+
     return {
       props: {
-        project: project || null,
-        beneficiaryAddress: beneficiaryAddress,
-        canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,
-        nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
-        retirement: retirement || null,
-        retirementIndex: params.retirement_index,
+        ...pageProps,
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: retirement.pending ? 4 : 86400,
+      revalidate: isPending ? 1 : 86400,
     };
   } catch (e) {
     console.error("Failed to generate", e);

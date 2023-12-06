@@ -10,14 +10,15 @@ export const UnregisteredMessage: FC = () => {
     <>
       <Text>
         <Trans>
-          This is your portfolio, here you will find any of the supported carbon
-          assets you own. Assets shown here can be retired or listed for sale.
+          This is your portfolio. Here you will find supported carbon assets you
+          own. Assets shown here can be retired or listed for sale in the
+          marketplace once you have a profile.
         </Trans>
       </Text>
       <Text>
         <Trans>
-          You do not currently have any supported carbon assets available for
-          listing.
+          You must have a profile created to view carbon assets you own in your
+          Carbonmark portfolio.
         </Trans>
       </Text>
       <Text>

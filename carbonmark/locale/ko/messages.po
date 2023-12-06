@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-04 06:38+0000\n"
+"POT-Creation-Date: 2023-12-06 07:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:145
+#: components/pages/Project/index.tsx:143
 msgid "Best Price"
 msgstr ""
 
@@ -421,7 +421,7 @@ msgstr ""
 msgid "DATE"
 msgstr ""
 
-#: components/pages/Project/index.tsx:242
+#: components/pages/Project/index.tsx:240
 msgid "Data for this project and vintage"
 msgstr ""
 
@@ -438,7 +438,7 @@ msgstr ""
 msgid "Describe the purpose of this retirement"
 msgstr ""
 
-#: components/pages/Project/index.tsx:193
+#: components/pages/Project/index.tsx:191
 msgid "Description"
 msgstr ""
 
@@ -482,7 +482,7 @@ msgstr ""
 msgid "Energy Efficiency"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "Expiration"
 msgstr ""
 
@@ -688,7 +688,7 @@ msgstr ""
 msgid "Maximize your climate impact."
 msgstr ""
 
-#: components/pages/Project/index.tsx:152
+#: components/pages/Project/index.tsx:150
 msgid "Methodology"
 msgstr ""
 
@@ -733,7 +733,7 @@ msgstr ""
 msgid "No listable assets found."
 msgstr ""
 
-#: components/pages/Project/index.tsx:232
+#: components/pages/Project/index.tsx:230
 msgid "No listings found for this project."
 msgstr ""
 
@@ -868,8 +868,8 @@ msgstr ""
 msgid "Processing Retirement"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
-msgid "Processing data..."
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "Processing retirement..."
 msgstr ""
 
 #: components/shared/Navigation/index.tsx:69
@@ -942,11 +942,11 @@ msgstr ""
 msgid "RETIRE CARBON"
 msgstr ""
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read Less"
 msgstr ""
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read More"
 msgstr ""
 
@@ -1267,7 +1267,7 @@ msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
-msgid "This is your portfolio, here you will find any of the supported carbon assets you own. Assets shown here can be retired or listed for sale."
+msgid "This is your portfolio. Here you will find supported carbon assets you own. Assets shown here can be retired or listed for sale in the marketplace once you have a profile."
 msgstr ""
 
 #: components/pages/Users/Badge/index.tsx:17
@@ -1298,7 +1298,7 @@ msgstr ""
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
 msgstr ""
 
-#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:24
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:25
 msgid "To get started, be sure to complete your <0>profile</0> and then head to the <1>marketplace</1> to purchase carbon assets."
 msgstr ""
 
@@ -1405,7 +1405,7 @@ msgstr ""
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:183
 msgid "Update listing"
 msgstr ""
 
@@ -1439,7 +1439,7 @@ msgstr ""
 msgid "View Carbonmark Profile"
 msgstr ""
 
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:213
 msgid "View Registry Details <0/>"
 msgstr ""
 
@@ -1472,7 +1472,7 @@ msgstr ""
 msgid "View all Retirements"
 msgstr ""
 
-#: components/pages/Project/index.tsx:106
+#: components/pages/Project/index.tsx:104
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
@@ -1512,10 +1512,6 @@ msgstr ""
 #: components/pages/Retire/FromPortfolio/index.tsx:74
 #: components/pages/Retire/FromPortfolio/index.tsx:89
 msgid "We couldn't find any assets in your portfolio."
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
-msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr ""
 
 #: components/pages/Retire/index.tsx:89
@@ -1569,10 +1565,6 @@ msgstr ""
 msgid "You chose to reject the transaction."
 msgstr ""
 
-#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:18
-msgid "You do not currently have any supported carbon assets available for listing."
-msgstr ""
-
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
 msgstr ""
@@ -1580,6 +1572,10 @@ msgstr ""
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:63
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:61
 msgid "You exceeded your available amount of tokens"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:19
+msgid "You must have a profile created to view carbon assets you own in your Carbonmark portfolio."
 msgstr ""
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
@@ -1612,6 +1608,10 @@ msgstr ""
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
 #: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
@@ -1938,15 +1938,15 @@ msgstr ""
 msgid "retirement.footer.about_carbonmark.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr ""
 
@@ -2293,7 +2293,7 @@ msgstr ""
 msgid "{0} | Profile | Carbonmark"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:173
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr ""
 
