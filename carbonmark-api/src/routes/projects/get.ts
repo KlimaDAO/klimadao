@@ -74,20 +74,20 @@ const handler = (fastify: FastifyInstance) =>
 
     /** Assign valid pool projects to map */
     poolProjectsData.carbonProjects.forEach((project) => {
+      if (!isValidPoolProject(project)) {
+        console.debug(
+          `Project with id ${project.projectID} is considered invalid due to a balance of zero across all tokens and has been filtered`
+        );
+        return;
+      }
+      if (!CreditId.isValidProjectId(project.projectID)) {
+        console.debug(
+          `Project with id ${project.projectID} is considered to have an invalid id and has been filtered`
+        );
+        return;
+      }
+      const [standard, registryProjectId] = project.projectID.split("-");
       project.carbonCredits.forEach((credit) => {
-        if (!isValidPoolProject(project)) {
-          console.debug(
-            `Project with id ${project.projectID} is considered invalid due to a balance of zero across all tokens and has been filtered`
-          );
-          return;
-        }
-        if (!CreditId.isValidProjectId(project.projectID)) {
-          console.debug(
-            `Project with id ${project.projectID} is considered to have an invalid id and has been filtered`
-          );
-          return;
-        }
-        const [standard, registryProjectId] = project.projectID.split("-");
         const { creditId: key } = new CreditId({
           standard,
           registryProjectId,
