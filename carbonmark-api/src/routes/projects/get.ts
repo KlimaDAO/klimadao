@@ -74,27 +74,27 @@ const handler = (fastify: FastifyInstance) =>
 
     /** Assign valid pool projects to map */
     poolProjectsData.carbonProjects.forEach((project) => {
-      if (!isValidPoolProject(project)) {
-        console.debug(
-          `Project with id ${JSON.stringify(
-            project
-          )} is considered invalid due to a balance of zero across all tokens and has been filtered`
-        );
-        return;
-      }
-      if (!CreditId.isValidProjectId(project.projectID)) {
-        console.debug(
-          `Project with id ${project.projectID} is considered to have an invalid id and has been filtered`
-        );
-        return;
-      }
-      const [standard, registryProjectId] = project.projectID.split("-");
-      const { creditId: key } = new CreditId({
-        standard,
-        registryProjectId,
-        vintage: project.carbonCredits[0].vintage.toString(),
+      project.carbonCredits.forEach((credit) => {
+        if (!isValidPoolProject(project)) {
+          console.debug(
+            `Project with id ${project.projectID} is considered invalid due to a balance of zero across all tokens and has been filtered`
+          );
+          return;
+        }
+        if (!CreditId.isValidProjectId(project.projectID)) {
+          console.debug(
+            `Project with id ${project.projectID} is considered to have an invalid id and has been filtered`
+          );
+          return;
+        }
+        const [standard, registryProjectId] = project.projectID.split("-");
+        const { creditId: key } = new CreditId({
+          standard,
+          registryProjectId,
+          vintage: credit.vintage.toString(),
+        });
+        ProjectMap.set(key, { poolProjectData: project, key });
       });
-      ProjectMap.set(key, { poolProjectData: project, key });
     });
 
     /** Assign valid marketplace projects to map */
@@ -130,6 +130,7 @@ const handler = (fastify: FastifyInstance) =>
           marketplaceProjectData: project,
         });
       });
+
     /** Compose all the data together to unique entries (unsorted) */
     const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
 
