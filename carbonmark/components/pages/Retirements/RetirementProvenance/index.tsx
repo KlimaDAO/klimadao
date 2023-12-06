@@ -1,13 +1,14 @@
-import { GridContainer, Section } from "@klimadao/lib/components";
+import { GridContainer, Section, Text } from "@klimadao/lib/components";
 import {
   concatAddress,
   formatTonnes,
   queryKlimaRetireByIndex,
-  safeSub
+  safeSub,
 } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
+import { SocialLinks } from "components/SocialLinks";
 import { Navigation } from "components/shared/Navigation";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -16,7 +17,9 @@ import { useEffect } from "react";
 import { Provenance } from "./Provenance";
 import * as styles from "./styles";
 
-export const RetirementProvenancePage: NextPage<RetirementProvenancePageProps> = ({
+export const RetirementProvenancePage: NextPage<
+  RetirementProvenancePageProps
+> = ({
   retirement, // destructure so ts can properly narrow retirement.pending types
   ...props
 }) => {
@@ -68,13 +71,30 @@ export const RetirementProvenancePage: NextPage<RetirementProvenancePageProps> =
         })}
         canonicalUrl={props.canonicalUrl}
       />
-      <Navigation activePage="Home" transparent={false}/>
+      <Navigation activePage="Home" transparent={false} />
       <Section className={styles.section} variant="gray">
-          <Provenance records={props.provenance}/>
-      </Section>
-      <Section className={styles.section} variant="gray">
-        <div>
-          <Provenance records={props.provenance}/>
+        <div className={styles.content}>
+          <h1 className={styles.title}>
+            <Trans>Carbon provenance</Trans>
+          </h1>
+          <Text t="body1">
+            <Trans>
+              View the entire transaction history - from bridging event until
+              retirement - for each credit and partial credit included in the
+              following retirement transaction:
+            </Trans>
+          </Text>
+          <div className={styles.social}>
+            <Text t="body1">
+              <Trans>Share this page</Trans>
+            </Text>
+            <SocialLinks
+              twitterTags={["Carbonmark", "retirement"]}
+              twitterTitle={`${retirement.retiree} retired ${retirement.formattedAmount} Tonnes of carbon`}
+            ></SocialLinks>
+          </div>
+
+          <Provenance records={props.provenance} />
         </div>
       </Section>
       <Footer />
