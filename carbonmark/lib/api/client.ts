@@ -1,4 +1,6 @@
 import { urls } from "lib/constants";
+import { notNil } from "lib/utils/functional.utils";
+import { pickBy } from "lodash";
 
 export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";
@@ -17,25 +19,11 @@ export type ApiError<TError> = {
 
 type ParamsObject = Record<string, string | string[]>;
 
-/**
- * Transforms a request params object into a query string
- * Handles Arrays
- */
-export function serializeParams(params: ParamsObject): string {
-  if (params && Object.keys(params).length > 0) {
-    const query: Array<string> = [];
-    Object.keys(params).forEach((key) => {
-      const value = params[key];
-      if (Array.isArray(value))
-        value.forEach((v) => {
-          query.push(`${key}=${encodeURIComponent(v)}`);
-        });
-      else if (value) return query.push(`${key}=${encodeURIComponent(value)}`);
-    });
-    if (query.length) return `?${query.join("&")}`;
-  }
-  return "";
-}
+/** Removes all undefined or null values from the object  */
+const definedParams = (obj: Record<string, unknown>) => {
+  const filteredObj = pickBy(obj, notNil);
+  return Object.keys(filteredObj).length > 0 ? filteredObj : null;
+};
 
 export const fetchClient = async <
   TData,
@@ -44,9 +32,16 @@ export const fetchClient = async <
 >(
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
-  const params = request.params as ParamsObject;
-  const url = `${urls.api.base}${request.url}${serializeParams(params)}`;
-  const response = await fetch(url, {
+  const paramsObject = definedParams(request.params as ParamsObject) as Record<
+    string,
+    string
+  >;
+
+  const params = paramsObject
+    ? "?" + new URLSearchParams(paramsObject).toString()
+    : "";
+
+  const response = await fetch(`${urls.api.base}${request.url}${params}`, {
     method: request.method,
     body: JSON.stringify(request.data),
     headers: {
@@ -54,6 +49,7 @@ export const fetchClient = async <
       ...request.headers,
     },
   });
+
   if (!response.ok) {
     const errorData = await response.json();
     throw {
