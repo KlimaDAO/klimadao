@@ -92,7 +92,9 @@ const handler = (fastify: FastifyInstance) =>
       vintage,
       stats,
     };
-    return reply.send(JSON.stringify(projectResponse));
+    return reply
+      .header("Content-Type", "application/json; charset=utf-8")
+      .send(JSON.stringify(projectResponse));
   };
 
 export default async (fastify: FastifyInstance) =>
