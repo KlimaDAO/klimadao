@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
-import { map } from "lodash/fp";
+import { map, toLower } from "lodash/fp";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
@@ -157,11 +157,13 @@ export const toGeoJSON = (
 
 export const isValidPoolProject = (project: CarbonProjectType) => {
   const balances = project.carbonCredits.flatMap(extract("poolBalances"));
-  const addresses = Object.values(POOL_INFO).map(extract("poolAddress"));
-
+  const addresses = Object.values(POOL_INFO)
+    .map(extract("poolAddress"))
+    .map(toLower);
   return balances.some(
     (balance) =>
-      addresses.includes(balance.pool.id) && Number(balance.balance) > 0
+      addresses.includes(balance.pool.id.toLowerCase()) &&
+      Number(balance.balance) > 0
   );
 };
 export const isActiveListing = (l: {
