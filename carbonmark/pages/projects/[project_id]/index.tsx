@@ -25,13 +25,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   }
 
   try {
-    const project = await getProjectsId(params.project_id);
+    const [project, activities] = await Promise.all([
+      getProjectsId(params.project_id),
+      getProjectsIdActivity(params.project_id, {
+        activityType: VISIBLE_ACTIVITIES,
+      }),
+    ]);
+
     if (!project) {
       throw new Error("No project found");
     }
-    const activities = await getProjectsIdActivity(params.project_id, {
-      activityType: VISIBLE_ACTIVITIES,
-    });
     const translation = await loadTranslation(locale);
 
     if (!translation) {
