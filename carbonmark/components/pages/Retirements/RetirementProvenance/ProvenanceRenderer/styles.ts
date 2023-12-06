@@ -4,6 +4,7 @@ export const content = css`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  white-space: nowrap;
 `;
 export const contentHeader = css`
   display: flex;
@@ -14,7 +15,6 @@ export const contentHeader = css`
   }
 `;
 export const address = css`
-  white-space: nowrap;
 `;
 
 export const contentFooter = css`

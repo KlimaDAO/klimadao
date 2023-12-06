@@ -68,11 +68,15 @@ export const RetirementProvenancePage: NextPage<RetirementProvenancePageProps> =
         })}
         canonicalUrl={props.canonicalUrl}
       />
-      <Navigation activePage="Home" transparent={true}/>
-      <Section className={styles.section}>
+      <Navigation activePage="Home" transparent={false}/>
+      <Section className={styles.section} variant="gray">
         <div>
-        <ProvenanceRenderer records={props.provenance}/>
-     
+          <ProvenanceRenderer records={props.provenance}/>
+        </div>
+      </Section>
+      <Section className={styles.section} variant="gray">
+        <div>
+          <ProvenanceRenderer records={props.provenance}/>
         </div>
       </Section>
       <Footer />

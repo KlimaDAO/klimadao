@@ -23,10 +23,20 @@ interface ProvenanceRendererProps {
 }
 
 const getFormattedDate = (timestamp: number, locale = "en") => {
-  const date = new Date(timestamp * 1000); //expects milliseconds
-  return new Intl.DateTimeFormat(locale, {
-    dateStyle: "short",
-  }).format(date);
+  const dateObj = new Date(timestamp * 1000); //expects milliseconds
+  const time = new Intl.DateTimeFormat(locale, {
+    timeZone: "UTC",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(dateObj);
+  const date = new Intl.DateTimeFormat(locale, {
+    timeZone: "UTC",
+    day: "numeric",
+    month:"long",
+    year: "numeric" 
+  }).format(dateObj);
+
+  return `${time} | ${date}`
 };
 
 const RECORDS_INFO = {
@@ -89,8 +99,8 @@ export const ProvenanceRenderer = (props: ProvenanceRendererProps) => {
           <TimelineContent>
             <div className={styles.content}>
               <div className={styles.contentHeader}>
-                <h5>{recordInfo(record.transactionType)?.label}</h5>
-                <Text t="body3">
+                <h4>{recordInfo(record.transactionType)?.label}</h4>
+                <Text t="body1">
                   {getFormattedDate(record.createdAt, locale)}
                 </Text>
               </div>
