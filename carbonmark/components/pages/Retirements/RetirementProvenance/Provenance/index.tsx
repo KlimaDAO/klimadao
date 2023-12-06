@@ -1,4 +1,4 @@
-import { Record } from ".generated/carbonmark-api-sdk/types";
+import { Record as KRecord } from ".generated/carbonmark-api-sdk/types";
 import { Text } from "@klimadao/lib/components";
 import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
@@ -17,10 +17,11 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Quantity } from "components/Quantity";
 import { useRouter } from "next/router";
+import { ReactNode } from "react";
 import * as styles from "./styles";
 
 interface ProvenanceProps {
-  records: Record[];
+  records: KRecord[];
   retirementId: string;
 }
 
@@ -41,7 +42,12 @@ const getFormattedDate = (timestamp: number, locale = "en") => {
   return `${time} | ${date}`;
 };
 
-const RECORDS_INFO = {
+type RecordType = "RETIREMENT" | "TRANSFER" | "ORIGINATION";
+
+const RECORDS_INFO: Record<
+  RecordType,
+  { label: ReactNode; icon: ReactNode; iconBackgroundColor: string }
+> = {
   RETIREMENT: {
     label: <Trans>Retirement</Trans>,
     icon: (
@@ -128,7 +134,7 @@ export const Provenance = (props: ProvenanceProps) => {
               >
                 {recordInfo(record.transactionType)?.icon}
               </TimelineDot>
-              <TimelineConnector />
+              {record.transactionType == "TRANSFER" && <TimelineConnector />}
             </TimelineSeparator>
             <TimelineContent>
               <div className={styles.content}>
@@ -140,12 +146,35 @@ export const Provenance = (props: ProvenanceProps) => {
                     {getFormattedDate(record.createdAt, locale)}
                   </Text>
                 </div>
-                <div className={styles.contentFooter}>
-                  <Quantity quantity={record.originalAmount} />
-                  <Text t="body1">{concatAddress(record.sender)}</Text>
-                  <East />
-                  <Text t="body1">{concatAddress(record.receiver)}</Text>
-                </div>
+                {record.transactionType == "RETIREMENT" && (
+                  <div className={styles.contentFooter}>
+                    <Quantity quantity={record.originalAmount} />
+                    <Text t="body1">{concatAddress(record.sender)}</Text>
+                    <Text t="body1" color="lightest">
+                      via Carbonmark
+                    </Text>
+                  </div>
+                )}
+                {record.transactionType == "TRANSFER" && (
+                  <div className={styles.contentFooter}>
+                    <Quantity quantity={record.originalAmount} />
+                    <Text t="body1">{concatAddress(record.sender)}</Text>
+                    <East />
+                    <Text t="body1">{concatAddress(record.receiver)}</Text>
+                  </div>
+                )}
+                {record.transactionType == "ORIGINATION" && (
+                  <div>
+                    <Text t="body2">
+                      <Trans>Serial Number</Trans>
+                    </Text>
+                    :{" "}
+                    <Text t="body2" color="lightest">
+                      {"TODO"}
+                    </Text>
+                    <Trans>View on Verra</Trans>
+                  </div>
+                )}
               </div>
             </TimelineContent>
           </TimelineItem>
