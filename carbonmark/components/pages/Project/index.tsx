@@ -1,9 +1,13 @@
-import { useGetProjectsId } from ".generated/carbonmark-api-sdk/hooks";
+import {
+  useGetProjectsId,
+  useGetProjectsIdActivity,
+} from ".generated/carbonmark-api-sdk/hooks";
+import { Activity } from ".generated/carbonmark-api-sdk/types";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
 import { REGISTRIES } from "@klimadao/lib/constants";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
@@ -21,6 +25,7 @@ import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
 import {
+  ActivityActionT,
   CategoryName,
   DetailedProject,
   Listing,
@@ -38,14 +43,25 @@ import * as styles from "./styles";
 
 export type PageProps = {
   project: DetailedProject;
+  activities: Activity[];
   projectID: string;
 };
 
+export const VISIBLE_ACTIVITIES: ActivityActionT[] = [
+  "CreatedListing",
+  "DeletedListing",
+  "Purchase",
+  "UpdatedPrice",
+  "UpdatedQuantity",
+];
+
 const Page: NextPage<PageProps> = (props) => {
   const { data: project } = useGetProjectsId(props.projectID);
+  const { data: activities } = useGetProjectsIdActivity(props.projectID, {
+    activityType: VISIBLE_ACTIVITIES,
+  });
   const [isExpanded, setIsExpanded] = useState(false);
   const bestPrice = project?.price;
-
   // Project should always be defined from static page props!
   if (isNil(project)) {
     console.error(`Invalid project for ${props.projectID}`);
@@ -243,7 +259,7 @@ const Page: NextPage<PageProps> = (props) => {
               allListings={listings}
               activeListings={activeListings}
             />
-            <Activities activities={project.activities} />
+            <Activities activities={activities || []} />
           </div>
         </div>
       </Layout>
