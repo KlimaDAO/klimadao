@@ -222,7 +222,7 @@ const pickUpdatedAt = (data: ProjectData): string => {
 const pickBestPrice = (
   data: ProjectData,
   poolPrices: Record<string, PoolPrice>
-): string => {
+): string | undefined => {
   const listings = compact(data.marketplaceProjectData?.listings || []);
   // Careful, singleUnitPrice is a bigint string
   const cheapestListing = minBy(listings, (l) => BigInt(l.singleUnitPrice));
@@ -235,11 +235,10 @@ const pickBestPrice = (
 
   const cheapestPoolPrice = minBy(allPoolPrices, (p) => Number(p));
 
-  const bestPrice =
-    minBy([
-      Number(cheapestListingUSDC),
-      Number(cheapestPoolPrice),
-    ])?.toString() || "";
+  const bestPrice = minBy([
+    Number(cheapestListingUSDC),
+    Number(cheapestPoolPrice),
+  ])?.toString();
   return bestPrice;
 };
 
@@ -263,6 +262,12 @@ export const composeProjectEntries = (
       registryProjectId,
     } = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(projectId);
+    // if (projectId.includes("VCS-903")) {
+    //   console.log(poolBalances);
+    // }
+    /** If there are no prices hide this project */
+    const price = pickBestPrice(data, poolPrices);
+    if (!price) return;
 
     // construct CarbonmarkProjectT and make typescript happy
     const entry: Project = {
@@ -288,8 +293,8 @@ export const composeProjectEntries = (
         "",
       creditTokenAddress: poolBalances?.carbonCredits?.[0].id ?? "",
       updatedAt: pickUpdatedAt(data),
-      price: pickBestPrice(data, poolPrices),
       listings: market?.listings?.map(formatListing) || null,
+      price,
     };
 
     entries.push(entry);
