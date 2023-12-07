@@ -30,6 +30,10 @@ export class MethodologyCategories {
         continue
       }
       if (categories.length > 0) {
+        let category = '' + map.get(currentMethodology)
+        if (categories.includes(category)) {
+          continue
+        }
         categories += ', '
       }
       categories += map.get(currentMethodology)
