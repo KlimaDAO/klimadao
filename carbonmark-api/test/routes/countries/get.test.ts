@@ -1,14 +1,31 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/app.constants";
+import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
 import { build } from "../../helper";
-import { COUNTRIES, DEV_URL, ERROR } from "../../test.constants";
+import {
+  COUNTRIES,
+  COUNTRY_CODES,
+  DEV_URL,
+  ERROR,
+  VINTAGES,
+} from "../../test.constants";
+
+jest.mock("../../../src/utils/ICR/ICR_API_endpoints", () => ({
+  ICR_API: () => ({
+    ICR_API_URL: "https://api.carbonregistry.com/v0",
+  }),
+}));
 
 describe("GET /countries", () => {
   let fastify: FastifyInstance;
+  let ICR_API_URL: string;
 
   // Setup the server
   beforeEach(async () => {
+    const icrApiValues = ICR_API("polygon");
+    ICR_API_URL = icrApiValues.ICR_API_URL;
+
     fastify = await build();
     nock.cleanAll();
   });
@@ -30,6 +47,11 @@ describe("GET /countries", () => {
       .post("")
       .reply(200, { data: { carbonProjects: COUNTRIES } });
 
+    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
+      vintages: VINTAGES,
+      countryCodes: COUNTRY_CODES,
+    });
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/countries`,
@@ -41,7 +63,7 @@ describe("GET /countries", () => {
     expect(data).toEqual(COUNTRIES);
   });
 
-  /** An issue with one of the graph APIs */
+  // /** An issue with one of the graph APIs */
   test("Graph Error", async () => {
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
@@ -50,6 +72,11 @@ describe("GET /countries", () => {
       });
 
     nock(GRAPH_URLS["polygon"].digitalCarbon).post("").reply(200, []);
+
+    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
+      vintages: VINTAGES,
+      countryCodes: COUNTRY_CODES,
+    });
 
     const response = await fastify.inject({
       method: "GET",
@@ -69,6 +96,11 @@ describe("GET /countries", () => {
       .post("")
       .reply(200, { data: { carbonProjects: [] } });
 
+    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
+      vintages: [],
+      countryCodes: [],
+    });
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/countries`,
@@ -87,6 +119,11 @@ describe("GET /countries", () => {
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, { data: { carbonProjects: "invalid data" } });
+
+    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
+      vintages: [],
+      countryCodes: [],
+    });
 
     const response = await fastify.inject({
       method: "GET",

@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
 import { map, mapValues, toLower, trim } from "lodash/fp";
+import fetch from "node-fetch";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
 import type { NetworkParam } from "src/models/NetworkParam.model";
 import type { IcrProject } from "src/utils/ICR/icr.types";
@@ -42,6 +43,7 @@ import { POOL_INFO } from "./get.constants";
 
 export const fetchIcrData = async (network: "polygon" | "mumbai") => {
   const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
+
   const url = `${ICR_API_URL}/public/projects/filters`;
 
   const IcrResponse = await fetch(url, {

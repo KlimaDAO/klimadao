@@ -149,7 +149,11 @@ export async function getAllCountries(
   ]);
 
   /** Handle invalid responses */
-  if (!isArray(countries) || !isArray(digitalCarbonProjects)) {
+  if (
+    !isArray(countries) ||
+    !isArray(digitalCarbonProjects) ||
+    !isArray(countryNames)
+  ) {
     throw new Error("Response from server did not match schema definition");
   }
 

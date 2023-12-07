@@ -20,9 +20,15 @@ export const ICR_API = (
 
   const apiConfig = ICR_CONFIG[validatedNetwork];
 
-  if (!apiConfig.apiKey || !apiConfig.url) {
+  if (!apiConfig.apiKey) {
     throw new Error(
-      `ICR api url or key is undefined for network: ${validatedNetwork}`
+      `ICR api key is undefined for network: ${validatedNetwork}`
+    );
+  }
+
+  if (!apiConfig.url) {
+    throw new Error(
+      `ICR api url is undefined for network: ${validatedNetwork}`
     );
   }
 

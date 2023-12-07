@@ -32,7 +32,29 @@ export const COUNTRIES = [
   {
     id: "A Random Country",
   },
+  {
+    id: "China",
+  },
+  {
+    id: "Spain",
+  },
+  {
+    id: "United Kingdom",
+  },
+  {
+    id: "Iceland",
+  },
+  {
+    id: "Ukraine",
+  },
+  {
+    id: "Vietnam",
+  },
 ];
+
+export const COUNTRY_CODES = ["CN", "ES", "GB", "IS", "UA", "VN"];
+
+export const VINTAGES = ["2020", "2021", "2022", "2023"];
 
 export const MOCK_USER_PROFILE: UserProfile = {
   address: MOCK_ADDRESS,
