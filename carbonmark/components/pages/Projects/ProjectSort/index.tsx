@@ -9,7 +9,7 @@ import * as styles from "../styles";
 export const ProjectSort = () => {
   const { params, updateQueryParams } = useProjectsParams();
 
-  const { control } = useForm<{ sort: SortOption }>({
+  const { control, setValue } = useForm<{ sort: SortOption }>({
     defaultValues: { sort: params.sort },
   });
 
@@ -19,6 +19,11 @@ export const ProjectSort = () => {
     if (!sort) return;
     updateQueryParams({ ...params, sort });
   }, [sort]);
+
+  useEffect(() => {
+    if (!params.sort) return;
+    setValue("sort", params.sort);
+  }, [params]);
 
   return (
     <Dropdown
