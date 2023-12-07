@@ -35,11 +35,12 @@ export const getRetirementAllowance = async (params: {
 
 export const getConsumptionCost = async (params: {
   inputToken: CarbonmarkPaymentMethod;
-  retirementToken: PoolToken;
+  retirementToken: PoolToken | null;
   quantity: string;
-  isDefaultProject: boolean;
-  projectTokenAddress: string;
+  isDefaultProject: boolean | null;
+  projectTokenAddress: string | null;
   currentUrl: string;
+  listingId: string | null;
 }): Promise<string> => {
   if (params.inputToken === "fiat") {
     const fiatCosts = await getFiatRetirementCost({
@@ -55,6 +56,7 @@ export const getConsumptionCost = async (params: {
         project_address: !params.isDefaultProject
           ? params.projectTokenAddress
           : null,
+        listing_id: params.listingId,
       },
     });
     return fiatCosts;

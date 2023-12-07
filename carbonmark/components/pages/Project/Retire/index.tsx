@@ -5,7 +5,11 @@ import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import { getFullProjectId } from "lib/projectGetter";
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
+import {
+  DetailedProject,
+  Listing,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { RetireForm } from "./Pool/RetireForm";
@@ -13,7 +17,7 @@ import * as styles from "./styles";
 
 export interface ProjectRetirePageProps {
   project: DetailedProject;
-  poolPrice: TokenPrice;
+  retirement: Listing | TokenPrice;
 }
 
 export const ProjectRetire: NextPage<ProjectRetirePageProps> = (props) => {
@@ -41,9 +45,7 @@ export const ProjectRetire: NextPage<ProjectRetirePageProps> = (props) => {
             <LoginButton className="desktopLogin" />
           </div>
 
-          {props.poolPrice && (
-            <RetireForm project={props.project} price={props.poolPrice} />
-          )}
+          <RetireForm project={props.project} retirement={props.retirement} />
         </div>
       </Layout>
     </>

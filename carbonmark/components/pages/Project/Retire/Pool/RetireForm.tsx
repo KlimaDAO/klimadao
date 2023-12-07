@@ -13,9 +13,13 @@ import {
 import { MINIMUM_TONNE_QUANTITY, urls } from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
-import { getPoolApprovalValue } from "lib/getPoolData";
+import { getPoolApprovalValue, isPoolToken } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
+import {
+  DetailedProject,
+  Listing,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -33,8 +37,14 @@ import { FormValues } from "./types";
 
 export interface Props {
   project: DetailedProject;
-  price: TokenPrice;
+  retirement: Listing | TokenPrice;
 }
+
+const getIsPoolRetirement = (purchase: any): purchase is TokenPrice =>
+  purchase.poolName !== undefined && isPoolToken(purchase.poolName);
+
+const getIsListingRetirement = (purchase: any): purchase is Listing =>
+  purchase.id !== undefined;
 
 export const RetireForm: FC<Props> = (props) => {
   const { asPath } = useRouter();
@@ -64,7 +74,9 @@ export const RetireForm: FC<Props> = (props) => {
   const methods = useForm<FormValues>({
     mode: "onChange",
     defaultValues: {
-      projectTokenAddress: props.price.projectTokenAddress,
+      projectTokenAddress: getIsPoolRetirement(props.retirement)
+        ? props.retirement?.projectTokenAddress
+        : undefined,
       paymentMethod: "fiat",
       ...inputValues,
     },
@@ -157,10 +169,17 @@ export const RetireForm: FC<Props> = (props) => {
       beneficiary_name: inputValues.beneficiaryName,
       retirement_message: inputValues.retirementMessage,
       // pass token address if not default project
-      project_address: !props.price.isPoolDefault
-        ? inputValues.projectTokenAddress
+      project_address: getIsPoolRetirement(props.retirement)
+        ? !props.retirement.isPoolDefault
+          ? inputValues.projectTokenAddress
+          : null
         : null,
-      retirement_token: props.price.poolName.toLowerCase() as PoolToken,
+      retirement_token: getIsPoolRetirement(props.retirement)
+        ? (props.retirement.poolName.toLowerCase() as PoolToken)
+        : null,
+      listing_id: getIsListingRetirement(props.retirement)
+        ? props.retirement.id
+        : null,
     };
     try {
       setIsRedirecting(true);
@@ -234,14 +253,17 @@ export const RetireForm: FC<Props> = (props) => {
   const handleApproval = async () => {
     if (!provider || !inputValues) return;
     try {
-      inputValues.paymentMethod !== "fiat" &&
-        (await approveTokenSpend({
+      if (inputValues.paymentMethod == "fiat") {
+        // TODO: offsetra
+      } else {
+        await approveTokenSpend({
           tokenName: inputValues.paymentMethod,
           spender: "retirementAggregatorV2",
           signer: provider.getSigner(),
           value: getApprovalValue(),
           onStatus: onUpdateStatus,
-        }));
+        });
+      }
     } catch (e) {
       console.error(e);
     }
@@ -252,14 +274,24 @@ export const RetireForm: FC<Props> = (props) => {
 
     try {
       setIsProcessing(true);
+
+      if (inputValues.paymentMethod == "fiat") {
+        // TODO: offsetra
+        return;
+      }
+
+      if (!getIsPoolRetirement(props.retirement)) {
+        throw new Error(`Unsupported retirement: ${props.retirement}`);
+      }
+
       const receipt = await retireCarbonTransaction({
         provider,
         address,
-        projectAddress: props.price.projectTokenAddress,
+        projectAddress: props.retirement.projectTokenAddress,
         paymentMethod: inputValues.paymentMethod,
-        isPoolDefault: props.price.isPoolDefault,
+        isPoolDefault: props.retirement.isPoolDefault,
         maxAmountIn: getApprovalValue(),
-        retirementToken: props.price.poolName.toLowerCase() as PoolToken,
+        retirementToken: props.retirement.poolName.toLowerCase() as PoolToken,
         quantity: inputValues.quantity,
         beneficiaryAddress: inputValues.beneficiaryAddress,
         beneficiaryName: inputValues.beneficiaryName,
@@ -270,7 +302,6 @@ export const RetireForm: FC<Props> = (props) => {
       receipt.transactionHash && setTransactionHash(receipt.transactionHash);
       receipt.blockNumber && setRetirementBlockNumber(receipt.blockNumber);
       receipt.retirementIndex && setRetirementIndex(receipt.retirementIndex);
-      setIsProcessing(false);
     } catch (e) {
       console.error("makeRetirement error", e);
     } finally {
@@ -303,14 +334,14 @@ export const RetireForm: FC<Props> = (props) => {
           <Card>
             <ProjectHeader project={props.project} />
             <div className={styles.formContainer}>
-              <Price price={props.price.singleUnitPrice} />
+              <Price price={props.retirement.singleUnitPrice} />
               <RetireInputs
                 onSubmit={onContinue}
                 values={inputValues}
                 userBalance={userBalance}
                 fiatBalance={fiatBalance}
                 fiatMinimum={fiatMinimum}
-                price={props.price}
+                price={props.retirement}
                 address={address}
                 fiatAmountError={fiatAmountError}
                 approvalValue={getApprovalValue()}
@@ -329,12 +360,12 @@ export const RetireForm: FC<Props> = (props) => {
         <Col>
           <div className={styles.stickyContentWrapper}>
             <Card>
-              <AssetDetails price={props.price} project={props.project} />
+              <AssetDetails price={props.retirement} project={props.project} />
             </Card>
             <div className={styles.reverseOrder}>
               <Card>
                 <TotalValues
-                  price={props.price}
+                  price={props.retirement}
                   userBalance={userBalance}
                   fiatMinimum={fiatMinimum}
                   fiatBalance={fiatBalance}
