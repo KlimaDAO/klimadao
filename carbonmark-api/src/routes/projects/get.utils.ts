@@ -8,7 +8,7 @@ import type { IcrProject } from "src/utils/ICR/icr.types";
 import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
 import { convertIcrCountryCodeToName } from "../../../src/utils/ICR/icr.utils";
 import { getCategoryFromMethodology } from "../../../src/utils/getCategoryFromMethodoloy";
-import { Geopoint } from "../../.generated/types/carbonProjects.types";
+import { Geopoint } from "../../.generated/types/cms.types";
 import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";

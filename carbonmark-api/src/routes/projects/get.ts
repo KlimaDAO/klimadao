@@ -63,7 +63,6 @@ const handler = (fastify: FastifyInstance) =>
         country: args.country ?? allOptions.country,
         vintage: args.vintage ?? allOptions.vintage,
         expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
-        country: args.country ?? allOptions.country,
       }),
       sdk.digital_carbon.findDigitalCarbonProjects({
         search: request.query.search ?? "",
