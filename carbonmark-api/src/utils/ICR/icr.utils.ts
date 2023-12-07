@@ -1,3 +1,4 @@
+import fetch from "node-fetch";
 import type { NetworkParam } from "../../../src/models/NetworkParam.model";
 import type { IcrProject } from "../ICR/icr.types";
 import { ICR_API } from "./ICR_API_endpoints";

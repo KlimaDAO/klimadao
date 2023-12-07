@@ -47,6 +47,7 @@ import { formatListings } from "../../utils/marketplace.utils";
 
 export const fetchIcrData = async (network: "polygon" | "mumbai") => {
   const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
+
   const url = `${ICR_API_URL}/public/projects/filters`;
 
   const IcrResponse = await fetch(url, {
