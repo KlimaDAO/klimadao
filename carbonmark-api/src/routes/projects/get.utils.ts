@@ -45,7 +45,7 @@ import { formatListings } from "../../utils/marketplace.utils";
  * # to return all possible values
  */
 
-export const fetchIcrData = async (network: "polygon" | "mumbai") => {
+export const fetchIcrData = async (network: NetworkParam) => {
   const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
 
   const url = `${ICR_API_URL}/public/projects/filters`;
@@ -60,6 +60,10 @@ export const fetchIcrData = async (network: "polygon" | "mumbai") => {
 
   const { vintages: IcrVintages, countryCodes: IcrCountryCodes } =
     await IcrResponse.json();
+
+  if (!isArray(IcrCountryCodes) || !isArray(IcrVintages)) {
+    throw new Error("Response from server did not match schema definition");
+  }
 
   const countryNames = await Promise.all(
     IcrCountryCodes.map((countryCode: string) =>

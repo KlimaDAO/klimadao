@@ -121,8 +121,8 @@ describe("GET /countries", () => {
       .reply(200, { data: { carbonProjects: "invalid data" } });
 
     nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
-      vintages: [],
-      countryCodes: [],
+      vintages: "invalid data",
+      countryCodes: "invalid data",
     });
 
     const response = await fastify.inject({

@@ -47,7 +47,11 @@ export async function getAllVintages(
   ]);
 
   /** Handle invalid responses */
-  if (!isArray(projects) || !isArray(digitalCarbonProjects)) {
+  if (
+    !isArray(projects) ||
+    !isArray(digitalCarbonProjects) ||
+    !isArray(IcrVintages)
+  ) {
     throw new Error("Response from server did not match schema definition");
   }
 
