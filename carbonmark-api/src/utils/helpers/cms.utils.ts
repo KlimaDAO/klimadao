@@ -1,5 +1,6 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
+import fetch from "node-fetch";
 import { NetworkParam } from "src/models/NetworkParam.model";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
@@ -12,7 +13,6 @@ import { extract, notNil, selector } from "../functional.utils";
 import { getCategoryFromMethodology } from "../getCategoryFromMethodoloy";
 import { GQL_SDK } from "../gqlSdk";
 import { ICR_API } from "./../../../src/utils/ICR/ICR_API_endpoints";
-import fetch from "node-fetch";
 
 export type ProjectImage = {
   asset?: {
