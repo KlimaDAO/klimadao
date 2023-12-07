@@ -85,7 +85,6 @@ export const getDigitalCarbonTokenPrices = (
   /**
    * @todo mc02 poolPrices are NaN because there is no default project
    */
-
   const credits = digitalCarbonProject.carbonCredits;
 
   for (const credit of credits) {
@@ -166,6 +165,7 @@ export const isValidPoolProject = (project: CarbonProjectType) => {
       Number(balance.balance) > 0
   );
 };
+
 export const isActiveListing = (l: {
   active?: boolean | null;
   deleted?: boolean | null;
@@ -223,7 +223,7 @@ const pickBestPrice = (
   data: ProjectData,
   poolPrices: Record<string, PoolPrice>
 ): string | undefined => {
-  const listings = compact(data.marketplaceProjectData?.listings || []);
+  const listings = compact(data.marketplaceProjectData?.listings);
   // Careful, singleUnitPrice is a bigint string
   const cheapestListing = minBy(listings, (l) => BigInt(l.singleUnitPrice));
   const cheapestListingUSDC =
@@ -239,6 +239,7 @@ const pickBestPrice = (
     Number(cheapestListingUSDC),
     Number(cheapestPoolPrice),
   ])?.toString();
+
   return bestPrice;
 };
 
@@ -262,9 +263,6 @@ export const composeProjectEntries = (
       registryProjectId,
     } = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(projectId);
-    // if (projectId.includes("VCS-903")) {
-    //   console.log(poolBalances);
-    // }
     /** If there are no prices hide this project */
     const price = pickBestPrice(data, poolPrices);
     if (!price) return;

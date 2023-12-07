@@ -87,9 +87,6 @@ const handler = (fastify: FastifyInstance) =>
         return;
       }
       const [standard, registryProjectId] = project.projectID.split("-");
-      // if (project.projectID.includes("VCS-903")) {
-      //   console.log(project.carbonCredits);
-      // }
       project.carbonCredits.forEach((credit) => {
         const { creditId: key } = new CreditId({
           standard,
