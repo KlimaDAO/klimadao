@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
+import { compact, isArray, isNil, max, maxBy, minBy, sortBy } from "lodash";
 import { map, mapValues, toLower, trim } from "lodash/fp";
 import fetch from "node-fetch";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
@@ -29,7 +29,6 @@ import {
 } from "../../utils/helpers/utils";
 import { formatListing } from "../../utils/marketplace.utils";
 import { POOL_INFO } from "./get.constants";
-
 /**
  * Build a default FindProjectsQueryVariables object for searching
  * via findProjects
@@ -41,7 +40,7 @@ import { POOL_INFO } from "./get.constants";
  * # to return all possible values
  */
 
-export const fetchIcrData = async (network: "polygon" | "mumbai") => {
+export const fetchIcrData = async (network: NetworkParam) => {
   const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
 
   const url = `${ICR_API_URL}/public/projects/filters`;
@@ -56,6 +55,10 @@ export const fetchIcrData = async (network: "polygon" | "mumbai") => {
 
   const { vintages: IcrVintages, countryCodes: IcrCountryCodes } =
     await IcrResponse.json();
+
+  if (!isArray(IcrCountryCodes) || !isArray(IcrVintages)) {
+    throw new Error("Response from server did not match schema definition");
+  }
 
   const countryNames = await Promise.all(
     IcrCountryCodes.map((countryCode: string) =>
