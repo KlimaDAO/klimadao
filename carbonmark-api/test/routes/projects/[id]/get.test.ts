@@ -1,11 +1,18 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS, SANITY_URLS } from "../../../../src/app.constants";
+import { ICR_API } from "../../../../src/utils/ICR/ICR_API_endpoints";
 import { fixtures } from "../../../fixtures";
 import digitalCarbon from "../../../fixtures/digitalCarbon";
 import tokens from "../../../fixtures/tokens";
 import { build } from "../../../helper";
-import { DEV_URL } from "../../../test.constants";
+import { DEV_URL, mockICRProject } from "../../../test.constants";
+
+jest.mock("../../../../src/utils/ICR/ICR_API_endpoints", () => ({
+  ICR_API: () => ({
+    ICR_API_URL: "https://api.carbonregistry.com/v0",
+  }),
+}));
 
 const mockCmsProject = fixtures.cms.cmsProject;
 const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
@@ -13,9 +20,12 @@ const mockActivities = fixtures.marketplace.activities;
 
 describe("GET /projects/:id", () => {
   let fastify: FastifyInstance;
+  let ICR_API_URL: string;
 
   // Setup the server
   beforeEach(async () => {
+    const icrApiValues = ICR_API("polygon");
+    ICR_API_URL = icrApiValues.ICR_API_URL;
     try {
       fastify = await build();
     } catch (e) {
@@ -50,6 +60,10 @@ describe("GET /projects/:id", () => {
           activities: mockActivities,
         },
       });
+    nock(ICR_API_URL)
+      .get("/public/projects")
+      .reply(200, { projects: [mockICRProject] });
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-191-2008`,
@@ -92,6 +106,9 @@ describe("GET /projects/:id", () => {
           activities: fixtures.marketplace.activities,
         },
       });
+    nock(ICR_API_URL)
+      .get("/public/projects")
+      .reply(200, { projects: [mockICRProject] });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-191-2008?network=polygon`,
@@ -133,6 +150,9 @@ describe("GET /projects/:id", () => {
           activities: fixtures.marketplace.activities,
         },
       });
+    nock(ICR_API_URL)
+      .get("/public/projects")
+      .reply(200, { projects: [mockICRProject] });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-981-2017`,
