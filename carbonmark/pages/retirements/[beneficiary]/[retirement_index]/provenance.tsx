@@ -27,6 +27,7 @@ export interface RetirementProvenancePageProps {
   retirement: GetRetirementsKlimaAccountIdRetirementIndexQueryResponse;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
+  retirementUrl: string;
   provenance: GetRetirementsIdProvenanceQueryResponse;
   nameserviceDomain: string | null;
 }
@@ -90,13 +91,13 @@ export const getStaticProps: GetStaticProps<
       subgraphRetirement.transaction.id
     );
 
-
     return {
       props: {
         retirement: apiData,
         provenance,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
         canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}/provenance`,
+        retirementUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,
         translation,
         fixedThemeName: "theme-light",
       },

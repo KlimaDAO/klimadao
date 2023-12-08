@@ -5,7 +5,6 @@ export const wrapper = css`
   width: 100%;
   border-radius: 0.8rem;
   padding: 2rem;
-  background: var(--light-mode-surface-1, #fff);
   box-shadow: var(--shadow-01);
 `;
 export const header = css`

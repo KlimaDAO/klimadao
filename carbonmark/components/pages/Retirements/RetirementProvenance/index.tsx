@@ -9,13 +9,14 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { RetirementProvenancePageProps } from "pages/retirements/[beneficiary]/[retirement_index]/provenance";
 import { Provenance } from "./Provenance";
+import { RetirementCard } from "./RetirementCard";
 import * as styles from "./styles";
 
 export const RetirementProvenancePage: NextPage<
   RetirementProvenancePageProps
 > = (props) => {
   const { locale } = useRouter();
-  console.log(props.retirement)
+  console.log(props.retirement);
 
   const formattedAmount = formatTonnes({
     amount: String(props.retirement.amount),
@@ -57,6 +58,10 @@ export const RetirementProvenancePage: NextPage<
               following retirement transaction:
             </Trans>
           </Text>
+          <RetirementCard
+            retirement={props.retirement}
+            retirementUrl={props.retirementUrl}
+          />
           <div className={styles.social}>
             <Text t="body1">
               <Trans>Share this page</Trans>
@@ -67,7 +72,10 @@ export const RetirementProvenancePage: NextPage<
             ></SocialLinks>
           </div>
 
-          <Provenance records={props.provenance} retirement={props.retirement} />
+          <Provenance
+            records={props.provenance}
+            retirement={props.retirement}
+          />
         </div>
       </Section>
       <Footer />
