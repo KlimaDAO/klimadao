@@ -32,6 +32,17 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
   }
 }
 
+query getRetirement($id: ID!) {
+  klimaRetire(id: $id) {
+    retire {
+      ...retireFragment
+      credit {
+        ...creditFragment
+      }
+    }
+  }
+}
+
 query getProvenanceRecords($hash: [Bytes!]) {
   provenanceRecords(where: { transactionHash_in: $hash }) {
     ...ProvenanceRecordFragment

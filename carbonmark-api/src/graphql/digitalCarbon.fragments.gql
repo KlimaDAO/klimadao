@@ -10,3 +10,27 @@ fragment ProvenanceRecordFragment on ProvenanceRecord {
   createdAt
   updatedAt
 }
+
+fragment creditFragment on CarbonCredit {
+  bridgeProtocol
+  vintage
+  currentSupply
+  retired
+  crossChainSupply
+}
+
+fragment retireFragment on Retire {
+  id
+  bridgeID
+  amount
+  beneficiaryAddress {
+    id
+  }
+  beneficiaryName
+  retirementMessage
+  retiringAddress {
+    id
+  }
+  retiringName
+  timestamp
+}
