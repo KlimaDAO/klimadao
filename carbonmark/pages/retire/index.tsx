@@ -9,20 +9,16 @@ const defaultProjectKeys = defaultProjects.map((p) => p.id);
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
-    console.error("a");
     const translation = await loadTranslation(ctx.locale);
 
-    console.error("b");
     const featuredProjects = await Promise.all(
       featuredProjectKeys.map(async (project) => await getProjectsId(project))
     );
 
-    console.error("c");
     const defaultProjects = await Promise.all(
       defaultProjectKeys.map(async (project) => await getProjectsId(project))
     );
 
-    console.error("d");
     if (!translation) {
       throw new Error("No translation found");
     }

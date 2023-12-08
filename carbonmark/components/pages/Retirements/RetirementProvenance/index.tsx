@@ -16,7 +16,6 @@ export const RetirementProvenancePage: NextPage<
   RetirementProvenancePageProps
 > = (props) => {
   const { locale } = useRouter();
-  console.log(props.retirement);
 
   const formattedAmount = formatTonnes({
     amount: String(props.retirement.amount),
