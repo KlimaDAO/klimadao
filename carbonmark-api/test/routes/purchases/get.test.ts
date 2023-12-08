@@ -24,7 +24,7 @@ const purchaseModelFixture: Purchase = {
       vintage: marketplace.purchase.listing.project.vintage,
       country: mockCmsProject.country!,
       name: mockCmsProject.name!,
-      methodology: mockCmsProject.methodologies?.[0]?.id!,
+      methodology: mockCmsProject.methodologies?.[0]?.id! as unknown as string,
       projectID: mockCmsProject.registryProjectId!,
     },
   },
