@@ -9,20 +9,9 @@ import marketplace from "../../fixtures/marketplace";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 
-const mockCmsProject = fixtures.cms.carbonProject;
+const mockCmsProject = fixtures.cms.cmsProject;
 const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
-
-jest.mock("../../../src/utils/helpers/cms.utils", () => {
-  const carbonProjectsUtils = jest.requireActual(
-    "../../../src/utils/helpers/cms.utils"
-  );
-  return {
-    ...carbonProjectsUtils,
-    fetchAllCarbonProjects: jest.fn(() => {
-      return [mockCmsProject];
-    }),
-  };
-});
+const mockMarketplaceListing = fixtures.marketplace.projectWithListing;
 
 const poolPrices = {
   bct: {
@@ -112,7 +101,7 @@ describe("GET /projects", () => {
     expect(response.statusCode).toEqual(200);
   });
 
-  test("Composes a pool project with cms data", async () => {
+  test("Composes a pool project", async () => {
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, {
@@ -180,14 +169,14 @@ describe("GET /projects", () => {
     expect(data).toStrictEqual(expectedResponse);
   });
 
-  test("Composes a marketplace listing with cms data", async () => {
+  test("Composes a marketplace project", async () => {
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, { data: { carbonProjects: [] } });
 
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { projects: [marketplace.projectWithListing] } });
+      .reply(200, { data: { projects: [mockMarketplaceListing] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -197,26 +186,15 @@ describe("GET /projects", () => {
 
     const expectedResponse = [
       {
-        ...pick(marketplace.projectWithListing, ["key", "vintage"]),
-        ...pick(mockCmsProject, ["description", "name", "methodologies"]),
-        short_description: mockCmsProjectContent?.shortDescription,
+        /** CMS DATA */
+        description: mockCmsProject.description,
+        name: mockCmsProject.name,
+        methodologies: [
+          pick(mockCmsProject.methodologies, ["category", "id", "name"]),
+        ],
         country: {
           id: mockCmsProject.country,
         },
-        price: "99",
-        updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
-        listings: [
-          pick(marketplace.projectWithListing.listings![0], [
-            "active",
-            "batchPrices",
-            "batches",
-            "createdAt",
-            "deleted",
-            "updatedAt",
-            "id",
-            "tokenAddress",
-          ]),
-        ],
         location: {
           geometry: {
             coordinates: [
@@ -227,14 +205,34 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
+
+        /** CMS Project Content */
+        short_description: mockCmsProjectContent?.shortDescription,
         images: mockCmsProjectContent?.images?.map((img) => ({
           url: img?.asset?.url,
           caption: img?.asset?.description,
         })),
+
+        /** Marketplace Data */
+        vintage: mockMarketplaceListing.vintage,
+        key: mockMarketplaceListing.key,
+        updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
+        listings: [
+          pick(mockMarketplaceListing.listings![0], [
+            "active",
+            "batchPrices",
+            "batches",
+            "createdAt",
+            "deleted",
+            "updatedAt",
+            "id",
+            "tokenAddress",
+          ]),
+        ],
+        price: "99",
       },
     ];
 
-    //Partial match for now.. need to remove above fixture
     expect(data).toMatchObject(expectedResponse);
   });
 
