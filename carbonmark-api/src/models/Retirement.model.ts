@@ -1,5 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 import { CarbonCreditModel } from "./CarbonCredit.model";
+import { UserProfileModel } from "./UserProfile.model";
 
 export const RetirementModel = Type.Object({
   id: Type.Optional(Type.String()),
@@ -10,6 +11,7 @@ export const RetirementModel = Type.Object({
   retirementMessage: Type.Optional(Type.String()),
   retiringAddress: Type.String(),
   retiringName: Type.Optional(Type.String()),
+  retireeProfile: Type.Optional(UserProfileModel),
   timestamp: Type.Number(),
   credit: Type.Optional(CarbonCreditModel),
 });
