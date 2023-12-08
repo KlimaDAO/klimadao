@@ -8,8 +8,7 @@
         "id": { "type": "string" },
         "name": { "type": "string" },
         "symbol": { "type": "string" },
-        "decimals": { "type": "number" },
-        "tokenId": { "type": "string" }
+        "decimals": { "type": "number" }
       },
       "required": ["id", "name", "symbol", "decimals"]
     },

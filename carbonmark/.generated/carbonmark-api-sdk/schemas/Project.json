@@ -237,10 +237,16 @@
           "url": { "type": "string" },
           "caption": { "type": "string" }
         },
+<<<<<<< HEAD
         "required": ["url", "caption"]
       }
     },
     "hasSupply": { "type": "boolean" }
+=======
+        { "type": "null" }
+      ]
+    }
+>>>>>>> d0219afb6 (carbonmark api-schema update)
   },
   "required": [
     "key",
