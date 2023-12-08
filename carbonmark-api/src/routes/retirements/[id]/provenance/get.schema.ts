@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 import { NetworkParamModel } from "../../../..//models/NetworkParam.model";
-import { RecordModel } from "../../../../models/Record.model";
+import { ProvenanceRecordModel } from "../../../../models/ProvenanceRecord.model";
 
 export const params = Type.Object({
   id: Type.String({
@@ -30,7 +30,7 @@ export const schema = {
         "Retirement provenance record with retirement transaction id",
       content: {
         "application/json": {
-          schema: Type.Array(RecordModel),
+          schema: Type.Array(ProvenanceRecordModel),
         },
       },
     },

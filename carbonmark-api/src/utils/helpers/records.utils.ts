@@ -1,13 +1,13 @@
 import { utils } from "ethers";
 import { pick } from "lodash";
-import { Record } from "src/models/Record.model";
+import { ProvenanceRecord } from "src/models/ProvenanceRecord.model";
 import { GetProvenanceRecordsQuery } from "../../.generated/types/digitalCarbon.types";
 
 export function formatRecord(
   record:
     | GetProvenanceRecordsQuery["provenanceRecords"][0]
     | GetProvenanceRecordsQuery["provenanceRecords"][0]["priorRecords"][0]
-): Record {
+): ProvenanceRecord {
   return {
     ...pick(record, [
       "id",

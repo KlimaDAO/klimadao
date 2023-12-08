@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 
-export const RecordModel = Type.Object({
+export const ProvenanceRecordModel = Type.Object({
   id: Type.String(),
   transactionType: Type.String(),
   registrySerialNumbers: Type.Array(Type.String()),
@@ -13,4 +13,4 @@ export const RecordModel = Type.Object({
   updatedAt: Type.Number(),
 });
 
-export type Record = Static<typeof RecordModel>;
+export type ProvenanceRecord = Static<typeof ProvenanceRecordModel>;

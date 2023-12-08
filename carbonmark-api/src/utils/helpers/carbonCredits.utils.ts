@@ -1,7 +1,7 @@
 import { utils } from "ethers";
 import { pick } from "lodash";
 import { GetKlimaRetirementQuery } from "../../.generated/types/digitalCarbon.types";
-import { CarbonCredit } from "../../models/CarbonCreditModel";
+import { CarbonCredit } from "../../models/CarbonCredit.model";
 
 export function formatCarbonCredit(
   credit: Exclude<

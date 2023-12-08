@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { RecordModel } from "../../../../../../models/Record.model";
+import { ProvenanceRecordModel } from "../../../../../../models/ProvenanceRecord.model";
 import { params, querystring } from "../get.schema";
 
 export const schema = {
@@ -14,7 +14,7 @@ export const schema = {
         "Retirement provenance record with account id and retirement index",
       content: {
         "application/json": {
-          schema: Type.Array(RecordModel),
+          schema: Type.Array(ProvenanceRecordModel),
         },
       },
     },
