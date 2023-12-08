@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { RecordModel } from "../../../../../models/Record.model";
+import { RecordModel } from "../../../../../../models/Record.model";
 import { params, querystring } from "../get.schema";
 
 export const schema = {

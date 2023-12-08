@@ -1,11 +1,10 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { gql_sdk } from "../../../../../utils/gqlSdk";
-import { formatRecord } from "../../../../../utils/helpers/records.utils";
+import { gql_sdk } from "../../../../../../utils/gqlSdk";
+import { formatRecord } from "../../../../../../utils/helpers/records.utils";
 import { Params, Querystring } from "../get.schema";
 import { schema } from "./get.schema";
 
-// Handler function for the "/retirements/:account_id/:retirement_index/provenance" route
-// FIXME: maybe it would be better to name that route "/retirements/klima/:account_id/:retirement_index/provenance"
+// Handler function for the "/retirements/klima/:account_id/:retirement_index/provenance" route
 const handler = () =>
   async function (
     request: FastifyRequest<{
@@ -29,7 +28,7 @@ const handler = () =>
 
     const sdk = gql_sdk(request.query.network);
     const retirementRecord = (
-      await sdk.digital_carbon.getProvenanceRecords({ hash: [hash] })
+      await sdk.digital_carbon.getProvenanceRecords({ id: [hash] })
     ).provenanceRecords.at(0);
     console.debug(retirementRecord);
 
@@ -46,7 +45,7 @@ const handler = () =>
 export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "GET",
-    url: "/retirements/:account_id/:retirement_index/provenance",
+    url: "/retirements/klima/:account_id/:retirement_index/provenance",
     handler: handler(),
     schema,
   });

@@ -4194,7 +4194,7 @@ export type GetKlimaRetirementQueryVariables = Exact<{
 export type GetKlimaRetirementQuery = { __typename?: 'Query', klimaRetire: { __typename?: 'KlimaRetire', retire: { __typename?: 'Retire', id: any, bridgeID: string | null, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, credit: { __typename?: 'CarbonCredit', id: any, bridgeProtocol: BridgeProtocol, vintage: number, currentSupply: string, retired: string, crossChainSupply: string }, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } } } | null };
 
 export type GetProvenanceRecordsQueryVariables = Exact<{
-  hash: InputMaybe<Array<Scalars['Bytes']> | Scalars['Bytes']>;
+  id: InputMaybe<Array<Scalars['Bytes']> | Scalars['Bytes']>;
 }>;
 
 
@@ -4290,8 +4290,8 @@ export const GetKlimaRetirementDocument = gql`
     ${RetireFragmentFragmentDoc}
 ${CarbonCreditFragmentFragmentDoc}`;
 export const GetProvenanceRecordsDocument = gql`
-    query getProvenanceRecords($hash: [Bytes!]) {
-  provenanceRecords(where: {transactionHash_in: $hash}) {
+    query getProvenanceRecords($id: [Bytes!]) {
+  provenanceRecords(where: {transactionHash_in: $id}) {
     ...ProvenanceRecordFragment
     priorRecords(orderBy: createdAt, orderDirection: desc) {
       ...ProvenanceRecordFragment
