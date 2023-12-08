@@ -22,6 +22,7 @@ const POLYGON_URLS = {
 const MUMBAI_URLS = {
   ...POLYGON_URLS,
   // testing
+  digitalCarbon: `${GRAPH_API_ROOT}/psparacino/digital-carbon`,
   marketplace: `${GRAPH_API_ROOT_ID}/QmUUnZTeRnfsJsQaTwLeiHmAQ5xvtk2jBW7VeP3AEW5bnv`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
