@@ -32,7 +32,7 @@ export const schema = {
       description: "Retirement with account and index",
       content: {
         "application/json": {
-          schema: Type.Array(RetirementModel),
+          schema: RetirementModel,
         },
       },
     },
