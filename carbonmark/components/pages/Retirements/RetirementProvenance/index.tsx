@@ -46,7 +46,6 @@ export const RetirementProvenancePage: NextPage<
         canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" transparent={false} />
-      <Text t="body1">eza</Text>
       <Section className={styles.section} variant="gray">
         <div className={styles.content}>
           <Text t="h1">
@@ -61,7 +60,8 @@ export const RetirementProvenancePage: NextPage<
           </Text>
           <RetirementCard
             retirement={props.retirement}
-            retirementUrl={props.retirementUrl}
+            beneficiaryAddress={props.beneficiaryAddress}
+            retirementIndex={props.retirementIndex}
           />
           <div className={styles.social}>
             <Text t="body1">

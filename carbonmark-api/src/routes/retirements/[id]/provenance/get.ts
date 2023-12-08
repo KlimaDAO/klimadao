@@ -16,7 +16,6 @@ const handler = () =>
     const retirementRecord = (
       await sdk.digital_carbon.getProvenanceRecords({ id: [request.params.id] })
     ).provenanceRecords.at(0);
-    console.debug(retirementRecord);
 
     if (retirementRecord == null) {
       return reply.notFound();

@@ -27,9 +27,10 @@ export interface RetirementProvenancePageProps {
   retirement: GetRetirementsKlimaAccountIdRetirementIndexQueryResponse;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  retirementUrl: string;
   provenance: GetRetirementsIdProvenanceQueryResponse;
   nameserviceDomain: string | null;
+  retirementIndex: string;
+  beneficiaryAddress: string;
 }
 
 // second param should always be a number
@@ -97,7 +98,8 @@ export const getStaticProps: GetStaticProps<
         provenance,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
         canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}/provenance`,
-        retirementUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,
+        beneficiaryAddress: beneficiaryAddress,
+        retirementIndex: params.retirement_index,
         translation,
         fixedThemeName: "theme-light",
       },

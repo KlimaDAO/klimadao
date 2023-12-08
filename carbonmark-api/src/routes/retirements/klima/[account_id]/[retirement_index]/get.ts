@@ -25,7 +25,6 @@ const handler = (fastify: FastifyInstance) =>
         firebase: fastify.firebase,
         address: retirement.retiringAddress,
       })) || undefined;
-    console.debug(retirement.retireeProfile);
 
     return reply.send(JSON.stringify(retirement));
   };

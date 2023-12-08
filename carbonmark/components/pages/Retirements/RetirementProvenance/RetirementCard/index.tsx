@@ -5,13 +5,15 @@ import { t } from "@lingui/macro";
 import { ParkOutlined, Today } from "@mui/icons-material";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ProfileLogo } from "components/pages/Users/ProfileLogo";
+import { urls as carbonmarkUrls } from "lib/constants";
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
 import * as styles from "./styles";
 
 interface ProvenanceProps {
   retirement: Retirement;
-  retirementUrl: string;
+  retirementIndex: string;
+  beneficiaryAddress: string;
 }
 
 const getFormattedDate = (timestamp: number, locale = "en") => {
@@ -81,7 +83,10 @@ export const RetirementCard = (props: ProvenanceProps) => {
         />
       </div>
       <div className={styles.footer}>
-        <A className={styles.profileLink} href={props.retirementUrl}>
+        <A
+          className={styles.profileLink}
+          href={`${carbonmarkUrls.retirements}/${props.beneficiaryAddress}/${props.retirementIndex}`}
+        >
           {t`View retirement`}
           <LaunchIcon />
         </A>

@@ -142,6 +142,7 @@ export const urls = {
     "https://docs.carbonmark.com/get-started/understanding-fees-on-carbonmark",
   projects: "/projects",
   users: "/users",
+  retirements: "/retirements",
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",
