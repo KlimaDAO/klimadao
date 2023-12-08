@@ -192,10 +192,6 @@ export type GetUsersWalletorhandleQueryResponse = {
        * @type number
        */
       decimals: number;
-      /**
-       * @type string | undefined
-       */
-      tokenId?: string;
     };
     /**
      * @type string

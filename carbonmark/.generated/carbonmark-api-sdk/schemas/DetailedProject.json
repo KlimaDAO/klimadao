@@ -226,9 +226,7 @@
       }
     },
     "price": { "type": "string" },
-    "vintage": { "type": "string" },
-    "serialization": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-    "tokenId": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+    "vintage": { "type": "string" }
   },
   "required": [
     "key",

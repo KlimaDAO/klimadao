@@ -398,9 +398,6 @@
                 "type": "null"
               }
             ]
-          },
-          "serialization": {
-            "type": "string"
           }
         },
         "required": [
@@ -1989,9 +1986,6 @@
                     },
                     "decimals": {
                       "type": "number"
-                    },
-                    "tokenId": {
-                      "type": "string"
                     }
                   },
                   "required": [
@@ -2040,9 +2034,6 @@
               },
               "decimals": {
                 "type": "number"
-              },
-              "tokenId": {
-                "type": "string"
               }
             },
             "required": [
@@ -3068,9 +3059,6 @@
                             "type": "null"
                           }
                         ]
-                      },
-                      "serialization": {
-                        "type": "string"
                       }
                     },
                     "required": [
@@ -3555,9 +3543,6 @@
                               },
                               "decimals": {
                                 "type": "number"
-                              },
-                              "tokenId": {
-                                "type": "string"
                               }
                             },
                             "required": [
@@ -3904,7 +3889,7 @@
           {
             "schema": {
               "type": "string",
-              "pattern": "^(VCS|PURO|GS|ICR)-\\d+-(19\\d{2}|20\\d{2})$|^ICR-(?:[A-Z]+-\\d+-(\\d+-)?\\d+-[A-Z]-\\d+-(19\\d{2}|20\\d{2})|[A-Z]+-\\d+-\\d+-\\d+-[A-Z]-\\d+-\\d+)$"
+              "pattern": "^(VCS|PURO|ICR|GS)-\\d+-(19\\d{2}|20\\d{2})$"
             },
             "example": "VCS-191-2008",
             "in": "path",
@@ -4547,26 +4532,6 @@
                     },
                     "vintage": {
                       "type": "string"
-                    },
-                    "serialization": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "tokenId": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
                     }
                   },
                   "required": [
@@ -4577,55 +4542,6 @@
                     "listings",
                     "price",
                     "vintage"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/login": {
-      "post": {
-        "summary": "Get nonce",
-        "tags": [
-          "Auth"
-        ],
-        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "wallet"
-                ],
-                "type": "object",
-                "properties": {
-                  "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "nonce": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "nonce"
                   ]
                 }
               }

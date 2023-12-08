@@ -192,8 +192,7 @@
         },
         { "type": "null" }
       ]
-    },
-    "serialization": { "type": "string" }
+    }
   },
   "required": [
     "key",
