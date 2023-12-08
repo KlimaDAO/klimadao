@@ -2,24 +2,24 @@ import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
 import client from "../../../lib/api/client";
 import type {
-  GetRecordsIdProvenancePathParams,
-  GetRecordsIdProvenanceQueryParams,
-  GetRecordsIdProvenanceQueryResponse,
-} from "../types/GetRecordsIdProvenance";
+  GetRetirementsIdProvenancePathParams,
+  GetRetirementsIdProvenanceQueryParams,
+  GetRetirementsIdProvenanceQueryResponse,
+} from "../types/GetRetirementsIdProvenance";
 
-export function getRecordsIdProvenanceQueryOptions<
-  TData = GetRecordsIdProvenanceQueryResponse,
+export function getRetirementsIdProvenanceQueryOptions<
+  TData = GetRetirementsIdProvenanceQueryResponse,
   TError = unknown,
 >(
-  id: GetRecordsIdProvenancePathParams["id"],
-  params?: GetRecordsIdProvenanceQueryParams,
+  id: GetRetirementsIdProvenancePathParams["id"],
+  params?: GetRetirementsIdProvenanceQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
 ): SWRConfiguration<TData, TError> {
   return {
     fetcher: () => {
       return client<TData, TError>({
         method: "get",
-        url: `/records/${id}/provenance`,
+        url: `/retirements/${id}/provenance`,
 
         params,
 
@@ -30,17 +30,17 @@ export function getRecordsIdProvenanceQueryOptions<
 }
 
 /**
- * @description Retrieve a record and its history by its transaction ID
- * @summary Record details
- * @link /records/:id/provenance
+ * @description Retrieve a retirement provenance records
+ * @summary Retirement provenance records
+ * @link /retirements/:id/provenance
  */
 
-export function useGetRecordsIdProvenance<
-  TData = GetRecordsIdProvenanceQueryResponse,
+export function useGetRetirementsIdProvenance<
+  TData = GetRetirementsIdProvenanceQueryResponse,
   TError = unknown,
 >(
-  id: GetRecordsIdProvenancePathParams["id"],
-  params?: GetRecordsIdProvenanceQueryParams,
+  id: GetRetirementsIdProvenancePathParams["id"],
+  params?: GetRetirementsIdProvenanceQueryParams,
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
@@ -53,9 +53,9 @@ export function useGetRecordsIdProvenance<
     shouldFetch = true,
   } = options ?? {};
 
-  const url = shouldFetch ? `/records/${id}/provenance` : null;
+  const url = shouldFetch ? `/retirements/${id}/provenance` : null;
   const query = useSWR<TData, TError, string | null>(url, {
-    ...getRecordsIdProvenanceQueryOptions<TData, TError>(
+    ...getRetirementsIdProvenanceQueryOptions<TData, TError>(
       id,
       params,
       clientOptions

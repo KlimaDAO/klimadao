@@ -13,22 +13,19 @@ import * as styles from "./styles";
 
 export const RetirementProvenancePage: NextPage<
   RetirementProvenancePageProps
-> = ({
-  retirement, // destructure so ts can properly narrow retirement.pending types
-  ...props
-}) => {
+> = (props) => {
   const { locale } = useRouter();
+  console.log(props.retirement)
 
   const formattedAmount = formatTonnes({
-    amount: retirement.amount,
+    amount: String(props.retirement.amount),
     locale: locale || "en",
   });
 
   const retiree =
-    retirement.beneficiary ||
+    props.retirement.beneficiaryAddress ||
     props.nameserviceDomain ||
-    concatAddress(props.beneficiaryAddress);
-
+    concatAddress(props.retirement.beneficiaryAddress);
 
   return (
     <GridContainer>
@@ -70,10 +67,7 @@ export const RetirementProvenancePage: NextPage<
             ></SocialLinks>
           </div>
 
-          <Provenance
-            records={props.provenance}
-            retirementId={retirement.offset.id}
-          />
+          <Provenance records={props.provenance} retirement={props.retirement} />
         </div>
       </Section>
       <Footer />

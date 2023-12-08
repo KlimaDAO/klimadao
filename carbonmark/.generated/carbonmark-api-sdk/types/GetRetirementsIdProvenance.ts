@@ -1,17 +1,17 @@
 import type { Def1 } from "./Def1";
 
-export type GetRecordsIdProvenancePathParams = {
+export type GetRetirementsIdProvenancePathParams = {
   /**
-   * @description Transaction ID
+   * @description Transaction id
    * @type string
    */
   id: string;
 };
 
 /**
- * @description Record with id
+ * @description Retirement provenance record with retirement transaction id
  */
-export type GetRecordsIdProvenanceQueryResponse = {
+export type GetRetirementsIdProvenanceQueryResponse = {
   /**
    * @type string
    */
@@ -54,6 +54,6 @@ export type GetRecordsIdProvenanceQueryResponse = {
   updatedAt: number;
 }[];
 
-export type GetRecordsIdProvenanceQueryParams = {
+export type GetRetirementsIdProvenanceQueryParams = {
   network?: Def1;
 };

@@ -1,17 +1,18 @@
 import {
-  getProjectsId,
-  getRecordsIdProvenance,
+  getRetirementsIdProvenance,
+  getRetirementsKlimaAccountIdRetirementIndex,
 } from ".generated/carbonmark-api-sdk/clients";
-import { GetRecordsIdProvenanceQueryResponse } from ".generated/carbonmark-api-sdk/types";
+import {
+  GetRetirementsIdProvenanceQueryResponse,
+  GetRetirementsKlimaAccountIdRetirementIndexQueryResponse,
+} from ".generated/carbonmark-api-sdk/types";
 import { urls } from "@klimadao/lib/constants";
-import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
 import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
 import { RetirementProvenancePage } from "components/pages/Retirements/RetirementProvenance";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { DetailedProject } from "lib/types/carbonmark.types";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -23,14 +24,11 @@ interface Params extends ParsedUrlQuery {
 
 export interface RetirementProvenancePageProps {
   /** The resolved 0x address */
-  beneficiaryAddress: string;
-  retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types & remove any (offset not being picked up in types)
-  retirementIndex: Params["retirement_index"];
-  nameserviceDomain: string | null;
+  retirement: GetRetirementsKlimaAccountIdRetirementIndexQueryResponse;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  project?: DetailedProject | null;
-  provenance: GetRecordsIdProvenanceQueryResponse;
+  provenance: GetRetirementsIdProvenanceQueryResponse;
+  nameserviceDomain: string | null;
 }
 
 // second param should always be a number
@@ -70,15 +68,16 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    let retirement: KlimaRetire | null;
-    const [subgraphData, translation] = await Promise.all([
+    const [subgraphRetirement, apiData, translation] = await Promise.all([
       queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
+      getRetirementsKlimaAccountIdRetirementIndex(
+        beneficiaryAddress,
+        retirementIndex
+      ),
       loadTranslation(locale),
     ]);
 
-    if (subgraphData) {
-      retirement = subgraphData;
-    } else {
+    if (subgraphRetirement == null) {
       return {
         notFound: true,
         revalidate: 1,
@@ -87,28 +86,21 @@ export const getStaticProps: GetStaticProps<
     if (!translation) {
       throw new Error("No translation found");
     }
-    const provenance = await getRecordsIdProvenance(retirement.transaction.id);
+    const provenance = await getRetirementsIdProvenance(
+      subgraphRetirement.transaction.id
+    );
 
-    let project;
-    if (retirement.offset.projectID && retirement.offset.vintageYear) {
-      project = await getProjectsId(
-        `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
-      );
-    }
 
     return {
       props: {
+        retirement: apiData,
         provenance,
-        project: project || null,
-        beneficiaryAddress: beneficiaryAddress,
-        canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}`,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
-        retirement: retirement || null,
-        retirementIndex: params.retirement_index,
+        canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}/provenance`,
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: retirement.pending ? 4 : 86400,
+      revalidate: 86400,
     };
   } catch (e) {
     console.error("Failed to generate", e);

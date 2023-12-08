@@ -2176,6 +2176,100 @@
           "updatedAt"
         ]
       },
+      "Retirement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bridgeId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "beneficiaryAddress": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "retirementMessage": {
+            "type": "string"
+          },
+          "retiringAddress": {
+            "type": "string"
+          },
+          "retiringName": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "number"
+          },
+          "credit": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "bridgeProtocol": {
+                "type": "string"
+              },
+              "vintage": {
+                "type": "number"
+              },
+              "currentSupply": {
+                "type": "number"
+              },
+              "retired": {
+                "type": "number"
+              },
+              "crossChainSupply": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "currentSupply",
+              "retired",
+              "crossChainSupply"
+            ]
+          }
+        },
+        "required": [
+          "amount",
+          "beneficiaryAddress",
+          "retiringAddress",
+          "timestamp"
+        ]
+      },
+      "CarbonCredit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bridgeProtocol": {
+            "type": "string"
+          },
+          "vintage": {
+            "type": "number"
+          },
+          "currentSupply": {
+            "type": "number"
+          },
+          "retired": {
+            "type": "number"
+          },
+          "crossChainSupply": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "currentSupply",
+          "retired",
+          "crossChainSupply"
+        ]
+      },
       "def-0": {
         "type": "object",
         "properties": {
@@ -2267,6 +2361,48 @@
                     },
                     {
                       "id": "Other"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
                     }
                   ]
                 ]
@@ -2745,48 +2881,6 @@
                     ]
                   }
                 }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
               }
             }
           }
@@ -4445,13 +4539,13 @@
         }
       }
     },
-    "/records/{id}/provenance": {
+    "/retirements/{id}/provenance": {
       "get": {
-        "summary": "Record details",
+        "summary": "Retirement provenance records",
         "tags": [
           "Records"
         ],
-        "description": "Retrieve a record and its history by its transaction ID",
+        "description": "Retrieve a retirement provenance records",
         "parameters": [
           {
             "schema": {
@@ -4465,16 +4559,16 @@
             "schema": {
               "type": "string"
             },
-            "example": "0x0044c5a5a6f626b673224a3c0d71e851ad3d5153000000000000000000000000000000000000000006000000",
+            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
             "in": "path",
             "name": "id",
             "required": true,
-            "description": "Transaction ID"
+            "description": "Transaction id"
           }
         ],
         "responses": {
           "200": {
-            "description": "Record with id",
+            "description": "Retirement provenance record with retirement transaction id",
             "content": {
               "application/json": {
                 "schema": {
@@ -4582,6 +4676,221 @@
                   "required": [
                     "token"
                   ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements/klima/{account_id}/{retirement_index}": {
+      "get": {
+        "summary": "Retirement",
+        "tags": [
+          "Retirements"
+        ],
+        "description": "Retrieve a klima retirement by account and retirement index",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x087a7afb6975a2837453be685eb6272576c0bc",
+            "in": "path",
+            "name": "account_id",
+            "required": true,
+            "description": "Account ID"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "5",
+            "in": "path",
+            "name": "retirement_index",
+            "required": true,
+            "description": "Retirement index"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement with account and index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "bridgeId": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "beneficiaryAddress": {
+                      "type": "string"
+                    },
+                    "beneficiaryName": {
+                      "type": "string"
+                    },
+                    "retirementMessage": {
+                      "type": "string"
+                    },
+                    "retiringAddress": {
+                      "type": "string"
+                    },
+                    "retiringName": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "credit": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "bridgeProtocol": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "number"
+                        },
+                        "currentSupply": {
+                          "type": "number"
+                        },
+                        "retired": {
+                          "type": "number"
+                        },
+                        "crossChainSupply": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "currentSupply",
+                        "retired",
+                        "crossChainSupply"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "beneficiaryAddress",
+                    "retiringAddress",
+                    "timestamp"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements/klima/{account_id}/{retirement_index}/provenance": {
+      "get": {
+        "summary": "Retirement provenance records",
+        "tags": [
+          "Records"
+        ],
+        "description": "Retrieve a retirement provenance records",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x087a7afb6975a2837453be685eb6272576c0bc",
+            "in": "path",
+            "name": "account_id",
+            "required": true,
+            "description": "Account ID"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "5",
+            "in": "path",
+            "name": "retirement_index",
+            "required": true,
+            "description": "Retirement index"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement provenance record with account id and retirement index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "transactionType": {
+                        "type": "string"
+                      },
+                      "registrySerialNumbers": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "token": {
+                        "type": "string"
+                      },
+                      "sender": {
+                        "type": "string"
+                      },
+                      "receiver": {
+                        "type": "string"
+                      },
+                      "originalAmount": {
+                        "type": "number"
+                      },
+                      "remainingAmount": {
+                        "type": "number"
+                      },
+                      "createdAt": {
+                        "type": "number"
+                      },
+                      "updatedAt": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "transactionType",
+                      "registrySerialNumbers",
+                      "token",
+                      "sender",
+                      "receiver",
+                      "originalAmount",
+                      "remainingAmount",
+                      "createdAt",
+                      "updatedAt"
+                    ]
+                  }
                 }
               }
             }

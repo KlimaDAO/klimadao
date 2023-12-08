@@ -1,4 +1,4 @@
-import { Record as KRecord } from ".generated/carbonmark-api-sdk/types";
+import { Record as KRecord, Retirement } from ".generated/carbonmark-api-sdk/types";
 import { Text } from "@klimadao/lib/components";
 import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
@@ -22,7 +22,7 @@ import * as styles from "./styles";
 
 interface ProvenanceProps {
   records: KRecord[];
-  retirementId: string;
+  retirement: Retirement;
 }
 
 const getFormattedDate = (timestamp: number, locale = "en") => {
@@ -108,7 +108,7 @@ export const Provenance = (props: ProvenanceProps) => {
               <Trans>Credit ID</Trans>
             </div>
           </Text>
-          <Text t="h5">{props.retirementId}</Text>
+          <Text t="h5">{props.retirement.id}</Text>
         </div>
         <div className={styles.headerItem}>
           <Text t="body2" color="lightest">
