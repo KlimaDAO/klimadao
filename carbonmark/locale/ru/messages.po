@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-01 00:26+0000\n"
+"POT-Creation-Date: 2023-12-08 14:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgstr "Адрес кошелька получателя (необязатель
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:145
+#: components/pages/Project/index.tsx:143
 msgid "Best Price"
 msgstr "Лучшая цена"
 
@@ -279,7 +279,7 @@ msgstr "Carbonmark | Универсальный углеродный рынок"
 msgid "Carbonmark's role"
 msgstr "Роль Carbonmark"
 
-#: components/ProjectFilterModal/index.tsx:129
+#: components/ProjectFilterModal/index.tsx:130
 msgid "Category"
 msgstr "Категория"
 
@@ -292,11 +292,11 @@ msgstr "измененить язык"
 msgid "Choose a project and quantity"
 msgstr "Выберите проект и количество"
 
-#: components/pages/Projects/index.tsx:88
+#: components/pages/Projects/index.tsx:72
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Выбирайте из более чем 20 миллионов проверенных цифровых углеродных кредитов от сотен проектов - покупайте, продавайте или выводите углерод на пенсию прямо сейчас"
 
-#: components/ProjectFilterModal/index.tsx:161
+#: components/ProjectFilterModal/index.tsx:162
 #: components/pages/Projects/ProjectSearch/index.tsx:52
 msgid "Clear Filters"
 msgstr "Очистить фильтры"
@@ -317,7 +317,7 @@ msgstr "Скоро"
 msgid "Compare prices across all sellers and trading pools"
 msgstr "Сравните цены у всех продавцов и торговых пулов"
 
-#: components/ProjectFilterModal/index.tsx:169
+#: components/ProjectFilterModal/index.tsx:170
 msgid "Compiling Results ..."
 msgstr "Компиляция результатов ..."
 
@@ -351,16 +351,16 @@ msgstr "Скопировать"
 msgid "Could not calculate Total Cost"
 msgstr "Не удалось рассчитать общую стоимость"
 
-#: components/ProjectFilterModal/index.tsx:118
+#: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
 msgstr "Страна"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:93
+#: components/pages/Retire/FromPortfolio/index.tsx:94
 msgid "Create Carbonmark Profile"
 msgstr "Создать профиль Carbonmark"
 
-#: components/pages/Users/SellerConnected/index.tsx:149
-#: components/pages/Users/SellerConnected/index.tsx:173
+#: components/pages/Users/SellerConnected/index.tsx:147
+#: components/pages/Users/SellerConnected/index.tsx:171
 msgid "Create New Listing"
 msgstr "Создать новое объявление"
 
@@ -380,7 +380,7 @@ msgstr "Создайте профиль и подключайтесь"
 msgid "Create a seller profile"
 msgstr "Создать профиль продавца"
 
-#: components/pages/Users/index.tsx:37
+#: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Создавайте и редактируйте объявления, а также отслеживайте свою активность с помощью профиля Carbonmark."
 
@@ -421,12 +421,12 @@ msgstr "В настоящее время Carbonmark принимает толь�
 msgid "DATE"
 msgstr "ДАТА"
 
-#: components/pages/Project/index.tsx:242
+#: components/pages/Project/index.tsx:240
 msgid "Data for this project and vintage"
 msgstr "Данные для этого проекта и урожая"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:103
+#: components/pages/Users/SellerUnconnected/index.tsx:90
 msgid "Data for this seller"
 msgstr "Данные по этому продавцу"
 
@@ -438,7 +438,7 @@ msgstr "По умолчанию используется адрес подклю
 msgid "Describe the purpose of this retirement"
 msgstr "Опишите цель этого вывода"
 
-#: components/pages/Project/index.tsx:193
+#: components/pages/Project/index.tsx:191
 msgid "Description"
 msgstr "Описание"
 
@@ -482,7 +482,7 @@ msgstr "Редактировать объявление"
 msgid "Energy Efficiency"
 msgstr "Энергоэффективность"
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "Expiration"
 msgstr "Срок действия"
 
@@ -631,13 +631,13 @@ msgstr "Разместите свои проекты на продажу все�
 msgid "Listed tonnes:"
 msgstr "Опубликованные тонны:"
 
-#: components/pages/Users/SellerConnected/index.tsx:134
-#: components/pages/Users/SellerUnconnected/index.tsx:58
+#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "Объявления"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:57
-#: components/pages/Retire/FromPortfolio/index.tsx:59
+#: components/pages/Retire/FromPortfolio/index.tsx:60
 msgid "Loading your assets"
 msgstr "Загрузка ваших активов"
 
@@ -679,8 +679,8 @@ msgstr "Войдите для оплаты USDC"
 msgid "Marketplace"
 msgstr "Торговая площадка"
 
-#: components/pages/Projects/index.tsx:86
-#: components/pages/Projects/index.tsx:87
+#: components/pages/Projects/index.tsx:70
+#: components/pages/Projects/index.tsx:71
 msgid "Marketplace | Carbonmark"
 msgstr "Торговая площадка | Carbonmark"
 
@@ -688,7 +688,7 @@ msgstr "Торговая площадка | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Максимизируйте свое воздействие на климат."
 
-#: components/pages/Project/index.tsx:152
+#: components/pages/Project/index.tsx:150
 msgid "Methodology"
 msgstr "Методология"
 
@@ -712,8 +712,8 @@ msgstr "Следующий"
 msgid "No Activity to show."
 msgstr "Нет активности для отображения."
 
-#: components/pages/Users/SellerConnected/index.tsx:197
-#: components/pages/Users/SellerUnconnected/index.tsx:94
+#: components/pages/Users/SellerConnected/index.tsx:195
+#: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "Нет активных объявлений."
 
@@ -733,16 +733,16 @@ msgstr "Нет данных для отображения"
 msgid "No listable assets found."
 msgstr "Список объектов не найден."
 
-#: components/pages/Project/index.tsx:232
+#: components/pages/Project/index.tsx:230
 msgid "No listings found for this project."
 msgstr "Не найдено объявлений для этого проекта."
 
 #: components/pages/Projects/GridView/GridView.tsx:38
-#: components/pages/Projects/ListView/ListView.tsx:154
+#: components/pages/Projects/ListView/ListView.tsx:157
 msgid "No project description found"
 msgstr "Описание проекта не найдено"
 
-#: components/pages/Projects/index.tsx:98
+#: components/pages/Projects/index.tsx:86
 msgid "No projects found with current filters"
 msgstr "С текущими фильтрами проектов не найдено"
 
@@ -868,9 +868,9 @@ msgstr "Обработка покупки"
 msgid "Processing Retirement"
 msgstr "Обработка"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
-msgid "Processing data..."
-msgstr "Обработка данных..."
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "Processing retirement..."
+msgstr ""
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -881,7 +881,7 @@ msgstr "Профиль"
 msgid "Profile picture"
 msgstr "Изображение профиля"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:78
+#: components/pages/Retire/FromPortfolio/index.tsx:79
 msgid "Purchase Carbon"
 msgstr "Купить углерод"
 
@@ -942,11 +942,11 @@ msgstr "Быстрый вывод"
 msgid "RETIRE CARBON"
 msgstr "ВЫВЕДЕНО УГЛЕРОДА"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read Less"
 msgstr "Читать меньше"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read More"
 msgstr "Подробнее"
 
@@ -1002,11 +1002,11 @@ msgstr "Источники"
 msgid "Resources | Carbonmark"
 msgstr "Ресурсы | Carbonmark"
 
-#: components/ProjectFilterModal/index.tsx:167
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Result"
 msgstr "Результат"
 
-#: components/ProjectFilterModal/index.tsx:167
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Results"
 msgstr "Результаты"
 
@@ -1267,7 +1267,7 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "Это приложение работает только в Polygon Mainnet."
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
-msgid "This is your portfolio, here you will find any of the supported carbon assets you own. Assets shown here can be retired or listed for sale."
+msgid "This is your portfolio. Here you will find supported carbon assets you own. Assets shown here can be retired or listed for sale in the marketplace once you have a profile."
 msgstr ""
 
 #: components/pages/Users/Badge/index.tsx:17
@@ -1298,7 +1298,7 @@ msgstr "Для завершения операции с кредитной ка�
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
 msgstr "Чтобы завершить выбивание, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
-#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:24
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:25
 msgid "To get started, be sure to complete your <0>profile</0> and then head to the <1>marketplace</1> to purchase carbon assets."
 msgstr ""
 
@@ -1405,7 +1405,7 @@ msgstr "Неопубликованные тонны:"
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr "Беспрецедентная прозрачность на цифровом углеродном рынке."
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:183
 msgid "Update listing"
 msgstr "Обновить список"
 
@@ -1413,7 +1413,7 @@ msgstr "Обновить список"
 msgid "Updated:"
 msgstr "Обновлено:"
 
-#: components/pages/Users/SellerConnected/index.tsx:191
+#: components/pages/Users/SellerConnected/index.tsx:189
 msgid "Updating your data..."
 msgstr "Обновление данных..."
 
@@ -1439,11 +1439,11 @@ msgstr "Просмотр"
 msgid "View Carbonmark Profile"
 msgstr "Посмотреть профиль Carbonmark"
 
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:213
 msgid "View Registry Details <0/>"
 msgstr "Просмотр сведений о реестре <0/>"
 
-#: components/ProjectFilterModal/index.tsx:153
+#: components/ProjectFilterModal/index.tsx:154
 msgid "View Results"
 msgstr "Посмотреть Результаты"
 
@@ -1472,7 +1472,7 @@ msgstr "Посмотреть все проекты"
 msgid "View all Retirements"
 msgstr "Просмотреть всего выведено"
 
-#: components/pages/Project/index.tsx:106
+#: components/pages/Project/index.tsx:104
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Посмотреть и приобрести этот проект компенсации выбросов углерода на Carbonmark"
 
@@ -1493,7 +1493,7 @@ msgstr "Посмотреть на PolygonScan <0/>"
 msgid "View the project details and other info for this purchase."
 msgstr "Просмотрите детали проекта и другую информацию по этой покупке."
 
-#: components/ProjectFilterModal/index.tsx:140
+#: components/ProjectFilterModal/index.tsx:141
 msgid "Vintage"
 msgstr "Винтаж"
 
@@ -1509,14 +1509,10 @@ msgstr "Старейшие Винтаж"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "Мы все еще обрабатываем вашу успешную покупку. Пожалуйста, посетите эту страницу снова через несколько минут, чтобы увидеть вашу квитанцию"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:73
-#: components/pages/Retire/FromPortfolio/index.tsx:88
+#: components/pages/Retire/FromPortfolio/index.tsx:74
+#: components/pages/Retire/FromPortfolio/index.tsx:89
 msgid "We couldn't find any assets in your portfolio."
 msgstr "Мы не смогли найти активы в вашем портфеле."
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
-msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr "Мы еще не закончили обработку данных блокчейна для этого вывода. Обычно это занимает несколько секунд, но может занять больше времени, если сеть перегружена."
 
 #: components/pages/Retire/index.tsx:89
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
@@ -1569,10 +1565,6 @@ msgstr "Просмотреть успешную транзакцию можно 
 msgid "You chose to reject the transaction."
 msgstr "Вы решили отклонить транзакцию."
 
-#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:18
-msgid "You do not currently have any supported carbon assets available for listing."
-msgstr ""
-
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
 msgstr "Вам нужно либо указать адрес получателя, либо войти в систему с помощью кошелька в браузере."
@@ -1581,6 +1573,10 @@ msgstr "Вам нужно либо указать адрес получател�
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:61
 msgid "You exceeded your available amount of tokens"
 msgstr "Вы превысили доступное количество токенов"
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:19
+msgid "You must have a profile created to view carbon assets you own in your Carbonmark portfolio."
+msgstr ""
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
 msgid "You successfully acquired carbon!"
@@ -1610,9 +1606,13 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ваша покупка еще не завершена. Чтобы завершить покупку, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:216
+#: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
 msgstr "Ваши данные продавца"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
@@ -1786,7 +1786,7 @@ msgstr "Создать объявление"
 msgid "profile.edit_modal.submit"
 msgstr "Сохранить изменения"
 
-#: components/pages/Users/SellerConnected/index.tsx:223
+#: components/pages/Users/SellerConnected/index.tsx:219
 msgid "profile.edit_profile.title"
 msgstr "Ваш профиль"
 
@@ -1938,15 +1938,15 @@ msgstr "Имея более 20 миллионов подтвержденных �
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "О Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} изъято из эксплуатации {formattedAmount} тонн углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "Карбонмарк | Квитанция о выводе"
 
@@ -2100,7 +2100,7 @@ msgstr "Всего выбыло тонн углерода"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Всего транзакции выбивания"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:81
+#: components/pages/Users/SellerUnconnected/index.tsx:71
 msgid "seller.listing.buy"
 msgstr "Купить"
 
@@ -2109,7 +2109,7 @@ msgid "seller.listing.quantity_available"
 msgstr "Доступное количество:"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:71
+#: components/pages/Users/SellerUnconnected/index.tsx:61
 msgid "shared.connect_to_buy"
 msgstr "Войти / Подключиться, чтобы купить"
 
@@ -2291,11 +2291,11 @@ msgstr "{0} максимальная сумма по кредитным карт
 msgid "{0} tonnes"
 msgstr "{0} тонны"
 
-#: components/pages/Users/index.tsx:31
+#: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Профиль | Carbonmark"
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:173
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr "{DEFAULT_EXPIRATION_DAYS} дней ({expirationDatestring})"
 

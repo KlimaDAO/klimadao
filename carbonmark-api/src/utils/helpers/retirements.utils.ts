@@ -15,7 +15,6 @@ export async function getKlimaRetirement(props: {
   const id = `${props.account_id}0${props.retirement_index}000000`;
 
   const sdk = gql_sdk(props.network);
-  console.debug(id);
   const retirement = await sdk.digital_carbon.getKlimaRetirement({ id: id });
   return retirement.klimaRetire
     ? formatKlimaRetirement(retirement.klimaRetire)

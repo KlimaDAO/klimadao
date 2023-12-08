@@ -17,4 +17,4 @@ export function isTokenPrice(
 }
 
 export const isCategoryName = (name?: string | null): name is CategoryName =>
-  Object.keys(CATEGORY_INFO).includes(name as CategoryName);
+  Object.keys(CATEGORY_INFO).includes(name?.trim() as CategoryName);

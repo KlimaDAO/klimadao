@@ -125,7 +125,7 @@ export const ProjectDetails: FC<Props> = (props) => {
         </Trans>
       </Text>
       <div className={styles.buttons}>
-        {!props.retirement?.pending && props.retirement?.transaction?.id && (
+        {props.retirement?.transaction?.id && (
           <CarbonmarkButton
             icon={<LaunchIcon />}
             target="_blank"

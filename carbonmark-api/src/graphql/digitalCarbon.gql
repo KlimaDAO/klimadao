@@ -1,33 +1,66 @@
+query getDigitalCarbonProjectsVintages {
+  carbonProjects(first: 1000) {
+    carbonCredits {
+      vintage
+    }
+  }
+}
+
+query getDigitalCarbonProjectsCategories {
+  carbonProjects(first: 1000) {
+    category
+  }
+}
+
+query getDigitalCarbonProjectsCountries {
+  carbonProjects(first: 1000) {
+    country
+  }
+}
+
 query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: { projectID: $projectID }) {
-    registry
-    region
-    projectID
-    name
-    methodologies
-    id
-    country
-    category
+    ...DigitalCarbonProjectFragment
     carbonCredits(where: { vintage: $vintage }) {
-      vintage
-      currentSupply
+      ...CarbonCreditFragment
       poolBalances {
-        balance
-        id
-        deposited
-        redeemed
+        ...PoolBalancesFragment
+      }
+    }
+  }
+}
+
+query findDigitalCarbonProjects(
+  $country: [String!]
+  $category: [String!]
+  $search: String
+  $vintage: [Int!]
+) {
+  carbonProjects(
+    first: 1000
+    where: {
+      and: [
+        { category_in: $category }
+        { country_in: $country }
+        { carbonCredits_: { vintage_in: $vintage } }
+        {
+          or: [
+            { name_contains_nocase: $search }
+            { projectID_contains_nocase: $search }
+          ]
+        }
+      ]
+    }
+  ) {
+    ...DigitalCarbonProjectFragment
+    carbonCredits {
+      ...CarbonCreditFragment
+      poolBalances {
+        ...PoolBalancesFragment
         pool {
-          name
-          supply
-          id
-          decimals
+          ...PoolFragment
         }
       }
-      id
-      crossChainSupply
-      bridgeProtocol
-      bridged
-      retired
     }
   }
 }
@@ -35,9 +68,9 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
 query getKlimaRetirement($id: ID!) {
   klimaRetire(id: $id) {
     retire {
-      ...retireFragment
+      ...RetireFragment
       credit {
-        ...carbonCreditFragment
+        ...CarbonCreditFragment
       }
     }
   }

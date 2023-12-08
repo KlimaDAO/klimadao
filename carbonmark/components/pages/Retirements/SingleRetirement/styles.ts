@@ -85,8 +85,11 @@ export const pending = css`
   border-radius: 0.8rem;
   padding: 1.6rem;
   display: grid;
+  grid-column: main;
+  max-width: 40rem;
   gap: 2.4rem;
   justify-items: center;
+  justify-self: center;
 
   .spinnerTitle {
     display: flex;
