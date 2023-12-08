@@ -29,10 +29,6 @@ export const iconAndText = css`
   gap: 0.8rem;
 `;
 
-export const uppercase = css`
-  text-transform: uppercase;
-`;
-
 export const footer = css`
   display-flex;
   justify-content:center;

@@ -1,11 +1,20 @@
-import { Record as KRecord, Retirement } from ".generated/carbonmark-api-sdk/types";
-import { Text } from "@klimadao/lib/components";
-import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
+import {
+  Record as KRecord,
+  Retirement,
+} from ".generated/carbonmark-api-sdk/types";
+import { Anchor as A, Text } from "@klimadao/lib/components";
+import {
+  concatAddress,
+  formatTonnes,
+  insertWhiteSpaces,
+} from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import {
   ChangeCircleOutlined,
   DeviceHub,
   East,
+  KeyboardArrowDown,
+  KeyboardArrowUp,
   Park,
   Token,
 } from "@mui/icons-material";
@@ -15,9 +24,10 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import { Divider } from "@mui/material";
 import { Quantity } from "components/Quantity";
 import { useRouter } from "next/router";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import * as styles from "./styles";
 
 interface ProvenanceProps {
@@ -85,10 +95,21 @@ const RECORDS_INFO: Record<
 
 export const Provenance = (props: ProvenanceProps) => {
   const { locale } = useRouter();
-  const recordInfo = (transactionType: string) => {
-    if (Object.keys(RECORDS_INFO).includes(transactionType))
-      return RECORDS_INFO[transactionType as keyof typeof RECORDS_INFO];
-  };
+  const [showTransfers, setShowTransfers] = useState<boolean>(false);
+  // Divider customization
+  const numberOfTransfers = props.records.filter(
+    (record) => record.transactionType == "TRANSFER"
+  ).length;
+  const dividerText = showTransfers ? (
+    <Trans>Hide {numberOfTransfers} transfers</Trans>
+  ) : (
+    <Trans>View {numberOfTransfers} transfers</Trans>
+  );
+  const dividerIcon = showTransfers ? (
+    <KeyboardArrowUp fontSize="large" />
+  ) : (
+    <KeyboardArrowDown fontSize="large" />
+  );
 
   const lastRecord = props.records[0];
   if (!lastRecord) return <></>;
@@ -98,62 +119,78 @@ export const Provenance = (props: ProvenanceProps) => {
     locale: locale || "en",
   });
 
+  /** Return the relevant record info for a given record */
+  const recordInfo = (record: KRecord) => {
+    if (Object.keys(RECORDS_INFO).includes(record.transactionType))
+      return RECORDS_INFO[record.transactionType as keyof typeof RECORDS_INFO];
+  };
+
+  /** Return the correct stylefor a given record */
+  const recordVisible = (record: KRecord) => {
+    return record.transactionType != "TRANSFER" || showTransfers;
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.headerItem}>
-          <Text t="body2" color="lightest">
-            <div className={styles.iconAndText}>
+          <div className={styles.iconAndText}>
+            <Text t="body2" color="lightest">
               <Token fontSize="large" />
               <Trans>Credit ID</Trans>
-            </div>
-          </Text>
-          <Text t="h5">{props.retirement.id}</Text>
+            </Text>
+          </div>
+          <Text t="h5">{props.retirement.credit?.id}</Text>
         </div>
         <div className={styles.headerItem}>
-          <Text t="body2" color="lightest">
-            <div className={styles.iconAndText}>
+          <div className={styles.iconAndText}>
+            <Text t="body2" color="lightest">
               <Token fontSize="large" />
               <Trans>Amount</Trans>
-            </div>
-          </Text>
+            </Text>
+          </div>
           <Text t="h5">
             <Trans>{formattedAmount} Tonnes</Trans>
           </Text>
         </div>
       </div>
       <Timeline className={styles.timeline}>
-        {props.records.map((record) => (
+        {props.records.filter(recordVisible).map((record) => (
           <TimelineItem key={record.id}>
             <TimelineSeparator>
               <TimelineDot
                 sx={{
-                  backgroundColor: recordInfo(record.transactionType)
-                    ?.iconBackgroundColor,
+                  backgroundColor: recordInfo(record)?.iconBackgroundColor,
                 }}
               >
-                {recordInfo(record.transactionType)?.icon}
+                {recordInfo(record)?.icon}
               </TimelineDot>
               {record.transactionType == "TRANSFER" && <TimelineConnector />}
             </TimelineSeparator>
             <TimelineContent>
               <div className={styles.content}>
                 <div className={styles.contentHeader}>
-                  <Text t="h4">
-                    {recordInfo(record.transactionType)?.label}
-                  </Text>
+                  <Text t="h4">{recordInfo(record)?.label}</Text>
                   <Text t="body3" color="lightest">
                     {getFormattedDate(record.createdAt, locale)}
                   </Text>
                 </div>
                 {record.transactionType == "RETIREMENT" && (
-                  <div className={styles.contentFooter}>
-                    <Quantity quantity={record.originalAmount} />
-                    <Text t="body1">{concatAddress(record.sender)}</Text>
-                    <Text t="body1" color="lightest">
-                      via Carbonmark
-                    </Text>
-                  </div>
+                  <>
+                    <div className={styles.contentFooter}>
+                      <Quantity quantity={record.originalAmount} />
+                      <Text t="body1">{concatAddress(record.sender)}</Text>
+                      <Text t="body1" color="lightest">
+                        via Carbonmark
+                      </Text>
+                    </div>
+                    <Divider onClick={() => setShowTransfers(!showTransfers)}>
+                      <a className={styles.divider}>
+                        <span>{dividerText}</span>
+                        {dividerIcon}
+                      </a>
+                    </Divider>
+                  </>
                 )}
                 {record.transactionType == "TRANSFER" && (
                   <div className={styles.contentFooter}>
@@ -165,14 +202,25 @@ export const Provenance = (props: ProvenanceProps) => {
                 )}
                 {record.transactionType == "ORIGINATION" && (
                   <div>
-                    <Text t="body2">
-                      <Trans>Serial Number</Trans>
-                    </Text>
-                    :{" "}
-                    <Text t="body2" color="lightest">
-                      {"TODO"}
-                    </Text>
-                    <Trans>View on Verra</Trans>
+                    <div>
+                      <Text t="body2" className={styles.inline}>
+                        <Trans>Serial Number</Trans>
+                      </Text>
+                      :{" "}
+                      <Text
+                        t="body2"
+                        color="lightest"
+                        className={styles.inline}
+                      >
+                        {insertWhiteSpaces({
+                          text: record.registrySerialNumbers[0],
+                          after: "-",
+                        })}
+                      </Text>
+                    </div>
+                    <A href={"#"} className={styles.verraLink}>
+                      <Trans>View on Verra</Trans>
+                    </A>
                   </div>
                 )}
               </div>

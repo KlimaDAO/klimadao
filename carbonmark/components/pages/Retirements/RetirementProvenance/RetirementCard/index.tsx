@@ -30,7 +30,7 @@ const RetirementCardItem = (props: {
 }) => {
   return (
     <div className={styles.headerItem}>
-      <Text t="body3" color="lightest" className={styles.uppercase}>
+      <Text t="body3" color="lightest" uppercase={true}>
         {props.title}
       </Text>
       <div className={styles.iconAndText}>

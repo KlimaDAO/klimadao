@@ -32,6 +32,7 @@ export const content = css`
   flex-direction: column;
   gap: 1.2rem;
   white-space: nowrap;
+  min-width: 48rem;
 `;
 
 export const contentHeader = css`
@@ -44,4 +45,20 @@ export const contentFooter = css`
   display: flex;
   gap: 0.8rem;
   align-items: center;
+`;
+
+export const inline = css`
+  display: inline;
+  white-space: normal;
+`;
+
+export const verraLink = css`
+  font-size: 1.6rem;
+`;
+
+export const divider = css`
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  cursor: pointer;
 `;
