@@ -1,4 +1,4 @@
-fragment CarbonProjectFragment on Project {
+fragment CMSProjectFragment on Project {
   country
   description
   id: _id
@@ -19,7 +19,7 @@ fragment CarbonProjectFragment on Project {
   registryProjectId
 }
 
-fragment CarbonProjectContentFragment on ProjectContent {
+fragment CMSProjectContentFragment on ProjectContent {
   project {
     registry
     registryProjectId

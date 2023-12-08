@@ -11,7 +11,7 @@ import { CarbonOffset } from "../../.generated/types/offsets.types";
 import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
-import { CarbonProject } from "./carbonProjects.utils";
+import { CarbonProject } from "./cms.utils";
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- unable to type environment variables
 const ENV = (process.env.VERCEL_ENV ?? "development") as
   | "development"

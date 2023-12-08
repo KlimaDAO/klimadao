@@ -1,11 +1,14 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS, SANITY_URLS } from "../../../../src/app.constants";
-import carbonProjects from "../../../fixtures/carbonProjects";
+import { fixtures } from "../../../fixtures";
 import digitalCarbon from "../../../fixtures/digitalCarbon";
 import tokens from "../../../fixtures/tokens";
 import { build } from "../../../helper";
 import { DEV_URL } from "../../../test.constants";
+
+const mockCmsProject = fixtures.cms.cmsProject;
+const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
 
 describe("GET /projects/:id", () => {
   let fastify: FastifyInstance;
@@ -19,13 +22,13 @@ describe("GET /projects/:id", () => {
     }
   });
   test("Returns project from CMS without prices or listings", async () => {
-    nock(SANITY_URLS.carbonProjects)
+    nock(SANITY_URLS.cms)
       .post("")
       .twice() // once for each query
       .reply(200, {
         data: {
-          allProject: [carbonProjects.project],
-          allProjectContent: [carbonProjects.projectContent],
+          allProject: [mockCmsProject],
+          allProjectContent: [mockCmsProjectContent],
         },
       });
     nock(GRAPH_URLS["polygon"].tokens)
@@ -51,13 +54,13 @@ describe("GET /projects/:id", () => {
   });
 
   test("Supports ?network=polygon", async () => {
-    nock(SANITY_URLS.carbonProjects)
+    nock(SANITY_URLS.cms)
       .post("")
       .twice() // once for each query
       .reply(200, {
         data: {
-          allProject: [carbonProjects.project],
-          allProjectContent: [carbonProjects.projectContent],
+          allProject: [mockCmsProject],
+          allProjectContent: [mockCmsProjectContent],
         },
       });
     nock(GRAPH_URLS["polygon"].tokens)
@@ -88,13 +91,13 @@ describe("GET /projects/:id", () => {
   });
 
   test("Empty network param default is polygon", async () => {
-    nock(SANITY_URLS.carbonProjects)
+    nock(SANITY_URLS.cms)
       .post("")
       .twice() // once for each query
       .reply(200, {
         data: {
-          allProject: [carbonProjects.project],
-          allProjectContent: [carbonProjects.projectContent],
+          allProject: [mockCmsProject],
+          allProjectContent: [mockCmsProjectContent],
         },
       });
     nock(GRAPH_URLS["polygon"].tokens).post("").reply(200, {
