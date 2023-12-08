@@ -52,6 +52,18 @@ export const COUNTRIES = [
   },
 ];
 
+export const MOCK_USER_PROFILE: UserProfile = {
+  address: MOCK_ADDRESS,
+  createdAt: new Date("1970-01-01T00:00:00Z").getTime(),
+  description: "Some description",
+  handle: "SomeHandle",
+  updatedAt: Number(new Date()),
+  username: "someusername",
+  profileImgUrl: null,
+};
+
+// ICR mocks
+
 export const COUNTRY_CODES = ["CN", "ES", "GB", "IS", "UA", "VN"];
 
 export const VINTAGES = ["2020", "2021", "2022", "2023"];
@@ -408,14 +420,29 @@ export const mockICRProject = {
   zip: null,
 };
 
-export const MOCK_USER_PROFILE: UserProfile = {
-  address: MOCK_ADDRESS,
-  createdAt: new Date("1970-01-01T00:00:00Z").getTime(),
-  description: "Some description",
-  handle: "SomeHandle",
-  updatedAt: new Date("2023-11-11T15:05:08Z").getTime(),
-  username: "someusername",
-  profileImgUrl: null,
+export const mockICRHolderResponse = {
+  data: {
+    holder: {
+      id: "0x1234abcd5678ef9012345678abcd9012ef345678",
+      exPostAmounts: [
+        {
+          id: "0x1234abcd5678ef9012345678abcd9012ef3456789abcdef1234567890abcdef1234abcd5678ef90",
+          amount: "100",
+          updatedAt: "1702000000",
+          retiredAmount: "60",
+          exPost: {
+            tokenId: "10",
+            vintage: "2020",
+            serialization: "ICR-XYZ-123-45678-90-Q-0-2020",
+            project: {
+              id: "0x9abcdef1234567890abcdef1234567890abcdef12",
+              projectName: "Green Energy Initiative",
+            },
+          },
+        },
+      ],
+    },
+  },
 };
 
 export const EXPECTED_USER_RESPONSE = {

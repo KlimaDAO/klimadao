@@ -22,8 +22,8 @@ jest.mock("../../../src/utils/ICR/ICR_API_endpoints", () => ({
   }),
 }));
 
-const icrApiValues = ICR_API("polygon");
-const ICR_API_URL = icrApiValues.ICR_API_URL;
+const ICR_API_URL = ICR_API("polygon").ICR_API_URL;
+const ICR_API_URL_MUMBAI = ICR_API("mumbai").ICR_API_URL;
 
 export const mockCms = (overrides?: {
   projects?: CMSProject[];
@@ -68,6 +68,12 @@ export const mockDigitalCarbonProjects = (override?: CarbonProject[]) => {
     });
 
   nock(ICR_API_URL)
+    .get("/public/projects/list")
+    .reply(200, { projects: [mockICRProject] });
+
+  // mumbai nocks backup
+
+  nock(ICR_API_URL_MUMBAI)
     .get("/public/projects/list")
     .reply(200, { projects: [mockICRProject] });
 };

@@ -11,6 +11,7 @@ import {
   EXPECTED_USER_RESPONSE,
   MOCK_ADDRESS,
   MOCK_USER_PROFILE,
+  mockICRHolderResponse,
 } from "../../test.constants";
 import { disableAuth, mockFirebase } from "../../test.utils";
 
@@ -45,6 +46,26 @@ describe("GET /users/[walletOrHandle]", () => {
           ],
         },
       });
+
+    nock(GRAPH_URLS["polygon"].icr)
+      .post("", (body) => {
+        return body.query && body.query.includes("getHoldingsByAddress");
+      })
+      .reply(200, {
+        mockICRHolderResponse,
+      });
+
+    nock(GRAPH_URLS["mumbai"].icr)
+      .post("", (body) => {
+        return body.query && body.query.includes("getHoldingsByAddress");
+      })
+      .reply(200, {
+        mockICRHolderResponse,
+      });
+  });
+
+  afterEach(() => {
+    nock.cleanAll();
   });
 
   test("by wallet", async () => {
