@@ -144,6 +144,7 @@ describe("GET /projects/:id", () => {
       url: `${DEV_URL}/projects/VCS-191-2008?network=polygon`,
     });
     const project = await response.json();
+
     expect(response.statusCode).toEqual(200);
     expect(project.prices).toHaveLength(1);
     expect(project.prices[0].singleUnitBuyPrice).toBe("0.358940");
@@ -184,7 +185,7 @@ describe("GET /projects/:id", () => {
       .get("/public/projects")
       .reply(200, { projects: [mockICRProject] });
 
-    // mumbai nocks backup
+    // // mumbai nocks backup
     nock(ICR_API_URL_MUMBAI)
       .get("/public/projects")
       .reply(200, { projects: [mockICRProject] });
