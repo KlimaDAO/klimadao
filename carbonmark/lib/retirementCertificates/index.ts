@@ -22,6 +22,7 @@ import { PoppinsSemiBold } from "./fonts/poppinsSemiBoldbase64";
 
 type Params = {
   retirement: KlimaRetire;
+  beneficiaryAddress: string;
   retirementIndex: string;
   retirementUrl: string;
   retiredToken: RetirementToken | null;
@@ -252,7 +253,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       { width: 300, characterSpacing: 0.3 }
     );
     const positionOfProjectDetails = 200 + projectNameBlockHeight + 50;
-    const transactionDetailsHeight = 100;
+    const transactionDetailsHeight = 124;
 
     if (isMossRetirement) {
       return positionOfProjectDetails + transactionDetailsHeight - 20;
@@ -391,6 +392,16 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       underline: true,
       link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
     });
+
+    doc.text(
+      "View carbon provenance",
+      doc.page.width - 360,
+      startPosition + 124,
+      {
+        underline: true,
+        link: `${urls.carbonmark}/retirements/${params.beneficiaryAddress}/${params.retirementIndex}/provenance`,
+      }
+    );
   };
 
   const printMossProjectDetails = (): void => {
