@@ -13,6 +13,7 @@ import {
 } from "../../../src/.generated/types/digitalCarbon.types";
 import { Project as MarketplaceProject } from "../../../src/.generated/types/marketplace.types";
 import { GRAPH_URLS } from "../../../src/app.constants";
+import { NetworkParam } from "../../../src/models/NetworkParam.model";
 import { Project } from "../../../src/models/Project.model";
 import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
@@ -77,13 +78,17 @@ const expectedImages = mockCmsProjectContent.images?.map((img) => ({
 }));
 
 jest.mock("../../../src/utils/ICR/ICR_API_endpoints", () => ({
-  ICR_API: () => ({
-    ICR_API_URL: "https://api.carbonregistry.com/v0",
-  }),
+  ICR_API: (network: NetworkParam) => {
+    let baseUrl = "https://api.carbonregistry.com/v0";
+    if (network === "mumbai") {
+      baseUrl = "https://gaia-api-dev.mojoflower.io/v0";
+    }
+    return { ICR_API_URL: baseUrl };
+  },
 }));
 
-const icrApiValues = ICR_API("polygon");
-const ICR_API_URL = icrApiValues.ICR_API_URL;
+const ICR_API_URL = ICR_API("polygon").ICR_API_URL;
+const ICR_API_URL_MUMBAI = ICR_API("mumbai").ICR_API_URL;
 
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
@@ -111,6 +116,12 @@ describe("GET /projects", () => {
     mockMarketplaceProjects();
     mockDigitalCarbonProjects();
 
+    nock(GRAPH_URLS["mumbai"].marketplace)
+      .post("")
+      .reply(200, {
+        data: { projects: [marketplace.projectWithListing] },
+      });
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects`,
@@ -127,6 +138,15 @@ describe("GET /projects", () => {
       .reply(200, { data: { projects: [] } });
 
     nock(ICR_API_URL).get("/public/projects/list").reply(200, { projects: [] });
+
+    // mumabi nocks backup
+    nock(ICR_API_URL_MUMBAI)
+      .get("/public/projects/list")
+      .reply(200, { projects: [] });
+
+    nock(GRAPH_URLS["mumbai"].marketplace)
+      .post("")
+      .reply(200, { data: { projects: [] } }); // no marketplace projects
 
     const response = await fastify.inject({
       method: "GET",
