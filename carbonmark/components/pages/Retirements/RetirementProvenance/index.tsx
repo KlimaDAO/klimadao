@@ -31,15 +31,15 @@ export const RetirementProvenancePage: NextPage<
     <GridContainer>
       <PageHead
         title={t({
-          id: "retirement.head.title",
+          id: "retirement.provenance.head.title",
           message: `Carbonmark | Carbon Retirement provenance`,
         })}
         mediaTitle={t({
-          id: "retirement.head.metaTitle",
+          id: "retirement.provenance.head.metaTitle",
           message: `${retiree} retired ${formattedAmount} Tonnes of carbon`,
         })}
         metaDescription={t({
-          id: "retirement.head.metaDescription",
+          id: "retirement.provenance.head.metaDescription",
           message: "Transparent, on-chain offsets powered by Carbonmark.",
         })}
         canonicalUrl={props.canonicalUrl}
