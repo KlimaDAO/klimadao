@@ -10,6 +10,7 @@ import {
 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import {
+  BalanceOutlined,
   ChangeCircleOutlined,
   DeviceHub,
   East,
@@ -144,8 +145,12 @@ export const Provenance = (props: ProvenanceProps) => {
           </Text>
         </div>
         <div className={styles.headerItem}>
-          <Text t="body2" color="lightest" className={styles.iconAndText}>
-            <Token fontSize="large" />
+          <Text
+            t="body2"
+            color="lightest"
+            className={`${styles.iconAndText} ${styles.right}`}
+          >
+            <BalanceOutlined fontSize="large" />
             <Trans>Amount</Trans>
           </Text>
           <Text t="h5">

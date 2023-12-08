@@ -22,6 +22,9 @@ export const iconAndText = css`
   align-items: center;
   gap: 0.8rem;
 `;
+export const right = css`
+  justify-content: right;
+`;
 
 export const timeline = css`
   max-width: 36rem;
