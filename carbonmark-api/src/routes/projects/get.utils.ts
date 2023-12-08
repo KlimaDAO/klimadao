@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
-import { map, toLower } from "lodash/fp";
+import { map, mapValues, toLower, trim } from "lodash/fp";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
@@ -269,7 +269,8 @@ export const composeProjectEntries = (
 
     // construct CarbonmarkProjectT and make typescript happy
     const entry: Project = {
-      methodologies: carbonProject?.methodologies ?? [],
+      //Remove string padding on methodologies
+      methodologies: map(mapValues(trim))(carbonProject?.methodologies) ?? [],
       description: carbonProject?.description || null,
       short_description: carbonProject?.content?.shortDescription || null,
       name: carbonProject?.name || poolBalances?.name || "",
