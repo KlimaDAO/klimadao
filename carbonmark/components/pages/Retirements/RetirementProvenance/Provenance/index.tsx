@@ -134,21 +134,20 @@ export const Provenance = (props: ProvenanceProps) => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.headerItem}>
-          <div className={styles.iconAndText}>
-            <Text t="body2" color="lightest">
-              <Token fontSize="large" />
-              <Trans>Credit ID</Trans>
-            </Text>
-          </div>
-          <Text t="h5">{props.retirement.credit?.id}</Text>
+          <Text t="body2" color="lightest" className={styles.iconAndText}>
+            <Token fontSize="large" />
+            <Trans>Credit ID</Trans>
+          </Text>
+          <Text t="h5">
+            {props.retirement.credit?.id &&
+              concatAddress(props.retirement.credit?.id)}
+          </Text>
         </div>
         <div className={styles.headerItem}>
-          <div className={styles.iconAndText}>
-            <Text t="body2" color="lightest">
-              <Token fontSize="large" />
-              <Trans>Amount</Trans>
-            </Text>
-          </div>
+          <Text t="body2" color="lightest" className={styles.iconAndText}>
+            <Token fontSize="large" />
+            <Trans>Amount</Trans>
+          </Text>
           <Text t="h5">
             <Trans>{formattedAmount} Tonnes</Trans>
           </Text>
