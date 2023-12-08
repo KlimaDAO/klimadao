@@ -11,7 +11,8 @@ fragment ProvenanceRecordFragment on ProvenanceRecord {
   updatedAt
 }
 
-fragment creditFragment on CarbonCredit {
+fragment carbonCreditFragment on CarbonCredit {
+  id
   bridgeProtocol
   vintage
   currentSupply

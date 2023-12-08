@@ -1,16 +1,12 @@
 import { Static, Type } from "@sinclair/typebox";
 
-export const RetirementModel = Type.Object({
-  id: Type.String(),
-  bridgeId: Type.String(),
-  amount: Type.Number(),
-  beneficiaryAddress: Type.String(),
-  beneficiaryName: Type.String(),
-  retirementMessage: Type.String(),
-  retiringAddress: Type.String(),
-  retiringName: Type.String(),
-  remainingAmount: Type.Number(),
-  timestamp: Type.Number(),
+export const CarbonCreditModel = Type.Object({
+  id: Type.Optional(Type.String()),
+  bridgeProtocol: Type.Optional(Type.String()),
+  vintage: Type.Optional(Type.Number()),
+  currentSupply: Type.Number(),
+  retired: Type.Number(),
+  crossChainSupply: Type.Number(),
 });
 
-export type Record = Static<typeof RetirementModel>;
+export type CarbonCredit = Static<typeof CarbonCreditModel>;

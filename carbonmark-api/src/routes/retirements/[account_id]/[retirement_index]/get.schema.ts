@@ -15,7 +15,7 @@ export const params = Type.Object({
 
 export type Params = Static<typeof params>;
 
-const querystring = Type.Object({
+export const querystring = Type.Object({
   network: Type.Optional(Type.Ref(NetworkParamModel)),
 });
 

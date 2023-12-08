@@ -1,9 +1,9 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { gql_sdk } from "../../../../utils/gqlSdk";
-import { formatRetirement } from "../../../../utils/helpers/retirements.utils";
+import { pick } from "lodash";
+import { getKlimaRetirement } from "../../../../utils/helpers/retirements.utils";
 import { Params, Querystring, schema } from "./get.schema";
-
 // Handler function for the "/retirements/:account_id/:retirement_index" route
+// FIXME: maybe it would be better to name that route "/retirements/klima/:account_id/:retirement_index"
 const handler = () =>
   async function (
     request: FastifyRequest<{
@@ -12,19 +12,16 @@ const handler = () =>
     }>,
     reply: FastifyReply
   ) {
-    const { account_id, retirement_index } = request.params;
+    const retirement = await getKlimaRetirement({
+      ...pick(request.params, ["account_id", "retirement_index"]),
+      ...pick(request.query, ["network"]),
+    });
 
-    // FIXME: temporary: this is not the correct way to compute this.
-    const id = `${account_id}0${retirement_index}000000`;
-
-    const sdk = gql_sdk(request.query.network);
-    console.debug(id);
-    const retirement = await sdk.digital_carbon.getRetirement({ id: id });
-    if (!retirement.klimaRetire) {
+    if (!retirement) {
       return reply.notFound();
     }
 
-    return reply.send(JSON.stringify(formatRetirement(retirement.klimaRetire)));
+    return reply.send(JSON.stringify(retirement));
   };
 
 export default async (fastify: FastifyInstance) =>

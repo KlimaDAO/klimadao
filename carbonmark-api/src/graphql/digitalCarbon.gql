@@ -32,12 +32,12 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
   }
 }
 
-query getRetirement($id: ID!) {
+query getKlimaRetirement($id: ID!) {
   klimaRetire(id: $id) {
     retire {
       ...retireFragment
       credit {
-        ...creditFragment
+        ...carbonCreditFragment
       }
     }
   }
