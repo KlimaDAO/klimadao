@@ -50,6 +50,30 @@ export type GetRetirementsKlimaAccountIdRetirementIndexQueryResponse = {
    */
   retiringName?: string;
   /**
+   * @type object | undefined
+   */
+  retireeProfile?: {
+    handle?: string | null;
+    /**
+     * @type string
+     */
+    username: string;
+    description?: string | null;
+    profileImgUrl?: string | null;
+    /**
+     * @type number
+     */
+    updatedAt: number;
+    /**
+     * @type number
+     */
+    createdAt: number;
+    /**
+     * @type string
+     */
+    address: string;
+  };
+  /**
    * @type number
    */
   timestamp: number;

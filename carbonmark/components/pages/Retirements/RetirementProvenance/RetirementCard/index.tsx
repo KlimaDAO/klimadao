@@ -4,6 +4,7 @@ import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { ParkOutlined, Today } from "@mui/icons-material";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
 import * as styles from "./styles";
@@ -48,8 +49,22 @@ export const RetirementCard = (props: ProvenanceProps) => {
     amount: props.retirement.amount.toString(),
     locale: locale || "en",
   });
+  const retireeProfile = props.retirement.retireeProfile;
   const date = getFormattedDate(props.retirement.timestamp);
-  const by = concatAddress(props.retirement.retiringAddress);
+  const by = retireeProfile
+    ? retireeProfile.username ?? retireeProfile.handle
+    : concatAddress(props.retirement.retiringAddress);
+
+  const ByIcon = retireeProfile ? (
+    <ProfileLogo
+      isCarbonmarkUser={true}
+      profileImgUrl={retireeProfile.profileImgUrl}
+      className={styles.profileImage}
+    />
+  ) : (
+    <></>
+  );
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -58,7 +73,7 @@ export const RetirementCard = (props: ProvenanceProps) => {
           icon={<ParkOutlined fontSize="large" />}
           text={t`${formattedAmount} Tonnes`}
         />
-        <RetirementCardItem title={t`By`} icon={<></>} text={by} />
+        <RetirementCardItem title={t`By`} icon={ByIcon} text={by} />
         <RetirementCardItem
           title={t`Date`}
           icon={<Today fontSize="large" />}

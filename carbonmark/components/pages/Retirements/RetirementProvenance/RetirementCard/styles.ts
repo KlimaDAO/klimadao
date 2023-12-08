@@ -53,3 +53,12 @@ export const profileLink = css`
   font-family: var(--font-family-secondary);
   justify-content: center;
 `;
+
+export const profileImage = css`
+  width: 2.4rem;
+  height: 2.4rem;
+  .imgUrl {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+`;
