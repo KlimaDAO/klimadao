@@ -31,9 +31,9 @@ const splitProvenance = (records: ProvenanceRecord[]) => {
   const lastSender = records[1].sender;
   // Stores the different carbon sources
   const provenanceList: ProvenanceList = {};
-  records.forEach((record) => {
-    // Ignore ORIGINATION AND RETIMENT records for now
-    if (record.transactionType !== "TRANSFER") return;
+  records.forEach((record, index) => {
+    // Ignore ORIGINATION, RETIMENT and last transfer records for now
+    if (record.transactionType !== "TRANSFER" || index <= 1) return;
 
     // The transfer concerns the last sender
     if (record.receiver == lastSender) {
@@ -69,10 +69,13 @@ const splitProvenance = (records: ProvenanceRecord[]) => {
     (acc, newRrecords) => newRrecords[0].originalAmount + acc,
     0
   );
+
   // Add bridging and retirement events to each recordList
   Object.values(provenanceList).forEach((newRrecords) => {
     // Quantity received from this source
     const quantity = newRrecords[0].originalAmount;
+    // Add the last transfer to each recordList
+    newRrecords.unshift(records[1]);
     records.forEach((record) => {
       if (record.transactionType === "RETIREMENT") {
         // We say that the amount retired from this source is proportional to the amount acquired from this source
