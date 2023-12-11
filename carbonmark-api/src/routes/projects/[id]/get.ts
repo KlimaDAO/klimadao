@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
-import { pipe, uniq } from "lodash/fp";
+import { mapValues, pipe, trim, uniq } from "lodash/fp";
 import { DetailedProject } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
@@ -74,7 +74,8 @@ const handler = (fastify: FastifyInstance) =>
       registry: projectDetails.registry,
       url: projectDetails.url,
       name: projectDetails.name,
-      methodologies: projectDetails.methodologies ?? [],
+      /** Sanitize category values */
+      methodologies: projectDetails.methodologies?.map(mapValues(trim)) ?? [],
       short_description: projectDetails.shortDescription,
       long_description: projectDetails.longDescription,
       projectID: projectDetails.registryProjectId,
