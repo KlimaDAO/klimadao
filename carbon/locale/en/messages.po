@@ -83,7 +83,7 @@ msgstr "BCT retired VCUs"
 msgid "Banner image"
 msgstr "Banner image"
 
-#: lib/tokens.tsx:13
+#: lib/tokens.tsx:15
 msgid "Base Carbon Tonne (BCT)"
 msgstr "Base Carbon Tonne (BCT)"
 
@@ -128,7 +128,7 @@ msgstr "By token"
 msgid "C3"
 msgstr "C3"
 
-#: lib/protocols.tsx:11
+#: lib/protocols.tsx:10
 msgid "C3 Carbon Credit (C3T)"
 msgstr "C3 Carbon Credit (C3T)"
 
@@ -397,8 +397,8 @@ msgstr "Missing"
 msgid "Moss"
 msgstr "Moss"
 
-#: lib/protocols.tsx:13
-#: lib/tokens.tsx:15
+#: lib/protocols.tsx:12
+#: lib/tokens.tsx:17
 msgid "Moss Carbon Credit (MCO2)"
 msgstr "Moss Carbon Credit (MCO2)"
 
@@ -447,11 +447,11 @@ msgstr "NCT pooled VCUs"
 msgid "NCT retired VCUs"
 msgstr "NCT retired VCUs"
 
-#: lib/tokens.tsx:17
+#: lib/tokens.tsx:19
 msgid "Nature Based Offset (NBO)"
 msgstr "Nature Based Offset (NBO)"
 
-#: lib/tokens.tsx:14
+#: lib/tokens.tsx:16
 msgid "Nature Carbon Tonne (NCT)"
 msgstr "Nature Carbon Tonne (NCT)"
 
@@ -784,11 +784,11 @@ msgstr "The volume of redeemed digital carbon credits in the {poolLabel} pool ov
 msgid "The volume of retired digital carbon credits in the {poolLabel} pool over a given time period."
 msgstr "The volume of retired digital carbon credits in the {poolLabel} pool over a given time period."
 
-#: lib/tokens.tsx:37
+#: lib/tokens.tsx:39
 msgid "There is no selective redemption/retirement functionality for {0}."
 msgstr "There is no selective redemption/retirement functionality for {0}."
 
-#: lib/tokens.tsx:38
+#: lib/tokens.tsx:40
 msgid "This cost includes the asset spot price + the {0}% fee to selectively redeem or retire an underlying carbon project charged by {1}"
 msgstr "This cost includes the asset spot price + the {0}% fee to selectively redeem or retire an underlying carbon project charged by {1}"
 
@@ -865,7 +865,7 @@ msgstr "Total tonnes retired"
 msgid "Toucan"
 msgstr "Toucan"
 
-#: lib/protocols.tsx:12
+#: lib/protocols.tsx:11
 msgid "Toucan Carbon Credit (TCO2)"
 msgstr "Toucan Carbon Credit (TCO2)"
 
@@ -894,7 +894,7 @@ msgstr "UBO pooled VCUs"
 msgid "UBO retired VCUs"
 msgstr "UBO retired VCUs"
 
-#: lib/tokens.tsx:16
+#: lib/tokens.tsx:18
 msgid "Universal Basic Offset (UBO)"
 msgstr "Universal Basic Offset (UBO)"
 

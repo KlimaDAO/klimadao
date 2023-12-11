@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-29 16:00+0000\n"
+"POT-Creation-Date: 2023-12-08 14:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +18,7 @@ msgstr "Accuser réception et Accepter"
 msgid "Approve"
 msgstr "Approuver"
 
-#: components/CarbonBalancesCard/index.tsx:124
+#: components/CarbonBalancesCard/index.tsx:126
 msgid "Balances"
 msgstr "Soldes"
 
@@ -57,7 +57,7 @@ msgstr "Manque de Liquidité : Il se peut qu'il n'y ait pas de marché actif pou
 msgid "Loading"
 msgstr "Chargement"
 
-#: components/CarbonBalancesCard/index.tsx:136
+#: components/CarbonBalancesCard/index.tsx:138
 msgid "Loading balances..."
 msgstr "Chargement des soldes des comptes..."
 
@@ -83,11 +83,11 @@ msgstr "Perte d'Investissement : La valeur de $KLIMA et d'autres cryptomonnaies 
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
 msgstr "Aucune Garantie : Il n'y a aucune garantie que la plateforme KlimaDAO ou le jeton $KLIMA atteindra ses objectifs ou qu'une quelconque valeur sera préservée dans le protocole."
 
-#: components/CarbonBalancesCard/index.tsx:166
+#: components/CarbonBalancesCard/index.tsx:168
 msgid "No balances found."
 msgstr "Aucun solde trouvé."
 
-#: components/CarbonBalancesCard/index.tsx:129
+#: components/CarbonBalancesCard/index.tsx:131
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "Not Connected"
 msgstr "Non connecté"
@@ -114,7 +114,7 @@ msgstr "Actions et Évolutions Réglementaires : L'environnement réglementaire 
 
 #: components/DisclaimerModal/index.tsx:29
 msgid "Risk Disclaimer"
-msgstr ""
+msgstr "Clause de non-responsabilité concernant les risques"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -132,7 +132,7 @@ msgstr "Cette liste de risques ne couvre pas tous les risques liés à l'investi
 msgid "Wrong Network"
 msgstr "Mauvais réseau"
 
-#: components/CarbonBalancesCard/index.tsx:169
+#: components/CarbonBalancesCard/index.tsx:171
 msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
 msgstr "Vous devez charger votre portefeuille avec des jetons USDC, KLIMA ou d'un pool de carbone. La prise en charge des cartes de crédit sera bientôt possible."
 
@@ -360,60 +360,60 @@ msgstr "<0>app.klimadao.finance</0> est le seul domaine officiel."
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ Vérifiez l'URL et mettez cette page dans vos favoris !"
 
-#: components/views/ChooseBond/index.tsx:90
+#: components/views/ChooseBond/index.tsx:99
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Tonne de Carbone de base Toucan"
 
-#: components/views/ChooseBond/index.tsx:200
+#: components/views/ChooseBond/index.tsx:209
 msgid "choose_bond.bond_carbon"
 msgstr "Obligation carbone"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:203
+#: components/views/ChooseBond/index.tsx:212
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "La meilleure façon d'acheter des KLIMA. Déposez des équivalents carbone dans notre trésorerie et recevez des KLIMA à prix réduit. Toutes les obligations (sauf celles à taux variable inversé) ont une période de maturation obligatoire de 5 jours."
 
-#: components/views/ChooseBond/index.tsx:227
+#: components/views/ChooseBond/index.tsx:236
 msgid "choose_bond.choose_bond"
 msgstr "Choisissez une obligation"
 
-#: components/views/ChooseBond/index.tsx:106
+#: components/views/ChooseBond/index.tsx:115
 msgid "choose_bond.inverse_usdc"
 msgstr "Fournissez des KLIMA, recevez des USDC"
 
-#: components/views/ChooseBond/index.tsx:98
+#: components/views/ChooseBond/index.tsx:107
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "Liquidité Sushiswap KLIMA/BCT"
 
-#: components/views/ChooseBond/index.tsx:94
+#: components/views/ChooseBond/index.tsx:103
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "Liquidité Sushiswap KLIMA/USDC"
 
-#: components/views/ChooseBond/index.tsx:86
+#: components/views/ChooseBond/index.tsx:95
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "Jeton de crédit carbone MOSS"
 
-#: components/views/ChooseBond/index.tsx:102
+#: components/views/ChooseBond/index.tsx:111
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "Liquidité Quickswap KLIMA/MCO2"
 
-#: components/views/ChooseBond/index.tsx:82
+#: components/views/ChooseBond/index.tsx:91
 msgid "choose_bond.nbo.description"
 msgstr "Compensation C3 basée sur la nature"
 
-#: components/views/ChooseBond/index.tsx:230
+#: components/views/ChooseBond/index.tsx:239
 msgid "choose_bond.percent_discount"
 msgstr "% Remise"
 
-#: components/views/ChooseBond/index.tsx:256
+#: components/views/ChooseBond/index.tsx:265
 msgid "choose_bond.sold_out"
 msgstr "ÉPUISÉ"
 
-#: components/views/ChooseBond/index.tsx:217
+#: components/views/ChooseBond/index.tsx:226
 msgid "choose_bond.treasury_balance"
 msgstr "Solde de la trésorerie"
 
-#: components/views/ChooseBond/index.tsx:78
+#: components/views/ChooseBond/index.tsx:87
 msgid "choose_bond.ubo.description"
 msgstr "Compensation C3 standard"
 
@@ -566,11 +566,11 @@ msgstr "RETOUR"
 
 #: components/views/Offset/index.tsx:30
 msgid "offset.cta_1"
-msgstr ""
+msgstr "L'agrégateur de retrait de KlimaDAO est un outil à code source libre qui permet le retrait des crédits de carbone numériques."
 
 #: components/views/Offset/index.tsx:36
 msgid "offset.cta_2"
-msgstr ""
+msgstr "Consultez notre <0> documentation </0> pour l'intégrer dans votre application, ou visitez <1> Carbonmark </1> pour utiliser une implémentation en direct."
 
 #: components/CarbonTonnesRetiredCard/index.tsx:49
 msgid "offset.number_of_retirements"
@@ -654,11 +654,11 @@ msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont mis en 
 
 #: components/views/Redeem/index.tsx:28
 msgid "redeem.cta_1"
-msgstr ""
+msgstr "Les pools de liquidités numériques de carbone de KlimaDAO sont des ressources communes disponibles pour faire progresser l'impact sur l'environnement."
 
 #: components/views/Redeem/index.tsx:34
 msgid "redeem.cta_2"
-msgstr ""
+msgstr "Visitez notre <0>documentation </0> pour trouver les adresses des contrats LP, ou visitez <1> Carbonmark </1> pour acquérir du carbone via une interface utilisateur simple."
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"

@@ -3,7 +3,6 @@ import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
 import { REGISTRIES } from "@klimadao/lib/constants";
-import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -18,7 +17,6 @@ import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
-import { urls } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
@@ -58,7 +56,7 @@ const Page: NextPage<PageProps> = (props) => {
   const prices = compact(project?.prices);
   const activeListings = getActiveListings(project.listings);
   const methodologies = compact(project.methodologies);
-  const category = methodologies.at(0)?.category ?? "Other";
+  const category = methodologies.at(0)?.category?.trim() ?? "Other";
   const allMethodologyIds = compact(methodologies.map(extract("id")));
   const allMethodologyNames = compact(methodologies.map(extract("name")));
 
@@ -254,14 +252,12 @@ const Page: NextPage<PageProps> = (props) => {
 };
 
 export const Project: NextPage<PageProps> = (props) => {
-  const { networkLabel } = useWeb3();
   return (
     <SWRConfig
       value={{
         fetcher,
         fallback: {
-          [`${urls.api.projects}/${props.projectID}?network=${networkLabel}`]:
-            props.project,
+          [`/projects/${props.projectID}`]: props.project,
         },
       }}
     >

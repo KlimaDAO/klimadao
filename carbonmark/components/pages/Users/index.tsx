@@ -3,11 +3,10 @@ import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { getUsersWalletorHandleKey } from "lib/api/swr.keys";
 import { fetcher } from "lib/fetcher";
 import { User } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
-import { SWRConfig, unstable_serialize } from "swr";
+import { SWRConfig } from "swr";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";
 
@@ -47,6 +46,7 @@ const Page: NextPage<PageProps> = (props) => {
 
         {isUnconnectedUser && (
           <SellerUnconnected
+            user={props.carbonmarkUser}
             userAddress={props.userAddress}
             userName={userName}
           />
@@ -61,10 +61,7 @@ export const Users: NextPage<PageProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        // https://swr.vercel.app/docs/with-nextjs#complex-keys
-        [unstable_serialize(
-          getUsersWalletorHandleKey({}, { walletOrHandle: props.userAddress })
-        )]: props.carbonmarkUser,
+        [`/users/${props.userAddress}`]: props.carbonmarkUser,
       },
     }}
   >

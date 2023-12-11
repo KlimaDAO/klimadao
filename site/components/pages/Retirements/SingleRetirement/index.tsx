@@ -23,6 +23,7 @@ import { PageHead } from "components/PageHead";
 import { TweetButton } from "components/TweetButton";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { normalizeProjectId } from "lib/normalizeProjectId";
+import { isNil } from "lodash";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -228,7 +229,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           </Text>
           <div className={styles.pledge_button}>
             <ViewPledgeButton pledge={props.pledge} />
-            {props.pledge === null && (
+            {isNil(props.pledge) && (
               <Text className={styles.create_pledge} t="caption" align="center">
                 <Trans id="retirement.single.is_this_your_retirement">
                   Is this your retirement?

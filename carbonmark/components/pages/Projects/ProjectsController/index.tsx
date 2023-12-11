@@ -6,32 +6,22 @@ import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
-import { useFetchProjects } from "hooks/useFetchProjects";
+import { ProjectsProps } from "hooks/useFetchProjects";
 import { FilterValues, useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
-import { isStringArray } from "lib/utils/types.utils";
-import { isEmpty, mapValues } from "lodash";
-import { pipe } from "lodash/fp";
+import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { ProjectFilters } from "../ProjectFilters";
 import { ProjectSearch } from "../ProjectSearch";
 import { ProjectSort } from "../ProjectSort";
 import * as styles from "./styles";
-const joinArray = (value: string | string[]): string =>
-  isStringArray(value) ? value.join(",") : value;
-const emptyToUndefined = (value: string): string | undefined =>
-  value === "" ? undefined : value;
-const ProjectsController = () => {
+
+const ProjectsController: FC<ProjectsProps> = (props) => {
   const { isDesktop } = useResponsive();
   const router = useRouter();
   const { params, updateQueryParams } = useProjectsParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
-
-  /** convert all string arrays to comma separated string as per the api's expectation */
-  const mappedParams = mapValues(params, pipe(joinArray, emptyToUndefined));
-
-  const { data: projects = [] } = useFetchProjects(mappedParams);
 
   const toggleModal = () => setShowFilterModal((prev) => !prev);
   const isMap = params.layout === "map";
@@ -68,8 +58,8 @@ const ProjectsController = () => {
         {/* Hide the sort on MapView */}
         {!isMap && <ProjectSort />}
 
-        {!isEmpty(projects) && !isMap && (
-          <Text t="h5">{projects.length} Results</Text>
+        {!isEmpty(props.projects) && !isMap && (
+          <Text t="h5">{props.projects.length} Results</Text>
         )}
         <Toggle
           className={styles.toggle}
@@ -84,6 +74,7 @@ const ProjectsController = () => {
         />
       </div>
       <ProjectFilterModal
+        {...props}
         showModal={showFilterModal}
         onToggleModal={toggleModal}
         closeOnBackgroundClick

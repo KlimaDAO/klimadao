@@ -7,7 +7,7 @@ import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  carbonmarkUser: User | null;
+  carbonmarkUser?: User | null;
   userName: string;
   userAddress: string;
 };

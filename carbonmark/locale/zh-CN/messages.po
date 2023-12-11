@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-11-29 16:00+0000\n"
+"POT-Creation-Date: 2023-12-08 14:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgstr "收益人钱包地址（可选）"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:145
+#: components/pages/Project/index.tsx:143
 msgid "Best Price"
 msgstr "最优价格"
 
@@ -279,7 +279,7 @@ msgstr "Carbonmark  | 通用碳市场"
 msgid "Carbonmark's role"
 msgstr "Carbonmark的角色"
 
-#: components/ProjectFilterModal/index.tsx:129
+#: components/ProjectFilterModal/index.tsx:130
 msgid "Category"
 msgstr "类别"
 
@@ -292,11 +292,11 @@ msgstr "变更语言"
 msgid "Choose a project and quantity"
 msgstr "选择项目和数量"
 
-#: components/pages/Projects/index.tsx:88
+#: components/pages/Projects/index.tsx:72
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "从数百个项目中选择超过 2000 万个经过验证的数字碳信用额度 - 现在购买、出售或停用碳。"
 
-#: components/ProjectFilterModal/index.tsx:161
+#: components/ProjectFilterModal/index.tsx:162
 #: components/pages/Projects/ProjectSearch/index.tsx:52
 msgid "Clear Filters"
 msgstr "清除过滤器"
@@ -317,7 +317,7 @@ msgstr "即将推出"
 msgid "Compare prices across all sellers and trading pools"
 msgstr "比较所有卖家和交易池的价格"
 
-#: components/ProjectFilterModal/index.tsx:169
+#: components/ProjectFilterModal/index.tsx:170
 msgid "Compiling Results ..."
 msgstr "编译结果..."
 
@@ -351,16 +351,16 @@ msgstr "复制"
 msgid "Could not calculate Total Cost"
 msgstr "无法计算总成本"
 
-#: components/ProjectFilterModal/index.tsx:118
+#: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
 msgstr "国家"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:93
+#: components/pages/Retire/FromPortfolio/index.tsx:94
 msgid "Create Carbonmark Profile"
 msgstr "创建 Carbonmark 配置文件"
 
-#: components/pages/Users/SellerConnected/index.tsx:149
-#: components/pages/Users/SellerConnected/index.tsx:173
+#: components/pages/Users/SellerConnected/index.tsx:147
+#: components/pages/Users/SellerConnected/index.tsx:171
 msgid "Create New Listing"
 msgstr "创建新挂牌"
 
@@ -380,7 +380,7 @@ msgstr "创建个人资料并建立联系"
 msgid "Create a seller profile"
 msgstr "创建卖家资料"
 
-#: components/pages/Users/index.tsx:37
+#: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "创建和编辑列表，并使用您的 Carbonmark 个人资料跟踪您的活动。"
 
@@ -421,12 +421,12 @@ msgstr "目前，Carbonmark 仅接受 Polygon USDC 或信用卡付款。 <0> 了
 msgid "DATE"
 msgstr "日期"
 
-#: components/pages/Project/index.tsx:242
+#: components/pages/Project/index.tsx:240
 msgid "Data for this project and vintage"
 msgstr "该项目和历史减排效益的数据"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:103
+#: components/pages/Users/SellerUnconnected/index.tsx:90
 msgid "Data for this seller"
 msgstr "该卖家的数据"
 
@@ -438,7 +438,7 @@ msgstr "默认的已连接钱包地址"
 msgid "Describe the purpose of this retirement"
 msgstr "描述本次碳停用的目的"
 
-#: components/pages/Project/index.tsx:193
+#: components/pages/Project/index.tsx:191
 msgid "Description"
 msgstr "描述"
 
@@ -482,7 +482,7 @@ msgstr "编辑挂牌"
 msgid "Energy Efficiency"
 msgstr "能源效率"
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:165
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
 msgid "Expiration"
 msgstr "到期"
 
@@ -545,11 +545,6 @@ msgstr "用户名不应是地址"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:156
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
-
-#: components/pages/Portfolio/Retire/index.tsx:121
-#: components/pages/Portfolio/index.tsx:122
-msgid "Have you already created your Carbonmark <0>Profile</0>?"
-msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 
 #: components/Footer/index.tsx:32
 #: components/pages/Home/index.tsx:544
@@ -636,13 +631,13 @@ msgstr "只需点击几下，即可列出您的待售项目"
 msgid "Listed tonnes:"
 msgstr "已列出的吨数："
 
-#: components/pages/Users/SellerConnected/index.tsx:134
-#: components/pages/Users/SellerUnconnected/index.tsx:58
+#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "挂牌信息"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:57
-#: components/pages/Retire/FromPortfolio/index.tsx:59
+#: components/pages/Retire/FromPortfolio/index.tsx:60
 msgid "Loading your assets"
 msgstr "正在加载您的资产"
 
@@ -684,8 +679,8 @@ msgstr "登录并使用 USDC 付款"
 msgid "Marketplace"
 msgstr "市场"
 
-#: components/pages/Projects/index.tsx:86
-#: components/pages/Projects/index.tsx:87
+#: components/pages/Projects/index.tsx:70
+#: components/pages/Projects/index.tsx:71
 msgid "Marketplace | Carbonmark"
 msgstr "市场 | Carbonmark"
 
@@ -693,7 +688,7 @@ msgstr "市场 | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "最大限度地提高您对气候的影响。"
 
-#: components/pages/Project/index.tsx:152
+#: components/pages/Project/index.tsx:150
 msgid "Methodology"
 msgstr "方法"
 
@@ -717,8 +712,8 @@ msgstr "下一步"
 msgid "No Activity to show."
 msgstr "无可显示活动"
 
-#: components/pages/Users/SellerConnected/index.tsx:197
-#: components/pages/Users/SellerUnconnected/index.tsx:94
+#: components/pages/Users/SellerConnected/index.tsx:195
+#: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "无活动列表。"
 
@@ -738,16 +733,16 @@ msgstr "无可显示数据"
 msgid "No listable assets found."
 msgstr "未找到可列出的资产。"
 
-#: components/pages/Project/index.tsx:232
+#: components/pages/Project/index.tsx:230
 msgid "No listings found for this project."
 msgstr "未找到此项目的列表。"
 
 #: components/pages/Projects/GridView/GridView.tsx:38
-#: components/pages/Projects/ListView/ListView.tsx:154
+#: components/pages/Projects/ListView/ListView.tsx:157
 msgid "No project description found"
 msgstr "未找到项目描述"
 
-#: components/pages/Projects/index.tsx:98
+#: components/pages/Projects/index.tsx:86
 msgid "No projects found with current filters"
 msgstr "使用当前过滤器未找到任何项目"
 
@@ -877,9 +872,9 @@ msgstr "正在处理购买"
 msgid "Processing Retirement"
 msgstr "正在处理碳停用"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
-msgid "Processing data..."
-msgstr "处理数据..."
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "Processing retirement..."
+msgstr ""
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -890,7 +885,7 @@ msgstr "个人资料"
 msgid "Profile picture"
 msgstr "头像"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:78
+#: components/pages/Retire/FromPortfolio/index.tsx:79
 msgid "Purchase Carbon"
 msgstr "购买碳"
 
@@ -954,11 +949,11 @@ msgstr "快速停用碳"
 msgid "RETIRE CARBON"
 msgstr "碳停用"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read Less"
 msgstr "简易阅读"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:204
 msgid "Read More"
 msgstr "阅读更多"
 
@@ -1014,11 +1009,11 @@ msgstr "资源"
 msgid "Resources | Carbonmark"
 msgstr "资源 | Carbonmark"
 
-#: components/ProjectFilterModal/index.tsx:167
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Result"
 msgstr "结果"
 
-#: components/ProjectFilterModal/index.tsx:167
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Results"
 msgstr "结果"
 
@@ -1069,8 +1064,8 @@ msgstr "现在停用"
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "现在就停用碳，或者获取数字碳待以后停用 - 当您拥有了碳资产，您就可以决定要做什么。"
 
+#: components/pages/Portfolio/Retire/index.tsx:92
 #: components/pages/Portfolio/Retire/index.tsx:93
-#: components/pages/Portfolio/Retire/index.tsx:94
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -1159,11 +1154,6 @@ msgstr "抱歉，出了一些问题。"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
 msgid "Sorry, this handle already exists"
 msgstr "抱歉，此用户名已存在"
-
-#: components/pages/Portfolio/Retire/index.tsx:116
-#: components/pages/Portfolio/index.tsx:116
-msgid "Sorry. We could not find any data on Carbonmark for your user."
-msgstr "对不起。我们无法找到任何您的用户的相关 Carbonmark 数据。"
 
 #: components/Stats/index.tsx:23
 msgid "Stats"
@@ -1283,6 +1273,10 @@ msgstr "加载总费用时出错。"
 msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
+msgid "This is your portfolio. Here you will find supported carbon assets you own. Assets shown here can be retired or listed for sale in the marketplace once you have a profile."
+msgstr ""
+
 #: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 msgstr "此挂牌已过期并已从市场上隐藏。请重新提交或删除挂牌。"
@@ -1310,6 +1304,10 @@ msgstr "为了完成您的信用卡交易，您将被重新定向到我们的支
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:60
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
 msgstr "要完成您的碳停用，请验证所有信息是否正确，然后单击下面的“提交”。"
+
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:25
+msgid "To get started, be sure to complete your <0>profile</0> and then head to the <1>marketplace</1> to purchase carbon assets."
+msgstr ""
 
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:70
 msgid "Toggle Select Project"
@@ -1414,7 +1412,7 @@ msgstr "未列出的吨数："
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr "整个数字碳市场前所未有的透明度。"
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:179
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:183
 msgid "Update listing"
 msgstr "更新挂牌信息"
 
@@ -1422,7 +1420,7 @@ msgstr "更新挂牌信息"
 msgid "Updated:"
 msgstr "已更新："
 
-#: components/pages/Users/SellerConnected/index.tsx:191
+#: components/pages/Users/SellerConnected/index.tsx:189
 msgid "Updating your data..."
 msgstr "正在更新您的数据..."
 
@@ -1448,11 +1446,11 @@ msgstr "查看"
 msgid "View Carbonmark Profile"
 msgstr "查看 Carbonmark 配置文件"
 
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:213
 msgid "View Registry Details <0/>"
 msgstr "查看注册表详细信息 <0/>"
 
-#: components/ProjectFilterModal/index.tsx:153
+#: components/ProjectFilterModal/index.tsx:154
 msgid "View Results"
 msgstr "查看结果"
 
@@ -1460,7 +1458,7 @@ msgstr "查看结果"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 
-#: components/pages/Portfolio/Retire/index.tsx:95
+#: components/pages/Portfolio/Retire/index.tsx:94
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
@@ -1481,7 +1479,7 @@ msgstr "查看所有项目"
 msgid "View all Retirements"
 msgstr "查看所有碳停用"
 
-#: components/pages/Project/index.tsx:106
+#: components/pages/Project/index.tsx:104
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 
@@ -1502,7 +1500,7 @@ msgstr "在 PolygonScan <0/> 上查看"
 msgid "View the project details and other info for this purchase."
 msgstr "查看此次购买的项目详情和其他信息。"
 
-#: components/ProjectFilterModal/index.tsx:140
+#: components/ProjectFilterModal/index.tsx:141
 msgid "Vintage"
 msgstr "历史减排效益"
 
@@ -1518,14 +1516,10 @@ msgstr "最早的历史减排效益"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "我们仍在处理您的成功购买。请在几分钟后再次访问此页面以查看您的收据。"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:73
-#: components/pages/Retire/FromPortfolio/index.tsx:88
+#: components/pages/Retire/FromPortfolio/index.tsx:74
+#: components/pages/Retire/FromPortfolio/index.tsx:89
 msgid "We couldn't find any assets in your portfolio."
 msgstr "我们在您的投资组合中找不到任何资产。"
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
-msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr "我们还没有完成这次碳停用的区块链数据处理。这通常需要几秒钟，但如果网络拥塞，可能需要更长时间。"
 
 #: components/pages/Retire/index.tsx:89
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
@@ -1587,6 +1581,10 @@ msgstr "您需要提供收款人地址或使用浏览器钱包登录。"
 msgid "You exceeded your available amount of tokens"
 msgstr "您超出了可用的代币数量"
 
+#: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:19
+msgid "You must have a profile created to view carbon assets you own in your Carbonmark portfolio."
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
 msgid "You successfully acquired carbon!"
 msgstr "您已成功获得了碳！"
@@ -1615,9 +1613,13 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:216
+#: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Your seller data"
 msgstr "您的卖家数据"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
@@ -1791,7 +1793,7 @@ msgstr "创建挂牌"
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
-#: components/pages/Users/SellerConnected/index.tsx:223
+#: components/pages/Users/SellerConnected/index.tsx:219
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 
@@ -1943,15 +1945,15 @@ msgstr "Carbonmark 拥有来自数百个项目的超过 2000 万个经过验证�
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "关于 Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "由 Carbonmark 提供支持的完全透明的链上抵消。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "Carbonmark | 碳停用收据"
 
@@ -2103,7 +2105,7 @@ msgstr "总碳退休吨数"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "总碳停用交易"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:81
+#: components/pages/Users/SellerUnconnected/index.tsx:71
 msgid "seller.listing.buy"
 msgstr "购买"
 
@@ -2112,7 +2114,7 @@ msgid "seller.listing.quantity_available"
 msgstr "可用数量："
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:71
+#: components/pages/Users/SellerUnconnected/index.tsx:61
 msgid "shared.connect_to_buy"
 msgstr "登录/连接购买"
 
@@ -2294,11 +2296,11 @@ msgstr "{0} 信用卡最高限额"
 msgid "{0} tonnes"
 msgstr "{0} 吨"
 
-#: components/pages/Users/index.tsx:31
+#: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | 简介 | Carbonmark"
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:173
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr "{DEFAULT_EXPIRATION_DAYS} 天 ({expirationDatestring})"
 

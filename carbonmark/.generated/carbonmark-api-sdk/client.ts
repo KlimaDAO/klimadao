@@ -40,6 +40,7 @@ export const fetchClient = async <
   const params = paramsObject
     ? "?" + new URLSearchParams(paramsObject).toString()
     : "";
+
   const response = await fetch(`${urls.api.base}${request.url}${params}`, {
     method: request.method,
     body: JSON.stringify(request.data),
