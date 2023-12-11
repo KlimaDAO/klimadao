@@ -156,7 +156,7 @@ export const CreateListing: FC<Props> = (props) => {
       ...a,
       amount: getUnlistedBalance(a, props.listings).toString(),
     }));
-
+  console.log("listableAssets", listableAssets);
   return (
     <Modal
       title={t`Create a listing`}

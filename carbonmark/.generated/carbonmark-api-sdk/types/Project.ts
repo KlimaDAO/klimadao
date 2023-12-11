@@ -186,4 +186,8 @@ export type Project = {
         caption: string;
       }[]
     | null;
+  /**
+   * @type string | undefined
+   */
+  serialization?: string;
 };
