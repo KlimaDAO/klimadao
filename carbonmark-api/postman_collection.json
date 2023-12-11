@@ -243,6 +243,42 @@
       "response": []
     },
     {
+      "name": "getActivitiesFiltered",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/activities?projectId=VCS-191-2008&activityType=Sold",
+          "host": ["{{url}}"],
+          "path": ["activities"],
+          "query": [
+            {
+              "key": "projectId",
+              "value": "VCS-191-2008"
+            },
+            {
+              "key": "activityType",
+              "value": "Sold"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "getProjectActivities",
       "event": [
         {
@@ -268,6 +304,44 @@
             {
               "key": "id",
               "value": "VCS-191-2008"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProjectActivitiesFiltered",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/project/:id/activities?activityType=Sold",
+          "host": ["{{url}}"],
+          "path": ["projects", ":id", "activity"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "VCS-191-2008"
+            }
+          ],
+          "query": [
+            {
+              "key": "activityType",
+              "value": "Sold"
             }
           ]
         }
