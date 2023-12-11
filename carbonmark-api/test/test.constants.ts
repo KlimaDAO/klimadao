@@ -60,6 +60,7 @@ export const MOCK_USER_PROFILE: UserProfile = {
   updatedAt: new Date("2023-11-11T15:05:08Z").getTime(),
   username: "someusername",
   profileImgUrl: null,
+  nonce: 1,
 };
 
 export const EXPECTED_USER_RESPONSE = {
