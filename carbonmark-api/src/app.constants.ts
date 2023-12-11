@@ -114,3 +114,5 @@ export const ICR_API = (
 
   return { ICR_API_URL: API_CONFIG.url, ICR_API_KEY: API_CONFIG.apiKey };
 };
+/** Message shared with frontend, to be combined with user's nonce and signed by private key. */
+export const SIGN_PROFILE_MESSAGE = `${process.env.SIGN_PROFILE_MESSAGE}`;

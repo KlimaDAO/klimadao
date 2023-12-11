@@ -1,4 +1,4 @@
-import { Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { Nullable } from "../../models/Utility.model";
 
 export const RequestBody = Type.Object(
@@ -12,7 +12,10 @@ export const RequestBody = Type.Object(
   { required: ["handle", "username", "wallet", "description"] }
 );
 
-export type CreateUserResponse = Static<typeof RequestBody>;
+export const ResponseBody = Type.Object({
+  address: Type.String({ minLength: 26, maxLength: 64 }),
+  nonce: Type.Number(),
+});
 
 export const schema = {
   summary: "Create user profile",
@@ -22,7 +25,7 @@ export const schema = {
     200: {
       content: {
         "application/json": {
-          schema: RequestBody,
+          schema: ResponseBody,
         },
       },
     },

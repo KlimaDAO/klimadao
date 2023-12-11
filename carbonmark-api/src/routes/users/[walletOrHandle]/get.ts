@@ -110,6 +110,7 @@ const handler = (fastify: FastifyInstance) =>
         updatedAt: profile?.updatedAt || 0,
         username: profile?.username || "",
         wallet: profile.address,
+        nonce: profile.nonce,
         listings,
         activities,
         assets,

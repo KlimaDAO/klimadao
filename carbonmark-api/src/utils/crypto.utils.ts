@@ -1,11 +1,6 @@
-// This function generates a random nonce (number used once) by creating a random number,
-// adding 1 to it, converting it to a base-36 string, and then removing the first two characters.
-
+import { ethers } from "ethers";
 import { isString } from "lodash";
-
-// The resulting string can be used as a unique identifier for a single-use purpose.
-export const generateNonce = () =>
-  (Math.random() + 1).toString(36).substring(2);
+import { SIGN_PROFILE_MESSAGE } from "../app.constants";
 
 const USDC_DECIMALS = 6;
 
@@ -24,4 +19,25 @@ export const formatUSDC = (n: bigint | string): string => {
   const remainder = value % divisor; // 2000010n % 1000000n = 10n
   const remainderString = remainder.toString().padStart(USDC_DECIMALS, "0"); // 10n -> "000010"
   return `${quotient}.${remainderString}`;
+};
+
+/**
+ * Returns true if the message signer is the targetWallet
+ * Uses ECDSA under the hood to recover the signerWalletAddress
+ */
+export const verifyProfileSignature = (params: {
+  nonce?: number;
+  signature: string;
+  expectedAddress: string;
+}) => {
+  if (!params.signature) return false;
+  // Backwards-compat: nonce may be undefined, append empty string
+  const expectedMessage = SIGN_PROFILE_MESSAGE + `${params?.nonce}`;
+  const signerWalletAddress = ethers.utils.verifyMessage(
+    expectedMessage,
+    params.signature
+  );
+  return (
+    signerWalletAddress.toLowerCase() === params.expectedAddress.toLowerCase()
+  );
 };

@@ -8,6 +8,11 @@ export const RequestBody = Type.Object({
   handle: Type.Optional(Type.String({ minLength: 3, maxLength: 24 })),
 });
 
+export const ResponseBody = Type.Object({
+  address: Type.String({ minLength: 26, maxLength: 64 }),
+  nonce: Type.Number(),
+});
+
 export const Params = Type.Object(
   {
     wallet: Type.String({
@@ -28,7 +33,7 @@ export const schema = {
       description: "Successful response",
       content: {
         "application/json": {
-          schema: RequestBody,
+          schema: ResponseBody,
         },
       },
     },

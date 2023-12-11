@@ -1,6 +1,8 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { CreateUserResponse, RequestBody, schema } from "./post.schema";
+import { verifyProfileSignature } from "../../utils/crypto.utils";
+import { FirestoreUserDoc } from "../../utils/firebase.utils";
+import { RequestBody, ResponseBody, schema } from "./post.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (
@@ -11,7 +13,7 @@ const handler = (fastify: FastifyInstance) =>
     const { wallet, username, handle, description, profileImgUrl } =
       request.body;
 
-    const createData = {
+    const createData: FirestoreUserDoc = {
       handle: handle.toLowerCase(),
       createdAt: Date.now(),
       updatedAt: Date.now(),
@@ -19,6 +21,7 @@ const handler = (fastify: FastifyInstance) =>
       username,
       description,
       profileImgUrl,
+      nonce: 1,
     };
 
     // Query the Firestore database for the user document with the specified wallet address
@@ -30,7 +33,7 @@ const handler = (fastify: FastifyInstance) =>
 
     // If the user document exists, return a 403 error with a message
     if (user.exists) {
-      return reply.code(403).send({
+      return reply.code(400).send({
         error: "This wallet address is already registered!",
       });
     }
@@ -44,8 +47,20 @@ const handler = (fastify: FastifyInstance) =>
       .get();
 
     if (!userSnapshot.empty) {
-      return reply.code(403).send({
+      return reply.code(400).send({
         error: "A user with this handle is already registered!",
+      });
+    }
+
+    const isAuthenticated = verifyProfileSignature({
+      // first signature is without nonce
+      expectedAddress: createData.address,
+      signature: request.headers.authorization?.split(" ")[1] || "",
+    });
+
+    if (!isAuthenticated) {
+      return reply.status(403).send({
+        error: "Unauthorized: invalid signature.",
       });
     }
 
@@ -57,23 +72,25 @@ const handler = (fastify: FastifyInstance) =>
         .doc(wallet.toUpperCase())
         .set(createData);
 
-      // If the document is successfully created, return the request body
-      return reply.code(200).send(request.body);
+      // If the document is successfully created, return the new nonce
+      return reply.code(200).send({
+        nonce: createData.nonce,
+        address: createData.address,
+      });
     } catch (err) {
       console.error(err);
       // If an error occurs, return the error in the response
-      return reply.code(403).send({ error: err });
+      return reply.code(500).send({ error: err });
     }
   };
 
 export default async (fastify: FastifyInstance) =>
   await fastify.route<{
     Body: Static<typeof RequestBody>;
-    Reply: CreateUserResponse | { error: string };
+    Reply: typeof ResponseBody | { error: string };
   }>({
     method: "POST",
     url: "/users",
-    onRequest: [fastify.authenticate],
     handler: handler(fastify),
     schema,
   });
