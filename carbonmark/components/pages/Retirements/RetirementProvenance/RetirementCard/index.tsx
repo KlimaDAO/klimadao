@@ -1,9 +1,10 @@
 import { Retirement } from ".generated/carbonmark-api-sdk/types";
-import { Anchor as A, Text } from "@klimadao/lib/components";
+import { Anchor as A } from "@klimadao/lib/components";
 import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { ParkOutlined, Today } from "@mui/icons-material";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { Text } from "components/Text";
 import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { useRouter } from "next/router";

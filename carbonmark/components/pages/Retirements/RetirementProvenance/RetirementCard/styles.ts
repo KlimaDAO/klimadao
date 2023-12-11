@@ -27,6 +27,9 @@ export const iconAndText = css`
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  p {
+    line-height: 2.7rem;
+  }
 `;
 
 export const footer = css`

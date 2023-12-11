@@ -2,7 +2,7 @@ import {
   Record as KRecord,
   Retirement,
 } from ".generated/carbonmark-api-sdk/types";
-import { Anchor as A, Text } from "@klimadao/lib/components";
+import { Anchor as A } from "@klimadao/lib/components";
 import {
   concatAddress,
   formatTonnes,
@@ -27,6 +27,7 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Divider } from "@mui/material";
 import { Quantity } from "components/Quantity";
+import { Text } from "components/Text";
 import { useRouter } from "next/router";
 import { ReactNode, useState } from "react";
 import * as styles from "./styles";

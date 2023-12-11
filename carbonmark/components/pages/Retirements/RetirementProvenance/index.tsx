@@ -1,9 +1,10 @@
-import { GridContainer, Section, Text } from "@klimadao/lib/components";
+import { GridContainer, Section } from "@klimadao/lib/components";
 import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import { SocialLinks } from "components/SocialLinks";
+import { Text } from "components/Text";
 import { Navigation } from "components/shared/Navigation";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
