@@ -11,8 +11,12 @@ export async function getKlimaRetirement(props: {
   retirement_index: number | string;
   network?: keyof typeof GRAPH_URLS;
 }) {
-  // FIXME: temporary: this is not the correct way to compute this.
-  const id = `${props.account_id}0${props.retirement_index}000000`;
+  // Formats the retirement index the way it is expected by the subgraph
+  const formattedRetirementIndex = utils
+    .hexlify(props.retirement_index)
+    .substring(2)
+    .padEnd(8, "0");
+  const id = `${props.account_id}${formattedRetirementIndex}`;
 
   const sdk = gql_sdk(props.network);
   const retirement = await sdk.digital_carbon.getKlimaRetirement({ id: id });
