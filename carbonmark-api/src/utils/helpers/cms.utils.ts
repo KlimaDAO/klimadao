@@ -32,10 +32,9 @@ type SdkArgs = {
   registryProjectId: string;
 };
 
-type IcrArgs = {
-  serialization: string;
-  network: NetworkParam;
-};
+type IcrArgs =
+  | { serialization: string; network: NetworkParam; contractAddress?: never }
+  | { contractAddress: string; network: NetworkParam; serialization?: never };
 
 export type FetchCarbonProjectMethod = GQL_SDK | string;
 
@@ -61,10 +60,19 @@ export const fetchCMSProject = async (
   sdk: FetchCarbonProjectMethod,
   args: FetchCarbonProjectArgs
 ) => {
-  /** @todo come up with better way to check registry type that satisfies typescript */
-  if ("serialization" in args && typeof sdk === "string") {
-    const url = `${sdk}/public/projects?creditSerialization=${args.serialization}`;
+  /** @todo all of the below workarounds can be removed once cms is the single source of project truth */
 
+  if (
+    ("serialization" in args || "contractAddress" in args) &&
+    typeof sdk === "string"
+  ) {
+    let url = "";
+
+    if ("serialization" in args && typeof sdk === "string") {
+      url = `${sdk}/public/projects?creditSerialization=${args.serialization}`;
+    } else if ("contractAddress" in args && typeof sdk === "string") {
+      url = `${sdk}/public/projects?contractAddress=${args.contractAddress}`;
+    }
     const { ICR_API_KEY } = ICR_API(args.network);
 
     try {
@@ -77,7 +85,6 @@ export const fetchCMSProject = async (
       });
 
       const apiData = await response.json();
-
       if (apiData.statusCode === 404) {
         console.info("ICR API returned 404. No Project Found.");
         return null;
@@ -94,7 +101,12 @@ export const fetchCMSProject = async (
 
       const registry = apiData.ghgProgram?.id.toUpperCase() || null;
       // extract the matching tokenID from the vintage in serialization
-      const vintage = args.serialization.split("-").pop();
+      // @todo can avoid this by keeping project in cms and not having to fetch from ICR
+      let vintage;
+
+      if (typeof args.serialization === "string") {
+        vintage = args.serialization.split("-").pop();
+      }
 
       const findTokenIdByVintage = (
         vintage: string | undefined
@@ -111,7 +123,7 @@ export const fetchCMSProject = async (
       };
 
       return {
-        key: args.serialization,
+        key: args.serialization ?? args.contractAddress,
         country: convertIcrCountryCodeToName(apiData.countryCode) || null,
         description: apiData.shortDescription || null,
         name: apiData.fullName || null,
