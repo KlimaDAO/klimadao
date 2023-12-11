@@ -270,7 +270,7 @@ export const composeProjectEntries = (
     // construct CarbonmarkProjectT and make typescript happy
     const entry: Project = {
       //Remove string padding on methodologies
-      methodologies: map(mapValues(trim))(carbonProject?.methodologies) ?? [],
+      methodologies: carbonProject?.methodologies?.map(mapValues(trim)) ?? [],
       description: carbonProject?.description || null,
       short_description: carbonProject?.content?.shortDescription || null,
       name: carbonProject?.name || poolBalances?.name || "",
