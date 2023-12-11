@@ -88,7 +88,9 @@ export const getStaticProps: GetStaticProps<
     if (!translation) {
       throw new Error("No translation found");
     }
+
     const provenance = await getRetirementsIdProvenance(
+      //"0xc71bd2845a36cff268b83a1d8a8eed01d1a081d31111790cafa158a0ec93ccd6"
       subgraphRetirement.transaction.id
     );
 

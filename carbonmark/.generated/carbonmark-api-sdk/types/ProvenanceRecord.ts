@@ -1,4 +1,4 @@
-export type Record = {
+export type ProvenanceRecord = {
   /**
    * @type string
    */

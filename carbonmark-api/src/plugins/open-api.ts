@@ -69,7 +69,7 @@ For a developer guides and example implementations, or to learn more about Carbo
       Asset: AssetModel,
       TokenPrice: TokenPriceModel,
       Image: ImageModel,
-      Record: ProvenanceRecordModel,
+      ProvenanceRecord: ProvenanceRecordModel,
       Retirement: RetirementModel,
       CarbonCredit: CarbonCreditModel,
     },

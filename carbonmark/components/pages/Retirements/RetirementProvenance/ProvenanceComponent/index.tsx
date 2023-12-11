@@ -32,7 +32,7 @@ import { useRouter } from "next/router";
 import { ReactNode, useState } from "react";
 import * as styles from "./styles";
 
-interface ProvenanceProps {
+interface ProvenanceComponentProps {
   records: KRecord[];
   retirement: Retirement;
 }
@@ -95,7 +95,7 @@ const RECORDS_INFO: Record<
   },
 };
 
-export const Provenance = (props: ProvenanceProps) => {
+export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
   const { locale } = useRouter();
   const [showTransfers, setShowTransfers] = useState<boolean>(false);
   // Divider customization
@@ -183,7 +183,7 @@ export const Provenance = (props: ProvenanceProps) => {
                 {record.transactionType == "RETIREMENT" && (
                   <>
                     <div className={styles.contentFooter}>
-                      <Quantity quantity={record.originalAmount} />
+                      <Quantity quantity={record.originalAmount.toFixed(2)} />
                       <Text t="body1">{concatAddress(record.sender)}</Text>
                       <Text t="body1" color="lightest">
                         via Carbonmark

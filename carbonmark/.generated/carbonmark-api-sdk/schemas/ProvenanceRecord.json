@@ -24,5 +24,5 @@
     "createdAt",
     "updatedAt"
   ],
-  "x-readme-ref-name": "Record"
+  "x-readme-ref-name": "ProvenanceRecord"
 }

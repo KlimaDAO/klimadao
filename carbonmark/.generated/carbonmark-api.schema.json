@@ -2126,7 +2126,7 @@
           }
         }
       },
-      "Record": {
+      "ProvenanceRecord": {
         "type": "object",
         "properties": {
           "id": {
