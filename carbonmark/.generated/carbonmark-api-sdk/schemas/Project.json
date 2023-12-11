@@ -53,7 +53,7 @@
       ]
     },
     "vintage": { "type": "string" },
-    "projectAddress": { "type": "string" },
+    "creditTokenAddress": { "type": "string" },
     "registry": { "type": "string" },
     "updatedAt": { "type": "string" },
     "country": {
@@ -200,7 +200,7 @@
     "name",
     "methodologies",
     "vintage",
-    "projectAddress",
+    "creditTokenAddress",
     "registry",
     "updatedAt",
     "country",
