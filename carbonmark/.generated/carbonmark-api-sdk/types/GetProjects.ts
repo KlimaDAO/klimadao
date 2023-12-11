@@ -235,6 +235,7 @@ export type GetProjectsQueryResponse = {
         symbol?: string;
       }[]
     | null;
+<<<<<<< HEAD
   /**
    * @type array | undefined
    */
@@ -252,6 +253,24 @@ export type GetProjectsQueryResponse = {
    * @type boolean
    */
   hasSupply: boolean;
+=======
+  images?:
+    | {
+        /**
+         * @type string
+         */
+        url: string;
+        /**
+         * @type string
+         */
+        caption: string;
+      }[]
+    | null;
+  /**
+   * @type string | undefined
+   */
+  serialization?: string;
+>>>>>>> 02ab31e74 (updated schema and types)
 }[];
 
 export type GetProjectsQueryParams = {

@@ -245,8 +245,13 @@
 =======
         { "type": "null" }
       ]
+<<<<<<< HEAD
     }
 >>>>>>> d0219afb6 (carbonmark api-schema update)
+=======
+    },
+    "serialization": { "type": "string" }
+>>>>>>> 02ab31e74 (updated schema and types)
   },
   "required": [
     "key",

@@ -1460,6 +1460,9 @@
                     },
                     "decimals": {
                       "type": "number"
+                    },
+                    "tokenId": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -1508,6 +1511,9 @@
               },
               "decimals": {
                 "type": "number"
+              },
+              "tokenId": {
+                "type": "string"
               }
             },
             "required": [
@@ -3304,6 +3310,9 @@
                               },
                               "decimals": {
                                 "type": "number"
+                              },
+                              "tokenId": {
+                                "type": "string"
                               }
                             },
                             "required": [
@@ -3948,7 +3957,7 @@
           {
             "schema": {
               "type": "string",
-              "pattern": "^(VCS|PURO|ICR|GS)-\\d+-(19\\d{2}|20\\d{2})$"
+              "pattern": "^(VCS|PURO|GS|ICR)-\\d+-(19\\d{2}|20\\d{2})$|^ICR-(?:[A-Z]+-\\d+-(\\d+-)?\\d+-[A-Z]-\\d+-(19\\d{2}|20\\d{2})|[A-Z]+-\\d+-\\d+-\\d+-[A-Z]-\\d+-\\d+)$"
             },
             "example": "VCS-191-2008",
             "in": "path",

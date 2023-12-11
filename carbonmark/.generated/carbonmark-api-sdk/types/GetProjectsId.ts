@@ -259,7 +259,17 @@ export type GetProjectsIdQueryResponse = {
   /**
    * @type boolean
    */
+<<<<<<< HEAD
   hasSupply: boolean;
+=======
+  price: string;
+  /**
+   * @type string
+   */
+  vintage: string;
+  serialization?: string | null;
+  tokenId?: string | null;
+>>>>>>> 02ab31e74 (updated schema and types)
 };
 
 export type GetProjectsIdQueryParams = {
