@@ -65,7 +65,7 @@ export type GetProjectsQueryResponse = {
   /**
    * @type string
    */
-  projectAddress: string;
+  creditTokenAddress: string;
   /**
    * @type string
    */
