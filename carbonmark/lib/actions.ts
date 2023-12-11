@@ -256,6 +256,7 @@ export const createListingTransaction = async (params: {
 
 export const updateListingTransaction = async (params: {
   listingId: string;
+  projectId: string;
   newAmount: string;
   singleUnitPrice: string;
   provider: providers.JsonRpcProvider;
@@ -270,10 +271,12 @@ export const updateListingTransaction = async (params: {
     });
 
     params.onStatus("userConfirmation", "");
-
+    const amount = params.projectId.startsWith("ICR")
+      ? params.newAmount
+      : parseUnits(params.newAmount, 18);
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
-      parseUnits(params.newAmount, 18),
+      amount,
       parseUnits(
         trimWithLocale(params.singleUnitPrice, 6),
         getTokenDecimals("usdc")
