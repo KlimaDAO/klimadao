@@ -249,8 +249,9 @@
           "listen": "test",
           "script": {
             "exec": [
-              "pm.test('Status code is 200', function () {",
-              "        pm.response.to.have.status(200);",
+              "pm.test('Filters work as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].activityType).to.eql('Sold');",
               "})"
             ],
             "type": "text/javascript"
@@ -286,7 +287,9 @@
           "script": {
             "exec": [
               "pm.test('Status code is 200', function () {",
-              "        pm.response.to.have.status(200);",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].project.key).to.eql('VCS-191');",
+              "        pm.expect(jsonData[0].project.vintage).to.eql('2008');",
               "})"
             ],
             "type": "text/javascript"
@@ -317,8 +320,11 @@
           "listen": "test",
           "script": {
             "exec": [
-              "pm.test('Status code is 200', function () {",
-              "        pm.response.to.have.status(200);",
+              "pm.test('Filters work as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].project.key).to.eql('VCS-191');",
+              "        pm.expect(jsonData[0].project.vintage).to.eql('2008');",
+              "        pm.expect(jsonData[0].activityType).to.eql('Sold');",
               "})"
             ],
             "type": "text/javascript"
