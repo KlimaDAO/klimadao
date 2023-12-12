@@ -47,7 +47,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: fixtures.activities,
+          activities: fixtures.marketplace.activities,
         },
       });
     const response = await fastify.inject({
@@ -90,7 +90,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: fixtures.activities,
+          activities: fixtures.marketplace.activities,
         },
       });
     const response = await fastify.inject({
@@ -132,7 +132,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: fixtures.activities,
+          activities: fixtures.marketplace.activities,
         },
       });
     const response = await fastify.inject({
