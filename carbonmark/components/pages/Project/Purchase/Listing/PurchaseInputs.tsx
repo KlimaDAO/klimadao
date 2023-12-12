@@ -85,6 +85,12 @@ export const PurchaseInputs: FC<Props> = (props) => {
                   value: Number(props.listing.leftToSell),
                   message: t`Available supply exceeded`,
                 },
+                validate: {
+                  isWholeNumber: (value) =>
+                    !props.listing.project.id.startsWith("ICR") ||
+                    Number.isInteger(parseFloat(value)) ||
+                    "ICR credits can only be bought in whole tonnes",
+                },
               }),
             }}
             label={t`How many tonnes of carbon do you want to buy?`}

@@ -60,6 +60,9 @@ export const RetireForm = (props: RetireFormProps) => {
   const [readyForRetireModal, setReadyForRetireModal] =
     useState<boolean>(false);
   const [processingRetirement, setProcessingRetirement] = useState(false);
+  const [quantityError, setQuantityError] = useState<string | undefined>(
+    undefined
+  );
 
   const unlistedBalance = formatToDecimals(
     getUnlistedBalance(props.asset, props.user?.listings || [])
@@ -126,6 +129,16 @@ export const RetireForm = (props: RetireFormProps) => {
     getApproval();
   }, [retirement.quantity, provider]);
 
+  const validateQuantity = (value: string) => {
+    if (props.asset.project.registry.startsWith("ICR")) {
+      return (
+        Number.isInteger(parseFloat(value)) ||
+        "ICR credits can only be retired in whole tonnes"
+      );
+    }
+    return true;
+  };
+
   const handleRetirementChange = (
     field: string,
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -133,6 +146,10 @@ export const RetireForm = (props: RetireFormProps) => {
     const newValue = event.target.value;
 
     if (field === "quantity") {
+      const validationResponse = validateQuantity(newValue);
+      setQuantityError(
+        typeof validationResponse === "string" ? validationResponse : undefined
+      );
       if (newValue === "") {
         setRetirement((prevState) => ({ ...prevState, quantity: newValue }));
       } else {
@@ -259,6 +276,7 @@ export const RetireForm = (props: RetireFormProps) => {
                     label={"quantity"}
                     hideLabel
                     required
+                    errorMessage={quantityError}
                   />
                 </div>
               </div>
