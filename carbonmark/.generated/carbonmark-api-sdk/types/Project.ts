@@ -58,7 +58,7 @@ export type Project = {
   /**
    * @type string
    */
-  projectAddress: string;
+  creditTokenAddress: string;
   /**
    * @type string
    */

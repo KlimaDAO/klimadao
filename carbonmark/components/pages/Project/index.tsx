@@ -72,7 +72,7 @@ const Page: NextPage<PageProps> = (props) => {
   const prices = compact(project?.prices);
   const activeListings = getActiveListings(project.listings);
   const methodologies = compact(project.methodologies);
-  const category = methodologies.at(0)?.category ?? "Other";
+  const category = methodologies.at(0)?.category?.trim() ?? "Other";
   const allMethodologyIds = compact(methodologies.map(extract("id")));
   const allMethodologyNames = compact(methodologies.map(extract("name")));
 

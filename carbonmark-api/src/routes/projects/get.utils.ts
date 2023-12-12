@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
-import { map } from "lodash/fp";
+import { map, mapValues, toLower, trim } from "lodash/fp";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
@@ -85,7 +85,6 @@ export const getDigitalCarbonTokenPrices = (
   /**
    * @todo mc02 poolPrices are NaN because there is no default project
    */
-
   const credits = digitalCarbonProject.carbonCredits;
 
   for (const credit of credits) {
@@ -157,13 +156,16 @@ export const toGeoJSON = (
 
 export const isValidPoolProject = (project: CarbonProjectType) => {
   const balances = project.carbonCredits.flatMap(extract("poolBalances"));
-  const addresses = Object.values(POOL_INFO).map(extract("poolAddress"));
-
+  const addresses = Object.values(POOL_INFO)
+    .map(extract("poolAddress"))
+    .map(toLower);
   return balances.some(
     (balance) =>
-      addresses.includes(balance.pool.id) && Number(balance.balance) > 0
+      addresses.includes(balance.pool.id.toLowerCase()) &&
+      Number(balance.balance) > 0
   );
 };
+
 export const isActiveListing = (l: {
   active?: boolean | null;
   deleted?: boolean | null;
@@ -220,8 +222,8 @@ const pickUpdatedAt = (data: ProjectData): string => {
 const pickBestPrice = (
   data: ProjectData,
   poolPrices: Record<string, PoolPrice>
-): string => {
-  const listings = compact(data.marketplaceProjectData?.listings || []);
+): string | undefined => {
+  const listings = compact(data.marketplaceProjectData?.listings);
   // Careful, singleUnitPrice is a bigint string
   const cheapestListing = minBy(listings, (l) => BigInt(l.singleUnitPrice));
   const cheapestListingUSDC =
@@ -233,11 +235,11 @@ const pickBestPrice = (
 
   const cheapestPoolPrice = minBy(allPoolPrices, (p) => Number(p));
 
-  const bestPrice =
-    minBy([
-      Number(cheapestListingUSDC),
-      Number(cheapestPoolPrice),
-    ])?.toString() || "";
+  const bestPrice = minBy([
+    Number(cheapestListingUSDC),
+    Number(cheapestPoolPrice),
+  ])?.toString();
+
   return bestPrice;
 };
 
@@ -261,10 +263,14 @@ export const composeProjectEntries = (
       registryProjectId,
     } = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(projectId);
+    /** If there are no prices hide this project */
+    const price = pickBestPrice(data, poolPrices);
+    if (!price) return;
 
     // construct CarbonmarkProjectT and make typescript happy
     const entry: Project = {
-      methodologies: carbonProject?.methodologies ?? [],
+      //Remove string padding on methodologies
+      methodologies: carbonProject?.methodologies?.map(mapValues(trim)) ?? [],
       description: carbonProject?.description || null,
       short_description: carbonProject?.content?.shortDescription || null,
       name: carbonProject?.name || poolBalances?.name || "",
@@ -286,8 +292,8 @@ export const composeProjectEntries = (
         "",
       creditTokenAddress: poolBalances?.carbonCredits?.[0].id ?? "",
       updatedAt: pickUpdatedAt(data),
-      price: pickBestPrice(data, poolPrices),
       listings: market?.listings?.map(formatListing) || null,
+      price,
     };
 
     entries.push(entry);
