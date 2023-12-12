@@ -16,6 +16,7 @@ import { certificateBackground } from "./images/certificateBackground";
 import { dateIcon } from "./images/dateIcon";
 import { launchIcon } from "./images/launchIcon";
 
+import { getOffsetCategories } from "lib/getOffsetCategories";
 import { DMSansRegular } from "./fonts/dmSansRegularbase64";
 import { PoppinsBold } from "./fonts/poppinsBoldbase64";
 import { PoppinsSemiBold } from "./fonts/poppinsSemiBoldbase64";
@@ -64,7 +65,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     },
     {
       label: "TYPE: ",
-      value: params.retirement.offset.methodologyCategory,
+      value: getOffsetCategories(params.retirement.offset.methodologyCategory),
     },
     {
       label: "METHODOLOGY:",
