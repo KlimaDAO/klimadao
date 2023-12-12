@@ -16,7 +16,7 @@ import { certificateBackground } from "./images/certificateBackground";
 import { dateIcon } from "./images/dateIcon";
 import { launchIcon } from "./images/launchIcon";
 
-import { getOffsetCategories } from "lib/getOffsetCategories";
+import { getOffsetCategories, getOffsetMainCategory } from "lib/offsetGetter";
 import { DMSansRegular } from "./fonts/dmSansRegularbase64";
 import { PoppinsBold } from "./fonts/poppinsBoldbase64";
 import { PoppinsSemiBold } from "./fonts/poppinsSemiBoldbase64";
@@ -65,7 +65,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     },
     {
       label: "TYPE: ",
-      value: getOffsetCategories(params.retirement.offset.methodologyCategory),
+      value: getOffsetCategories(params.retirement.offset),
     },
     {
       label: "METHODOLOGY:",
@@ -236,8 +236,9 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const printCategoryBanner = async (): Promise<void> => {
     const category = isMossRetirement
       ? "Moss"
-      : (params.retirement.offset
-          .methodologyCategory as CategoryBannerMappingKey);
+      : (getOffsetMainCategory(
+          params.retirement.offset
+        ) as CategoryBannerMappingKey);
     const categoryBanner = catergoryBannerMap[category];
     const categoryBannerBuffer = Buffer.from(categoryBanner, "base64");
 

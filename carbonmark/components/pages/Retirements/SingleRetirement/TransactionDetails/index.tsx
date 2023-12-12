@@ -4,7 +4,7 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t, Trans } from "@lingui/macro";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
-import { getOffsetCategories } from "lib/getOffsetCategories";
+import { getOffsetCategories } from "lib/offsetGetter";
 import { StaticImageData } from "next/image";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -73,11 +73,7 @@ export const TransactionDetails: FC<Props> = (props) => (
               <Text t="button" color="lightest" uppercase>
                 <Trans id="retirement.single.type.title">Type:</Trans>
               </Text>
-              <Text>
-                {getOffsetCategories(
-                  props.retirement.offset.methodologyCategory
-                )}
-              </Text>
+              <Text>{getOffsetCategories(props.retirement.offset)}</Text>
             </div>
           )}
           {props.retirement?.offset?.methodology && (
