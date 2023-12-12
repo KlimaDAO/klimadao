@@ -45,7 +45,6 @@ const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
   ? `https://carbonmark-api-git-feature-icr-api-integration-klimadao.vercel.app`
   : API_PROD_URL;
 
-console.log("API_PREVIEW_URL", API_PREVIEW_URL);
 /**
  * The API URL to target when developing the app,
  * useful for generating types that have not yet been deployed or are on  new version of the API

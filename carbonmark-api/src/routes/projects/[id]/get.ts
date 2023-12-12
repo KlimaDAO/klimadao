@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { mapValues, pipe, trim, uniq } from "lodash/fp";
-import { REGISTRIES } from "../../../../src/app.constants";
+import { REGISTRIES } from "../../../app.constants";
 import { DetailedProject } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
