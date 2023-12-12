@@ -117,19 +117,6 @@ export type User = {
      * @type string
      */
     id: string;
-    /**
-     * @type object
-     */
-    project: {
-      /**
-       * @type string
-       */
-      key: string;
-      /**
-       * @type string
-       */
-      vintage: string;
-    };
     amount?: string | null;
     previousAmount?: string | null;
     price?: string | null;

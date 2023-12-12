@@ -1,18 +1,13 @@
-import {
-  getUsersWalletorhandle,
-  postLogin,
-  postLoginVerify,
-  postUsers,
-  putUsersWallet,
-} from ".generated/carbonmark-api-sdk/clients";
+import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Spinner } from "components/shared/Spinner";
+import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
+import { loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { VALID_HANDLE_REGEX } from "lib/constants";
 import { User } from "lib/types/carbonmark.types";
 import { isNil } from "lodash";
@@ -79,32 +74,28 @@ export const EditProfile: FC<Props> = (props) => {
       setIsLoading(true);
 
       if (!address) return;
-      const loginRes = await postLogin({ wallet: address });
+      const loginRes = await loginUser(address);
 
       if (!signer) return;
       const signature = await signer.signMessage(
         editSignMessage(loginRes.nonce)
       );
 
-      const verifyResponse = await postLoginVerify({
-        wallet: address,
+      const verifyResponse = await verifyUser({
+        address,
         signature,
       });
 
-      let response: User;
+      let response;
       if (isExistingUser) {
-        response = await putUsersWallet(values.wallet, values, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${verifyResponse.token}`,
-          },
+        response = await putUser({
+          user: values,
+          token: verifyResponse.token,
         });
       } else {
-        response = await postUsers(values, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${verifyResponse.token}`,
-          },
+        response = await postUser({
+          user: values,
+          token: verifyResponse.token,
         });
       }
 
@@ -118,9 +109,7 @@ export const EditProfile: FC<Props> = (props) => {
       if (error.code === "ACTION_REJECTED") {
         setErrorMessage(t`You chose to reject the transaction.`);
       } else {
-        setErrorMessage(
-          t`Something went wrong. Please try again. ${error.message}`
-        );
+        setErrorMessage(t`Something went wrong. Please try again. ${error}`);
       }
     } finally {
       setIsLoading(false);

@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps<
   } catch (e) {
     console.error(
       "Failed to generate Carbonmark Project Retire from Pool Page",
-      e.message
+      e
     );
     return {
       notFound: true,
