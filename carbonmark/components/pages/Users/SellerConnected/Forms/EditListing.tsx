@@ -119,6 +119,12 @@ export const EditListing: FC<Props> = (props) => {
                   value: Number(totalAvailableQuantity),
                   message: t`Available balance exceeded`,
                 },
+                validate: {
+                  isWholeNumber: (value) =>
+                    !props.listing.project.id.startsWith("ICR") ||
+                    Number.isInteger(parseFloat(value)) ||
+                    "ICR credits can only be listed in whole tonnes",
+                },
               }),
             }}
             errorMessage={formState.errors.newQuantity?.message}

@@ -99,8 +99,8 @@ export const CreateListingForm: FC<Props> = (props) => {
                 validate: {
                   isWholeNumber: (value) =>
                     !selectedAsset.id.startsWith("ICR") ||
-                    /^\d+$/.test(value) ||
-                    "Only whole tons are allowed for ICR registry",
+                    Number.isInteger(parseFloat(value)) ||
+                    "ICR credits can only be listed in whole tonnes",
                 },
               }),
             }}
@@ -110,13 +110,6 @@ export const CreateListingForm: FC<Props> = (props) => {
           <Text t="body3" className={styles.availableAmount}>
             <Trans>Available to list: {selectedAsset.amount}</Trans>
           </Text>
-          <Text t="body3" className={styles.availableAmount}>
-            <Trans>
-              {selectedAsset.id.startsWith("ICR") &&
-                "Note: ICR credits can only be traded in whole tons"}
-            </Trans>
-          </Text>
-
           <InputField
             id="singleUnitPrice"
             inputProps={{
