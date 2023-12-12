@@ -76,9 +76,7 @@ const handler = (fastify: FastifyInstance) =>
     poolProjectsData.carbonProjects.forEach((project) => {
       if (!isValidPoolProject(project)) {
         console.debug(
-          `Project with id ${JSON.stringify(
-            project
-          )} is considered invalid due to a balance of zero across all tokens and has been filtered`
+          `Project with id ${project.projectID} is considered invalid due to a balance of zero across all tokens and has been filtered`
         );
         return;
       }
@@ -89,12 +87,18 @@ const handler = (fastify: FastifyInstance) =>
         return;
       }
       const [standard, registryProjectId] = project.projectID.split("-");
-      const { creditId: key } = new CreditId({
-        standard,
-        registryProjectId,
-        vintage: project.carbonCredits[0].vintage.toString(),
+      project.carbonCredits.forEach((credit) => {
+        const { creditId: key } = new CreditId({
+          standard,
+          registryProjectId,
+          vintage: credit.vintage.toString(),
+        });
+        ProjectMap.set(key, {
+          /** We need to remove all other credits from this asset so that it is a one to one mapping of credit to project */
+          poolProjectData: { ...project, carbonCredits: [credit] },
+          key,
+        });
       });
-      ProjectMap.set(key, { poolProjectData: project, key });
     });
 
     /** Assign valid marketplace projects to map */
@@ -134,7 +138,6 @@ const handler = (fastify: FastifyInstance) =>
     const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
 
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
-
     // Send the transformed projects array as a JSON string in the response
     return reply
       .status(200)
