@@ -41,4 +41,3 @@ export const tag = css`
   font-size: 1.4rem;
   height: 2.6rem;
 `;
-
