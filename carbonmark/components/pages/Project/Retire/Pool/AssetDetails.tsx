@@ -9,7 +9,11 @@ import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createProjectTokenName } from "lib/projectGetter";
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
+import {
+  DetailedProject,
+  Listing,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -20,7 +24,7 @@ type TotalValuesProps = {
   project: DetailedProject;
 };
 
-export const AssetDetails: FC<TotalValuesProps> = (props) => {
+export const PoolAssetDetails: FC<TotalValuesProps> = (props) => {
   const { locale } = useRouter();
   const tokenType = getPoolTokenType(
     props.price.poolName.toUpperCase() as Uppercase<PoolToken>
@@ -63,4 +67,53 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
       </div>
     </Accordion>
   );
+};
+
+export const ListingAssetDetails: FC<{ listing: Listing }> = (props) => {
+  /*
+  const { locale } = useRouter();
+  const tokenType = getPoolTokenType(
+    props.price.poolName.toUpperCase() as Uppercase<PoolToken>
+  );
+  const tokenData = carbonTokenInfoMap[tokenType];
+  const projectTokenName = createProjectTokenName(props.project, tokenType);
+  const availableTonnes = formatToTonnes(props.price.supply, locale, 2);
+
+  return (
+    <Accordion label={t`Asset details`} className={styles.accordion}>
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Retiring Token`}</Text>
+        <div className={cx(styles.iconAndText)}>
+          <div className="icon">
+            <Image
+              src={tokenData.icon}
+              width={20}
+              height={20}
+              alt={tokenData.label}
+            />
+          </div>
+          <Text t="h5">{projectTokenName}</Text>
+        </div>
+      </div>
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Available to retire`}</Text>
+        <Text t="h5">
+          {availableTonnes} {t`Tonnes`}
+        </Text>
+      </div>
+      <div className={styles.totalsText}>
+        <Anchor
+          className={styles.iconAndText}
+          href={`https://polygonscan.com/address/${props.price.projectTokenAddress}`}
+        >
+          <Text className={styles.externalLink} t="body2">
+            {t`View on PolygonScan`} <LaunchIcon />
+          </Text>
+        </Anchor>
+      </div>
+    </Accordion>
+  );
+  */
+  // TODO: implement this properly
+  return <h1>{JSON.stringify(props.listing)}</h1>;
 };

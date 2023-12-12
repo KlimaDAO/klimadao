@@ -1,5 +1,5 @@
 import { PoolToken } from "@klimadao/lib/constants";
-import { useWeb3 } from "@klimadao/lib/utils";
+import { getRetirementTokenByAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
@@ -24,7 +24,7 @@ import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
-import { AssetDetails } from "./AssetDetails";
+import { ListingAssetDetails, PoolAssetDetails } from "./AssetDetails";
 import { CreditCardModal } from "./CreditCardModal";
 import { Price } from "./Price";
 import { RetireInputs } from "./RetireInputs";
@@ -360,7 +360,21 @@ export const RetireForm: FC<Props> = (props) => {
         <Col>
           <div className={styles.stickyContentWrapper}>
             <Card>
-              <AssetDetails price={props.retirement} project={props.project} />
+              {getIsPoolRetirement(props.retirement) && (
+                <PoolAssetDetails
+                  price={props.retirement}
+                  project={props.project}
+                />
+              )}
+              {getIsListingRetirement(props.retirement) && (
+                <>
+                  <p>
+                    {getRetirementTokenByAddress(props.retirement.tokenAddress)}
+                  </p>
+
+                  <ListingAssetDetails listing={props.retirement} />
+                </>
+              )}
             </Card>
             <div className={styles.reverseOrder}>
               <Card>
