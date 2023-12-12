@@ -1,4 +1,9 @@
-export type Activity = {
+import type { Def1 } from "./Def1";
+
+/**
+ * @description List of project activities
+ */
+export type GetActivitiesQueryResponse = {
   /**
    * @type string
    */
@@ -36,4 +41,23 @@ export type Activity = {
     id: string;
     handle?: string | null;
   } | null;
+}[];
+
+export type GetActivitiesQueryParams = {
+  network?: Def1;
+  /**
+   * @type array | undefined
+   */
+  projectId?: string[];
+  /**
+   * @type array | undefined
+   */
+  activityType?: (
+    | "CreatedListing"
+    | "DeletedListing"
+    | "Purchase"
+    | "Sold"
+    | "UpdatedPrice"
+    | "UpdatedQuantity"
+  )[];
 };
