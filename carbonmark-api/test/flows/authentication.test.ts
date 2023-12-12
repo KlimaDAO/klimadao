@@ -24,7 +24,7 @@ describe("Authentication flow", () => {
     const { nonce } = await app
       .inject({
         method: "POST",
-        url: `${DEV_URL}/login`,
+        url: `${DEV_URL}/users/login`,
         body: {
           wallet: wallet.address,
         },
@@ -39,7 +39,7 @@ describe("Authentication flow", () => {
     const response = await app
       .inject({
         method: "POST",
-        url: `${DEV_URL}/login/verify`,
+        url: `${DEV_URL}/users/login/verify`,
         body: {
           wallet: wallet.address,
           signature: signed_message,
@@ -57,7 +57,7 @@ describe("Authentication flow", () => {
     const { nonce } = await app
       .inject({
         method: "POST",
-        url: `${DEV_URL}/login`,
+        url: `${DEV_URL}/users/login`,
         body: {
           wallet: wallet.address,
         },
@@ -72,7 +72,7 @@ describe("Authentication flow", () => {
     const response = await app
       .inject({
         method: "POST",
-        url: `${DEV_URL}/login/verify`,
+        url: `${DEV_URL}/users/login/verify`,
         body: {
           wallet: "0xInvalidWalletAddress",
           signed_message,
@@ -88,7 +88,7 @@ describe("Authentication flow", () => {
     const response = await app
       .inject({
         method: "POST",
-        url: `${DEV_URL}/login`,
+        url: `${DEV_URL}/users/login`,
         body: {
           wallet: "0xInvalidWalletAddress",
         },
