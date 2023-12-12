@@ -501,6 +501,539 @@
           "updatedAt",
           "country",
           "region",
+<<<<<<< HEAD
+=======
+          "price"
+        ]
+      },
+      "DetailedProject": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "projectID": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "registry": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "country": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "location": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "Feature"
+                    ]
+                  },
+                  "geometry": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "Point"
+                        ]
+                      },
+                      "coordinates": {
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "geometry"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "methodologies": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "category": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "name": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "caption": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "url": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "long_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "short_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "stats": {
+            "type": "object",
+            "properties": {
+              "totalBridged": {
+                "type": "number"
+              },
+              "totalRetired": {
+                "type": "number"
+              },
+              "totalSupply": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "totalBridged",
+              "totalRetired",
+              "totalSupply"
+            ]
+          },
+          "prices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "poolName": {
+                  "description": "Lowercase name of pool / pool token e.g. 'bct'",
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "ubo"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "nbo"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "bct"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "nct"
+                      ]
+                    }
+                  ]
+                },
+                "supply": {
+                  "description": "Remaining supply in pool",
+                  "type": "string"
+                },
+                "poolAddress": {
+                  "description": "Address of the pool itself, e.g. bct token address",
+                  "type": "boolean"
+                },
+                "projectTokenAddress": {
+                  "description": "Address of the project token in this pool",
+                  "type": "string"
+                },
+                "isPoolDefault": {
+                  "description": "True if default project for pool and no selective redemption fee applies",
+                  "type": "boolean"
+                },
+                "singleUnitPrice": {
+                  "description": "formatted USDC price for 1 tonne e.g. '0.123456'",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "poolName",
+                "supply",
+                "poolAddress",
+                "projectTokenAddress",
+                "isPoolDefault",
+                "singleUnitPrice"
+              ]
+            }
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "description": "Marketplace listing with per-tonne price and project info.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "Unique listing identifier",
+                  "type": "string"
+                },
+                "leftToSell": {
+                  "description": "Remaining supply. Unformatted 18 decimal string",
+                  "type": "string"
+                },
+                "tokenAddress": {
+                  "description": "Address of the asset being sold",
+                  "type": "string"
+                },
+                "singleUnitPrice": {
+                  "description": "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
+                  "type": "string"
+                },
+                "totalAmountToSell": {
+                  "type": "string"
+                },
+                "active": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "deleted": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "batches": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "batchPrices": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "createdAt": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "updatedAt": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "seller": {
+                  "type": "object",
+                  "properties": {
+                    "handle": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "username": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "description": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "profileImgUrl": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                "expiration": {
+                  "description": "Unix Timestamp (seconds) when the listing expires.",
+                  "type": "number"
+                },
+                "minFillAmount": {
+                  "description": "Minimum quantity for purchase transaction to succeed.",
+                  "type": "string"
+                },
+                "project": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "methodology": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "key",
+                    "vintage",
+                    "name",
+                    "category",
+                    "country",
+                    "methodology"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "leftToSell",
+                "tokenAddress",
+                "singleUnitPrice",
+                "totalAmountToSell",
+                "seller",
+                "expiration",
+                "minFillAmount",
+                "project"
+              ]
+            }
+          },
+          "price": {
+            "type": "string"
+          },
+          "vintage": {
+            "type": "string"
+          },
+          "serialization": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tokenId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "key",
+          "images",
+          "stats",
+          "prices",
+          "listings",
+>>>>>>> dfff5f378 (query first 50 ICR projects for match (debt))
           "price",
           "prices",
           "stats",
@@ -1912,90 +2445,6 @@
         }
       }
     },
-    "/categories": {
-      "get": {
-        "summary": "Categories",
-        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Blue Carbon"
-                    },
-                    {
-                      "id": "Forestry"
-                    },
-                    {
-                      "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/categories": {
-      "get": {
-        "summary": "Categories",
-        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Blue Carbon"
-                    },
-                    {
-                      "id": "Forestry"
-                    },
-                    {
-                      "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/countries": {
       "get": {
         "summary": "Countries",
@@ -2038,49 +2487,42 @@
         }
       }
     },
-    "/login": {
-      "post": {
-        "summary": "Get nonce",
-        "tags": [
-          "Auth"
-        ],
-        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "wallet"
-                ],
-                "type": "object",
-                "properties": {
-                  "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
+    "/categories": {
+      "get": {
+        "summary": "Categories",
+        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
         "responses": {
           "200": {
             "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "nonce": {
-                      "type": "string"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Blue Carbon"
+                    },
+                    {
+                      "id": "Forestry"
+                    },
+                    {
+                      "id": "Other"
                     }
-                  },
-                  "required": [
-                    "nonce"
                   ]
-                }
+                ]
               }
             }
           }
@@ -3918,6 +4360,156 @@
         }
       }
     },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Quantity of credits purchased",
+                      "examples": [
+                        "1.0"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "tokenAddress": {
+                          "description": "Address of the asset that was purchased",
+                          "type": "string"
+                        },
+                        "seller": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "Address of the seller",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "tokenAddress",
+                        "seller",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Total purchase price (USDC)",
+                      "examples": [
+                        "5.0"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/projects/{id}": {
       "get": {
         "summary": "Project details",
@@ -4423,6 +5015,7 @@
                         }
                       ]
                     },
+<<<<<<< HEAD
                     "images": {
                       "type": "array",
                       "items": {
@@ -4443,6 +5036,33 @@
                     },
                     "hasSupply": {
                       "type": "boolean"
+=======
+                    "price": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
+                    },
+                    "serialization": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "tokenId": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+>>>>>>> dfff5f378 (query first 50 ICR projects for match (debt))
                     }
                   },
                   "required": [
@@ -4457,9 +5077,13 @@
                     "country",
                     "region",
                     "price",
+<<<<<<< HEAD
                     "prices",
                     "stats",
                     "hasSupply"
+=======
+                    "vintage"
+>>>>>>> dfff5f378 (query first 50 ICR projects for match (debt))
                   ]
                 }
               }
@@ -4474,6 +5098,7 @@
         "tags": [
           "Users"
         ],
+<<<<<<< HEAD
         "description": "Get a user's profile and activity",
         "parameters": [
           {
@@ -4984,10 +5609,16 @@
         "tags": [
           "Users"
         ],
+=======
+        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
+>>>>>>> dfff5f378 (query first 50 ICR projects for match (debt))
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
+                "required": [
+                  "wallet"
+                ],
                 "type": "object",
                 "properties": {
                   "wallet": {
@@ -5155,7 +5786,7 @@
           {
             "schema": {
               "type": "string",
-              "pattern": "^(VCS|PURO|ICR|GS)-\\d+-(19\\d{2}|20\\d{2})$"
+              "pattern": "^(VCS|PURO|GS|ICR)-\\d+-(19\\d{2}|20\\d{2})$|^ICR-(?:[A-Z]+-\\d+-(\\d+-)?\\d+-[A-Z]-\\d+-(19\\d{2}|20\\d{2})|[A-Z]+-\\d+-\\d+-\\d+-[A-Z]-\\d+-\\d+)$"
             },
             "example": "VCS-191-2008",
             "in": "path",

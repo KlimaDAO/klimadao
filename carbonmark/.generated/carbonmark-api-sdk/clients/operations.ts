@@ -1,5 +1,6 @@
 export const operations = {
   get_activities: { path: "/activities", method: "get" },
+  get_countries: { path: "/countries", method: "get" },
   get_categories: { path: "/categories", method: "get" },
   get_countries: { path: "/countries", method: "get" },
   post_login: { path: "/login", method: "post" },
