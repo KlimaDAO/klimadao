@@ -1,3 +1,5 @@
+import { NetworkParam } from ".generated/carbonmark-api-sdk/types";
+import { urls } from "@klimadao/lib/constants";
 import { Project, TokenPrice } from "lib/types/carbonmark.types";
 
 type ProjectData = {
@@ -30,3 +32,7 @@ export const createProjectPoolPurchaseLink = (
   project: ProjectData,
   pool: TokenPrice["poolName"]
 ) => `${createProjectLink(project)}/purchase/pools/${pool}`;
+
+export const getPolygonScanBaseUrl = (networkLabel: NetworkParam): string => {
+  return networkLabel === "polygon" ? urls.polygonscan : urls.mumbaiPolygonscan;
+};
