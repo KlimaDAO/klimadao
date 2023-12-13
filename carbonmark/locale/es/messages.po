@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-11 15:39+0000\n"
+"POT-Creation-Date: 2023-12-13 08:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgstr "Dirección del monedero del beneficiario (opcional)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:143
+#: components/pages/Project/index.tsx:159
 msgid "Best Price"
 msgstr "Mejor precio"
 
@@ -421,7 +421,7 @@ msgstr "Actualmente, Carbonmark sólo acepta pagos con USDC en Polygon. <0>Apren
 msgid "DATE"
 msgstr "FECHA"
 
-#: components/pages/Project/index.tsx:240
+#: components/pages/Project/index.tsx:256
 msgid "Data for this project and vintage"
 msgstr "Datos para este proyecto y vintage"
 
@@ -438,7 +438,7 @@ msgstr "Por defecto, la dirección del monedero conectado"
 msgid "Describe the purpose of this retirement"
 msgstr "Describa el objetivo de esta retirada"
 
-#: components/pages/Project/index.tsx:191
+#: components/pages/Project/index.tsx:207
 msgid "Description"
 msgstr "Descripción"
 
@@ -688,7 +688,7 @@ msgstr "Marketplace | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Maximice su impacto climático."
 
-#: components/pages/Project/index.tsx:150
+#: components/pages/Project/index.tsx:166
 msgid "Methodology"
 msgstr "Metodología"
 
@@ -733,7 +733,7 @@ msgstr "No hay datos que mostrar"
 msgid "No listable assets found."
 msgstr "No se han encontrado activos enumerables."
 
-#: components/pages/Project/index.tsx:230
+#: components/pages/Project/index.tsx:246
 msgid "No listings found for this project."
 msgstr "No se han encontrado anuncios para este proyecto."
 
@@ -942,11 +942,11 @@ msgstr "Retiro rápido"
 msgid "RETIRE CARBON"
 msgstr "RETIRA CARBONO"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:220
 msgid "Read Less"
 msgstr "Leer menos"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:220
 msgid "Read More"
 msgstr "Leer más"
 
@@ -1439,7 +1439,7 @@ msgstr "Vista"
 msgid "View Carbonmark Profile"
 msgstr "Ver el perfil de Carbonmark"
 
-#: components/pages/Project/index.tsx:213
+#: components/pages/Project/index.tsx:229
 msgid "View Registry Details <0/>"
 msgstr "Ver detalles del registro <0/>"
 
@@ -1472,7 +1472,7 @@ msgstr "Ver todos los proyectos"
 msgid "View all Retirements"
 msgstr "Ver todos los retiros"
 
-#: components/pages/Project/index.tsx:104
+#: components/pages/Project/index.tsx:120
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Vea y compre este proyecto de compensación de carbono en Carbonmark"
 

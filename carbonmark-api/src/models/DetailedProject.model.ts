@@ -1,5 +1,4 @@
 import { Static, Type } from "@sinclair/typebox";
-import { ActivityModel } from "./Activity.model";
 import { ListingModel } from "./Listing.model";
 import { MethodologyModel } from "./Methodology.model";
 import { TokenPriceModel } from "./TokenPrice.model";
@@ -25,7 +24,6 @@ export const DetailedProjectModel = Type.Object({
   }),
   prices: Type.Array(TokenPriceModel),
   listings: Type.Array(ListingModel),
-  activities: Type.Array(ActivityModel),
   price: Type.String(),
   vintage: Type.String(),
 });
