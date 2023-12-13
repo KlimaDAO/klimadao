@@ -19,9 +19,9 @@ export type User = {
    */
   wallet: string;
   /**
-   * @type array | undefined
+   * @type array
    */
-  listings?: {
+  listings: {
     /**
      * @description Unique listing identifier
      * @type string
@@ -110,9 +110,9 @@ export type User = {
     };
   }[];
   /**
-   * @type array | undefined
+   * @type array
    */
-  activities?: {
+  activities: {
     /**
      * @type string
      */
@@ -152,9 +152,9 @@ export type User = {
     } | null;
   }[];
   /**
-   * @type array | undefined
+   * @type array
    */
-  assets?: {
+  assets: {
     /**
      * @type string
      */

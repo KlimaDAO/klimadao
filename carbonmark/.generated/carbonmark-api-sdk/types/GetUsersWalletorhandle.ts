@@ -32,9 +32,9 @@ export type GetUsersWalletorhandleQueryResponse = {
    */
   wallet: string;
   /**
-   * @type array | undefined
+   * @type array
    */
-  listings?: {
+  listings: {
     /**
      * @description Unique listing identifier
      * @type string
@@ -123,9 +123,9 @@ export type GetUsersWalletorhandleQueryResponse = {
     };
   }[];
   /**
-   * @type array | undefined
+   * @type array
    */
-  activities?: {
+  activities: {
     /**
      * @type string
      */
@@ -165,9 +165,9 @@ export type GetUsersWalletorhandleQueryResponse = {
     } | null;
   }[];
   /**
-   * @type array | undefined
+   * @type array
    */
-  assets?: {
+  assets: {
     /**
      * @type string
      */

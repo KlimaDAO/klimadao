@@ -189,6 +189,14 @@
       }
     }
   },
-  "required": ["username", "updatedAt", "createdAt", "wallet"],
+  "required": [
+    "username",
+    "updatedAt",
+    "createdAt",
+    "wallet",
+    "listings",
+    "activities",
+    "assets"
+  ],
   "x-readme-ref-name": "User"
 }
