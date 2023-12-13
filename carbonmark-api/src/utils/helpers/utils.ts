@@ -1,7 +1,8 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance, FastifyReply } from "fastify";
 import { compact, concat, isArray, omit } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
+  ActivityType,
   Category,
   Country,
   Listing,
@@ -238,4 +239,38 @@ export function formatGraphTimestamps<
     createdAt: Number(data.createdAt),
     updatedAt: Number(data.updatedAt),
   };
+}
+/**
+ * Converts a String into an ActivityType without breaking typescript checks
+ */
+export const stringToActivityType = (str: string): ActivityType | undefined => {
+  for (const [key, value] of Object.entries(ActivityType)) {
+    if (key == str) {
+      return value;
+    }
+  }
+};
+/**
+ * Converts an array of Strings into an array of ActivityType without breaking typescript checks
+ * This method will silently filter out strings that do not relate to an actually activity type
+ * so make sure the handler checks for correct activity type input
+ */
+export const stringsToActivityTypes = (strs: string[]): ActivityType[] => {
+  return strs
+    .map(stringToActivityType)
+    .filter((str): str is ActivityType => !!str);
+};
+
+/**
+ * Sends a standard success reply
+ * @param reply
+ */
+export function asResponse<ReplyType>(
+  reply: FastifyReply,
+  payload?: ReplyType
+) {
+  return reply
+    .status(200)
+    .header("Content-Type", "application/json; charset=utf-8")
+    .send(payload);
 }

@@ -2,7 +2,11 @@ import {
   aListing,
   aProject,
 } from "../../src/.generated/mocks/marketplace.mocks";
-import { GetPurchaseByIdQuery } from "../../src/.generated/types/marketplace.types";
+import {
+  ActivityType,
+  GetActivitiesByProjectIdQuery,
+  GetPurchaseByIdQuery,
+} from "../../src/.generated/types/marketplace.types";
 
 const listing = aListing({
   singleUnitPrice: "99000000",
@@ -44,10 +48,39 @@ const purchase: GetPurchaseByIdQuery["purchase"] = {
   },
 };
 
+/** marketplace.getPurchaseById() */
+const activities: GetActivitiesByProjectIdQuery["activities"] = [
+  {
+    id: "0x88bb718a2556970081e9cd6a8f17af2dffaabe1a05f91dc47cf477c3425225b7Sold",
+    amount: "1000000000000000000",
+    previousAmount: null,
+    price: "1250000",
+    previousPrice: null,
+    timeStamp: "1699653865",
+    activityType: ActivityType.Sold,
+    project: { key: "VCS-981", vintage: "2017" },
+    buyer: null,
+    seller: { id: "0x988bb718a2556970081e9cd6a8f17af2dffaa" },
+  },
+  {
+    id: "0xd17ffb681569c5186783b3f31d778aaf58bf268795df8704b1b42cd500746c69ListingUpdated",
+    amount: null,
+    previousAmount: null,
+    price: "1250000",
+    previousPrice: "12500000",
+    timeStamp: "1699399799",
+    activityType: ActivityType.UpdatedPrice,
+    project: { key: "VCS-981", vintage: "2017" },
+    buyer: null,
+    seller: { id: "0x488bb718a2556970081e9cd6a8f17af2dffaa" },
+  },
+];
+
 /** Fixtures for the marketplace subgraph */
 const fixtures = {
   projectWithListing,
   purchase,
+  activities,
 };
 
 export default fixtures;

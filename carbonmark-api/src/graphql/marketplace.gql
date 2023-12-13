@@ -70,8 +70,22 @@ query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
     listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
-    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-      ...ActivityFragment
-    }
+  }
+}
+
+query getActivitiesByProjectId(
+  $projectId: [ID!]
+  $activityType: [ActivityType!]
+) {
+  activities(
+    where: { project_: { id_in: $projectId }, activityType_in: $activityType }
+  ) {
+    ...ActivityFragment
+  }
+}
+
+query getAllActivities($activityType: [ActivityType!]) {
+  activities(where: { activityType_in: $activityType }) {
+    ...ActivityFragment
   }
 }

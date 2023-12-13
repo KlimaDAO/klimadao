@@ -27,7 +27,7 @@ export const deconstructListingId = (str: string) => {
   };
 };
 
-type GetProjectListing = NonNullable<
+export type GetProjectListing = NonNullable<
   GetProjectsQuery["projects"][number]["listings"]
 >[number];
 
