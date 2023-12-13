@@ -61,29 +61,3 @@ export const sellerLink = css`
     color: var(--white);
   }
 `;
-
-export const projectHeaderSubText = css`
-  color: var(--white);
-  word-break: break-word;
-  font-family: var(--font-family-secondary);
-  font-weight: 700;
-  font-size: 1.6rem;
-  line-height: 2rem;
-
-  a {
-    color: var(--klima-blue);
-  }
-
-  ${breakpoints.medium} {
-    font-size: 2rem;
-    line-height: 2.8rem;
-  }
-`;
-
-export const projectHeaderTags = css`
-  display: flex;
-  flex-wrap: wrap;
-  z-index: 1;
-  gap: 1.6rem;
-  align-items: center;
-`;
