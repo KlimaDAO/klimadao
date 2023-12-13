@@ -35,7 +35,7 @@ export const GRAPH_URLS = {
 };
 
 export const HUBSPOT_URLS = {
-  payWithBankTransform:
+  payWithBankTransfer:
     "https://api.hsforms.com/submissions/v3/integration/submit/26010207/2f87cd63-f8a7-43e9-9483-ac541a614762",
 };
 
