@@ -10,7 +10,7 @@ import { ProjectCard } from "components/ProjectCard";
 import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import { createProjectPoolRetireLink } from "lib/createUrls";
-import { getDefaultPoolFromPrices } from "lib/getPoolData";
+import { getBestPoolFromPrices } from "lib/getPoolData";
 import { DetailedProject } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -159,7 +159,7 @@ export const Retire: NextPage<PageProps> = (props) => {
                       project={p}
                       url={createProjectPoolRetireLink(
                         p,
-                        getDefaultPoolFromPrices(p.prices)?.poolName || "bct" // typeguard
+                        getBestPoolFromPrices(p.prices)?.poolName || "bct" // typeguard
                       )}
                     />
                   );
