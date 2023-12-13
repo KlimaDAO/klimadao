@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { generateNonce } from "../../../utils/crypto.utils";
+import { generateNonce } from "../../utils/crypto.utils";
 import { schema } from "./post.schema";
 
 type Body = {
@@ -31,7 +31,7 @@ function handler(request: FastifyRequest<{ Body: Body }>, reply: FastifyReply) {
 export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "POST",
-    url: "/users/login",
+    url: "/login",
     schema,
     handler,
   });

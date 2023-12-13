@@ -3,10 +3,7 @@ import {
   getSdk as assetsSdk,
   Sdk as AssetsSdk,
 } from "../.generated/types/assets.types";
-import {
-  getSdk as carbonProjectsSdk,
-  Sdk as CarbonProjectsSdk,
-} from "../.generated/types/carbonProjects.types";
+import { getSdk as cmsSdk, Sdk as CMSSdk } from "../.generated/types/cms.types";
 import {
   getSdk as digitalCarbonSdk,
   Sdk as DigitalCarbonSdk,
@@ -31,7 +28,7 @@ export type GQL_SDK = {
   assets: AssetsSdk;
   offsets: OffsetsSdk;
   tokens: TokensSdk;
-  carbon_projects: CarbonProjectsSdk;
+  cms: CMSSdk;
   digital_carbon: DigitalCarbonSdk;
 };
 
@@ -40,7 +37,7 @@ const sdks = {
   assets: assetsSdk,
   offsets: offsetsSdk,
   tokens: tokensSdk,
-  carbon_projects: carbonProjectsSdk,
+  cms: cmsSdk,
   digital_carbon: digitalCarbonSdk,
 };
 
@@ -56,8 +53,6 @@ export const gql_sdk = (
     digital_carbon: sdks.digital_carbon(
       new GraphQLClient(graph_urls.digitalCarbon)
     ),
-    carbon_projects: sdks.carbon_projects(
-      new GraphQLClient(SANITY_URLS.carbonProjects)
-    ),
+    cms: sdks.cms(new GraphQLClient(SANITY_URLS.cms)),
   };
 };

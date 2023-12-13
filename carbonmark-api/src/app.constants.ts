@@ -4,6 +4,11 @@ export const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
 const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
 const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
 
+/**
+ * IMPORTANT: the keys of these objects map directly to the file names of the graphql definitions.
+ * (e.g marketplace -> marketplace.gql)
+ * This is also the case for SANITY_URLS
+ */
 const POLYGON_URLS = {
   marketplace: `${GRAPH_API_ROOT_ID}/QmTfM5TvokuyKXCGWL3wTLZ1z4TqRtQ7PdVfQRVU39ovUC`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
@@ -17,17 +22,16 @@ const MUMBAI_URLS = {
   marketplace: `${GRAPH_API_ROOT_ID}/QmdrYranfueu9Ann3kYCkEKTmTRReusybzFZ2nYz8YM6WF`,
 };
 
+/** Sanity URLS */
+export const SANITY_URLS = {
+  cms: "https://l6of5nwi.apicdn.sanity.io/v1/graphql/production/default",
+};
+
 /** Graph URLS */
 /** Note: the keys of the below objects are used when selecting gql files for type generation */
 export const GRAPH_URLS = {
   polygon: POLYGON_URLS,
   mumbai: MUMBAI_URLS,
-};
-
-/** Sanity URLS */
-export const SANITY_URLS = {
-  carbonProjects:
-    "https://l6of5nwi.apicdn.sanity.io/v1/graphql/production/default",
 };
 
 export const TOKEN_ADDRESSES = {

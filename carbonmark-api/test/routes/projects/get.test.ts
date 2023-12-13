@@ -1,22 +1,25 @@
 import { FastifyInstance } from "fastify";
 import { pick, set } from "lodash";
 import nock from "nock";
-import { GRAPH_URLS } from "../../../src/app.constants";
+import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
-import carbonProjects from "../../fixtures/carbonProjects";
+import { fixtures } from "../../fixtures";
 import digitalCarbon from "../../fixtures/digitalCarbon";
 import marketplace from "../../fixtures/marketplace";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 
-jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => {
+const mockCmsProject = fixtures.cms.carbonProject;
+const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
+
+jest.mock("../../../src/utils/helpers/cms.utils", () => {
   const carbonProjectsUtils = jest.requireActual(
-    "../../../src/utils/helpers/carbonProjects.utils"
+    "../../../src/utils/helpers/cms.utils"
   );
   return {
     ...carbonProjectsUtils,
     fetchAllCarbonProjects: jest.fn(() => {
-      return [carbonProjects.carbonProject];
+      return [mockCmsProject];
     }),
   };
 });
@@ -79,6 +82,15 @@ describe("GET /projects", () => {
     } catch (e) {
       console.error("get.test.ts setup failed", e);
     }
+    nock(SANITY_URLS.cms)
+      .post("")
+      .reply(200, {
+        data: {
+          allProject: [fixtures.cms.cmsProject],
+          allProjectContent: [fixtures.cms.cmsProjectContent],
+        },
+      })
+      .persist();
   });
   afterEach(async () => await fastify.close());
 
@@ -120,19 +132,18 @@ describe("GET /projects", () => {
     //@todo replace with composeEntries function
     const expectedResponse = [
       {
-        ...pick(digitalCarbon.digitalCarbonProject, ["region"]),
+        region: digitalCarbon.digitalCarbonProject.region,
         methodologies: [
           {
-            id: carbonProjects.carbonProject.methodologies[0].id,
-            category: carbonProjects.carbonProject.methodologies[0].category,
-            name: carbonProjects.carbonProject.methodologies[0].name,
+            id: mockCmsProject?.methodologies?.[0]?.id,
+            category: mockCmsProject?.methodologies?.[0]?.category,
+            name: mockCmsProject?.methodologies?.[0]?.name,
           },
         ],
-        description: carbonProjects.carbonProject.description,
-        name: carbonProjects.carbonProject.name,
+        description: mockCmsProject.description,
+        name: mockCmsProject.name,
         // applies short_description property from cms
-        short_description:
-          carbonProjects.carbonProject.content?.shortDescription,
+        short_description: mockCmsProjectContent?.shortDescription,
         // Takes numeric from full id, "VCS-191" -> "191"
         projectID: digitalCarbon.digitalCarbonProject.projectID.split("-")[1],
         vintage:
@@ -145,7 +156,7 @@ describe("GET /projects", () => {
           digitalCarbon.digitalCarbonProject.carbonCredits[0].poolBalances[0]
             .pool.dailySnapshots[0].lastUpdateTimestamp,
         country: {
-          id: carbonProjects.carbonProject.country,
+          id: mockCmsProject.country,
         },
         price: poolPrices["bct"].defaultPrice,
         listings: null,
@@ -153,14 +164,14 @@ describe("GET /projects", () => {
         location: {
           geometry: {
             coordinates: [
-              carbonProjects.carbonProject.geolocation?.lng,
-              carbonProjects.carbonProject.geolocation?.lat,
+              mockCmsProject.geolocation?.lng,
+              mockCmsProject.geolocation?.lat,
             ],
             type: "Point",
           },
           type: "Feature",
         },
-        images: carbonProjects.carbonProject.content?.images?.map((img) => ({
+        images: mockCmsProjectContent.images?.map((img) => ({
           url: img?.asset?.url,
           caption: img?.asset?.description,
         })),
@@ -188,15 +199,10 @@ describe("GET /projects", () => {
     const expectedResponse = [
       {
         ...pick(marketplace.projectWithListing, ["key", "vintage"]),
-        ...pick(carbonProjects.carbonProject, [
-          "description",
-          "name",
-          "methodologies",
-        ]),
-        short_description:
-          carbonProjects.carbonProject.content?.shortDescription,
+        ...pick(mockCmsProject, ["description", "name", "methodologies"]),
+        short_description: mockCmsProjectContent?.shortDescription,
         country: {
-          id: carbonProjects.carbonProject.country,
+          id: mockCmsProject.country,
         },
         price: "99",
         updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
@@ -217,14 +223,14 @@ describe("GET /projects", () => {
         location: {
           geometry: {
             coordinates: [
-              carbonProjects.carbonProject.geolocation?.lng,
-              carbonProjects.carbonProject.geolocation?.lat,
+              mockCmsProject.geolocation?.lng,
+              mockCmsProject.geolocation?.lat,
             ],
             type: "Point",
           },
           type: "Feature",
         },
-        images: carbonProjects.carbonProject.content?.images?.map((img) => ({
+        images: mockCmsProjectContent?.images?.map((img) => ({
           url: img?.asset?.url,
           caption: img?.asset?.description,
         })),
