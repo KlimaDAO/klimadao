@@ -1,13 +1,12 @@
 import {
-  getRetirementsIdProvenance,
   getRetirementsKlimaAccountIdRetirementIndex,
+  getRetirementsKlimaAccountIdRetirementIndexProvenance,
 } from ".generated/carbonmark-api-sdk/clients";
 import {
   GetRetirementsIdProvenanceQueryResponse,
   GetRetirementsKlimaAccountIdRetirementIndexQueryResponse,
 } from ".generated/carbonmark-api-sdk/types";
 import { urls } from "@klimadao/lib/constants";
-import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
 import { RetirementProvenancePage } from "components/pages/Retirements/RetirementProvenance";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
@@ -70,8 +69,11 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    const [subgraphRetirement, apiData, translation] = await Promise.all([
-      queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
+    const [provenance, apiData, translation] = await Promise.all([
+      getRetirementsKlimaAccountIdRetirementIndexProvenance(
+        beneficiaryAddress,
+        retirementIndex
+      ),
       getRetirementsKlimaAccountIdRetirementIndex(
         beneficiaryAddress,
         retirementIndex
@@ -79,19 +81,9 @@ export const getStaticProps: GetStaticProps<
       loadTranslation(locale),
     ]);
 
-    if (subgraphRetirement == null) {
-      return {
-        notFound: true,
-        revalidate: 1,
-      };
-    }
     if (!translation) {
       throw new Error("No translation found");
     }
-
-    const provenance = await getRetirementsIdProvenance(
-      subgraphRetirement.transaction.id
-    );
 
     return {
       props: {

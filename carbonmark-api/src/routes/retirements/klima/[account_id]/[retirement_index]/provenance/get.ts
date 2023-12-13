@@ -1,4 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { isEmpty } from "lodash";
 import { gql_sdk } from "../../../../../../utils/gqlSdk";
 import { formatRecord } from "../../../../../../utils/helpers/records.utils";
 import { Params, Querystring } from "../get.schema";
@@ -13,22 +14,21 @@ const handler = () =>
     }>,
     reply: FastifyReply
   ) {
-    /*
-    const retirement = await getKlimaRetirement({
-      ...pick(request.params, ["account_id", "retirement_index"]),
-      ...pick(request.query, ["network"]),
-    })
-    console.debug(retirement)
-    if (retirement == null) {
-      return reply.notFound();
-    }*/
-    // FIXME: this is hardcoded for testing purposes until ...
-    const hash =
-      "0xfd59f524162d4ef2f7e5df69c5079ce394ecd6b9cf681d701d426cd221981b17";
-
     const sdk = gql_sdk(request.query.network);
+
+    // Finds the retirement using polygon-bridged-carbon. We can bypass this when we will have the trasaction hash in the Retire model of polygon-digital-carbon
+    const retirement = await sdk.offsets.getKlimaRetirementTransactionId({
+      address: request.params.account_id.toLowerCase(),
+      index: BigInt(request.params.retirement_index).toString(),
+    });
+    if (isEmpty(retirement.klimaRetires)) {
+      return reply.notFound();
+    }
+
     const retirementRecord = (
-      await sdk.digital_carbon.getProvenanceRecords({ id: [hash] })
+      await sdk.digital_carbon.getProvenanceRecords({
+        id: [retirement.klimaRetires[0].transaction.id],
+      })
     ).provenanceRecords.at(0);
 
     if (retirementRecord == null) {

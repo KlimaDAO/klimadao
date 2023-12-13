@@ -2862,6 +2862,14 @@ export type FindCarbonOffsetsQueryVariables = Exact<{
 
 export type FindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string }> };
 
+export type GetKlimaRetirementTransactionIdQueryVariables = Exact<{
+  address: InputMaybe<Scalars['String']>;
+  index: InputMaybe<Scalars['BigInt']>;
+}>;
+
+
+export type GetKlimaRetirementTransactionIdQuery = { __typename?: 'Query', klimaRetires: Array<{ __typename?: 'KlimaRetire', transaction: { __typename?: 'Transaction', id: string } }> };
+
 export const CarbonOffsetFragmentFragmentDoc = gql`
     fragment CarbonOffsetFragment on CarbonOffset {
   id
@@ -2926,6 +2934,15 @@ export const FindCarbonOffsetsDocument = gql`
   }
 }
     ${CarbonOffsetFragmentFragmentDoc}`;
+export const GetKlimaRetirementTransactionIdDocument = gql`
+    query getKlimaRetirementTransactionId($address: String, $index: BigInt) {
+  klimaRetires(where: {beneficiaryAddress: $address, index: $index}) {
+    transaction {
+      id
+    }
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -2948,6 +2965,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     findCarbonOffsets(variables?: FindCarbonOffsetsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindCarbonOffsetsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<FindCarbonOffsetsQuery>(FindCarbonOffsetsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findCarbonOffsets', 'query');
+    },
+    getKlimaRetirementTransactionId(variables?: GetKlimaRetirementTransactionIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetKlimaRetirementTransactionIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetKlimaRetirementTransactionIdQuery>(GetKlimaRetirementTransactionIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getKlimaRetirementTransactionId', 'query');
     }
   };
 }
