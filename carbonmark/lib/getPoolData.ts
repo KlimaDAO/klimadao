@@ -13,12 +13,6 @@ export const getPoolTokenType = (pool: Uppercase<PoolToken>): CarbonToken =>
 export const getDefaultPoolFromPrices = (prices: TokenPrice[]) =>
   prices.find((p) => p.isPoolDefault);
 
-export const getBestPoolFromPrices = (prices: TokenPrice[]) => {
-  const pricesArray = prices.map((p) => Number(p.singleUnitPrice));
-  const min = Math.min(...pricesArray);
-  return prices.find((p) => Number(p.singleUnitPrice) == min);
-};
-
 export const getPoolApprovalValue = (cost: string): string => {
   if (!cost) return "0";
 
