@@ -1,4 +1,3 @@
-import { BigNumber } from "ethers";
 import { subgraphs } from "../../constants";
 import { KlimaRetire, QueryKlimaRetires } from "../../types/subgraph";
 
@@ -7,48 +6,49 @@ export const queryKlimaRetireByIndex = async (
   index: number
 ): Promise<KlimaRetire | null> => {
   try {
-    const result = await fetch(subgraphs.polygonBridgedCarbon, {
+    const result = await fetch(subgraphs.polygonDigitalCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         query: `
-          query {
-            klimaRetires(
-              where: {
-                beneficiaryAddress: "${beneficiaryAddress.toLowerCase()}", 
-                index: ${BigNumber.from(index)} 
-              }
-            ) {
-              id
-              timestamp
-              pool
-              transaction {
-                id
-              }
-              beneficiaryAddress
-              beneficiary
-              retirementMessage
+        query {
+          klimaRetires(
+            where: {retire_: {beneficiaryAddress: "${beneficiaryAddress.toLowerCase()}"}, index: ${index}},
+            orderBy: retire__timestamp,
+            orderDirection: desc
+          ) {
+            id
+            index
+            retire {
+              beneficiaryName
               amount
-              offset {
-                name
+              retirementMessage
+              timestamp
+              beneficiaryAddress {
                 id
-                tokenAddress
-                totalRetired
-                projectID
-                country
-                region 
-                bridge
-                registry 
-                standard
+              }
+              pool {
+                id
+              }
+              credit {
+                id
+                project {
+                  registry
+                  projectID
+                  region
+                  name
+                  methodologies
+                  id
+                  country
+                  category
+                }
+                bridgeProtocol
                 vintage
-                vintageYear
-                methodology
-                methodologyCategory
-                category
-                currentSupply
               }
             }
+            feeAmount
           }
+        }
           `,
       }),
     });
@@ -56,7 +56,9 @@ export const queryKlimaRetireByIndex = async (
       const json = await result.json();
       throw new Error(json);
     }
+
     const json: QueryKlimaRetires = await result.json();
+
     if (!json.data.klimaRetires.length) {
       return null; // might not exist yet, subgraph can be slow to index
     }
@@ -71,40 +73,49 @@ export const queryKlimaRetiresByAddress = async (
   beneficiaryAddress: string
 ): Promise<KlimaRetire[] | false> => {
   try {
-    const result = await fetch(subgraphs.polygonBridgedCarbon, {
+    const result = await fetch(subgraphs.polygonDigitalCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         query: `
-          query {
-            klimaRetires(
-              where: {
-                beneficiaryAddress: "${beneficiaryAddress.toLowerCase()}"
-              },
-              orderBy: timestamp, 
-              orderDirection: desc
-            ) {
-              id
-              pool
-              beneficiaryAddress
-              index
-              timestamp
-              retirementMessage
+        query {
+          klimaRetires(
+            where: {retire_: {beneficiaryAddress: "${beneficiaryAddress.toLowerCase()}"}},
+            orderBy: retire__timestamp,
+            orderDirection: desc
+          ) {
+            id
+            index
+            retire {
+              beneficiaryName
               amount
-              offset {
+              retirementMessage
+              timestamp
+              beneficiaryAddress {
                 id
-                tokenAddress
-                totalRetired
-                projectID
-                country
-                region 
-                bridge
-                registry 
-                standard
-                name
+              }
+              pool {
+                id
+              }
+              credit {
+                id
+                project {
+                  registry
+                  projectID
+                  region
+                  name
+                  methodologies
+                  id
+                  country
+                  category
+                }
+                bridgeProtocol
+                vintage
               }
             }
+            feeAmount
           }
+        }
           `,
       }),
     });
@@ -118,7 +129,7 @@ export const queryKlimaRetiresByAddress = async (
 
 export const queryKlimaBlockNumber = async (): Promise<number> => {
   try {
-    const result = await fetch(subgraphs.polygonBridgedCarbon, {
+    const result = await fetch(subgraphs.polygonDigitalCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

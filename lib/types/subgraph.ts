@@ -1,33 +1,34 @@
 export interface KlimaRetire {
   id: string;
-  timestamp: string;
   index: string;
-  pool: string; // mainnet address for retirement tokens. 0x000 for tco2s
-  beneficiaryAddress: string;
-  beneficiary: string;
-  retirementMessage: string;
-  amount: string;
-  transaction: {
-    id: string;
+  retire: {
+    beneficiaryName: string;
+    amount: string;
+    retirementMessage: string;
+    timestamp: string;
+    beneficiaryAddress: {
+      id: string;
+    };
+    pool: {
+      id: string;
+    };
+    credit: {
+      id: string;
+      project: {
+        registry: string;
+        projectID: string;
+        region: string;
+        name: string;
+        methodologies: string;
+        id: string;
+        country: string;
+        category: string;
+      };
+      bridgeProtocol: "Toucan" | "Moss" | "C3" | "ICR";
+      vintage: string;
+    };
   };
-  offset: {
-    name: string; // Name of project, not present on all
-    id: string;
-    tokenAddress: string;
-    totalRetired: string; // "0" if bridge is "Moss"
-    projectID: string; // starts with 'VCS-' if registry is "Verra"
-    country: string;
-    region: string;
-    bridge: "Toucan" | "Moss" | "C3";
-    registry: string; // "Verra" or "VCS"
-    standard: string; // "VCS" or "" for Moss
-    vintage: string;
-    vintageYear: string;
-    methodology: string;
-    methodologyCategory: string;
-    category: string;
-    currentSupply: string;
-  };
+  feeAmount: string;
 }
 
 export interface QueryKlimaRetires {

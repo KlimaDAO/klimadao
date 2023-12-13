@@ -48,7 +48,7 @@ export {
   queryKlimaBlockNumber,
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,
-} from "./subgraph/queryPolygonBridgedCarbon";
+} from "./subgraph/queryPolygonDigitalCarbon";
 export { trimStringDecimals } from "./trimStringDecimals";
 export { trimWithLocale } from "./trimWithLocale";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
