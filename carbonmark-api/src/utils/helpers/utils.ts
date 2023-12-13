@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply } from "fastify";
-import { compact, concat, isArray } from "lodash";
+import { compact, concat, isArray, omit } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
   ActivityType,
@@ -230,6 +230,17 @@ export const isMatchingCmsProject = (
   project: CarbonProject
 ) => project?.registryProjectId === projectId && project.registry === registry;
 
+export function formatGraphTimestamps<
+  T extends { createdAt: string | null; updatedAt: string | null },
+>(data: T) {
+  const partialData = omit(data, ["createdAt", "updatedAt"]);
+  return {
+    ...partialData,
+    /** Note: Graph timestamps are in seconds **/
+    createdAt: Number(data.createdAt),
+    updatedAt: Number(data.updatedAt),
+  };
+}
 /**
  * Converts a String into an ActivityType without breaking typescript checks
  */
