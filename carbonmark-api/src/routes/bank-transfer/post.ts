@@ -1,6 +1,6 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { HUBSPOT_URLS } from "src/app.constants";
+import { HUBSPOT_URLS } from "../../../src/app.constants";
 import { RequestBody } from "./post.schema";
 
 export const handler = (fastify: FastifyInstance) =>
@@ -8,13 +8,13 @@ export const handler = (fastify: FastifyInstance) =>
     request: FastifyRequest<{ Body: Static<typeof RequestBody> }>,
     reply: FastifyReply
   ) {
-    const response = await fetch(HUBSPOT_URLS.payWithBankTransform, {
+    const response = await fetch(HUBSPOT_URLS.payWithBankTransfer, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         fields: [
           {
-            name: "how_much_would_you_like_to_retire_",
+            name: "retirement_amount",
             objectTypeId: "0-1",
             value: request?.body?.quantity,
           },
@@ -59,7 +59,7 @@ export const handler = (fastify: FastifyInstance) =>
             value: request?.body?.beneficiary_address,
           },
           {
-            name: "project_names_of_interest", // todo change to carbonmark one...
+            name: "project_names___volumes_of_interest",
             objectTypeId: "0-1",
             value: request?.body?.project_name,
           },
@@ -76,9 +76,8 @@ export const handler = (fastify: FastifyInstance) =>
 
     if (!response.ok) {
       return reply.status(400).send({
-        status: data.status,
+        status: "error",
         message: "Something went wrong",
-        errors: data.errors,
       });
     }
 
