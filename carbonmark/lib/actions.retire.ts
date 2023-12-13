@@ -18,7 +18,7 @@ export const getRetirementAllowance = async (params: {
   userAddress: string;
   token: CarbonmarkPaymentMethod;
 }) => {
-  if (params.token === "fiat") return; // typeguard
+  if (params.token === "fiat" || params.token === "bank-transfer") return; // typeguard
 
   const allowance = await getAllowance({
     contract: getContract({
@@ -41,6 +41,10 @@ export const getConsumptionCost = async (params: {
   projectTokenAddress: string;
   currentUrl: string;
 }): Promise<string> => {
+  if (params.inputToken === "bank-transfer") {
+    return "0";
+  }
+
   if (params.inputToken === "fiat") {
     const fiatCosts = await getFiatRetirementCost({
       cancelUrl: `${urls.baseUrl}${params.currentUrl}`,
@@ -141,7 +145,10 @@ export const retireCarbonTransaction = async (params: {
   blockNumber: number;
   retirementIndex: number;
 }> => {
-  if (params.paymentMethod === "fiat") {
+  if (
+    params.paymentMethod === "fiat" ||
+    params.paymentMethod === "bank-transfer"
+  ) {
     throw Error("Unsupported payment method");
   }
 
