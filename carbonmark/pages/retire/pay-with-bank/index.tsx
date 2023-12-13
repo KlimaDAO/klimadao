@@ -1,4 +1,3 @@
-import { defaultProjects } from "@klimadao/lib/utils";
 import { PayWithBank } from "components/pages/Project/PayWithBank";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
@@ -14,7 +13,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     return {
       props: {
         translation,
-        defaultProjects,
         fixedThemeName: "theme-light",
       },
     };
