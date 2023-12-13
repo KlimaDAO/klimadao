@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-13 18:55+0000\n"
+"POT-Creation-Date: 2023-12-13 19:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -125,7 +125,7 @@ msgid ""
 "quantity and try again later."
 msgstr "इस समय, कार्बनमार्क {0} से अधिक क्रेडिट कार्ड भुगतान संसाधित नहीं कर सकता है। कृपया मात्रा समायोजित करें और बाद में पुनः प्रयास करें।"
 
-#: components/ProjectCard/index.tsx:46
+#: components/ProjectCard/index.tsx:47
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
 msgid "Available Tonnes:"
 msgstr "उपलब्ध टन:"
@@ -750,7 +750,7 @@ msgstr "कोई प्रॉजेक्ट विवरण मौजूद �
 msgid "No projects found with current filters"
 msgstr "मौजूदा फ़िल्टर वाला कोई प्रोजेक्ट नहीं मिला"
 
-#: components/ProjectCard/index.tsx:63
+#: components/ProjectCard/index.tsx:64
 msgid "No props.project description found"
 msgstr "कोई props.project विवरण नहीं मिला"
 

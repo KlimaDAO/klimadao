@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-13 18:55+0000\n"
+"POT-Creation-Date: 2023-12-13 19:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -127,7 +127,7 @@ msgstr ""
 "Actuellement, Carbonmark ne peut pas traiter les paiements par carte de crédit supérieurs à {0}.\n"
 "Veuillez ajuster la quantité et réessayer plus tard."
 
-#: components/ProjectCard/index.tsx:46
+#: components/ProjectCard/index.tsx:47
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
 msgid "Available Tonnes:"
 msgstr "Tonnes disponibles :"
@@ -748,7 +748,7 @@ msgstr "Aucune description de projet n'a été trouvée"
 msgid "No projects found with current filters"
 msgstr "Aucun projet n'a été trouvé avec les filtres sélectionnés"
 
-#: components/ProjectCard/index.tsx:63
+#: components/ProjectCard/index.tsx:64
 msgid "No props.project description found"
 msgstr "Aucune description de projet n'a été trouvée"
 
