@@ -236,7 +236,7 @@ export function formatGraphTimestamps<
   const partialData = omit(data, ["createdAt", "updatedAt"]);
   return {
     ...partialData,
-/** Note: Graph timestamps are in seconds **
+    /** Note: Graph timestamps are in seconds **/
     createdAt: Number(data.createdAt),
     updatedAt: Number(data.updatedAt),
   };
