@@ -13,7 +13,7 @@ describe("POST /retire/bank-transfer", () => {
 
   test("with valid form data", async () => {
     const SUCCESS_RESPONSE = {
-      success: "ok",
+      status: "ok",
       message:
         "<p>Thanks for submitting the form. Our team will be in touch in the coming days.&nbsp;</p>",
     };
@@ -30,13 +30,13 @@ describe("POST /retire/bank-transfer", () => {
         email: "test@carbonmark.com",
         phone_number: "01 000 0000",
         company_name: "Carbonmark",
-        first_name: "John",
-        last_name: "Doe",
+        first_name: "Test",
+        last_name: "User",
         job_title: "Engineer",
         project_name: "Test Project",
-        beneficiary_name: "John Doe",
+        beneficiary_name: "Carbonmark API Tests",
         beneficiary_address: "0x000000000000000000000",
-        retirement_message: "This is the message",
+        retirement_message: "I love helping the environment by retiring carbon",
       },
     });
     const data = await response.json();
@@ -58,13 +58,13 @@ describe("POST /retire/bank-transfer", () => {
       body: {
         email: "test@carbonmark.com",
         phone_number: "01 000 0000",
-        first_name: "John",
-        last_name: "Doe",
+        first_name: "Test",
+        last_name: "User",
         job_title: "Engineer",
         project_name: "Test Project",
-        beneficiary_name: "John Doe",
+        beneficiary_name: "Carbonmark API Tests",
         beneficiary_address: "0x000000000000000000000",
-        retirement_message: "This is the message",
+        retirement_message: "I love helping the environment by retiring carbon",
       },
     });
     const data = await response.json();
