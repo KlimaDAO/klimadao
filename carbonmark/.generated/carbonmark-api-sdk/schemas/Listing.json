@@ -30,8 +30,8 @@
         { "type": "null" }
       ]
     },
-    "createdAt": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-    "updatedAt": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "createdAt": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "updatedAt": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
     "seller": {
       "type": "object",
       "properties": {
@@ -47,7 +47,7 @@
     },
     "expiration": {
       "description": "Unix Timestamp (seconds) when the listing expires.",
-      "type": "string"
+      "type": "number"
     },
     "minFillAmount": {
       "description": "Minimum quantity for purchase transaction to succeed.",

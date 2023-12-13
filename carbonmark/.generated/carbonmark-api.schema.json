@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 3.0.0** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v3.0.0.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 4.0.0** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v4.0.0.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "3.0.0"
+    "version": "4.0.0"
   },
   "components": {
     "schemas": {
@@ -244,7 +244,7 @@
                     "createdAt": {
                       "anyOf": [
                         {
-                          "type": "string"
+                          "type": "number"
                         },
                         {
                           "type": "null"
@@ -254,7 +254,7 @@
                     "updatedAt": {
                       "anyOf": [
                         {
-                          "type": "string"
+                          "type": "number"
                         },
                         {
                           "type": "null"
@@ -314,7 +314,7 @@
                     },
                     "expiration": {
                       "description": "Unix Timestamp (seconds) when the listing expires.",
-                      "type": "string"
+                      "type": "number"
                     },
                     "minFillAmount": {
                       "description": "Minimum quantity for purchase transaction to succeed.",
@@ -783,7 +783,7 @@
                 "createdAt": {
                   "anyOf": [
                     {
-                      "type": "string"
+                      "type": "number"
                     },
                     {
                       "type": "null"
@@ -793,7 +793,7 @@
                 "updatedAt": {
                   "anyOf": [
                     {
-                      "type": "string"
+                      "type": "number"
                     },
                     {
                       "type": "null"
@@ -853,7 +853,7 @@
                 },
                 "expiration": {
                   "description": "Unix Timestamp (seconds) when the listing expires.",
-                  "type": "string"
+                  "type": "number"
                 },
                 "minFillAmount": {
                   "description": "Minimum quantity for purchase transaction to succeed.",
@@ -1162,7 +1162,7 @@
           "createdAt": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "number"
               },
               {
                 "type": "null"
@@ -1172,7 +1172,7 @@
           "updatedAt": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "number"
               },
               {
                 "type": "null"
@@ -1232,7 +1232,7 @@
           },
           "expiration": {
             "description": "Unix Timestamp (seconds) when the listing expires.",
-            "type": "string"
+            "type": "number"
           },
           "minFillAmount": {
             "description": "Minimum quantity for purchase transaction to succeed.",
@@ -1577,7 +1577,7 @@
                 "createdAt": {
                   "anyOf": [
                     {
-                      "type": "string"
+                      "type": "number"
                     },
                     {
                       "type": "null"
@@ -1587,7 +1587,7 @@
                 "updatedAt": {
                   "anyOf": [
                     {
-                      "type": "string"
+                      "type": "number"
                     },
                     {
                       "type": "null"
@@ -1647,7 +1647,7 @@
                 },
                 "expiration": {
                   "description": "Unix Timestamp (seconds) when the listing expires.",
-                  "type": "string"
+                  "type": "number"
                 },
                 "minFillAmount": {
                   "description": "Minimum quantity for purchase transaction to succeed.",
@@ -1895,10 +1895,7 @@
           "username",
           "updatedAt",
           "createdAt",
-          "wallet",
-          "listings",
-          "activities",
-          "assets"
+          "wallet"
         ]
       },
       "Asset": {
@@ -2026,6 +2023,211 @@
             ]
           }
         }
+      },
+      "ProvenanceRecord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "registrySerialNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "token": {
+            "type": "string"
+          },
+          "sender": {
+            "type": "string"
+          },
+          "receiver": {
+            "type": "string"
+          },
+          "originalAmount": {
+            "type": "number"
+          },
+          "remainingAmount": {
+            "type": "number"
+          },
+          "createdAt": {
+            "type": "number"
+          },
+          "updatedAt": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "transactionType",
+          "registrySerialNumbers",
+          "token",
+          "sender",
+          "receiver",
+          "originalAmount",
+          "remainingAmount",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "Retirement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bridgeId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "beneficiaryAddress": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "retirementMessage": {
+            "type": "string"
+          },
+          "retiringAddress": {
+            "type": "string"
+          },
+          "retiringName": {
+            "type": "string"
+          },
+          "retireeProfile": {
+            "type": "object",
+            "properties": {
+              "handle": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "username": {
+                "type": "string"
+              },
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "profileImgUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "updatedAt": {
+                "type": "number"
+              },
+              "createdAt": {
+                "type": "number"
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "username",
+              "updatedAt",
+              "createdAt",
+              "address"
+            ]
+          },
+          "timestamp": {
+            "type": "number"
+          },
+          "credit": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "bridgeProtocol": {
+                "type": "string"
+              },
+              "vintage": {
+                "type": "number"
+              },
+              "currentSupply": {
+                "type": "number"
+              },
+              "retired": {
+                "type": "number"
+              },
+              "crossChainSupply": {
+                "type": "number"
+              },
+              "projectId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "currentSupply",
+              "retired",
+              "crossChainSupply",
+              "projectId"
+            ]
+          }
+        },
+        "required": [
+          "amount",
+          "beneficiaryAddress",
+          "retiringAddress",
+          "timestamp"
+        ]
+      },
+      "CarbonCredit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bridgeProtocol": {
+            "type": "string"
+          },
+          "vintage": {
+            "type": "number"
+          },
+          "currentSupply": {
+            "type": "number"
+          },
+          "retired": {
+            "type": "number"
+          },
+          "crossChainSupply": {
+            "type": "number"
+          },
+          "projectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currentSupply",
+          "retired",
+          "crossChainSupply",
+          "projectId"
+        ]
       },
       "def-0": {
         "type": "object",
@@ -2701,7 +2903,7 @@
                                 "createdAt": {
                                   "anyOf": [
                                     {
-                                      "type": "string"
+                                      "type": "number"
                                     },
                                     {
                                       "type": "null"
@@ -2711,7 +2913,7 @@
                                 "updatedAt": {
                                   "anyOf": [
                                     {
-                                      "type": "string"
+                                      "type": "number"
                                     },
                                     {
                                       "type": "null"
@@ -2771,7 +2973,7 @@
                                 },
                                 "expiration": {
                                   "description": "Unix Timestamp (seconds) when the listing expires.",
-                                  "type": "string"
+                                  "type": "number"
                                 },
                                 "minFillAmount": {
                                   "description": "Minimum quantity for purchase transaction to succeed.",
@@ -3046,7 +3248,7 @@
                           "createdAt": {
                             "anyOf": [
                               {
-                                "type": "string"
+                                "type": "number"
                               },
                               {
                                 "type": "null"
@@ -3056,7 +3258,7 @@
                           "updatedAt": {
                             "anyOf": [
                               {
-                                "type": "string"
+                                "type": "number"
                               },
                               {
                                 "type": "null"
@@ -3116,7 +3318,7 @@
                           },
                           "expiration": {
                             "description": "Unix Timestamp (seconds) when the listing expires.",
-                            "type": "string"
+                            "type": "number"
                           },
                           "minFillAmount": {
                             "description": "Minimum quantity for purchase transaction to succeed.",
@@ -3364,10 +3566,7 @@
                     "username",
                     "updatedAt",
                     "createdAt",
-                    "wallet",
-                    "listings",
-                    "activities",
-                    "assets"
+                    "wallet"
                   ]
                 }
               }
@@ -4068,7 +4267,7 @@
                           "createdAt": {
                             "anyOf": [
                               {
-                                "type": "string"
+                                "type": "number"
                               },
                               {
                                 "type": "null"
@@ -4078,7 +4277,7 @@
                           "updatedAt": {
                             "anyOf": [
                               {
-                                "type": "string"
+                                "type": "number"
                               },
                               {
                                 "type": "null"
@@ -4138,7 +4337,7 @@
                           },
                           "expiration": {
                             "description": "Unix Timestamp (seconds) when the listing expires.",
-                            "type": "string"
+                            "type": "number"
                           },
                           "minFillAmount": {
                             "description": "Minimum quantity for purchase transaction to succeed.",
@@ -4660,6 +4859,97 @@
         }
       }
     },
+    "/retirements/{id}/provenance": {
+      "get": {
+        "summary": "Retirement provenance records",
+        "tags": [
+          "Records"
+        ],
+        "description": "Retrieve a retirement provenance records",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Transaction id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement provenance record with retirement transaction id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "transactionType": {
+                        "type": "string"
+                      },
+                      "registrySerialNumbers": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "token": {
+                        "type": "string"
+                      },
+                      "sender": {
+                        "type": "string"
+                      },
+                      "receiver": {
+                        "type": "string"
+                      },
+                      "originalAmount": {
+                        "type": "number"
+                      },
+                      "remainingAmount": {
+                        "type": "number"
+                      },
+                      "createdAt": {
+                        "type": "number"
+                      },
+                      "updatedAt": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "transactionType",
+                      "registrySerialNumbers",
+                      "token",
+                      "sender",
+                      "receiver",
+                      "originalAmount",
+                      "remainingAmount",
+                      "createdAt",
+                      "updatedAt"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/login/verify": {
       "post": {
         "summary": "Verify signed data",
@@ -4712,11 +5002,283 @@
           }
         }
       }
+    },
+    "/retirements/klima/{account_id}/{retirement_index}": {
+      "get": {
+        "summary": "Retirement",
+        "tags": [
+          "Retirements"
+        ],
+        "description": "Retrieve a klima retirement by account and retirement index",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x087a7afb6975a2837453be685eb6272576c0bc",
+            "in": "path",
+            "name": "account_id",
+            "required": true,
+            "description": "Account ID"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "5",
+            "in": "path",
+            "name": "retirement_index",
+            "required": true,
+            "description": "Retirement index"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement with account and index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "bridgeId": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "beneficiaryAddress": {
+                      "type": "string"
+                    },
+                    "beneficiaryName": {
+                      "type": "string"
+                    },
+                    "retirementMessage": {
+                      "type": "string"
+                    },
+                    "retiringAddress": {
+                      "type": "string"
+                    },
+                    "retiringName": {
+                      "type": "string"
+                    },
+                    "retireeProfile": {
+                      "type": "object",
+                      "properties": {
+                        "handle": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "profileImgUrl": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "updatedAt": {
+                          "type": "number"
+                        },
+                        "createdAt": {
+                          "type": "number"
+                        },
+                        "address": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "username",
+                        "updatedAt",
+                        "createdAt",
+                        "address"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "credit": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "bridgeProtocol": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "number"
+                        },
+                        "currentSupply": {
+                          "type": "number"
+                        },
+                        "retired": {
+                          "type": "number"
+                        },
+                        "crossChainSupply": {
+                          "type": "number"
+                        },
+                        "projectId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "currentSupply",
+                        "retired",
+                        "crossChainSupply",
+                        "projectId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "beneficiaryAddress",
+                    "retiringAddress",
+                    "timestamp"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements/klima/{account_id}/{retirement_index}/provenance": {
+      "get": {
+        "summary": "Retirement provenance records",
+        "tags": [
+          "Records"
+        ],
+        "description": "Retrieve a retirement provenance records",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x087a7afb6975a2837453be685eb6272576c0bc",
+            "in": "path",
+            "name": "account_id",
+            "required": true,
+            "description": "Account ID"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "5",
+            "in": "path",
+            "name": "retirement_index",
+            "required": true,
+            "description": "Retirement index"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement provenance record with account id and retirement index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "transactionType": {
+                        "type": "string"
+                      },
+                      "registrySerialNumbers": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "token": {
+                        "type": "string"
+                      },
+                      "sender": {
+                        "type": "string"
+                      },
+                      "receiver": {
+                        "type": "string"
+                      },
+                      "originalAmount": {
+                        "type": "number"
+                      },
+                      "remainingAmount": {
+                        "type": "number"
+                      },
+                      "createdAt": {
+                        "type": "number"
+                      },
+                      "updatedAt": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "transactionType",
+                      "registrySerialNumbers",
+                      "token",
+                      "sender",
+                      "receiver",
+                      "originalAmount",
+                      "remainingAmount",
+                      "createdAt",
+                      "updatedAt"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "servers": [
     {
-      "url": "https://v3.0.0.api.carbonmark.com"
+      "url": "https://v4.0.0.api.carbonmark.com"
     }
   ],
   "externalDocs": {
