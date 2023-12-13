@@ -26,7 +26,7 @@ export const getProfileByAddress = async (params: {
 
   if (!doc.exists) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known type
-  return doc.data() as UserProfile;
+  return formatProfile(doc.data() as UserProfile);
 };
 
 /**
@@ -56,7 +56,7 @@ export const getUserProfilesByIds = async (params: {
       if (!d.exists) return;
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known
       const profile = d.data() as UserProfile;
-      UserProfileMap.set(profile.address, profile);
+      UserProfileMap.set(profile.address, formatProfile(profile));
     });
   return UserProfileMap;
 };
@@ -78,5 +78,12 @@ export const getProfileByHandle = async (params: {
   if (snapshot.empty) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- apply known type
   const profile = snapshot.docs.at(0)?.data() as UserProfile | undefined;
-  return profile || null;
+  return profile ? formatProfile(profile) : null;
+};
+const formatProfile = (profile: UserProfile): UserProfile => {
+  return {
+    ...profile,
+    createdAt: Math.floor(profile.createdAt / 1000),
+    updatedAt: Math.floor(profile.updatedAt / 1000),
+  };
 };

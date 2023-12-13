@@ -1,14 +1,16 @@
-import { useGetProjectsId } from ".generated/carbonmark-api-sdk/hooks";
+import {
+  useGetProjectsId,
+  useGetProjectsIdActivity,
+} from ".generated/carbonmark-api-sdk/hooks";
+import { Activity } from ".generated/carbonmark-api-sdk/types";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
-import { REGISTRIES } from "@klimadao/lib/constants";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
 import Carousel from "components/Carousel/Carousel";
-import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
@@ -16,36 +18,47 @@ import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
-import { Vintage } from "components/Vintage";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
 import {
-  CategoryName,
+  ActivityActionT,
   DetailedProject,
   Listing,
   TokenPrice,
 } from "lib/types/carbonmark.types";
-import { extract, notNil, selector } from "lib/utils/functional.utils";
-import { compact, concat, isEmpty, isNil, sortBy } from "lodash";
+import { extract, notNil } from "lib/utils/functional.utils";
+import { compact, concat, isNil, sortBy } from "lodash";
 import { NextPage } from "next";
 import { useState } from "react";
 import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
 import { ProjectMap } from "./ProjectMap";
+import { ProjectTags } from "./ProjectTags";
 import * as styles from "./styles";
 
 export type PageProps = {
   project: DetailedProject;
+  activities: Activity[];
   projectID: string;
 };
 
+export const VISIBLE_ACTIVITIES: ActivityActionT[] = [
+  "CreatedListing",
+  "DeletedListing",
+  "Purchase",
+  "UpdatedPrice",
+  "UpdatedQuantity",
+];
+
 const Page: NextPage<PageProps> = (props) => {
   const { data: project } = useGetProjectsId(props.projectID);
+  const { data: activities } = useGetProjectsIdActivity(props.projectID, {
+    activityType: VISIBLE_ACTIVITIES,
+  });
   const [isExpanded, setIsExpanded] = useState(false);
   const bestPrice = project?.price;
-
   // Project should always be defined from static page props!
   if (isNil(project)) {
     console.error(`Invalid project for ${props.projectID}`);
@@ -91,10 +104,6 @@ const Page: NextPage<PageProps> = (props) => {
       />
     );
   });
-  /** Match the registry key "VCS" to the correct registry */
-  const registry = Object.values(REGISTRIES).find(
-    selector("id", project.registry)
-  )?.title;
 
   return (
     <>
@@ -114,23 +123,7 @@ const Page: NextPage<PageProps> = (props) => {
           <Text t="h4" className={styles.projectHeaderText}>
             {project.name || "Error - No project name found"}
           </Text>
-          <div className={styles.tags}>
-            <Text t="h5" className={styles.projectHeaderText}>
-              {project.registry}-{project.projectID}
-            </Text>
-            <Vintage vintage={project.vintage} />
-            {!isEmpty(methodologies) ? (
-              methodologies.map((methodology) => (
-                <Category
-                  key={methodology?.id}
-                  category={(methodology.category as CategoryName) ?? "Other"}
-                />
-              ))
-            ) : (
-              <Category category={category} />
-            )}
-            {notNil(registry) && <Text className={styles.tag}>{registry}</Text>}
-          </div>
+          <ProjectTags project={project} />
         </div>
         <div className={styles.meta}>
           <div className="best-price">
@@ -243,7 +236,7 @@ const Page: NextPage<PageProps> = (props) => {
               allListings={listings}
               activeListings={activeListings}
             />
-            <Activities activities={project.activities} />
+            <Activities activities={activities || []} />
           </div>
         </div>
       </Layout>
@@ -258,6 +251,7 @@ export const Project: NextPage<PageProps> = (props) => {
         fetcher,
         fallback: {
           [`/projects/${props.projectID}`]: props.project,
+          [`/projects/${props.projectID}/activity`]: props.activities,
         },
       }}
     >

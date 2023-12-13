@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-08 12:17+0000\n"
+"POT-Creation-Date: 2023-12-13 09:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgstr "Wallet-Adresse des Begünstigten (optional)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:143
+#: components/pages/Project/index.tsx:136
 msgid "Best Price"
 msgstr "Niedrigster Preis"
 
@@ -421,7 +421,7 @@ msgstr "Derzeit akzeptiert Carbonmark nur Zahlungen via USDC (Polygon-Netzwerk).
 msgid "DATE"
 msgstr "DATUM"
 
-#: components/pages/Project/index.tsx:240
+#: components/pages/Project/index.tsx:233
 msgid "Data for this project and vintage"
 msgstr "Informationen über dieses Projekt und diesen Jahrgang"
 
@@ -438,7 +438,7 @@ msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 msgid "Describe the purpose of this retirement"
 msgstr "Beschreibe den Zweck dieses Ausgleichs"
 
-#: components/pages/Project/index.tsx:191
+#: components/pages/Project/index.tsx:184
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -688,7 +688,7 @@ msgstr "Marktplatz | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Maximieren Sie Ihre positive Klimawirkung."
 
-#: components/pages/Project/index.tsx:150
+#: components/pages/Project/index.tsx:143
 msgid "Methodology"
 msgstr "Methodik"
 
@@ -733,7 +733,7 @@ msgstr "Keine Daten zum Anzeigen"
 msgid "No listable assets found."
 msgstr "Keine eintragbaren Assets gefunden."
 
-#: components/pages/Project/index.tsx:230
+#: components/pages/Project/index.tsx:223
 msgid "No listings found for this project."
 msgstr "Keine Einträge für dieses Projekt gefunden."
 
@@ -942,11 +942,11 @@ msgstr "Jetzt kompensieren"
 msgid "RETIRE CARBON"
 msgstr "CO2 KOMPENSIEREN"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:197
 msgid "Read Less"
 msgstr "Weniger anzeigen"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:197
 msgid "Read More"
 msgstr "Weiterlesen"
 
@@ -1439,7 +1439,7 @@ msgstr "Ansehen"
 msgid "View Carbonmark Profile"
 msgstr "Carbonmark-Profil anzeigen"
 
-#: components/pages/Project/index.tsx:213
+#: components/pages/Project/index.tsx:206
 msgid "View Registry Details <0/>"
 msgstr "Registrierungsdetails anzeigen <0/>"
 
@@ -1472,7 +1472,7 @@ msgstr "Alle Projekte ansehen"
 msgid "View all Retirements"
 msgstr "Alle CO2-Ausgleiche ansehen"
 
-#: components/pages/Project/index.tsx:104
+#: components/pages/Project/index.tsx:113
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Betrachten und kaufen Sie dieses CO2-Ausgleichsprojekt auf Carbonmark"
 
@@ -1950,7 +1950,7 @@ msgstr "{retiree} hat {formattedAmount} Tonnen CO2 ausgeglichen"
 msgid "retirement.head.title"
 msgstr "Carbonmark | Quittung für CO2-Ausgleich"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:41
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "Keine Empfängeradresse verfügbar"
 
@@ -1962,7 +1962,7 @@ msgstr "Keinen Empfängername angegeben"
 msgid "retirement.single.beneficiary.title"
 msgstr "Begünstigter:"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:35
 msgid "retirement.single.beneficiary_address.title"
 msgstr "0x-Adresse des Begünstigten"
 
@@ -1970,7 +1970,7 @@ msgstr "0x-Adresse des Begünstigten"
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "CO2-Credit-Ausgleich"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:94
 msgid "retirement.single.country_region.title"
 msgstr "Land/Region:"
 
@@ -1982,7 +1982,7 @@ msgstr "Dies repräsentiert einen permanenten CO2-Ausgleich durch ein digitales 
 msgid "retirement.single.message.title"
 msgstr "Ausgleichsnachricht:"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:82
 msgid "retirement.single.methodology.title"
 msgstr "Methodik:"
 
@@ -1998,7 +1998,7 @@ msgstr "Moss Earth MCO2"
 msgid "retirement.single.official_certificate.title"
 msgstr "Offizielles Zertifikat für On-Chain-CO2-Ausgleich bereitgestellt von <0>Carbonmark.com</0>"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:66
 msgid "retirement.single.project.title"
 msgstr "Projekt:"
 
@@ -2030,19 +2030,19 @@ msgstr "Diesen Ausgleich teilen"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:55
 msgid "retirement.single.transaction_id.placeholder"
 msgstr "Keine Transaktions-ID verfügbar"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:49
 msgid "retirement.single.transaction_id.title"
 msgstr "Transaktions-ID"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:28
 msgid "retirement.single.transaction_record.title"
 msgstr "Unveränderlicher Transaktionsdatensatz"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:74
 msgid "retirement.single.type.title"
 msgstr "Typ:"
 
@@ -2054,7 +2054,7 @@ msgstr "Verifizierte CO2-Tonnen ausgeglichen"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:107
 msgid "retirement.single.vintage.title"
 msgstr "Jahrgang:"
 

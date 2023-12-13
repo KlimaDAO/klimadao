@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-08 12:17+0000\n"
+"POT-Creation-Date: 2023-12-13 09:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -210,7 +210,7 @@ msgstr "Adresse du portefeuille du bénéficiaire (facultatif)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:143
+#: components/pages/Project/index.tsx:136
 msgid "Best Price"
 msgstr "Meilleur prix"
 
@@ -423,7 +423,7 @@ msgstr "Actuellement, Carbonmark n'accepte que les paiements en USDC sur Polygon
 msgid "DATE"
 msgstr "DATE"
 
-#: components/pages/Project/index.tsx:240
+#: components/pages/Project/index.tsx:233
 msgid "Data for this project and vintage"
 msgstr "Données pour ce projet et année"
 
@@ -440,7 +440,7 @@ msgstr "Par défaut, l'adresse du portefeuille connecté"
 msgid "Describe the purpose of this retirement"
 msgstr "Décrivez le but de ce retrait du marché"
 
-#: components/pages/Project/index.tsx:191
+#: components/pages/Project/index.tsx:184
 msgid "Description"
 msgstr "Description"
 
@@ -690,7 +690,7 @@ msgstr "Place de Marché | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Maximisez votre impact climatique."
 
-#: components/pages/Project/index.tsx:150
+#: components/pages/Project/index.tsx:143
 msgid "Methodology"
 msgstr "Méthodologie"
 
@@ -735,7 +735,7 @@ msgstr "Aucune donnée à afficher"
 msgid "No listable assets found."
 msgstr "Aucun actif à vendre n'a été trouvé."
 
-#: components/pages/Project/index.tsx:230
+#: components/pages/Project/index.tsx:223
 msgid "No listings found for this project."
 msgstr "Aucune annonce trouvée pour ce projet."
 
@@ -944,11 +944,11 @@ msgstr "Retrait Rapide"
 msgid "RETIRE CARBON"
 msgstr "RETIRER DU CARBONE"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:197
 msgid "Read Less"
 msgstr "En lire moins"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:197
 msgid "Read More"
 msgstr "En savoir plus"
 
@@ -1441,7 +1441,7 @@ msgstr "Voir"
 msgid "View Carbonmark Profile"
 msgstr "Voir le profil Carbonmark"
 
-#: components/pages/Project/index.tsx:213
+#: components/pages/Project/index.tsx:206
 msgid "View Registry Details <0/>"
 msgstr "Voir les détails du registre <0/>"
 
@@ -1474,7 +1474,7 @@ msgstr "Voir tous les Projets"
 msgid "View all Retirements"
 msgstr "Voir tous les Retraits"
 
-#: components/pages/Project/index.tsx:104
+#: components/pages/Project/index.tsx:113
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Voir et acheter ce projet de compensation carbone sur Carbonmark"
 
@@ -1952,7 +1952,7 @@ msgstr "{retiree} a retiré du marché {formattedAmount} Tonnes de carbone"
 msgid "retirement.head.title"
 msgstr "Carbonmark | Reçu de Retrait du Marché Carbone"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:41
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "Aucune adresse de bénéficiaire disponible"
 
@@ -1964,7 +1964,7 @@ msgstr "Aucun bénéficiaire associé"
 msgid "retirement.single.beneficiary.title"
 msgstr "Bénéficiaire :"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:35
 msgid "retirement.single.beneficiary_address.title"
 msgstr "Adresse du Bénéficiaire :"
 
@@ -1972,7 +1972,7 @@ msgstr "Adresse du Bénéficiaire :"
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "Retrait des Crédits Carbone"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:94
 msgid "retirement.single.country_region.title"
 msgstr "Pays/Région :"
 
@@ -1984,7 +1984,7 @@ msgstr "Il s'agit du retrait permanent du marché d'un actif carbone numérique.
 msgid "retirement.single.message.title"
 msgstr "Message de Retrait :"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:82
 msgid "retirement.single.methodology.title"
 msgstr "Méthodologie :"
 
@@ -2000,7 +2000,7 @@ msgstr "MOSS Earth MC02"
 msgid "retirement.single.official_certificate.title"
 msgstr "Certificat Officiel de Retrait du marché Carbone réalisé sur la chaîne de blocs fourni par <0>Carbonmark.com</0>"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:66
 msgid "retirement.single.project.title"
 msgstr "Projet :"
 
@@ -2032,19 +2032,19 @@ msgstr "Partagez ce retrait"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Retrait non horodatée"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:55
 msgid "retirement.single.transaction_id.placeholder"
 msgstr "Aucun identifiant de transaction disponible"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:49
 msgid "retirement.single.transaction_id.title"
 msgstr "Identifiant de Transaction"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:28
 msgid "retirement.single.transaction_record.title"
 msgstr "Enregistrement immuable de la transaction"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:74
 msgid "retirement.single.type.title"
 msgstr "Type :"
 
@@ -2056,7 +2056,7 @@ msgstr "Tonnes de carbone vérifiées retirées du marché"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Voir sur Polygonscan"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:107
 msgid "retirement.single.vintage.title"
 msgstr "Année :"
 
