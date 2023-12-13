@@ -66,7 +66,7 @@ const validations = (
     quantity: {
       min: {
         value: 1,
-        message: t`The minimum amount to retire is 1 Tonnes`,
+        message: t`The minimum amount to retire is 1 Tonne`,
       },
     },
     totalPrice: {
@@ -82,6 +82,30 @@ const validations = (
             At this time, Carbonmark cannot process credit card payments
             exceeding ${formatToPrice(fiatBalance || 0)}. Please adjust the
             quantity and try again later.
+          `,
+      },
+    },
+  },
+  "bank-transfer": {
+    quantity: {
+      min: {
+        // @todo - makka - confirm with atmos/brice what the min quantity is
+        value: 1,
+        message: t`The minimum amount to retire is 1 Tonne`,
+      },
+    },
+    totalPrice: {
+      min: {
+        // @todo - makka - confirm with atmos/brice what the min total is
+        value: 1,
+        message: t`The minimum amount to retire is 1 Tonne`,
+      },
+      max: {
+        // @todo - makka - confirm with atmos/brice what the max total is
+        value: 2000,
+        message: t`
+            At this time, Carbonmark cannot process bank transfer payments
+            exceeding 2000. Please adjust the quantity and try again later.
           `,
       },
     },
@@ -120,9 +144,7 @@ export const RetireInputs: FC<Props> = (props) => {
   const exceededFiatBalance =
     isFiat && Number(props.fiatBalance) < Number(totalPrice);
 
-  const payWithItems = Object.entries(
-    carbonmarkRetirePaymentMethodMap
-  ).reverse();
+  const payWithItems = Object.entries(carbonmarkRetirePaymentMethodMap);
 
   /** Credit card fee string to display in the price card for fiat payments */
   const calcCreditCardFee = (): string => {
@@ -149,7 +171,7 @@ export const RetireInputs: FC<Props> = (props) => {
   }, [paymentMethod, props.fiatAmountError]);
 
   const exceededBalance =
-    paymentMethod !== "fiat" &&
+    paymentMethod === "usdc" &&
     !!props.userBalance &&
     Number(props.userBalance) <= Number(props.approvalValue);
 
@@ -332,7 +354,7 @@ export const RetireInputs: FC<Props> = (props) => {
                         src={value.icon}
                         alt={value.label}
                       />
-                      {item === "fiat" ? (
+                      {item === "fiat" || item === "bank-transfer" ? (
                         <>{value.label}</>
                       ) : (
                         <>

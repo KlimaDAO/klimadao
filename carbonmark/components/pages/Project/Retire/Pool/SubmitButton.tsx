@@ -25,6 +25,17 @@ export const SubmitButton: FC<Props> = (props) => {
     props.onSubmit(values);
   };
 
+  if (props.paymentMethod === "bank-transfer") {
+    return (
+      <ButtonPrimary
+        className={props.className}
+        label={t`Retire Carbon`}
+        onClick={handleSubmit(onSubmit)}
+        disabled={props.disabled}
+      />
+    );
+  }
+
   if (!address && !isConnected && props.paymentMethod !== "fiat") {
     return (
       <ButtonPrimary
