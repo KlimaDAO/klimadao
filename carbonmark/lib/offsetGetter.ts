@@ -5,7 +5,7 @@ export const getOffsetCategories = (offset: KlimaRetire["offset"]) => {
   return Array.from(new Set(offset.methodologyCategory.split(", "))).join(", ");
 };
 
-// Leaves only unique elements from a comma separated list of entries
+/** Returns the first category from a list of offset categories. Note: necessary for Retirement PDF category heading **/
 export const getOffsetMainCategory = (offset: KlimaRetire["offset"]) => {
   return offset.methodologyCategory.split(", ")[0];
 };
