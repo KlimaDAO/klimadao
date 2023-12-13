@@ -23,7 +23,7 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
   const [assetsData, setAssetsData] = useState<AssetWithProject[] | null>(null);
   const [assetToSell, setAssetToSell] = useState<AssetWithProject | null>(null);
 
-  const listableAssets = props.user?.assets.filter(isListableToken) || [];
+  const listableAssets = props.user?.assets?.filter(isListableToken) || [];
   const isUpdatingUser = props.isLoadingUser || isLoadingAssets;
   const hasAssets = !isLoadingAssets && !!listableAssets.length;
   const emptyAssets = !isUpdatingUser && !assetsData?.length;
