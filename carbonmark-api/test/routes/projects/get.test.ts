@@ -219,16 +219,18 @@ describe("GET /projects", () => {
         key: mockMarketplaceListing.key,
         updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
         listings: [
-          pick(mockMarketplaceListing.listings![0], [
+          {
+            ...pick(mockMarketplaceListing.listings![0], [
             "active",
             "batchPrices",
             "batches",
-            "createdAt",
             "deleted",
-            "updatedAt",
             "id",
             "tokenAddress",
           ]),
+            updatedAt: Number(mockMarketplaceListing.listings![0].updatedAt),
+            createdAt: Number(mockMarketplaceListing.listings![0].createdAt),
+          },
         ],
         price: "99",
       },
