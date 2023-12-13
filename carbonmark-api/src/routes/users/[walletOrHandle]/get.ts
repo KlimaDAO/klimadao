@@ -88,7 +88,9 @@ const handler = (fastify: FastifyInstance) =>
               ? a.amount
               : utils.formatUnits(a.amount || "0", 18),
             price: utils.formatUnits(a.price || "0", 6),
-            previousAmount: utils.formatUnits(a.previousAmount || "0", 18),
+            previousAmount: a.project.key.startsWith("ICR")
+              ? a.previousAmount
+              : utils.formatUnits(a.previousAmount || "0", 18),
             previousPrice: utils.formatUnits(a.previousPrice || "0", 6),
             buyer: buyer || null,
             seller: seller || null,
