@@ -15,7 +15,7 @@ describe("POST /retire/bank-transfer", () => {
     const SUCCESS_RESPONSE = {
       success: "ok",
       message:
-        "Thanks for submitting the form. Our team will be in touch in the coming days.",
+        "<p>Thanks for submitting the form. Our team will be in touch in the coming days.&nbsp;</p>",
     };
 
     nock(HUBSPOT_URLS.payWithBankTransfer)
