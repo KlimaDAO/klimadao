@@ -30,6 +30,21 @@ export const timeline = css`
   max-width: 36rem;
 `;
 
+export const timelineItem = css`
+  overflow: hidden;
+  min-height: auto;
+  min-width: 48rem;
+  transition: max-height 0.2s;
+`;
+
+export const timelineItemVisible = css`
+  max-height: 15rem;
+`;
+
+export const timelineItemHidden = css`
+  max-height: 0;
+`;
+
 export const content = css`
   display: flex;
   flex-direction: column;

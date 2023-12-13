@@ -135,6 +135,14 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
   const recordVisible = (record: ProvenanceRecord) => {
     return record.transactionType != "TRANSFER" || showTransfers;
   };
+
+  const recordStyle = (record: ProvenanceRecord) => {
+    return `${styles.timelineItem} ${
+      recordVisible(record)
+        ? styles.timelineItemVisible
+        : styles.timelineItemHidden
+    }`;
+  };
   const projectId = props.retirement.credit?.projectId.split("-")[1];
 
   return (
@@ -165,90 +173,92 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
         </div>
       </div>
       <Timeline className={styles.timeline}>
-        {props.records.filter(recordVisible).map((record) => (
-          <TimelineItem key={record.id}>
-            <TimelineSeparator>
-              <TimelineDot
-                sx={{
-                  backgroundColor: recordInfo(record)?.iconBackgroundColor,
-                }}
-              >
-                {recordInfo(record)?.icon}
-              </TimelineDot>
-              {record.transactionType == "TRANSFER" && <TimelineConnector />}
-            </TimelineSeparator>
-            <TimelineContent>
-              <div className={styles.content}>
-                <div className={styles.contentHeader}>
-                  <Text t="h4">{recordInfo(record)?.label}</Text>
-                  <Text t="body3" color="lightest">
-                    {getFormattedDate(record.createdAt, locale)}
-                  </Text>
-                </div>
-                {record.transactionType == "RETIREMENT" && (
-                  <>
+        {props.records
+          .filter((_x) => true)
+          .map((record) => (
+            <TimelineItem key={record.id} className={recordStyle(record)}>
+              <TimelineSeparator>
+                <TimelineDot
+                  sx={{
+                    backgroundColor: recordInfo(record)?.iconBackgroundColor,
+                  }}
+                >
+                  {recordInfo(record)?.icon}
+                </TimelineDot>
+                {record.transactionType == "TRANSFER" && <TimelineConnector />}
+              </TimelineSeparator>
+              <TimelineContent>
+                <div className={styles.content}>
+                  <div className={styles.contentHeader}>
+                    <Text t="h4">{recordInfo(record)?.label}</Text>
+                    <Text t="body3" color="lightest">
+                      {getFormattedDate(record.createdAt, locale)}
+                    </Text>
+                  </div>
+                  {record.transactionType == "RETIREMENT" && (
+                    <>
+                      <div className={styles.contentFooter}>
+                        <Quantity quantity={record.originalAmount} />
+                        <Text t="body1">{concatAddress(record.sender)}</Text>
+                        <Text t="body1" color="lightest">
+                          via Carbonmark
+                        </Text>
+                      </div>
+                      <Divider onClick={() => setShowTransfers(!showTransfers)}>
+                        <a className={styles.divider}>
+                          <span>{dividerText}</span>
+                          {dividerIcon}
+                        </a>
+                      </Divider>
+                    </>
+                  )}
+                  {record.transactionType == "TRANSFER" && (
                     <div className={styles.contentFooter}>
                       <Quantity quantity={record.originalAmount} />
                       <Text t="body1">{concatAddress(record.sender)}</Text>
-                      <Text t="body1" color="lightest">
-                        via Carbonmark
-                      </Text>
+                      <East />
+                      <Text t="body1">{concatAddress(record.receiver)}</Text>
                     </div>
-                    <Divider onClick={() => setShowTransfers(!showTransfers)}>
-                      <a className={styles.divider}>
-                        <span>{dividerText}</span>
-                        {dividerIcon}
-                      </a>
-                    </Divider>
-                  </>
-                )}
-                {record.transactionType == "TRANSFER" && (
-                  <div className={styles.contentFooter}>
-                    <Quantity quantity={record.originalAmount} />
-                    <Text t="body1">{concatAddress(record.sender)}</Text>
-                    <East />
-                    <Text t="body1">{concatAddress(record.receiver)}</Text>
-                  </div>
-                )}
-                {record.transactionType == "ORIGINATION" && (
-                  <div>
+                  )}
+                  {record.transactionType == "ORIGINATION" && (
                     <div>
-                      <Text t="body2" className={styles.inline}>
-                        <Trans>Serial Number</Trans>
-                      </Text>
-                      :{" "}
-                      <Text
-                        t="body2"
-                        color="lightest"
-                        className={styles.inline}
-                      >
-                        {insertWhiteSpaces({
-                          text: record.registrySerialNumbers[0],
-                          after: "-",
-                        })}
-                      </Text>
-                    </div>
-                    {projectId && (
-                      <div className={styles.verraLinkAndTooltip}>
-                        <A
-                          href={`${verra.appSearch}?programType=ISSUANCE&exactResId=${projectId}`}
+                      <div>
+                        <Text t="body2" className={styles.inline}>
+                          <Trans>Serial Number</Trans>
+                        </Text>
+                        :{" "}
+                        <Text
+                          t="body2"
+                          color="lightest"
+                          className={styles.inline}
                         >
-                          <Trans>View issuance on Verra</Trans>
-                        </A>
-                        <TextInfoTooltip
-                          align="start"
-                          tooltip={t`On the Verra page, search (CTRL+F) for the specific serial number.`}
-                        >
-                          <InfoOutlinedIcon />
-                        </TextInfoTooltip>
+                          {insertWhiteSpaces({
+                            text: record.registrySerialNumbers[0],
+                            after: "-",
+                          })}
+                        </Text>
                       </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </TimelineContent>
-          </TimelineItem>
-        ))}
+                      {projectId && (
+                        <div className={styles.verraLinkAndTooltip}>
+                          <A
+                            href={`${verra.appSearch}?programType=ISSUANCE&exactResId=${projectId}`}
+                          >
+                            <Trans>View issuance on Verra</Trans>
+                          </A>
+                          <TextInfoTooltip
+                            align="start"
+                            tooltip={t`On the Verra page, search (CTRL+F) for the specific serial number.`}
+                          >
+                            <InfoOutlinedIcon />
+                          </TextInfoTooltip>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </TimelineContent>
+            </TimelineItem>
+          ))}
       </Timeline>
     </div>
   );
