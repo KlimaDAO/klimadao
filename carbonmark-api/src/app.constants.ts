@@ -34,6 +34,11 @@ export const GRAPH_URLS = {
   mumbai: MUMBAI_URLS,
 };
 
+export const HUBSPOT_URLS = {
+  payWithBankTransform:
+    "https://api.hsforms.com/submissions/v3/integration/submit/26010207/2f87cd63-f8a7-43e9-9483-ac541a614762",
+};
+
 export const TOKEN_ADDRESSES = {
   development: {
     LP_UBO_POOL: "0x5400a05b8b45eaf9105315b4f2e31f806ab706de",
