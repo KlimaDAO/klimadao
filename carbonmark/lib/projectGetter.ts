@@ -5,6 +5,7 @@ import {
   Project,
 } from "lib/types/carbonmark.types";
 import { compact, isEmpty } from "lodash";
+import { get, map, pipe, uniq } from "lodash/fp";
 import { isCategoryName } from "./types/carbonmark.guard";
 
 export const getCategoryFromProject = (
@@ -17,16 +18,9 @@ export const getCategoryFromProject = (
 export const getCategoriesFromProject = (
   project: DetailedProject
 ): CategoryName[] => {
-  const methodologies = compact(project.methodologies);
-  return !isEmpty(methodologies)
-    ? Array.from(
-        new Set(
-          methodologies.map(
-            (methodology) => methodology.category as CategoryName
-          )
-        )
-      )
-    : ["Other"];
+  const fn = pipe(map(get("category")), compact, uniq);
+  const methodologies = fn(project.methodologies);
+  return !isEmpty(methodologies) ? methodologies : ["Other"];
 };
 
 export const asCategoryName = (name?: string | null): CategoryName =>
