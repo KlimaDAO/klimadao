@@ -161,6 +161,9 @@ export const Retire: NextPage<PageProps> = (props) => {
                         p,
                         getDefaultPoolFromPrices(p.prices)?.poolName || "bct" // typeguard
                       )}
+                      price={
+                        getDefaultPoolFromPrices(p.prices)?.singleUnitPrice
+                      }
                     />
                   );
                 return null;

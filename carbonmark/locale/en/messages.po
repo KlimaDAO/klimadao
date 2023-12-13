@@ -134,7 +134,7 @@ msgstr ""
 "exceeding {0}. Please adjust the\n"
 "quantity and try again later."
 
-#: components/ProjectCard/index.tsx:46
+#: components/ProjectCard/index.tsx:47
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
 msgid "Available Tonnes:"
 msgstr "Available Tonnes:"
@@ -755,7 +755,7 @@ msgstr "No project description found"
 msgid "No projects found with current filters"
 msgstr "No projects found with current filters"
 
-#: components/ProjectCard/index.tsx:63
+#: components/ProjectCard/index.tsx:64
 msgid "No props.project description found"
 msgstr "No props.project description found"
 
