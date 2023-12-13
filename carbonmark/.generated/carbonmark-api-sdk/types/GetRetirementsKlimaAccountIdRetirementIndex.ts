@@ -105,6 +105,10 @@ export type GetRetirementsKlimaAccountIdRetirementIndexQueryResponse = {
      * @type number
      */
     crossChainSupply: number;
+    /**
+     * @type string
+     */
+    projectId: string;
   };
 };
 

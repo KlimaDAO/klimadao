@@ -46,6 +46,9 @@ fragment CarbonCreditFragment on CarbonCredit {
   bridgeProtocol
   bridged
   retired
+  project {
+    id
+  }
 }
 
 fragment PoolBalancesFragment on CarbonPoolCreditBalance {

@@ -87,5 +87,9 @@ export type Retirement = {
      * @type number
      */
     crossChainSupply: number;
+    /**
+     * @type string
+     */
+    projectId: string;
   };
 };

@@ -16,5 +16,6 @@ export function formatCarbonCredit(
     crossChainSupply: Number(
       utils.formatUnits(credit.crossChainSupply || 0, 18)
     ),
+    projectId: credit.project.id,
   };
 }

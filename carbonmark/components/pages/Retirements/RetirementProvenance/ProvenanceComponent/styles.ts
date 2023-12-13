@@ -55,8 +55,16 @@ export const inline = css`
   white-space: normal;
 `;
 
-export const verraLink = css`
-  font-size: 1.6rem;
+export const verraLinkAndTooltip = css`
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  a {
+    font-size: 1.6rem;
+  }
+  svg {
+    color: var(--font-03);
+  }
 `;
 
 export const divider = css`

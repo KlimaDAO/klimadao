@@ -33,9 +33,10 @@
         "vintage": { "type": "number" },
         "currentSupply": { "type": "number" },
         "retired": { "type": "number" },
-        "crossChainSupply": { "type": "number" }
+        "crossChainSupply": { "type": "number" },
+        "projectId": { "type": "string" }
       },
-      "required": ["currentSupply", "retired", "crossChainSupply"]
+      "required": ["currentSupply", "retired", "crossChainSupply", "projectId"]
     }
   },
   "required": ["amount", "beneficiaryAddress", "retiringAddress", "timestamp"],

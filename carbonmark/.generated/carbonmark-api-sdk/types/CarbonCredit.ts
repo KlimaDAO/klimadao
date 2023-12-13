@@ -23,4 +23,8 @@ export type CarbonCredit = {
    * @type number
    */
   crossChainSupply: number;
+  /**
+   * @type string
+   */
+  projectId: string;
 };

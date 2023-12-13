@@ -7,6 +7,7 @@ export const CarbonCreditModel = Type.Object({
   currentSupply: Type.Number(),
   retired: Type.Number(),
   crossChainSupply: Type.Number(),
+  projectId: Type.String(),
 });
 
 export type CarbonCredit = Static<typeof CarbonCreditModel>;

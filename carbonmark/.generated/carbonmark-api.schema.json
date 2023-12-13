@@ -2279,12 +2279,16 @@
               },
               "crossChainSupply": {
                 "type": "number"
+              },
+              "projectId": {
+                "type": "string"
               }
             },
             "required": [
               "currentSupply",
               "retired",
-              "crossChainSupply"
+              "crossChainSupply",
+              "projectId"
             ]
           }
         },
@@ -2315,12 +2319,16 @@
           },
           "crossChainSupply": {
             "type": "number"
+          },
+          "projectId": {
+            "type": "string"
           }
         },
         "required": [
           "currentSupply",
           "retired",
-          "crossChainSupply"
+          "crossChainSupply",
+          "projectId"
         ]
       },
       "def-0": {
@@ -4881,12 +4889,16 @@
                         },
                         "crossChainSupply": {
                           "type": "number"
+                        },
+                        "projectId": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "currentSupply",
                         "retired",
-                        "crossChainSupply"
+                        "crossChainSupply",
+                        "projectId"
                       ]
                     }
                   },

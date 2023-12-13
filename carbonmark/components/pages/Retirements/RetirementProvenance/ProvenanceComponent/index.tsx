@@ -1,14 +1,15 @@
 import {
-  Record as KRecord,
+  ProvenanceRecord,
   Retirement,
 } from ".generated/carbonmark-api-sdk/types";
 import { Anchor as A } from "@klimadao/lib/components";
+import { verra } from "@klimadao/lib/constants";
 import {
   concatAddress,
   formatTonnes,
   insertWhiteSpaces,
 } from "@klimadao/lib/utils";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import {
   BalanceOutlined,
   ChangeCircleOutlined,
@@ -19,6 +20,7 @@ import {
   Park,
   Token,
 } from "@mui/icons-material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Timeline from "@mui/lab/Timeline";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
@@ -28,12 +30,13 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Divider } from "@mui/material";
 import { Quantity } from "components/Quantity";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { useRouter } from "next/router";
 import { ReactNode, useState } from "react";
 import * as styles from "./styles";
 
 interface ProvenanceComponentProps {
-  records: KRecord[];
+  records: ProvenanceRecord[];
   retirement: Retirement;
 }
 
@@ -113,6 +116,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
     <KeyboardArrowDown fontSize="large" />
   );
 
+  // Do not display anything if we do not have at least a record
   const lastRecord = props.records[0];
   if (!lastRecord) return <></>;
 
@@ -121,16 +125,17 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
     locale: locale || "en",
   });
 
-  /** Return the relevant record info for a given record */
-  const recordInfo = (record: KRecord) => {
+  /** Returns the relevant record info for a given record */
+  const recordInfo = (record: ProvenanceRecord) => {
     if (Object.keys(RECORDS_INFO).includes(record.transactionType))
       return RECORDS_INFO[record.transactionType as keyof typeof RECORDS_INFO];
   };
 
   /** Return the correct stylefor a given record */
-  const recordVisible = (record: KRecord) => {
+  const recordVisible = (record: ProvenanceRecord) => {
     return record.transactionType != "TRANSFER" || showTransfers;
   };
+  const projectId = props.retirement.credit?.projectId.split("-")[1];
 
   return (
     <div className={styles.wrapper}>
@@ -183,7 +188,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                 {record.transactionType == "RETIREMENT" && (
                   <>
                     <div className={styles.contentFooter}>
-                      <Quantity quantity={record.originalAmount.toFixed(2)} />
+                      <Quantity quantity={record.originalAmount} />
                       <Text t="body1">{concatAddress(record.sender)}</Text>
                       <Text t="body1" color="lightest">
                         via Carbonmark
@@ -223,9 +228,21 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                         })}
                       </Text>
                     </div>
-                    <A href={"#"} className={styles.verraLink}>
-                      <Trans>View on Verra</Trans>
-                    </A>
+                    {projectId && (
+                      <div className={styles.verraLinkAndTooltip}>
+                        <A
+                          href={`${verra.appSearch}?programType=ISSUANCE&exactResId=${projectId}`}
+                        >
+                          <Trans>View issuance on Verra</Trans>
+                        </A>
+                        <TextInfoTooltip
+                          align="start"
+                          tooltip={t`On the Verra page, search (CTRL+F) for the specific serial number.`}
+                        >
+                          <InfoOutlinedIcon />
+                        </TextInfoTooltip>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
