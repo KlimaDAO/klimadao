@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-12 15:38+0000\n"
+"POT-Creation-Date: 2023-12-13 10:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgstr "लाभार्थी वॉलेट पता (वैकल्प�
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:159
+#: components/pages/Project/index.tsx:136
 msgid "Best Price"
 msgstr "सर्वोत्तम क़ीमत"
 
@@ -423,7 +423,7 @@ msgstr "वर्तमान में, कार्बनमार्क क�
 msgid "DATE"
 msgstr "दिनांक"
 
-#: components/pages/Project/index.tsx:256
+#: components/pages/Project/index.tsx:233
 msgid "Data for this project and vintage"
 msgstr "इस प्रॉजेक्ट और विंटेज के लिए डेटा"
 
@@ -440,7 +440,7 @@ msgstr "कनेक्टेड वॉलेट का पते पर कि�
 msgid "Describe the purpose of this retirement"
 msgstr "इस रिटायरमेंट के उद्देश्य का वर्णन करें"
 
-#: components/pages/Project/index.tsx:207
+#: components/pages/Project/index.tsx:184
 msgid "Description"
 msgstr "विवरण"
 
@@ -692,7 +692,7 @@ msgstr "मार्केटप्लेस | कार्बनमार्क
 msgid "Maximize your climate impact."
 msgstr "अपने जलवायु प्रभाव को अधिकतम करें."
 
-#: components/pages/Project/index.tsx:166
+#: components/pages/Project/index.tsx:143
 msgid "Methodology"
 msgstr "कार्यप्रणाली"
 
@@ -737,7 +737,7 @@ msgstr "दिखाने के लिए कोई डेटा नहीं"
 msgid "No listable assets found."
 msgstr "एक भी सूचीयोग्य ऐसेट मौजूद नहीं"
 
-#: components/pages/Project/index.tsx:246
+#: components/pages/Project/index.tsx:223
 msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
@@ -946,11 +946,11 @@ msgstr "शीघ्र रिटायर करें"
 msgid "RETIRE CARBON"
 msgstr "कार्बन रिटायर करें"
 
-#: components/pages/Project/index.tsx:220
+#: components/pages/Project/index.tsx:197
 msgid "Read Less"
 msgstr "कम पढ़ें"
 
-#: components/pages/Project/index.tsx:220
+#: components/pages/Project/index.tsx:197
 msgid "Read More"
 msgstr "और पढ़ें"
 
@@ -1447,7 +1447,7 @@ msgstr ""
 msgid "View Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल देखें"
 
-#: components/pages/Project/index.tsx:229
+#: components/pages/Project/index.tsx:206
 msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
 
@@ -1480,7 +1480,7 @@ msgstr "सभी प्रोजेक्ट देखें"
 msgid "View all Retirements"
 msgstr "सभी रिटयरमेंट देखें"
 
-#: components/pages/Project/index.tsx:120
+#: components/pages/Project/index.tsx:113
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "कार्बनमार्क पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
 
@@ -1958,7 +1958,7 @@ msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्
 msgid "retirement.head.title"
 msgstr "कार्बनमार्क | कार्बन रिटायरमेंट रसीद"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:41
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "कोई लाभार्थी का पता उपलब्ध नहीं है"
 
@@ -1970,7 +1970,7 @@ msgstr "कोई लाभार्थी-नाम प्रदान नह�
 msgid "retirement.single.beneficiary.title"
 msgstr "लाभार्थी:"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:35
 msgid "retirement.single.beneficiary_address.title"
 msgstr "लाभार्थी का पता"
 
@@ -1978,7 +1978,7 @@ msgstr "लाभार्थी का पता"
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "कार्बन क्रेडिट रिटायरमेंट"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:94
 msgid "retirement.single.country_region.title"
 msgstr "देश/क्षेत्र:"
 
@@ -1990,7 +1990,7 @@ msgstr "यह एक डिजिटल कार्बन संपत्त�
 msgid "retirement.single.message.title"
 msgstr "रिटायरमेंट संदेश:"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:82
 msgid "retirement.single.methodology.title"
 msgstr "कार्यप्रणाली:"
 
@@ -2006,7 +2006,7 @@ msgstr "MOSS अर्थ MC02"
 msgid "retirement.single.official_certificate.title"
 msgstr "<0>Carbonmark.com द्वारा प्रदान किया गया ऑन-चेन कार्बन रिटायरमेंट का आधिकारिक प्रमाणपत्र</0>"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:66
 msgid "retirement.single.project.title"
 msgstr "प्रॉजेक्ट:"
 
@@ -2038,19 +2038,19 @@ msgstr "इस रिटायरमेंट को साझा करें"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "कोई रिटायरमेंट टाइमस्टैम्प प्रदान नहीं किया गया"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:55
 msgid "retirement.single.transaction_id.placeholder"
 msgstr "कोई लेनदेन आईडी उपलब्ध नहीं है"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:49
 msgid "retirement.single.transaction_id.title"
 msgstr "लेन-देन आईडी"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:28
 msgid "retirement.single.transaction_record.title"
 msgstr "अपरिवर्तनीय लेनदेन रिकॉर्ड"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:74
 msgid "retirement.single.type.title"
 msgstr "प्रकार:"
 
@@ -2062,7 +2062,7 @@ msgstr " कार्बन के सत्यापित रिटायर�
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखें"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:107
 msgid "retirement.single.vintage.title"
 msgstr "विंटेज:"
 

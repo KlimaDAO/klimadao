@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-12 15:38+0000\n"
+"POT-Creation-Date: 2023-12-13 10:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgstr "收益人钱包地址（可选）"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:159
+#: components/pages/Project/index.tsx:136
 msgid "Best Price"
 msgstr "最优价格"
 
@@ -421,7 +421,7 @@ msgstr "目前，Carbonmark 仅接受 Polygon USDC 或信用卡付款。 <0> 了
 msgid "DATE"
 msgstr "日期"
 
-#: components/pages/Project/index.tsx:256
+#: components/pages/Project/index.tsx:233
 msgid "Data for this project and vintage"
 msgstr "该项目和历史减排效益的数据"
 
@@ -438,7 +438,7 @@ msgstr "默认的已连接钱包地址"
 msgid "Describe the purpose of this retirement"
 msgstr "描述本次碳停用的目的"
 
-#: components/pages/Project/index.tsx:207
+#: components/pages/Project/index.tsx:184
 msgid "Description"
 msgstr "描述"
 
@@ -688,7 +688,7 @@ msgstr "市场 | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "最大限度地提高您对气候的影响。"
 
-#: components/pages/Project/index.tsx:166
+#: components/pages/Project/index.tsx:143
 msgid "Methodology"
 msgstr "方法"
 
@@ -733,7 +733,7 @@ msgstr "无可显示数据"
 msgid "No listable assets found."
 msgstr "未找到可列出的资产。"
 
-#: components/pages/Project/index.tsx:246
+#: components/pages/Project/index.tsx:223
 msgid "No listings found for this project."
 msgstr "未找到此项目的列表。"
 
@@ -949,11 +949,11 @@ msgstr "快速停用碳"
 msgid "RETIRE CARBON"
 msgstr "碳停用"
 
-#: components/pages/Project/index.tsx:220
+#: components/pages/Project/index.tsx:197
 msgid "Read Less"
 msgstr "简易阅读"
 
-#: components/pages/Project/index.tsx:220
+#: components/pages/Project/index.tsx:197
 msgid "Read More"
 msgstr "阅读更多"
 
@@ -1446,7 +1446,7 @@ msgstr "查看"
 msgid "View Carbonmark Profile"
 msgstr "查看 Carbonmark 配置文件"
 
-#: components/pages/Project/index.tsx:229
+#: components/pages/Project/index.tsx:206
 msgid "View Registry Details <0/>"
 msgstr "查看注册表详细信息 <0/>"
 
@@ -1479,7 +1479,7 @@ msgstr "查看所有项目"
 msgid "View all Retirements"
 msgstr "查看所有碳停用"
 
-#: components/pages/Project/index.tsx:120
+#: components/pages/Project/index.tsx:113
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 
@@ -1957,7 +1957,7 @@ msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 msgid "retirement.head.title"
 msgstr "Carbonmark | 碳停用收据"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:41
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "无可用的受益人地址"
 
@@ -1969,7 +1969,7 @@ msgstr "未提供受益人姓名"
 msgid "retirement.single.beneficiary.title"
 msgstr "受益人："
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:35
 msgid "retirement.single.beneficiary_address.title"
 msgstr "受益人地址："
 
@@ -1977,7 +1977,7 @@ msgstr "受益人地址："
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "碳信用停用"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:94
 msgid "retirement.single.country_region.title"
 msgstr "国家/地区："
 
@@ -1989,7 +1989,7 @@ msgstr "这代表数字碳资产的永久停用。该碳停用和相关数据是
 msgid "retirement.single.message.title"
 msgstr "碳停用信息："
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:82
 msgid "retirement.single.methodology.title"
 msgstr "方法："
 
@@ -2005,7 +2005,7 @@ msgstr "MOSS 地球 MC02"
 msgid "retirement.single.official_certificate.title"
 msgstr "<0>Carbonmark.com</0> 提供的链上碳排放官方证书"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:66
 msgid "retirement.single.project.title"
 msgstr "项目："
 
@@ -2037,19 +2037,19 @@ msgstr "分享这个碳停用"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "未提供碳停用时间戳"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:55
 msgid "retirement.single.transaction_id.placeholder"
 msgstr "无可用的交易 ID"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:49
 msgid "retirement.single.transaction_id.title"
 msgstr "交易ID"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:28
 msgid "retirement.single.transaction_record.title"
 msgstr "不可变的交易记录"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:74
 msgid "retirement.single.type.title"
 msgstr "类型："
 
@@ -2061,7 +2061,7 @@ msgstr "核实停用碳吨数"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:107
 msgid "retirement.single.vintage.title"
 msgstr "历史减排效益："
 

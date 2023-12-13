@@ -1,6 +1,6 @@
 import * as ethers from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { generateNonce } from "../../../../utils/crypto.utils";
+import { generateNonce } from "../../../utils/crypto.utils";
 import { schema } from "./post.schema";
 
 type Body = {
@@ -50,7 +50,7 @@ const handler = (fastify: FastifyInstance) =>
 export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "POST",
-    url: "/users/login/verify",
+    url: "/login/verify",
     handler: handler(fastify),
     schema,
   });

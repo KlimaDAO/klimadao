@@ -1,11 +1,13 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, RouteHandler } from "fastify";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { getAllCategories } from "../../utils/helpers/utils";
-import { Querystring } from "../users/get.schema";
-import { schema } from "./get.schema";
+import { Querystring, schema } from "./get.schema";
 
 const handler =
-  (fastify: FastifyInstance): RouteHandler<{ Querystring: Querystring }> =>
+  (
+    fastify: FastifyInstance
+  ): RouteHandler<{ Querystring: Static<typeof Querystring> }> =>
   async (request, reply) => {
     const sdk = gql_sdk(request.query.network);
     let response;
