@@ -65,6 +65,7 @@ export const cardContainer = css`
 
   ${breakpoints.desktop} {
     width: 72rem;
+    margin-top: 1.6rem;
   }
 
   .form-container {

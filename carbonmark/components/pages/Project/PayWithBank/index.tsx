@@ -9,6 +9,7 @@ import { Text } from "components/Text";
 import { InputField, TextareaField } from "components/shared/Form";
 import { isAddress } from "ethers-v6";
 import { urls } from "lib/constants";
+import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -126,10 +127,11 @@ export const PayWithBank: FC = () => {
                       label={t`How much would you like to retire?`}
                       inputProps={{
                         type: "number",
+                        placeholder: t`Tonnes`,
                         ...register("quantity", {
                           required: {
                             value: true,
-                            message: t`Total amount to retire is required`,
+                            message: t`Total amount of tonnes to retire is required`,
                           },
                           min: {
                             value: 1,
@@ -225,8 +227,12 @@ export const PayWithBank: FC = () => {
                         type: "text",
                         ...register("beneficiary_address", {
                           validate: {
-                            isAddress: (v) =>
-                              isAddress(v) || t`Not a valid polygon address`,
+                            isAddress: (v) => {
+                              if (isEmpty(v)) return true;
+                              return (
+                                isAddress(v) || t`Not a valid polygon address`
+                              );
+                            },
                           },
                         }),
                       }}
