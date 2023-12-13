@@ -1,5 +1,4 @@
 import { FastifyInstance } from "fastify";
-import { omit } from "lodash";
 import nock from "nock";
 import {
   aListing,
@@ -7,7 +6,12 @@ import {
 } from "../../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { build } from "../../helper";
-import { DEV_URL, MOCK_ADDRESS, MOCK_USER_PROFILE } from "../../test.constants";
+import {
+  DEV_URL,
+  EXPECTED_USER_RESPONSE,
+  MOCK_ADDRESS,
+  MOCK_USER_PROFILE,
+} from "../../test.constants";
 import { disableAuth, mockFirebase } from "../../test.utils";
 
 describe("GET /users/[walletOrHandle]", () => {
@@ -50,15 +54,8 @@ describe("GET /users/[walletOrHandle]", () => {
     });
     const actual_response = await response.json();
 
-    const expected_response = {
-      ...omit(MOCK_USER_PROFILE, "address"),
-      wallet: MOCK_USER_PROFILE.address,
-      listings: [],
-      activities: [],
-      assets: [],
-    };
     expect(response.statusCode).toBe(200);
-    expect(expected_response).toEqual(actual_response);
+    expect(EXPECTED_USER_RESPONSE).toEqual(actual_response);
   });
 
   test("by handle", async () => {
@@ -66,16 +63,10 @@ describe("GET /users/[walletOrHandle]", () => {
       method: "GET",
       url: `${DEV_URL}/users/${MOCK_USER_PROFILE.handle}`, // use handle instead of wallet address
     });
-    const expected_response = {
-      ...omit(MOCK_USER_PROFILE, "address"),
-      wallet: MOCK_USER_PROFILE.address,
-      listings: [],
-      activities: [],
-      assets: [],
-    };
+
     const actual_response = await response?.json();
     expect(response?.statusCode).toBe(200);
-    expect(actual_response).toEqual(expected_response); // check if the returned handle is correct
+    expect(actual_response).toEqual(EXPECTED_USER_RESPONSE); // check if the returned handle is correct
   });
 
   test("with invalid handle", async () => {

@@ -14,6 +14,7 @@ const listing = aListing({
   totalAmountToSell: "100000000000000000000",
   leftToSell: "100000000000000000000",
   updatedAt: "1234",
+  createdAt: "1234",
 });
 
 const projectWithListing = aProject({

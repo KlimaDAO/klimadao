@@ -1,5 +1,12 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
-import { PageProps, Project } from "components/pages/Project";
+import {
+  getProjectsId,
+  getProjectsIdActivity,
+} from ".generated/carbonmark-api-sdk/clients";
+import {
+  PageProps,
+  Project,
+  VISIBLE_ACTIVITIES,
+} from "components/pages/Project";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -18,7 +25,13 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   }
 
   try {
-    const project = await getProjectsId(params.project_id);
+    const [project, activities] = await Promise.all([
+      getProjectsId(params.project_id),
+      getProjectsIdActivity(params.project_id, {
+        activityType: VISIBLE_ACTIVITIES,
+      }),
+    ]);
+
     if (!project) {
       throw new Error("No project found");
     }
@@ -31,6 +44,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     return {
       props: {
         project,
+        activities,
         projectID: params.project_id,
         translation,
         fixedThemeName: "theme-light",
