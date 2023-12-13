@@ -3,6 +3,10 @@ import { Nullable } from "./Utility.model";
 
 export const ActivityModel = Type.Object({
   id: Type.String(),
+  project: Type.Object({
+    key: Type.String(),
+    vintage: Type.String(),
+  }),
   amount: Nullable(Type.String()),
   previousAmount: Nullable(Type.String()),
   price: Nullable(Type.String()),

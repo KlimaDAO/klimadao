@@ -1,7 +1,7 @@
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { User } from "src/models/User.model";
 import { Activity } from "../../models/Activity.model";
-import { User } from "../../models/User.model";
 import {
   getProfileByAddress,
   getProfileByHandle,

@@ -5,6 +5,7 @@ import {
 } from "../.generated/types/marketplace.types";
 import { Listing as ListingModel } from "../models/Listing.model";
 import { notNil } from "./functional.utils";
+import { formatGraphTimestamps } from "./helpers/utils";
 
 export const isListingActive = (listing: Partial<Listing>) =>
   notNil(listing.leftToSell) &&
@@ -26,18 +27,19 @@ export const deconstructListingId = (str: string) => {
   };
 };
 
-type GetProjectListing = NonNullable<
+export type GetProjectListing = NonNullable<
   GetProjectsQuery["projects"][number]["listings"]
 >[number];
 
 /** Formats a gql.marketplace listing to match Listing.model, and formats integers */
 export const formatListing = (listing: GetProjectListing): ListingModel => {
   return {
-    ...listing,
+    ...formatGraphTimestamps(listing),
     leftToSell: utils.formatUnits(listing.leftToSell, 18),
     singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
     minFillAmount: utils.formatUnits(listing.minFillAmount, 18),
     totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
+    expiration: Number(listing.expiration),
     project: {
       ...listing.project,
       category: listing.project.category?.id || "",
