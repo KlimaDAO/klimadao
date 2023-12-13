@@ -2,7 +2,7 @@ import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
 import { map, mapValues, toLower, trim } from "lodash/fp";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
-import { Geopoint } from "../../.generated/types/carbonProjects.types";
+import { Geopoint } from "../../.generated/types/cms.types";
 import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";
@@ -14,7 +14,7 @@ import {
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
 import { GQL_SDK } from "../../utils/gqlSdk";
-import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
+import { CarbonProject } from "../../utils/helpers/cms.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import {
   getAllCategories,

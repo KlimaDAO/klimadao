@@ -4,7 +4,7 @@ import { isNil } from "lodash";
 import { Purchase } from "../../../models/Purchase.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
-import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
+import { fetchCarbonProject } from "../../../utils/helpers/cms.utils";
 import { Params, Querystring, schema } from "./get.schema";
 import { isValidPurchaseId } from "./get.utils";
 

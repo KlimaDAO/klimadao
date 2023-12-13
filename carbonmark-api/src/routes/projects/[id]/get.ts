@@ -4,7 +4,7 @@ import { mapValues, pipe, trim, uniq } from "lodash/fp";
 import { DetailedProject } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
-import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
+import { fetchCarbonProject } from "../../../utils/helpers/cms.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
 import { toGeoJSON } from "../get.utils";
@@ -91,7 +91,9 @@ const handler = (fastify: FastifyInstance) =>
       vintage,
       stats,
     };
-    return reply.send(JSON.stringify(projectResponse));
+    return reply
+      .header("Content-Type", "application/json; charset=utf-8")
+      .send(JSON.stringify(projectResponse));
   };
 
 export default async (fastify: FastifyInstance) =>

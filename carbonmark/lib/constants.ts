@@ -129,6 +129,7 @@ export const urls = {
   api: {
     base: config.urls.api[ENVIRONMENT],
     users: `${config.urls.api[ENVIRONMENT]}/users`,
+    login: `${config.urls.api[ENVIRONMENT]}/login`,
     purchases: `${config.urls.api[ENVIRONMENT]}/purchases`,
     categories: `${config.urls.api[ENVIRONMENT]}/categories`,
     countries: `${config.urls.api[ENVIRONMENT]}/countries`,
