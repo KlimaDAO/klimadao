@@ -9,6 +9,7 @@ import { DEV_URL } from "../../../test.constants";
 
 const mockCmsProject = fixtures.cms.cmsProject;
 const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
+const mockActivities = fixtures.marketplace.activities;
 
 describe("GET /projects/:id", () => {
   let fastify: FastifyInstance;
@@ -47,7 +48,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: fixtures.marketplace.activities,
+          activities: mockActivities,
         },
       });
     const response = await fastify.inject({

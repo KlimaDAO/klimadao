@@ -135,7 +135,7 @@ describe("GET /projects", () => {
         region: digitalCarbon.digitalCarbonProject.region,
         methodologies: [
           {
-            id: mockCmsProject.methodologies?.[0]?.id,
+            id: mockCmsProject?.methodologies?.[0]?.id,
             category: mockCmsProject?.methodologies?.[0]?.category,
             name: mockCmsProject?.methodologies?.[0]?.name,
           },
