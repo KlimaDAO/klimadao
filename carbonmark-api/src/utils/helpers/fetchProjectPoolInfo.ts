@@ -105,7 +105,7 @@ const fetchAndNormalizeICRProjectCredits = async (
     poolBalances: [],
     id: post.id,
     crossChainSupply: "0",
-    bridgeProtocol: "0",
+    bridgeProtocol: "ICR",
     bridged: ethers.utils.parseUnits(post.estimatedAmount, 18).toString(),
     retired: ethers.utils.parseUnits(post.retiredAmount, 18).toString(),
   };

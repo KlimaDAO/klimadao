@@ -34,7 +34,12 @@ type SdkArgs = {
 
 type IcrArgs =
   | { serialization: string; network: NetworkParam; contractAddress?: never }
-  | { contractAddress: string; network: NetworkParam; serialization?: never };
+  | {
+      contractAddress: string;
+      vintage?: string;
+      network: NetworkParam;
+      serialization?: never;
+    };
 
 export type FetchCarbonProjectMethod = GQL_SDK | string;
 
@@ -100,13 +105,6 @@ export const fetchCMSProject = async (
         })) || [];
 
       const registry = apiData.ghgProgram?.id.toUpperCase() || null;
-      // extract the matching tokenID from the vintage in serialization
-      // @todo can avoid this by keeping project in cms and not having to fetch from ICR
-      let vintage;
-
-      if (typeof args.serialization === "string") {
-        vintage = args.serialization.split("-").pop();
-      }
 
       const findTokenIdByVintage = (
         vintage: string | undefined
@@ -122,8 +120,36 @@ export const fetchCMSProject = async (
         return null;
       };
 
+      const findSerializationByVintage = (
+        vintage: string | undefined
+      ): string | null => {
+        if (!vintage) {
+          return null;
+        }
+        for (const credit of apiData.carbonCredits) {
+          if (credit.vintage === vintage) {
+            return credit.serialization;
+          }
+        }
+        return null;
+      };
+      // extract the matching tokenID from the vintage in serialization
+      // @todo can avoid this by keeping project in cms and not having to fetch from ICR
+      let vintage;
+      let serialization;
+
+      if (typeof args.serialization === "string") {
+        vintage = args.serialization.split("-").pop();
+        serialization = args.serialization;
+      }
+
+      if (typeof args.contractAddress === "string") {
+        vintage = args.vintage;
+        serialization = findSerializationByVintage(args.vintage);
+      }
+
       return {
-        key: args.serialization ?? args.contractAddress,
+        key: serialization ?? "",
         country: convertIcrCountryCodeToName(apiData.countryCode) || null,
         description: apiData.shortDescription || null,
         name: apiData.fullName || null,
