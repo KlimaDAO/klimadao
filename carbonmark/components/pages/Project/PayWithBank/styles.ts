@@ -7,7 +7,7 @@ export const container = css`
   grid-template-rows: auto auto 1fr;
   gap: 2.4rem;
 
-  margin: 1.6rem;
+  margin: 2.2rem 1.6rem;
 
   ${breakpoints.desktop} {
     margin: 4rem;
@@ -26,21 +26,33 @@ export const fullWidth = css`
 `;
 
 export const learnMoreButton = css`
-  width: fit-content;
+  width: 100%;
   margin: 0 auto;
+
+  ${breakpoints.desktop} {
+    width: fit-content;
+  }
 `;
 
 export const pageTitle = css`
-  font-size: 6rem;
+  font-size: 4.8rem;
   font-weight: 700;
   text-align: center;
   font-family: var(--font-family-secondary);
+
+  ${breakpoints.desktop} {
+    font-size: 6rem;
+  }
 `;
 
 export const pageDescription = css`
   margin: 0 auto;
   max-width: 72rem;
-  text-align: center;
+  text-align: left;
+
+  ${breakpoints.desktop} {
+    text-align: center;
+  }
 `;
 
 export const cardContainer = css`
