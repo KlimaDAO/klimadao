@@ -1,16 +1,16 @@
 # Write your query or mutation here
-query getProject($registry: String!, $registryProjectId: String!) {
+query getCMSProject($registry: String!, $registryProjectId: String!) {
   allProject(
     where: {
       registry: { eq: $registry }
       registryProjectId: { eq: $registryProjectId }
     }
   ) {
-    ...CarbonProjectFragment
+    ...CMSProjectFragment
   }
 }
 
-query getProjectContent($registry: String!, $registryProjectId: String!) {
+query getCMSProjectContent($registry: String!, $registryProjectId: String!) {
   allProjectContent(
     where: {
       project: {
@@ -19,18 +19,18 @@ query getProjectContent($registry: String!, $registryProjectId: String!) {
       }
     }
   ) {
-    ...CarbonProjectContentFragment
+    ...CMSProjectContentFragment
   }
 }
 
-query getAllProjects {
+query getAllCMSProjects {
   allProject {
-    ...CarbonProjectFragment
+    ...CMSProjectFragment
   }
 }
 
-query getAllProjectContent {
+query getAllCMSProjectContent {
   allProjectContent {
-    ...CarbonProjectContentFragment
+    ...CMSProjectContentFragment
   }
 }

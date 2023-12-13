@@ -2,9 +2,9 @@ import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
-  GetProjectQuery,
+  GetCmsProjectQuery,
   ProjectContent,
-} from "../../.generated/types/carbonProjects.types";
+} from "../../.generated/types/cms.types";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
@@ -25,7 +25,7 @@ const projectKey = ({
   registryProjectId: string | null;
 }) => `${registry}-${registryProjectId}`;
 
-export type CarbonProject = GetProjectQuery["allProject"][number] & {
+export type CarbonProject = GetCmsProjectQuery["allProject"][number] & {
   content?: ProjectContent;
 };
 
@@ -34,8 +34,8 @@ export type CarbonProject = GetProjectQuery["allProject"][number] & {
  */
 export const fetchCarbonProject = async (sdk: GQL_SDK, args: Args) => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([
-    sdk.carbon_projects.getProject(args),
-    sdk.carbon_projects.getProjectContent(args),
+    sdk.cms.getCMSProject(args),
+    sdk.cms.getCMSProjectContent(args),
   ]);
 
   const project = allProject.at(0);
@@ -57,8 +57,8 @@ export const fetchAllCarbonProjects = async (
   sdk: GQL_SDK
 ): Promise<CarbonProject[]> => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([
-    sdk.carbon_projects.getAllProjects(),
-    sdk.carbon_projects.getAllProjectContent(),
+    sdk.cms.getAllCMSProjects(),
+    sdk.cms.getAllCMSProjectContent(),
   ]);
 
   // Clean the content, removing those without project references

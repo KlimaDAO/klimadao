@@ -941,38 +941,38 @@ export type StringFilter = {
   nin: InputMaybe<Array<Scalars['String']>>;
 };
 
-export type CarbonProjectFragmentFragment = { __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null };
+export type CmsProjectFragmentFragment = { __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null };
 
-export type CarbonProjectContentFragmentFragment = { __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null };
+export type CmsProjectContentFragmentFragment = { __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null };
 
-export type GetProjectQueryVariables = Exact<{
+export type GetCmsProjectQueryVariables = Exact<{
   registry: Scalars['String'];
   registryProjectId: Scalars['String'];
 }>;
 
 
-export type GetProjectQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
+export type GetCmsProjectQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
 
-export type GetProjectContentQueryVariables = Exact<{
+export type GetCmsProjectContentQueryVariables = Exact<{
   registry: Scalars['String'];
   registryProjectId: Scalars['String'];
 }>;
 
 
-export type GetProjectContentQuery = { __typename?: 'RootQuery', allProjectContent: Array<{ __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null }> };
+export type GetCmsProjectContentQuery = { __typename?: 'RootQuery', allProjectContent: Array<{ __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null }> };
 
-export type GetAllProjectsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetAllProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
-
-export type GetAllProjectContentQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllCmsProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllProjectContentQuery = { __typename?: 'RootQuery', allProjectContent: Array<{ __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null }> };
+export type GetAllCmsProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
 
-export const CarbonProjectFragmentFragmentDoc = gql`
-    fragment CarbonProjectFragment on Project {
+export type GetAllCmsProjectContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllCmsProjectContentQuery = { __typename?: 'RootQuery', allProjectContent: Array<{ __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null }> };
+
+export const CmsProjectFragmentFragmentDoc = gql`
+    fragment CMSProjectFragment on Project {
   country
   description
   id: _id
@@ -993,8 +993,8 @@ export const CarbonProjectFragmentFragmentDoc = gql`
   registryProjectId
 }
     `;
-export const CarbonProjectContentFragmentFragmentDoc = gql`
-    fragment CarbonProjectContentFragment on ProjectContent {
+export const CmsProjectContentFragmentFragmentDoc = gql`
+    fragment CMSProjectContentFragment on ProjectContent {
   project {
     registry
     registryProjectId
@@ -1016,38 +1016,38 @@ export const CarbonProjectContentFragmentFragmentDoc = gql`
   }
 }
     `;
-export const GetProjectDocument = gql`
-    query getProject($registry: String!, $registryProjectId: String!) {
+export const GetCmsProjectDocument = gql`
+    query getCMSProject($registry: String!, $registryProjectId: String!) {
   allProject(
     where: {registry: {eq: $registry}, registryProjectId: {eq: $registryProjectId}}
   ) {
-    ...CarbonProjectFragment
+    ...CMSProjectFragment
   }
 }
-    ${CarbonProjectFragmentFragmentDoc}`;
-export const GetProjectContentDocument = gql`
-    query getProjectContent($registry: String!, $registryProjectId: String!) {
+    ${CmsProjectFragmentFragmentDoc}`;
+export const GetCmsProjectContentDocument = gql`
+    query getCMSProjectContent($registry: String!, $registryProjectId: String!) {
   allProjectContent(
     where: {project: {registryProjectId: {eq: $registryProjectId}, registry: {eq: $registry}}}
   ) {
-    ...CarbonProjectContentFragment
+    ...CMSProjectContentFragment
   }
 }
-    ${CarbonProjectContentFragmentFragmentDoc}`;
-export const GetAllProjectsDocument = gql`
-    query getAllProjects {
+    ${CmsProjectContentFragmentFragmentDoc}`;
+export const GetAllCmsProjectsDocument = gql`
+    query getAllCMSProjects {
   allProject {
-    ...CarbonProjectFragment
+    ...CMSProjectFragment
   }
 }
-    ${CarbonProjectFragmentFragmentDoc}`;
-export const GetAllProjectContentDocument = gql`
-    query getAllProjectContent {
+    ${CmsProjectFragmentFragmentDoc}`;
+export const GetAllCmsProjectContentDocument = gql`
+    query getAllCMSProjectContent {
   allProjectContent {
-    ...CarbonProjectContentFragment
+    ...CMSProjectContentFragment
   }
 }
-    ${CarbonProjectContentFragmentFragmentDoc}`;
+    ${CmsProjectContentFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -1056,17 +1056,17 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getProject(variables: GetProjectQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectQuery>(GetProjectDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProject', 'query');
+    getCMSProject(variables: GetCmsProjectQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCmsProjectQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectQuery>(GetCmsProjectDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProject', 'query');
     },
-    getProjectContent(variables: GetProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectContentQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectContentQuery>(GetProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectContent', 'query');
+    getCMSProjectContent(variables: GetCmsProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCmsProjectContentQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectContentQuery>(GetCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProjectContent', 'query');
     },
-    getAllProjects(variables?: GetAllProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllProjectsQuery>(GetAllProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllProjects', 'query');
+    getAllCMSProjects(variables?: GetAllCmsProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllCmsProjectsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectsQuery>(GetAllCmsProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjects', 'query');
     },
-    getAllProjectContent(variables?: GetAllProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllProjectContentQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllProjectContentQuery>(GetAllProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllProjectContent', 'query');
+    getAllCMSProjectContent(variables?: GetAllCmsProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllCmsProjectContentQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectContentQuery>(GetAllCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjectContent', 'query');
     }
   };
 }

@@ -5,7 +5,7 @@ import { Project } from "../../models/Project.model";
 import { CreditId, CreditIdentifier } from "../../utils/CreditId";
 import { notNil } from "../../utils/functional.utils";
 import { gql_sdk } from "../../utils/gqlSdk";
-import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
+import { fetchAllCarbonProjects } from "../../utils/helpers/cms.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { Querystring, schema } from "./get.schema";
 import {
