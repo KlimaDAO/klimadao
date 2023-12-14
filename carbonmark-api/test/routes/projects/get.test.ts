@@ -10,34 +10,16 @@ import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 import {
   mockCms,
-  mockDigitalCarbon,
-  mockMarketplace,
+  mockDigitalCarbonArgs,
+  mockDigitalCarbonProjects,
+  mockMarketplaceArgs,
+  mockMarketplaceProjects,
   mockTokens,
 } from "./get.test.mocks";
 
 const mockCmsProject = fixtures.cms.cmsProject;
 const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
 const mockMarketplaceProject = fixtures.marketplace.projectWithListing;
-
-/** We want to mock network requests without breaking other utils */
-jest.mock("../../../src/routes/projects/get.utils", () => {
-  const projectUtils = jest.requireActual(
-    "../../../src/routes/projects/get.utils"
-  );
-  return {
-    ...projectUtils,
-    getDefaultQueryArgs: jest.fn(() => {
-      return {
-        category: [],
-        country: [],
-        vintage: [],
-        activityType: [],
-        expiresAfter: "0",
-        search: "",
-      };
-    }),
-  };
-});
 
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
@@ -47,14 +29,16 @@ describe("GET /projects", () => {
   // Setup the server
   beforeEach(async () => {
     fastify = await build();
+    mockMarketplaceArgs();
+    mockDigitalCarbonArgs();
+    mockTokens();
+    mockCms();
   });
 
   // /** The happy path */
   test("Returns 200", async () => {
-    mockMarketplace();
-    mockDigitalCarbon();
-    mockCms();
-    mockTokens();
+    mockMarketplaceProjects();
+    mockDigitalCarbonProjects();
 
     const response = await fastify.inject({
       method: "GET",
@@ -64,9 +48,8 @@ describe("GET /projects", () => {
   });
 
   test("Composes a pool project", async () => {
-    mockDigitalCarbon();
-    mockCms();
-    mockTokens();
+    mockDigitalCarbonProjects();
+
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [] } });
@@ -130,9 +113,8 @@ describe("GET /projects", () => {
   });
 
   test("Composes a marketplace project", async () => {
-    mockMarketplace();
-    mockCms();
-    mockTokens();
+    mockMarketplaceProjects();
+
     //No digital carbon projects
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
@@ -200,9 +182,8 @@ describe("GET /projects", () => {
 
   /** PRICES NOT YET ON SUBGRAPH */
   test("Best price is listing price", async () => {
-    mockDigitalCarbon();
-    mockCms();
-    mockTokens();
+    mockDigitalCarbonProjects();
+
     const cheapListing = {
       ...marketplace.projectWithListing.listings?.[0],
       singleUnitPrice: "111111", // 0.111111
@@ -230,10 +211,9 @@ describe("GET /projects", () => {
   });
 
   test("Best price is the lowest of 2 pool prices", async () => {
-    mockDigitalCarbon();
-    mockMarketplace();
-    mockCms();
-    mockTokens();
+    mockDigitalCarbonProjects();
+    mockMarketplaceProjects();
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects`,
