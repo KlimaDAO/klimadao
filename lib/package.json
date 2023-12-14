@@ -47,7 +47,7 @@
     "./abi/*": "./abi/*"
   },
   "scripts": {
-    "copyfiles": "copyfiles **/*.png out",
+    "copyfiles": "copyfiles ./src/**/*.png out/",
     "dev": "tsc-watch --onSuccess \"npm run copyfiles\"",
     "build": "npm run lint && tsc && npm run copyfiles",
     "lint": "eslint ."

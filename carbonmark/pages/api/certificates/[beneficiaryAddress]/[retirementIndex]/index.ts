@@ -51,8 +51,11 @@ export default async function handler(
     const certificateParams = {
       retirement,
       retirementIndex,
-      retirementUrl: `${urls.retirements_carbonmark}/${retirement.beneficiaryAddress}/${retirementIndex}`,
-      retiredToken: getRetirementTokenByAddress(retirement.pool),
+      retirementUrl: `${urls.retirements_carbonmark}/${retirement.retire.beneficiaryAddress}/${retirementIndex}`,
+      retiredToken: getRetirementTokenByAddress(
+        retirement.retire.credit?.poolBalances?.pool?.id ??
+          retirement.retire.credit.id
+      ),
     };
 
     res.setHeader("Content-Type", "application/pdf");

@@ -27,6 +27,13 @@ export interface KlimaRetire {
       };
       bridgeProtocol: "Toucan" | "Moss" | "C3" | "ICR";
       vintage: string;
+      currentSupply: string;
+      retired: string;
+      poolBalances: {
+        pool: {
+          id: string;
+        };
+      };
     };
   };
   feeAmount: string;

@@ -105,7 +105,8 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
     concatAddress(props.beneficiaryAddress);
 
   const poolTokenName = getRetirementTokenByAddress(
-    retirement.retire.credit.id
+    retirement.retire.credit?.poolBalances?.pool?.id ??
+      retirement.retire.credit.id
   ); // can be null
   const projectTokenName =
     retirement.retire.credit.bridgeProtocol === "Toucan" ? "tco2" : "c3t";
@@ -148,7 +149,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               />
             )}
             <ShareDetails
-              retiree={retiree.id}
+              retiree={retiree}
               formattedAmount={formattedAmount}
               beneficiaryName={retirement.retire.beneficiaryName}
               retirementIndex={props.retirementIndex}

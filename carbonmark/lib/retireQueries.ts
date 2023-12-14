@@ -23,7 +23,16 @@ export const getProjectInfoViaPolygonDigitalCarbon = async (
                 methodologies
                 projectID
               }
+              currentSupply
+              bridgeProtocol
+              retired
+              poolBalances {
+                pool {
+                  id
+                }
+              }
             }
+  
         }
                 `,
         variables: {

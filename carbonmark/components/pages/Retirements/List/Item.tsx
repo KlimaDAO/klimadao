@@ -31,7 +31,8 @@ export const RetirementItem: FC<Props> = (props) => {
   }).format(retirementDate);
 
   const poolTokenName = getRetirementTokenByAddress(
-    retirement.retire.credit.id
+    retirement.retire.credit?.poolBalances?.pool?.id ??
+      retirement.retire.credit.id
   );
   // can be null
   const projectTokenName =
