@@ -4,7 +4,6 @@ import nock from "nock";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
 import { fixtures } from "../../fixtures";
-import digitalCarbon from "../../fixtures/digitalCarbon";
 import marketplace from "../../fixtures/marketplace";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
@@ -20,6 +19,7 @@ import {
 const mockCmsProject = fixtures.cms.cmsProject;
 const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
 const mockMarketplaceProject = fixtures.marketplace.projectWithListing;
+const mockDigitalCarbonProject = fixtures.digitalCarbon.digitalCarbonProject;
 
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
@@ -29,6 +29,10 @@ describe("GET /projects", () => {
   // Setup the server
   beforeEach(async () => {
     fastify = await build();
+  });
+
+  // Setup default mocks
+  beforeEach(async () => {
     mockMarketplaceArgs();
     mockDigitalCarbonArgs();
     mockTokens();
@@ -62,7 +66,7 @@ describe("GET /projects", () => {
 
     const expectedResponse = [
       {
-        region: digitalCarbon.digitalCarbonProject.region,
+        region: mockDigitalCarbonProject.region,
         methodologies: [
           {
             id: mockCmsProject?.methodologies?.[0]?.id,
@@ -75,23 +79,21 @@ describe("GET /projects", () => {
         // applies short_description property from cms
         short_description: mockCmsProjectContent?.shortDescription,
         // Takes numeric from full id, "VCS-191" -> "191"
-        projectID: digitalCarbon.digitalCarbonProject.projectID.split("-")[1],
-        vintage:
-          digitalCarbon.digitalCarbonProject.carbonCredits[0].vintage.toString(),
-        creditTokenAddress:
-          digitalCarbon.digitalCarbonProject.carbonCredits[0].id,
+        projectID: mockDigitalCarbonProject.projectID.split("-")[1],
+        vintage: mockDigitalCarbonProject.carbonCredits[0].vintage.toString(),
+        creditTokenAddress: mockDigitalCarbonProject.carbonCredits[0].id,
         // Takes registry tag
-        registry: digitalCarbon.digitalCarbonProject.id.split("-")[0],
+        registry: mockDigitalCarbonProject.id.split("-")[0],
         updatedAt:
-          digitalCarbon.digitalCarbonProject.carbonCredits[0].poolBalances[0]
-            .pool.dailySnapshots[0].lastUpdateTimestamp,
+          mockDigitalCarbonProject.carbonCredits[0].poolBalances[0].pool
+            .dailySnapshots[0].lastUpdateTimestamp,
         country: {
           id: mockCmsProject.country,
         },
         //This price is a result of the mock in `fixtures.tokens`
         price: "0.267999",
         listings: null,
-        key: digitalCarbon.digitalCarbonProject.projectID,
+        key: mockDigitalCarbonProject.projectID,
         location: {
           geometry: {
             coordinates: [
