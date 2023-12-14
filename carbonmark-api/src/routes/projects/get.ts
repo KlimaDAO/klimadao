@@ -45,17 +45,18 @@ const handler = (fastify: FastifyInstance) =>
 
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify);
-    const vintageOption = args.vintage ?? allOptions.vintage;
+
     const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
       await Promise.all([
         sdk.marketplace.getProjects({
-          vintage: vintageOption,
+          vintage: args.vintage ?? allOptions.vintage,
           search: request.query.search ?? "",
           expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
         }),
         sdk.digital_carbon.findDigitalCarbonProjects({
           category: args.category ?? allOptions.category,
           country: args.country ?? allOptions.country,
+          vintage: (args.vintage ?? allOptions.vintage).map(Number),
           search: request.query.search ?? "",
         }),
         fetchAllCarbonProjects(sdk),
@@ -85,23 +86,19 @@ const handler = (fastify: FastifyInstance) =>
         );
         return;
       }
-
       const [standard, registryProjectId] = project.projectID.split("-");
-      project.carbonCredits
-        .filter((credit) => vintageOption.includes(credit.vintage.toString()))
-        .forEach((credit) => {
-          // We do not have a solution yet to filter
-          const { creditId: key } = new CreditId({
-            standard,
-            registryProjectId,
-            vintage: credit.vintage.toString(),
-          });
-          ProjectMap.set(key, {
-            /** We need to remove all other credits from this asset so that it is a one to one mapping of credit to project */
-            poolProjectData: { ...project, carbonCredits: [credit] },
-            key,
-          });
+      project.carbonCredits.forEach((credit) => {
+        const { creditId: key } = new CreditId({
+          standard,
+          registryProjectId,
+          vintage: credit.vintage.toString(),
         });
+        ProjectMap.set(key, {
+          /** We need to remove all other credits from this asset so that it is a one to one mapping of credit to project */
+          poolProjectData: { ...project, carbonCredits: [credit] },
+          key,
+        });
+      });
     });
 
     /** Assign valid marketplace projects to map */

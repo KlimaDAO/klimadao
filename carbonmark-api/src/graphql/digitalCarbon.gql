@@ -34,6 +34,7 @@ query findDigitalCarbonProjects(
   $country: [String!]
   $category: [String!]
   $search: String
+  $vintage: [Int!]
 ) {
   carbonProjects(
     first: 1000
@@ -51,7 +52,7 @@ query findDigitalCarbonProjects(
     }
   ) {
     ...DigitalCarbonProjectFragment
-    carbonCredits {
+    carbonCredits(where: { vintage_in: $vintage }) {
       ...CarbonCreditFragment
       poolBalances {
         ...PoolBalancesFragment
