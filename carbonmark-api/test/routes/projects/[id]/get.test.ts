@@ -3,13 +3,13 @@ import nock from "nock";
 import { GRAPH_URLS, SANITY_URLS } from "../../../../src/app.constants";
 import { fixtures } from "../../../fixtures";
 import digitalCarbon from "../../../fixtures/digitalCarbon";
-import fixtures from "../../../fixtures/marketplace";
 import tokens from "../../../fixtures/tokens";
 import { build } from "../../../helper";
 import { DEV_URL } from "../../../test.constants";
 
 const mockCmsProject = fixtures.cms.cmsProject;
 const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
+const mockActivities = fixtures.marketplace.activities;
 
 describe("GET /projects/:id", () => {
   let fastify: FastifyInstance;
@@ -48,7 +48,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: fixtures.activities,
+          activities: mockActivities,
         },
       });
     const response = await fastify.inject({
@@ -91,7 +91,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: fixtures.activities,
+          activities: fixtures.marketplace.activities,
         },
       });
     const response = await fastify.inject({
@@ -133,7 +133,7 @@ describe("GET /projects/:id", () => {
       .post("", /.*getActivitiesByProjectId.*/i)
       .reply(200, {
         data: {
-          activities: fixtures.activities,
+          activities: fixtures.marketplace.activities,
         },
       });
     const response = await fastify.inject({

@@ -6,20 +6,20 @@ import useSWRMutation from "swr/mutation";
 import type { ResponseConfig } from "../../../lib/api/client";
 import client from "../../../lib/api/client";
 import type {
-  PostUsersLoginVerifyMutationRequest,
-  PostUsersLoginVerifyMutationResponse,
-} from "../types/PostUsersLoginVerify";
+  PostLoginVerifyMutationRequest,
+  PostLoginVerifyMutationResponse,
+} from "../types/PostLoginVerify";
 
 /**
  * @description Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.
  * @summary Verify signed data
- * @link /users/login/verify
+ * @link /login/verify
  */
 
-export function usePostUsersLoginVerify<
-  TData = PostUsersLoginVerifyMutationResponse,
+export function usePostLoginVerify<
+  TData = PostLoginVerifyMutationResponse,
   TError = unknown,
-  TVariables = PostUsersLoginVerifyMutationRequest,
+  TVariables = PostLoginVerifyMutationRequest,
 >(options?: {
   mutation?: SWRMutationConfiguration<
     ResponseConfig<TData>,
@@ -41,7 +41,7 @@ export function usePostUsersLoginVerify<
     shouldFetch = true,
   } = options ?? {};
 
-  const url = shouldFetch ? `/users/login/verify` : null;
+  const url = shouldFetch ? `/login/verify` : null;
   return useSWRMutation<
     ResponseConfig<TData>,
     TError,

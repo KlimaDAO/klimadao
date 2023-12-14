@@ -150,8 +150,8 @@ export type GetProjectsIdQueryResponse = {
     deleted?: boolean | null;
     batches?: string[] | null;
     batchPrices?: string[] | null;
-    createdAt?: string | null;
-    updatedAt?: string | null;
+    createdAt?: number | null;
+    updatedAt?: number | null;
     /**
      * @type object
      */
@@ -167,9 +167,9 @@ export type GetProjectsIdQueryResponse = {
     };
     /**
      * @description Unix Timestamp (seconds) when the listing expires.
-     * @type string
+     * @type number
      */
-    expiration: string;
+    expiration: number;
     /**
      * @description Minimum quantity for purchase transaction to succeed.
      * @type string

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-13 09:46+0000\n"
+"POT-Creation-Date: 2023-12-14 14:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -125,7 +125,7 @@ msgid ""
 "quantity and try again later."
 msgstr "En este momento, Carbonmark no puede procesar pagos con tarjeta de crédito superiores a {0}. Por favor, ajuste la cantidad e inténtelo de nuevo más tarde."
 
-#: components/ProjectCard/index.tsx:46
+#: components/ProjectCard/index.tsx:47
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
 msgid "Available Tonnes:"
 msgstr "Toneladas Disponibles:"
@@ -359,12 +359,12 @@ msgstr "País"
 msgid "Create Carbonmark Profile"
 msgstr "Crear perfil Carbonmark"
 
-#: components/pages/Users/SellerConnected/index.tsx:147
-#: components/pages/Users/SellerConnected/index.tsx:171
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
 msgid "Create New Listing"
 msgstr "Crear nuevo listado"
 
-#: components/pages/Users/SellerConnected/index.tsx:117
+#: components/pages/Users/SellerConnected/index.tsx:118
 msgid "Create Profile"
 msgstr "Crear perfil"
 
@@ -470,7 +470,7 @@ msgstr "Descargando ..."
 msgid "Edit"
 msgstr "Editar"
 
-#: components/pages/Users/SellerConnected/index.tsx:117
+#: components/pages/Users/SellerConnected/index.tsx:118
 msgid "Edit Profile"
 msgstr "Editar perfil"
 
@@ -631,7 +631,7 @@ msgstr "Ponga a la venta sus proyectos en unos pocos clicks"
 msgid "Listed tonnes:"
 msgstr "Toneladas listadas:"
 
-#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerConnected/index.tsx:133
 #: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "Listados"
@@ -712,7 +712,7 @@ msgstr "Siguiente"
 msgid "No Activity to show."
 msgstr "No hay actividad para mostrar."
 
-#: components/pages/Users/SellerConnected/index.tsx:195
+#: components/pages/Users/SellerConnected/index.tsx:196
 #: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "No hay listados activos."
@@ -746,7 +746,7 @@ msgstr "No se ha encontrado descripción del proyecto"
 msgid "No projects found with current filters"
 msgstr "No se encontraron proyectos con los filtros actuales"
 
-#: components/ProjectCard/index.tsx:63
+#: components/ProjectCard/index.tsx:64
 msgid "No props.project description found"
 msgstr "No se ha encontrado la descripción de props.project"
 
@@ -808,14 +808,14 @@ msgstr "Tasa de procesamiento de pagos"
 msgid "Please Log In"
 msgstr "Por favor Iniciar sesión"
 
-#: components/pages/Portfolio/index.tsx:67
-#: components/pages/Users/SellerConnected/index.tsx:80
-#: components/pages/Users/SellerConnected/index.tsx:106
+#: components/pages/Portfolio/index.tsx:66
+#: components/pages/Users/SellerConnected/index.tsx:81
+#: components/pages/Users/SellerConnected/index.tsx:107
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Por favor, actualice la página. Se ha producido un error al actualizar sus datos: {e}."
 
+#: components/pages/Portfolio/index.tsx:76
 #: components/pages/Portfolio/index.tsx:77
-#: components/pages/Portfolio/index.tsx:78
 msgid "Portfolio | Carbonmark"
 msgstr "Portfolio | Carbonmark"
 
@@ -1413,7 +1413,7 @@ msgstr "Actualizar listado"
 msgid "Updated:"
 msgstr "Actualizado:"
 
-#: components/pages/Users/SellerConnected/index.tsx:189
+#: components/pages/Users/SellerConnected/index.tsx:190
 msgid "Updating your data..."
 msgstr "Actualizando tus datos..."
 
@@ -1447,7 +1447,7 @@ msgstr "Ver detalles del registro <0/>"
 msgid "View Results"
 msgstr "Ver resultados"
 
-#: components/pages/Portfolio/index.tsx:79
+#: components/pages/Portfolio/index.tsx:78
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Vea una visión completa del carbono digital que posee en su Portafolio."
 
@@ -1605,8 +1605,8 @@ msgstr "Su nombre para mostrar"
 msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 msgstr "Su compra aún no se ha completado. Para finalizar su compra, compruebe que toda la información es correcta y haga clic en \"Enviar\"."
 
-#: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:213
+#: components/pages/Portfolio/PortfolioSidebar.tsx:26
+#: components/pages/Users/SellerConnected/index.tsx:214
 msgid "Your seller data"
 msgstr "Tus datos de vendedor"
 
@@ -1788,7 +1788,7 @@ msgstr "Crear listado"
 msgid "profile.edit_modal.submit"
 msgstr "Guardar cambios"
 
-#: components/pages/Users/SellerConnected/index.tsx:219
+#: components/pages/Users/SellerConnected/index.tsx:220
 msgid "profile.edit_profile.title"
 msgstr "Tu perfil"
 

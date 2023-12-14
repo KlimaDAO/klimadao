@@ -23,8 +23,8 @@ type Props = {
   isBestPrice: boolean;
 };
 
-const getFormattedDate = (timestamp: string, locale = "en") => {
-  const date = new Date(parseInt(timestamp) * 1000); //expects milliseconds
+const getFormattedDate = (timestamp: number, locale = "en") => {
+  const date = new Date(timestamp * 1000); //expects milliseconds
   return new Intl.DateTimeFormat(locale, {
     dateStyle: "short",
   }).format(date);

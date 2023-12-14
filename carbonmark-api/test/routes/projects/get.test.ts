@@ -82,7 +82,7 @@ describe("GET /projects", () => {
         region: digitalCarbon.digitalCarbonProject.region,
         methodologies: [
           {
-            id: mockCmsProject.methodologies?.[0]?.id,
+            id: mockCmsProject?.methodologies?.[0]?.id,
             category: mockCmsProject?.methodologies?.[0]?.category,
             name: mockCmsProject?.methodologies?.[0]?.name,
           },
@@ -147,10 +147,10 @@ describe("GET /projects", () => {
     const expectedResponse = [
       {
         /** CMS DATA */
-        description: mockCmsProject.description,
-        name: mockCmsProject.name,
+        ...pick(marketplace.projectWithListing, ["key", "vintage"]),
+        ...pick(mockCmsProject, ["description", "name"]),
         methodologies: [
-          pick(mockCmsProject.methodologies, ["category", "id", "name"]),
+          pick(mockCmsProject.methodologies?.[0], ["category", "id", "name"]),
         ],
         country: {
           id: mockCmsProject.country,
