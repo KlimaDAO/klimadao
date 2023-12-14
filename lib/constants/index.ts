@@ -283,7 +283,9 @@ export const subgraphs = {
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
   carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
-  IcrPolygon: `${ICR_GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
+  // @todo switch back before mainnet!!!
+  // IcrPolygon: `${ICR_GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
+  IcrPolygon: `${ICR_GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-main-test`,
   IcrMumbai: `${ICR_GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 

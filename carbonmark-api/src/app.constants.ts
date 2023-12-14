@@ -13,10 +13,10 @@ const POLYGON_URLS = {
   marketplace: `${GRAPH_API_ROOT_ID}/QmTfM5TvokuyKXCGWL3wTLZ1z4TqRtQ7PdVfQRVU39ovUC`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
-  // Temp revert because old subgraph down
-  // digitalCarbon: `${GRAPH_API_ROOT_ID}/Qmeu2aQpLb89xn8QXaQv4efCtBm1oKzcTri37SGkjp6tXG`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
-  icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-polygon`,
+  // main-test is for ICR's mainnet test registry. Use below for merge
+  // icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-polygon`,
+  icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-main-test`,
 };
 
 const MUMBAI_URLS = {

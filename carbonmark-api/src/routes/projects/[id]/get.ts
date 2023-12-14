@@ -28,9 +28,8 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     const { id } = request.params;
-    // const network = request.query.network ?? "polygon";
-    // @todo reset once network switching is stable, FO R
-    const network = "mumbai";
+
+    const network = request.query.network ?? "polygon";
 
     const sdk = gql_sdk(network);
 

@@ -7,6 +7,8 @@ import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Holding } from "../../../types/assets.types";
 import { gql_sdk } from "../../../utils/gqlSdk";
 
+type MultipleTokenStandardType = Holding & { token: { tokenId?: string } };
+
 const formatHolding = (h: Holding): Holding => {
   return {
     ...h,
@@ -58,8 +60,6 @@ const fetchTestnetHoldings = async (params: {
     fetchTco2Balances,
     fetchIcrHoldings,
   ]);
-
-  type MultipleTokenStandardType = Holding & { token: { tokenId?: string } };
 
   const tco2Holdings: MultipleTokenStandardType[] = tco2Balances.map(
     (balance, i) => {
@@ -136,14 +136,30 @@ export const getHoldingsByWallet = async (params: {
       id: params.address,
     });
 
-    const [holdingsResponse] = await Promise.all([
+    const [holdingsResponse, IcrHoldingsResponse] = await Promise.all([
       holdingsPromise,
       icrHoldingsPromise, // @todo need to merge this and the above regular holdings into unified response
     ]);
+    let icrHoldings: MultipleTokenStandardType[] = [];
 
-    // console.info("fetchIcrHoldings", icrHoldings);
+    if (IcrHoldingsResponse.holder?.exPostAmounts) {
+      icrHoldings = IcrHoldingsResponse.holder.exPostAmounts.map((item) => ({
+        amount: item.amount,
+        id: item.exPost.serialization,
+        token: {
+          decimals: 0,
+          id: item.exPost.project.id,
+          name: item.exPost.project.projectName,
+          symbol: item.exPost.serialization,
+          tokenId: item.exPost.tokenId,
+        },
+      }));
+    }
+    const assetsHoldings = holdingsResponse.accounts.at(0)?.holdings ?? [];
 
-    return holdingsResponse.accounts.at(0)?.holdings.map(formatHolding) ?? [];
+    const allHoldings = [...assetsHoldings, ...icrHoldings];
+
+    return allHoldings.map(formatHolding) ?? [];
   } catch (error) {
     console.error("Error fetching holdings:", error);
     return [];
