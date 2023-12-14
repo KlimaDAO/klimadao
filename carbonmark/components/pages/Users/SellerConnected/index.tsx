@@ -18,6 +18,7 @@ import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
 import { hasListableAssets } from "lib/utils/listings.utils";
+import { first, get, pipe } from "lodash/fp";
 import { FC, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
@@ -89,7 +90,7 @@ export const SellerConnected: FC<Props> = (props) => {
       const newUser = await getUserUntil({
         address: carbonmarkUser.wallet.toLowerCase(),
         retryUntil: activityIsAdded(
-          carbonmarkUser?.activities[0].timeStamp || "0"
+          pipe(first, get("timeStamp"))(carbonmarkUser?.activities) || 0
         ),
         retryInterval: 2000,
         maxAttempts: 50,
@@ -156,8 +157,8 @@ export const SellerConnected: FC<Props> = (props) => {
               }}
               disabled={
                 !hasListableAssets(
-                  carbonmarkUser.assets,
-                  carbonmarkUser.listings
+                  carbonmarkUser.assets || [],
+                  carbonmarkUser.listings || []
                 )
               }
             />
@@ -235,7 +236,7 @@ export const SellerConnected: FC<Props> = (props) => {
           onModalClose={() => setShowCreateListingModal(false)}
           onSubmit={onUpdateUser}
           assets={carbonmarkUser.assets}
-          listings={carbonmarkUser.listings}
+          listings={carbonmarkUser.listings || []}
           showModal={showCreateListingModal}
         />
       )}

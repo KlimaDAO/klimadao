@@ -22,6 +22,4 @@ export const getAllListings = (listings: Listing[]) =>
   listings.filter((l) => l.deleted === false);
 
 export const getSortByUpdateListings = (listings: Listing[]) =>
-  listings.sort((a, b) =>
-    Number(safeSub(b.updatedAt || "0", a.updatedAt || "0"))
-  );
+  listings.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));

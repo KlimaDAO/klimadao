@@ -11,6 +11,7 @@ import { Spinner } from "components/shared/Spinner";
 import { activityIsAdded, getUserUntil } from "lib/api";
 import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
+import { first, get, pipe } from "lodash/fp";
 import { NextPage } from "next";
 import { useState } from "react";
 import { CarbonmarkAssets } from "./CarbonmarkAssets";
@@ -42,15 +43,13 @@ export const Portfolio: NextPage = () => {
   const isConnectedUser = isConnected && address;
   const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
   const isUnregistered = isConnectedUser && isNil(carbonmarkUser);
-
   const onUpdateUser = async () => {
     if (!carbonmarkUser) return;
     try {
-      setIsPending(true);
       const newUser = await getUserUntil({
         address: carbonmarkUser.wallet.toLowerCase(),
         retryUntil: activityIsAdded(
-          carbonmarkUser?.activities[0].timeStamp || "0"
+          pipe(first, get("timeStamp"))(carbonmarkUser?.activities) || 0
         ),
         retryInterval: 2000,
         maxAttempts: 50,

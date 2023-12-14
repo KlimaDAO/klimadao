@@ -32,9 +32,9 @@ export type GetUsersWalletorhandleQueryResponse = {
    */
   wallet: string;
   /**
-   * @type array
+   * @type array | undefined
    */
-  listings: {
+  listings?: {
     /**
      * @description Unique listing identifier
      * @type string
@@ -63,8 +63,8 @@ export type GetUsersWalletorhandleQueryResponse = {
     deleted?: boolean | null;
     batches?: string[] | null;
     batchPrices?: string[] | null;
-    createdAt?: string | null;
-    updatedAt?: string | null;
+    createdAt?: number | null;
+    updatedAt?: number | null;
     /**
      * @type object
      */
@@ -80,9 +80,9 @@ export type GetUsersWalletorhandleQueryResponse = {
     };
     /**
      * @description Unix Timestamp (seconds) when the listing expires.
-     * @type string
+     * @type number
      */
-    expiration: string;
+    expiration: number;
     /**
      * @description Minimum quantity for purchase transaction to succeed.
      * @type string
@@ -123,9 +123,9 @@ export type GetUsersWalletorhandleQueryResponse = {
     };
   }[];
   /**
-   * @type array
+   * @type array | undefined
    */
-  activities: {
+  activities?: {
     /**
      * @type string
      */
@@ -165,9 +165,9 @@ export type GetUsersWalletorhandleQueryResponse = {
     } | null;
   }[];
   /**
-   * @type array
+   * @type array | undefined
    */
-  assets: {
+  assets?: {
     /**
      * @type string
      */

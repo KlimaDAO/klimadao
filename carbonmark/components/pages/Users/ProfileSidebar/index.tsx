@@ -11,8 +11,9 @@ type Props = {
 };
 
 export const ProfileSidebar: FC<Props> = (props) => {
-  const allListings = props.user && getAllListings(props.user.listings);
-  const activeListings = props.user && getActiveListings(props.user.listings);
+  const allListings = props.user && getAllListings(props.user.listings || []);
+  const activeListings =
+    props.user && getActiveListings(props.user.listings || []);
 
   return (
     <>
