@@ -20,9 +20,7 @@ const handler = (fastify: FastifyInstance) =>
   ): Promise<Activity[]> {
     request.query.projectId = [request.params.id];
 
-    // @todo change back to network aware
-    // const network = request.query.network ?? "polygon";
-    const network = "mumbai";
+    const network = request.query.network ?? "polygon";
     return asResponse(
       reply,
       await getActivities(fastify, request.query, network)
