@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-13 19:16+0000\n"
+"POT-Creation-Date: 2023-12-14 11:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -361,12 +361,12 @@ msgstr "देश"
 msgid "Create Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल बनाएं"
 
-#: components/pages/Users/SellerConnected/index.tsx:147
-#: components/pages/Users/SellerConnected/index.tsx:171
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
 msgid "Create New Listing"
 msgstr "नयी सूची बनाएँ"
 
-#: components/pages/Users/SellerConnected/index.tsx:117
+#: components/pages/Users/SellerConnected/index.tsx:118
 msgid "Create Profile"
 msgstr "प्रोफ़ाइल बनाएँ"
 
@@ -472,7 +472,7 @@ msgstr "डाउनलोड हो रहा है..."
 msgid "Edit"
 msgstr "संपादित करें"
 
-#: components/pages/Users/SellerConnected/index.tsx:117
+#: components/pages/Users/SellerConnected/index.tsx:118
 msgid "Edit Profile"
 msgstr "प्रोफ़ाइल संपादित करें"
 
@@ -635,7 +635,7 @@ msgstr "बस कुछ ही क्लिक में बिक्री क
 msgid "Listed tonnes:"
 msgstr "सूचीबद्ध टन:"
 
-#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerConnected/index.tsx:133
 #: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "सूचियाँ"
@@ -716,7 +716,7 @@ msgstr "इसके बाद"
 msgid "No Activity to show."
 msgstr "दिखाने के लिए कोई गतिविधि नहीं।"
 
-#: components/pages/Users/SellerConnected/index.tsx:195
+#: components/pages/Users/SellerConnected/index.tsx:196
 #: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "शून्य सक्रिय सूचियाँ"
@@ -812,14 +812,14 @@ msgstr "रिटायरमेंट प्रोसेसिंग शुल�
 msgid "Please Log In"
 msgstr "कृपया लॉगिन करें"
 
-#: components/pages/Portfolio/index.tsx:67
-#: components/pages/Users/SellerConnected/index.tsx:80
-#: components/pages/Users/SellerConnected/index.tsx:106
+#: components/pages/Portfolio/index.tsx:66
+#: components/pages/Users/SellerConnected/index.tsx:81
+#: components/pages/Users/SellerConnected/index.tsx:107
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "कृपया पृष्ट को रिफ़्रेश करें। आपका डेटा अपडेट करने में गलती हुई: {e}।"
 
+#: components/pages/Portfolio/index.tsx:76
 #: components/pages/Portfolio/index.tsx:77
-#: components/pages/Portfolio/index.tsx:78
 msgid "Portfolio | Carbonmark"
 msgstr "पोर्टफ़ोलियो | कार्बनमार्क"
 
@@ -1419,7 +1419,7 @@ msgstr "सूची अपडेट करें"
 msgid "Updated:"
 msgstr "अपडेटेड:"
 
-#: components/pages/Users/SellerConnected/index.tsx:189
+#: components/pages/Users/SellerConnected/index.tsx:190
 msgid "Updating your data..."
 msgstr "आपका डेटा अपडेट हो रहा है..."
 
@@ -1455,7 +1455,7 @@ msgstr "रजिस्ट्री विवरण देखें <0/>"
 msgid "View Results"
 msgstr "परिणाम देखें"
 
-#: components/pages/Portfolio/index.tsx:79
+#: components/pages/Portfolio/index.tsx:78
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "अपने पोर्टफ़ोलियो में अपने स्वामित्व वाले डिजिटल कार्बन का संपूर्ण विवरण देखें।"
 
@@ -1613,8 +1613,8 @@ msgstr "आपका प्रदर्शित होने वाला न�
 msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 msgstr "आपकी ख़रीदारी अभी पूर्ण नहीं हुई है। अपनी ख़रीदारी को अंतिम रूप देने के लिए, सत्यापित करें कि सब जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
-#: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:213
+#: components/pages/Portfolio/PortfolioSidebar.tsx:26
+#: components/pages/Users/SellerConnected/index.tsx:214
 msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
 
@@ -1794,7 +1794,7 @@ msgstr "सूची बनाएँ"
 msgid "profile.edit_modal.submit"
 msgstr "बदलाव सेव करें"
 
-#: components/pages/Users/SellerConnected/index.tsx:219
+#: components/pages/Users/SellerConnected/index.tsx:220
 msgid "profile.edit_profile.title"
 msgstr "आपकी प्रोफ़ाइल"
 
