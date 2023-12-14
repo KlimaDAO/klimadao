@@ -6,7 +6,7 @@ import { User } from "lib/types/carbonmark.types";
 import { createDownloadLink } from "./createDownloadLink";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
-  const res = await fetch(`${urls.api.users}/login`, {
+  const res = await fetch(`${urls.api.login}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const verifyUser = async (params: {
   address: string;
   signature: string;
 }): Promise<{ token: string }> => {
-  const res = await fetch(`${urls.api.users}/login/verify`, {
+  const res = await fetch(`${urls.api.login}/verify`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -125,7 +125,7 @@ export const getRetirementCertificate = async (params: {
 
 // poll until check for activity timeStamps
 export const activityIsAdded = (prevTimeStamp: string) => (newUser: User) => {
-  const latestActivity = newUser.activities.sort(
+  const latestActivity = newUser.activities?.sort(
     (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
   )[0];
   return Number(latestActivity?.timeStamp || 0) > Number(prevTimeStamp);

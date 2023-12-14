@@ -25,7 +25,7 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [assetsData, setAssetsData] = useState<AssetWithProject[] | null>(null);
 
-  const listableAssets = carbonmarkUser?.assets.filter(isListableToken) || [];
+  const listableAssets = carbonmarkUser?.assets?.filter(isListableToken) || [];
   const emptyAssets =
     !!carbonmarkUser && !isLoadingAssets && !assetsData?.length;
   const hasAssets =

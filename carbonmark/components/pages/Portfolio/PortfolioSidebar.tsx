@@ -13,8 +13,9 @@ type Props = {
 };
 
 export const PortfolioSidebar: FC<Props> = (props) => {
-  const allListings = props.user && getAllListings(props.user.listings);
-  const activeListings = props.user && getActiveListings(props.user.listings);
+  const allListings = props.user && getAllListings(props.user.listings || []);
+  const activeListings =
+    props.user && getActiveListings(props.user.listings || []);
 
   return (
     <div className={styles.stickyContentWrapper}>
