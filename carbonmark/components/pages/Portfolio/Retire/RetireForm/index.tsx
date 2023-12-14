@@ -11,6 +11,7 @@ import { Vintage } from "components/Vintage";
 import { InputField, TextareaField } from "components/shared/Form";
 import { ethers, providers } from "ethers";
 import { formatToDecimals } from "lib/formatNumbers";
+import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
@@ -43,7 +44,7 @@ interface RetireFormProps {
 export const RetireForm = (props: RetireFormProps) => {
   const router = useRouter();
   const { address, asset, provider } = props;
-  const { tokenName, tokenSymbol, project } = asset;
+  const { tokenName, tokenSymbol, credit } = asset;
 
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
@@ -106,12 +107,12 @@ export const RetireForm = (props: RetireFormProps) => {
 
   useEffect(() => {
     async function getApproval() {
-      if (provider && project.tokenAddress) {
+      if (provider && credit.id) {
         await hasApproval({
           quantity: retirement.quantity,
           address,
           provider,
-          tokenAddress: project.tokenAddress,
+          tokenAddress: credit.id,
         }).then((isApproved) => {
           setIsApproved(isApproved);
         });
@@ -176,24 +177,28 @@ export const RetireForm = (props: RetireFormProps) => {
             <div className={styles.projectHeader}>
               <ProjectImage
                 category={
-                  (project.methodologyCategory as CategoryName) || "Other"
+                  getCategoryFromMethodology(
+                    credit.project.methodologies as CategoryName
+                  ) || "Other"
                 }
               />
               <div className={styles.imageGradient} />
               <Text t="h3" className={styles.projectHeaderText}>
-                {project.name || "Error - No project name found"}
+                {credit.project.name || "Error - No project name found"}
               </Text>
               <div className={styles.tags}>
                 <Text t="h5" className={styles.projectIDText}>
-                  {project.projectID}
+                  {credit.project.projectID}
                 </Text>
-                <Vintage vintage={project.vintageYear} />
+                <Vintage vintage={credit.vintage.toString()} />
                 <Category
                   category={
-                    (project.methodologyCategory as CategoryName) || "Other"
+                    getCategoryFromMethodology(
+                      credit.project.methodologies as CategoryName
+                    ) || "Other"
                   }
                 />
-                <Registry registry={project.registry} />
+                <Registry registry={credit.project.registry} />
               </div>
             </div>
 
@@ -409,7 +414,7 @@ export const RetireForm = (props: RetireFormProps) => {
             provider,
             retirementQuantity: retirement.quantity,
             updateStatus: updateStatus,
-            tokenAddress: project.tokenAddress,
+            tokenAddress: credit.id,
           })
         }
         onSubmit={() =>
@@ -423,7 +428,7 @@ export const RetireForm = (props: RetireFormProps) => {
             onStatus: updateStatus,
             retirementToken: tokenName,
             tokenSymbol: tokenSymbol,
-            tokenAddress: project.tokenAddress,
+            tokenAddress: credit.id,
             setRetireModalOpen,
             setRetirementTransactionHash,
             setRetirementTotals,

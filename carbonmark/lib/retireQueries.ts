@@ -10,32 +10,20 @@ export const getProjectInfoViaPolygonDigitalCarbon = async (
       body: JSON.stringify({
         query: `
         query ProjectTokenInfo($address: String) {
-          carbonOffsets(where: {id: $address}) {
-            projectID
-            vintageYear
-            vintage
-            totalRetired
-            tokenAddress
-            totalBridged
-            standard
-            storageMethod
-            id
-            registry
-            region
-            name
-            methodologyCategory
-            methodology
-            method
-            lastUpdate
-            klimaRanking
-            isCorsiaCompliant
-            emissionType
-            currentSupply
-            country
-            correspAdjustment
-            coBenefits
-            category
-          }
+            carbonCredits(where: {id: $address}) {
+              id
+              vintage
+              project {
+                registry
+                region
+                name
+                id
+                country
+                category
+                methodologies
+                projectID
+              }
+            }
         }
                 `,
         variables: {
@@ -52,7 +40,7 @@ export const getProjectInfoViaPolygonDigitalCarbon = async (
     }
 
     const data = await result.json();
-    return data.data.carbonOffsets;
+    return data.data.carbonCredits;
   } catch (error) {
     console.error("Error fetching project token info:", error);
     return null;
