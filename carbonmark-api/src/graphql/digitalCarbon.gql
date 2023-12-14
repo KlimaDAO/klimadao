@@ -42,7 +42,6 @@ query findDigitalCarbonProjects(
       and: [
         { category_in: $category }
         { country_in: $country }
-        { carbonCredits_: { vintage_in: $vintage } }
         {
           or: [
             { name_contains_nocase: $search }
@@ -53,7 +52,7 @@ query findDigitalCarbonProjects(
     }
   ) {
     ...DigitalCarbonProjectFragment
-    carbonCredits {
+    carbonCredits(where: { vintage_in: $vintage }) {
       ...CarbonCreditFragment
       poolBalances {
         ...PoolBalancesFragment
