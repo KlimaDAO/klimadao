@@ -1,10 +1,10 @@
 import { subgraphs } from "@klimadao/lib/constants";
 
-export const getProjectInfoFromPolygonBridgedCarbon = async (
+export const getProjectInfoViaPolygonDigitalCarbon = async (
   address: string
 ) => {
   try {
-    const result = await fetch(subgraphs.polygonBridgedCarbon, {
+    const result = await fetch(subgraphs.polygonDigitalCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

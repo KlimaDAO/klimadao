@@ -4,6 +4,7 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   concatAddress,
   formatTonnes,
+  formatUnits,
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
@@ -92,19 +93,23 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   }
 
   const formattedAmount = formatTonnes({
-    amount: retirement.amount,
+    amount: retirement.retire.credit.project.registry.startsWith("ICR")
+      ? retirement.retire.amount
+      : formatUnits(retirement.retire.amount),
     locale: locale || "en",
   });
 
   const retiree =
-    retirement.beneficiary ||
+    retirement.retire.beneficiaryName ||
     props.nameserviceDomain ||
     concatAddress(props.beneficiaryAddress);
 
-  const poolTokenName = getRetirementTokenByAddress(retirement.pool); // can be null
+  const poolTokenName = getRetirementTokenByAddress(
+    retirement.retire.credit.id
+  ); // can be null
   const projectTokenName =
-    retirement.offset.bridge === "Toucan" ? "tco2" : "c3t";
-  const isMossOffset = retirement?.offset?.bridge === "Moss";
+    retirement.retire.credit.bridgeProtocol === "Toucan" ? "tco2" : "c3t";
+  const isMossOffset = retirement?.retire.credit.bridgeProtocol === "Moss";
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenInfoMap[carbonTokenName];
 
@@ -129,21 +134,23 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       <Section className={styles.section}>
         <div className={styles.gridLayout}>
           <Col className="column">
-            <RetirementDate timestamp={retirement.timestamp} />
+            <RetirementDate timestamp={retirement.retire.timestamp} />
             <RetirementHeader formattedAmount={formattedAmount} />
-            {retirement.beneficiary && props.beneficiaryAddress && (
+            {retirement.retire.beneficiaryName && props.beneficiaryAddress && (
               <BeneficiaryDetails
-                beneficiary={retirement.beneficiary}
+                beneficiary={retirement.retire.beneficiaryAddress.id}
                 beneficiaryAddress={props.beneficiaryAddress}
               />
             )}
-            {retirement.retirementMessage && (
-              <RetirementMessage message={retirement.retirementMessage} />
+            {retirement.retire.retirementMessage && (
+              <RetirementMessage
+                message={retirement.retire.retirementMessage}
+              />
             )}
             <ShareDetails
-              retiree={retiree}
+              retiree={retiree.id}
               formattedAmount={formattedAmount}
-              beneficiaryName={retirement.beneficiary}
+              beneficiaryName={retirement.retire.beneficiaryName}
               retirementIndex={props.retirementIndex}
               beneficiaryAddress={props.beneficiaryAddress}
             />

@@ -47,7 +47,9 @@ const getRetirements: NextApiHandler<
           : retirements;
 
         // query CMS for project content
-        const projectIDs = limittedRetirements.map((r) => r.offset.projectID);
+        const projectIDs = limittedRetirements.map(
+          (r) => r.retire.credit.project.projectID
+        );
         const uniqueProjectIDs = [...new Set(projectIDs)];
         const cmsProjects = await queryProjects({ ids: uniqueProjectIDs });
 
@@ -55,10 +57,11 @@ const getRetirements: NextApiHandler<
         const mergedRetirements = limittedRetirements.map((r) => ({
           ...r,
           offset: {
-            ...r.offset,
+            ...r.retire,
             name:
-              cmsProjects.find((p) => p.id === r.offset.projectID)?.name || // COULD NOT CHECK THIS, name in CMS is always the same as from the graph
-              r.offset.name,
+              cmsProjects.find(
+                (p) => p.id === r.retire.credit.project.projectID
+              )?.name || r.retire.credit.project.name, // COULD NOT CHECK THIS, name in CMS is always the same as from the graph
           },
         }));
 

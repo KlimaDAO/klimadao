@@ -13,10 +13,6 @@ import {
   Sdk as MarketplaceSdk,
 } from "../.generated/types/marketplace.types";
 import {
-  getSdk as offsetsSdk,
-  Sdk as OffsetsSdk,
-} from "../.generated/types/offsets.types";
-import {
   getSdk as tokensSdk,
   Sdk as TokensSdk,
 } from "../.generated/types/tokens.types";
@@ -26,7 +22,6 @@ import { NetworkParam } from "../models/NetworkParam.model";
 export type GQL_SDK = {
   marketplace: MarketplaceSdk;
   assets: AssetsSdk;
-  offsets: OffsetsSdk;
   tokens: TokensSdk;
   cms: CMSSdk;
   digital_carbon: DigitalCarbonSdk;
@@ -35,7 +30,6 @@ export type GQL_SDK = {
 const sdks = {
   marketplace: marketplaceSdk,
   assets: assetsSdk,
-  offsets: offsetsSdk,
   tokens: tokensSdk,
   cms: cmsSdk,
   digital_carbon: digitalCarbonSdk,
@@ -48,7 +42,6 @@ export const gql_sdk = (
   return {
     marketplace: sdks.marketplace(new GraphQLClient(graph_urls.marketplace)),
     assets: sdks.assets(new GraphQLClient(graph_urls.assets)),
-    offsets: sdks.offsets(new GraphQLClient(graph_urls.offsets)),
     tokens: sdks.tokens(new GraphQLClient(graph_urls.tokens)),
     digital_carbon: sdks.digital_carbon(
       new GraphQLClient(graph_urls.digitalCarbon)

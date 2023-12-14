@@ -2,6 +2,7 @@ export interface KlimaRetire {
   id: string;
   index: string;
   retire: {
+    hash: string;
     beneficiaryName: string;
     amount: string;
     retirementMessage: string;

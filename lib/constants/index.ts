@@ -276,8 +276,9 @@ export const offsetCompatibility: CompatMap = {
 
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
-  polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
-  polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
+  // polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
+  // @todo temporary before deployed under /klimadao
+  polygonDigitalCarbon: `https://api.thegraph.com/subgraphs/name/psparacino/polygon-digital-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",

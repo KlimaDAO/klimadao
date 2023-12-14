@@ -1,6 +1,6 @@
 import { Retire, RetirePageProps } from "components/pages/Portfolio/Retire";
 import { loadTranslation } from "lib/i18n";
-import { getProjectInfoFromPolygonBridgedCarbon } from "lib/retireQueries";
+import { getProjectInfoViaPolygonDigitalCarbon } from "lib/retireQueries";
 import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps<
   }
 
   try {
-    const project = await getProjectInfoFromPolygonBridgedCarbon(
+    const project = await getProjectInfoViaPolygonDigitalCarbon(
       params.project_token_0x.toLowerCase()
     );
     if (project.length === 0) {

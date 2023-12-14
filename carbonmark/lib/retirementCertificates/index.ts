@@ -56,29 +56,31 @@ const catergoryBannerMap = {
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
-  const isMossRetirement = params.retirement.offset.bridge === "Moss";
-  const fileName = `retirement_${params.retirementIndex}_${params.retirement.beneficiaryAddress}`;
+  const isMossRetirement =
+    params.retirement.retire.credit.bridgeProtocol === "Moss";
+  const fileName = `retirement_${params.retirementIndex}_${params.retirement.retire.beneficiaryAddress}`;
   const projectDetails = [
     {
       label: "PROJECT:",
-      value: params.retirement.offset.projectID,
+      value: params.retirement.retire.credit.project.projectID,
     },
     {
       label: "TYPE: ",
-      value: getOffsetCategories(params.retirement.offset),
+      value: getOffsetCategories(params.retirement.retire),
     },
     {
       label: "METHODOLOGY:",
-      value: params.retirement.offset.methodology,
+      value: params.retirement.retire.credit.project.methodologies,
     },
     {
       label: "COUNTRY/REGION:",
       value:
-        params.retirement.offset.country || params.retirement.offset.region,
+        params.retirement.retire.credit.project.country ||
+        params.retirement.retire.credit.project.region,
     },
     {
       label: "VINTAGE: ",
-      value: new Date(Number(params.retirement.offset.vintage) * 1000)
+      value: new Date(Number(params.retirement.retire.credit.vintage) * 1000)
         .getFullYear()
         .toString(),
     },
@@ -145,11 +147,13 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   const printRetirementDetails = (): void => {
     const retirementAmount =
-      Number(params.retirement.amount) < 0.01
+      Number(params.retirement.retire.amount) < 0.01
         ? "< 0.01"
-        : trimWithLocale(params.retirement.amount, 2, "en");
+        : trimWithLocale(params.retirement.retire.amount, 2, "en");
 
-    const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
+    const retirementDate = new Date(
+      Number(params.retirement.retire.timestamp) * 1000
+    );
     const formattedDate = new Intl.DateTimeFormat("en", {
       day: "2-digit",
       month: "long",
@@ -185,7 +189,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       characterSpacing: 0.3,
     });
 
-    const beneficary = params.retirement.beneficiary;
+    const beneficary = params.retirement.retire.beneficiaryName;
     if (beneficary) {
       doc.text("BENEFICIARY:", spacing.margin, 220, {
         characterSpacing: 0.3,
@@ -203,7 +207,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
         }) + 20
       : 0;
 
-    const retirementMessage = params.retirement.retirementMessage;
+    const retirementMessage = params.retirement.retire.retirementMessage;
     if (retirementMessage) {
       doc.font("DMSans");
       doc.fontSize(16);
@@ -237,7 +241,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     const category = isMossRetirement
       ? "Moss"
       : (getOffsetMainCategory(
-          params.retirement.offset
+          params.retirement.retire
         ) as CategoryBannerMappingKey);
     const categoryBanner = catergoryBannerMap[category];
     const categoryBannerBuffer = Buffer.from(categoryBanner, "base64");
@@ -250,7 +254,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   const calculateBoxHeight = (): number => {
     const projectNameBlockHeight = doc.heightOfString(
-      params.retirement.offset.name,
+      params.retirement.retire.credit.project.name,
       { width: 300, characterSpacing: 0.3 }
     );
     const positionOfProjectDetails = 200 + projectNameBlockHeight + 50;
@@ -294,18 +298,23 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("DMSans");
     doc.fontSize(16);
     doc.fillColor(BLACK);
-    doc.text(params.retirement.offset.name, doc.page.width - 360, 218, {
-      width: 320,
-    });
+    doc.text(
+      params.retirement.retire.credit.project.name,
+      doc.page.width - 360,
+      218,
+      {
+        width: 320,
+      }
+    );
 
     const projectNameBlockHeight = doc.heightOfString(
-      params.retirement.offset.name,
+      params.retirement.retire.credit.project.name,
       {
         width: 320,
         characterSpacing: 0.3,
       }
     );
-    const projectDetailsLink = `${urls.carbonmark}/projects/${params.retirement.offset.projectID}-${params.retirement.offset.vintageYear}`;
+    const projectDetailsLink = `${urls.carbonmark}/projects/${params.retirement.retire.credit.project.projectID}-${params.retirement.retire.credit.vintage}`;
     doc.font("Poppins-Semibold");
     doc.fontSize(12);
     doc.fillColor(GRAY);
@@ -368,7 +377,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("DMSans");
     doc.fontSize(10);
     doc.text(
-      params.retirement.beneficiaryAddress,
+      params.retirement.retire.beneficiaryAddress.id,
       doc.page.width - 360,
       startPosition + 37,
       { width: 320 }
@@ -383,7 +392,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("DMSans");
     doc.fontSize(10);
     doc.text(
-      params.retirement.transaction.id,
+      params.retirement.retire.hash,
       doc.page.width - 360,
       startPosition + 69,
       { width: 320 }
@@ -391,7 +400,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
     doc.text("View on PolygonScan", doc.page.width - 360, startPosition + 100, {
       underline: true,
-      link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+      link: `https://polygonscan.com/tx/${params.retirement.retire.hash}`,
     });
   };
 
@@ -455,7 +464,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("DMSans");
     doc.fontSize(10);
     doc.text(
-      params.retirement.beneficiaryAddress,
+      params.retirement.retire.beneficiaryAddress.id,
       doc.page.width - 360,
       200 + 50 + 32,
       { width: 320 }
@@ -470,7 +479,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("DMSans");
     doc.fontSize(10);
     doc.text(
-      params.retirement.transaction.id,
+      params.retirement.retire.hash,
       doc.page.width - 360,
       200 + 50 + 64,
       { width: 320 }
@@ -478,7 +487,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
     doc.text("View on PolygonScan", doc.page.width - 360, 200 + 50 + 100, {
       underline: true,
-      link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+      link: `https://polygonscan.com/tx/${params.retirement.retire.hash}`,
     });
   };
 

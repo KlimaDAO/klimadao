@@ -105,9 +105,12 @@ export const getStaticProps: GetStaticProps<
     }
 
     let project;
-    if (retirement?.offset.projectID && retirement?.offset.vintageYear) {
+    if (
+      retirement?.retire.credit.project.projectID &&
+      retirement?.retire.credit.vintage
+    ) {
       project = await getProjectsId(
-        `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
+        `${retirement.retire.credit.project.projectID}-${retirement.retire.credit.vintage}`
       );
     }
 
