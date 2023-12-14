@@ -34,7 +34,6 @@ query findDigitalCarbonProjects(
   $country: [String!]
   $category: [String!]
   $search: String
-  $vintage: [Int!]
 ) {
   carbonProjects(
     first: 1000
@@ -42,7 +41,6 @@ query findDigitalCarbonProjects(
       and: [
         { category_in: $category }
         { country_in: $country }
-        { carbonCredits_: { vintage_in: $vintage } }
         {
           or: [
             { name_contains_nocase: $search }
