@@ -107,10 +107,10 @@
                 ]
               },
               "createdAt": {
-                "anyOf": [{ "type": "string" }, { "type": "null" }]
+                "anyOf": [{ "type": "number" }, { "type": "null" }]
               },
               "updatedAt": {
-                "anyOf": [{ "type": "string" }, { "type": "null" }]
+                "anyOf": [{ "type": "number" }, { "type": "null" }]
               },
               "seller": {
                 "type": "object",
@@ -133,7 +133,7 @@
               },
               "expiration": {
                 "description": "Unix Timestamp (seconds) when the listing expires.",
-                "type": "string"
+                "type": "number"
               },
               "minFillAmount": {
                 "description": "Minimum quantity for purchase transaction to succeed.",

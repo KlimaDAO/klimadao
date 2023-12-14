@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-13 19:16+0000\n"
+"POT-Creation-Date: 2023-12-14 11:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -359,12 +359,12 @@ msgstr "Land"
 msgid "Create Carbonmark Profile"
 msgstr "Carbonmark-Profil erstellen"
 
-#: components/pages/Users/SellerConnected/index.tsx:147
-#: components/pages/Users/SellerConnected/index.tsx:171
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
 msgid "Create New Listing"
 msgstr "Neuen Eintrag erstellen"
 
-#: components/pages/Users/SellerConnected/index.tsx:117
+#: components/pages/Users/SellerConnected/index.tsx:118
 msgid "Create Profile"
 msgstr "Profil erstellen"
 
@@ -470,7 +470,7 @@ msgstr "Wird heruntergeladen ..."
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: components/pages/Users/SellerConnected/index.tsx:117
+#: components/pages/Users/SellerConnected/index.tsx:118
 msgid "Edit Profile"
 msgstr "Profil bearbeiten"
 
@@ -631,7 +631,7 @@ msgstr "Bieten Sie Ihre Projekte mit wenigen Klicks zum Verkauf an"
 msgid "Listed tonnes:"
 msgstr "Gelistete Tonnen:"
 
-#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerConnected/index.tsx:133
 #: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "Einträge"
@@ -712,7 +712,7 @@ msgstr "Weiter"
 msgid "No Activity to show."
 msgstr "Keine Aktivitäten zum Anzeigen."
 
-#: components/pages/Users/SellerConnected/index.tsx:195
+#: components/pages/Users/SellerConnected/index.tsx:196
 #: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "Keine aktiven Einträge."
@@ -808,14 +808,14 @@ msgstr "Zahlungsabwicklungsgebühr"
 msgid "Please Log In"
 msgstr "Bitte melden Sie sich an"
 
-#: components/pages/Portfolio/index.tsx:67
-#: components/pages/Users/SellerConnected/index.tsx:80
-#: components/pages/Users/SellerConnected/index.tsx:106
+#: components/pages/Portfolio/index.tsx:66
+#: components/pages/Users/SellerConnected/index.tsx:81
+#: components/pages/Users/SellerConnected/index.tsx:107
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Bitte aktualisieren Sie die Seite. Beim Aktualisieren Ihrer Daten ist ein Fehler aufgetreten: {e}."
 
+#: components/pages/Portfolio/index.tsx:76
 #: components/pages/Portfolio/index.tsx:77
-#: components/pages/Portfolio/index.tsx:78
 msgid "Portfolio | Carbonmark"
 msgstr "Portfolio | Carbonmark"
 
@@ -1413,7 +1413,7 @@ msgstr "Angebot aktualisieren"
 msgid "Updated:"
 msgstr "Aktualisiert:"
 
-#: components/pages/Users/SellerConnected/index.tsx:189
+#: components/pages/Users/SellerConnected/index.tsx:190
 msgid "Updating your data..."
 msgstr "Ihre Daten werden aktualisiert..."
 
@@ -1447,7 +1447,7 @@ msgstr "Registrierungsdetails anzeigen <0/>"
 msgid "View Results"
 msgstr "Ergebnisse ansehen"
 
-#: components/pages/Portfolio/index.tsx:79
+#: components/pages/Portfolio/index.tsx:78
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Komplettansicht aller digitalen CO2-Assets in Ihrem Besitz in Ihrem Portfolio."
 
@@ -1605,8 +1605,8 @@ msgstr "Ihr Anzeigename"
 msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 msgstr "Ihr Kauf ist noch nicht abgeschlossen. Stellen Sie die Korrektheit der Informationen sicher und klicken Sie unten auf \"Absenden\", um den Kauf abzuschließen."
 
-#: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:213
+#: components/pages/Portfolio/PortfolioSidebar.tsx:26
+#: components/pages/Users/SellerConnected/index.tsx:214
 msgid "Your seller data"
 msgstr "Ihre Verkäuferdaten"
 
@@ -1786,7 +1786,7 @@ msgstr "Eintrag erstellen"
 msgid "profile.edit_modal.submit"
 msgstr "Änderungen speichern"
 
-#: components/pages/Users/SellerConnected/index.tsx:219
+#: components/pages/Users/SellerConnected/index.tsx:220
 msgid "profile.edit_profile.title"
 msgstr "Ihr Profil"
 
