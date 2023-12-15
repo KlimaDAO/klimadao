@@ -3,6 +3,12 @@ import { pick } from "lodash";
 import { ProvenanceRecord } from "src/models/ProvenanceRecord.model";
 import { GetProvenanceRecordsQuery } from "../../.generated/types/digitalCarbon.types";
 
+/**
+ * Format a Record coming from a GQL query into a standardized API response fragment
+ * @param credit
+ * @returns
+ */
+
 export function formatRecord(
   record:
     | GetProvenanceRecordsQuery["provenanceRecords"][0]

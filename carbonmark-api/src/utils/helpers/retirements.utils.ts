@@ -6,6 +6,12 @@ import { Retirement } from "../../models/Retirement.model";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { formatCarbonCredit } from "./carbonCredits.utils";
 
+/**
+ * Gets a Klima retirement from the polygon-bridged-carbon subgraph given an account id and a retirement index
+ * This should not be necessary when polygon-digital-carbon will be updated with the transaction hash in the Retire model
+ * @param props
+ * @returns
+ */
 export async function getKlimaRetirement(props: {
   account_id: string;
   retirement_index: number | string;
@@ -24,6 +30,12 @@ export async function getKlimaRetirement(props: {
     ? formatKlimaRetirement(retirement.klimaRetire)
     : null;
 }
+
+/**
+ * Formats a KlimaRetirement from the GQL query into a standardized API response fragment
+ * @param credit
+ * @returns
+ */
 
 export function formatKlimaRetirement(
   retirement: GetKlimaRetirementQuery["klimaRetire"]

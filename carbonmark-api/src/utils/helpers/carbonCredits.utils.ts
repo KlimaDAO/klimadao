@@ -3,6 +3,11 @@ import { pick } from "lodash";
 import { GetKlimaRetirementQuery } from "../../.generated/types/digitalCarbon.types";
 import { CarbonCredit } from "../../models/CarbonCredit.model";
 
+/**
+ * Format a Carbon Credit coming from the GQL query into a standardized API response fragment
+ * @param credit
+ * @returns
+ */
 export function formatCarbonCredit(
   credit: Exclude<
     GetKlimaRetirementQuery["klimaRetire"],

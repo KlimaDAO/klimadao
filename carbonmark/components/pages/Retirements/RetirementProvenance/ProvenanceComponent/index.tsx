@@ -98,9 +98,19 @@ const RECORDS_INFO: Record<
   },
 };
 
+/**
+ * Displays provenance records formatted as a timeline
+ * @param props
+ * @returns
+ */
 export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
   const { locale } = useRouter();
   const [showTransfers, setShowTransfers] = useState<boolean>(false);
+
+  // Do not display anything if we do not have at least a record
+  const lastRecord = props.records[0];
+  if (!lastRecord) return <></>;
+
   // Divider customization
   const numberOfTransfers = props.records.filter(
     (record) => record.transactionType == "TRANSFER"
@@ -116,10 +126,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
     <KeyboardArrowDown fontSize="large" />
   );
 
-  // Do not display anything if we do not have at least a record
-  const lastRecord = props.records[0];
-  if (!lastRecord) return <></>;
-
+  /** Formats tons */
   const formattedAmount = formatTonnes({
     amount: lastRecord.originalAmount.toString(),
     locale: locale || "en",
@@ -136,6 +143,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
     return record.transactionType != "TRANSFER" || showTransfers;
   };
 
+  /** Styles record items to trigger the transition effect */
   const recordStyle = (record: ProvenanceRecord) => {
     return `${styles.timelineItem} ${
       recordVisible(record)

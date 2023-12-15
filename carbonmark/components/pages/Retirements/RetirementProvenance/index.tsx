@@ -21,7 +21,7 @@ type ProvenanceList = Record<string, ProvenanceRecord[]>;
 
 /**
  * Splits Provenance records in different streams
- * Each streams is tracks the provenance of the credits sent by the last sender
+ * Each stream tracks the provenance of the credits received by the last sender
  * @param provenance
  * @returns
  */
@@ -93,6 +93,12 @@ const splitProvenance = (records: ProvenanceRecord[]) => {
     a[0].originalAmount > b[0].originalAmount ? -1 : 1
   );
 };
+
+/**
+ * Renders the carbon provenance page
+ * @param props
+ * @returns
+ */
 export const RetirementProvenancePage: NextPage<
   RetirementProvenancePageProps
 > = (props) => {

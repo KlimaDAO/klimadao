@@ -26,6 +26,7 @@ const getFormattedDate = (timestamp: number, locale = "en") => {
   }).format(dateObj);
 };
 
+/** Helper that formats retirement information */
 const RetirementCardItem = (props: {
   title: string;
   icon: ReactNode;
@@ -46,6 +47,11 @@ const RetirementCardItem = (props: {
   );
 };
 
+/**
+ * Renders the retirement card
+ * @param props
+ * @returns
+ */
 export const RetirementCard = (props: ProvenanceProps) => {
   const { locale } = useRouter();
   const formattedAmount = formatTonnes({
@@ -54,10 +60,12 @@ export const RetirementCard = (props: ProvenanceProps) => {
   });
   const retireeProfile = props.retirement.retireeProfile;
   const date = getFormattedDate(props.retirement.timestamp);
+  // Selects the best information available regarding the retiree
   const by = retireeProfile
     ? retireeProfile.username ?? retireeProfile.handle
     : concatAddress(props.retirement.retiringAddress);
 
+  // Logo to be displayed alongside the retiree info / Nothing if it is not a carbonmark user
   const ByIcon = retireeProfile ? (
     <ProfileLogo
       isCarbonmarkUser={true}

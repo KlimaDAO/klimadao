@@ -1895,10 +1895,7 @@
           "username",
           "updatedAt",
           "createdAt",
-          "wallet",
-          "listings",
-          "activities",
-          "assets"
+          "wallet"
         ]
       },
       "Asset": {
@@ -4563,10 +4560,7 @@
                     "username",
                     "updatedAt",
                     "createdAt",
-                    "wallet",
-                    "listings",
-                    "activities",
-                    "assets"
+                    "wallet"
                   ]
                 }
               }

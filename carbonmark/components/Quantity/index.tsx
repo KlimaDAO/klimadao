@@ -10,6 +10,12 @@ type Props = {
   locale?: string;
 };
 
+/**
+ * Display a quantity of credits in a tagged form
+ * FIXME: There is factorization potential with tag components (Quantity/Vintage/Category)
+ * @param props
+ * @returns
+ */
 export const Quantity: FC<Props> = (props) => {
   const formattedAmount = formatTonnes({
     amount: props.quantity.toString(),

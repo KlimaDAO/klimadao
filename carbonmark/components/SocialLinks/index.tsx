@@ -9,7 +9,11 @@ type Props = {
   twitterTitle: string;
   twitterTags: string[];
 };
-
+/**
+ * Displays links to share the current URL on Tweeter, Facebook, Linkedin, and a button to copy the current URL
+ * @param props
+ * @returns
+ */
 export const SocialLinks: FC<Props> = (props) => {
   return (
     <div className={styles.socialLinks}>
