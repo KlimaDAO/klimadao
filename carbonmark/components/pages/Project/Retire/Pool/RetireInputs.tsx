@@ -8,7 +8,11 @@ import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { isAddress } from "ethers-v6";
-import { MINIMUM_TONNE_QUANTITY, urls as carbonmarkUrls } from "lib/constants";
+import {
+  MINIMUM_TONNE_QUANTITY,
+  MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+  urls as carbonmarkUrls,
+} from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
@@ -89,24 +93,18 @@ const validations = (
   "bank-transfer": {
     quantity: {
       min: {
-        // @todo - makka - confirm with atmos/brice what the min quantity is
-        value: 1,
-        message: t`The minimum amount to retire is 1 Tonne`,
+        value: MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+        message: t`The minimum amount to retire via bank transfer is 100 Tonnes`,
       },
     },
     totalPrice: {
       min: {
-        // @todo - makka - confirm with atmos/brice what the min total is
-        value: 1,
-        message: t`The minimum amount to retire is 1 Tonne`,
+        value: MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+        message: t`The minimum amount to retire via bank transfer is 100 Tonnes`,
       },
       max: {
-        // @todo - makka - confirm with atmos/brice what the max total is
-        value: 2000,
-        message: t`
-            At this time, Carbonmark cannot process bank transfer payments
-            exceeding 2000. Please adjust the quantity and try again later.
-          `,
+        value: Infinity,
+        message: "",
       },
     },
   },
@@ -137,6 +135,7 @@ export const RetireInputs: FC<Props> = (props) => {
     Number(props.fiatMinimum) > Number(totalPrice);
 
   const isFiat = paymentMethod === "fiat";
+  const isBankTransfer = paymentMethod === "bank-transfer";
 
   const isDisabled = (item: string) =>
     item === "usdc" && !address && !isConnected;
@@ -164,6 +163,16 @@ export const RetireInputs: FC<Props> = (props) => {
     if (isFiat && !!quantity && !props.fiatAmountError) {
       setValue("quantity", Math.ceil(Number(quantity)).toString());
     }
+
+    // If the payment method changes to bank-transfer
+    // set the minimum allowed quantity as the default
+    if (isBankTransfer && !!quantity) {
+      setValue(
+        "quantity",
+        Math.ceil(MINIMUM_TONNE_QUANTITY_BANK_TRANSFER).toString()
+      );
+    }
+
     // clear quantity when error
     if (isFiat && !!props.fiatAmountError) {
       setValue("quantity", "");

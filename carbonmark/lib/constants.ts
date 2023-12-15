@@ -58,7 +58,13 @@ export const MINIMUM_TONNE_PRICE = 0.1;
 
 export const MINIMUM_TONNE_QUANTITY = 0.001;
 
+export const MINIMUM_TONNE_QUANTITY_BANK_TRANSFER = 100;
+
 export const CARBONMARK_FEE = 0.0; // 0%
+
+/** Non strict check - validates that a string contains an @ sign followed by 1 or more nonwhitespace characters. */
+// https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s01.html
+export const EMAIL_ADDRESS_REGEX = /^\S+@\S+$/;
 /** No special chars */
 export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
 /** Any token symbol containing known substrings is valid. This filters out BCT, MCO2, and other assets */

@@ -8,7 +8,7 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { InputField, TextareaField } from "components/shared/Form";
 import { isAddress } from "ethers-v6";
-import { urls } from "lib/constants";
+import { EMAIL_ADDRESS_REGEX, urls } from "lib/constants";
 import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -102,7 +102,7 @@ export const PayWithBank: FC = () => {
                 <Trans>
                   Carbonmark now offers the ability to pay for retirement
                   transactions via bank transfer. Simply fill out the form below
-                  and we'll reach out within 1 business day to collect some
+                  and we'll reach out within 2 business days to collect some
                   further information and send you an invoice.
                 </Trans>
               </Text>
@@ -147,11 +147,15 @@ export const PayWithBank: FC = () => {
                       id="email"
                       label={t`Email`}
                       inputProps={{
-                        type: "text",
+                        type: "email",
                         ...register("email", {
                           required: {
                             value: true,
                             message: t`Email address is required`,
+                          },
+                          pattern: {
+                            value: EMAIL_ADDRESS_REGEX,
+                            message: t`A valid email address is required`,
                           },
                         }),
                       }}
@@ -193,6 +197,10 @@ export const PayWithBank: FC = () => {
                             value: true,
                             message: t`First name is required`,
                           },
+                          pattern: {
+                            value: /^[a-zA-Z]+$/,
+                            message: t`First name should not contain numbers or special characters`,
+                          },
                         }),
                       }}
                       errorMessage={formState.errors.first_name?.message}
@@ -207,6 +215,10 @@ export const PayWithBank: FC = () => {
                           required: {
                             value: true,
                             message: t`Last name is required`,
+                          },
+                          pattern: {
+                            value: /^[a-zA-Z]+$/,
+                            message: t`Last name should not contain numbers or special characters`,
                           },
                         }),
                       }}
@@ -291,7 +303,7 @@ export const PayWithBank: FC = () => {
                 <div className="card-content">
                   <div>
                     <Text>
-                      <Trans>How much would you like to retire?</Trans>
+                      <Trans>How many tonnes would you like to retire?</Trans>
                     </Text>
                     <Text>{formValues.quantity} tonnes</Text>
                   </div>

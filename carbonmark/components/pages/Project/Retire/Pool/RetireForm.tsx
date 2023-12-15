@@ -11,7 +11,11 @@ import {
   getRetirementAllowance,
   retireCarbonTransaction,
 } from "lib/actions.retire";
-import { MINIMUM_TONNE_QUANTITY, urls } from "lib/constants";
+import {
+  MINIMUM_TONNE_QUANTITY,
+  MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+  urls,
+} from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getPoolApprovalValue } from "lib/getPoolData";
@@ -128,12 +132,17 @@ export const RetireForm: FC<Props> = (props) => {
     isProcessing;
 
   const showTransactionView = !!inputValues && !!allowanceValue;
-  const disableSubmit =
-    !quantity ||
-    Number(quantity) <= 0 ||
-    (paymentMethod === "fiat"
-      ? Number(costs) < Number(fiatMinimum)
-      : Number(quantity) < Number(MINIMUM_TONNE_QUANTITY));
+
+  const disableSubmit = () => {
+    if (!quantity || Number(quantity) <= 0) return true;
+    if (paymentMethod === "fiat") {
+      return Number(costs) < Number(fiatMinimum);
+    } else if (paymentMethod === "bank-transfer") {
+      return Number(quantity) < Number(MINIMUM_TONNE_QUANTITY_BANK_TRANSFER);
+    } else {
+      return Number(quantity) < Number(MINIMUM_TONNE_QUANTITY);
+    }
+  };
 
   const resetStateAndCancel = () => {
     setInputValues(null);
@@ -198,7 +207,7 @@ export const RetireForm: FC<Props> = (props) => {
       pathname: "/retire/pay-with-bank",
       query: {
         quantity,
-        project_name: props?.project.name,
+        project_name: `${props?.project.name} (${props.project.registry}-${props.project.projectID}-${props.project.vintage})`,
         beneficiary_address: values.beneficiaryAddress || address || "",
         beneficiary_name: values.beneficiaryName || "",
         retirement_message: values.retirementMessage || "",
@@ -341,7 +350,7 @@ export const RetireForm: FC<Props> = (props) => {
                 isLoading={isLoadingAllowance}
                 className={styles.showOnDesktop}
                 paymentMethod={paymentMethod}
-                disabled={disableSubmit}
+                disabled={disableSubmit()}
               />
               {errorMessage && <Text>{errorMessage}</Text>}
             </div>
@@ -377,7 +386,7 @@ export const RetireForm: FC<Props> = (props) => {
             isLoading={isLoadingAllowance}
             className={styles.hideOnDesktop}
             paymentMethod={paymentMethod}
-            disabled={disableSubmit}
+            disabled={disableSubmit()}
           />
         </Col>
       </TwoColLayout>
