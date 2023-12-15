@@ -102,8 +102,9 @@ export const PayWithBank: FC = () => {
                 <Trans>
                   Carbonmark now offers the ability to pay for retirement
                   transactions via bank transfer. Simply fill out the form below
-                  and we'll reach out within 2 business days to collect some
-                  further information and send you an invoice.
+                  and we'll reach out within 2 business days (upon receiving all
+                  required information) to collect some further information and
+                  send you an invoice.
                 </Trans>
               </Text>
               <CarbonmarkButton

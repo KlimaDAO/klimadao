@@ -29,7 +29,8 @@ export const BankTransferModal: FC<Props> = (props) => {
         <ArticleOutlined />
         <Trans>
           Please complete the secure form on the next page and we&apos;ll
-          provide you an invoice within 2 business days.
+          provide you an invoice within 2 business days (upon receiving all
+          required information).
         </Trans>
         <div className={styles.buttonWrapper}>
           <ButtonPrimary

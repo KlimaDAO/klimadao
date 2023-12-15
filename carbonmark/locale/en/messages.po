@@ -96,7 +96,7 @@ msgstr "500 - Server Error"
 msgid "500 - Server error occurred"
 msgstr "500 - Server error occurred"
 
-#: components/pages/Project/PayWithBank/index.tsx:158
+#: components/pages/Project/PayWithBank/index.tsx:159
 msgid "A valid email address is required"
 msgstr "A valid email address is required"
 
@@ -313,8 +313,8 @@ msgstr "Beneficiary name"
 msgid "offset.retirement_beneficiary_name"
 msgstr "Beneficiary Name"
 
-#: components/pages/Project/PayWithBank/index.tsx:237
-#: components/pages/Project/PayWithBank/index.tsx:354
+#: components/pages/Project/PayWithBank/index.tsx:238
+#: components/pages/Project/PayWithBank/index.tsx:355
 msgid "Beneficiary wallet address"
 msgstr "Beneficiary wallet address"
 
@@ -353,7 +353,7 @@ msgstr "bought from"
 #: components/pages/Home/index.tsx:160
 #: components/pages/Home/index.tsx:191
 #: components/pages/Home/index.tsx:244
-#: components/pages/Project/PayWithBank/index.tsx:375
+#: components/pages/Project/PayWithBank/index.tsx:376
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
@@ -448,8 +448,8 @@ msgid "Carbonmark fee"
 msgstr "Carbonmark fee"
 
 #: components/pages/Project/PayWithBank/index.tsx:102
-msgid "Carbonmark now offers the ability to pay for retirement transactions via bank transfer. Simply fill out the form below and we'll reach out within 2 business days to collect some further information and send you an invoice."
-msgstr "Carbonmark now offers the ability to pay for retirement transactions via bank transfer. Simply fill out the form below and we'll reach out within 2 business days to collect some further information and send you an invoice."
+msgid "Carbonmark now offers the ability to pay for retirement transactions via bank transfer. Simply fill out the form below and we'll reach out within 2 business days (upon receiving all required information) to collect some further information and send you an invoice."
+msgstr "Carbonmark now offers the ability to pay for retirement transactions via bank transfer. Simply fill out the form below and we'll reach out within 2 business days (upon receiving all required information) to collect some further information and send you an invoice."
 
 #: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "Carbonmark Overview"
@@ -513,12 +513,12 @@ msgstr "Close"
 msgid "Coming soon"
 msgstr "Coming soon"
 
-#: components/pages/Project/PayWithBank/index.tsx:172
-#: components/pages/Project/PayWithBank/index.tsx:324
+#: components/pages/Project/PayWithBank/index.tsx:173
+#: components/pages/Project/PayWithBank/index.tsx:325
 msgid "Company name"
 msgstr "Company name"
 
-#: components/pages/Project/PayWithBank/index.tsx:178
+#: components/pages/Project/PayWithBank/index.tsx:179
 msgid "Company name is required"
 msgstr "Company name is required"
 
@@ -583,7 +583,7 @@ msgstr "Contact"
 #: components/ExitModal/index.tsx:39
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:44
 #: components/pages/Project/Purchase/Pool/SubmitButton.tsx:44
-#: components/pages/Project/Retire/Pool/BankTransferModal.tsx:37
+#: components/pages/Project/Retire/Pool/BankTransferModal.tsx:38
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:34
 msgid "Continue"
 msgstr "Continue"
@@ -793,12 +793,12 @@ msgstr "Edit Profile"
 msgid "profile.edit_your_profile"
 msgstr "Edit your profile to add a description."
 
-#: components/pages/Project/PayWithBank/index.tsx:148
-#: components/pages/Project/PayWithBank/index.tsx:312
+#: components/pages/Project/PayWithBank/index.tsx:149
+#: components/pages/Project/PayWithBank/index.tsx:313
 msgid "Email"
 msgstr "Email"
 
-#: components/pages/Project/PayWithBank/index.tsx:154
+#: components/pages/Project/PayWithBank/index.tsx:155
 msgid "Email address is required"
 msgstr "Email address is required"
 
@@ -835,16 +835,16 @@ msgstr "Final price"
 msgid "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
 msgstr "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
 
-#: components/pages/Project/PayWithBank/index.tsx:192
-#: components/pages/Project/PayWithBank/index.tsx:336
+#: components/pages/Project/PayWithBank/index.tsx:193
+#: components/pages/Project/PayWithBank/index.tsx:337
 msgid "First name"
 msgstr "First name"
 
-#: components/pages/Project/PayWithBank/index.tsx:198
+#: components/pages/Project/PayWithBank/index.tsx:199
 msgid "First name is required"
 msgstr "First name is required"
 
-#: components/pages/Project/PayWithBank/index.tsx:202
+#: components/pages/Project/PayWithBank/index.tsx:203
 msgid "First name should not contain numbers or special characters"
 msgstr "First name should not contain numbers or special characters"
 
@@ -877,7 +877,7 @@ msgstr "For project developers"
 msgid "Forestry"
 msgstr "Forestry"
 
-#: components/pages/Project/PayWithBank/index.tsx:294
+#: components/pages/Project/PayWithBank/index.tsx:295
 msgid "Form complete"
 msgstr "Form complete"
 
@@ -899,7 +899,7 @@ msgstr "Go back"
 msgid "Go back"
 msgstr "Go back"
 
-#: components/pages/Project/Retire/Pool/BankTransferModal.tsx:41
+#: components/pages/Project/Retire/Pool/BankTransferModal.tsx:42
 msgid "Go Back"
 msgstr "Go Back"
 
@@ -948,11 +948,11 @@ msgstr "How many tonnes of carbon would you like to offset? <0>* </0>"
 msgid "How many tonnes of carbon would you like to retire?"
 msgstr "How many tonnes of carbon would you like to retire?"
 
-#: components/pages/Project/PayWithBank/index.tsx:306
+#: components/pages/Project/PayWithBank/index.tsx:307
 msgid "How many tonnes would you like to retire?"
 msgstr "How many tonnes would you like to retire?"
 
-#: components/pages/Project/PayWithBank/index.tsx:127
+#: components/pages/Project/PayWithBank/index.tsx:128
 msgid "How much would you like to retire?"
 msgstr "How much would you like to retire?"
 
@@ -965,7 +965,7 @@ msgstr "If you would like to retire some or all of the carbon credits from this 
 msgid "retirement.single.transaction_record.title"
 msgstr "Immutable transaction record"
 
-#: components/pages/Project/PayWithBank/index.tsx:121
+#: components/pages/Project/PayWithBank/index.tsx:122
 msgid "Indicates required field"
 msgstr "Indicates required field"
 
@@ -985,8 +985,8 @@ msgstr "Introducing Carbonmark"
 msgid "Invalid"
 msgstr "Invalid"
 
-#: components/pages/Project/PayWithBank/index.tsx:186
-#: components/pages/Project/PayWithBank/index.tsx:330
+#: components/pages/Project/PayWithBank/index.tsx:187
+#: components/pages/Project/PayWithBank/index.tsx:331
 msgid "Job title"
 msgstr "Job title"
 
@@ -999,16 +999,16 @@ msgstr "KlimaDAO"
 msgid "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
 msgstr "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
 
-#: components/pages/Project/PayWithBank/index.tsx:211
-#: components/pages/Project/PayWithBank/index.tsx:342
+#: components/pages/Project/PayWithBank/index.tsx:212
+#: components/pages/Project/PayWithBank/index.tsx:343
 msgid "Last name"
 msgstr "Last name"
 
-#: components/pages/Project/PayWithBank/index.tsx:217
+#: components/pages/Project/PayWithBank/index.tsx:218
 msgid "Last name is required"
 msgstr "Last name is required"
 
-#: components/pages/Project/PayWithBank/index.tsx:221
+#: components/pages/Project/PayWithBank/index.tsx:222
 msgid "Last name should not contain numbers or special characters"
 msgstr "Last name should not contain numbers or special characters"
 
@@ -1017,7 +1017,7 @@ msgid "Latest First"
 msgstr "Latest First"
 
 #: components/pages/Home/index.tsx:420
-#: components/pages/Project/PayWithBank/index.tsx:111
+#: components/pages/Project/PayWithBank/index.tsx:112
 msgid "Learn more"
 msgstr "Learn more"
 
@@ -1223,7 +1223,7 @@ msgstr "No retirements found"
 msgid "retirement.single.transaction_id.placeholder"
 msgstr "No transaction id available"
 
-#: components/pages/Project/PayWithBank/index.tsx:245
+#: components/pages/Project/PayWithBank/index.tsx:246
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:281
 msgid "Not a valid polygon address"
 msgstr "Not a valid polygon address"
@@ -1284,8 +1284,8 @@ msgstr "Payment processing fee"
 msgid "Payment Successful"
 msgstr "Payment Successful"
 
-#: components/pages/Project/PayWithBank/index.tsx:166
-#: components/pages/Project/PayWithBank/index.tsx:318
+#: components/pages/Project/PayWithBank/index.tsx:167
+#: components/pages/Project/PayWithBank/index.tsx:319
 msgid "Phone number"
 msgstr "Phone number"
 
@@ -1295,8 +1295,8 @@ msgid "transaction.status.user_confirmation"
 msgstr "Please click 'confirm' in your wallet to continue."
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:30
-msgid "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days."
-msgstr "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days."
+msgid "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days (upon receiving all required information)."
+msgstr "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days (upon receiving all required information)."
 
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
@@ -1414,8 +1414,8 @@ msgstr "Project Details"
 msgid "retirement.single.project_name.title"
 msgstr "Project Name"
 
-#: components/pages/Project/PayWithBank/index.tsx:258
-#: components/pages/Project/PayWithBank/index.tsx:362
+#: components/pages/Project/PayWithBank/index.tsx:259
+#: components/pages/Project/PayWithBank/index.tsx:363
 msgid "Project names of interest"
 msgstr "Project names of interest"
 
@@ -1670,8 +1670,8 @@ msgstr "Retirement Activity"
 msgid "offset.retirement_message"
 msgstr "Retirement message"
 
-#: components/pages/Project/PayWithBank/index.tsx:269
-#: components/pages/Project/PayWithBank/index.tsx:368
+#: components/pages/Project/PayWithBank/index.tsx:270
+#: components/pages/Project/PayWithBank/index.tsx:369
 msgid "Retirement message"
 msgstr "Retirement message"
 
@@ -1883,7 +1883,7 @@ msgid "Step 3"
 msgstr "Step 3"
 
 #: components/CreateListing/Transaction/Submit.tsx:90
-#: components/pages/Project/PayWithBank/index.tsx:284
+#: components/pages/Project/PayWithBank/index.tsx:285
 msgid "Submit"
 msgstr "Submit"
 
@@ -1943,7 +1943,7 @@ msgstr "Thank you for supporting the planet! See purchase details below."
 msgid "offset.successModal.body1"
 msgstr "Thank you for supporting the planet! View transaction on <0> PolygonScan.</0>"
 
-#: components/pages/Project/PayWithBank/index.tsx:297
+#: components/pages/Project/PayWithBank/index.tsx:298
 msgid "Thank you for supporting the planet! We'll reach out soon to confirm some details and provide you with an with an invoice."
 msgstr "Thank you for supporting the planet! We'll reach out soon to confirm some details and provide you with an with an invoice."
 
@@ -2002,7 +2002,7 @@ msgstr "The minimum amount to buy is 1 Tonne"
 msgid "The minimum amount to retire is 0.001 Tonnes"
 msgstr "The minimum amount to retire is 0.001 Tonnes"
 
-#: components/pages/Project/PayWithBank/index.tsx:138
+#: components/pages/Project/PayWithBank/index.tsx:139
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:73
 msgid "The minimum amount to retire is 1 Tonne"
 msgstr "The minimum amount to retire is 1 Tonne"
@@ -2156,7 +2156,7 @@ msgid "tonnes"
 msgstr "tonnes"
 
 #: components/AssetDetails/index.tsx:54
-#: components/pages/Project/PayWithBank/index.tsx:130
+#: components/pages/Project/PayWithBank/index.tsx:131
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:51
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:84
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:88
@@ -2182,7 +2182,7 @@ msgstr "Tonnes sold:"
 msgid "Total allowance"
 msgstr "Total allowance"
 
-#: components/pages/Project/PayWithBank/index.tsx:134
+#: components/pages/Project/PayWithBank/index.tsx:135
 msgid "Total amount of tonnes to retire is required"
 msgstr "Total amount of tonnes to retire is required"
 
@@ -2456,8 +2456,8 @@ msgstr "What is Carbonmark? Answers to common questions about the Digital Carbon
 msgid "offset.retirement_credit"
 msgstr "Who will this retirement be credited to?"
 
-#: components/pages/Project/PayWithBank/index.tsx:229
-#: components/pages/Project/PayWithBank/index.tsx:348
+#: components/pages/Project/PayWithBank/index.tsx:230
+#: components/pages/Project/PayWithBank/index.tsx:349
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:250
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:264
 msgid "Who will this retirement be credited to?"
