@@ -550,6 +550,48 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "retireViaBankTransform",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
+              "  postman.setNextRequest(null);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"quantity\":10,\n  \"email\":\"test@carbonmark.com\",\n  \"phone_number\":\"01 000 0000\",\n  \"company_name\":\"Carbonmark\",\n  \"first_name\":\"Test\",\n  \"last_name\":\"User\",\n  \"job_title\":\"Engineer\",\n  \"project_name\":\"Test Project\",\n  \"beneficiary_name\":\"Carbonmark API Tests\",\n  \"beneficiary_address\":\"0x000000000000000000000\",\n  \"retirement_message\":\"I love helping the environment by retiring carbon\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/retire/bank-transfer",
+          "host": ["{{url}}"],
+          "path": ["retire", "bank-transfer"]
+        }
+      },
+      "response": []
     }
   ],
   "event": [
