@@ -252,7 +252,7 @@ export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 /** Known carbon pools */
 export const poolTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 /** Known carbon tokens */
-export const projectTokens = ["tco2", "c3t"] as const;
+export const projectTokens = ["tco2", "c3t", "icr"] as const;
 
 // TODO rename to pool token
 export type RetirementToken = (typeof retirementTokens)[number];

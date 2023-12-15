@@ -25,7 +25,7 @@ export interface KlimaRetire {
         country: string;
         category: string;
       };
-      bridgeProtocol: "Toucan" | "Moss" | "C3" | "ICR";
+      bridgeProtocol: "TOUCAN" | "MOSS" | "C3" | "ICR";
       vintage: string;
       currentSupply: string;
       retired: string;

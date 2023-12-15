@@ -173,7 +173,7 @@ export type Purchase = {
   price: string;
 };
 
-export type CarbonmarkToken = "usdc" | "c3" | "tco2";
+export type CarbonmarkToken = "usdc" | "c3" | "tco2" | "icr";
 
 export type Balance = {
   tokenName: CarbonmarkToken;

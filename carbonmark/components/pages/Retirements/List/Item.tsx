@@ -35,8 +35,20 @@ export const RetirementItem: FC<Props> = (props) => {
       retirement.retire.credit.id
   );
   // can be null
-  const projectTokenName =
-    retirement.retire.credit.bridgeProtocol === "Toucan" ? "tco2" : "c3t";
+  const projectTokenName = (() => {
+    switch (retirement.retire.credit.bridgeProtocol) {
+      case "TOUCAN":
+        return "tco2";
+      case "MOSS":
+        return "mco2";
+      case "C3":
+        return "c3t";
+      case "ICR":
+        return "icr";
+      default:
+        throw new Error("Invalid bridge protocol");
+    }
+  })();
 
   const tokenData = carbonTokenInfoMap[poolTokenName || projectTokenName];
 
