@@ -1292,7 +1292,7 @@ msgid "transaction.status.user_confirmation"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:30
-msgid "Please complete the secure form on the next page and we'll provide you an invoice within 1 business day."
+msgid "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days."
 msgstr ""
 
 #: components/LoginCard/index.tsx:21
@@ -1665,7 +1665,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
 msgid "offset.retirement_message"
-msgstr "<<<<<<< HEAD>>>>>>> 766115544 (address PR comments, add stricter form validation)"
+msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:269
 #: components/pages/Project/PayWithBank/index.tsx:368
@@ -2034,13 +2034,13 @@ msgstr ""
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 msgstr ""
 
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:64
-msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
-msgstr ""
-
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:64
 msgid "purchase.submit_1"
+msgstr ""
+
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:64
+msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr ""
 
 #: components/pages/Home/index.tsx:68

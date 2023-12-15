@@ -1295,8 +1295,8 @@ msgid "transaction.status.user_confirmation"
 msgstr "Please click 'confirm' in your wallet to continue."
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:30
-msgid "Please complete the secure form on the next page and we'll provide you an invoice within 1 business day."
-msgstr "Please complete the secure form on the next page and we'll provide you an invoice within 1 business day."
+msgid "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days."
+msgstr "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days."
 
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
