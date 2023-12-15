@@ -3,7 +3,7 @@ import { getVintages } from ".generated/carbonmark-api-sdk/clients";
 export const waitForApi = async (): Promise<boolean> => {
   let counter = 0;
 
-  while (counter < 20) {
+  while (counter < 24) {
     try {
       await getVintages();
       return true;
