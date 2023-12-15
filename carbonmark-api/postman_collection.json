@@ -355,6 +355,86 @@
       "response": []
     },
     {
+      "name": "getKlimaRetirementByAccountAndIndex",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Retirement is fetched as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData.id).to.eql('0x087a7afb6975a2837453be685eb6272576c0bc0608000000');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/retirements/klima/:account_id/:retirement_index",
+          "host": ["{{url}}"],
+          "path": ["retirements", "klima", ":account_id", ":retirement_index"],
+          "variable": [
+            {
+              "key": "account_id",
+              "value": "0x087a7afb6975a2837453be685eb6272576c0bc06"
+            },
+            {
+              "key": "retirement_index",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getKlimaRetirementProvenanceByAccountAndIndex",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Retirement provenance is fetched as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].transactionType).to.eql('RETIREMENT');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/retirements/klima/:account_id/:retirement_index/provenance",
+          "host": ["{{url}}"],
+          "path": [
+            "retirements",
+            "klima",
+            ":account_id",
+            ":retirement_index",
+            "provenance"
+          ],
+          "variable": [
+            {
+              "key": "account_id",
+              "value": "0x087a7afb6975a2837453be685eb6272576c0bc06"
+            },
+            {
+              "key": "retirement_index",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "getUserByWallet",
       "event": [
         {
