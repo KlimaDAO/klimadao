@@ -1,3 +1,4 @@
+/** A user profile sent by the getProfileByHandle function */
 const profile = {
   createdAt: 1683523732,
   handle: "john",

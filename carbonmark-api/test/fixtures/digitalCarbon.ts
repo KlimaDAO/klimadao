@@ -4,12 +4,14 @@ import {
   CarbonPool,
   CarbonPoolCreditBalance,
   CarbonPoolDailySnapshot,
+  ProvenanceType,
   Registry,
 } from "../../src/.generated/types/digitalCarbon.types";
 
 import {
   aCarbonProject,
   aKlimaRetire,
+  aProvenanceRecord,
   aRetire,
   anAccount,
 } from "../../src/.generated/mocks/digitalCarbon.mocks";
@@ -97,6 +99,24 @@ const klimaRetirement = aKlimaRetire({
   retire,
 });
 
+const provenanceRecordWithoutPriorRecords = aProvenanceRecord({
+  id: "0xc645b80fd8a23a1459d59626ba3fz72e8a59d4cb00000000000000000000000000000000000000007d030000",
+  transactionType: ProvenanceType.Retirement,
+  registrySerialNumbers: [],
+  token: "0xc645b80zd8a23a1459d59626ba3f872e8a59d4cb",
+  sender: "0x8ce54d96z5371fb2a068986d32c85de8e6e995f8",
+  receiver: "0x0000000000000000000000000000000000000000",
+  originalAmount: "3000000000000000000",
+  remainingAmount: "3000000000000000000",
+  createdAt: "1701095377",
+  updatedAt: "1701095377",
+  priorRecords: [],
+});
+const provenanceRecord = aProvenanceRecord({
+  ...provenanceRecordWithoutPriorRecords,
+  priorRecords: [provenanceRecordWithoutPriorRecords],
+});
+
 const empty_countries = {
   data: {
     carbonProjects: [],
@@ -107,6 +127,7 @@ const fixtures = {
   empty_countries,
   digitalCarbonProject,
   klimaRetirement,
+  provenanceRecord,
 };
 
 export default fixtures;
