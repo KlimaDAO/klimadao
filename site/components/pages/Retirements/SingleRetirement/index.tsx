@@ -73,11 +73,17 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
     | "tco2"
     | "c3t"
     | null;
+
   let tokenData: {
     key: string;
     icon: StaticImageData;
-    label: "UBO" | "NBO" | "BCT" | "NCT" | "MCO2" | "TCO2" | "C3T";
-  } | null = null;
+    label: "UBO" | "NBO" | "BCT" | "NCT" | "MCO2" | "TCO2" | "C3T" | "ICR";
+  } = {
+    key: "",
+    // es-lint disable-next-line @typescript-eslint/no-non-null-assertion
+    icon: null as unknown as StaticImageData,
+    label: "UBO",
+  };
   let retirementMessage: string | undefined;
   let beneficiaryName: string | undefined;
   let registry: string | undefined;
@@ -99,7 +105,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
         retirement.retire.credit.poolBalances.pool.id
       );
     projectTokenName =
-      retirement.retire.credit.bridgeProtocol === "Toucan" ? "tco2" : "c3t";
+      retirement.retire.credit.bridgeProtocol === "TOUCAN" ? "tco2" : "c3t";
     carbonTokenName = poolTokenName || projectTokenName;
     tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
     retirementMessage = retirement.retire.retirementMessage;

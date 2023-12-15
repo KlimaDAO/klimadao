@@ -33,7 +33,7 @@ export const RetirementItem: FC<Props> = (props) => {
     retirement.retire.credit.poolBalances.pool.id
   ); // can be null
   const projectTokenName =
-    retirement.retire.credit.bridgeProtocol === "Toucan" ? "tco2" : "c3t";
+    retirement.retire.credit.bridgeProtocol === "TOUCAN" ? "tco2" : "c3t";
 
   const tokenData = carbonTokenInfoMap[poolTokenName || projectTokenName];
 
