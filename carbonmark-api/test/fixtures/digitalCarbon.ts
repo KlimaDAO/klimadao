@@ -7,7 +7,12 @@ import {
   Registry,
 } from "../../src/.generated/types/digitalCarbon.types";
 
-import { aCarbonProject } from "../../src/.generated/mocks/digitalCarbon.mocks";
+import {
+  aCarbonProject,
+  aKlimaRetire,
+  aRetire,
+  anAccount,
+} from "../../src/.generated/mocks/digitalCarbon.mocks";
 
 type PartialCarbonPoolCreditBalance = Partial<CarbonPoolCreditBalance>;
 
@@ -42,6 +47,17 @@ const poolBalance: PartialCarbonPoolCreditBalance = {
 
 type PartialCarbonCredit = Partial<CarbonCredit>;
 
+const digitalCarbonProjectWithoutCredits = aCarbonProject({
+  id: "VCS-191",
+  name: "Grid-connected electricity generation from renewable sources",
+  projectID: "VCS-191",
+  methodologies: "ACM0002",
+  country: "China",
+  category: "Renewable Energy",
+  registry: Registry.Verra,
+  region: "Asia",
+});
+
 const carbonCredit: PartialCarbonCredit = {
   vintage: 2011,
   currentSupply: "320308000000000000000000",
@@ -51,18 +67,34 @@ const carbonCredit: PartialCarbonCredit = {
   bridged: "320308000000000000000000",
   retired: "0",
   poolBalances: [poolBalance as CarbonPoolCreditBalance],
+  project: digitalCarbonProjectWithoutCredits,
 };
 
 const digitalCarbonProject = aCarbonProject({
-  id: "VCS-191",
-  name: "Grid-connected electricity generation from renewable sources",
-  projectID: "VCS-191",
-  methodologies: "ACM0002",
-  country: "China",
-  category: "Renewable Energy",
-  registry: Registry.Verra,
-  region: "Asia",
+  ...digitalCarbonProjectWithoutCredits,
   carbonCredits: [carbonCredit as CarbonCredit],
+});
+
+const account1 = anAccount({
+  id: "0x0a1g3hcbteay53hd9ee1q8e06b56e8cd6767z52",
+});
+const account2 = anAccount({
+  id: "0x0a1g3hcbteay53hd9ee1q8e06b56e8cd6767z52",
+});
+const retire = aRetire({
+  id: "0x0a1g3hcbteay53hd9ee1q8e06b56e8cd6767z52a01000000",
+  bridgeID: "6787",
+  amount: "3000000000000000000",
+  beneficiaryAddress: account1,
+  beneficiaryName: "biwano",
+  retirementMessage: "for glory",
+  retiringAddress: account2,
+  retiringName: "",
+  timestamp: "1701095377",
+  credit: carbonCredit as CarbonCredit,
+});
+const klimaRetirement = aKlimaRetire({
+  retire,
 });
 
 const empty_countries = {
@@ -74,6 +106,7 @@ const empty_countries = {
 const fixtures = {
   empty_countries,
   digitalCarbonProject,
+  klimaRetirement,
 };
 
 export default fixtures;
