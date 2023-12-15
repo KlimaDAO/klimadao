@@ -4,7 +4,7 @@ import {
 } from ".generated/carbonmark-api-sdk/clients";
 import {
   GetRetirementsKlimaAccountIdRetirementIndexProvenanceQueryResponse,
-  GetRetirementsKlimaAccountIdRetirementIndexQueryResponse
+  GetRetirementsKlimaAccountIdRetirementIndexQueryResponse,
 } from ".generated/carbonmark-api-sdk/types";
 import { urls } from "@klimadao/lib/constants";
 import { RetirementProvenancePage } from "components/pages/Retirements/RetirementProvenance";
