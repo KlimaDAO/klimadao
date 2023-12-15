@@ -60,7 +60,7 @@ describe("GET /retirements/klima/:account_id/:retirement_index", () => {
         "retirementMessage",
         "retiringName",
       ]),
-      timestamp: 1701095377,
+      timestamp: 1701095367,
       retiringAddress: mockKlimaRetirement.retire.retiringAddress.id,
       beneficiaryAddress: mockKlimaRetirement.retire.retiringAddress.id,
 
