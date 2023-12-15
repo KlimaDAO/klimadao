@@ -51,6 +51,7 @@ export const EditListing: FC<Props> = (props) => {
       newSingleUnitPrice: props.listing.singleUnitPrice,
       ...props.values,
     },
+    mode: "onChange",
   });
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {

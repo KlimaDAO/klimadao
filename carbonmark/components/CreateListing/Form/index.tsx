@@ -43,6 +43,7 @@ export const CreateListingForm: FC<Props> = (props) => {
           props.assets[0].token.id.toLowerCase(),
         tokenId: props.values?.tokenId || props.assets[0].token.tokenId,
       },
+      mode: "onChange",
     });
 
   const selectedAddress = watch("tokenAddress");
