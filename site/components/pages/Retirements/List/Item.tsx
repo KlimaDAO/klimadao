@@ -24,19 +24,21 @@ export const RetirementItem: FC<Props> = (props) => {
   const { locale } = useRouter();
 
   const retirementNumber = Number(retirement.index) + 1;
-  const retirementDate = new Date(parseInt(retirement.timestamp) * 1000); //expects milliseconds
+  const retirementDate = new Date(parseInt(retirement.retire.timestamp) * 1000); //expects milliseconds
   const formattedDate = new Intl.DateTimeFormat(locale, {
     dateStyle: "full",
   }).format(retirementDate);
 
-  const poolTokenName = getRetirementTokenByAddress(retirement.pool); // can be null
+  const poolTokenName = getRetirementTokenByAddress(
+    retirement.retire.credit.poolBalances.pool.id
+  ); // can be null
   const projectTokenName =
-    retirement.offset.bridge === "Toucan" ? "tco2" : "c3t";
+    retirement.retire.credit.bridgeProtocol === "Toucan" ? "tco2" : "c3t";
 
   const tokenData = carbonTokenInfoMap[poolTokenName || projectTokenName];
 
   const url = `/retirements/${
-    nameserviceDomain || retirement.beneficiaryAddress
+    nameserviceDomain || retirement.retire.beneficiaryAddress
   }/${retirementNumber}`;
 
   return (
@@ -54,9 +56,10 @@ export const RetirementItem: FC<Props> = (props) => {
       )}
       <div className="content">
         <div className="amount">
-          <Text>{trimWithLocale(retirement.amount, 5, locale)}</Text>
+          <Text>{trimWithLocale(retirement.retire.amount, 5, locale)}</Text>
           <Text color="lightest">
-            {(tokenData && tokenData.label) || concatAddress(retirement.pool)}
+            {(tokenData && tokenData.label) ||
+              concatAddress(retirement.retire.credit.poolBalances.pool.id)}
           </Text>
         </div>
         <Text color="lightest" className="time">

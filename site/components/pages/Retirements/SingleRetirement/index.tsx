@@ -12,7 +12,6 @@ import {
   formatTonnes,
   getImageSizes,
   getRetirementTokenByAddress,
-  queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { FacebookButton } from "components/FacebookButton";
@@ -26,12 +25,11 @@ import { normalizeProjectId } from "lib/normalizeProjectId";
 import { isNil } from "lodash";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
 import sunsetMountains from "public/sunset-mountains.jpg";
-import { useEffect } from "react";
 import { RetirementFooter } from "../Footer";
 import { BuyKlima } from "./BuyKlima";
 import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
@@ -62,44 +60,60 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
 }) => {
   const { asPath, locale } = useRouter();
 
-  const formattedAmount = formatTonnes({
-    amount: retirement.amount,
-    locale: locale || "en",
-  });
+  let formattedAmount: string | undefined;
+  let retiree: string | undefined;
+  let poolTokenName: false | "ubo" | "nbo" | "bct" | "nct" | "mco2" | null;
+  let projectTokenName: "tco2" | "c3t" | null;
+  let carbonTokenName:
+    | "ubo"
+    | "nbo"
+    | "bct"
+    | "nct"
+    | "mco2"
+    | "tco2"
+    | "c3t"
+    | null;
+  let tokenData: {
+    key: string;
+    icon: StaticImageData;
+    label: "UBO" | "NBO" | "BCT" | "NCT" | "MCO2" | "TCO2" | "C3T";
+  } | null = null;
+  let retirementMessage: string | undefined;
+  let beneficiaryName: string | undefined;
+  let registry: string | undefined;
 
-  const retiree =
-    retirement.beneficiary ||
-    props.nameserviceDomain ||
-    concatAddress(props.beneficiaryAddress);
+  if ("retire" in retirement) {
+    formattedAmount = formatTonnes({
+      amount: retirement.retire.amount,
+      locale: locale || "en",
+    });
 
-  useEffect(() => {
-    if (!retirement.pending) return;
-    const rescursivePoller = async () => {
-      // wait 5 seconds
-      await new Promise((res) => setTimeout(res, 5000));
-      // check if its available yet
-      const result = await queryKlimaRetireByIndex(
-        props.beneficiaryAddress,
-        parseInt(props.retirementIndex)
+    retiree =
+      retirement.retire.beneficiaryName ||
+      props.nameserviceDomain ||
+      concatAddress(props.beneficiaryAddress);
+
+    poolTokenName =
+      !retirement.pending &&
+      getRetirementTokenByAddress(
+        retirement.retire.credit.poolBalances.pool.id
       );
-      if (result) {
-        return window.location.reload();
-      }
-      // otherwise wait 5 more seconds and try again
-      await rescursivePoller();
-    };
-    rescursivePoller();
-  }, []);
-
-  const poolTokenName =
-    !retirement.pending && getRetirementTokenByAddress(retirement.pool); // can be null
-  const projectTokenName = retirement.pending
-    ? null
-    : retirement.offset.bridge === "Toucan"
-    ? "tco2"
-    : "c3t";
-  const carbonTokenName = poolTokenName || projectTokenName;
-  const tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
+    projectTokenName =
+      retirement.retire.credit.bridgeProtocol === "Toucan" ? "tco2" : "c3t";
+    carbonTokenName = poolTokenName || projectTokenName;
+    tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
+    retirementMessage = retirement.retire.retirementMessage;
+    beneficiaryName = retirement.retire.beneficiaryName;
+  } else if (retirement.pending) {
+    formattedAmount = formatTonnes({
+      amount: retirement.amount,
+      locale: locale || "en",
+    });
+    retiree =
+      props.nameserviceDomain || concatAddress(props.beneficiaryAddress);
+    carbonTokenName = registry === "Toucan" ? "tco2" : "c3t";
+    tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
+  }
 
   return (
     <>
@@ -121,7 +135,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       <Navigation activePage="Home" />
       <Section variant="gray" className={styles.section}>
         <RetirementHeader
-          overline={retirement.beneficiary}
+          overline={beneficiaryName}
           title={`${formattedAmount}t`}
           subline={
             <Trans id="retirement.single.header.subline">
@@ -130,7 +144,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           }
         />
         <div className={styles.retirementContent}>
-          <RetirementMessage message={retirement.retirementMessage} />
+          <RetirementMessage message={retirementMessage || ""} />
           {retirement.pending && (
             <div className={styles.pending}>
               <div className="spinnerTitle">
@@ -150,7 +164,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           )}
           {tokenData && (
             <RetirementValue
-              value={formattedAmount}
+              value={formattedAmount || "0"}
               label={tokenData.label}
               icon={tokenData.icon}
             />
@@ -165,7 +179,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                     </Trans>
                   }
                   text={
-                    retirement.beneficiary ||
+                    retirement.retire.beneficiaryName ||
                     t({
                       id: "retirement.single.beneficiary.placeholder",
                       message: "No beneficiary name provided",
@@ -192,7 +206,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                 />
               </div>
               <div className="column">
-                <RetirementDate timestamp={retirement.timestamp} />
+                <RetirementDate timestamp={retirement.retire.timestamp} />
                 <TextGroup
                   title={
                     <Trans id="retirement.single.retirementCertificate.title">
@@ -202,16 +216,16 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                   text={
                     retirement ? (
                       <DownloadCertificateButton
-                        beneficiaryName={retirement.beneficiary}
+                        beneficiaryName={retirement.retire.beneficiaryName}
                         beneficiaryAddress={props.beneficiaryAddress}
                         retirement={retirement}
                         retirementIndex={props.retirementIndex}
-                        retirementMessage={retirement.retirementMessage}
+                        retirementMessage={retirement.retire.retirementMessage}
                         retirementUrl={`${urls.home}/${asPath}`}
                         tokenData={tokenData}
                         projectId={normalizeProjectId({
-                          id: retirement.offset.projectID,
-                          standard: retirement.offset.standard,
+                          id: retirement.retire.credit.project.projectID,
+                          standard: retirement.retire.credit.project.registry,
                         })}
                       />
                     ) : null
@@ -269,9 +283,9 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           </div>
         </div>
       </Section>
-      {!retirement.pending && retirement.offset && (
+      {!retirement.pending && retirement.retire && (
         <Section variant="gray" className={styles.section}>
-          <ProjectDetails offset={retirement.offset} />
+          <ProjectDetails retire={retirement.retire} />
         </Section>
       )}
       <Section variant="gray" className={styles.section}>
@@ -286,9 +300,9 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       >
         <div className={styles.sectionButtonsWrap}>
           <CopyValueButton label="Copy Link" variant="gray" />
-          {!retirement.pending && retirement.transaction.id && (
+          {!retirement.pending && retirement.retire.hash && (
             <ButtonPrimary
-              href={`https://polygonscan.com/tx/${retirement.transaction.id}`}
+              href={`https://polygonscan.com/tx/${retirement.retire.hash}`}
               target="_blank"
               variant="gray"
               rel="noopener noreferrer"

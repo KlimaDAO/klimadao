@@ -56,7 +56,8 @@ const featureImageMap = {
 };
 
 export const generateCertificate = (params: Params): void => {
-  const isMossRetirement = params.retirement.offset.bridge === "Moss";
+  const isMossRetirement =
+    params.retirement.retire.credit.bridgeProtocol === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
 
   const doc = new jsPDF({
@@ -104,9 +105,9 @@ export const generateCertificate = (params: Params): void => {
 
   const printRetirementDetails = (): void => {
     const retirementAmount =
-      Number(params.retirement.amount) < 0.01
+      Number(params.retirement.retire.amount) < 0.01
         ? "< 0.01"
-        : trimWithLocale(params.retirement.amount, 2, "en");
+        : trimWithLocale(params.retirement.retire.amount, 2, "en");
 
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(28);
@@ -163,17 +164,19 @@ export const generateCertificate = (params: Params): void => {
     );
     doc.setFont("Poppins", "ExtraLight");
     doc.textWithLink(
-      params.retirement.transaction.id,
+      params.retirement.retire.hash,
       spacing.margin,
       spacing.transactionDetails + 16.5,
       {
-        url: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+        url: `https://polygonscan.com/tx/${params.retirement.retire.hash}`,
       }
     );
   };
 
   const printProjectDetails = (): void => {
-    const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
+    const retirementDate = new Date(
+      Number(params.retirement.retire.timestamp) * 1000
+    );
     const formattedRetirementDate = `${retirementDate.getDate()}/${
       retirementDate.getMonth() + 1
     }/${retirementDate.getFullYear()}`;
@@ -192,20 +195,21 @@ export const generateCertificate = (params: Params): void => {
       },
       {
         label: "Methodology",
-        value: params.retirement.offset.methodology,
+        value: params.retirement.retire.credit.project.methodologies[0],
       },
       {
         label: "Type",
-        value: params.retirement.offset.methodologyCategory,
+        value: params.retirement.retire.credit.project.methodologies, // need to convert to category
       },
       {
         label: "Country/Region",
         value:
-          params.retirement.offset.country || params.retirement.offset.region,
+          params.retirement.retire.credit.project.country ||
+          params.retirement.retire.credit.project.region,
       },
       {
         label: "Vintage",
-        value: new Date(Number(params.retirement.offset.vintage) * 1000)
+        value: new Date(Number(params.retirement.retire.credit.vintage) * 1000)
           .getFullYear()
           .toString(),
       },
