@@ -19,6 +19,7 @@ type Props = {
   project: DetailedProject;
   className?: string;
   url?: string;
+  price?: string; // Enables displaying another price than the project's best price
 };
 
 export const ProjectCard: FC<Props> = (props) => {
@@ -27,7 +28,7 @@ export const ProjectCard: FC<Props> = (props) => {
   const methodologies = props.project?.methodologies?.map(
     pipe(get("category"), asCategoryName)
   );
-
+  const price = props.price || props.project.price;
   return (
     <Link
       href={props.url || createProjectLink(props.project)}
@@ -39,7 +40,7 @@ export const ProjectCard: FC<Props> = (props) => {
       </div>
       <div className={styles.cardContent}>
         <div className={styles.price}>
-          <Text t="h4">{formatToPrice(props.project.price, locale)}</Text>
+          <Text t="h4">{formatToPrice(price, locale)}</Text>
           {props.project.stats.totalSupply && (
             <div className={styles.supply}>
               <Text t="body2" color="lighter" align="end">

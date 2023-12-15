@@ -12,10 +12,6 @@ export const operations = {
   "get_users-walletorhandle": { path: "/users/:walletOrHandle", method: "get" },
   "put_users-wallet": { path: "/users/:wallet", method: "put" },
   "get_projects-id-activity": { path: "/projects/:id/activity", method: "get" },
-  "get_retirements-id-provenance": {
-    path: "/retirements/:id/provenance",
-    method: "get",
-  },
   "get_retirements-klima-account-id-retirement-index": {
     path: "/retirements/klima/:account_id/:retirement_index",
     method: "get",

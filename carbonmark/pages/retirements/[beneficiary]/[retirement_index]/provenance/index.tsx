@@ -3,8 +3,8 @@ import {
   getRetirementsKlimaAccountIdRetirementIndexProvenance,
 } from ".generated/carbonmark-api-sdk/clients";
 import {
-  GetRetirementsIdProvenanceQueryResponse,
-  GetRetirementsKlimaAccountIdRetirementIndexQueryResponse,
+  GetRetirementsKlimaAccountIdRetirementIndexProvenanceQueryResponse,
+  GetRetirementsKlimaAccountIdRetirementIndexQueryResponse
 } from ".generated/carbonmark-api-sdk/types";
 import { urls } from "@klimadao/lib/constants";
 import { RetirementProvenancePage } from "components/pages/Retirements/RetirementProvenance";
@@ -26,7 +26,7 @@ export interface RetirementProvenancePageProps {
   retirement: GetRetirementsKlimaAccountIdRetirementIndexQueryResponse;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  provenance: GetRetirementsIdProvenanceQueryResponse;
+  provenance: GetRetirementsKlimaAccountIdRetirementIndexProvenanceQueryResponse;
   nameserviceDomain: string | null;
   retirementIndex: string;
   beneficiaryAddress: string;

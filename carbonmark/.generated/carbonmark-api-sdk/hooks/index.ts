@@ -5,7 +5,6 @@ export * from "./useGetProjects";
 export * from "./useGetProjectsId";
 export * from "./useGetProjectsIdActivity";
 export * from "./useGetPurchasesId";
-export * from "./useGetRetirementsIdProvenance";
 export * from "./useGetRetirementsKlimaAccountIdRetirementIndex";
 export * from "./useGetRetirementsKlimaAccountIdRetirementIndexProvenance";
 export * from "./useGetUsersWalletorhandle";

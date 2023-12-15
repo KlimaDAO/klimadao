@@ -13,7 +13,6 @@ export * from "./GetProjects";
 export * from "./GetProjectsId";
 export * from "./GetProjectsIdActivity";
 export * from "./GetPurchasesId";
-export * from "./GetRetirementsIdProvenance";
 export * from "./GetRetirementsKlimaAccountIdRetirementIndex";
 export * from "./GetRetirementsKlimaAccountIdRetirementIndexProvenance";
 export * from "./GetUsersWalletorhandle";
