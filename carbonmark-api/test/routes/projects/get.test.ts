@@ -137,11 +137,13 @@ describe("GET /projects", () => {
       .post("")
       .reply(200, { data: { projects: [] } });
 
-    nock(ICR_API_URL).get("/public/projects/list").reply(200, { projects: [] });
+    nock(ICR_API_URL)
+      .get("/public/projects/list?page=0&limit=50")
+      .reply(200, { projects: [] });
 
     // mumabi nocks backup
     nock(ICR_API_URL_MUMBAI)
-      .get("/public/projects/list")
+      .get("/public/projects/list?page=0&limit=50")
       .reply(200, { projects: [] });
 
     nock(GRAPH_URLS["mumbai"].marketplace)

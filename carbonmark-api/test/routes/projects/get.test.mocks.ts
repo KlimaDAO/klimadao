@@ -68,13 +68,13 @@ export const mockDigitalCarbonProjects = (override?: CarbonProject[]) => {
     });
 
   nock(ICR_API_URL)
-    .get("/public/projects/list")
+    .get("/public/projects/list?page=0&limit=50")
     .reply(200, { projects: [mockICRProject] });
 
   // mumbai nocks backup
 
   nock(ICR_API_URL_MUMBAI)
-    .get("/public/projects/list")
+    .get("/public/projects/list?page=0&limit=50")
     .reply(200, { projects: [mockICRProject] });
 };
 
@@ -158,13 +158,19 @@ export const mockDigitalCarbonArgs = () =>
       },
     });
 
-export const mockMarketplaceProjects = (override?: Project[]) =>
+export const mockMarketplaceProjects = (override?: Project[]) => {
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getProjects"))
     .reply(200, {
       data: { projects: override ?? [fixtures.marketplace.projectWithListing] },
     });
 
+  nock(GRAPH_URLS["mumbai"].marketplace)
+    .post("")
+    .reply(200, {
+      data: { projects: [fixtures.marketplace.projectWithListing] },
+    });
+};
 //Mocks all categories, countries and vintages
 export const mockMarketplaceArgs = () =>
   nock(GRAPH_URLS["polygon"].marketplace)

@@ -57,7 +57,7 @@ export const MOCK_USER_PROFILE: UserProfile = {
   createdAt: new Date("1970-01-01T00:00:00Z").getTime(),
   description: "Some description",
   handle: "SomeHandle",
-  updatedAt: Number(new Date()),
+  updatedAt: 1702675170,
   username: "someusername",
   profileImgUrl: null,
 };
@@ -428,7 +428,7 @@ export const mockICRHolderResponse = {
         {
           id: "0x1234abcd5678ef9012345678abcd9012ef3456789abcdef1234567890abcdef1234abcd5678ef90",
           amount: "100",
-          updatedAt: "1702000000",
+          updatedAt: 1702675,
           retiredAmount: "60",
           exPost: {
             tokenId: "10",
@@ -447,7 +447,7 @@ export const mockICRHolderResponse = {
 
 export const EXPECTED_USER_RESPONSE = {
   ...omit(MOCK_USER_PROFILE, ["address", "updatedAt", "createdAt"]),
-  updatedAt: 1699715108,
+  updatedAt: 1702675,
   createdAt: 0,
   wallet: MOCK_USER_PROFILE.address,
   listings: [],
