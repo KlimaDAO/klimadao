@@ -184,7 +184,13 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
         {props.records
           .filter((_x) => true)
           .map((record) => (
-            <TimelineItem key={record.id} className={recordStyle(record)}>
+            <TimelineItem
+              key={record.id}
+              className={recordStyle(record)}
+              sx={{
+                minWidth: 0,
+              }}
+            >
               <TimelineSeparator>
                 <TimelineDot
                   sx={{
