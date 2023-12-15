@@ -1,8 +1,9 @@
 import { FastifyInstance } from "fastify";
+import { omit } from "lodash";
 import nock from "nock";
 import { HUBSPOT_URLS } from "../../../src/app.constants";
 import { build } from "../../helper";
-import { DEV_URL } from "../../test.constants";
+import { DEV_URL, MOCK_BANK_TRANSFER_DATA } from "../../test.constants";
 
 describe("POST /retire/bank-transfer", () => {
   let fastify: FastifyInstance;
@@ -25,19 +26,7 @@ describe("POST /retire/bank-transfer", () => {
     const response = await fastify.inject({
       method: "POST",
       url: `${DEV_URL}/retire/bank-transfer`,
-      body: {
-        quantity: 1,
-        email: "test@carbonmark.com",
-        phone_number: "01 000 0000",
-        company_name: "Carbonmark",
-        first_name: "Test",
-        last_name: "User",
-        job_title: "Engineer",
-        project_name: "Test Project",
-        beneficiary_name: "Carbonmark API Tests",
-        beneficiary_address: "0x000000000000000000000",
-        retirement_message: "I love helping the environment by retiring carbon",
-      },
+      body: MOCK_BANK_TRANSFER_DATA,
     });
     const data = await response.json();
     expect(response.statusCode).toEqual(200);
@@ -55,17 +44,7 @@ describe("POST /retire/bank-transfer", () => {
     const response = await fastify.inject({
       method: "POST",
       url: `${DEV_URL}/retire/bank-transfer`,
-      body: {
-        email: "test@carbonmark.com",
-        phone_number: "01 000 0000",
-        first_name: "Test",
-        last_name: "User",
-        job_title: "Engineer",
-        project_name: "Test Project",
-        beneficiary_name: "Carbonmark API Tests",
-        beneficiary_address: "0x000000000000000000000",
-        retirement_message: "I love helping the environment by retiring carbon",
-      },
+      body: omit(MOCK_BANK_TRANSFER_DATA, "quantity"),
     });
     const data = await response.json();
     expect(response.statusCode).toEqual(400);

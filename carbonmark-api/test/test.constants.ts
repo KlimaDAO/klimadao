@@ -53,3 +53,17 @@ export const EXPECTED_USER_RESPONSE = {
   activities: [],
   assets: [],
 };
+
+export const MOCK_BANK_TRANSFER_DATA = {
+  quantity: 1,
+  email: "test@carbonmark.com",
+  phone_number: "01 000 0000",
+  company_name: "Carbonmark",
+  first_name: "Test",
+  last_name: "User",
+  job_title: "Engineer",
+  project_name: "Test Project",
+  beneficiary_name: "Carbonmark API Tests",
+  beneficiary_address: "0x000000000000000000000",
+  retirement_message: "I love helping the environment by retiring carbon",
+};
