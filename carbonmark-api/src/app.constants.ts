@@ -13,9 +13,14 @@ const POLYGON_URLS = {
   marketplace: `${GRAPH_API_ROOT_ID}/QmXrzcwG5b31hE1nDzT5NCAiHfM9stwMLqs8uk9enJiyPf`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
-  digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
-  // main-test is for ICR's mainnet test registry. Use below for merge
+  // production below
+  // digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
+  // testing
+  digitalCarbon:
+    "https://api.thegraph.com/subgraphs/name/psparacino/digital-carbon",
+  // producion below
   // icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-polygon`,
+  // Mainnet testing only
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-main-test`,
 };
 
