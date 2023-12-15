@@ -2,7 +2,6 @@ import { cache } from "@emotion/css";
 import createEmotionServer from "@emotion/server/create-instance";
 import { InitializeTheme } from "@klimadao/lib/components";
 import { WebFonts } from "components/WebFonts";
-import { waitForApi } from "lib/waitForApi";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
@@ -36,7 +35,6 @@ const renderStatic = async (html?: string) => {
 };
 
 MyDocument.getInitialProps = async (ctx) => {
-  await waitForApi();
   const page = await ctx.renderPage();
   const { css, ids } = await renderStatic(page.html);
   const initialProps = await Document.getInitialProps(ctx);
