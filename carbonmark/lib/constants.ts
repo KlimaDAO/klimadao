@@ -62,7 +62,7 @@ export const MINIMUM_TONNE_QUANTITY_BANK_TRANSFER = 100;
 
 export const CARBONMARK_FEE = 0.0; // 0%
 
-/** Validates the presence of a an @ & . character */
+/** Validates the presence of an "@" & "." character in the string */
 export const EMAIL_ADDRESS_REGEX =
   /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]+)$/;
 /** No special chars */
