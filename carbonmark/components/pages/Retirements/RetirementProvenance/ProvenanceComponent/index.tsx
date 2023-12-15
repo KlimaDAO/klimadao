@@ -188,7 +188,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
               key={record.id}
               className={recordStyle(record)}
               sx={{
-                minWidth: 0,
+                minHeight: 0,
               }}
             >
               <TimelineSeparator>
