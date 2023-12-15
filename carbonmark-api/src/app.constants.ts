@@ -10,12 +10,21 @@ const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
  * This is also the case for SANITY_URLS
  */
 const POLYGON_URLS = {
-  marketplace: `${GRAPH_API_ROOT_ID}/QmTfM5TvokuyKXCGWL3wTLZ1z4TqRtQ7PdVfQRVU39ovUC`,
+  // production below
+  // marketplace: `${GRAPH_API_ROOT_ID}/QmTfM5TvokuyKXCGWL3wTLZ1z4TqRtQ7PdVfQRVU39ovUC`,
+  // testing with test marketplace
+  marketplace:
+    "https://api.thegraph.com/subgraphs/name/psparacino/carbonmark--testing-only",
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
-  digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
-  // main-test is for ICR's mainnet test registry. Use below for merge
+  // production below
+  // digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
+  // testing
+  digitalCarbon:
+    "https://api.thegraph.com/subgraphs/name/psparacino/digital-carbon",
+  // producion below
   // icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-polygon`,
+  // Mainnet testing only
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-main-test`,
 };
 

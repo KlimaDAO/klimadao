@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps<
   try {
     const { params, query } = ctx;
 
-    const network = query.network as string;
+    const network = (query.network as string) || "polygon";
 
     const vintage = query.vintage as string;
 
