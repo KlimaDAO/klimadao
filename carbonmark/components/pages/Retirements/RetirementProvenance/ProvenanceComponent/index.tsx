@@ -54,7 +54,7 @@ const getFormattedDate = (timestamp: number, locale = "en") => {
     year: "numeric",
   }).format(dateObj);
 
-  return `${time} | ${date}`;
+  return `UTC ${time} | ${date}`;
 };
 
 type RecordType = "RETIREMENT" | "TRANSFER" | "ORIGINATION";
