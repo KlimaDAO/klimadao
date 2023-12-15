@@ -233,4 +233,33 @@ describe("GET /projects", () => {
       ).toString()
     );
   });
+
+  test.only("Projects with 'dust' (supply less than 1 tonne) should be filtered", async () => {
+    mockDigitalCarbonProjects();
+    mockMarketplaceProjects();
+
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/projects`,
+    });
+    const data = response.json();
+
+    console.log(data[1].listings);
+
+    const dustProjects = data.filter((project: any) => project.supply < 1);
+
+    expect(dustProjects.length).toBe(0);
+  });
 });
+
+test.skip("Projects with 0 price across all assets should be filtered", () => {});
+
+test.skip("There should be no duplicates in the results", () => {});
+
+test.skip("Project fields should be sanitised", () => {});
+
+test.skip("Filters work as expected", () => {});
+
+test.skip("Same asset in multiple pools and listings", () => {});
+
+test.skip("Different assets (of the same credit) in multiple pools and listings", () => {});
