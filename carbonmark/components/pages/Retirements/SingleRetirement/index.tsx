@@ -109,8 +109,8 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       retirement.retire.credit.id
   ); // can be null
   const projectTokenName =
-    retirement.retire.credit.bridgeProtocol === "Toucan" ? "tco2" : "c3t";
-  const isMossOffset = retirement?.retire.credit.bridgeProtocol === "Moss";
+    retirement.retire.credit.bridgeProtocol === "TOUCAN" ? "tco2" : "c3t";
+  const isMossOffset = retirement?.retire.credit.bridgeProtocol === "MOSS";
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenInfoMap[carbonTokenName];
 

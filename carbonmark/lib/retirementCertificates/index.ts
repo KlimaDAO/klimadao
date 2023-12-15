@@ -57,7 +57,7 @@ const catergoryBannerMap = {
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const isMossRetirement =
-    params.retirement.retire.credit.bridgeProtocol === "Moss";
+    params.retirement.retire.credit.bridgeProtocol === "MOSS";
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.retire.beneficiaryAddress}`;
   const projectDetails = [
     {

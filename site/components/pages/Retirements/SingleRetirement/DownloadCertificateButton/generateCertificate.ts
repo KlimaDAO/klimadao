@@ -57,7 +57,7 @@ const featureImageMap = {
 
 export const generateCertificate = (params: Params): void => {
   const isMossRetirement =
-    params.retirement.retire.credit.bridgeProtocol === "Moss";
+    params.retirement.retire.credit.bridgeProtocol === "MOSS";
   const fileName = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
 
   const doc = new jsPDF({
