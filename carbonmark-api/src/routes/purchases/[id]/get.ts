@@ -4,7 +4,6 @@ import { isNil } from "lodash";
 import { Purchase } from "../../../models/Purchase.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
-import { fetchCarbonProject } from "../../../utils/helpers/cms.utils";
 import { Params, Querystring, schema } from "./get.schema";
 import { isValidPurchaseId } from "./get.utils";
 
@@ -26,13 +25,9 @@ const handler = async (
     return reply.status(404).send({ error: "Purchase not found" });
   }
 
-  const [standard, registryProjectId] = CreditId.splitProjectId(
-    purchase.listing.project.key
-  );
-  const project = await fetchCarbonProject(sdk, {
-    registry: standard,
-    registryProjectId,
-  });
+  const project = purchase.listing.project;
+
+  const [, registryProjectId] = CreditId.splitProjectId(project.key);
 
   const response: Purchase = {
     id: purchase.id,
@@ -47,10 +42,10 @@ const handler = async (
       project: {
         key: purchase.listing.project.key,
         vintage: purchase.listing.project.vintage,
-        methodology: project.methodologies?.[0]?.id ?? "",
-        name: project.name ?? "",
+        methodology: purchase.listing.project.methodology,
+        name: project.name,
         projectID: registryProjectId,
-        country: project.country ?? "",
+        country: project.country.id,
       },
     },
   };
