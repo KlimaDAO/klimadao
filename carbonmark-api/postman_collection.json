@@ -355,7 +355,7 @@
       "response": []
     },
     {
-      "name": "getKlimaRetirementByAccountAndIndex",
+      "name": "getRetirementByAccountAndIndex",
       "event": [
         {
           "listen": "test",
@@ -374,9 +374,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/retirements/klima/:account_id/:retirement_index",
+          "raw": "{{url}}/retirements/:account_id/:retirement_index",
           "host": ["{{url}}"],
-          "path": ["retirements", "klima", ":account_id", ":retirement_index"],
+          "path": ["retirements", ":account_id", ":retirement_index"],
           "variable": [
             {
               "key": "account_id",
@@ -392,7 +392,7 @@
       "response": []
     },
     {
-      "name": "getKlimaRetirementProvenanceByAccountAndIndex",
+      "name": "getRetirementProvenanceByAccountAndIndex",
       "event": [
         {
           "listen": "test",
@@ -411,11 +411,10 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/retirements/klima/:account_id/:retirement_index/provenance",
+          "raw": "{{url}}/retirements/:account_id/:retirement_index/provenance",
           "host": ["{{url}}"],
           "path": [
             "retirements",
-            "klima",
             ":account_id",
             ":retirement_index",
             "provenance"

@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
-import { NetworkParamModel } from "../../../../../models/NetworkParam.model";
-import { RetirementModel } from "../../../../../models/Retirement.model";
+import { NetworkParamModel } from "../../../../models/NetworkParam.model";
+import { RetirementModel } from "../../../../models/Retirement.model";
 
 export const params = Type.Object({
   account_id: Type.String({
