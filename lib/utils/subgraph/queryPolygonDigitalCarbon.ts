@@ -25,6 +25,7 @@ function generateKlimaRetireQuery(beneficiaryAddress: string, index?: number) {
           retire_: {beneficiaryAddress: "${beneficiaryAddress.toLowerCase()}"}
           ${index !== undefined ? `, index: ${index}` : ""}
         },
+        first: 1000,
         orderBy: retire__timestamp,
         orderDirection: desc
       ) {
@@ -72,6 +73,7 @@ export const queryKlimaRetireByIndex = async (
     const json: QueryKlimaRetires = await fetchGraphQL(
       generateKlimaRetireQuery(beneficiaryAddress, index)
     );
+    console.log(json.data.klimaRetires);
     return json.data.klimaRetires.length ? json.data.klimaRetires[0] : null;
   } catch (e) {
     console.error("Failed to query KlimaRetireByIndex", e);

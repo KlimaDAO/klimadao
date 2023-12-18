@@ -278,11 +278,13 @@ const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
   // polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
   // @todo temporary before deployed under /klimadao
-  polygonDigitalCarbon: `https://api.thegraph.com/subgraphs/name/psparacino/polygon-digital-carbon`,
+  polygonDigitalCarbon: `https://api.thegraph.com/subgraphs/name/psparacino/digital-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
-  carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
+  // @todo temporary before deployed under /klimadao
+  carbonmark:
+    "https://api.thegraph.com/subgraphs/name/psparacino/carbonmark-testing", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
 };
 
 /** Definitions of available registries */
