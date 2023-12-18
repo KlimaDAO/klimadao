@@ -7,13 +7,12 @@ export const querystring = Type.Object({
 });
 export type Querystring = Static<typeof querystring>;
 export const schema = {
-  summary: "Purchase details",
-  description:
-    "Retrieve the details of a purchase by its ID (transaction hash)",
+  summary: "Recent purchases",
+  description: "Retrieve a list of recent purchases",
   querystring,
   response: {
     200: {
-      description: "Successful response with listing details",
+      description: "A ordered list of recent purchases and their projects",
       content: {
         "application/json": {
           schema: Type.Array(PurchaseModel),
