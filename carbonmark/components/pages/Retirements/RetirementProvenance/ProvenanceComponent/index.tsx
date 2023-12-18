@@ -236,22 +236,24 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                   )}
                   {record.transactionType == "ORIGINATION" && (
                     <div>
-                      <div>
-                        <Text t="body2" className={styles.inline}>
-                          <Trans>Serial Number</Trans>
-                        </Text>
-                        :{" "}
-                        <Text
-                          t="body2"
-                          color="lightest"
-                          className={styles.inline}
-                        >
-                          {insertWhiteSpaces({
-                            text: record.registrySerialNumbers[0],
-                            after: "-",
-                          })}
-                        </Text>
-                      </div>
+                      {record.registrySerialNumbers[0] && (
+                        <div>
+                          <Text t="body2" className={styles.inline}>
+                            <Trans>Serial Number</Trans>
+                          </Text>
+                          :{" "}
+                          <Text
+                            t="body2"
+                            color="lightest"
+                            className={styles.inline}
+                          >
+                            {insertWhiteSpaces({
+                              text: record.registrySerialNumbers[0],
+                              after: "-",
+                            })}
+                          </Text>
+                        </div>
+                      )}
                       {projectId && (
                         <div className={styles.verraLinkAndTooltip}>
                           <A
