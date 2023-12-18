@@ -9,22 +9,18 @@ import {
 
 import { aCarbonProject } from "../../src/.generated/mocks/digitalCarbon.mocks";
 
-type PartialCarbonPoolCreditBalance = Partial<CarbonPoolCreditBalance>;
-
-type PartialCarbonPoolDailySnapshot = Partial<CarbonPoolDailySnapshot>;
-
 // /** Fixtures for the polygon-digital-carbon subgraph */
 
-const creditBalance: PartialCarbonPoolCreditBalance = {
+const creditBalance: Partial<CarbonPoolCreditBalance> = {
   id: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
 };
 
-const dailySnapshot: PartialCarbonPoolDailySnapshot = {
+const dailySnapshot: Partial<CarbonPoolDailySnapshot> = {
   id: "0xaa7dbd1598251f856c12f63557a4c4397c253cea014b0000",
   lastUpdateTimestamp: "1628582400",
 };
 
-const poolBalance: PartialCarbonPoolCreditBalance = {
+const poolBalance: Partial<CarbonPoolCreditBalance> = {
   balance: "320307910491148199345054",
   id: "0x2f800db0fdb5223b3c3f354886d907a671414a7fb139c4cc9d20a3618e9a2268d73eff18c496b99",
   deposited: "320308000000000000000000",
@@ -40,9 +36,7 @@ const poolBalance: PartialCarbonPoolCreditBalance = {
   } as CarbonPool,
 };
 
-type PartialCarbonCredit = Partial<CarbonCredit>;
-
-const carbonCredit: PartialCarbonCredit = {
+const carbonCredit: Partial<CarbonCredit> = {
   vintage: 2011,
   currentSupply: "320308000000000000000000",
   id: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
@@ -53,7 +47,7 @@ const carbonCredit: PartialCarbonCredit = {
   poolBalances: [poolBalance as CarbonPoolCreditBalance],
 };
 
-const digitalCarbonProject = aCarbonProject({
+export const digitalCarbonProject = aCarbonProject({
   id: "VCS-191",
   name: "Grid-connected electricity generation from renewable sources",
   projectID: "VCS-191",
@@ -65,14 +59,9 @@ const digitalCarbonProject = aCarbonProject({
   carbonCredits: [carbonCredit as CarbonCredit],
 });
 
-const empty_countries = {
-  data: {
-    carbonProjects: [],
-  },
-};
-
 const fixtures = {
-  empty_countries,
+  carbonCredit,
+  poolBalance,
   digitalCarbonProject,
 };
 
