@@ -36,10 +36,10 @@ describe("GET /projects", () => {
 
   // Setup default mocks
   beforeEach(async () => {
-    mockMarketplaceArgs();
-    mockDigitalCarbonArgs();
-    mockTokens();
-    mockCms();
+    mockMarketplaceArgs().persist(true);
+    mockDigitalCarbonArgs().persist(true);
+    mockTokens().persist(true);
+    mockCms().persist(true);
   });
 
   // /** The happy path */
@@ -237,29 +237,37 @@ describe("GET /projects", () => {
     );
   });
 
-  test.only("Projects with 'dust' (supply less than 1 tonne) should be filtered", async () => {
-    mockMarketplaceProjects();
+  test("Projects with 'dust' (supply less than 1 tonne) should be filtered", async () => {
+    mockMarketplaceProjects().persist(true);
 
     const zeroSupplyProject: CarbonProject = {
       ...mockDigitalCarbonProject,
       id: "VCS-000",
     };
 
-    //Mock digital carbon with no supply
-    // nock(GRAPH_URLS["polygon"].digitalCarbon)
-    //   .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
-    //   .reply(200, {
-    //     data: {
-    //       carbonProjects: [mockDigitalCarbonProject, zeroSupplyProject],
-    //     },
-    //   })
-    //   .persist(false);
+    //Mock to return two projects with supply
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
+      .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+      .reply(200, {
+        data: {
+          carbonProjects: [mockDigitalCarbonProject, zeroSupplyProject],
+        },
+      });
 
     let projects: Project[] = await mock_fetch(fastify, "/projects");
     expect(projects.length).toBe(2);
 
     //Set the balance to less than 1
     zeroSupplyProject.carbonCredits[0].poolBalances[0].balance = "0";
+
+    //Mock digital carbon with no supply
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
+      .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+      .reply(200, {
+        data: {
+          carbonProjects: [mockDigitalCarbonProject, zeroSupplyProject],
+        },
+      });
 
     projects = await mock_fetch(fastify, "/projects");
     expect(projects.length).toBe(1);

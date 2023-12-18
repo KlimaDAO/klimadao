@@ -120,7 +120,7 @@ export const mockMarketplaceProjects = () =>
     });
 
 //Mocks all categories, countries and vintages
-export const mockMarketplaceArgs = () => {
+export const mockMarketplaceArgs = () =>
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getCategories"))
     .reply(200, {
@@ -221,4 +221,3 @@ export const mockMarketplaceArgs = () => {
         ],
       },
     });
-};
