@@ -1,5 +1,5 @@
 import { PoolToken } from "@klimadao/lib/constants";
-import { getRetirementTokenByAddress, useWeb3 } from "@klimadao/lib/utils";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
@@ -13,13 +13,9 @@ import {
 import { MINIMUM_TONNE_QUANTITY, urls } from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
-import { getPoolApprovalValue, isPoolToken } from "lib/getPoolData";
+import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import {
-  DetailedProject,
-  Listing,
-  TokenPrice,
-} from "lib/types/carbonmark.types";
+import { DetailedProject, Retirement } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -37,14 +33,8 @@ import { FormValues } from "./types";
 
 export interface Props {
   project: DetailedProject;
-  retirement: Listing | TokenPrice;
+  retirement: Retirement;
 }
-
-const getIsPoolRetirement = (purchase: any): purchase is TokenPrice =>
-  purchase.poolName !== undefined && isPoolToken(purchase.poolName);
-
-const getIsListingRetirement = (purchase: any): purchase is Listing =>
-  purchase.id !== undefined;
 
 export const RetireForm: FC<Props> = (props) => {
   const { asPath } = useRouter();
@@ -74,9 +64,10 @@ export const RetireForm: FC<Props> = (props) => {
   const methods = useForm<FormValues>({
     mode: "onChange",
     defaultValues: {
-      projectTokenAddress: getIsPoolRetirement(props.retirement)
-        ? props.retirement?.projectTokenAddress
-        : undefined,
+      projectTokenAddress:
+        props.retirement.type === "pool"
+          ? props.retirement?.projectTokenAddress
+          : undefined,
       paymentMethod: "fiat",
       ...inputValues,
     },
@@ -169,17 +160,18 @@ export const RetireForm: FC<Props> = (props) => {
       beneficiary_name: inputValues.beneficiaryName,
       retirement_message: inputValues.retirementMessage,
       // pass token address if not default project
-      project_address: getIsPoolRetirement(props.retirement)
-        ? !props.retirement.isPoolDefault
-          ? inputValues.projectTokenAddress
-          : null
-        : null,
-      retirement_token: getIsPoolRetirement(props.retirement)
-        ? (props.retirement.poolName.toLowerCase() as PoolToken)
-        : null,
-      listing_id: getIsListingRetirement(props.retirement)
-        ? props.retirement.id
-        : null,
+      project_address:
+        props.retirement.type === "pool"
+          ? !props.retirement.isPoolDefault
+            ? inputValues.projectTokenAddress
+            : null
+          : null,
+      retirement_token:
+        props.retirement.type === "pool"
+          ? (props.retirement.poolName.toLowerCase() as PoolToken)
+          : null,
+      listing_id:
+        props.retirement.type === "listing" ? props.retirement.id : null,
     };
     try {
       setIsRedirecting(true);
@@ -280,7 +272,7 @@ export const RetireForm: FC<Props> = (props) => {
         return;
       }
 
-      if (!getIsPoolRetirement(props.retirement)) {
+      if (props.retirement.type !== "pool") {
         throw new Error(`Unsupported retirement: ${props.retirement}`);
       }
 
@@ -360,20 +352,17 @@ export const RetireForm: FC<Props> = (props) => {
         <Col>
           <div className={styles.stickyContentWrapper}>
             <Card>
-              {getIsPoolRetirement(props.retirement) && (
+              {props.retirement.type === "pool" && (
                 <PoolAssetDetails
                   price={props.retirement}
                   project={props.project}
                 />
               )}
-              {getIsListingRetirement(props.retirement) && (
-                <>
-                  <p>
-                    {getRetirementTokenByAddress(props.retirement.tokenAddress)}
-                  </p>
-
-                  <ListingAssetDetails listing={props.retirement} />
-                </>
+              {props.retirement.type === "listing" && (
+                <ListingAssetDetails
+                  listing={props.retirement}
+                  tokenSymbol={"TODO"}
+                />
               )}
             </Card>
             <div className={styles.reverseOrder}>

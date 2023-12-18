@@ -27,6 +27,14 @@ export type DetailedProject = SDKDetailedProject;
 export type CarouselImage = Image;
 export type CategoryName = keyof typeof CATEGORY_INFO;
 
+export type ListingRetirement = {
+  type: "listing";
+} & Listing;
+export type PoolRetirement = {
+  type: "pool";
+} & TokenPrice;
+export type Retirement = ListingRetirement | PoolRetirement;
+
 export interface PcbProject {
   id: string;
   projectID: string;

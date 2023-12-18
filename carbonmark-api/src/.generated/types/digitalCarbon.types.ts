@@ -4203,6 +4203,13 @@ export type GetProjectCreditsQueryVariables = Exact<{
 
 export type GetProjectCreditsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }> }> }> };
 
+export type GetTokenByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetTokenByIdQuery = { __typename?: 'Query', token: { __typename?: 'Token', symbol: string } | null };
+
 export type FindDigitalCarbonProjectsQueryVariables = Exact<{
   country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
@@ -4302,6 +4309,13 @@ export const GetProjectCreditsDocument = gql`
     ${DigitalCarbonProjectFragmentFragmentDoc}
 ${CarbonCreditFragmentFragmentDoc}
 ${PoolBalancesFragmentFragmentDoc}`;
+export const GetTokenByIdDocument = gql`
+    query getTokenById($id: ID!) {
+  token(id: $id) {
+    symbol
+  }
+}
+    `;
 export const FindDigitalCarbonProjectsDocument = gql`
     query findDigitalCarbonProjects($country: [String!], $category: [String!], $search: String, $vintage: [Int!]) {
   carbonProjects(
@@ -4343,6 +4357,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getProjectCredits(variables: GetProjectCreditsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectCreditsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProjectCreditsQuery>(GetProjectCreditsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectCredits', 'query');
+    },
+    getTokenById(variables: GetTokenByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTokenByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetTokenByIdQuery>(GetTokenByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getTokenById', 'query');
     },
     findDigitalCarbonProjects(variables?: FindDigitalCarbonProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindDigitalCarbonProjectsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<FindDigitalCarbonProjectsQuery>(FindDigitalCarbonProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findDigitalCarbonProjects', 'query');

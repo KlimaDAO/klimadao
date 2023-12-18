@@ -30,6 +30,12 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
   }
 }
 
+query getTokenById($id: ID!) {
+  token(id: $id) {
+    symbol
+  }
+}
+
 query findDigitalCarbonProjects(
   $country: [String!]
   $category: [String!]

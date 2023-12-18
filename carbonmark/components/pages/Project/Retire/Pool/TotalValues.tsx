@@ -8,8 +8,7 @@ import { getConsumptionCost } from "lib/actions.retire";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { isPoolToken } from "lib/getPoolData";
-import { Listing, TokenPrice } from "lib/types/carbonmark.types";
+import { Retirement } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -18,7 +17,7 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  price: Listing | TokenPrice;
+  price: Retirement;
   userBalance: string | null;
   fiatBalance: string | null;
   fiatMinimum: string | null;
@@ -31,11 +30,6 @@ const getStringBetween = (str: string, start: string, end: string) => {
   const result = str.match(new RegExp(start + "(.*)" + end));
   return result && result[1];
 };
-
-const getIsPool = (price: any): price is TokenPrice =>
-  price.poolName !== undefined && isPoolToken(price.poolName);
-
-const getIsListing = (price: any): price is Listing => price.id !== undefined;
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
   const { locale, asPath } = useRouter();
@@ -83,18 +77,20 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
       try {
         setIsLoading(true);
+
         const totalPrice = await getConsumptionCost({
           inputToken: paymentMethod,
-          retirementToken: getIsPool(props.price) ? props.price.poolName : null,
+          retirementToken:
+            props.price.type === "pool" ? props.price.poolName : null,
           quantity: amount,
-          isDefaultProject: getIsPool(props.price)
-            ? props.price.isPoolDefault
-            : null,
-          projectTokenAddress: getIsPool(props.price)
-            ? props.price.projectTokenAddress
-            : null,
+          isDefaultProject:
+            props.price.type === "pool" ? props.price.isPoolDefault : null,
+          projectTokenAddress:
+            props.price.type === "pool"
+              ? props.price.projectTokenAddress
+              : null,
           currentUrl: asPath,
-          listingId: getIsListing(props.price) ? props.price.id : null,
+          listingId: props.price.type === "listing" ? props.price.id : null,
         });
 
         props.setCosts(totalPrice);

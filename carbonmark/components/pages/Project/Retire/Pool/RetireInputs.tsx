@@ -13,7 +13,7 @@ import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
-  TokenPrice as PriceType,
+  Retirement,
 } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -29,7 +29,7 @@ import { FormValues } from "./types";
 
 type Props = {
   onSubmit: (values: FormValues) => void;
-  price: PriceType;
+  price: Retirement;
   values: null | FormValues;
   userBalance: string | null;
   fiatBalance: string | null;
@@ -153,6 +153,9 @@ export const RetireInputs: FC<Props> = (props) => {
     !!props.userBalance &&
     Number(props.userBalance) <= Number(props.approvalValue);
 
+  const supply =
+    props.price.type === "pool" ? props.price.supply : props.price.leftToSell;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputsContainer}>
@@ -177,8 +180,7 @@ export const RetireInputs: FC<Props> = (props) => {
               <span className={styles.required}>*</span>
             </Text>
             <Text t="body3">
-              <Trans>Available:</Trans>{" "}
-              {formatToTonnes(props.price.supply, locale, 2)}
+              <Trans>Available:</Trans> {formatToTonnes(supply, locale, 2)}
             </Text>
             <InputField
               id="quantity"
@@ -186,7 +188,7 @@ export const RetireInputs: FC<Props> = (props) => {
                 placeholder: t`Tonnes`,
                 type: "number",
                 min: getValidations().quantity.min.value,
-                max: Number(props.price.supply),
+                max: Number(supply),
                 ...register("quantity", {
                   onChange: (e) => {
                     clearErrors("totalPrice");
@@ -203,7 +205,7 @@ export const RetireInputs: FC<Props> = (props) => {
                   },
                   min: getValidations().quantity.min,
                   max: {
-                    value: Number(props.price.supply),
+                    value: Number(supply),
                     message: t`Available supply exceeded`,
                   },
                 }),

@@ -69,51 +69,13 @@ export const PoolAssetDetails: FC<TotalValuesProps> = (props) => {
   );
 };
 
-export const ListingAssetDetails: FC<{ listing: Listing }> = (props) => {
-  /*
-  const { locale } = useRouter();
-  const tokenType = getPoolTokenType(
-    props.price.poolName.toUpperCase() as Uppercase<PoolToken>
-  );
-  const tokenData = carbonTokenInfoMap[tokenType];
-  const projectTokenName = createProjectTokenName(props.project, tokenType);
-  const availableTonnes = formatToTonnes(props.price.supply, locale, 2);
-
+export const ListingAssetDetails: FC<{
+  listing: Listing;
+  tokenSymbol: string;
+}> = (props) => {
   return (
-    <Accordion label={t`Asset details`} className={styles.accordion}>
-      <div className={styles.totalsText}>
-        <Text color="lightest">{t`Retiring Token`}</Text>
-        <div className={cx(styles.iconAndText)}>
-          <div className="icon">
-            <Image
-              src={tokenData.icon}
-              width={20}
-              height={20}
-              alt={tokenData.label}
-            />
-          </div>
-          <Text t="h5">{projectTokenName}</Text>
-        </div>
-      </div>
-      <div className={styles.totalsText}>
-        <Text color="lightest">{t`Available to retire`}</Text>
-        <Text t="h5">
-          {availableTonnes} {t`Tonnes`}
-        </Text>
-      </div>
-      <div className={styles.totalsText}>
-        <Anchor
-          className={styles.iconAndText}
-          href={`https://polygonscan.com/address/${props.price.projectTokenAddress}`}
-        >
-          <Text className={styles.externalLink} t="body2">
-            {t`View on PolygonScan`} <LaunchIcon />
-          </Text>
-        </Anchor>
-      </div>
-    </Accordion>
+    <h1>
+      {props.listing.leftToSell} {props.tokenSymbol}
+    </h1>
   );
-  */
-  // TODO: implement this properly
-  return <h1>{JSON.stringify(props.listing)}</h1>;
 };
