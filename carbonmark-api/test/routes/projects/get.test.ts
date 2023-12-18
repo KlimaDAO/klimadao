@@ -1,7 +1,8 @@
 import { FastifyInstance } from "fastify";
-import { pick } from "lodash";
+import { pick, set } from "lodash";
 import nock from "nock";
 import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
+import { Project as MarketplaceProject } from "src/.generated/types/marketplace.types";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { Project } from "../../../src/models/Project.model";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
@@ -237,44 +238,122 @@ describe("GET /projects", () => {
     );
   });
 
-  test("Projects with 'dust' (supply less than 1 tonne) should be filtered", async () => {
-    mockMarketplaceProjects().persist(true);
-
-    const zeroSupplyProject: CarbonProject = {
+  describe("Projects with 'dust' (supply less than 1 tonne) should be filtered", () => {
+    const anotherCarbonProject: CarbonProject = {
       ...mockDigitalCarbonProject,
       id: "VCS-000",
     };
+    const anotherMarketplaceProject: CarbonProject = {
+      ...mockDigitalCarbonProject,
+      id: "VCS-000",
+      projectID: "VCS-000",
+    };
 
-    //Mock to return two projects with supply
-    nock(GRAPH_URLS["polygon"].digitalCarbon)
-      .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
-      .reply(200, {
-        data: {
-          carbonProjects: [mockDigitalCarbonProject, zeroSupplyProject],
-        },
-      });
+    let projects: Project[];
 
-    let projects: Project[] = await mock_fetch(fastify, "/projects");
-    expect(projects.length).toBe(2);
+    test("All projects are returned if supply greater than 1 (DigitalCarbon)", async () => {
+      mockMarketplaceProjects();
 
-    //Set the balance to less than 1
-    zeroSupplyProject.carbonCredits[0].poolBalances[0].balance = "0";
+      /** ---- Confirm success when all have supply ---- */
+      //Mock to return two projects with supply
+      nock(GRAPH_URLS["polygon"].digitalCarbon)
+        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+        .reply(200, {
+          data: {
+            carbonProjects: [mockDigitalCarbonProject, anotherCarbonProject],
+          },
+        });
 
-    //Mock digital carbon with no supply
-    nock(GRAPH_URLS["polygon"].digitalCarbon)
-      .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
-      .reply(200, {
-        data: {
-          carbonProjects: [mockDigitalCarbonProject, zeroSupplyProject],
-        },
-      });
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(2);
+    });
 
-    projects = await mock_fetch(fastify, "/projects");
-    expect(projects.length).toBe(1);
+    test("All projects are returned if supply greater than 1 (Marketplace)", async () => {
+      //Mock digital carbon with no supply
+      nock(GRAPH_URLS["polygon"].digitalCarbon)
+        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+        .reply(200, {
+          data: {
+            carbonProjects: [],
+          },
+        });
+
+      nock(GRAPH_URLS["polygon"].marketplace)
+        .post("", (body) => body.query.includes("getProjects"))
+        .reply(200, {
+          data: {
+            projects: [mockMarketplaceProject, anotherMarketplaceProject],
+          },
+        });
+
+      projects = await mock_fetch(fastify, "/projects");
+      console.log(projects);
+      expect(projects.length).toBe(2);
+    });
+
+    test("Carbon", async () => {
+      mockMarketplaceProjects().persist(true);
+      /** ---- Test when supply 0 ---- */
+      //Set the balance to less than 1
+      anotherCarbonProject.carbonCredits[0].poolBalances[0].balance = "0";
+
+      //Mock digital carbon with no supply
+      nock(GRAPH_URLS["polygon"].digitalCarbon)
+        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+        .reply(200, {
+          data: {
+            carbonProjects: [mockDigitalCarbonProject, anotherCarbonProject],
+          },
+        });
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+
+      /** ---- Test when supply > 0 < 1 ---- */
+      //Set the balance to less than 1
+      anotherCarbonProject.carbonCredits[0].poolBalances[0].balance = "0.5";
+
+      //Mock digital carbon with marginal supply
+      nock(GRAPH_URLS["polygon"].digitalCarbon)
+        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+        .reply(200, {
+          data: {
+            carbonProjects: [mockDigitalCarbonProject, anotherCarbonProject],
+          },
+        });
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+
+      /** ---- Test marketplace supply ---- */
+      //Mock no digitalCarbon
+      nock(GRAPH_URLS["polygon"].digitalCarbon)
+        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+        .reply(200, {
+          data: {
+            carbonProjects: [],
+          },
+        });
+
+      const marketplaceProjectWithNoSupply: MarketplaceProject = {
+        ...fixtures.marketplace.projectWithListing,
+        id: "VCS-000",
+        key: "VCS-000",
+      };
+
+      set(marketplaceProjectWithNoSupply, "listings[0].leftToSell", "2");
+
+      nock(GRAPH_URLS["polygon"].marketplace)
+        .post("", (body) => body.query.includes("getProjects"))
+        .reply(200, {
+          data: { projects: [marketplaceProjectWithNoSupply] },
+        });
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
   });
 });
-
-test.skip("Projects with 0 price across all assets should be filtered", () => {});
 
 test.skip("There should be no duplicates in the results", () => {});
 
