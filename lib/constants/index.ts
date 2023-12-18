@@ -94,7 +94,7 @@ export const urls = {
   discordContributorsInvite: "https://discord.gg/uWvjTuZ65v",
   gitbook: "https://klima-dao.gitbook.io/klima-dao",
   app: "https://app.klimadao.finance",
-  appLegacy: "https://legacy-app.klimadao.finance", // App with now retired features
+  appLegacy: "https://legacy-app.klimadao.financea", // App with now retired features
   stake: "https://app.klimadao.finance/#/stake",
   redeem: "https://app.klimadao.finance/#/redeem",
   wrap: "https://app.klimadao.finance/#/wrap",
