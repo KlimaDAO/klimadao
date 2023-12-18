@@ -1,12 +1,15 @@
 import { FastifyInstance } from "fastify";
 import { pick } from "lodash";
 import nock from "nock";
+import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
 import { GRAPH_URLS } from "../../../src/app.constants";
+import { Project } from "../../../src/models/Project.model";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
 import { fixtures } from "../../fixtures";
 import marketplace from "../../fixtures/marketplace";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
+import { mock_fetch } from "../../test.utils";
 import {
   mockCms,
   mockDigitalCarbonArgs,
@@ -235,20 +238,31 @@ describe("GET /projects", () => {
   });
 
   test.only("Projects with 'dust' (supply less than 1 tonne) should be filtered", async () => {
-    mockDigitalCarbonProjects();
     mockMarketplaceProjects();
 
-    const response = await fastify.inject({
-      method: "GET",
-      url: `${DEV_URL}/projects`,
-    });
-    const data = response.json();
+    const zeroSupplyProject: CarbonProject = {
+      ...mockDigitalCarbonProject,
+      id: "VCS-000",
+    };
 
-    console.log(data[1].listings);
+    //Mock digital carbon with no supply
+    // nock(GRAPH_URLS["polygon"].digitalCarbon)
+    //   .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+    //   .reply(200, {
+    //     data: {
+    //       carbonProjects: [mockDigitalCarbonProject, zeroSupplyProject],
+    //     },
+    //   })
+    //   .persist(false);
 
-    const dustProjects = data.filter((project: any) => project.supply < 1);
+    let projects: Project[] = await mock_fetch(fastify, "/projects");
+    expect(projects.length).toBe(2);
 
-    expect(dustProjects.length).toBe(0);
+    //Set the balance to less than 1
+    zeroSupplyProject.carbonCredits[0].poolBalances[0].balance = "0";
+
+    projects = await mock_fetch(fastify, "/projects");
+    expect(projects.length).toBe(1);
   });
 });
 
