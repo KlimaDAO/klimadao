@@ -4,7 +4,10 @@ import { t, Trans } from "@lingui/macro";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
-import { getConsumptionCost } from "lib/actions.retire";
+import {
+  getListingConsumptionCost,
+  getPoolConsumptionCost,
+} from "lib/actions.retire";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
@@ -17,7 +20,7 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  price: Retirement;
+  retirement: Retirement;
   userBalance: string | null;
   fiatBalance: string | null;
   fiatMinimum: string | null;
@@ -47,7 +50,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     if (!isFiat || !Number(props.costs) || isLoading) return "$0.00";
     // we have the total cost and the price per tonne.
     const priceWithoutFees =
-      Number(amount) * Number(props.price.singleUnitPrice);
+      Number(amount) * Number(props.retirement.singleUnitPrice);
     const fee = Number(safeSub(props.costs, priceWithoutFees.toString()));
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
@@ -78,20 +81,21 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       try {
         setIsLoading(true);
 
-        const totalPrice = await getConsumptionCost({
-          inputToken: paymentMethod,
-          retirementToken:
-            props.price.type === "pool" ? props.price.poolName : null,
-          quantity: amount,
-          isDefaultProject:
-            props.price.type === "pool" ? props.price.isPoolDefault : null,
-          projectTokenAddress:
-            props.price.type === "pool"
-              ? props.price.projectTokenAddress
-              : null,
-          currentUrl: asPath,
-          listingId: props.price.type === "listing" ? props.price.id : null,
-        });
+        const totalPrice = await (props.retirement.type === "pool"
+          ? getPoolConsumptionCost({
+              inputToken: paymentMethod,
+              retirementToken: props.retirement.poolName,
+              quantity: amount,
+              isDefaultProject: props.retirement.isPoolDefault,
+              projectTokenAddress: props.retirement.projectTokenAddress,
+              currentUrl: asPath,
+            })
+          : getListingConsumptionCost({
+              inputToken: paymentMethod,
+              quantity: amount,
+              currentUrl: asPath,
+              listingId: props.retirement.id,
+            }));
 
         props.setCosts(totalPrice);
 
@@ -187,7 +191,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           </div>
 
           <Text t="h5" className={cx(isFiat && styles.textTransition)}>
-            {formatToPrice(props.price.singleUnitPrice, locale, isFiat)}
+            {formatToPrice(props.retirement.singleUnitPrice, locale, isFiat)}
           </Text>
         </div>
       </div>

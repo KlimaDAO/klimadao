@@ -368,7 +368,7 @@ export const RetireForm: FC<Props> = (props) => {
             <div className={styles.reverseOrder}>
               <Card>
                 <TotalValues
-                  price={props.retirement}
+                  retirement={props.retirement}
                   userBalance={userBalance}
                   fiatMinimum={fiatMinimum}
                   fiatBalance={fiatBalance}

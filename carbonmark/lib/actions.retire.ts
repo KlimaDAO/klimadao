@@ -33,14 +33,40 @@ export const getRetirementAllowance = async (params: {
   return allowance;
 };
 
-export const getConsumptionCost = async (params: {
+export const getListingConsumptionCost = async (params: {
   inputToken: CarbonmarkPaymentMethod;
-  retirementToken: PoolToken | null;
+  quantity: string;
+  currentUrl: string;
+  listingId: string;
+}): Promise<string> => {
+  if (params.inputToken === "fiat") {
+    throw Error("Expected fiat payment for listing");
+  }
+
+  const fiatCosts = await getFiatRetirementCost({
+    cancelUrl: `${urls.baseUrl}${params.currentUrl}`,
+    referrer: "carbonmark",
+    retirement: {
+      quantity: params.quantity,
+      retirement_token: null,
+      beneficiary_address: null,
+      beneficiary_name: "placeholder",
+      retirement_message: "placeholder",
+      // pass token address if not default project
+      project_address: null,
+      listing_id: params.listingId,
+    },
+  });
+  return fiatCosts;
+};
+
+export const getPoolConsumptionCost = async (params: {
+  inputToken: CarbonmarkPaymentMethod;
+  retirementToken: PoolToken;
   quantity: string;
   isDefaultProject: boolean | null;
   projectTokenAddress: string | null;
   currentUrl: string;
-  listingId: string | null;
 }): Promise<string> => {
   if (params.inputToken === "fiat") {
     const fiatCosts = await getFiatRetirementCost({
@@ -56,7 +82,7 @@ export const getConsumptionCost = async (params: {
         project_address: !params.isDefaultProject
           ? params.projectTokenAddress
           : null,
-        listing_id: params.listingId,
+        listing_id: null,
       },
     });
     return fiatCosts;
