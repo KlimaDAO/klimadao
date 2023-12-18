@@ -1,7 +1,6 @@
 import { Trans, t } from "@lingui/macro";
 import { CelebrationOutlined } from "@mui/icons-material";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
@@ -107,11 +106,6 @@ export const PayWithBank: FC = () => {
                   send you an invoice.
                 </Trans>
               </Text>
-              <CarbonmarkButton
-                href="#" // @todo - Makka
-                label={<Trans>Learn more</Trans>}
-                className={styles.learnMoreButton}
-              />
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className={styles.cardContainer}
