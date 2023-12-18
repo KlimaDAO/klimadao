@@ -1,10 +1,10 @@
 import {
-  getRetirementsKlimaAccountIdRetirementIndex,
-  getRetirementsKlimaAccountIdRetirementIndexProvenance,
+  getRetirementsAccountIdRetirementIndex,
+  getRetirementsAccountIdRetirementIndexProvenance,
 } from ".generated/carbonmark-api-sdk/clients";
 import {
-  GetRetirementsKlimaAccountIdRetirementIndexProvenanceQueryResponse,
-  GetRetirementsKlimaAccountIdRetirementIndexQueryResponse,
+  GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse,
+  GetRetirementsAccountIdRetirementIndexQueryResponse,
 } from ".generated/carbonmark-api-sdk/types";
 import { urls } from "@klimadao/lib/constants";
 import { RetirementProvenancePage } from "components/pages/Retirements/RetirementProvenance";
@@ -23,10 +23,10 @@ interface Params extends ParsedUrlQuery {
 
 export interface RetirementProvenancePageProps {
   /** The resolved 0x address */
-  retirement: GetRetirementsKlimaAccountIdRetirementIndexQueryResponse;
+  retirement: GetRetirementsAccountIdRetirementIndexQueryResponse;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  provenance: GetRetirementsKlimaAccountIdRetirementIndexProvenanceQueryResponse;
+  provenance: GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse;
   nameserviceDomain: string | null;
   retirementIndex: string;
   beneficiaryAddress: string;
@@ -70,11 +70,11 @@ export const getStaticProps: GetStaticProps<
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
     const [provenance, apiData, translation] = await Promise.all([
-      getRetirementsKlimaAccountIdRetirementIndexProvenance(
+      getRetirementsAccountIdRetirementIndexProvenance(
         beneficiaryAddress,
         retirementIndex
       ),
-      getRetirementsKlimaAccountIdRetirementIndex(
+      getRetirementsAccountIdRetirementIndex(
         beneficiaryAddress,
         retirementIndex
       ),

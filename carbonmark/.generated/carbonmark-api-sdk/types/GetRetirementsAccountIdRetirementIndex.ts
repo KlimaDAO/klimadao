@@ -1,6 +1,6 @@
 import type { Def1 } from "./Def1";
 
-export type GetRetirementsKlimaAccountIdRetirementIndexPathParams = {
+export type GetRetirementsAccountIdRetirementIndexPathParams = {
   /**
    * @description Account ID
    * @type string
@@ -16,7 +16,7 @@ export type GetRetirementsKlimaAccountIdRetirementIndexPathParams = {
 /**
  * @description Retirement with account and index
  */
-export type GetRetirementsKlimaAccountIdRetirementIndexQueryResponse = {
+export type GetRetirementsAccountIdRetirementIndexQueryResponse = {
   /**
    * @type string | undefined
    */
@@ -112,6 +112,6 @@ export type GetRetirementsKlimaAccountIdRetirementIndexQueryResponse = {
   };
 };
 
-export type GetRetirementsKlimaAccountIdRetirementIndexQueryParams = {
+export type GetRetirementsAccountIdRetirementIndexQueryParams = {
   network?: Def1;
 };
