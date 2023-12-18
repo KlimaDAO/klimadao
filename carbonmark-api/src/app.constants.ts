@@ -48,12 +48,6 @@ export const GRAPH_URLS = {
   mumbai: MUMBAI_URLS,
 };
 
-/** ICR API URLS */
-export const ICR_API_URLS = {
-  polygon: "https://gaia-api-dev.mojoflower.io/v0",
-  mumbai: "https://gaia-api-dev.mojoflower.io/v0",
-};
-
 export const TOKEN_ADDRESSES = {
   development: {
     LP_UBO_POOL: "0x5400a05b8b45eaf9105315b4f2e31f806ab706de",
