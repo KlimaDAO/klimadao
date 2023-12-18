@@ -14,24 +14,37 @@ export const fetchAllICRProjects = async (
   network: NetworkParam
 ): Promise<IcrProject[]> => {
   const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
+  let allProjects: IcrProject[] = [];
+  let page = 0;
+  const limit = 50;
+  let shouldFetchProjects = true;
 
-  const response = await fetch(
-    ICR_API_URL + "/public/projects/list?page=0&limit=50",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${ICR_API_KEY}`,
-      },
+  while (shouldFetchProjects) {
+    const response = await fetch(
+      ICR_API_URL + `/public/projects/list?page=${page}&limit=${limit}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${ICR_API_KEY}`,
+        },
+      }
+    );
+
+    const data = await response.json();
+
+    // remove any projects with no associated carbon credits
+    const filteredProjects: IcrProject[] = data.projects.filter(
+      (project: IcrProject) => project.carbonCredits.length > 0
+    );
+
+    allProjects = [...allProjects, ...filteredProjects];
+    if (filteredProjects.length < limit) {
+      shouldFetchProjects = false;
+      break;
     }
-  );
+    page++;
+  }
 
-  const data = await response.json();
-
-  // remove any projects with no associated carbon credits
-  const IcrListProjects: IcrProject[] = data.projects.filter(
-    (project: IcrProject) => project.carbonCredits.length > 0
-  );
-
-  return IcrListProjects;
+  return allProjects;
 };
