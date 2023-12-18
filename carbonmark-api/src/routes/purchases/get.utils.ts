@@ -1,7 +1,7 @@
 import { utils } from "ethers";
 import { GetPurchaseByIdQuery } from "src/.generated/types/marketplace.types";
-import { Purchase } from "src/models/Purchase.model";
-import { CreditId } from "src/utils/CreditId";
+import { Purchase } from "../../models/Purchase.model";
+import { CreditId } from "../../utils/CreditId";
 
 /** Purchase ids are a txn hash */
 export const isValidPurchaseId = (id?: string | null) => {

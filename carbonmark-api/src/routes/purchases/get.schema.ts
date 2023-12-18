@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
-import { NetworkParamModel } from "src/models/NetworkParam.model";
-import { PurchaseModel } from "src/models/Purchase.model";
+import { NetworkParamModel } from "../../models/NetworkParam.model";
+import { PurchaseModel } from "../../models/Purchase.model";
 
 export const querystring = Type.Object({
   network: Type.Optional(Type.Ref(NetworkParamModel)),

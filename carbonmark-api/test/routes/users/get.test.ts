@@ -112,7 +112,7 @@ describe("GET /users/[walletOrHandle]", () => {
   });
 
   /**@todo complete*/
-  test.skip("with mumbai network parameter", async () => {
+  test("with mumbai network parameter", async () => {
     nock(
       "https://api.thegraph.com/subgraphs/id/QmdrYranfueu9Ann3kYCkEKTmTRReusybzFZ2nYz8YM6WF"
     )

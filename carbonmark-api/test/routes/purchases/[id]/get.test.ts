@@ -1,49 +1,23 @@
 import { FastifyInstance } from "fastify";
+import { merge } from "lodash";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../../src/app.constants";
 import { Purchase } from "../../../../src/models/Purchase.model";
-import { fixtures } from "../../../fixtures";
+import { composePurchaseModel } from "../../../../src/routes/purchases/get.utils";
 import marketplace from "../../../fixtures/marketplace";
 import { build } from "../../../helper";
 import { DEV_URL, ERROR } from "../../../test.constants";
 
-const mockCmsProject = fixtures.cms.cmsProject;
-
-const purchaseModelFixture: Purchase = {
-  ...marketplace.purchase,
-  amount: "1.0",
-  price: "5.0",
-  listing: {
-    id: marketplace.purchase.listing.id,
-    tokenAddress: marketplace.purchase.listing.tokenAddress,
-    seller: {
-      id: marketplace.purchase.listing.seller.id,
-    },
-    project: {
-      key: marketplace.purchase.listing.project.key,
-      vintage: marketplace.purchase.listing.project.vintage,
-      country: mockCmsProject.country!,
-      name: mockCmsProject.name!,
-      methodology: mockCmsProject.methodologies?.[0]?.id! as unknown as string,
-      projectID: mockCmsProject.registryProjectId!,
-    },
-  },
-};
-
-jest.mock("../../../src/utils/helpers/cms.utils", () => {
-  const carbonProjectsUtils = jest.requireActual(
-    "../../../src/utils/helpers/cms.utils"
-  );
-  return {
-    ...carbonProjectsUtils,
-    fetchCarbonProject: jest.fn(() => {
-      return mockCmsProject;
-    }),
-  };
-});
-
 describe("GET /purchases/:id", () => {
   let fastify: FastifyInstance;
+
+  const purchaseModelFixture: Purchase = merge(
+    composePurchaseModel(marketplace.purchase),
+    {
+      amount: "1.0",
+      price: "5.0",
+    }
+  );
 
   // Setup the server
   beforeEach(async () => {
