@@ -1,42 +1,25 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { FirestoreUserDoc } from "../../models/FirestoreUserDoc.model";
-import { verifyProfileSignature } from "../../utils/crypto.utils";
-import { getFirestoreUserDoc } from "../../utils/helpers/users.utils";
+import { authenticateProfile } from "./auth";
 import { Params, RequestBody, schema } from "./put.schema";
 
+type PutRequest = FastifyRequest<{
+  Body: Static<typeof RequestBody>;
+  Params: Static<typeof Params>;
+}>;
+
 const handler = (fastify: FastifyInstance) =>
-  async function (
-    request: FastifyRequest<{
-      Body: Static<typeof RequestBody>;
-      Params: Static<typeof Params>;
-    }>,
-    reply: FastifyReply
-  ) {
+  async function (request: PutRequest, reply: FastifyReply) {
     const { username, description, profileImgUrl } = request.body;
     const { wallet } = request.params;
-
-    const db = fastify.firebase.firestore();
+    const userDoc = request.userDoc;
 
     try {
-      /** Get the existing doc with latest nonce */
-      const userDoc = await getFirestoreUserDoc({
-        docId: wallet.toUpperCase(),
-        firestore: db,
-      });
       if (!userDoc) {
         return reply
           .code(404)
           .send({ error: "No user profile found for given handle or address" });
-      }
-
-      const isAuthenticated = verifyProfileSignature({
-        nonce: userDoc.nonce,
-        expectedAddress: userDoc.address,
-        signature: request.headers.authorization?.split(" ")[1] || "",
-      });
-      if (!isAuthenticated) {
-        return reply.status(403).send();
       }
 
       const updatedData: Partial<FirestoreUserDoc> = {
@@ -49,6 +32,7 @@ const handler = (fastify: FastifyInstance) =>
         // handle is not editable
       };
 
+      const db = fastify.firebase.firestore();
       // Try updating the user document with the specified data
       await db
         .collection("users")
@@ -74,5 +58,6 @@ export default async (fastify: FastifyInstance) =>
     method: "PUT",
     url: "/users/:wallet",
     handler: handler(fastify),
+    preHandler: authenticateProfile(fastify),
     schema,
   });

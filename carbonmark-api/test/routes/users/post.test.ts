@@ -72,8 +72,7 @@ describe("POST /User", () => {
   });
 
   test("Allow 0x names (not addresses)", async () => {
-    const nonce = undefined; // new profile
-    const message = SIGN_PROFILE_MESSAGE + `${nonce}`;
+    const message = SIGN_PROFILE_MESSAGE; // no nonce
     const signature = await wallet.signMessage(message);
     const response = await app.inject({
       method: "POST",
@@ -106,9 +105,13 @@ describe("POST /User", () => {
   });
 
   test("disallow wallet mismatch", async () => {
+    const mockSet = jest.fn();
+    mockFirestore({
+      empty: true,
+      set: mockSet,
+    });
     const wallet2 = Wallet.createRandom();
-    const nonce = undefined; // new profile
-    const message = SIGN_PROFILE_MESSAGE + `${nonce}`;
+    const message = SIGN_PROFILE_MESSAGE; // no nonce
     const signature = await wallet2.signMessage(message); // BAD SIGNATURE
     const response = await app.inject({
       method: "POST",
@@ -132,8 +135,7 @@ describe("POST /User", () => {
       empty: true,
       set: mockSet,
     });
-    const nonce = undefined; // new profile
-    const message = SIGN_PROFILE_MESSAGE + `${nonce}`;
+    const message = SIGN_PROFILE_MESSAGE;
     const signature = await wallet.signMessage(message);
     const response = await app.inject({
       method: "POST",
@@ -169,8 +171,7 @@ describe("POST /User", () => {
       empty: true,
       set: mockSet,
     });
-    const nonce = undefined; // new profile
-    const message = SIGN_PROFILE_MESSAGE + `${nonce}`;
+    const message = SIGN_PROFILE_MESSAGE;
     const signature = await wallet.signMessage(message);
     const response = await app.inject({
       method: "POST",

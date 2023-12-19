@@ -1,4 +1,4 @@
-import { isFirestoreUserDoc } from "../../src/utils/firebase.utils";
+import { isFirestoreUserDoc } from "../../../src/utils/helpers/users.utils";
 
 describe("isFirestoreUserDoc", () => {
   test("Only checks for existence, does not assert shape", () => {

@@ -1,7 +1,7 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { FirestoreUserDoc } from "../../models/FirestoreUserDoc.model";
-import { verifyProfileSignature } from "../../utils/crypto.utils";
+import { authenticateProfile } from "./auth";
 import { RequestBody, ResponseBody, schema } from "./post.schema";
 
 const handler = (fastify: FastifyInstance) =>
@@ -12,6 +12,13 @@ const handler = (fastify: FastifyInstance) =>
     // Destructure the wallet, username, handle, and description properties from the request body
     const { wallet, username, handle, description, profileImgUrl } =
       request.body;
+
+    const userDoc = request.userDoc;
+    if (userDoc) {
+      return reply.status(409).send({
+        error: "A user record already exists for this address",
+      });
+    }
 
     const createData: FirestoreUserDoc = {
       handle: handle.toLowerCase(),
@@ -24,46 +31,22 @@ const handler = (fastify: FastifyInstance) =>
       nonce: 1,
     };
 
-    const db = fastify.firebase.firestore();
-    db.settings({ ignoreUndefinedProperties: true });
-
-    // Query the Firestore database for the user document with the specified wallet address
-    const user = await db.collection("users").doc(wallet).get();
-
-    // If the user document exists, return a 403 error with a message
-    if (user.exists) {
-      return reply.code(400).send({
-        error: "This wallet address is already registered!",
-      });
-    }
-
-    // Check if the handle already exists in our database
-    const usersRef = db.collection("users");
-
-    const userSnapshot = await usersRef
-      .where("handle", "==", handle.toLowerCase())
-      .limit(1)
-      .get();
-
-    if (!userSnapshot.empty) {
-      return reply.code(400).send({
-        error: "A user with this handle is already registered!",
-      });
-    }
-
-    const isAuthenticated = verifyProfileSignature({
-      // first signature is without nonce
-      expectedAddress: createData.address,
-      signature: request.headers.authorization?.split(" ")[1] || "",
-    });
-
-    if (!isAuthenticated) {
-      return reply.status(403).send({
-        error: "Unauthorized: invalid signature.",
-      });
-    }
-
     try {
+      const db = fastify.firebase.firestore();
+      db.settings({ ignoreUndefinedProperties: true });
+
+      // Check if the handle already exists in our database
+      const userSnapshot = await db
+        .collection("users")
+        .where("handle", "==", handle.toLowerCase())
+        .limit(1)
+        .get();
+
+      if (!userSnapshot.empty) {
+        return reply.code(400).send({
+          error: "A user with this handle is already registered!",
+        });
+      }
       // Try creating a new user document with the specified data
       await db.collection("users").doc(wallet.toUpperCase()).set(createData);
 
@@ -87,5 +70,6 @@ export default async (fastify: FastifyInstance) =>
     method: "POST",
     url: "/users",
     handler: handler(fastify),
+    preHandler: authenticateProfile(fastify),
     schema,
   });
