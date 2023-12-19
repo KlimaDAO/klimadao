@@ -2,6 +2,7 @@ import { ethers } from "ethers";
 import { get } from "lodash";
 import { POOL_INFO } from "../../routes/projects/get.constants";
 import { GQL_SDK } from "../gqlSdk";
+import { formatTonnesForSubGraph } from "./utils";
 
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
 /**
@@ -31,6 +32,7 @@ type PoolInfoMap = {
 type Params = {
   projectID: string; // Project id `"VCS-981"`
   vintage: number; // Vintage Int 2017
+  minSupply: number; // Minimum balance in tonnes for a pool to be considered valid
 };
 
 /**
@@ -96,6 +98,7 @@ export const fetchProjectPoolInfo = async (
   const data = await sdk.digital_carbon.getProjectCredits({
     projectID: params.projectID,
     vintage: Number(params.vintage),
+    minSupply: formatTonnesForSubGraph(params.minSupply),
   });
 
   /** @type {QueryResponse[]} */

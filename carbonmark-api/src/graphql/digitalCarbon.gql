@@ -18,12 +18,16 @@ query getDigitalCarbonProjectsCountries {
   }
 }
 
-query getProjectCredits($projectID: String!, $vintage: Int) {
+query getProjectCredits(
+  $projectID: String!
+  $vintage: Int
+  $minSupply: BigInt
+) {
   carbonProjects(where: { projectID: $projectID }) {
     ...DigitalCarbonProjectFragment
     carbonCredits(where: { vintage: $vintage }) {
       ...CarbonCreditFragment
-      poolBalances {
+      poolBalances(where: { balance_gt: $minSupply }) {
         ...PoolBalancesFragment
       }
     }

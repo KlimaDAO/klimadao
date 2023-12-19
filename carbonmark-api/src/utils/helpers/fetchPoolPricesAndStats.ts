@@ -9,6 +9,7 @@ type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
   network: NetworkParam;
+  minSupply: number; // Minimum balance in tonnes for a pool to be considered valid
 };
 
 /**
@@ -27,6 +28,7 @@ export const fetchPoolPricesAndStats = async (
     fetchProjectPoolInfo(sdk, {
       projectID: params.key,
       vintage: Number(params.vintage),
+      minSupply: params.minSupply,
     }),
     fetchAllPoolPrices(sdk), // fetch the price for all known lps
   ]);

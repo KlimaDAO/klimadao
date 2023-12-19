@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { sortBy } from "lodash";
 import { Listing } from "../../models/Listing.model";
-import { isActiveListing } from "../../routes/projects/get.utils";
 import { GQL_SDK } from "../gqlSdk";
 import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
@@ -13,7 +12,7 @@ type ListingsParams = {
   fastify: FastifyInstance; // Fastify instance
   /** UNIX seconds - default is current system timestamp */
   expiresAfter?: string;
-  minSupply?: number;
+  minSupply: number;
 };
 
 export const getCreditListings = async (
@@ -23,6 +22,7 @@ export const getCreditListings = async (
     vintageStr: string;
     /** UNIX seconds - default is current system timestamp */
     expiresAfter?: string;
+    minSupply: number;
   }
 ) => {
   const expiresAfter =
@@ -30,6 +30,7 @@ export const getCreditListings = async (
   const project = await sdk.marketplace.getProjectById({
     projectId: params.projectId,
     expiresAfter,
+    minSupply: formatTonnesForSubGraph(params.minSupply),
   });
   return project;
 };
@@ -80,7 +81,8 @@ export const fetchMarketplaceListings = async (
     expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
     minSupply: formatTonnesForSubGraph(minSupply),
   });
-  const filteredListings = project?.listings?.filter(isActiveListing) || [];
+
+  const filteredListings = project?.listings || [];
 
   const listingsWithProfiles = await formatListings(filteredListings, fastify);
 

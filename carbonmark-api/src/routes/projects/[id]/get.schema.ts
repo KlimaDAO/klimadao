@@ -24,7 +24,7 @@ const querystring = Type.Object({
   minSupply: Type.Optional(
     Type.Number({
       description:
-        "Only return projects listings and pools that contains at least this amount of credits (Tonnes)",
+        "Only consider projects listings and pools that contains at least this amount of credits (Tonnes)",
       examples: ["0"],
     })
   ),

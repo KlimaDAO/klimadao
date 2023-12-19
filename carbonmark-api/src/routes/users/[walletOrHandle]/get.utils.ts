@@ -6,6 +6,7 @@ import { RPC_URLS } from "../../../app.constants";
 import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Holding } from "../../../types/assets.types";
 import { gql_sdk } from "../../../utils/gqlSdk";
+import { formatTonnesForSubGraph } from "../../../utils/helpers/utils";
 
 const formatHolding = (h: Holding): Holding => {
   return {
@@ -67,6 +68,7 @@ export const getUserByWallet = async (params: {
   address: string;
   network?: NetworkParam;
   expiresAfter?: string;
+  minSupply: number;
 }) => {
   const sdk = gql_sdk(params.network);
   const expiresAfter =
@@ -74,6 +76,7 @@ export const getUserByWallet = async (params: {
   const { listings, activities } = await sdk.marketplace.getUserByWallet({
     wallet: params.address.toLowerCase(),
     expiresAfter,
+    minSupply: formatTonnesForSubGraph(params.minSupply),
   });
   return { listings, activities };
 };

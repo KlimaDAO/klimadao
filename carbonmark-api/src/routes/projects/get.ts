@@ -6,6 +6,7 @@ import { CreditId } from "../../utils/CreditId";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/cms.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
+import { formatTonnesForSubGraph } from "../../utils/helpers/utils";
 import { Querystring, schema } from "./get.schema";
 import {
   CMSDataMap,
@@ -38,7 +39,7 @@ const handler = (fastify: FastifyInstance) =>
     const sdk = gql_sdk(request.query.network);
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(
-      omit(request.query, "search", "expiresAfter"),
+      omit(request.query, "search", "expiresAfter", "minSupply"),
       split(",")
     );
 
@@ -53,6 +54,7 @@ const handler = (fastify: FastifyInstance) =>
           country: args.country ?? allOptions.country,
           vintage: args.vintage ?? allOptions.vintage,
           expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
+          minSupply: formatTonnesForSubGraph(request.query.minSupply),
         }),
         sdk.digital_carbon.findDigitalCarbonProjects({
           search: request.query.search ?? "",

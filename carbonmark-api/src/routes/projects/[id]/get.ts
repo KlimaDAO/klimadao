@@ -34,13 +34,14 @@ const handler = (fastify: FastifyInstance) =>
           key,
           vintage,
           network: request.query.network || "polygon",
+          minSupply: request.query.minSupply || 0,
         }),
         fetchMarketplaceListings(sdk, {
           key,
           vintage,
           fastify,
           expiresAfter: request.query.expiresAfter,
-          minSupply: request.query.minSupply,
+          minSupply: request.query.minSupply || 0,
         }),
         fetchCarbonProject(sdk, {
           registry,

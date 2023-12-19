@@ -4198,6 +4198,7 @@ export type GetDigitalCarbonProjectsCountriesQuery = { __typename?: 'Query', car
 export type GetProjectCreditsQueryVariables = Exact<{
   projectID: Scalars['String'];
   vintage: InputMaybe<Scalars['Int']>;
+  minSupply: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -4288,12 +4289,12 @@ export const GetDigitalCarbonProjectsCountriesDocument = gql`
 }
     `;
 export const GetProjectCreditsDocument = gql`
-    query getProjectCredits($projectID: String!, $vintage: Int) {
+    query getProjectCredits($projectID: String!, $vintage: Int, $minSupply: BigInt) {
   carbonProjects(where: {projectID: $projectID}) {
     ...DigitalCarbonProjectFragment
     carbonCredits(where: {vintage: $vintage}) {
       ...CarbonCreditFragment
-      poolBalances {
+      poolBalances(where: {balance_gt: $minSupply}) {
         ...PoolBalancesFragment
       }
     }

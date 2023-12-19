@@ -54,6 +54,7 @@ const handler = (fastify: FastifyInstance) =>
           address: profile.address,
           network: query.network,
           expiresAfter: query.expiresAfter,
+          minSupply: query.minSupply || 0,
         }),
         getHoldingsByWallet({
           address: profile.address,

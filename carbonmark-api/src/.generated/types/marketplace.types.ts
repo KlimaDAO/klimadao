@@ -1305,6 +1305,7 @@ export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typenam
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['String']>;
   expiresAfter: InputMaybe<Scalars['BigInt']>;
+  minSupply: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1444,8 +1445,10 @@ export const GetPurchaseByIdDocument = gql`
 }
     ${ProjectFragmentFragmentDoc}`;
 export const GetUserByWalletDocument = gql`
-    query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
-  listings(where: {seller: $wallet, expiration_gt: $expiresAfter, active: true}) {
+    query getUserByWallet($wallet: String, $expiresAfter: BigInt, $minSupply: BigInt) {
+  listings(
+    where: {seller: $wallet, expiration_gt: $expiresAfter, leftToSell_gt: $minSupply, active: true, deleted: false}
+  ) {
     ...ListingFragment
   }
   activities(
@@ -1462,10 +1465,12 @@ ${ActivityFragmentFragmentDoc}`;
 export const GetProjectsDocument = gql`
     query getProjects($search: String, $country: [String!], $category: [String!], $vintage: [BigInt!], $expiresAfter: BigInt, $minSupply: BigInt) {
   projects(
-    where: {name_contains_nocase: $search, country_in: $country, category_in: $category, vintage_in: $vintage}
+    where: {and: [{or: [{name_contains_nocase: $search}, {key_contains_nocase: $search}]}, {country_in: $country}, {category_in: $category}, {vintage_in: $vintage}]}
   ) {
     ...ProjectFragment
-    listings(where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply}) {
+    listings(
+      where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply, active: true, deleted: false}
+    ) {
       ...ListingFragment
     }
   }
@@ -1476,7 +1481,9 @@ export const GetProjectByIdDocument = gql`
     query getProjectById($projectId: ID!, $expiresAfter: BigInt, $minSupply: BigInt) {
   project(id: $projectId) {
     ...ProjectFragment
-    listings(where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply}) {
+    listings(
+      where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply, active: true, deleted: false}
+    ) {
       ...ListingFragment
     }
   }

@@ -74,13 +74,7 @@ export const getDigitalCarbonTokenPrices = (
     poolAddressToKey[poolInfo.poolAddress.toLowerCase()] = key;
   }
 
-  const tokenBalances: ProjectBalances = {
-    nbo: { balance: "0", creditTokenAddress: "" },
-    ubo: { balance: "0", creditTokenAddress: "" },
-    bct: { balance: "0", creditTokenAddress: "" },
-    nct: { balance: "0", creditTokenAddress: "" },
-    mco2: { balance: "0", creditTokenAddress: "" },
-  };
+  const tokenBalances: ProjectBalances = {};
 
   /**
    * @todo mc02 poolPrices are NaN because there is no default project
@@ -102,35 +96,17 @@ export const getDigitalCarbonTokenPrices = (
   }
 
   const prices: string[] = [];
-  if (parseFloat(tokenBalances["ubo"].balance) >= 1) {
-    const isDefault =
-      POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances["ubo"].creditTokenAddress.toLowerCase();
-    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-    prices.push(poolPrices.ubo[priceKey]);
-  }
-  if (parseFloat(tokenBalances["nbo"].balance) >= 1) {
-    const isDefault =
-      POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances["nbo"].creditTokenAddress.toLowerCase();
-    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-    prices.push(poolPrices.nbo[priceKey]);
-  }
-  if (parseFloat(tokenBalances["nct"].balance) >= 1) {
-    const isDefault =
-      POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances["nct"].creditTokenAddress.toLowerCase();
-    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-    prices.push(poolPrices.nct[priceKey]);
-  }
-  if (parseFloat(tokenBalances["bct"].balance) >= 1) {
-    const isDefault =
-      POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
-      tokenBalances["bct"].creditTokenAddress.toLowerCase();
-    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-    prices.push(poolPrices.bct[priceKey]);
-  }
-  if (parseFloat(tokenBalances["mco2"].balance) >= 1) {
+  ["ubo", "nbo", "nct", "bct"].forEach((token) => {
+    if (tokenBalances[token]) {
+      const isDefault =
+        POOL_INFO[token].defaultProjectTokenAddress.toLowerCase() ===
+        tokenBalances[token].creditTokenAddress.toLowerCase();
+      const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+      prices.push(poolPrices.ubo[priceKey]);
+    }
+  });
+
+  if (tokenBalances["mco2"]) {
     prices.push(poolPrices["mco2"]["selectiveRedeemPrice"]);
   }
   return sortBy(prices, (p) => Number(p));
@@ -166,22 +142,15 @@ export const isValidPoolProject = (project: CarbonProjectType) => {
   );
 };
 
-export const isActiveListing = (l: {
-  active?: boolean | null;
-  deleted?: boolean | null;
-  leftToSell?: string | null;
-}) => !!l.active && !l.deleted && BigInt(l.leftToSell || "") >= 1;
-
 /**
  * For marketplace subgraph projects
- * Returns true if project has >=1 tonne in any active, unexpired listing
+ * Returns true if project has an active, unexpired listing
  * */
 export const isValidMarketplaceProject = (
   project: GetProjectsQuery["projects"][number]
 ) => {
   if (!project?.listings) return false;
-  const validProjects = project.listings.filter(isActiveListing);
-  return !!validProjects.length;
+  return !!project.listings.length;
 };
 
 /** The specific CarbonOffset type from the find findDigitalCarbon query*/
