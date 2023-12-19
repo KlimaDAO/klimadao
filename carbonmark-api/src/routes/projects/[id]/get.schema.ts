@@ -21,6 +21,13 @@ const querystring = Type.Object({
       examples: ["1620000000"],
     })
   ),
+  minSupply: Type.Optional(
+    Type.Number({
+      description:
+        "Only return projects listings and pools that contains at least this amount of credits (Tonnes)",
+      examples: ["0"],
+    })
+  ),
 });
 
 export type Querystring = Static<typeof querystring>;

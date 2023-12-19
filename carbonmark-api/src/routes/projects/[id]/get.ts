@@ -40,6 +40,7 @@ const handler = (fastify: FastifyInstance) =>
           vintage,
           fastify,
           expiresAfter: request.query.expiresAfter,
+          minSupply: request.query.minSupply,
         }),
         fetchCarbonProject(sdk, {
           registry,

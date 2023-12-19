@@ -61,6 +61,7 @@ query getProjects(
   $category: [String!]
   $vintage: [BigInt!]
   $expiresAfter: BigInt
+  $minSupply: BigInt
 ) {
   projects(
     where: {
@@ -71,16 +72,24 @@ query getProjects(
     }
   ) {
     ...ProjectFragment
-    listings(where: { expiration_gt: $expiresAfter }) {
+    listings(
+      where: { expiration_gt: $expiresAfter, leftToSell_gt: $minSupply }
+    ) {
       ...ListingFragment
     }
   }
 }
 
-query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
+query getProjectById(
+  $projectId: ID!
+  $expiresAfter: BigInt
+  $minSupply: BigInt
+) {
   project(id: $projectId) {
     ...ProjectFragment
-    listings(where: { expiration_gt: $expiresAfter }) {
+    listings(
+      where: { expiration_gt: $expiresAfter, leftToSell_gt: $minSupply }
+    ) {
       ...ListingFragment
     }
   }

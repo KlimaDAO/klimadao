@@ -9,6 +9,7 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
+import { ethers } from "ethers";
 import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
@@ -274,4 +275,13 @@ export function asResponse<ReplyType>(
     .status(200)
     .header("Content-Type", "application/json; charset=utf-8")
     .send(payload);
+}
+
+/**
+ * Formats tonnes for a subgraph query
+ */
+export function formatTonnesForSubGraph(qty = 0, decimals = 18) {
+  return ethers.BigNumber.from(qty)
+    .mul(ethers.BigNumber.from(10).pow(decimals))
+    .toString();
 }

@@ -5,6 +5,7 @@ import { isActiveListing } from "../../routes/projects/get.utils";
 import { GQL_SDK } from "../gqlSdk";
 import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
+import { formatTonnesForSubGraph } from "./utils";
 
 type ListingsParams = {
   key: string; // Project key `"VCS-981"`
@@ -12,6 +13,7 @@ type ListingsParams = {
   fastify: FastifyInstance; // Fastify instance
   /** UNIX seconds - default is current system timestamp */
   expiresAfter?: string;
+  minSupply?: number;
 };
 
 export const getCreditListings = async (
@@ -69,12 +71,14 @@ const formatListings = async (
  */
 export const fetchMarketplaceListings = async (
   sdk: GQL_SDK,
-  { key, vintage, expiresAfter, fastify }: ListingsParams
+  { key, vintage, expiresAfter, minSupply, fastify }: ListingsParams
 ): Promise<[Listing[]]> => {
   const projectId = key + "-" + vintage;
+
   const { project } = await sdk.marketplace.getProjectById({
     projectId,
     expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
+    minSupply: formatTonnesForSubGraph(minSupply),
   });
   const filteredListings = project?.listings?.filter(isActiveListing) || [];
 
