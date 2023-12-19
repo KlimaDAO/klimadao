@@ -41,4 +41,5 @@ export const carbonTokenInfoMap: CarbonTokenInfoMap = {
   mco2: { key: "mco2", icon: MCO2, label: "MCO2" },
   tco2: { key: "tco2", icon: TCO2, label: "TCO2" },
   c3t: { key: "c3t", icon: C3T, label: "C3T" },
+  icr: { key: "icr", icon: C3T, label: "ICR" },
 };
