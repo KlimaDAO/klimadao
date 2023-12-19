@@ -1,15 +1,13 @@
 import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { urls } from "@klimadao/lib/constants";
-import {
-  getRetirementDetails,
-  queryKlimaRetireByIndex,
-} from "@klimadao/lib/utils";
+import { getRetirementDetails } from "@klimadao/lib/utils";
 import {
   SingleRetirementPage,
   SingleRetirementPageProps,
 } from "components/pages/Retirements/SingleRetirement";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
+import { queryKlimaRetireByIndex } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { GetStaticProps } from "next";

@@ -1,4 +1,4 @@
-import { queryKlimaBlockNumber } from "@klimadao/lib/utils";
+import { queryKlimaBlockNumber } from "./retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 
 export const waitForIndexStatus = async (
   retirementBlockNumber: number

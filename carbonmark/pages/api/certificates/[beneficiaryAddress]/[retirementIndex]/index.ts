@@ -1,10 +1,8 @@
 import { urls } from "@klimadao/lib/constants";
-import {
-  getRetirementTokenByAddress,
-  queryKlimaRetireByIndex,
-} from "@klimadao/lib/utils";
+import { getRetirementTokenByAddress } from "@klimadao/lib/utils";
 import { isAddress } from "ethers-v6";
 import { generateCertificate } from "lib/retirementCertificates";
+import { queryKlimaRetireByIndex } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { isNumber } from "lodash";

@@ -1,6 +1,6 @@
 import { Retire, RetirePageProps } from "components/pages/Portfolio/Retire";
 import { loadTranslation } from "lib/i18n";
-import { getProjectInfoViaPolygonDigitalCarbon } from "lib/retireQueries";
+import { getProjectInfoViaPolygonDigitalCarbon } from "lib/retirementDataQueries/getProjectInfoViaPolygonDigitalCarbon";
 import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import { ParsedUrlQuery } from "querystring";
 

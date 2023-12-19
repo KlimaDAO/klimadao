@@ -6,7 +6,6 @@ import {
   formatTonnes,
   formatUnits,
   getRetirementTokenByAddress,
-  queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { Footer } from "components/Footer";
@@ -16,6 +15,7 @@ import { Col } from "components/TwoColLayout";
 import { Navigation } from "components/shared/Navigation";
 import { Spinner } from "components/shared/Spinner";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
+import { queryKlimaRetireByIndex } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 import { CategoryName, DetailedProject } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -114,6 +114,9 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenInfoMap[carbonTokenName];
 
+  console.log("retirement", retirement);
+  console.log("project", retirement.retire.credit.project);
+
   return (
     <GridContainer>
       <PageHead
@@ -170,7 +173,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                 props.project?.long_description ?? props.project?.description
               }
               category={
-                (props.project?.methodologies?.[0]?.category as CategoryName) ??
+                (retirement.retire.credit.project.category as CategoryName) ??
                 null
               }
             />

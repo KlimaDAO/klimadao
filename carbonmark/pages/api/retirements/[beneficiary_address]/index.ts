@@ -1,8 +1,8 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
 import { isAddress } from "ethers-v6";
 import { queryProjects } from "lib/cms/queriesProjects";
 import { NextApiHandler } from "next";
+import { queryKlimaRetiresByAddress } from "../../../../lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 
 export interface APIDefaultResponse {
   message: string;

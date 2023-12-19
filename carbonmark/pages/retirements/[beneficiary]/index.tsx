@@ -1,11 +1,12 @@
 import { urls } from "@klimadao/lib/constants";
-import { formatUnits, queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
+import { formatUnits } from "@klimadao/lib/utils";
 import { Props, RetirementPage } from "components/pages/Retirements";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { GetStaticProps } from "next";
+import { queryKlimaRetiresByAddress } from "../../../lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 
 type Params = {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
