@@ -1,4 +1,6 @@
 import nock from "nock";
+import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
+import { Project } from "src/.generated/types/marketplace.types";
 import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
 import { fixtures } from "../../fixtures";
 
@@ -25,11 +27,15 @@ export const mockTokens = () =>
       data: { prices: fixtures.tokens.prices },
     });
 
-export const mockDigitalCarbonProjects = () =>
+export const mockDigitalCarbonProjects = (override?: CarbonProject[]) =>
   nock(GRAPH_URLS["polygon"].digitalCarbon)
     .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
     .reply(200, {
-      data: { carbonProjects: [fixtures.digitalCarbon.digitalCarbonProject] },
+      data: {
+        carbonProjects: override ?? [
+          fixtures.digitalCarbon.digitalCarbonProject,
+        ],
+      },
     });
 
 export const mockDigitalCarbonArgs = () =>
@@ -112,11 +118,11 @@ export const mockDigitalCarbonArgs = () =>
       },
     });
 
-export const mockMarketplaceProjects = () =>
+export const mockMarketplaceProjects = (override?: Project[]) =>
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getProjects"))
     .reply(200, {
-      data: { projects: [fixtures.marketplace.projectWithListing] },
+      data: { projects: override ?? [fixtures.marketplace.projectWithListing] },
     });
 
 //Mocks all categories, countries and vintages

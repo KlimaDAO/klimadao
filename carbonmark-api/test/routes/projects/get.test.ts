@@ -242,6 +242,8 @@ describe("GET /projects", () => {
   });
 
   describe("Projects with 'dust' (supply less than 1 tonne) should be filtered", () => {
+    let projects: Project[];
+
     const anotherCarbonProject: CarbonProject = {
       ...cloneDeep(mockDigitalCarbonProject),
       id: "VCS-111",
@@ -255,20 +257,13 @@ describe("GET /projects", () => {
       vintage: "2000",
     };
 
-    let projects: Project[];
-
     test("No filtering when supply greater than 1 (DigitalCarbon)", async () => {
       mockMarketplaceProjects();
-
-      /** ---- Confirm success when all have supply ---- */
-      //Mock to return two projects with supply
-      nock(GRAPH_URLS["polygon"].digitalCarbon)
-        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
-        .reply(200, {
-          data: {
-            carbonProjects: [mockDigitalCarbonProject, anotherCarbonProject],
-          },
-        });
+      //Return two projects with supply
+      mockDigitalCarbonProjects([
+        mockDigitalCarbonProject,
+        anotherCarbonProject,
+      ]);
 
       projects = await mock_fetch(fastify, "/projects");
       expect(projects.length).toBe(2);
@@ -276,70 +271,41 @@ describe("GET /projects", () => {
 
     test("No filtering when supply greater than 1 (Marketplace)", async () => {
       //Mock digital carbon with no supply
-      nock(GRAPH_URLS["polygon"].digitalCarbon)
-        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
-        .reply(200, {
-          data: {
-            carbonProjects: [],
-          },
-        });
-
-      nock(GRAPH_URLS["polygon"].marketplace)
-        .post("", (body) => body.query.includes("getProjects"))
-        .reply(200, {
-          data: {
-            projects: [mockMarketplaceProject, anotherMarketplaceProject],
-          },
-        });
+      mockDigitalCarbonProjects([]);
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        anotherMarketplaceProject,
+      ]);
 
       projects = await mock_fetch(fastify, "/projects");
       expect(projects.length).toBe(2);
     });
 
     test("DigitalCarbon projects are filtered", async () => {
-      anotherCarbonProject.carbonCredits[0].poolBalances[0].balance = "0";
-
       //Mock digital carbon with no supply
-      nock(GRAPH_URLS["polygon"].digitalCarbon)
-        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
-        .reply(200, {
-          data: {
-            carbonProjects: [mockDigitalCarbonProject, anotherCarbonProject],
-          },
-        });
+      anotherCarbonProject.carbonCredits[0].poolBalances[0].balance = "0";
+      mockDigitalCarbonProjects([
+        mockDigitalCarbonProject,
+        anotherCarbonProject,
+      ]);
 
-      nock(GRAPH_URLS["polygon"].marketplace)
-        .post("", (body) => body.query.includes("getProjects"))
-        .reply(200, {
-          data: {
-            projects: [],
-          },
-        });
+      //Remove all marketplace projects
+      mockMarketplaceProjects([]);
 
       projects = await mock_fetch(fastify, "/projects");
       expect(projects.length).toBe(1);
     });
 
     test("Marketplace projects are filtered", async () => {
-      //Mock no digitalCarbon
-      nock(GRAPH_URLS["polygon"].digitalCarbon)
-        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
-        .reply(200, {
-          data: {
-            carbonProjects: [],
-          },
-        });
+      //Mock no digitalCarbon projects
+      mockDigitalCarbonProjects([]);
 
       set(anotherMarketplaceProject, "listings[0].leftToSell", "0");
-      console.log(mockMarketplaceProject.listings);
 
-      nock(GRAPH_URLS["polygon"].marketplace)
-        .post("", (body) => body.query.includes("getProjects"))
-        .reply(200, {
-          data: {
-            projects: [mockMarketplaceProject, anotherMarketplaceProject],
-          },
-        });
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        anotherMarketplaceProject,
+      ]);
 
       projects = await mock_fetch(fastify, "/projects");
       expect(projects.length).toBe(1);
