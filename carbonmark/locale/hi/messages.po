@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-19 15:38+0000\n"
+"POT-Creation-Date: 2023-12-19 22:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -109,8 +109,7 @@ msgstr "एसेट विवरण"
 msgid "Asset ID"
 msgstr "एसेट आईडी"
 
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
+#: components/AssetDetails/index.tsx:36
 msgid "Asset details"
 msgstr "एसेट विवरण"
 
@@ -144,12 +143,12 @@ msgstr "उपलब्ध आपूर्तिराशि पार हो �
 msgid "Available to list: {0}"
 msgstr "उपलब्ध: {0}"
 
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:207
 msgid "Available to purchase"
 msgstr "खरीदने के लिए उपलब्ध है"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:34
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:49
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:336
 msgid "Available to retire"
 msgstr "रिटायर होने के लिए उपलब्ध है"
 
@@ -1090,7 +1089,7 @@ msgstr "रिटायरमेंट सफल हुआ!"
 msgid "Retirement successful"
 msgstr "रिटायरमेंट सफल"
 
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:35
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:335
 msgid "Retiring Token"
 msgstr "रिटायरिंग टोकन"
 
@@ -1325,7 +1324,7 @@ msgstr "भुगतान विधि टॉगल करें"
 msgid "Toggle sort menu"
 msgstr "सॉर्ट मेनू टॉगल करें"
 
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:35
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:206
 msgid "Token you will receive"
 msgstr "टोकन आपको प्राप्त होगा"
 
@@ -1333,11 +1332,10 @@ msgstr "टोकन आपको प्राप्त होगा"
 msgid "Tokens received:"
 msgstr "टोकन प्राप्त हुए:"
 
+#: components/AssetDetails/index.tsx:54
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:51
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:84
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:88
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:186
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:152
 msgid "Tonnes"
@@ -1488,8 +1486,7 @@ msgstr "कार्बनमार्क पर यह कार्बन ऑ�
 msgid "View and share certificate"
 msgstr "प्रमाण पत्र देखें और साझा करें"
 
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:60
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:60
+#: components/AssetDetails/index.tsx:60
 msgid "View on PolygonScan"
 msgstr "पॉलीगॉनस्कैन पर देखें"
 
