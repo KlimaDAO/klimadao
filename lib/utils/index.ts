@@ -44,11 +44,6 @@ export { prettifyUrl } from "./prettifyUrl";
 export { safeAdd } from "./safeAdd";
 export { safeSub } from "./safeSub";
 export { secondsUntilBlock } from "./secondsUntilBlock";
-export {
-  queryKlimaBlockNumber,
-  queryKlimaRetireByIndex,
-  queryKlimaRetiresByAddress,
-} from "./subgraph/queryPolygonDigitalCarbon";
 export { trimStringDecimals } from "./trimStringDecimals";
 export { trimWithLocale } from "./trimWithLocale";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
