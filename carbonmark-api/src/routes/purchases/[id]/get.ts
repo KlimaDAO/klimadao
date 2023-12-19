@@ -33,6 +33,9 @@ const handler = async (
     registry: standard,
     registryProjectId,
   });
+  if (project == null) {
+    return reply.notFound();
+  }
 
   const response: Purchase = {
     id: purchase.id,

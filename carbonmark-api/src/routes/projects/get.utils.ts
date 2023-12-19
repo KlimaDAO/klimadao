@@ -1,9 +1,11 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
-import { map, mapValues, toLower, trim } from "lodash/fp";
-import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
+import { concat, map, mapValues, min, pipe, toLower, trim, uniq } from "lodash/fp";
 import { Geopoint } from "../../.generated/types/cms.types";
+import { FindDigitalCarbonProjectsQuery, GetProjectCreditsQuery } from "../../.generated/types/digitalCarbon.types";
 import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
+import { Listing } from "../..//models/Listing.model";
+import { DetailedProject } from "../../models/DetailedProject.model";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";
 import {
@@ -14,8 +16,9 @@ import {
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
 import { GQL_SDK } from "../../utils/gqlSdk";
-import { CarbonProject } from "../../utils/helpers/cms.utils";
+import { CarbonProject, SingleCarbonProject } from "../../utils/helpers/cms.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
+import { getProjectPoolPricesAndStats } from "../../utils/helpers/getProjectPoolPricesAndStats";
 import {
   getAllCategories,
   getAllCountries,
@@ -211,6 +214,65 @@ const pickBestPrice = (
 
   return bestPrice;
 };
+
+
+
+/**
+ * Builds a project entry given data fetched from various sources
+ * 
+ */
+export const buildProjectEntry = (props: {
+  vintage: string,
+  listings: Listing[],
+  credits?: GetProjectCreditsQuery["carbonProjects"][0]["carbonCredits"],
+  projectDetails: SingleCarbonProject
+  allPoolPrices: Record<string, PoolPrice>,
+  network: "polygon" | "mumbai" | undefined,
+}): DetailedProject => {
+  const [poolPrices, stats] = props.network === "polygon" && props.credits
+  ? getProjectPoolPricesAndStats(
+    props.credits, 
+    props.allPoolPrices
+  ) : [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }]
+  
+
+  const poolPriceValues = poolPrices.map((p) => Number(p.singleUnitPrice));
+  const listingPriceValues = compact(props.listings).map((l) =>
+    Number(l.singleUnitPrice)
+  );
+
+  const bestPrice = pipe(
+    concat,
+    uniq,
+    min
+  )(poolPriceValues, listingPriceValues);
+
+  const projectResponse: DetailedProject = {
+    country: props.projectDetails.country,
+    description: props.projectDetails.description,
+    key: props.projectDetails.key,
+    registry: props.projectDetails.registry,
+    url: props.projectDetails.url,
+    name: props.projectDetails.name,
+    /** Sanitize category values */
+    methodologies: props.projectDetails.methodologies?.map(mapValues(trim)) ?? [],
+    short_description: props.projectDetails.shortDescription,
+    long_description: props.projectDetails.longDescription,
+    projectID: props.projectDetails.registryProjectId,
+    location: toGeoJSON(props.projectDetails.geolocation),
+    price: String(bestPrice ?? 0), // remove trailing zeros
+    prices: poolPrices,
+    images:
+    props.projectDetails?.images?.map((image) => ({
+        caption: image?.asset?.altText,
+        url: image?.asset?.url,
+      })) ?? [],
+    listings: props.listings,
+    vintage: props.vintage,
+    stats,
+  };
+  return projectResponse;
+}
 
 /**
  * Combines pool, marketplace, and CMS project data with intelligent fallbacks.

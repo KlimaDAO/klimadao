@@ -2,13 +2,13 @@ import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
+  GetCmsProjectContentQuery,
   GetCmsProjectQuery,
-  ProjectContent,
+  ProjectContent
 } from "../../.generated/types/cms.types";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
-
 type Args = {
   registry: string; // e.g VCS
   registryProjectId: string; //e.g 1121
@@ -25,14 +25,25 @@ const projectKey = ({
   registryProjectId: string | null;
 }) => `${registry}-${registryProjectId}`;
 
-export type CarbonProject = GetCmsProjectQuery["allProject"][number] & {
+type CmsProject = GetCmsProjectQuery["allProject"][number]
+type CmsProjectContent = GetCmsProjectContentQuery["allProjectContent"][number]
+export type CarbonProject = CmsProject & {
   content?: ProjectContent;
+  key?: string;
 };
+
+export type SingleCarbonProject = 
+Omit<CmsProject, "__typename"> & 
+Omit<CmsProjectContent, "__typename"> &
+{
+  key: string
+}
 
 /**
  * Fetches a carbon project based on the provided registry and id.
  */
-export const fetchCarbonProject = async (sdk: GQL_SDK, args: Args) => {
+export const fetchCarbonProject = async (sdk: GQL_SDK, args: Args):
+Promise<SingleCarbonProject | null> => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([
     sdk.cms.getCMSProject(args),
     sdk.cms.getCMSProjectContent(args),
@@ -41,12 +52,13 @@ export const fetchCarbonProject = async (sdk: GQL_SDK, args: Args) => {
   const project = allProject.at(0);
   const content = allProjectContent.at(0);
   const key = projectKey(args);
-
-  return {
+  if (project == null || content == null) return null;
+  const carbonProject = {
     ...project,
     ...content,
     key,
-  };
+  }
+  return carbonProject;
 };
 
 /**
