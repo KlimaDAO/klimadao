@@ -49,6 +49,10 @@ msgstr "Enter Quantity"
 msgid "Enter quantity"
 msgstr "Enter quantity"
 
+#: components/views/Offset/index.tsx:45
+msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
+msgstr "For users who want to offset paying with a pool token, please use <0>this site</0>."
+
 #: components/views/Stake/index.tsx:247
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"

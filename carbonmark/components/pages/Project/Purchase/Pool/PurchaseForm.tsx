@@ -145,7 +145,7 @@ export const PurchaseForm: FC<Props> = (props) => {
       const result = await redeemCarbonTransaction({
         paymentMethod: inputValues.paymentMethod,
         pool: props.price.poolName,
-        maxCost: inputValues.totalPrice,
+        maxCost: getApprovalValue(),
         projectTokenAddress: props.price.projectTokenAddress,
         isPoolDefault: props.price.isPoolDefault,
         quantity: inputValues.quantity,

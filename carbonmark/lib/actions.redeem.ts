@@ -75,8 +75,8 @@ export const redeemCarbonTransaction = async (params: {
       txn = await aggregator[method](
         getAddress(params.paymentMethod),
         getAddress(params.pool),
-        parseUnits(params.maxCost, getTokenDecimals(params.paymentMethod)),
         parseUnits(params.quantity, 18),
+        parseUnits(params.maxCost, getTokenDecimals(params.paymentMethod)),
         TransferMode.EXTERNAL,
         TransferMode.EXTERNAL
       );
