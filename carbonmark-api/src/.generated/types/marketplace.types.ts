@@ -1302,6 +1302,13 @@ export type GetPurchaseByIdQueryVariables = Exact<{
 
 export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', amount: string, id: any, price: string, listing: { __typename?: 'Listing', id: string, tokenAddress: any, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }, seller: { __typename?: 'User', id: any } } } | null };
 
+export type GetListingByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetListingByIdQuery = { __typename?: 'Query', listing: { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } | null };
+
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['String']>;
   expiresAfter: InputMaybe<Scalars['BigInt']>;
@@ -1441,6 +1448,13 @@ export const GetPurchaseByIdDocument = gql`
   }
 }
     ${ProjectFragmentFragmentDoc}`;
+export const GetListingByIdDocument = gql`
+    query getListingById($id: ID!) {
+  listing(id: $id) {
+    ...ListingFragment
+  }
+}
+    ${ListingFragmentFragmentDoc}`;
 export const GetUserByWalletDocument = gql`
     query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
   listings(where: {seller: $wallet, expiration_gt: $expiresAfter, active: true}) {
@@ -1516,6 +1530,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getPurchaseById(variables: GetPurchaseByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchaseByIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query');
+    },
+    getListingById(variables: GetListingByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetListingByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetListingByIdQuery>(GetListingByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getListingById', 'query');
     },
     getUserByWallet(variables?: GetUserByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserByWalletQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query');

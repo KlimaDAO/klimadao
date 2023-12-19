@@ -32,6 +32,14 @@ export const getCreditListings = async (
   return project;
 };
 
+export const getListingById = async (
+  sdk: GQL_SDK,
+  id: string
+): Promise<any> => {
+  const listing = await sdk.marketplace.getListingById({ id });
+  return listing;
+};
+
 const formatListings = async (
   listings: GetProjectListing[],
   fastify: FastifyInstance
