@@ -1,7 +1,8 @@
 import { Type } from "@sinclair/typebox";
+import { VALID_ADDRESS_REGEX } from "../../app.constants";
 
 export const RequestBody = Type.Object({
-  wallet: Type.String({ minLength: 3 }),
+  wallet: Type.String({ pattern: VALID_ADDRESS_REGEX.source }),
   username: Type.String({ minLength: 2 }),
   description: Type.String({ minLength: 2, maxLength: 500 }),
   profileImgUrl: Type.Optional(Type.String()),
@@ -9,7 +10,7 @@ export const RequestBody = Type.Object({
 });
 
 export const ResponseBody = Type.Object({
-  address: Type.String({ minLength: 26, maxLength: 64 }),
+  address: Type.String({ pattern: VALID_ADDRESS_REGEX.source }),
   nonce: Type.Number(),
 });
 
