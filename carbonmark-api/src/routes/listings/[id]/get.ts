@@ -1,14 +1,15 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { NetworkParam } from "src/models/NetworkParam.model";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { getListingById } from "../../../utils/helpers/fetchMarketplaceListings";
 import { getTokenById } from "../../../utils/helpers/fetchPoolPricesAndStats";
+import { formatListing } from "../../../utils/marketplace.utils";
+import { Params, Querystring, schema } from "./get.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{
-      Params: { id: string };
-      Querystring: { network: NetworkParam };
+      Params: Params;
+      Querystring: Querystring;
     }>,
     reply: FastifyReply
   ) {
@@ -18,14 +19,16 @@ const handler = (fastify: FastifyInstance) =>
     const listing = (await getListingById(sdk, id)).listing;
     const symbol = (await getTokenById(sdk, listing.tokenAddress)).symbol;
 
-    const token = {
-      ...listing,
+    const formattedListing = formatListing(listing);
+
+    const response = {
+      ...formattedListing,
       symbol,
     };
 
     return reply
       .header("Content-Type", "application/json; charset=utf-8")
-      .send(JSON.stringify(token));
+      .send(JSON.stringify(response));
   };
 
 export default async (fastify: FastifyInstance) =>
@@ -33,5 +36,5 @@ export default async (fastify: FastifyInstance) =>
     method: "GET",
     url: "/listings/:id",
     handler: handler(fastify),
-    /* TODO: add schema */
+    schema: schema,
   });

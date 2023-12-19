@@ -54,4 +54,12 @@ export const ListingModel = Type.Object(
   }
 );
 
+export const ListingWithTokenSymbolModel = Type.Intersect([
+  ListingModel,
+  Type.Object({
+    symbol: Type.String({ description: "Symbol of the token" }),
+  }),
+]);
+
 export type Listing = Static<typeof ListingModel>;
+export type ListingWithTokenSymbol = Static<typeof ListingModel>;
