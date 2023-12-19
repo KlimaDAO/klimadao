@@ -32,7 +32,7 @@ export const verifyProfileSignature = (params: {
 }) => {
   if (!params.signature) return false;
   // Backwards-compat: nonce may be undefined, append empty string
-  const expectedMessage = SIGN_PROFILE_MESSAGE + `${params?.nonce}`;
+  const expectedMessage = SIGN_PROFILE_MESSAGE + (params?.nonce || "");
   const signerWalletAddress = ethers.utils.verifyMessage(
     expectedMessage,
     params.signature

@@ -82,4 +82,17 @@ describe("verifyProfileSignature", () => {
       })
     ).toBe(false);
   });
+  test("Handles undefined nonces", async () => {
+    const nonce = undefined;
+    const wallet1 = Wallet.createRandom();
+    const message = SIGN_PROFILE_MESSAGE; // undefined nonce is not appended
+    const signature = await wallet1.signMessage(message);
+    expect(
+      verifyProfileSignature({
+        nonce,
+        signature,
+        expectedAddress: wallet1.address,
+      })
+    ).toBe(true);
+  });
 });
