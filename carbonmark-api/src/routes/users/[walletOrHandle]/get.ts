@@ -4,7 +4,7 @@ import { Activity } from "../../../models/Activity.model";
 import { User } from "../../../models/User.model";
 import { getActiveListings } from "../../../utils/helpers/listings.utils";
 import {
-  getProfileByAddress,
+  getFirestoreUserDoc,
   getProfileByHandle,
   getUserProfilesByIds,
 } from "../../../utils/helpers/users.utils";
@@ -39,9 +39,9 @@ const handler = (fastify: FastifyInstance) =>
             firebase: fastify.firebase,
             handle: walletOrHandle,
           })
-        : await getProfileByAddress({
-            firebase: fastify.firebase,
-            address: walletOrHandle,
+        : await getFirestoreUserDoc({
+            firestore: fastify.firebase.firestore(),
+            docId: walletOrHandle,
           });
 
       // If there is no profile, we can't continue

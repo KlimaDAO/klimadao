@@ -1,23 +1,29 @@
 import { app } from "firebase-admin";
 import { chunk } from "lodash";
+import { FirestoreUserDoc } from "../../models/FirestoreUserDoc.model";
 import { UserProfile } from "../../models/UserProfile.model";
 
-/**
- * This function retrieves a user by their wallet address from the Firestore database.
- */
-export const getProfileByAddress = async (params: {
-  firebase: app.App;
-  address: string;
-}): Promise<UserProfile | null> => {
-  const doc = await params.firebase
-    .firestore()
-    .collection("users")
-    .doc(params.address.toUpperCase())
-    .get();
+export const isFirestoreUserDoc = (doc?: unknown): doc is FirestoreUserDoc => {
+  if (!doc || !Object.hasOwn(doc, "createdAt")) return false;
+  return true;
+};
 
-  if (!doc.exists) return null;
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known type
-  return formatProfile(doc.data() as UserProfile);
+/**
+ * Get FirestoreUserDoc given an uppercase wallet address as docId.
+ * Returns null if not found.
+ * */
+export const getFirestoreUserDoc = async (params: {
+  docId: string;
+  firestore: FirebaseFirestore.Firestore;
+}): Promise<null | FirestoreUserDoc> => {
+  const userDocRef = await params.firestore
+    .collection("users")
+    .doc(params.docId.toUpperCase())
+    .get();
+  if (!userDocRef.exists) return null;
+  const userDoc = userDocRef.data();
+  if (!isFirestoreUserDoc(userDoc)) return null;
+  return userDoc;
 };
 
 /**
@@ -45,8 +51,9 @@ export const getUserProfilesByIds = async (params: {
     .flatMap((s) => s.docs)
     .forEach((d) => {
       if (!d.exists) return;
+
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known
-      const profile = d.data() as UserProfile;
+      const profile = d.data() as FirestoreUserDoc;
       UserProfileMap.set(profile.address, formatProfile(profile));
     });
   return UserProfileMap;
@@ -68,9 +75,10 @@ export const getProfileByHandle = async (params: {
 
   if (snapshot.empty) return null;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- apply known type
-  const profile = snapshot.docs.at(0)?.data() as UserProfile | undefined;
+  const profile = snapshot.docs.at(0)?.data() as FirestoreUserDoc | undefined;
   return profile ? formatProfile(profile) : null;
 };
+
 const formatProfile = (profile: UserProfile): UserProfile => {
   return {
     ...profile,

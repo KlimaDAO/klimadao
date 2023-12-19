@@ -2,7 +2,7 @@ import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { FirestoreUserDoc } from "../../models/FirestoreUserDoc.model";
 import { verifyProfileSignature } from "../../utils/crypto.utils";
-import { getFirestoreUserDoc } from "../../utils/firebase.utils";
+import { getFirestoreUserDoc } from "../../utils/helpers/users.utils";
 import { Params, RequestBody, schema } from "./put.schema";
 
 const handler = (fastify: FastifyInstance) =>
