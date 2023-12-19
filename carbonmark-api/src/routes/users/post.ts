@@ -1,7 +1,7 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { FirestoreUserDoc } from "../../models/FirestoreUserDoc.model";
 import { verifyProfileSignature } from "../../utils/crypto.utils";
-import { FirestoreUserDoc } from "../../utils/firebase.utils";
 import { RequestBody, ResponseBody, schema } from "./post.schema";
 
 const handler = (fastify: FastifyInstance) =>
@@ -24,12 +24,11 @@ const handler = (fastify: FastifyInstance) =>
       nonce: 1,
     };
 
+    const db = fastify.firebase.firestore();
+    db.settings({ ignoreUndefinedProperties: true });
+
     // Query the Firestore database for the user document with the specified wallet address
-    const user = await fastify.firebase
-      .firestore()
-      .collection("users")
-      .doc(wallet)
-      .get();
+    const user = await db.collection("users").doc(wallet).get();
 
     // If the user document exists, return a 403 error with a message
     if (user.exists) {
@@ -39,7 +38,7 @@ const handler = (fastify: FastifyInstance) =>
     }
 
     // Check if the handle already exists in our database
-    const usersRef = fastify.firebase.firestore().collection("users");
+    const usersRef = db.collection("users");
 
     const userSnapshot = await usersRef
       .where("handle", "==", handle.toLowerCase())
@@ -66,11 +65,7 @@ const handler = (fastify: FastifyInstance) =>
 
     try {
       // Try creating a new user document with the specified data
-      await fastify.firebase
-        .firestore()
-        .collection("users")
-        .doc(wallet.toUpperCase())
-        .set(createData);
+      await db.collection("users").doc(wallet.toUpperCase()).set(createData);
 
       // If the document is successfully created, return the new nonce
       return reply.code(200).send({

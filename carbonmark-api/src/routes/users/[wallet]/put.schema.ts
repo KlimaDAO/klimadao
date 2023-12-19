@@ -4,7 +4,7 @@ import { VALID_ADDRESS_REGEX } from "../../app.constants";
 export const RequestBody = Type.Object(
   {
     username: Type.Optional(Type.String({ minLength: 2 })),
-    description: Type.Optional(Type.String({ minLength: 0, maxLength: 500 })),
+    description: Type.Optional(Type.String({ maxLength: 500 })),
     profileImgUrl: Type.Optional(Type.String()),
   },
   {

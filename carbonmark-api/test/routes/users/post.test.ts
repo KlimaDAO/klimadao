@@ -37,6 +37,40 @@ describe("POST /User", () => {
     );
   });
 
+  test("Schema prevents handles < 3 chars", async () => {
+    const response = await app.inject({
+      method: "POST",
+      url: `${DEV_URL}/users`,
+      body: {
+        handle: "12",
+        wallet: wallet.address,
+        username: "testusername",
+        description: "testdescription",
+      },
+    });
+    expect(response.statusCode).toBe(400);
+    expect(response.body).toContain(
+      "body/handle must NOT have fewer than 3 characters"
+    );
+  });
+
+  test("Schema prevents usernames < 2 chars", async () => {
+    const response = await app.inject({
+      method: "POST",
+      url: `${DEV_URL}/users`,
+      body: {
+        handle: "12345",
+        wallet: wallet.address,
+        username: "1",
+        description: "testdescription",
+      },
+    });
+    expect(response.statusCode).toBe(400);
+    expect(response.body).toContain(
+      "body/username must NOT have fewer than 2 characters"
+    );
+  });
+
   test("Allow 0x names (not addresses)", async () => {
     const nonce = undefined; // new profile
     const message = SIGN_PROFILE_MESSAGE + `${nonce}`;
@@ -71,7 +105,7 @@ describe("POST /User", () => {
     expect(response.statusCode).toBe(403);
   });
 
-  test("disallow bad signature", async () => {
+  test("disallow wallet mismatch", async () => {
     const wallet2 = Wallet.createRandom();
     const nonce = undefined; // new profile
     const message = SIGN_PROFILE_MESSAGE + `${nonce}`;
@@ -92,7 +126,12 @@ describe("POST /User", () => {
     expect(response.statusCode).toBe(403);
   });
 
-  test("should set nonce to 1", async () => {
+  test("should set nonce to 1 and write to firestore", async () => {
+    const mockSet = jest.fn();
+    mockFirestore({
+      empty: true,
+      set: mockSet,
+    });
     const nonce = undefined; // new profile
     const message = SIGN_PROFILE_MESSAGE + `${nonce}`;
     const signature = await wallet.signMessage(message);
@@ -104,6 +143,7 @@ describe("POST /User", () => {
         wallet: wallet.address,
         username: "blah",
         description: "blah",
+        profileImgUrl: "",
       },
       headers: {
         Authorization: `Bearer ${signature}`,
@@ -111,5 +151,48 @@ describe("POST /User", () => {
     });
     expect(response.statusCode).toBe(200);
     expect(JSON.parse(response.body).nonce).toBe(1);
+    expect(mockSet).toHaveBeenCalledWith({
+      handle: "0xmycoolhandle",
+      address: wallet.address.toLowerCase(),
+      description: "blah",
+      username: "blah",
+      updatedAt: expect.any(Number),
+      createdAt: expect.any(Number),
+      profileImgUrl: "",
+      nonce: 1,
+    });
+  });
+
+  test("Description and profileImgUrl are optional", async () => {
+    const mockSet = jest.fn();
+    mockFirestore({
+      empty: true,
+      set: mockSet,
+    });
+    const nonce = undefined; // new profile
+    const message = SIGN_PROFILE_MESSAGE + `${nonce}`;
+    const signature = await wallet.signMessage(message);
+    const response = await app.inject({
+      method: "POST",
+      url: `${DEV_URL}/users`,
+      body: {
+        handle: "0xmycoolhandle",
+        wallet: wallet.address,
+        username: "blah",
+      },
+      headers: {
+        Authorization: `Bearer ${signature}`,
+      },
+    });
+    expect(response.statusCode).toBe(200);
+    expect(JSON.parse(response.body).nonce).toBe(1);
+    expect(mockSet).toHaveBeenCalledWith({
+      handle: "0xmycoolhandle",
+      address: wallet.address.toLowerCase(),
+      username: "blah",
+      updatedAt: expect.any(Number),
+      createdAt: expect.any(Number),
+      nonce: 1,
+    });
   });
 });

@@ -8,6 +8,7 @@ const firestoreMethods = {
   limit: jest.fn().mockReturnThis(),
   get: jest.fn().mockReturnThis(),
   doc: jest.fn().mockReturnThis(),
+  settings: jest.fn(),
   docs: [],
   set: jest.fn(),
   update: jest.fn(),
