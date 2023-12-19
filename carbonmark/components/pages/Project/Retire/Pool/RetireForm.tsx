@@ -1,6 +1,7 @@
 import { PoolToken } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { AssetDetails } from "components/AssetDetails";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
@@ -20,7 +21,6 @@ import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
-import { AssetDetails } from "./AssetDetails";
 import { CreditCardModal } from "./CreditCardModal";
 import { Price } from "./Price";
 import { RetireInputs } from "./RetireInputs";
@@ -329,7 +329,13 @@ export const RetireForm: FC<Props> = (props) => {
         <Col>
           <div className={styles.stickyContentWrapper}>
             <Card>
-              <AssetDetails price={props.price} project={props.project} />
+              <AssetDetails
+                price={props.price}
+                project={props.project}
+                actionLabel={t`Retiring Token`}
+                availableLabel={t`Available to retire`}
+                polyscanUrl={`https://polygonscan.com/address/${props.price.projectTokenAddress}`}
+              />
             </Card>
             <div className={styles.reverseOrder}>
               <Card>
