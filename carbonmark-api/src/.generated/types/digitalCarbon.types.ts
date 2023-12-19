@@ -4185,6 +4185,13 @@ export type GetDigitalCarbonProjectsVintagesQueryVariables = Exact<{ [key: strin
 
 export type GetDigitalCarbonProjectsVintagesQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number }> }> };
 
+export type GetTokenByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetTokenByIdQuery = { __typename?: 'Query', token: { __typename?: 'Token', symbol: string } | null };
+
 export type GetDigitalCarbonProjectsCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4273,6 +4280,13 @@ export const GetDigitalCarbonProjectsVintagesDocument = gql`
   }
 }
     `;
+export const GetTokenByIdDocument = gql`
+    query getTokenById($id: ID!) {
+  token(id: $id) {
+    symbol
+  }
+}
+    `;
 export const GetDigitalCarbonProjectsCategoriesDocument = gql`
     query getDigitalCarbonProjectsCategories {
   carbonProjects(first: 1000) {
@@ -4334,6 +4348,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     getDigitalCarbonProjectsVintages(variables?: GetDigitalCarbonProjectsVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDigitalCarbonProjectsVintagesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsVintagesQuery>(GetDigitalCarbonProjectsVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsVintages', 'query');
+    },
+    getTokenById(variables: GetTokenByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTokenByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetTokenByIdQuery>(GetTokenByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getTokenById', 'query');
     },
     getDigitalCarbonProjectsCategories(variables?: GetDigitalCarbonProjectsCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDigitalCarbonProjectsCategoriesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCategoriesQuery>(GetDigitalCarbonProjectsCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCategories', 'query');
