@@ -1,8 +1,11 @@
 import { FastifyInstance } from "fastify";
-import { pick, set } from "lodash";
+import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
-import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
-import { Project as MarketplaceProject } from "src/.generated/types/marketplace.types";
+import {
+  CarbonProject,
+  Registry,
+} from "../../../src/.generated/types/digitalCarbon.types";
+import { Project as MarketplaceProject } from "../../../src/.generated/types/marketplace.types";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { Project } from "../../../src/models/Project.model";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
@@ -240,18 +243,21 @@ describe("GET /projects", () => {
 
   describe("Projects with 'dust' (supply less than 1 tonne) should be filtered", () => {
     const anotherCarbonProject: CarbonProject = {
-      ...mockDigitalCarbonProject,
-      id: "VCS-000",
+      ...cloneDeep(mockDigitalCarbonProject),
+      id: "VCS-111",
+      registry: Registry.Verra,
     };
-    const anotherMarketplaceProject: CarbonProject = {
-      ...mockDigitalCarbonProject,
-      id: "VCS-000",
-      projectID: "VCS-000",
+    const anotherMarketplaceProject: MarketplaceProject = {
+      ...cloneDeep(mockMarketplaceProject),
+      id: "VCS-111-2000",
+      key: "VCS-111",
+      registry: "VCS",
+      vintage: "2000",
     };
 
     let projects: Project[];
 
-    test("All projects are returned if supply greater than 1 (DigitalCarbon)", async () => {
+    test("No filtering when supply greater than 1 (DigitalCarbon)", async () => {
       mockMarketplaceProjects();
 
       /** ---- Confirm success when all have supply ---- */
@@ -268,7 +274,7 @@ describe("GET /projects", () => {
       expect(projects.length).toBe(2);
     });
 
-    test("All projects are returned if supply greater than 1 (Marketplace)", async () => {
+    test("No filtering when supply greater than 1 (Marketplace)", async () => {
       //Mock digital carbon with no supply
       nock(GRAPH_URLS["polygon"].digitalCarbon)
         .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
@@ -287,14 +293,10 @@ describe("GET /projects", () => {
         });
 
       projects = await mock_fetch(fastify, "/projects");
-      console.log(projects);
       expect(projects.length).toBe(2);
     });
 
-    test("Carbon", async () => {
-      mockMarketplaceProjects().persist(true);
-      /** ---- Test when supply 0 ---- */
-      //Set the balance to less than 1
+    test("DigitalCarbon projects are filtered", async () => {
       anotherCarbonProject.carbonCredits[0].poolBalances[0].balance = "0";
 
       //Mock digital carbon with no supply
@@ -306,26 +308,19 @@ describe("GET /projects", () => {
           },
         });
 
-      projects = await mock_fetch(fastify, "/projects");
-      expect(projects.length).toBe(1);
-
-      /** ---- Test when supply > 0 < 1 ---- */
-      //Set the balance to less than 1
-      anotherCarbonProject.carbonCredits[0].poolBalances[0].balance = "0.5";
-
-      //Mock digital carbon with marginal supply
-      nock(GRAPH_URLS["polygon"].digitalCarbon)
-        .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
+      nock(GRAPH_URLS["polygon"].marketplace)
+        .post("", (body) => body.query.includes("getProjects"))
         .reply(200, {
           data: {
-            carbonProjects: [mockDigitalCarbonProject, anotherCarbonProject],
+            projects: [],
           },
         });
 
       projects = await mock_fetch(fastify, "/projects");
       expect(projects.length).toBe(1);
+    });
 
-      /** ---- Test marketplace supply ---- */
+    test("Marketplace projects are filtered", async () => {
       //Mock no digitalCarbon
       nock(GRAPH_URLS["polygon"].digitalCarbon)
         .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
@@ -335,18 +330,15 @@ describe("GET /projects", () => {
           },
         });
 
-      const marketplaceProjectWithNoSupply: MarketplaceProject = {
-        ...fixtures.marketplace.projectWithListing,
-        id: "VCS-000",
-        key: "VCS-000",
-      };
-
-      set(marketplaceProjectWithNoSupply, "listings[0].leftToSell", "2");
+      set(anotherMarketplaceProject, "listings[0].leftToSell", "0");
+      console.log(mockMarketplaceProject.listings);
 
       nock(GRAPH_URLS["polygon"].marketplace)
         .post("", (body) => body.query.includes("getProjects"))
         .reply(200, {
-          data: { projects: [marketplaceProjectWithNoSupply] },
+          data: {
+            projects: [mockMarketplaceProject, anotherMarketplaceProject],
+          },
         });
 
       projects = await mock_fetch(fastify, "/projects");
