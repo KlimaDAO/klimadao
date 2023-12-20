@@ -22,11 +22,11 @@ export const WALLETCONNECT_PROJECT_ID =
   process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
 /** An abbreviated version of the commit hash used when deploying a preview build of the api in deploy_carbonmark_api.yml */
-
-const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
-  0,
-  7
-);
+// @todo uncomment before merge
+// const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
+//   0,
+//   7
+// );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
 export const API_PROD_URL = "https://v5.2.1.api.carbonmark.com";
@@ -35,9 +35,13 @@ export const API_PROD_URL = "https://v5.2.1.api.carbonmark.com";
  * Optional preview URL can be provided via env var.
  * Testnet data can be accessed via `network=mumbai` query param
  */
-const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
-  ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app`
-  : API_PROD_URL;
+// @todo uncomment before merge
+// const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
+//   ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app`
+//   : API_PROD_URL;
+// @todo remove and change to above before merge
+const API_PREVIEW_URL =
+  "https://carbonmark-api-git-apifeature-icr-api-integration-klimadao.vercel.app";
 
 /**
  * The API URL to target when developing the app,
