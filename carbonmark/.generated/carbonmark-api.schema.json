@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 5.0.0** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v5.0.0.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 4.1.0** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v4.1.0.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "5.0.0"
+    "version": "4.1.0"
   },
   "components": {
     "schemas": {
@@ -20,6 +20,16 @@
         "type": "object",
         "properties": {
           "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "long_description": {
             "anyOf": [
               {
                 "type": "string"
@@ -139,6 +149,16 @@
               }
             ]
           },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "vintage": {
             "type": "string"
           },
@@ -152,21 +172,97 @@
             "type": "string"
           },
           "country": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ]
+            "type": "string"
           },
           "region": {
             "type": "string"
           },
           "price": {
             "type": "string"
+          },
+          "prices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "poolName": {
+                  "description": "Lowercase name of pool / pool token e.g. 'bct'",
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "ubo"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "nbo"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "bct"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "nct"
+                      ]
+                    }
+                  ]
+                },
+                "supply": {
+                  "description": "Remaining supply in pool",
+                  "type": "string"
+                },
+                "poolAddress": {
+                  "description": "Address of the pool itself, e.g. bct token address",
+                  "type": "string"
+                },
+                "projectTokenAddress": {
+                  "description": "Address of the project token in this pool",
+                  "type": "string"
+                },
+                "isPoolDefault": {
+                  "description": "True if default project for pool and no selective redemption fee applies",
+                  "type": "boolean"
+                },
+                "singleUnitPrice": {
+                  "description": "formatted USDC price for 1 tonne e.g. '0.123456'",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "poolName",
+                "supply",
+                "poolAddress",
+                "projectTokenAddress",
+                "isPoolDefault",
+                "singleUnitPrice"
+              ]
+            }
+          },
+          "stats": {
+            "type": "object",
+            "properties": {
+              "totalBridged": {
+                "type": "number"
+              },
+              "totalRetired": {
+                "type": "number"
+              },
+              "totalSupply": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "totalBridged",
+              "totalRetired",
+              "totalSupply"
+            ]
           },
           "listings": {
             "anyOf": [
@@ -375,29 +471,22 @@
             ]
           },
           "images": {
-            "anyOf": [
-              {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "url": {
-                      "type": "string"
-                    },
-                    "caption": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "url",
-                    "caption"
-                  ]
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
                 }
               },
-              {
-                "type": "null"
-              }
-            ]
+              "required": [
+                "url",
+                "caption"
+              ]
+            }
           }
         },
         "required": [
@@ -411,7 +500,9 @@
           "updatedAt",
           "country",
           "region",
-          "price"
+          "price",
+          "prices",
+          "stats"
         ]
       },
       "DetailedProject": {
@@ -684,7 +775,7 @@
                 },
                 "poolAddress": {
                   "description": "Address of the pool itself, e.g. bct token address",
-                  "type": "boolean"
+                  "type": "string"
                 },
                 "projectTokenAddress": {
                   "description": "Address of the project token in this pool",
@@ -1975,7 +2066,7 @@
           },
           "poolAddress": {
             "description": "Address of the pool itself, e.g. bct token address",
-            "type": "boolean"
+            "type": "string"
           },
           "projectTokenAddress": {
             "description": "Address of the project token in this pool",
@@ -2510,6 +2601,16 @@
             "name": "expiresAfter",
             "required": false,
             "description": "Only return projects listings that expire after this timestamp (Unix seconds)"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "0",
+            "in": "query",
+            "name": "minSupply",
+            "required": false,
+            "description": "Only return projects listings and pools that contains at least this amount of credits (Tonnes)"
           }
         ],
         "responses": {
@@ -2523,6 +2624,16 @@
                     "type": "object",
                     "properties": {
                       "description": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "long_description": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -2642,6 +2753,16 @@
                           }
                         ]
                       },
+                      "url": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
                       "vintage": {
                         "type": "string"
                       },
@@ -2655,21 +2776,97 @@
                         "type": "string"
                       },
                       "country": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id"
-                        ]
+                        "type": "string"
                       },
                       "region": {
                         "type": "string"
                       },
                       "price": {
                         "type": "string"
+                      },
+                      "prices": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "poolName": {
+                              "description": "Lowercase name of pool / pool token e.g. 'bct'",
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "enum": [
+                                    "ubo"
+                                  ]
+                                },
+                                {
+                                  "type": "string",
+                                  "enum": [
+                                    "nbo"
+                                  ]
+                                },
+                                {
+                                  "type": "string",
+                                  "enum": [
+                                    "bct"
+                                  ]
+                                },
+                                {
+                                  "type": "string",
+                                  "enum": [
+                                    "nct"
+                                  ]
+                                }
+                              ]
+                            },
+                            "supply": {
+                              "description": "Remaining supply in pool",
+                              "type": "string"
+                            },
+                            "poolAddress": {
+                              "description": "Address of the pool itself, e.g. bct token address",
+                              "type": "string"
+                            },
+                            "projectTokenAddress": {
+                              "description": "Address of the project token in this pool",
+                              "type": "string"
+                            },
+                            "isPoolDefault": {
+                              "description": "True if default project for pool and no selective redemption fee applies",
+                              "type": "boolean"
+                            },
+                            "singleUnitPrice": {
+                              "description": "formatted USDC price for 1 tonne e.g. '0.123456'",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "poolName",
+                            "supply",
+                            "poolAddress",
+                            "projectTokenAddress",
+                            "isPoolDefault",
+                            "singleUnitPrice"
+                          ]
+                        }
+                      },
+                      "stats": {
+                        "type": "object",
+                        "properties": {
+                          "totalBridged": {
+                            "type": "number"
+                          },
+                          "totalRetired": {
+                            "type": "number"
+                          },
+                          "totalSupply": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "totalBridged",
+                          "totalRetired",
+                          "totalSupply"
+                        ]
                       },
                       "listings": {
                         "anyOf": [
@@ -2878,29 +3075,22 @@
                         ]
                       },
                       "images": {
-                        "anyOf": [
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "url": {
-                                  "type": "string"
-                                },
-                                "caption": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "url",
-                                "caption"
-                              ]
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string"
+                            },
+                            "caption": {
+                              "type": "string"
                             }
                           },
-                          {
-                            "type": "null"
-                          }
-                        ]
+                          "required": [
+                            "url",
+                            "caption"
+                          ]
+                        }
                       }
                     },
                     "required": [
@@ -2914,7 +3104,9 @@
                       "updatedAt",
                       "country",
                       "region",
-                      "price"
+                      "price",
+                      "prices",
+                      "stats"
                     ]
                   }
                 }
@@ -3184,6 +3376,16 @@
             "name": "expiresAfter",
             "required": false,
             "description": "Only return projects listings that expire after this timestamp (Unix seconds)"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "0",
+            "in": "query",
+            "name": "minSupply",
+            "required": false,
+            "description": "Only consider projects listings and pools that contains at least this amount of credits (Tonnes)"
           },
           {
             "schema": {
@@ -3472,7 +3674,7 @@
                           },
                           "poolAddress": {
                             "description": "Address of the pool itself, e.g. bct token address",
-                            "type": "boolean"
+                            "type": "string"
                           },
                           "projectTokenAddress": {
                             "description": "Address of the project token in this pool",
@@ -3894,6 +4096,16 @@
             "name": "expiresAfter",
             "required": false,
             "description": "Only return listings that expire after this timestamp (Unix seconds)"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "0",
+            "in": "query",
+            "name": "minSupply",
+            "required": false,
+            "description": "Only consider projects listings and pools that contains at least this amount of credits (Tonnes)"
           },
           {
             "schema": {
@@ -4710,7 +4922,7 @@
   },
   "servers": [
     {
-      "url": "https://v5.0.0.api.carbonmark.com"
+      "url": "https://v4.1.0.api.carbonmark.com"
     }
   ],
   "externalDocs": {

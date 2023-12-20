@@ -84,9 +84,9 @@ export type DetailedProject = {
     supply: string;
     /**
      * @description Address of the pool itself, e.g. bct token address
-     * @type boolean
+     * @type string
      */
-    poolAddress: boolean;
+    poolAddress: string;
     /**
      * @description Address of the project token in this pool
      * @type string

@@ -99,9 +99,9 @@ export type GetProjectsIdQueryResponse = {
     supply: string;
     /**
      * @description Address of the pool itself, e.g. bct token address
-     * @type boolean
+     * @type string
      */
-    poolAddress: boolean;
+    poolAddress: string;
     /**
      * @description Address of the project token in this pool
      * @type string
@@ -226,4 +226,9 @@ export type GetProjectsIdQueryParams = {
    * @type string | undefined
    */
   expiresAfter?: string;
+  /**
+   * @description Only consider projects listings and pools that contains at least this amount of credits (Tonnes)
+   * @type number | undefined
+   */
+  minSupply?: number;
 };

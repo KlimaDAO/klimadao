@@ -18,6 +18,7 @@ import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
+import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
@@ -53,7 +54,9 @@ export const VISIBLE_ACTIVITIES: ActivityActionT[] = [
 ];
 
 const Page: NextPage<PageProps> = (props) => {
-  const { data: project } = useGetProjectsId(props.projectID);
+  const { data: project } = useGetProjectsId(props.projectID, {
+    minSupply: DEFAULT_MIN_LISTING_QUANTITY,
+  });
   const { data: activities } = useGetProjectsIdActivity(props.projectID, {
     activityType: VISIBLE_ACTIVITIES,
   });
