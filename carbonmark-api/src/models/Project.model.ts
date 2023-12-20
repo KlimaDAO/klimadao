@@ -1,10 +1,12 @@
 import { Static, Type } from "@sinclair/typebox";
 import { ListingModel } from "./Listing.model";
 import { MethodologyModel } from "./Methodology.model";
+import { TokenPriceModel } from "./TokenPrice.model";
 import { GeoJSONPointModel, Nullable } from "./Utility.model";
 
 export const ProjectModel = Type.Object({
   description: Nullable(Type.String()),
+  long_description: Nullable(Type.String()),
   short_description: Nullable(Type.String()),
   key: Type.String(),
   projectID: Type.String(),
@@ -13,15 +15,22 @@ export const ProjectModel = Type.Object({
   location: Nullable(GeoJSONPointModel, {
     description: "A GeoJSON Point feature.",
   }),
+  url: Nullable(Type.String()),
   vintage: Type.String(),
   creditTokenAddress: Type.String(),
   registry: Type.String(),
   updatedAt: Type.String(),
-  country: Type.Object({ id: Type.String() }),
+  country: Type.String(),
   region: Type.String(),
   price: Type.String(),
+  prices: Type.Array(TokenPriceModel),
+  stats: Type.Object({
+    totalBridged: Type.Number(),
+    totalRetired: Type.Number(),
+    totalSupply: Type.Number(),
+  }),
   listings: Nullable(Type.Array(ListingModel)), // null when listings are empty
-  images: Nullable(
+  images: Type.Optional(
     Type.Array(
       Type.Object({
         url: Type.String(),

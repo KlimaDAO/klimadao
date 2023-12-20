@@ -36,7 +36,8 @@ const handler = (fastify: FastifyInstance) =>
     request: FastifyRequest<{ Querystring: Querystring }>,
     reply: FastifyReply
   ): Promise<Project[]> {
-    const sdk = gql_sdk(request.query.network);
+    const network = request.query.network || "polygon";
+    const sdk = gql_sdk(network);
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(
       omit(request.query, "search", "expiresAfter", "minSupply"),
@@ -46,25 +47,30 @@ const handler = (fastify: FastifyInstance) =>
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify);
 
-    const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
-      await Promise.all([
-        sdk.marketplace.getProjects({
-          search: request.query.search ?? "",
-          category: args.category ?? allOptions.category,
-          country: args.country ?? allOptions.country,
-          vintage: args.vintage ?? allOptions.vintage,
-          expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
-          minSupply: formatTonnesForSubGraph(request.query.minSupply),
-        }),
-        sdk.digital_carbon.findDigitalCarbonProjects({
-          search: request.query.search ?? "",
-          category: args.category ?? allOptions.category,
-          country: args.country ?? allOptions.country,
-          vintage: (args.vintage ?? allOptions.vintage).map(Number),
-        }),
-        fetchAllCarbonProjects(sdk),
-        fetchAllPoolPrices(sdk),
-      ]);
+    const [
+      marketplaceProjectsData,
+      poolProjectsData,
+      cmsProjects,
+      allPoolPrices,
+    ] = await Promise.all([
+      sdk.marketplace.getProjects({
+        search: request.query.search ?? "",
+        category: args.category ?? allOptions.category,
+        country: args.country ?? allOptions.country,
+        vintage: args.vintage ?? allOptions.vintage,
+        expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
+        minSupply: formatTonnesForSubGraph(request.query.minSupply),
+      }),
+      sdk.digital_carbon.findDigitalCarbonProjects({
+        search: request.query.search ?? "",
+        category: args.category ?? allOptions.category,
+        country: args.country ?? allOptions.country,
+        vintage: (args.vintage ?? allOptions.vintage).map(Number),
+      }),
+      fetchAllCarbonProjects(sdk),
+      fetchAllPoolPrices(sdk),
+    ]);
+
     const CMSDataMap: CMSDataMap = new Map();
     const ProjectMap: ProjectDataMap = new Map();
 
@@ -88,6 +94,7 @@ const handler = (fastify: FastifyInstance) =>
         );
         return;
       }
+      // Map the project credits to the correct map entry
       const [standard, registryProjectId] = project.projectID.split("-");
       project.carbonCredits.forEach((credit) => {
         const { creditId: key } = new CreditId({
@@ -95,11 +102,15 @@ const handler = (fastify: FastifyInstance) =>
           registryProjectId,
           vintage: credit.vintage.toString(),
         });
-        ProjectMap.set(key, {
-          /** We need to remove all other credits from this asset so that it is a one to one mapping of credit to project */
-          poolProjectData: { ...project, carbonCredits: [credit] },
-          key,
-        });
+        // Create the entry if does not exist
+        if (!ProjectMap.has(key)) {
+          ProjectMap.set(key, {
+            poolProjectData: { ...project, carbonCredits: [] },
+            key,
+          });
+        }
+        // Add the carbon credit to the entry
+        ProjectMap.get(key)?.poolProjectData?.carbonCredits.push(credit);
       });
     });
 
@@ -124,8 +135,14 @@ const handler = (fastify: FastifyInstance) =>
         marketplaceProjectData: project,
       });
     });
+
     /** Compose all the data together to unique entries (unsorted) */
-    const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
+    const entries = composeProjectEntries(
+      ProjectMap,
+      CMSDataMap,
+      allPoolPrices,
+      network
+    );
 
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
     // Send the transformed projects array as a JSON string in the response

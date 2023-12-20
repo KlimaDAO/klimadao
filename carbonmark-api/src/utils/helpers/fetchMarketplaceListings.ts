@@ -6,15 +6,6 @@ import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
 import { formatTonnesForSubGraph } from "./utils";
 
-type ListingsParams = {
-  key: string; // Project key `"VCS-981"`
-  vintage: string; // Vintage string `"2017"`
-  fastify: FastifyInstance; // Fastify instance
-  /** UNIX seconds - default is current system timestamp */
-  expiresAfter?: string;
-  minSupply: number;
-};
-
 export const getCreditListings = async (
   sdk: GQL_SDK,
   params: {
@@ -35,7 +26,7 @@ export const getCreditListings = async (
   return project;
 };
 
-const formatListings = async (
+export const addProfilesToListings = async (
   listings: GetProjectListing[],
   fastify: FastifyInstance
 ): Promise<Listing[]> => {
@@ -63,28 +54,4 @@ const formatListings = async (
     };
   });
   return listingsWithProfiles;
-};
-
-/**
- * Query the subgraph for active marketplace listings and project data for the given project
- * Filters out deleted, sold-out and inactive listings
- * Fetches seller profile info from firebase
- */
-export const fetchMarketplaceListings = async (
-  sdk: GQL_SDK,
-  { key, vintage, expiresAfter, minSupply, fastify }: ListingsParams
-): Promise<[Listing[]]> => {
-  const projectId = key + "-" + vintage;
-
-  const { project } = await sdk.marketplace.getProjectById({
-    projectId,
-    expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
-    minSupply: formatTonnesForSubGraph(minSupply),
-  });
-
-  const filteredListings = project?.listings || [];
-
-  const listingsWithProfiles = await formatListings(filteredListings, fastify);
-
-  return [listingsWithProfiles];
 };
