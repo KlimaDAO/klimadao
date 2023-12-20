@@ -14,6 +14,7 @@ import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
 import { Navigation } from "components/shared/Navigation";
 import { Spinner } from "components/shared/Spinner";
+import { getProjectTokenFromBridgeProtocol } from "lib/getProjectTokenFromBridgeProtocol";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { queryKlimaRetireByIndex } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 import { CategoryName, DetailedProject } from "lib/types/carbonmark.types";
@@ -108,15 +109,13 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
     retirement.retire.credit?.poolBalances?.pool?.id ??
       retirement.retire.credit.id
   ); // can be null
-  const projectTokenName =
-    retirement.retire.credit.bridgeProtocol === "TOUCAN" ? "tco2" : "c3t";
+  const projectTokenName = getProjectTokenFromBridgeProtocol(
+    retirement.retire.credit.bridgeProtocol
+  );
   const isMossOffset = retirement?.retire.credit.bridgeProtocol === "MOSS";
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenInfoMap[carbonTokenName];
-
-  console.log("retirement", retirement);
-  console.log("project", retirement.retire.credit.project);
-
+  console.log("tokenData", tokenData);
   return (
     <GridContainer>
       <PageHead

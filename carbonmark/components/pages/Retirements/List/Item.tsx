@@ -7,6 +7,7 @@ import {
   trimWithLocale,
 } from "@klimadao/lib/utils";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardOutlined";
+import { getProjectTokenFromBridgeProtocol } from "lib/getProjectTokenFromBridgeProtocol";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,20 +36,9 @@ export const RetirementItem: FC<Props> = (props) => {
       retirement.retire.credit.id
   );
   // can be null
-  const projectTokenName = (() => {
-    switch (retirement.retire.credit.bridgeProtocol) {
-      case "TOUCAN":
-        return "tco2";
-      case "MOSS":
-        return "mco2";
-      case "C3":
-        return "c3t";
-      case "ICR":
-        return "icr";
-      default:
-        throw new Error("Invalid bridge protocol");
-    }
-  })();
+  const projectTokenName = getProjectTokenFromBridgeProtocol(
+    retirement.retire.credit.bridgeProtocol
+  );
 
   const tokenData = carbonTokenInfoMap[poolTokenName || projectTokenName];
 

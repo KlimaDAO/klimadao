@@ -31,7 +31,7 @@ export const carbonmarkTokenInfoMap: CarbonmarkTokenMap = {
   usdc: { key: "usdc", icon: USDC, label: "USDC" },
   c3: { key: "c3", icon: C3T, label: "C3" },
   tco2: { key: "tco2", icon: TCO2, label: "TCO2" },
-  icr: { key: "icr", icon: C3T, label: "ICR" },
+  icr: { key: "icr", icon: ICR, label: "ICR" },
 };
 
 export const carbonTokenInfoMap: CarbonTokenInfoMap = {
