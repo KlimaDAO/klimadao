@@ -294,6 +294,9 @@ describe("GET /projects", () => {
 
       projects = await mock_fetch(fastify, "/projects");
       expect(projects.length).toBe(1);
+      expect(
+        Number(projects.at(0)?.listings?.at(0)?.leftToSell)
+      ).toBeGreaterThan(0);
     });
 
     test("Marketplace projects are filtered", async () => {
@@ -302,13 +305,19 @@ describe("GET /projects", () => {
 
       set(anotherMarketplaceProject, "listings[0].leftToSell", "0");
 
+      //Mock two projects
       mockMarketplaceProjects([
         mockMarketplaceProject,
         anotherMarketplaceProject,
       ]);
 
       projects = await mock_fetch(fastify, "/projects");
+
+      //Only one should be returned
       expect(projects.length).toBe(1);
+      expect(
+        Number(projects.at(0)?.listings?.at(0)?.leftToSell)
+      ).toBeGreaterThan(0);
     });
   });
 });
