@@ -7,7 +7,7 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { InputField, TextareaField } from "components/shared/Form";
 import { isAddress } from "ethers-v6";
-import { EMAIL_ADDRESS_REGEX, urls } from "lib/constants";
+import { EMAIL_ADDRESS_REGEX } from "lib/constants";
 import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -64,7 +64,7 @@ export const PayWithBank: FC = () => {
     try {
       // @todo - Makka replace with carbonmark-api-sdk??
       // @todo - Merge PR for api changes first..
-      const res = await fetch(`${urls.api.base}/retire/bank-transfer`, {
+      const res = await fetch(`/api/bank-transfer`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formValues }),
