@@ -4209,6 +4209,7 @@ export type FindDigitalCarbonProjectsQueryVariables = Exact<{
   category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   search: InputMaybe<Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['Int']> | Scalars['Int']>;
+  minSupply: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -4304,7 +4305,7 @@ export const GetProjectCreditsDocument = gql`
 ${CarbonCreditFragmentFragmentDoc}
 ${PoolBalancesFragmentFragmentDoc}`;
 export const FindDigitalCarbonProjectsDocument = gql`
-    query findDigitalCarbonProjects($country: [String!], $category: [String!], $search: String, $vintage: [Int!]) {
+    query findDigitalCarbonProjects($country: [String!], $category: [String!], $search: String, $vintage: [Int!], $minSupply: BigInt) {
   carbonProjects(
     first: 1000
     where: {and: [{category_in: $category}, {country_in: $country}, {or: [{name_contains_nocase: $search}, {projectID_contains_nocase: $search}]}]}
@@ -4312,7 +4313,7 @@ export const FindDigitalCarbonProjectsDocument = gql`
     ...DigitalCarbonProjectFragment
     carbonCredits(where: {vintage_in: $vintage}) {
       ...CarbonCreditFragment
-      poolBalances {
+      poolBalances(where: {balance_gt: $minSupply}) {
         ...PoolBalancesFragment
         pool {
           ...PoolFragment

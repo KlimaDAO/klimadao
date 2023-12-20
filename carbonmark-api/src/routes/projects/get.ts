@@ -46,6 +46,7 @@ const handler = (fastify: FastifyInstance) =>
 
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify);
+    const minSupply = formatTonnesForSubGraph(request.query.minSupply);
 
     const [
       marketplaceProjectsData,
@@ -59,13 +60,14 @@ const handler = (fastify: FastifyInstance) =>
         country: args.country ?? allOptions.country,
         vintage: args.vintage ?? allOptions.vintage,
         expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
-        minSupply: formatTonnesForSubGraph(request.query.minSupply),
+        minSupply,
       }),
       sdk.digital_carbon.findDigitalCarbonProjects({
         search: request.query.search ?? "",
         category: args.category ?? allOptions.category,
         country: args.country ?? allOptions.country,
         vintage: (args.vintage ?? allOptions.vintage).map(Number),
+        minSupply,
       }),
       fetchAllCarbonProjects(sdk),
       fetchAllPoolPrices(sdk),

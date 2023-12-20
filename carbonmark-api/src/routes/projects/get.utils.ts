@@ -150,7 +150,6 @@ export const buildProjectEntry = (props: {
     props.network === "polygon" && props.credits
       ? getProjectPoolPricesAndStats(props.credits, props.allPoolPrices)
       : [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
-
   // Compute best price
   // For the purpose of computing the best price we only take into account active listings
   const activeListings = props.listings?.filter(
