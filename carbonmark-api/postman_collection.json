@@ -510,6 +510,22 @@
       "response": []
     },
     {
+      "name": "getListingById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/listings/0xde5c717958a9a80f2dee8ebcc6f411a8d860ac7b0042e45487f4ad2afaf46d5a",
+          "host": ["{{url}}"],
+          "path": [
+            "listings",
+            "0xde5c717958a9a80f2dee8ebcc6f411a8d860ac7b0042e45487f4ad2afaf46d5a"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "verifyUser",
       "event": [
         {
