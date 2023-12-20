@@ -204,6 +204,7 @@ export const buildProjectEntry = (props: {
     creditTokenAddress: props.credits?.at(0)?.id,
     updatedAt,
   };
+  console.log(props.credits)
   return projectResponse;
 };
 
@@ -222,19 +223,20 @@ export const composeProjectEntries = (
     // rename vars for brevity
     const { marketplaceProjectData: market, poolProjectData: poolBalances } =
       data;
-    const { projectId } = new CreditId(data.key);
+    const { projectId, vintage } = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(projectId);
 
     if (carbonProject === undefined) {
       console.error(`Project detail not found for project ${projectId}`);
       return;
     }
+    if (poolBalances === undefined) {
+      console.error(`Pool Credits not found for project ${projectId}`);
+      return;
+    }
 
     const project = buildProjectEntry({
-      vintage:
-        poolBalances?.carbonCredits.at(0)?.vintage.toString() ??
-        market?.vintage ??
-        "",
+      vintage,
       listings: market?.listings,
       credits: poolBalances?.carbonCredits,
       projectDetails: carbonProject,
