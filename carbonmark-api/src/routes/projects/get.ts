@@ -99,6 +99,9 @@ const handler = (fastify: FastifyInstance) =>
       // Map the project credits to the correct map entry
       const [standard, registryProjectId] = project.projectID.split("-");
       project.carbonCredits.forEach((credit) => {
+        // Discard credits with no pool balances
+        if (credit.poolBalances.length == 0) return
+
         const { creditId: key } = new CreditId({
           standard,
           registryProjectId,
@@ -131,11 +134,13 @@ const handler = (fastify: FastifyInstance) =>
         vintage: project.vintage,
       });
       const existingData = ProjectMap.get(key);
-      ProjectMap.set(key, {
-        ...existingData,
-        key,
-        marketplaceProjectData: project,
-      });
+      if (existingData) {
+        ProjectMap.set(key, {
+          ...existingData,
+          key,
+          marketplaceProjectData: project,
+        });
+      }
     });
 
     /** Compose all the data together to unique entries (unsorted) */
