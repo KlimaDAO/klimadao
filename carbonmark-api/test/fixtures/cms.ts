@@ -32,6 +32,7 @@ const cmsProject = aProject({
 const carbonProject = {
   ...cmsProject,
   // override these because the type from aProject() is wrong
+  key: "VCS-191-2011",
   id: "VCS-191",
   methodologies: [
     {
@@ -40,7 +41,7 @@ const carbonProject = {
       name: "Grid-connected electricity generation from renewable sources",
     },
   ],
-  content: cmsProjectContent,
+  ...cmsProjectContent,
 };
 
 /** Fixtures for queries to the carbon-projects cms */
