@@ -17,7 +17,7 @@ export const getRedeemAllowance = async (params: {
   userAddress: string;
   token: CarbonmarkPaymentMethod;
 }) => {
-  if (params.token === "fiat") return; // typeguard
+  if (params.token === "fiat" || params.token === "bank-transfer") return; // typeguard
 
   const allowance = await getAllowance({
     contract: getContract({
@@ -45,7 +45,10 @@ export const redeemCarbonTransaction = async (params: {
   transactionHash: string;
 }> => {
   try {
-    if (params.paymentMethod === "fiat") {
+    if (
+      params.paymentMethod === "fiat" ||
+      params.paymentMethod === "bank-transfer"
+    ) {
       throw Error("Unsupported payment method");
     }
 
@@ -117,7 +120,10 @@ export const getRedeemCost = async (params: {
   quantity: string;
   isPoolDefault: boolean;
 }): Promise<string> => {
-  if (params.paymentMethod === "fiat") {
+  if (
+    params.paymentMethod === "fiat" ||
+    params.paymentMethod === "bank-transfer"
+  ) {
     throw Error("Unsupported payment method");
   }
 
