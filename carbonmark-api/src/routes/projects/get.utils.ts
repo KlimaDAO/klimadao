@@ -138,7 +138,9 @@ export type CMSDataMap = Map<ProjectIdentifier, CarbonProject>;
  */
 export const buildProjectEntry = (props: {
   vintage: string;
-  listings?: Pick<Listing, "singleUnitPrice" | "updatedAt">[] | null;
+  listings?:
+    | Pick<Listing, "singleUnitPrice" | "updatedAt" | "deleted" | "active">[]
+    | null;
   credits?: GetProjectCreditsQuery["carbonProjects"][0]["carbonCredits"];
   projectDetails: CarbonProject;
   allPoolPrices: Record<string, PoolPrice>;
@@ -150,8 +152,13 @@ export const buildProjectEntry = (props: {
       : [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
 
   // Compute best price
+  // For the purpose of computing the best price we only take into account active listings
+  const activeListings = props.listings?.filter(
+    (l) => !l.deleted && !!l.active
+  );
+
   const poolPriceValues = poolPrices.map((p) => Number(p.singleUnitPrice));
-  const listingPriceValues = compact(props.listings).map((l) =>
+  const listingPriceValues = compact(activeListings).map((l) =>
     Number(l.singleUnitPrice)
   );
 
@@ -204,7 +211,6 @@ export const buildProjectEntry = (props: {
     creditTokenAddress: props.credits?.at(0)?.id,
     updatedAt,
   };
-  console.log(props.credits)
   return projectResponse;
 };
 

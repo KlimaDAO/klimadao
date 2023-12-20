@@ -74,7 +74,7 @@ const handler = (fastify: FastifyInstance) =>
     });
     const detailedProject = {
       ...project,
-      listing: listingsWithProfiles,
+      listings: listingsWithProfiles,
     };
 
     return reply

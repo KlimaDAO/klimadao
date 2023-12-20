@@ -1447,7 +1447,7 @@ export const GetPurchaseByIdDocument = gql`
 export const GetUserByWalletDocument = gql`
     query getUserByWallet($wallet: String, $expiresAfter: BigInt, $minSupply: BigInt) {
   listings(
-    where: {seller: $wallet, expiration_gt: $expiresAfter, leftToSell_gt: $minSupply, active: true, deleted: false}
+    where: {seller: $wallet, expiration_gt: $expiresAfter, leftToSell_gt: $minSupply}
   ) {
     ...ListingFragment
   }
@@ -1468,9 +1468,7 @@ export const GetProjectsDocument = gql`
     where: {and: [{or: [{name_contains_nocase: $search}, {key_contains_nocase: $search}]}, {country_in: $country}, {category_in: $category}, {vintage_in: $vintage}]}
   ) {
     ...ProjectFragment
-    listings(
-      where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply, active: true, deleted: false}
-    ) {
+    listings(where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply}) {
       ...ListingFragment
     }
   }
@@ -1481,9 +1479,7 @@ export const GetProjectByIdDocument = gql`
     query getProjectById($projectId: ID!, $expiresAfter: BigInt, $minSupply: BigInt) {
   project(id: $projectId) {
     ...ProjectFragment
-    listings(
-      where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply, active: true, deleted: false}
-    ) {
+    listings(where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply}) {
       ...ListingFragment
     }
   }

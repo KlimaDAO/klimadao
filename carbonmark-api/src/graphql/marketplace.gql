@@ -47,8 +47,6 @@ query getUserByWallet(
       seller: $wallet
       expiration_gt: $expiresAfter
       leftToSell_gt: $minSupply
-      active: true
-      deleted: false
     }
   ) {
     ...ListingFragment
@@ -90,12 +88,7 @@ query getProjects(
   ) {
     ...ProjectFragment
     listings(
-      where: {
-        expiration_gt: $expiresAfter
-        leftToSell_gt: $minSupply
-        active: true
-        deleted: false
-      }
+      where: { expiration_gt: $expiresAfter, leftToSell_gt: $minSupply }
     ) {
       ...ListingFragment
     }
@@ -110,12 +103,7 @@ query getProjectById(
   project(id: $projectId) {
     ...ProjectFragment
     listings(
-      where: {
-        expiration_gt: $expiresAfter
-        leftToSell_gt: $minSupply
-        active: true
-        deleted: false
-      }
+      where: { expiration_gt: $expiresAfter, leftToSell_gt: $minSupply }
     ) {
       ...ListingFragment
     }
