@@ -13,17 +13,20 @@ import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import * as styles from "../styles";
+import * as styles from "./styles";
 
 type TotalValuesProps = {
   price: TokenPrice;
   project: DetailedProject;
+  actionLabel: string;
+  availableLabel: string;
+  polyscanUrl: string;
 };
 
 export const AssetDetails: FC<TotalValuesProps> = (props) => {
   const { locale } = useRouter();
   const tokenType = getPoolTokenType(
-    props.price.poolName as Uppercase<PoolToken>
+    props.price.poolName.toUpperCase() as Uppercase<PoolToken>
   );
   const tokenData = carbonTokenInfoMap[tokenType];
   const projectTokenName = createProjectTokenName(props.project, tokenType);
@@ -32,7 +35,7 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
   return (
     <Accordion label={t`Asset details`} className={styles.accordion}>
       <div className={styles.totalsText}>
-        <Text color="lightest">{t`Token you will receive`}</Text>
+        <Text color="lightest">{props.actionLabel}</Text>
         <div className={cx(styles.iconAndText)}>
           <div className="icon">
             <Image
@@ -46,16 +49,13 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
       <div className={styles.totalsText}>
-        <Text color="lightest">{t`Available to purchase`}</Text>
+        <Text color="lightest">{props.availableLabel}</Text>
         <Text t="h5">
           {availableTonnes} {t`Tonnes`}
         </Text>
       </div>
       <div className={styles.totalsText}>
-        <Anchor
-          className={styles.iconAndText}
-          href={`https://polygonscan.com/token/${props.price.projectTokenAddress}`}
-        >
+        <Anchor className={styles.iconAndText} href={props.polyscanUrl}>
           <Text className={styles.externalLink} t="body2">
             {t`View on PolygonScan`} <LaunchIcon />
           </Text>

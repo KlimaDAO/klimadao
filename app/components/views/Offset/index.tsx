@@ -41,6 +41,12 @@ export const Offset = (props: Props) => {
                 live implementation.
               </Trans>
             </Text>
+            <Text t="caption" className={styles.ctaCard_header_subtitle}>
+              <Trans>
+                For users who want to offset paying with a pool token, please
+                use <a href={`${urls.appLegacy}/#/offset`}>this site</a>.
+              </Trans>
+            </Text>
           </div>
         </div>
       </div>
