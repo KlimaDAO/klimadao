@@ -1,24 +1,42 @@
-import nock from "nock";
+import nock, { Interceptor } from "nock";
+import {
+  Project as CMSProject,
+  ProjectContent as CMSProjectContent,
+} from "src/.generated/types/cms.types";
 import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
 import { Project } from "src/.generated/types/marketplace.types";
 import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
 import { fixtures } from "../../fixtures";
 
-export const mockCms = () =>
-  nock(SANITY_URLS.cms)
-    .post("", (body) => body.query.includes("getAllCMSProjects"))
+/**
+ * We need to track the interceptor so we can remove nocks later
+ * @todo do this for all other nocks or in a more repeatable manner
+ */
+let cmsInterceptor: Interceptor;
+
+export const mockCms = (overrides?: {
+  projects?: CMSProject[];
+  content?: CMSProjectContent[];
+}) => {
+  if (cmsInterceptor) nock.removeInterceptor(cmsInterceptor);
+  cmsInterceptor = nock(SANITY_URLS.cms).post("", (body) =>
+    body.query.includes("getAllCMSProjects")
+  );
+  return cmsInterceptor
     .reply(200, {
       data: {
-        allProject: [fixtures.cms.cmsProject],
+        allProject: overrides?.projects ?? [fixtures.cms.cmsProject],
       },
     })
     .post("", (body) => body.query.includes("getAllCMSProjectContent"))
     .reply(200, {
       data: {
-        allProjectContent: [fixtures.cms.cmsProjectContent],
+        allProjectContent: overrides?.content ?? [
+          fixtures.cms.cmsProjectContent,
+        ],
       },
-    })
-    .persist();
+    });
+};
 
 export const mockTokens = () =>
   nock(GRAPH_URLS["polygon"].tokens)

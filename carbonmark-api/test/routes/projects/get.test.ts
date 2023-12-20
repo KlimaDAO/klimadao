@@ -28,6 +28,20 @@ const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
 const mockMarketplaceProject = fixtures.marketplace.projectWithListing;
 const mockDigitalCarbonProject = fixtures.digitalCarbon.digitalCarbonProject;
 
+const anotherCarbonProject: CarbonProject = {
+  ...cloneDeep(mockDigitalCarbonProject),
+  id: "VCS-111",
+  projectID: "VCS-111",
+  registry: Registry.Verra,
+};
+const anotherMarketplaceProject: MarketplaceProject = {
+  ...cloneDeep(mockMarketplaceProject),
+  id: "VCS-111-2000",
+  key: "VCS-111",
+  registry: "VCS",
+  vintage: "2000",
+};
+
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
 
@@ -40,10 +54,10 @@ describe("GET /projects", () => {
 
   // Setup default mocks
   beforeEach(async () => {
-    mockMarketplaceArgs().persist(true);
-    mockDigitalCarbonArgs().persist(true);
-    mockTokens().persist(true);
-    mockCms().persist(true);
+    mockMarketplaceArgs();
+    mockDigitalCarbonArgs();
+    mockTokens();
+    mockCms();
   });
 
   // /** The happy path */
@@ -241,24 +255,10 @@ describe("GET /projects", () => {
     );
   });
 
-  describe("Projects with 'dust' (supply less than 1 tonne) should be filtered", () => {
+  describe("Supply filtering", () => {
     let projects: Project[];
 
-    const anotherCarbonProject: CarbonProject = {
-      ...cloneDeep(mockDigitalCarbonProject),
-      id: "VCS-111",
-      projectID: "VCS-111",
-      registry: Registry.Verra,
-    };
-    const anotherMarketplaceProject: MarketplaceProject = {
-      ...cloneDeep(mockMarketplaceProject),
-      id: "VCS-111-2000",
-      key: "VCS-111",
-      registry: "VCS",
-      vintage: "2000",
-    };
-
-    test("No filtering when supply greater than 1 (DigitalCarbon)", async () => {
+    test("No filtering when supply greater than 0 (DigitalCarbon)", async () => {
       mockMarketplaceProjects([]);
       //Return two projects with supply
       mockDigitalCarbonProjects([
@@ -270,7 +270,7 @@ describe("GET /projects", () => {
       expect(projects.length).toBe(2);
     });
 
-    test("No filtering when supply greater than 1 (Marketplace)", async () => {
+    test("No filtering when supply greater than 0 (Marketplace)", async () => {
       //Mock digital carbon with no supply
       mockDigitalCarbonProjects([]);
       mockMarketplaceProjects([
@@ -326,9 +326,55 @@ describe("GET /projects", () => {
       ).toBeGreaterThan(0);
     });
   });
-});
 
-test.skip("There should be no duplicates in the results", () => {});
+  describe("Duplicate filtering", () => {
+    test("Marketplace projects", async () => {
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        anotherMarketplaceProject,
+      ]);
+      mockDigitalCarbonProjects([]);
+
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+    test("DigitalCarbon projects", async () => {
+      mockMarketplaceProjects([]);
+      //Return two projects with supply
+      mockDigitalCarbonProjects([
+        mockDigitalCarbonProject,
+        anotherCarbonProject,
+      ]);
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+    test("Marketplace & DigitalCarbon projects", async () => {
+      mockMarketplaceProjects([mockMarketplaceProject]);
+      /** Make sure this carbon project matches the marketplace project */
+      const matchingCarbonProject = set(
+        cloneDeep(mockDigitalCarbonProject),
+        "carbonCredits[0].vintage",
+        "2008"
+      );
+      //Return two projects with supply
+      mockDigitalCarbonProjects([matchingCarbonProject]);
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+  });
+
+  test("Subgraph fields should be sanitised", async () => {
+    const modifiedCmsProject = cloneDeep(fixtures.cms.cmsProject);
+    set(modifiedCmsProject, "country", "    lots-of-spaces   ");
+    mockMarketplaceProjects();
+    mockDigitalCarbonProjects();
+    mockCms({ projects: [modifiedCmsProject] });
+
+    const projects: Project[] = await mock_fetch(fastify, "/projects");
+    expect(projects.length).toBe(2);
+    expect(projects.at(0)?.country.id).toBe("lots-of-spaces");
+  });
+});
 
 test.skip("Project fields should be sanitised", () => {});
 
