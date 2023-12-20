@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { cloneDeep, pick, set } from "lodash";
+import { clone, cloneDeep, pick, set } from "lodash";
 import nock from "nock";
 import {
   CarbonProject,
@@ -247,6 +247,7 @@ describe("GET /projects", () => {
     const anotherCarbonProject: CarbonProject = {
       ...cloneDeep(mockDigitalCarbonProject),
       id: "VCS-111",
+      projectID: "VCS-111",
       registry: Registry.Verra,
     };
     const anotherMarketplaceProject: MarketplaceProject = {
@@ -258,7 +259,7 @@ describe("GET /projects", () => {
     };
 
     test("No filtering when supply greater than 1 (DigitalCarbon)", async () => {
-      mockMarketplaceProjects();
+      mockMarketplaceProjects([]);
       //Return two projects with supply
       mockDigitalCarbonProjects([
         mockDigitalCarbonProject,
@@ -283,38 +284,43 @@ describe("GET /projects", () => {
 
     test("DigitalCarbon projects are filtered", async () => {
       //Mock digital carbon with no supply
-      anotherCarbonProject.carbonCredits[0].poolBalances[0].balance = "0";
-      mockDigitalCarbonProjects([
-        mockDigitalCarbonProject,
-        anotherCarbonProject,
-      ]);
+      const emptyCarbonProject = set(
+        clone(anotherCarbonProject),
+        "carbonCredits[0].poolBalances[0].balance",
+        "0"
+      );
+      mockDigitalCarbonProjects([mockDigitalCarbonProject, emptyCarbonProject]);
 
       //Remove all marketplace projects
       mockMarketplaceProjects([]);
 
       projects = await mock_fetch(fastify, "/projects");
       expect(projects.length).toBe(1);
-      expect(
-        Number(projects.at(0)?.listings?.at(0)?.leftToSell)
-      ).toBeGreaterThan(0);
+
+      expect(projects.at(0)?.key).toBe("VCS-191");
     });
 
     test("Marketplace projects are filtered", async () => {
       //Mock no digitalCarbon projects
       mockDigitalCarbonProjects([]);
 
-      set(anotherMarketplaceProject, "listings[0].leftToSell", "0");
+      const emptyMarketplaceProject = set(
+        clone(anotherMarketplaceProject),
+        "listings[0].leftToSell",
+        "0"
+      );
 
       //Mock two projects
       mockMarketplaceProjects([
         mockMarketplaceProject,
-        anotherMarketplaceProject,
+        emptyMarketplaceProject,
       ]);
 
       projects = await mock_fetch(fastify, "/projects");
 
       //Only one should be returned
       expect(projects.length).toBe(1);
+      //Confirm the correct supply is present
       expect(
         Number(projects.at(0)?.listings?.at(0)?.leftToSell)
       ).toBeGreaterThan(0);
