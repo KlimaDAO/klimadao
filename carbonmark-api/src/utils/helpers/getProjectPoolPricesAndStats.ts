@@ -6,11 +6,11 @@ import { getProjectPoolInfo, Stats } from "./getProjectPoolInfo";
 
 /**
  * Get the project poolPrices given the project credits and the current pool prices
- * @param 
+ * @param
  * @returns {Promise<[ProjectPoolPrice[], Stats]>} - 1 entry for each asset. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
 export const getProjectPoolPricesAndStats = (
-  credits : GetProjectCreditsQuery["carbonProjects"][0]["carbonCredits"],
+  credits: GetProjectCreditsQuery["carbonProjects"][0]["carbonCredits"],
   allPoolPrices: Record<string, PoolPrice>
 ): [TokenPriceT[], Stats] => {
   const [poolInfoMap, stats] = getProjectPoolInfo(credits);

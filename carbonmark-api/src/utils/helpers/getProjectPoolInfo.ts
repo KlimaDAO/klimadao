@@ -72,7 +72,6 @@ type CarbonCredit = {
 
 type CarbonCredits = CarbonCredit[];
 
-
 /**
  * Returns a project pool info given the token credits of this project
  * @param {Params} params
@@ -80,9 +79,9 @@ type CarbonCredits = CarbonCredit[];
  * @returns {Promise<[PoolInfoMap, Stats]>}
  * A map of project token info for each pool. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
-export const getProjectPoolInfo = 
-  (tokens: CarbonCredits): [Partial<PoolInfoMap>, Stats] => {
-
+export const getProjectPoolInfo = (
+  tokens: CarbonCredits
+): [Partial<PoolInfoMap>, Stats] => {
   // Graph data is in 18 decimals. All operations are performed in BigNumber before converting to Number at the end
   const bigNumberStats: BigNumberStats = tokens.reduce(
     (stat, token) => ({
@@ -150,5 +149,4 @@ export const getProjectPoolInfo =
   );
 
   return [poolInfoMap, stats];
-
-}
+};

@@ -100,7 +100,7 @@ const handler = (fastify: FastifyInstance) =>
       const [standard, registryProjectId] = project.projectID.split("-");
       project.carbonCredits.forEach((credit) => {
         // Discard credits with no pool balances
-        if (credit.poolBalances.length == 0) return
+        if (credit.poolBalances.length == 0) return;
 
         const { creditId: key } = new CreditId({
           standard,
