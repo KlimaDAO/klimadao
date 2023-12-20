@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-19 00:27+0000\n"
+"POT-Creation-Date: 2023-12-19 22:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -109,8 +109,7 @@ msgstr "资产详情"
 msgid "Asset ID"
 msgstr "资产编号"
 
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
+#: components/AssetDetails/index.tsx:36
 msgid "Asset details"
 msgstr "资产详情"
 
@@ -144,12 +143,12 @@ msgstr "超出可用供应"
 msgid "Available to list: {0}"
 msgstr "可供列出：{0}"
 
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:207
 msgid "Available to purchase"
 msgstr "可供购买"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:34
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:49
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:336
 msgid "Available to retire"
 msgstr "可停用"
 
@@ -1093,7 +1092,7 @@ msgstr "停用成功！"
 msgid "Retirement successful"
 msgstr "碳停用成功"
 
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:35
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:335
 msgid "Retiring Token"
 msgstr "碳停用代币"
 
@@ -1326,7 +1325,7 @@ msgstr "切换付款方式"
 msgid "Toggle sort menu"
 msgstr "切换排序菜单"
 
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:35
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:206
 msgid "Token you will receive"
 msgstr "您将收到的代币"
 
@@ -1334,11 +1333,10 @@ msgstr "您将收到的代币"
 msgid "Tokens received:"
 msgstr "收到的代币："
 
+#: components/AssetDetails/index.tsx:54
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:51
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:84
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:88
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:186
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:152
 msgid "Tonnes"
@@ -1487,8 +1485,7 @@ msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 msgid "View and share certificate"
 msgstr "查看和共享证书"
 
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:60
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:60
+#: components/AssetDetails/index.tsx:60
 msgid "View on PolygonScan"
 msgstr "在 PolygonScan 上查看"
 
