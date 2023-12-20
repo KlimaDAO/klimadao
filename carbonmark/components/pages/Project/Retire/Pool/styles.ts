@@ -1,31 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const accordion = css`
-  border: none;
-
-  button {
-    padding: 0;
-
-    > p {
-      font-size: 2rem !important;
-      font-weight: 700;
-      line-height: 2.8rem;
-      color: var(--font-02);
-    }
-  }
-
-  &[data-open="true"] {
-    .content {
-      padding: 0;
-
-      > div {
-        margin-top: 1.6rem;
-      }
-    }
-  }
-`;
-
 export const price = css`
   height: 3.6rem;
   align-self: start;
@@ -207,20 +182,6 @@ export const totalsText = css`
 export const divider = css`
   height: 0.1rem;
   background-color: var(--font-03);
-`;
-
-export const externalLink = css`
-  color: var(--font-01);
-  text-decoration: underline;
-  display: flex;
-  gap: 0.4rem;
-  align-items: center;
-
-  &:hover,
-  &:visited {
-    color: var(--font-02);
-    text-decoration: none;
-  }
 `;
 
 export const breakText = css`
