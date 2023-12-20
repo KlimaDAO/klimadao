@@ -42,7 +42,7 @@ export interface Props {
 }
 
 export const RetireForm: FC<Props> = (props) => {
-  const { asPath } = useRouter();
+  const router = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -81,8 +81,6 @@ export const RetireForm: FC<Props> = (props) => {
     name: "paymentMethod",
     control: methods.control,
   });
-
-  const router = useRouter();
 
   useEffect(() => {
     // for the usdc icons to be visible for the required transition
@@ -133,16 +131,15 @@ export const RetireForm: FC<Props> = (props) => {
 
   const showTransactionView = !!inputValues && !!allowanceValue;
 
-  const disableSubmit = () => {
-    if (!quantity || Number(quantity) <= 0) return true;
-    if (paymentMethod === "fiat") {
-      return Number(costs) < Number(fiatMinimum);
-    } else if (paymentMethod === "bank-transfer") {
-      return Number(quantity) < Number(MINIMUM_TONNE_QUANTITY_BANK_TRANSFER);
-    } else {
-      return Number(quantity) < Number(MINIMUM_TONNE_QUANTITY);
-    }
-  };
+  const isQuantityValid = !quantity || Number(quantity) <= 0;
+
+  const disableSubmit =
+    isQuantityValid ||
+    (paymentMethod === "fiat"
+      ? Number(costs) < Number(fiatMinimum)
+      : paymentMethod === "bank-transfer"
+      ? Number(quantity) < Number(MINIMUM_TONNE_QUANTITY_BANK_TRANSFER)
+      : Number(quantity) < Number(MINIMUM_TONNE_QUANTITY));
 
   const resetStateAndCancel = () => {
     setInputValues(null);
@@ -176,7 +173,7 @@ export const RetireForm: FC<Props> = (props) => {
     try {
       setIsRedirecting(true);
       await redirectFiatCheckout({
-        cancelUrl: `${urls.baseUrl}${asPath}`,
+        cancelUrl: `${urls.baseUrl}${router.asPath}`,
         referrer: "carbonmark",
         retirement: reqParams,
       });
@@ -350,7 +347,7 @@ export const RetireForm: FC<Props> = (props) => {
                 isLoading={isLoadingAllowance}
                 className={styles.showOnDesktop}
                 paymentMethod={paymentMethod}
-                disabled={disableSubmit()}
+                disabled={disableSubmit}
               />
               {errorMessage && <Text>{errorMessage}</Text>}
             </div>
@@ -386,7 +383,7 @@ export const RetireForm: FC<Props> = (props) => {
             isLoading={isLoadingAllowance}
             className={styles.hideOnDesktop}
             paymentMethod={paymentMethod}
-            disabled={disableSubmit()}
+            disabled={disableSubmit}
           />
         </Col>
       </TwoColLayout>
