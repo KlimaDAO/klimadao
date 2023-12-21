@@ -99,6 +99,11 @@ export const isValidPoolProject = (project: CarbonProjectType) => {
   );
 };
 
+export const isActiveListing = (l: {
+  active?: boolean | null;
+  deleted?: boolean | null;
+  leftToSell?: string | null;
+}) => !!l.active && !l.deleted && BigInt(l.leftToSell || "") >= 1;
 /**
  * For marketplace subgraph projects
  * Returns true if project has an active, unexpired listing
@@ -107,7 +112,8 @@ export const isValidMarketplaceProject = (
   project: GetProjectsQuery["projects"][number]
 ) => {
   if (!project?.listings) return false;
-  return !!project.listings.length;
+  const validProjects = project.listings.filter(isActiveListing);
+  return !!validProjects.length;
 };
 
 /** The specific CarbonOffset type from the find findDigitalCarbon query*/
