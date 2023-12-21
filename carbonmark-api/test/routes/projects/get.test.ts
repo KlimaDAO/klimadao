@@ -47,6 +47,19 @@ const poolPrices = {
   },
 };
 
+const credit = fixtures.digitalCarbon.digitalCarbonProject.carbonCredits[0];
+const expectedPrices = [
+  {
+    isPoolDefault: true,
+    poolAddress: credit?.poolBalances[0].pool.id,
+    poolName: "bct",
+    projectTokenAddress:
+      fixtures.digitalCarbon.digitalCarbonProject.carbonCredits[0].id,
+    singleUnitPrice: poolPrices.bct.defaultPrice,
+    supply: "320307.9104911482",
+  },
+];
+
 //@todo this is super fragile, need to refactor or use nock
 jest.mock("../../../src/utils/helpers/fetchAllPoolPrices", () => ({
   fetchAllPoolPrices: jest.fn(() => poolPrices),
@@ -162,6 +175,7 @@ describe("GET /projects", () => {
         name: mockCmsProject.name,
         // applies short_description property from cms
         short_description: mockCmsProjectContent?.shortDescription,
+        long_description: mockCmsProjectContent?.longDescription,
         // Takes numeric from full id, "VCS-191" -> "191"
         projectID: digitalCarbon.digitalCarbonProject.projectID.split("-")[1],
         vintage:
@@ -173,12 +187,16 @@ describe("GET /projects", () => {
         updatedAt:
           digitalCarbon.digitalCarbonProject.carbonCredits[0].poolBalances[0]
             .pool.dailySnapshots[0].lastUpdateTimestamp,
-        country: {
-          id: mockCmsProject.country,
-        },
+        country: mockCmsProject.country,
         price: poolPrices["bct"].defaultPrice,
-        listings: null,
-        key: digitalCarbon.digitalCarbonProject.projectID,
+        prices: expectedPrices,
+        key: mockCmsProject.key,
+        stats: {
+          totalBridged: 320308,
+          totalRetired: 0,
+          totalSupply: 320308,
+        },
+        url: mockCmsProject.url,
         location: {
           geometry: {
             coordinates: [
@@ -191,7 +209,7 @@ describe("GET /projects", () => {
         },
         images: mockCmsProjectContent.images?.map((img) => ({
           url: img?.asset?.url,
-          caption: img?.asset?.description,
+          caption: img?.asset?.altText,
         })),
       },
     ];
