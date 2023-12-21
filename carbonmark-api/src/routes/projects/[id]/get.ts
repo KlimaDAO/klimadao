@@ -68,7 +68,7 @@ const handler = (fastify: FastifyInstance) =>
       // only render pages if project details exist (render even if there are no listings!)
       return reply.notFound();
     }
-    const poolProject = digitalCarbonCredits?.carbonProjects.at(0);
+    const poolProject = digitalCarbonCredits?.carbonProjects?.at(0);
 
     const project = buildProjectEntry({
       creditId,
