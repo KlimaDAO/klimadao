@@ -23,7 +23,7 @@ jobs:
 
       - name: Check version update
         run: |
-          VERSION_CHANGED=$(git diff origin/main HEAD -- 'carbonmark-api/package.json' | grep '"version":')
+          VERSION_CHANGED=$(git diff origin/${{ github.base_ref }} HEAD -- 'carbonmark-api/package.json' | grep '"version":')
           if [ -z "$VERSION_CHANGED" ]; then
             echo "You must update the version line in package.json when changing files in your-directory"
             exit 1
