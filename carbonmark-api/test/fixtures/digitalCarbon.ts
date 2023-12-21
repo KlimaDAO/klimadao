@@ -71,7 +71,12 @@ const empty_countries = {
   },
 };
 
+export const token = {
+  symbol: "TCO2-VCS-1764-2020",
+};
+
 const fixtures = {
+  token,
   empty_countries,
   digitalCarbonProject,
 };
