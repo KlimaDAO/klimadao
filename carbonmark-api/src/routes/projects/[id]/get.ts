@@ -20,12 +20,13 @@ const handler = (fastify: FastifyInstance) =>
     const { id } = request.params;
     const network = request.query.network || "polygon";
     const sdk = gql_sdk(network);
+    const creditId = new CreditId(id);
     const {
       vintage,
       standard: registry,
       registryProjectId,
       projectId: key,
-    } = new CreditId(id);
+    } = creditId;
     let digitalCarbonCredits, marketplaceProject, allPoolPrices, cmsProject;
     try {
       [
@@ -65,8 +66,8 @@ const handler = (fastify: FastifyInstance) =>
     const poolProject = digitalCarbonCredits?.carbonProjects.at(0);
 
     const project = buildProjectEntry({
-      vintage,
-      listings,
+      creditId,
+      marketplaceProject,
       poolProject,
       cmsProject,
       allPoolPrices,

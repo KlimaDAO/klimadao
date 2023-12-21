@@ -137,12 +137,8 @@ export type CMSDataMap = Map<ProjectIdentifier, CarbonProject>;
  *  - network
  */
 export const buildProjectEntry = (props: {
-  vintage: string;
+  creditId: CreditId;
   marketplaceProject?: GetProjectByIdQuery["project"];
-  /*
-  listings?:
-    | Pick<Listing, "singleUnitPrice" | "updatedAt" | "deleted" | "active">[]
-    | null;*/
   poolProject?: GetProjectCreditsQuery["carbonProjects"][0];
   cmsProject?: CarbonProject;
   allPoolPrices: Record<string, PoolPrice>;
@@ -184,31 +180,45 @@ export const buildProjectEntry = (props: {
   const mostRecentTimestamp = max(timestamps);
   const updatedAt = youngestListing?.updatedAt ?? mostRecentTimestamp ?? "";
 
+  const [c, p, m] = [
+    props.cmsProject,
+    props.poolProject,
+    props.marketplaceProject,
+  ];
+
   // Build project
   const projectResponse: Project = {
-    country: props.cmsProject?.country || "",
-    description: props.cmsProject?.description,
-    key: props.cmsProject?.key || "",
-    registry: props.cmsProject?.registry || "",
-    url: props.cmsProject?.url || "",
-    name: props.cmsProject?.name || "",
-    /** Sanitize category values */
-    methodologies: props.cmsProject?.methodologies?.map(mapValues(trim)) ?? [],
-    short_description: props.cmsProject?.shortDescription,
-    long_description: props.cmsProject?.longDescription,
-    projectID: props.cmsProject?.registryProjectId || "",
-    location: toGeoJSON(props.cmsProject?.geolocation),
-    price: String(bestPrice ?? 0), // remove trailing zeros
-    prices: poolPrices,
+    // Project identification
+    key: props.creditId.projectId,
+    projectID: props.creditId.projectId,
+    registry: props.creditId.standard,
+    vintage: props.creditId.vintage,
+    // Data with fallback
+    country: c?.country || p?.country || m?.country.id || "",
+    name: c?.name || p?.name || m?.name || "",
+    methodologies:
+      c?.methodologies?.map(mapValues(trim)) ||
+      p?.methodologies.split(",")?.map(mapValues(trim)) ||
+      m?.methodology.split(",")?.map(mapValues(trim)) ||
+      [],
+    region: c?.region || p?.region || "",
+    // CMS specific data
+    description: c?.description,
+    short_description: c?.shortDescription,
+    long_description: c?.longDescription,
+    url: c?.url,
     images:
-      props.cmsProject?.images?.map((image) => ({
+      c?.images?.map((image) => ({
         caption: image?.asset?.altText || "",
         url: image?.asset?.url || "",
       })) ?? [],
-    vintage: props.vintage,
+    location: toGeoJSON(c?.geolocation),
+    // Pool specific data
+    prices: poolPrices,
     stats,
-    region: props.cmsProject?.region || "",
     creditTokenAddress: credits?.at(0)?.id,
+    // Aggregated data
+    price: String(bestPrice ?? 0), // remove trailing zeros
     updatedAt,
   };
   return projectResponse;
@@ -226,11 +236,11 @@ export const composeProjectEntries = (
 ): Project[] => {
   const entries: Project[] = [];
   projectDataMap.forEach((data) => {
-    const { projectId, vintage } = new CreditId(data.key);
-    const carbonProject = cmsDataMap.get(projectId);
+    const creditId = new CreditId(data.key);
+    const carbonProject = cmsDataMap.get(creditId.projectId);
 
     const project = buildProjectEntry({
-      vintage,
+      creditId,
       marketplaceProject: data.marketplaceProjectData,
       poolProject: data.poolProjectData,
       cmsProject: carbonProject,
