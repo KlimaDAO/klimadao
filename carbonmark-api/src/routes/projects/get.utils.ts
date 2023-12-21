@@ -36,6 +36,7 @@ import {
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
+import { formatListing } from "../../utils/marketplace.utils";
 import { POOL_INFO } from "./get.constants";
 
 /**
@@ -145,7 +146,9 @@ export const buildProjectEntry = (props: {
   network: "polygon" | "mumbai" | undefined;
 }): Project => {
   const credits = props.poolProject?.carbonCredits;
-  const listings = compact(props.marketplaceProject?.listings) || [];
+  const listings = props.marketplaceProject?.listings
+    ? compact(props.marketplaceProject?.listings?.map(formatListing))
+    : undefined;
 
   const [poolPrices, stats] =
     props.network === "polygon" && credits
@@ -178,7 +181,9 @@ export const buildProjectEntry = (props: {
     });
   });
   const mostRecentTimestamp = max(timestamps);
-  const updatedAt = youngestListing?.updatedAt ?? mostRecentTimestamp ?? "";
+  const updatedAt = String(
+    youngestListing?.updatedAt ?? mostRecentTimestamp ?? ""
+  );
 
   const [c, p, m] = [
     props.cmsProject,
@@ -190,7 +195,7 @@ export const buildProjectEntry = (props: {
   const projectResponse: Project = {
     // Project identification
     key: props.creditId.projectId,
-    projectID: props.creditId.projectId,
+    projectID: props.creditId.registryProjectId,
     registry: props.creditId.standard,
     vintage: props.creditId.vintage,
     // Data with fallback
@@ -216,7 +221,9 @@ export const buildProjectEntry = (props: {
     // Pool specific data
     prices: poolPrices,
     stats,
-    creditTokenAddress: credits?.at(0)?.id,
+    creditTokenAddress: credits?.at(0)?.id ?? "",
+    // Marketplace specific data
+    listings,
     // Aggregated data
     price: String(bestPrice ?? 0), // remove trailing zeros
     updatedAt,
@@ -235,10 +242,10 @@ export const composeProjectEntries = (
   network: "polygon" | "mumbai" | undefined
 ): Project[] => {
   const entries: Project[] = [];
+
   projectDataMap.forEach((data) => {
     const creditId = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(creditId.projectId);
-
     const project = buildProjectEntry({
       creditId,
       marketplaceProject: data.marketplaceProjectData,

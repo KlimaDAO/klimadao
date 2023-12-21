@@ -134,13 +134,11 @@ const handler = (fastify: FastifyInstance) =>
         vintage: project.vintage,
       });
       const existingData = ProjectMap.get(key);
-      if (existingData) {
-        ProjectMap.set(key, {
-          ...existingData,
-          key,
-          marketplaceProjectData: project,
-        });
-      }
+      ProjectMap.set(key, {
+        ...existingData,
+        key,
+        marketplaceProjectData: project,
+      });
     });
 
     /** Compose all the data together to unique entries (unsorted) */

@@ -2,7 +2,6 @@ import { FastifyInstance } from "fastify";
 import { sortBy } from "lodash";
 import { Listing } from "../../models/Listing.model";
 import { GQL_SDK } from "../gqlSdk";
-import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
 import { formatTonnesForSubGraph } from "./utils";
 
@@ -27,10 +26,9 @@ export const getCreditListings = async (
 };
 
 export const addProfilesToListings = async (
-  listings: GetProjectListing[],
+  formattedListings: Listing[],
   fastify: FastifyInstance
 ): Promise<Listing[]> => {
-  const formattedListings = listings.map(formatListing);
   const userIds = new Set<string>();
   formattedListings.forEach((listing) =>
     userIds.add(listing.seller.id.toLowerCase())

@@ -59,6 +59,10 @@ const expectedPrices = [
     supply: "320307.9104911482",
   },
 ];
+const expectedImages = mockCmsProjectContent.images?.map((img) => ({
+  url: img?.asset?.url,
+  caption: img?.asset?.altText,
+}));
 
 //@todo this is super fragile, need to refactor or use nock
 jest.mock("../../../src/utils/helpers/fetchAllPoolPrices", () => ({
@@ -127,7 +131,6 @@ describe("GET /projects", () => {
 
   // /** The happy path */
   test("Returns 200", async () => {
-    return;
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, {
@@ -146,7 +149,6 @@ describe("GET /projects", () => {
   });
 
   test("Composes a marketplace listing with a pool project data", async () => {
-    return;
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, {
@@ -192,7 +194,7 @@ describe("GET /projects", () => {
         country: mockCmsProject.country,
         price: poolPrices["bct"].defaultPrice,
         prices: expectedPrices,
-        key: mockCmsProject.key,
+        key: digitalCarbon.digitalCarbonProject.id,
         stats: {
           totalBridged: 320308,
           totalRetired: 0,
@@ -209,10 +211,7 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
-        images: mockCmsProjectContent.images?.map((img) => ({
-          url: img?.asset?.url,
-          caption: img?.asset?.altText,
-        })),
+        images: expectedImages,
       },
     ];
 
@@ -239,9 +238,7 @@ describe("GET /projects", () => {
         ...pick(marketplace.projectWithListing, ["key", "vintage"]),
         ...pick(mockCmsProject, ["description", "name", "methodologies"]),
         short_description: mockCmsProjectContent?.shortDescription,
-        country: {
-          id: mockCmsProject.country,
-        },
+        country: mockCmsProject.country,
         price: "99",
         updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
         listings: [
@@ -268,10 +265,7 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
-        images: mockCmsProjectContent?.images?.map((img) => ({
-          url: img?.asset?.url,
-          caption: img?.asset?.description,
-        })),
+        images: expectedImages,
       },
     ];
 
@@ -282,7 +276,6 @@ describe("GET /projects", () => {
   /** PRICES NOT YET ON SUBGRAPH */
 
   test("Best price is listing price", async () => {
-    return;
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, {
@@ -321,7 +314,6 @@ describe("GET /projects", () => {
   });
 
   test("Best price is the lowest of 2 pool prices", async () => {
-    return;
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, {

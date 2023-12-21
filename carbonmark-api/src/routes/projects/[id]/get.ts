@@ -5,6 +5,7 @@ import { fetchCarbonProject } from "../../../utils/helpers/cms.utils";
 import { fetchAllPoolPrices } from "../../../utils/helpers/fetchAllPoolPrices";
 import { addProfilesToListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { formatTonnesForSubGraph } from "../../../utils/helpers/utils";
+import { formatListing } from "../../../utils/marketplace.utils";
 import { buildProjectEntry } from "../get.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
@@ -57,7 +58,11 @@ const handler = (fastify: FastifyInstance) =>
       throw error;
     }
     const listings = marketplaceProject?.listings || [];
-    const listingsWithProfiles = await addProfilesToListings(listings, fastify);
+    const formattedListings = listings.map(formatListing);
+    const listingsWithProfiles = await addProfilesToListings(
+      formattedListings,
+      fastify
+    );
 
     if (!cmsProject) {
       // only render pages if project details exist (render even if there are no listings!)
