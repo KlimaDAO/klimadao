@@ -16,8 +16,8 @@ import {
   GetProjectCreditsQuery,
 } from "../../.generated/types/digitalCarbon.types";
 import {
+  GetProjectByIdQuery,
   GetProjectsQuery,
-  Listing,
 } from "../../.generated/types/marketplace.types";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";
@@ -138,23 +138,26 @@ export type CMSDataMap = Map<ProjectIdentifier, CarbonProject>;
  */
 export const buildProjectEntry = (props: {
   vintage: string;
+  marketplaceProject?: GetProjectByIdQuery["project"];
+  /*
   listings?:
     | Pick<Listing, "singleUnitPrice" | "updatedAt" | "deleted" | "active">[]
-    | null;
-  credits?: GetProjectCreditsQuery["carbonProjects"][0]["carbonCredits"];
-  projectDetails: CarbonProject;
+    | null;*/
+  poolProject?: GetProjectCreditsQuery["carbonProjects"][0];
+  cmsProject?: CarbonProject;
   allPoolPrices: Record<string, PoolPrice>;
   network: "polygon" | "mumbai" | undefined;
 }): Project => {
+  const credits = props.poolProject?.carbonCredits;
+  const listings = compact(props.marketplaceProject?.listings) || [];
+
   const [poolPrices, stats] =
-    props.network === "polygon" && props.credits
-      ? getProjectPoolPricesAndStats(props.credits, props.allPoolPrices)
+    props.network === "polygon" && credits
+      ? getProjectPoolPricesAndStats(credits, props.allPoolPrices)
       : [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
   // Compute best price
   // For the purpose of computing the best price we only take into account active listings
-  const activeListings = props.listings?.filter(
-    (l) => !l.deleted && !!l.active
-  );
+  const activeListings = listings?.filter((l) => !l.deleted && !!l.active);
 
   const poolPriceValues = poolPrices.map((p) => Number(p.singleUnitPrice));
   const listingPriceValues = compact(activeListings).map((l) =>
@@ -168,11 +171,10 @@ export const buildProjectEntry = (props: {
   )(poolPriceValues, listingPriceValues);
 
   // Compute updateAt
-  const listings = compact(props.listings || []);
   const youngestListing = maxBy(listings, (l) => Number(l.updatedAt));
   // if project has listings, use that value first, because the pool `lastUpdate` value is less relevant for users
   const timestamps: string[] = [];
-  props.credits?.forEach((credit) => {
+  credits?.forEach((credit) => {
     credit.poolBalances.forEach((poolBalance) => {
       poolBalance.pool.dailySnapshots.forEach((snapshot) => {
         timestamps.push(snapshot.lastUpdateTimestamp);
@@ -184,30 +186,29 @@ export const buildProjectEntry = (props: {
 
   // Build project
   const projectResponse: Project = {
-    country: props.projectDetails.country || "",
-    description: props.projectDetails.description,
-    key: props.projectDetails.key,
-    registry: props.projectDetails.registry || "",
-    url: props.projectDetails.url || "",
-    name: props.projectDetails.name || "",
+    country: props.cmsProject?.country || "",
+    description: props.cmsProject?.description,
+    key: props.cmsProject?.key || "",
+    registry: props.cmsProject?.registry || "",
+    url: props.cmsProject?.url || "",
+    name: props.cmsProject?.name || "",
     /** Sanitize category values */
-    methodologies:
-      props.projectDetails.methodologies?.map(mapValues(trim)) ?? [],
-    short_description: props.projectDetails.shortDescription,
-    long_description: props.projectDetails.longDescription,
-    projectID: props.projectDetails.registryProjectId || "",
-    location: toGeoJSON(props.projectDetails.geolocation),
+    methodologies: props.cmsProject?.methodologies?.map(mapValues(trim)) ?? [],
+    short_description: props.cmsProject?.shortDescription,
+    long_description: props.cmsProject?.longDescription,
+    projectID: props.cmsProject?.registryProjectId || "",
+    location: toGeoJSON(props.cmsProject?.geolocation),
     price: String(bestPrice ?? 0), // remove trailing zeros
     prices: poolPrices,
     images:
-      props.projectDetails?.images?.map((image) => ({
+      props.cmsProject?.images?.map((image) => ({
         caption: image?.asset?.altText || "",
         url: image?.asset?.url || "",
       })) ?? [],
     vintage: props.vintage,
     stats,
-    region: props.projectDetails.region || "",
-    creditTokenAddress: props.credits?.at(0)?.id,
+    region: props.cmsProject?.region || "",
+    creditTokenAddress: credits?.at(0)?.id,
     updatedAt,
   };
   return projectResponse;
@@ -225,26 +226,14 @@ export const composeProjectEntries = (
 ): Project[] => {
   const entries: Project[] = [];
   projectDataMap.forEach((data) => {
-    // rename vars for brevity
-    const { marketplaceProjectData: market, poolProjectData: poolBalances } =
-      data;
     const { projectId, vintage } = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(projectId);
 
-    if (carbonProject === undefined) {
-      console.error(`Project detail not found for project ${projectId}`);
-      return;
-    }
-    if (poolBalances === undefined) {
-      console.error(`Pool Credits not found for project ${projectId}`);
-      return;
-    }
-
     const project = buildProjectEntry({
       vintage,
-      listings: market?.listings,
-      credits: poolBalances?.carbonCredits,
-      projectDetails: carbonProject,
+      marketplaceProject: data.marketplaceProjectData,
+      poolProject: data.poolProjectData,
+      cmsProject: carbonProject,
       allPoolPrices,
       network,
     });

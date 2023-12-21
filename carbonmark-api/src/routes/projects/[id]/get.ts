@@ -26,13 +26,13 @@ const handler = (fastify: FastifyInstance) =>
       registryProjectId,
       projectId: key,
     } = new CreditId(id);
-    let digitalCarbonCredits, marketplaceProject, allPoolPrices, projectDetails;
+    let digitalCarbonCredits, marketplaceProject, allPoolPrices, cmsProject;
     try {
       [
         digitalCarbonCredits,
         allPoolPrices,
         { project: marketplaceProject },
-        projectDetails,
+        cmsProject,
       ] = await Promise.all([
         sdk.digital_carbon.getProjectCredits({
           projectID: key,
@@ -58,17 +58,17 @@ const handler = (fastify: FastifyInstance) =>
     const listings = marketplaceProject?.listings || [];
     const listingsWithProfiles = await addProfilesToListings(listings, fastify);
 
-    if (!projectDetails) {
+    if (!cmsProject) {
       // only render pages if project details exist (render even if there are no listings!)
       return reply.notFound();
     }
-    const credits = digitalCarbonCredits?.carbonProjects.at(0)?.carbonCredits;
+    const poolProject = digitalCarbonCredits?.carbonProjects.at(0);
 
     const project = buildProjectEntry({
       vintage,
       listings,
-      credits,
-      projectDetails,
+      poolProject,
+      cmsProject,
       allPoolPrices,
       network,
     });
