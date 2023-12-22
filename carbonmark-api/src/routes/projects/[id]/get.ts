@@ -77,8 +77,10 @@ const handler = (fastify: FastifyInstance) =>
     });
     // Override listing with profiles
     const listings = getActiveListings(
-      formatListings(marketplaceProject?.listings || [])
+      formatListings(marketplaceProject?.listings || []),
+      minSupply
     );
+
     const listingsWithProfiles = await addProfilesToListings(listings, fastify);
     const detailedProject = {
       ...project,
