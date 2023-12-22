@@ -217,6 +217,10 @@ export type GetProjectsIdQueryResponse = {
    * @type string
    */
   vintage: string;
+  /**
+   * @type boolean
+   */
+  hasSupply: boolean;
 };
 
 export type GetProjectsIdQueryParams = {

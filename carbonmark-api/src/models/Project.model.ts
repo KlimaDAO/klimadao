@@ -38,6 +38,7 @@ export const ProjectModel = Type.Object({
       })
     )
   ),
+  hasSupply: Type.Boolean(),
 });
 
 export type Project = Static<typeof ProjectModel>;

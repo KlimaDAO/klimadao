@@ -242,6 +242,10 @@ export type GetProjectsQueryResponse = {
      */
     caption: string;
   }[];
+  /**
+   * @type boolean
+   */
+  hasSupply: boolean;
 }[];
 
 export type GetProjectsQueryParams = {

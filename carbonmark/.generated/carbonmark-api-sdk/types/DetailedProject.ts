@@ -202,4 +202,8 @@ export type DetailedProject = {
    * @type string
    */
   vintage: string;
+  /**
+   * @type boolean
+   */
+  hasSupply: boolean;
 };

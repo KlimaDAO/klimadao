@@ -181,6 +181,9 @@ export const buildProjectEntry = (props: {
     min
   )(activePoolPriceValues, listingPriceValues);
 
+  const hasSupply =
+    !!activePoolPriceValues.length || !!listingPriceValues.length;
+
   // Compute updateAt.
   // For this we use both active and inactive listings and pool info
   const youngestListing = maxBy(listings, (l) => Number(l.updatedAt));
@@ -240,6 +243,7 @@ export const buildProjectEntry = (props: {
     // Aggregated data
     price: String(bestPrice ?? 0), // remove trailing zeros
     updatedAt,
+    hasSupply,
   };
   return projectResponse;
 };
@@ -269,8 +273,9 @@ export const composeProjectEntries = (
       network,
       minSupply,
     });
-
-    entries.push(project);
+    // Only return projects with supply
+    // TODO: Maybe this should be controlled via a query parameter
+    if (project.hasSupply) entries.push(project);
   });
   return entries;
 };

@@ -213,6 +213,7 @@ describe("GET /projects", () => {
         },
         images: expectedImages,
         listings: [],
+        hasSupply: true,
       },
     ];
 
@@ -267,6 +268,7 @@ describe("GET /projects", () => {
           type: "Feature",
         },
         images: expectedImages,
+        hasSupply: true,
       },
     ];
 
