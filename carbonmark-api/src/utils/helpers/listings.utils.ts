@@ -3,7 +3,6 @@ import { sortBy } from "lodash";
 import { Listing } from "../../models/Listing.model";
 import { GQL_SDK } from "../gqlSdk";
 import { getUserProfilesByIds } from "./users.utils";
-import { formatTonnesForSubGraph } from "./utils";
 
 export const getCreditListings = async (
   sdk: GQL_SDK,
@@ -20,9 +19,24 @@ export const getCreditListings = async (
   const project = await sdk.marketplace.getProjectById({
     projectId: params.projectId,
     expiresAfter,
-    minSupply: formatTonnesForSubGraph(params.minSupply),
   });
   return project;
+};
+const isActiveListing = (
+  l: {
+    active?: boolean | null;
+    deleted?: boolean | null;
+    leftToSell?: string | null;
+  },
+  minSupply?: number
+) => !!l.active && !l.deleted && Number(l.leftToSell) >= (minSupply || 0);
+
+/**
+ * For marketplace subgraph projects
+ * Returns true if project has an active, unexpired listing
+ * */
+export const getActiveListings = (listings?: Listing[], minSupply?: number) => {
+  return listings?.filter((l) => isActiveListing(l, minSupply)) || [];
 };
 
 export const addProfilesToListings = async (

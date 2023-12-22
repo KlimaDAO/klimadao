@@ -4198,7 +4198,6 @@ export type GetDigitalCarbonProjectsCountriesQuery = { __typename?: 'Query', car
 export type GetProjectCreditsQueryVariables = Exact<{
   projectID: Scalars['String'];
   vintage: InputMaybe<Scalars['Int']>;
-  minSupply: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -4209,7 +4208,6 @@ export type FindDigitalCarbonProjectsQueryVariables = Exact<{
   category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   search: InputMaybe<Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['Int']> | Scalars['Int']>;
-  minSupply: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -4290,12 +4288,12 @@ export const GetDigitalCarbonProjectsCountriesDocument = gql`
 }
     `;
 export const GetProjectCreditsDocument = gql`
-    query getProjectCredits($projectID: String!, $vintage: Int, $minSupply: BigInt) {
+    query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: {projectID: $projectID}) {
     ...DigitalCarbonProjectFragment
     carbonCredits(where: {vintage: $vintage}) {
       ...CarbonCreditFragment
-      poolBalances(where: {balance_gt: $minSupply}) {
+      poolBalances {
         ...PoolBalancesFragment
       }
     }
@@ -4305,7 +4303,7 @@ export const GetProjectCreditsDocument = gql`
 ${CarbonCreditFragmentFragmentDoc}
 ${PoolBalancesFragmentFragmentDoc}`;
 export const FindDigitalCarbonProjectsDocument = gql`
-    query findDigitalCarbonProjects($country: [String!], $category: [String!], $search: String, $vintage: [Int!], $minSupply: BigInt) {
+    query findDigitalCarbonProjects($country: [String!], $category: [String!], $search: String, $vintage: [Int!]) {
   carbonProjects(
     first: 1000
     where: {and: [{category_in: $category}, {country_in: $country}, {or: [{name_contains_nocase: $search}, {projectID_contains_nocase: $search}]}]}
@@ -4313,7 +4311,7 @@ export const FindDigitalCarbonProjectsDocument = gql`
     ...DigitalCarbonProjectFragment
     carbonCredits(where: {vintage_in: $vintage}) {
       ...CarbonCreditFragment
-      poolBalances(where: {balance_gt: $minSupply}) {
+      poolBalances {
         ...PoolBalancesFragment
         pool {
           ...PoolFragment

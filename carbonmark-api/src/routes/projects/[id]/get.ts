@@ -3,9 +3,11 @@ import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/cms.utils";
 import { fetchAllPoolPrices } from "../../../utils/helpers/fetchAllPoolPrices";
-import { addProfilesToListings } from "../../../utils/helpers/fetchMarketplaceListings";
-import { formatTonnesForSubGraph } from "../../../utils/helpers/utils";
-import { formatListing } from "../../../utils/marketplace.utils";
+import {
+  addProfilesToListings,
+  getActiveListings,
+} from "../../../utils/helpers/listings.utils";
+import { formatListings } from "../../../utils/marketplace.utils";
 import { buildProjectEntry } from "../get.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
@@ -39,14 +41,12 @@ const handler = (fastify: FastifyInstance) =>
         sdk.digital_carbon.getProjectCredits({
           projectID: key,
           vintage: Number(vintage),
-          minSupply: formatTonnesForSubGraph(request.query.minSupply || 0),
         }),
         fetchAllPoolPrices(sdk),
         sdk.marketplace.getProjectById({
           projectId: key + "-" + vintage,
           expiresAfter:
             request.query.expiresAfter ?? String(Math.floor(Date.now() / 1000)),
-          minSupply: formatTonnesForSubGraph(request.query.minSupply),
         }),
         fetchCarbonProject(sdk, {
           registry,
@@ -57,12 +57,8 @@ const handler = (fastify: FastifyInstance) =>
       console.error(error);
       throw error;
     }
-    const listings = marketplaceProject?.listings || [];
-    const formattedListings = listings.map(formatListing);
-    const listingsWithProfiles = await addProfilesToListings(
-      formattedListings,
-      fastify
-    );
+
+    const minSupply = request.query.minSupply || 0;
 
     if (!cmsProject) {
       // only render pages if project details exist (render even if there are no listings!)
@@ -77,7 +73,13 @@ const handler = (fastify: FastifyInstance) =>
       cmsProject,
       allPoolPrices,
       network,
+      minSupply,
     });
+    // Override listing with profiles
+    const listings = getActiveListings(
+      formatListings(marketplaceProject?.listings || [])
+    );
+    const listingsWithProfiles = await addProfilesToListings(listings, fastify);
     const detailedProject = {
       ...project,
       listings: listingsWithProfiles,

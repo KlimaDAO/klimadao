@@ -10,6 +10,7 @@ import {
   trim,
   uniq,
 } from "lodash/fp";
+import { TokenPriceT } from "src/models/TokenPrice.model";
 import { Geopoint } from "../../.generated/types/cms.types";
 import {
   FindDigitalCarbonProjectsQuery,
@@ -31,12 +32,13 @@ import { GQL_SDK } from "../../utils/gqlSdk";
 import { CarbonProject } from "../../utils/helpers/cms.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import { getProjectPoolPricesAndStats } from "../../utils/helpers/getProjectPoolPricesAndStats";
+import { getActiveListings } from "../../utils/helpers/listings.utils";
 import {
   getAllCategories,
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
-import { formatListing } from "../../utils/marketplace.utils";
+import { formatListings } from "../../utils/marketplace.utils";
 import { POOL_INFO } from "./get.constants";
 
 /**
@@ -99,11 +101,6 @@ export const isValidPoolProject = (project: CarbonProjectType) => {
   );
 };
 
-export const isActiveListing = (l: {
-  active?: boolean | null;
-  deleted?: boolean | null;
-  leftToSell?: string | null;
-}) => !!l.active && !l.deleted && BigInt(l.leftToSell || "") >= 1;
 /**
  * For marketplace subgraph projects
  * Returns true if project has an active, unexpired listing
@@ -111,9 +108,7 @@ export const isActiveListing = (l: {
 export const isValidMarketplaceProject = (
   project: GetProjectsQuery["projects"][number]
 ) => {
-  if (!project?.listings) return false;
-  const validProjects = project.listings.filter(isActiveListing);
-  return !!validProjects.length;
+  return !!getActiveListings(formatListings(project?.listings || [])).length;
 };
 
 /** The specific CarbonOffset type from the find findDigitalCarbon query*/
@@ -131,6 +126,12 @@ export type ProjectDataMap = Map<CreditIdentifier, ProjectData>;
 
 /** note: new projects may not have a CMS entry yet */
 export type CMSDataMap = Map<ProjectIdentifier, CarbonProject>;
+
+// TODO: Put all pool utils in a pools.utils.ts file?
+
+const getActivePoolPrices = (prices: TokenPriceT[], minSupply?: number) => {
+  return prices.filter((price) => Number(price.supply) > (minSupply || 0));
+};
 
 /**
  * Builds a project entry given data fetched from various sources
@@ -150,21 +151,26 @@ export const buildProjectEntry = (props: {
   cmsProject?: CarbonProject;
   allPoolPrices: Record<string, PoolPrice>;
   network: "polygon" | "mumbai" | undefined;
+  minSupply: number;
 }): Project => {
   const credits = props.poolProject?.carbonCredits;
   const listings = props.marketplaceProject?.listings
-    ? compact(props.marketplaceProject?.listings?.map(formatListing))
+    ? formatListings(props.marketplaceProject?.listings)
     : undefined;
 
   const [poolPrices, stats] =
     props.network === "polygon" && credits
       ? getProjectPoolPricesAndStats(credits, props.allPoolPrices)
       : [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
-  // Compute best price
-  // For the purpose of computing the best price we only take into account active listings
-  const activeListings = listings?.filter((l) => !l.deleted && !!l.active);
 
-  const poolPriceValues = poolPrices.map((p) => Number(p.singleUnitPrice));
+  // Compute best price
+  // For the purpose of computing the best price we only take into account active listings and pool prices with the sufficent supply
+  const activeListings = getActiveListings(listings, props.minSupply);
+  const activePoolPrices = getActivePoolPrices(poolPrices, props.minSupply);
+
+  const activePoolPriceValues = activePoolPrices.map((p) =>
+    Number(p.singleUnitPrice)
+  );
   const listingPriceValues = compact(activeListings).map((l) =>
     Number(l.singleUnitPrice)
   );
@@ -173,9 +179,10 @@ export const buildProjectEntry = (props: {
     concat,
     uniq,
     min
-  )(poolPriceValues, listingPriceValues);
+  )(activePoolPriceValues, listingPriceValues);
 
-  // Compute updateAt
+  // Compute updateAt.
+  // For this we use both active and inactive listings and pool info
   const youngestListing = maxBy(listings, (l) => Number(l.updatedAt));
   // if project has listings, use that value first, because the pool `lastUpdate` value is less relevant for users
   const timestamps: string[] = [];
@@ -225,11 +232,11 @@ export const buildProjectEntry = (props: {
       })) ?? [],
     location: toGeoJSON(c?.geolocation),
     // Pool specific data
-    prices: poolPrices,
+    prices: activePoolPrices,
     stats,
     creditTokenAddress: credits?.at(0)?.id ?? "",
     // Marketplace specific data
-    listings,
+    listings: activeListings,
     // Aggregated data
     price: String(bestPrice ?? 0), // remove trailing zeros
     updatedAt,
@@ -245,7 +252,8 @@ export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
   allPoolPrices: Record<string, PoolPrice>,
-  network: "polygon" | "mumbai" | undefined
+  network: "polygon" | "mumbai" | undefined,
+  minSupply: number
 ): Project[] => {
   const entries: Project[] = [];
 
@@ -259,6 +267,7 @@ export const composeProjectEntries = (
       cmsProject: carbonProject,
       allPoolPrices,
       network,
+      minSupply,
     });
 
     entries.push(project);

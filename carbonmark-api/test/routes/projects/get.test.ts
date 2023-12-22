@@ -212,6 +212,7 @@ describe("GET /projects", () => {
           type: "Feature",
         },
         images: expectedImages,
+        listings: [],
       },
     ];
 
