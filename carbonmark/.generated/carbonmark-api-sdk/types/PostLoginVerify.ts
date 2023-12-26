@@ -1,4 +1,4 @@
-export type PostUsersLoginVerifyMutationRequest = {
+export type PostLoginVerifyMutationRequest = {
   /**
    * @type string
    */
@@ -12,7 +12,7 @@ export type PostUsersLoginVerifyMutationRequest = {
 /**
  * @description Successful response
  */
-export type PostUsersLoginVerifyMutationResponse = {
+export type PostLoginVerifyMutationResponse = {
   /**
    * @type string
    */

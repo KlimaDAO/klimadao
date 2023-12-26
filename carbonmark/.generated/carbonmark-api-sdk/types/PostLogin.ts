@@ -1,4 +1,4 @@
-export type PostUsersLoginMutationRequest = {
+export type PostLoginMutationRequest = {
   /**
    * @type string
    */
@@ -8,7 +8,7 @@ export type PostUsersLoginMutationRequest = {
 /**
  * @description Successful response
  */
-export type PostUsersLoginMutationResponse = {
+export type PostLoginMutationResponse = {
   /**
    * @type string
    */

@@ -29,6 +29,7 @@ export type CategoryName = keyof typeof CATEGORY_INFO;
 
 export type ListingRetirement = {
   type: "listing";
+  symbol: string;
 } & Listing;
 export type PoolRetirement = {
   type: "pool";

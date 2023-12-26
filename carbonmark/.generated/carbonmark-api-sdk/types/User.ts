@@ -19,9 +19,9 @@ export type User = {
    */
   wallet: string;
   /**
-   * @type array
+   * @type array | undefined
    */
-  listings: {
+  listings?: {
     /**
      * @description Unique listing identifier
      * @type string
@@ -50,8 +50,8 @@ export type User = {
     deleted?: boolean | null;
     batches?: string[] | null;
     batchPrices?: string[] | null;
-    createdAt?: string | null;
-    updatedAt?: string | null;
+    createdAt?: number | null;
+    updatedAt?: number | null;
     /**
      * @type object
      */
@@ -67,9 +67,9 @@ export type User = {
     };
     /**
      * @description Unix Timestamp (seconds) when the listing expires.
-     * @type string
+     * @type number
      */
-    expiration: string;
+    expiration: number;
     /**
      * @description Minimum quantity for purchase transaction to succeed.
      * @type string
@@ -110,13 +110,26 @@ export type User = {
     };
   }[];
   /**
-   * @type array
+   * @type array | undefined
    */
-  activities: {
+  activities?: {
     /**
      * @type string
      */
     id: string;
+    /**
+     * @type object
+     */
+    project: {
+      /**
+       * @type string
+       */
+      key: string;
+      /**
+       * @type string
+       */
+      vintage: string;
+    };
     amount?: string | null;
     previousAmount?: string | null;
     price?: string | null;
@@ -139,9 +152,9 @@ export type User = {
     } | null;
   }[];
   /**
-   * @type array
+   * @type array | undefined
    */
-  assets: {
+  assets?: {
     /**
      * @type string
      */

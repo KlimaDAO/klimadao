@@ -150,8 +150,8 @@ export type GetProjectsIdQueryResponse = {
     deleted?: boolean | null;
     batches?: string[] | null;
     batchPrices?: string[] | null;
-    createdAt?: string | null;
-    updatedAt?: string | null;
+    createdAt?: number | null;
+    updatedAt?: number | null;
     /**
      * @type object
      */
@@ -167,9 +167,9 @@ export type GetProjectsIdQueryResponse = {
     };
     /**
      * @description Unix Timestamp (seconds) when the listing expires.
-     * @type string
+     * @type number
      */
-    expiration: string;
+    expiration: number;
     /**
      * @description Minimum quantity for purchase transaction to succeed.
      * @type string
@@ -208,35 +208,6 @@ export type GetProjectsIdQueryResponse = {
        */
       methodology: string;
     };
-  }[];
-  /**
-   * @type array
-   */
-  activities: {
-    /**
-     * @type string
-     */
-    id: string;
-    amount?: string | null;
-    previousAmount?: string | null;
-    price?: string | null;
-    previousPrice?: string | null;
-    timeStamp?: string | null;
-    activityType?: string | null;
-    seller?: {
-      /**
-       * @type string
-       */
-      id: string;
-      handle?: string | null;
-    } | null;
-    buyer?: {
-      /**
-       * @type string
-       */
-      id: string;
-      handle?: string | null;
-    } | null;
   }[];
   /**
    * @type string

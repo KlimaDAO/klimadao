@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 2.0.1** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v2.0.1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 4.1.0** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v4.1.0.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "2.0.1"
+    "version": "4.1.0"
   },
   "components": {
     "schemas": {
@@ -142,7 +142,7 @@
           "vintage": {
             "type": "string"
           },
-          "projectAddress": {
+          "creditTokenAddress": {
             "type": "string"
           },
           "registry": {
@@ -244,7 +244,7 @@
                     "createdAt": {
                       "anyOf": [
                         {
-                          "type": "string"
+                          "type": "number"
                         },
                         {
                           "type": "null"
@@ -254,7 +254,7 @@
                     "updatedAt": {
                       "anyOf": [
                         {
-                          "type": "string"
+                          "type": "number"
                         },
                         {
                           "type": "null"
@@ -314,7 +314,7 @@
                     },
                     "expiration": {
                       "description": "Unix Timestamp (seconds) when the listing expires.",
-                      "type": "string"
+                      "type": "number"
                     },
                     "minFillAmount": {
                       "description": "Minimum quantity for purchase transaction to succeed.",
@@ -406,7 +406,7 @@
           "name",
           "methodologies",
           "vintage",
-          "projectAddress",
+          "creditTokenAddress",
           "registry",
           "updatedAt",
           "country",
@@ -783,7 +783,7 @@
                 "createdAt": {
                   "anyOf": [
                     {
-                      "type": "string"
+                      "type": "number"
                     },
                     {
                       "type": "null"
@@ -793,7 +793,7 @@
                 "updatedAt": {
                   "anyOf": [
                     {
-                      "type": "string"
+                      "type": "number"
                     },
                     {
                       "type": "null"
@@ -853,7 +853,7 @@
                 },
                 "expiration": {
                   "description": "Unix Timestamp (seconds) when the listing expires.",
-                  "type": "string"
+                  "type": "number"
                 },
                 "minFillAmount": {
                   "description": "Minimum quantity for purchase transaction to succeed.",
@@ -908,136 +908,6 @@
               ]
             }
           },
-          "activities": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "amount": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "previousAmount": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "price": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "previousPrice": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "timeStamp": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "activityType": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "seller": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "handle": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "buyer": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "handle": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "id"
-              ]
-            }
-          },
           "price": {
             "type": "string"
           },
@@ -1051,7 +921,6 @@
           "stats",
           "prices",
           "listings",
-          "activities",
           "price",
           "vintage"
         ]
@@ -1061,6 +930,21 @@
         "properties": {
           "id": {
             "type": "string"
+          },
+          "project": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "vintage": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "key",
+              "vintage"
+            ]
           },
           "amount": {
             "anyOf": [
@@ -1180,7 +1064,8 @@
           }
         },
         "required": [
-          "id"
+          "id",
+          "project"
         ]
       },
       "Category": {
@@ -1277,7 +1162,7 @@
           "createdAt": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "number"
               },
               {
                 "type": "null"
@@ -1287,7 +1172,7 @@
           "updatedAt": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "number"
               },
               {
                 "type": "null"
@@ -1347,7 +1232,7 @@
           },
           "expiration": {
             "description": "Unix Timestamp (seconds) when the listing expires.",
-            "type": "string"
+            "type": "number"
           },
           "minFillAmount": {
             "description": "Minimum quantity for purchase transaction to succeed.",
@@ -1692,7 +1577,7 @@
                 "createdAt": {
                   "anyOf": [
                     {
-                      "type": "string"
+                      "type": "number"
                     },
                     {
                       "type": "null"
@@ -1702,7 +1587,7 @@
                 "updatedAt": {
                   "anyOf": [
                     {
-                      "type": "string"
+                      "type": "number"
                     },
                     {
                       "type": "null"
@@ -1762,7 +1647,7 @@
                 },
                 "expiration": {
                   "description": "Unix Timestamp (seconds) when the listing expires.",
-                  "type": "string"
+                  "type": "number"
                 },
                 "minFillAmount": {
                   "description": "Minimum quantity for purchase transaction to succeed.",
@@ -1824,6 +1709,21 @@
               "properties": {
                 "id": {
                   "type": "string"
+                },
+                "project": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "vintage"
+                  ]
                 },
                 "amount": {
                   "anyOf": [
@@ -1943,7 +1843,8 @@
                 }
               },
               "required": [
-                "id"
+                "id",
+                "project"
               ]
             }
           },
@@ -1994,10 +1895,7 @@
           "username",
           "updatedAt",
           "createdAt",
-          "wallet",
-          "listings",
-          "activities",
-          "assets"
+          "wallet"
         ]
       },
       "Asset": {
@@ -2184,6 +2082,282 @@
     }
   },
   "paths": {
+    "/activities": {
+      "get": {
+        "summary": "List project activities",
+        "tags": [
+          "Activities"
+        ],
+        "description": "Retrieve an array of activities related to a carbon project",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "array",
+              "items": {
+                "description": "Filter returned activities by project",
+                "type": "string"
+              }
+            },
+            "in": "query",
+            "name": "projectId",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "CreatedListing"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "DeletedListing"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "Purchase"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "Sold"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "UpdatedPrice"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "UpdatedQuantity"
+                    ]
+                  }
+                ]
+              }
+            },
+            "in": "query",
+            "name": "activityType",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of project activities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "project": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "vintage": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "vintage"
+                        ]
+                      },
+                      "amount": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "previousAmount": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "price": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "previousPrice": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "timeStamp": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "activityType": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "seller": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "handle": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "buyer": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "handle": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "project"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Categories",
+        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Blue Carbon"
+                    },
+                    {
+                      "id": "Forestry"
+                    },
+                    {
+                      "id": "Other"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/countries": {
       "get": {
         "summary": "Countries",
@@ -2220,6 +2394,55 @@
                     }
                   ]
                 ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Get nonce",
+        "tags": [
+          "Auth"
+        ],
+        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "wallet"
+                ],
+                "type": "object",
+                "properties": {
+                  "wallet": {
+                    "minLength": 26,
+                    "maxLength": 64,
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nonce": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "nonce"
+                  ]
+                }
               }
             }
           }
@@ -2422,7 +2645,7 @@
                       "vintage": {
                         "type": "string"
                       },
-                      "projectAddress": {
+                      "creditTokenAddress": {
                         "type": "string"
                       },
                       "registry": {
@@ -2524,7 +2747,7 @@
                                 "createdAt": {
                                   "anyOf": [
                                     {
-                                      "type": "string"
+                                      "type": "number"
                                     },
                                     {
                                       "type": "null"
@@ -2534,7 +2757,7 @@
                                 "updatedAt": {
                                   "anyOf": [
                                     {
-                                      "type": "string"
+                                      "type": "number"
                                     },
                                     {
                                       "type": "null"
@@ -2594,7 +2817,7 @@
                                 },
                                 "expiration": {
                                   "description": "Unix Timestamp (seconds) when the listing expires.",
-                                  "type": "string"
+                                  "type": "number"
                                 },
                                 "minFillAmount": {
                                   "description": "Minimum quantity for purchase transaction to succeed.",
@@ -2686,7 +2909,7 @@
                       "name",
                       "methodologies",
                       "vintage",
-                      "projectAddress",
+                      "creditTokenAddress",
                       "registry",
                       "updatedAt",
                       "country",
@@ -2694,538 +2917,6 @@
                       "price"
                     ]
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/vintages": {
-      "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/{walletOrHandle}": {
-      "get": {
-        "summary": "User details",
-        "tags": [
-          "Users"
-        ],
-        "description": "Get a user's profile and activity",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "1620000000",
-            "in": "query",
-            "name": "expiresAfter",
-            "required": false,
-            "description": "Only return listings that expire after this timestamp (Unix seconds)"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "atmosfearful": {
-                "value": "atmosfearful"
-              },
-              "0xAb5B7b5849784279280188b556AF3c179F31Dc5B": {
-                "value": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B"
-              }
-            },
-            "in": "path",
-            "name": "walletOrHandle",
-            "required": true,
-            "description": "A user handle or wallet address"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "handle": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "username": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "profileImgUrl": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "updatedAt": {
-                      "type": "number"
-                    },
-                    "createdAt": {
-                      "type": "number"
-                    },
-                    "wallet": {
-                      "type": "string"
-                    },
-                    "listings": {
-                      "type": "array",
-                      "items": {
-                        "description": "Marketplace listing with per-tonne price and project info.",
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "description": "Unique listing identifier",
-                            "type": "string"
-                          },
-                          "leftToSell": {
-                            "description": "Remaining supply. Unformatted 18 decimal string",
-                            "type": "string"
-                          },
-                          "tokenAddress": {
-                            "description": "Address of the asset being sold",
-                            "type": "string"
-                          },
-                          "singleUnitPrice": {
-                            "description": "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
-                            "type": "string"
-                          },
-                          "totalAmountToSell": {
-                            "type": "string"
-                          },
-                          "active": {
-                            "anyOf": [
-                              {
-                                "type": "boolean"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "deleted": {
-                            "anyOf": [
-                              {
-                                "type": "boolean"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "batches": {
-                            "anyOf": [
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "batchPrices": {
-                            "anyOf": [
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "createdAt": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "updatedAt": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "seller": {
-                            "type": "object",
-                            "properties": {
-                              "handle": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "username": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "description": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "profileImgUrl": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "id": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ]
-                          },
-                          "expiration": {
-                            "description": "Unix Timestamp (seconds) when the listing expires.",
-                            "type": "string"
-                          },
-                          "minFillAmount": {
-                            "description": "Minimum quantity for purchase transaction to succeed.",
-                            "type": "string"
-                          },
-                          "project": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "key": {
-                                "type": "string"
-                              },
-                              "vintage": {
-                                "type": "string"
-                              },
-                              "name": {
-                                "type": "string"
-                              },
-                              "category": {
-                                "type": "string"
-                              },
-                              "country": {
-                                "type": "string"
-                              },
-                              "methodology": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "key",
-                              "vintage",
-                              "name",
-                              "category",
-                              "country",
-                              "methodology"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "leftToSell",
-                          "tokenAddress",
-                          "singleUnitPrice",
-                          "totalAmountToSell",
-                          "seller",
-                          "expiration",
-                          "minFillAmount",
-                          "project"
-                        ]
-                      }
-                    },
-                    "activities": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "amount": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "previousAmount": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "price": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "previousPrice": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "timeStamp": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "activityType": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "seller": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "handle": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  }
-                                },
-                                "required": [
-                                  "id"
-                                ]
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "buyer": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "handle": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  }
-                                },
-                                "required": [
-                                  "id"
-                                ]
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "id"
-                        ]
-                      }
-                    },
-                    "assets": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "token": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "name": {
-                                "type": "string"
-                              },
-                              "symbol": {
-                                "type": "string"
-                              },
-                              "decimals": {
-                                "type": "number"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "symbol",
-                              "decimals"
-                            ]
-                          },
-                          "amount": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "token",
-                          "amount"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "username",
-                    "updatedAt",
-                    "createdAt",
-                    "wallet",
-                    "listings",
-                    "activities",
-                    "assets"
-                  ]
                 }
               }
             }
@@ -3365,108 +3056,20 @@
         }
       }
     },
-    "/users/{wallet}": {
-      "put": {
-        "summary": "Update user profile",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "wallet": {
-                    "minLength": 3,
-                    "type": "string"
-                  },
-                  "username": {
-                    "minLength": 2,
-                    "type": "string"
-                  },
-                  "description": {
-                    "minLength": 2,
-                    "maxLength": 500,
-                    "type": "string"
-                  },
-                  "profileImgUrl": {
-                    "type": "string"
-                  },
-                  "handle": {
-                    "minLength": 3,
-                    "maxLength": 24,
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "wallet",
-                  "username",
-                  "description"
-                ]
-              }
-            }
-          },
-          "required": true
-        },
+    "/vintages": {
+      "get": {
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
         "parameters": [
           {
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/def-1"
             },
-            "example": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
-            "in": "path",
-            "name": "wallet",
-            "required": true,
-            "description": "The target wallet address"
+            "in": "query",
+            "name": "network",
+            "required": false
           }
         ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "wallet": {
-                      "minLength": 3,
-                      "type": "string"
-                    },
-                    "username": {
-                      "minLength": 2,
-                      "type": "string"
-                    },
-                    "description": {
-                      "minLength": 2,
-                      "maxLength": 500,
-                      "type": "string"
-                    },
-                    "profileImgUrl": {
-                      "type": "string"
-                    },
-                    "handle": {
-                      "minLength": 3,
-                      "maxLength": 24,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "wallet",
-                    "username",
-                    "description"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/categories": {
-      "get": {
-        "summary": "Categories",
-        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -3475,28 +3078,26 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
+                    "type": "string"
                   }
                 },
                 "examples": [
                   [
-                    {
-                      "id": "Blue Carbon"
-                    },
-                    {
-                      "id": "Forestry"
-                    },
-                    {
-                      "id": "Other"
-                    }
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
                   ]
                 ]
               }
@@ -3505,10 +3106,13 @@
         }
       }
     },
-    "/purchases/{id}": {
+    "/listings/{id}": {
       "get": {
-        "summary": "Purchase details",
-        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "summary": "Listing",
+        "tags": [
+          "Listing"
+        ],
+        "description": "Get a listing by its identifier",
         "parameters": [
           {
             "schema": {
@@ -3522,54 +3126,154 @@
             "schema": {
               "type": "string"
             },
-            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
+            "example": "0xde5c717958a9a80f2dee8ebcc6f411a8d860ac7b0042e45487f4ad2afaf46d5a",
             "in": "path",
             "name": "id",
             "required": true,
-            "description": "ID (transaction hash) of the purchase to retrieve"
+            "description": "The listing id"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response with listing details",
+            "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "ID (transaction hash) of the purchase",
-                      "examples": [
-                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                      ],
-                      "type": "string"
-                    },
-                    "amount": {
-                      "description": "Quantity of credits purchased",
-                      "examples": [
-                        "1.0"
-                      ],
-                      "type": "string"
-                    },
-                    "listing": {
+                  "allOf": [
+                    {
+                      "description": "Marketplace listing with per-tonne price and project info.",
                       "type": "object",
                       "properties": {
                         "id": {
-                          "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
+                          "description": "Unique listing identifier",
+                          "type": "string"
+                        },
+                        "leftToSell": {
+                          "description": "Remaining supply. Unformatted 18 decimal string",
                           "type": "string"
                         },
                         "tokenAddress": {
-                          "description": "Address of the asset that was purchased",
+                          "description": "Address of the asset being sold",
                           "type": "string"
+                        },
+                        "singleUnitPrice": {
+                          "description": "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
+                          "type": "string"
+                        },
+                        "totalAmountToSell": {
+                          "type": "string"
+                        },
+                        "active": {
+                          "anyOf": [
+                            {
+                              "type": "boolean"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "deleted": {
+                          "anyOf": [
+                            {
+                              "type": "boolean"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "batches": {
+                          "anyOf": [
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "batchPrices": {
+                          "anyOf": [
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "createdAt": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "updatedAt": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
                         },
                         "seller": {
                           "type": "object",
                           "properties": {
+                            "handle": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "username": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "description": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "profileImgUrl": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
                             "id": {
-                              "description": "Address of the seller",
                               "type": "string"
                             }
                           },
@@ -3577,76 +3281,127 @@
                             "id"
                           ]
                         },
+                        "expiration": {
+                          "description": "Unix Timestamp (seconds) when the listing expires.",
+                          "type": "number"
+                        },
+                        "minFillAmount": {
+                          "description": "Minimum quantity for purchase transaction to succeed.",
+                          "type": "string"
+                        },
                         "project": {
                           "type": "object",
                           "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
+                            "id": {
                               "type": "string"
                             },
                             "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
                               "type": "string"
                             },
                             "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "category": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "methodology": {
                               "type": "string"
                             }
                           },
                           "required": [
-                            "country",
+                            "id",
                             "key",
-                            "methodology",
+                            "vintage",
                             "name",
-                            "projectID",
-                            "vintage"
+                            "category",
+                            "country",
+                            "methodology"
                           ]
                         }
                       },
                       "required": [
                         "id",
+                        "leftToSell",
                         "tokenAddress",
+                        "singleUnitPrice",
+                        "totalAmountToSell",
                         "seller",
+                        "expiration",
+                        "minFillAmount",
                         "project"
                       ]
                     },
-                    "price": {
-                      "description": "Total purchase price (USDC)",
-                      "examples": [
-                        "5.0"
-                      ],
+                    {
+                      "type": "object",
+                      "properties": {
+                        "symbol": {
+                          "description": "Symbol of the token",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "symbol"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/verify": {
+      "post": {
+        "summary": "Verify signed data",
+        "tags": [
+          "Auth"
+        ],
+        "description": "Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "wallet",
+                  "signature"
+                ],
+                "type": "object",
+                "properties": {
+                  "wallet": {
+                    "minLength": 26,
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "signature": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
                       "type": "string"
                     }
                   },
                   "required": [
-                    "id",
-                    "amount",
-                    "listing",
-                    "price"
+                    "token"
                   ]
                 }
               }
@@ -4067,7 +3822,7 @@
                           "createdAt": {
                             "anyOf": [
                               {
-                                "type": "string"
+                                "type": "number"
                               },
                               {
                                 "type": "null"
@@ -4077,7 +3832,7 @@
                           "updatedAt": {
                             "anyOf": [
                               {
-                                "type": "string"
+                                "type": "number"
                               },
                               {
                                 "type": "null"
@@ -4137,7 +3892,473 @@
                           },
                           "expiration": {
                             "description": "Unix Timestamp (seconds) when the listing expires.",
+                            "type": "number"
+                          },
+                          "minFillAmount": {
+                            "description": "Minimum quantity for purchase transaction to succeed.",
                             "type": "string"
+                          },
+                          "project": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "category": {
+                                "type": "string"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "methodology": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "key",
+                              "vintage",
+                              "name",
+                              "category",
+                              "country",
+                              "methodology"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "leftToSell",
+                          "tokenAddress",
+                          "singleUnitPrice",
+                          "totalAmountToSell",
+                          "seller",
+                          "expiration",
+                          "minFillAmount",
+                          "project"
+                        ]
+                      }
+                    },
+                    "price": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "images",
+                    "stats",
+                    "prices",
+                    "listings",
+                    "price",
+                    "vintage"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Quantity of credits purchased",
+                      "examples": [
+                        "1.0"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "tokenAddress": {
+                          "description": "Address of the asset that was purchased",
+                          "type": "string"
+                        },
+                        "seller": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "Address of the seller",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "tokenAddress",
+                        "seller",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Total purchase price (USDC)",
+                      "examples": [
+                        "5.0"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{walletOrHandle}": {
+      "get": {
+        "summary": "User details",
+        "tags": [
+          "Users"
+        ],
+        "description": "Get a user's profile and activity",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "1620000000",
+            "in": "query",
+            "name": "expiresAfter",
+            "required": false,
+            "description": "Only return listings that expire after this timestamp (Unix seconds)"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "atmosfearful": {
+                "value": "atmosfearful"
+              },
+              "0xAb5B7b5849784279280188b556AF3c179F31Dc5B": {
+                "value": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B"
+              }
+            },
+            "in": "path",
+            "name": "walletOrHandle",
+            "required": true,
+            "description": "A user handle or wallet address"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "handle": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "profileImgUrl": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "updatedAt": {
+                      "type": "number"
+                    },
+                    "createdAt": {
+                      "type": "number"
+                    },
+                    "wallet": {
+                      "type": "string"
+                    },
+                    "listings": {
+                      "type": "array",
+                      "items": {
+                        "description": "Marketplace listing with per-tonne price and project info.",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "Unique listing identifier",
+                            "type": "string"
+                          },
+                          "leftToSell": {
+                            "description": "Remaining supply. Unformatted 18 decimal string",
+                            "type": "string"
+                          },
+                          "tokenAddress": {
+                            "description": "Address of the asset being sold",
+                            "type": "string"
+                          },
+                          "singleUnitPrice": {
+                            "description": "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
+                            "type": "string"
+                          },
+                          "totalAmountToSell": {
+                            "type": "string"
+                          },
+                          "active": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "deleted": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "batches": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "batchPrices": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "createdAt": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "updatedAt": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "seller": {
+                            "type": "object",
+                            "properties": {
+                              "handle": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "username": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "description": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "profileImgUrl": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          "expiration": {
+                            "description": "Unix Timestamp (seconds) when the listing expires.",
+                            "type": "number"
                           },
                           "minFillAmount": {
                             "description": "Minimum quantity for purchase transaction to succeed.",
@@ -4199,6 +4420,21 @@
                         "properties": {
                           "id": {
                             "type": "string"
+                          },
+                          "project": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "vintage"
+                            ]
                           },
                           "amount": {
                             "anyOf": [
@@ -4318,26 +4554,59 @@
                           }
                         },
                         "required": [
-                          "id"
+                          "id",
+                          "project"
                         ]
                       }
                     },
-                    "price": {
-                      "type": "string"
-                    },
-                    "vintage": {
-                      "type": "string"
+                    "assets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "token": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "symbol": {
+                                "type": "string"
+                              },
+                              "decimals": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "name",
+                              "symbol",
+                              "decimals"
+                            ]
+                          },
+                          "amount": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "token",
+                          "amount"
+                        ]
+                      }
                     }
                   },
                   "required": [
-                    "key",
-                    "images",
-                    "stats",
-                    "prices",
-                    "listings",
-                    "activities",
-                    "price",
-                    "vintage"
+                    "username",
+                    "updatedAt",
+                    "createdAt",
+                    "wallet"
                   ]
                 }
               }
@@ -4346,86 +4615,62 @@
         }
       }
     },
-    "/users/login": {
-      "post": {
-        "summary": "Get nonce",
+    "/users/{wallet}": {
+      "put": {
+        "summary": "Update user profile",
         "tags": [
-          "Auth"
+          "Users"
         ],
-        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "wallet"
-                ],
                 "type": "object",
                 "properties": {
                   "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "username": {
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  "description": {
+                    "minLength": 2,
+                    "maxLength": 500,
+                    "type": "string"
+                  },
+                  "profileImgUrl": {
+                    "type": "string"
+                  },
+                  "handle": {
+                    "minLength": 3,
+                    "maxLength": 24,
                     "type": "string"
                   }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "nonce": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "nonce"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/login/verify": {
-      "post": {
-        "summary": "Verify signed data",
-        "tags": [
-          "Auth"
-        ],
-        "description": "Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
+                },
                 "required": [
                   "wallet",
-                  "signature"
-                ],
-                "type": "object",
-                "properties": {
-                  "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
-                    "type": "string"
-                  },
-                  "signature": {
-                    "type": "string"
-                  }
-                }
+                  "username",
+                  "description"
+                ]
               }
             }
           },
           "required": true
         },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
+            "in": "path",
+            "name": "wallet",
+            "required": true,
+            "description": "The target wallet address"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -4434,13 +4679,278 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "token": {
+                    "wallet": {
+                      "minLength": 3,
+                      "type": "string"
+                    },
+                    "username": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "description": {
+                      "minLength": 2,
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    "profileImgUrl": {
+                      "type": "string"
+                    },
+                    "handle": {
+                      "minLength": 3,
+                      "maxLength": 24,
                       "type": "string"
                     }
                   },
                   "required": [
-                    "token"
+                    "wallet",
+                    "username",
+                    "description"
                   ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects/{id}/activity": {
+      "get": {
+        "summary": "List project activities",
+        "tags": [
+          "Activities"
+        ],
+        "description": "Retrieve an array of activities related to a carbon project",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "array",
+              "items": {
+                "description": "Filter returned activities by project",
+                "type": "string"
+              }
+            },
+            "in": "query",
+            "name": "projectId",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "CreatedListing"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "DeletedListing"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "Purchase"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "Sold"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "UpdatedPrice"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "UpdatedQuantity"
+                    ]
+                  }
+                ]
+              }
+            },
+            "in": "query",
+            "name": "activityType",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "pattern": "^(VCS|PURO|ICR|GS)-\\d+-(19\\d{2}|20\\d{2})$"
+            },
+            "example": "VCS-191-2008",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Project id & vintage"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of project activities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "project": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "vintage": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "vintage"
+                        ]
+                      },
+                      "amount": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "previousAmount": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "price": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "previousPrice": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "timeStamp": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "activityType": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "seller": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "handle": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "buyer": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "handle": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "project"
+                    ]
+                  }
                 }
               }
             }
@@ -4451,7 +4961,7 @@
   },
   "servers": [
     {
-      "url": "https://v2.0.1.api.carbonmark.com"
+      "url": "https://v4.1.0.api.carbonmark.com"
     }
   ],
   "externalDocs": {

@@ -53,7 +53,7 @@
       ]
     },
     "vintage": { "type": "string" },
-    "projectAddress": { "type": "string" },
+    "creditTokenAddress": { "type": "string" },
     "registry": { "type": "string" },
     "updatedAt": { "type": "string" },
     "country": {
@@ -107,10 +107,10 @@
                 ]
               },
               "createdAt": {
-                "anyOf": [{ "type": "string" }, { "type": "null" }]
+                "anyOf": [{ "type": "number" }, { "type": "null" }]
               },
               "updatedAt": {
-                "anyOf": [{ "type": "string" }, { "type": "null" }]
+                "anyOf": [{ "type": "number" }, { "type": "null" }]
               },
               "seller": {
                 "type": "object",
@@ -133,7 +133,7 @@
               },
               "expiration": {
                 "description": "Unix Timestamp (seconds) when the listing expires.",
-                "type": "string"
+                "type": "number"
               },
               "minFillAmount": {
                 "description": "Minimum quantity for purchase transaction to succeed.",
@@ -200,7 +200,7 @@
     "name",
     "methodologies",
     "vintage",
-    "projectAddress",
+    "creditTokenAddress",
     "registry",
     "updatedAt",
     "country",

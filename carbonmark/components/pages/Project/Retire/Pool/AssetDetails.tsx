@@ -11,7 +11,7 @@ import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createProjectTokenName } from "lib/projectGetter";
 import {
   DetailedProject,
-  Listing,
+  ListingRetirement,
   TokenPrice,
 } from "lib/types/carbonmark.types";
 import Image from "next/image";
@@ -70,12 +70,32 @@ export const PoolAssetDetails: FC<TotalValuesProps> = (props) => {
 };
 
 export const ListingAssetDetails: FC<{
-  listing: Listing;
-  tokenSymbol: string;
+  listing: ListingRetirement;
 }> = (props) => {
   return (
-    <h1>
-      {props.listing.leftToSell} {props.tokenSymbol}
-    </h1>
+    <Accordion label={t`Asset details`} className={styles.accordion}>
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Retiring Token`}</Text>
+        <div className={cx(styles.iconAndText)}>
+          <Text t="h5">{props.listing.symbol}</Text>
+        </div>
+      </div>
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Available to retire`}</Text>
+        <Text t="h5">
+          {props.listing.leftToSell} {t`Tonnes`}
+        </Text>
+      </div>
+      <div className={styles.totalsText}>
+        <Anchor
+          className={styles.iconAndText}
+          href={`https://polygonscan.com/address/${props.listing.tokenAddress}`}
+        >
+          <Text className={styles.externalLink} t="body2">
+            {t`View on PolygonScan`} <LaunchIcon />
+          </Text>
+        </Anchor>
+      </div>
+    </Accordion>
   );
 };

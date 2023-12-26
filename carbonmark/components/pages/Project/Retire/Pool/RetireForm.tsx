@@ -359,10 +359,9 @@ export const RetireForm: FC<Props> = (props) => {
                 />
               )}
               {props.retirement.type === "listing" && (
-                <ListingAssetDetails
-                  listing={props.retirement}
-                  tokenSymbol={"TODO"}
-                />
+                <>
+                  <ListingAssetDetails listing={props.retirement} />
+                </>
               )}
             </Card>
             <div className={styles.reverseOrder}>
