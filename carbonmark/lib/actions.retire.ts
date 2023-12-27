@@ -39,7 +39,7 @@ export const getListingConsumptionCost = async (params: {
   currentUrl: string;
   listingId: string;
 }): Promise<string> => {
-  if (params.inputToken === "fiat") {
+  if (params.inputToken !== "fiat") {
     throw Error("Expected fiat payment for listing");
   }
 
@@ -52,7 +52,6 @@ export const getListingConsumptionCost = async (params: {
       beneficiary_address: null,
       beneficiary_name: "placeholder",
       retirement_message: "placeholder",
-      // pass token address if not default project
       project_address: null,
       listing_id: params.listingId,
     },
