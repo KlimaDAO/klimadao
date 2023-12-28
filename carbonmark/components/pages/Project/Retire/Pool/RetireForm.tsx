@@ -245,17 +245,14 @@ export const RetireForm: FC<Props> = (props) => {
   const handleApproval = async () => {
     if (!provider || !inputValues) return;
     try {
-      if (inputValues.paymentMethod == "fiat") {
-        // TODO: offsetra
-      } else {
-        await approveTokenSpend({
+      inputValues.paymentMethod !== "fiat" &&
+        (await approveTokenSpend({
           tokenName: inputValues.paymentMethod,
           spender: "retirementAggregatorV2",
           signer: provider.getSigner(),
           value: getApprovalValue(),
           onStatus: onUpdateStatus,
-        });
-      }
+        }));
     } catch (e) {
       console.error(e);
     }
@@ -267,13 +264,10 @@ export const RetireForm: FC<Props> = (props) => {
     try {
       setIsProcessing(true);
 
-      if (inputValues.paymentMethod == "fiat") {
-        // TODO: offsetra
-        return;
-      }
-
       if (props.retirement.type !== "pool") {
-        throw new Error(`Unsupported retirement: ${props.retirement}`);
+        throw new Error(
+          `Unsupported retirement type: ${props.retirement.type}`
+        );
       }
 
       const receipt = await retireCarbonTransaction({
