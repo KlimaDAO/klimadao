@@ -33,7 +33,8 @@ const isActiveListing = (
 
 /**
  * For marketplace subgraph projects
- * Returns true if project has an active, unexpired listing
+ * Returns true if project has an active listing
+ * Note that expired listings are already filtered at gql query level
  * */
 export const getActiveListings = (listings?: Listing[], minSupply?: number) => {
   return listings?.filter((l) => isActiveListing(l, minSupply)) || [];
