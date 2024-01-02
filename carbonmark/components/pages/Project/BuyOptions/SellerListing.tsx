@@ -45,7 +45,7 @@ function getSellerId(seller: Listing["seller"]): string | undefined {
 
 export const SellerListing: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const { address, isConnected, toggleModal } = useWeb3();
+  const { address } = useWeb3();
   const updatedAt = props.listing.updatedAt;
   const createdAt = props.listing.createdAt;
   const isConnectedSeller =
