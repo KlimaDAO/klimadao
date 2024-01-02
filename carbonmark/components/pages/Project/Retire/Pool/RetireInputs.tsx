@@ -17,7 +17,7 @@ import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
-  Retirement,
+  PurchaseOrRetirement,
 } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -33,7 +33,7 @@ import { FormValues } from "./types";
 
 type Props = {
   onSubmit: (values: FormValues) => void;
-  price: Retirement;
+  price: PurchaseOrRetirement;
   values: null | FormValues;
   userBalance: string | null;
   fiatBalance: string | null;

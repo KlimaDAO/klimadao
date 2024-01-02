@@ -27,14 +27,16 @@ export type DetailedProject = SDKDetailedProject;
 export type CarouselImage = Image;
 export type CategoryName = keyof typeof CATEGORY_INFO;
 
-export type ListingRetirement = {
+export type ListingPurchaseOrRetirement = {
   type: "listing";
   symbol: string;
 } & Listing;
-export type PoolRetirement = {
+export type PoolPurchaseOrRetirement = {
   type: "pool";
 } & TokenPrice;
-export type Retirement = ListingRetirement | PoolRetirement;
+export type PurchaseOrRetirement =
+  | ListingPurchaseOrRetirement
+  | PoolPurchaseOrRetirement;
 
 export interface PcbProject {
   id: string;

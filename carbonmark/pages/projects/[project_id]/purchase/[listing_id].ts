@@ -1,4 +1,7 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
+import {
+  getListingsId,
+  getProjectsId,
+} from ".generated/carbonmark-api-sdk/clients";
 import {
   ProjectPurchase,
   ProjectPurchasePageProps,
@@ -32,16 +35,14 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No project found");
     }
 
-    const findListing = (l: { id: string }) =>
-      l.id.toLowerCase() === listing_id.toLowerCase();
-
-    // check if listing ID is correct here on server? Or rather on client with nicer error state?
-    let listing = project.listings.find(findListing);
+    let listing = await getListingsId(listing_id.toLowerCase());
 
     if (!listing && !IS_PRODUCTION) {
       // check testnet listings
       project = await getProjectsId(project_id, { network: "mumbai" });
-      listing = project?.listings.find(findListing);
+      listing = await getListingsId(listing_id.toLowerCase(), {
+        network: "mumbai",
+      });
     }
 
     if (!project || !listing) {
@@ -57,7 +58,10 @@ export const getStaticProps: GetStaticProps<
     return {
       props: {
         project,
-        purchase: listing,
+        purchase: {
+          ...listing,
+          type: "listing",
+        },
         translation,
         fixedThemeName: "theme-light",
       },

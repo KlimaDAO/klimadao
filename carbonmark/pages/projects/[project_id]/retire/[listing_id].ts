@@ -61,7 +61,6 @@ export const getStaticProps: GetStaticProps<
         retirement: {
           ...listing,
           type: "listing",
-          symbol: listing.symbol,
         },
         translation,
         fixedThemeName: "theme-light",

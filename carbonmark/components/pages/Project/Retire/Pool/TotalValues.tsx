@@ -11,7 +11,7 @@ import {
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { Retirement } from "lib/types/carbonmark.types";
+import { PurchaseOrRetirement } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -20,7 +20,7 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  retirement: Retirement;
+  retirement: PurchaseOrRetirement;
   userBalance: string | null;
   fiatBalance: string | null;
   fiatMinimum: string | null;

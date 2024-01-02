@@ -1,6 +1,7 @@
 import { PoolToken } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { AssetDetails } from "components/AssetDetails";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
@@ -19,12 +20,14 @@ import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { DetailedProject, Retirement } from "lib/types/carbonmark.types";
+import {
+  DetailedProject,
+  PurchaseOrRetirement,
+} from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
-import { ListingAssetDetails, PoolAssetDetails } from "./AssetDetails";
 import { BankTransferModal } from "./BankTransferModal";
 import { CreditCardModal } from "./CreditCardModal";
 import { Price } from "./Price";
@@ -38,7 +41,7 @@ import { FormValues } from "./types";
 
 export interface Props {
   project: DetailedProject;
-  retirement: Retirement;
+  retirement: PurchaseOrRetirement;
 }
 
 export const RetireForm: FC<Props> = (props) => {
@@ -374,7 +377,7 @@ export const RetireForm: FC<Props> = (props) => {
           <div className={styles.stickyContentWrapper}>
             <Card>
               <AssetDetails
-                price={props.price}
+                purchaseOrRetirement={props.retirement}
                 project={props.project}
                 actionLabel={t`Retiring Token`}
                 availableLabel={t`Available to retire`}

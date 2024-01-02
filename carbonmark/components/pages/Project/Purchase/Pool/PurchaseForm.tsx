@@ -207,7 +207,7 @@ export const PurchaseForm: FC<Props> = (props) => {
             </Card>
             <Card>
               <AssetDetails
-                price={props.price}
+                purchaseOrRetirement={{ ...props.price, type: "pool" }}
                 project={props.project}
                 actionLabel={t`Token you will receive`}
                 availableLabel={t`Available to purchase`}
