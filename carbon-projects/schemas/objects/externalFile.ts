@@ -1,8 +1,10 @@
-export default {
+import { defineType } from 'sanity';
+
+export default defineType ({
 	name: 'externalFile',
-	type: 'array',
+	type: 'object',
 	title: 'External file',
-	of: [
+	fields: [
 		{
 			type: 'string',
             title: 'File name',
@@ -12,6 +14,9 @@ export default {
 			type: 'url',
             title: 'URI',
             name: 'uri',
+			validation: Rule => [
+				Rule.required(),
+			],
 		},
 		{
 			type: 'string',
@@ -24,4 +29,4 @@ export default {
             name: 'mimetype',
 		},
 	]
-};
+});
