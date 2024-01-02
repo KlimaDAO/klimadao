@@ -41,6 +41,7 @@ export const textGroup = css`
   display: flex;
   margin-bottom: 0.8rem;
   flex-direction: column;
+  white-space: nowrap;
 
   & p {
     font-size: 1.2rem;

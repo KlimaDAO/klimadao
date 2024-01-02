@@ -44,13 +44,15 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
   const isFiat = paymentMethod === "fiat";
+  const isBankTransfer = paymentMethod === "bank-transfer";
+  const isFiatOrBankTransfer = isFiat || isBankTransfer;
+
+  const priceWithoutFees = Number(amount) * Number(props.price.singleUnitPrice);
 
   /** Credit card fee string to display in the price card for fiat payments */
   const calcCreditCardFee = (): string => {
     if (!isFiat || !Number(props.costs) || isLoading) return "$0.00";
     // we have the total cost and the price per tonne.
-    const priceWithoutFees =
-      Number(amount) * Number(props.retirement.singleUnitPrice);
     const fee = Number(safeSub(props.costs, priceWithoutFees.toString()));
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
@@ -66,6 +68,11 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   useEffect(() => {
     const newCosts = async () => {
       setError("");
+
+      if (isBankTransfer) {
+        props.setCosts(priceWithoutFees.toFixed(2));
+        return;
+      }
 
       if (
         Number(amount) <= 0 ||
@@ -117,9 +124,10 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
           // Update costs with value from error
           !!maxCosts && props.setCosts(maxCosts.trim());
-          setError(
-            t`At this time Carbonmark cannot process credit card payments exceeding: ${fiatBalance}`
-          );
+          isFiat &&
+            setError(
+              t`At this time Carbonmark cannot process credit card payments exceeding: ${fiatBalance}`
+            );
         } else {
           setError(t`There was an error loading the total cost.`);
           props.setCosts("0");
@@ -148,7 +156,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const fiatBalance = formatToPrice(props.fiatBalance || "0", locale);
 
   const formattedCosts =
-    (isFiat && formatToPrice(props.costs, locale)) ||
+    (isFiatOrBankTransfer && formatToPrice(props.costs, locale)) ||
     Number(props.costs)?.toLocaleString(locale);
 
   return (
@@ -184,14 +192,21 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             <Image
               width={20}
               height={20}
-              className={cx(isFiat && styles.iconFade)}
+              className={cx(isFiatOrBankTransfer && styles.iconFade)}
               src={carbonmarkPaymentMethodMap["usdc"].icon}
               alt={carbonmarkPaymentMethodMap["usdc"].id}
             />
           </div>
 
-          <Text t="h5" className={cx(isFiat && styles.textTransition)}>
-            {formatToPrice(props.retirement.singleUnitPrice, locale, isFiat)}
+          <Text
+            t="h5"
+            className={cx(isFiatOrBankTransfer && styles.textTransition)}
+          >
+            {formatToPrice(
+              props.retirement.singleUnitPrice,
+              locale,
+              isFiatOrBankTransfer
+            )}
           </Text>
         </div>
       </div>
@@ -203,7 +218,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             <Image
               width={20}
               height={20}
-              className={cx(isFiat && styles.iconFade)}
+              className={cx(isFiatOrBankTransfer && styles.iconFade)}
               src={carbonmarkPaymentMethodMap["usdc"].icon}
               alt={carbonmarkPaymentMethodMap["usdc"].id}
             />
@@ -211,11 +226,11 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           <Text
             t="h5"
             className={cx(
-              isFiat && styles.textTransition,
-              isFiat && "carbonmark-fee"
+              isFiatOrBankTransfer && styles.textTransition,
+              isFiatOrBankTransfer && "carbonmark-fee"
             )}
           >
-            {formatToPrice(CARBONMARK_FEE, locale, isFiat)}
+            {formatToPrice(CARBONMARK_FEE, locale, isFiatOrBankTransfer)}
           </Text>
         </div>
       </div>
@@ -241,8 +256,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           <Text
             t="h5"
             className={cx(
-              isFiat && styles.textTransition,
-              isFiat && "processing-fee"
+              isFiatOrBankTransfer && styles.textTransition,
+              isFiatOrBankTransfer && "processing-fee"
             )}
           >
             {calcCreditCardFee()}
@@ -259,7 +274,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             <Image
               width={36}
               height={36}
-              className={cx(isFiat && styles.iconFade)}
+              className={cx(isFiatOrBankTransfer && styles.iconFade)}
               src={carbonmarkPaymentMethodMap["usdc"].icon}
               alt={carbonmarkPaymentMethodMap["usdc"].id}
             />
@@ -267,8 +282,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           <Text
             t="h3"
             className={cx(
-              isFiat && styles.textTransition,
-              isFiat && "total-cost",
+              isFiatOrBankTransfer && styles.textTransition,
+              isFiatOrBankTransfer && "total-cost",
               styles.breakText,
               {
                 error: exceededBalance || !!error,
@@ -280,7 +295,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
 
-      {exceededBalance && (
+      {exceededBalance && !isBankTransfer && (
         <Text t="body1" className={styles.errorMessagePrice}>
           {t`Your balance:`} {currentBalance}
         </Text>

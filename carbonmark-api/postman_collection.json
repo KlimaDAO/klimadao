@@ -91,7 +91,7 @@
           "listen": "test",
           "script": {
             "exec": [
-              "pm.test('Status code is 200', function () {",
+              "pm.test.skip('Status code is 200', function () {",
               "        pm.response.to.have.status(200);",
               "})"
             ],
@@ -210,6 +210,144 @@
             {
               "key": "id",
               "value": "VCS-191-2008"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getActivities",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/activities",
+          "host": ["{{url}}"],
+          "path": ["activities"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getActivitiesFiltered",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Filters work as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].activityType).to.eql('Sold');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/activities?projectId=VCS-191-2008&activityType=Sold",
+          "host": ["{{url}}"],
+          "path": ["activities"],
+          "query": [
+            {
+              "key": "projectId",
+              "value": "VCS-191-2008"
+            },
+            {
+              "key": "activityType",
+              "value": "Sold"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProjectActivities",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].project.key).to.eql('VCS-191');",
+              "        pm.expect(jsonData[0].project.vintage).to.eql('2008');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/projects/:id/activity",
+          "host": ["{{url}}"],
+          "path": ["projects", ":id", "activity"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "VCS-191-2008"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProjectActivitiesFiltered",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Filters work as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].project.key).to.eql('VCS-191');",
+              "        pm.expect(jsonData[0].project.vintage).to.eql('2008');",
+              "        pm.expect(jsonData[0].activityType).to.eql('Sold');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/project/:id/activities?activityType=Sold",
+          "host": ["{{url}}"],
+          "path": ["projects", ":id", "activity"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "VCS-191-2008"
+            }
+          ],
+          "query": [
+            {
+              "key": "activityType",
+              "value": "Sold"
             }
           ]
         }

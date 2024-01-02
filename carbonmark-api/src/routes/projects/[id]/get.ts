@@ -1,10 +1,10 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
-import { pipe, uniq } from "lodash/fp";
+import { mapValues, pipe, trim, uniq } from "lodash/fp";
 import { DetailedProject } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
-import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
+import { fetchCarbonProject } from "../../../utils/helpers/cms.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
 import { toGeoJSON } from "../get.utils";
@@ -27,26 +27,25 @@ const handler = (fastify: FastifyInstance) =>
       registryProjectId,
       projectId: key,
     } = new CreditId(id);
-    let poolPrices, stats, listings, activities, projectDetails;
+    let poolPrices, stats, listings, projectDetails;
     try {
-      [[poolPrices, stats], [listings, activities], projectDetails] =
-        await Promise.all([
-          fetchPoolPricesAndStats(sdk, {
-            key,
-            vintage,
-            network: request.query.network || "polygon",
-          }),
-          fetchMarketplaceListings(sdk, {
-            key,
-            vintage,
-            fastify,
-            expiresAfter: request.query.expiresAfter,
-          }),
-          fetchCarbonProject(sdk, {
-            registry,
-            registryProjectId,
-          }),
-        ]);
+      [[poolPrices, stats], [listings], projectDetails] = await Promise.all([
+        fetchPoolPricesAndStats(sdk, {
+          key,
+          vintage,
+          network: request.query.network || "polygon",
+        }),
+        fetchMarketplaceListings(sdk, {
+          key,
+          vintage,
+          fastify,
+          expiresAfter: request.query.expiresAfter,
+        }),
+        fetchCarbonProject(sdk, {
+          registry,
+          registryProjectId,
+        }),
+      ]);
     } catch (error) {
       console.error(error);
       throw error;
@@ -75,7 +74,8 @@ const handler = (fastify: FastifyInstance) =>
       registry: projectDetails.registry,
       url: projectDetails.url,
       name: projectDetails.name,
-      methodologies: projectDetails.methodologies ?? [],
+      /** Sanitize category values */
+      methodologies: projectDetails.methodologies?.map(mapValues(trim)) ?? [],
       short_description: projectDetails.shortDescription,
       long_description: projectDetails.longDescription,
       projectID: projectDetails.registryProjectId,
@@ -87,12 +87,13 @@ const handler = (fastify: FastifyInstance) =>
           caption: image?.asset?.altText,
           url: image?.asset?.url,
         })) ?? [],
-      activities,
       listings,
       vintage,
       stats,
     };
-    return reply.send(JSON.stringify(projectResponse));
+    return reply
+      .header("Content-Type", "application/json; charset=utf-8")
+      .send(JSON.stringify(projectResponse));
   };
 
 export default async (fastify: FastifyInstance) =>

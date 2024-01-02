@@ -1,9 +1,11 @@
 import {
+  aMethodology,
   aProject,
   aProjectContent,
-} from "../../src/.generated/mocks/carbonProjects.mocks";
+} from "../../src/.generated/mocks/cms.mocks";
+import { Maybe, Slug } from "../../src/.generated/types/cms.types";
 
-const projectContent = aProjectContent({
+const cmsProjectContent = aProjectContent({
   project: {
     registry: "VCS",
     registryProjectId: "191",
@@ -12,16 +14,23 @@ const projectContent = aProjectContent({
   longDescription: "Long description for vcs-101",
 });
 
-const project = aProject({
+const cmsProject = aProject({
   country: "China",
   registry: "VCS",
   registryProjectId: "191",
   region: "Asia",
+  methodologies: [
+    aMethodology({
+      id: "ACM0002" as unknown as Maybe<Slug>, //Ugh..
+      category: "Renewable Energy",
+      name: "Grid-connected electricity generation from renewable sources",
+    }),
+  ],
 });
 
 // Generated types are wrong, id is string - https://github.com/KlimaDAO/klimadao/issues/1500
 const carbonProject = {
-  ...project,
+  ...cmsProject,
   // override these because the type from aProject() is wrong
   id: "VCS-191",
   methodologies: [
@@ -31,15 +40,13 @@ const carbonProject = {
       name: "Grid-connected electricity generation from renewable sources",
     },
   ],
-  content: projectContent,
+  content: cmsProjectContent,
 };
 
 /** Fixtures for queries to the carbon-projects cms */
-const fixtures = {
-  projectContent,
-  project,
-  /** Project entry in `fetchAllProjects` query */
+export default {
+  cmsProject,
+  cmsProjectContent,
   carbonProject,
+  /** Project entry in `fetchAllProjects` query */
 };
-
-export default fixtures;

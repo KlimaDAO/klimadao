@@ -6,7 +6,6 @@ export const operations = {
   get_projects: { path: "/projects", method: "get" },
   post_users: { path: "/users", method: "post" },
   get_vintages: { path: "/vintages", method: "get" },
-  "get_listings-id": { path: "/listings/:id", method: "get" },
   "post_login-verify": { path: "/login/verify", method: "post" },
   "get_projects-id": { path: "/projects/:id", method: "get" },
   "get_purchases-id": { path: "/purchases/:id", method: "get" },

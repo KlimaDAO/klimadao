@@ -1,5 +1,6 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { AssetDetails } from "components/AssetDetails";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
@@ -18,7 +19,6 @@ import {
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import * as styles from "../styles";
-import { AssetDetails } from "./AssetDetails";
 import { Price } from "./Price";
 import { PurchaseInputs } from "./PurchaseInputs";
 import { PurchaseModal } from "./PurchaseModal";
@@ -90,7 +90,12 @@ export const PurchaseForm: FC<Props> = (props) => {
   const onContinue = async (values: FormValues) => {
     setIsLoadingAllowance(true);
     try {
-      if (!address || values.paymentMethod === "fiat") return;
+      if (
+        !address ||
+        values.paymentMethod === "fiat" ||
+        values.paymentMethod === "bank-transfer"
+      )
+        return;
 
       const allowance = await getRedeemAllowance({
         userAddress: address,
@@ -125,6 +130,7 @@ export const PurchaseForm: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
     try {
       inputValues.paymentMethod !== "fiat" &&
+        inputValues.paymentMethod !== "bank-transfer" &&
         (await approveTokenSpend({
           tokenName: inputValues.paymentMethod,
           spender: "retirementAggregatorV2",
@@ -145,7 +151,7 @@ export const PurchaseForm: FC<Props> = (props) => {
       const result = await redeemCarbonTransaction({
         paymentMethod: inputValues.paymentMethod,
         pool: props.price.poolName,
-        maxCost: inputValues.totalPrice,
+        maxCost: getApprovalValue(),
         projectTokenAddress: props.price.projectTokenAddress,
         isPoolDefault: props.price.isPoolDefault,
         quantity: inputValues.quantity,
@@ -200,7 +206,13 @@ export const PurchaseForm: FC<Props> = (props) => {
               />
             </Card>
             <Card>
-              <AssetDetails price={props.price} project={props.project} />
+              <AssetDetails
+                price={props.price}
+                project={props.project}
+                actionLabel={t`Token you will receive`}
+                availableLabel={t`Available to purchase`}
+                polyscanUrl={`https://polygonscan.com/token/${props.price.projectTokenAddress}`}
+              />
             </Card>
           </div>
           <SubmitButton

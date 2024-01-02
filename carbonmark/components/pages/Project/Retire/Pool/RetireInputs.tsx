@@ -8,7 +8,11 @@ import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { isAddress } from "ethers-v6";
-import { MINIMUM_TONNE_QUANTITY, urls as carbonmarkUrls } from "lib/constants";
+import {
+  MINIMUM_TONNE_QUANTITY,
+  MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+  urls as carbonmarkUrls,
+} from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
@@ -66,7 +70,7 @@ const validations = (
     quantity: {
       min: {
         value: 1,
-        message: t`The minimum amount to retire is 1 Tonnes`,
+        message: t`The minimum amount to retire is 1 Tonne`,
       },
     },
     totalPrice: {
@@ -83,6 +87,24 @@ const validations = (
             exceeding ${formatToPrice(fiatBalance || 0)}. Please adjust the
             quantity and try again later.
           `,
+      },
+    },
+  },
+  "bank-transfer": {
+    quantity: {
+      min: {
+        value: MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+        message: t`The minimum amount to retire via bank transfer is 100 Tonnes`,
+      },
+    },
+    totalPrice: {
+      min: {
+        value: MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+        message: t`The minimum amount to retire via bank transfer is 100 Tonnes`,
+      },
+      max: {
+        value: Infinity,
+        message: "",
       },
     },
   },
@@ -113,6 +135,7 @@ export const RetireInputs: FC<Props> = (props) => {
     Number(props.fiatMinimum) > Number(totalPrice);
 
   const isFiat = paymentMethod === "fiat";
+  const isBankTransfer = paymentMethod === "bank-transfer";
 
   const isDisabled = (item: string) =>
     item === "usdc" && !address && !isConnected;
@@ -120,9 +143,7 @@ export const RetireInputs: FC<Props> = (props) => {
   const exceededFiatBalance =
     isFiat && Number(props.fiatBalance) < Number(totalPrice);
 
-  const payWithItems = Object.entries(
-    carbonmarkRetirePaymentMethodMap
-  ).reverse();
+  const payWithItems = Object.entries(carbonmarkRetirePaymentMethodMap);
 
   /** Credit card fee string to display in the price card for fiat payments */
   const calcCreditCardFee = (): string => {
@@ -142,6 +163,16 @@ export const RetireInputs: FC<Props> = (props) => {
     if (isFiat && !!quantity && !props.fiatAmountError) {
       setValue("quantity", Math.ceil(Number(quantity)).toString());
     }
+
+    // If the payment method changes to bank-transfer
+    // set the minimum allowed quantity as the default
+    if (isBankTransfer && !!quantity) {
+      setValue(
+        "quantity",
+        Math.ceil(MINIMUM_TONNE_QUANTITY_BANK_TRANSFER).toString()
+      );
+    }
+
     // clear quantity when error
     if (isFiat && !!props.fiatAmountError) {
       setValue("quantity", "");
@@ -149,7 +180,7 @@ export const RetireInputs: FC<Props> = (props) => {
   }, [paymentMethod, props.fiatAmountError]);
 
   const exceededBalance =
-    paymentMethod !== "fiat" &&
+    paymentMethod === "usdc" &&
     !!props.userBalance &&
     Number(props.userBalance) <= Number(props.approvalValue);
 
@@ -334,7 +365,7 @@ export const RetireInputs: FC<Props> = (props) => {
                         src={value.icon}
                         alt={value.label}
                       />
-                      {item === "fiat" ? (
+                      {item === "fiat" || item === "bank-transfer" ? (
                         <>{value.label}</>
                       ) : (
                         <>

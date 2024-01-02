@@ -2,10 +2,12 @@ import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { Purchase } from "../../../src/models/Purchase.model";
-import carbonProjects from "../../fixtures/carbonProjects";
+import { fixtures } from "../../fixtures";
 import marketplace from "../../fixtures/marketplace";
 import { build } from "../../helper";
 import { DEV_URL, ERROR } from "../../test.constants";
+
+const mockCmsProject = fixtures.cms.cmsProject;
 
 const purchaseModelFixture: Purchase = {
   ...marketplace.purchase,
@@ -20,22 +22,22 @@ const purchaseModelFixture: Purchase = {
     project: {
       key: marketplace.purchase.listing.project.key,
       vintage: marketplace.purchase.listing.project.vintage,
-      country: carbonProjects.carbonProject.country!,
-      name: carbonProjects.carbonProject.name!,
-      methodology: carbonProjects.carbonProject.methodologies?.[0]?.id!,
-      projectID: carbonProjects.carbonProject.registryProjectId!,
+      country: mockCmsProject.country!,
+      name: mockCmsProject.name!,
+      methodology: mockCmsProject.methodologies?.[0]?.id! as unknown as string,
+      projectID: mockCmsProject.registryProjectId!,
     },
   },
 };
 
-jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => {
+jest.mock("../../../src/utils/helpers/cms.utils", () => {
   const carbonProjectsUtils = jest.requireActual(
-    "../../../src/utils/helpers/carbonProjects.utils"
+    "../../../src/utils/helpers/cms.utils"
   );
   return {
     ...carbonProjectsUtils,
     fetchCarbonProject: jest.fn(() => {
-      return carbonProjects.carbonProject;
+      return mockCmsProject;
     }),
   };
 });

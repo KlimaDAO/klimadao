@@ -1,7 +1,8 @@
-import { FastifyInstance } from "fastify";
-import { compact, concat, isArray } from "lodash";
+import { FastifyInstance, FastifyReply } from "fastify";
+import { compact, concat, isArray, omit } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
+  ActivityType,
   Category,
   Country,
   Listing,
@@ -11,7 +12,7 @@ import { CarbonOffset } from "../../.generated/types/offsets.types";
 import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
-import { CarbonProject } from "./carbonProjects.utils";
+import { CarbonProject } from "./cms.utils";
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- unable to type environment variables
 const ENV = (process.env.VERCEL_ENV ?? "development") as
   | "development"
@@ -228,3 +229,49 @@ export const isMatchingCmsProject = (
   { registry, projectId }: IsMatchingCmsProjectArgs,
   project: CarbonProject
 ) => project?.registryProjectId === projectId && project.registry === registry;
+
+export function formatGraphTimestamps<
+  T extends { createdAt: string | null; updatedAt: string | null },
+>(data: T) {
+  const partialData = omit(data, ["createdAt", "updatedAt"]);
+  return {
+    ...partialData,
+    /** Note: Graph timestamps are in seconds **/
+    createdAt: Number(data.createdAt),
+    updatedAt: Number(data.updatedAt),
+  };
+}
+/**
+ * Converts a String into an ActivityType without breaking typescript checks
+ */
+export const stringToActivityType = (str: string): ActivityType | undefined => {
+  for (const [key, value] of Object.entries(ActivityType)) {
+    if (key == str) {
+      return value;
+    }
+  }
+};
+/**
+ * Converts an array of Strings into an array of ActivityType without breaking typescript checks
+ * This method will silently filter out strings that do not relate to an actually activity type
+ * so make sure the handler checks for correct activity type input
+ */
+export const stringsToActivityTypes = (strs: string[]): ActivityType[] => {
+  return strs
+    .map(stringToActivityType)
+    .filter((str): str is ActivityType => !!str);
+};
+
+/**
+ * Sends a standard success reply
+ * @param reply
+ */
+export function asResponse<ReplyType>(
+  reply: FastifyReply,
+  payload?: ReplyType
+) {
+  return reply
+    .status(200)
+    .header("Content-Type", "application/json; charset=utf-8")
+    .send(payload);
+}
