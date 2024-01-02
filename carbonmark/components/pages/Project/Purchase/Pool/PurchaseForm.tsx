@@ -90,7 +90,12 @@ export const PurchaseForm: FC<Props> = (props) => {
   const onContinue = async (values: FormValues) => {
     setIsLoadingAllowance(true);
     try {
-      if (!address || values.paymentMethod === "fiat") return;
+      if (
+        !address ||
+        values.paymentMethod === "fiat" ||
+        values.paymentMethod === "bank-transfer"
+      )
+        return;
 
       const allowance = await getRedeemAllowance({
         userAddress: address,
@@ -125,6 +130,7 @@ export const PurchaseForm: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
     try {
       inputValues.paymentMethod !== "fiat" &&
+        inputValues.paymentMethod !== "bank-transfer" &&
         (await approveTokenSpend({
           tokenName: inputValues.paymentMethod,
           spender: "retirementAggregatorV2",
