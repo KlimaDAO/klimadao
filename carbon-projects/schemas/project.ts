@@ -37,9 +37,8 @@ const subcategories = [
   { title: "Improved Forest Management (IFM)", value: "ifm" },
   { title: "Avoided Deforestation", value: "redd" },
   { title: "Afforestation", value: "afforestation" },
-  { title: "Mangrove Restoration", value: "mangroves"},
+  { title: "Mangrove Restoration", value: "mangroves" },
 ];
-
 
 export default defineType({
   name: "project",
@@ -94,7 +93,7 @@ export default defineType({
           { title: "Verra", value: "VCS" },
           { title: "Gold Standard", value: "GS" },
           { title: "EcoRegistry", value: "ECO" },
-          { title: "International Carbon Registry", value: "ICR"},
+          { title: "International Carbon Registry", value: "ICR" },
         ],
       },
       validation: (r) => r.required(),
@@ -234,7 +233,8 @@ export default defineType({
     }),
     defineField({
       name: "url",
-      description: "Project's website or resource url on the registry, if exists",
+      description:
+        "Project's website or resource url on the registry, if exists",
       group: "media",
       type: "url",
     }),
@@ -246,18 +246,17 @@ export default defineType({
     }),
     defineField({
       name: "externalMedia",
-      description:
-        "Arrays of external media URIs and associated captions",
+      description: "Arrays of external media URIs and associated captions",
       group: "media",
       type: "array",
-      of: [{type: "externalFile"}],
+      of: [{ type: "externalFile" }],
     }),
     defineField({
       name: "externalDocuments",
       description: "External PDF documents associated with this project",
       group: "media",
       type: "array",
-      of: [{type: "externalFile"}],
+      of: [{ type: "externalFile" }],
     }),
   ],
 });
