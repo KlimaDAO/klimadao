@@ -44,7 +44,10 @@ export const ProjectRetire: NextPage<ProjectRetirePageProps> = (props) => {
             <LoginButton className="desktopLogin" />
           </div>
 
-          <RetireForm project={props.project} retirement={props.retirement} />
+          <RetireForm
+            project={props.project}
+            purchaseOrRetirement={props.retirement}
+          />
         </div>
       </Layout>
     </>

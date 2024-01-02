@@ -20,7 +20,7 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  retirement: PurchaseOrRetirement;
+  purchaseOrRetirement: PurchaseOrRetirement;
   userBalance: string | null;
   fiatBalance: string | null;
   fiatMinimum: string | null;
@@ -47,7 +47,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const isBankTransfer = paymentMethod === "bank-transfer";
   const isFiatOrBankTransfer = isFiat || isBankTransfer;
 
-  const priceWithoutFees = Number(amount) * Number(props.price.singleUnitPrice);
+  const priceWithoutFees =
+    Number(amount) * Number(props.purchaseOrRetirement.singleUnitPrice);
 
   /** Credit card fee string to display in the price card for fiat payments */
   const calcCreditCardFee = (): string => {
@@ -88,20 +89,21 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       try {
         setIsLoading(true);
 
-        const totalPrice = await (props.retirement.type === "pool"
+        const totalPrice = await (props.purchaseOrRetirement.type === "pool"
           ? getPoolConsumptionCost({
               inputToken: paymentMethod,
-              retirementToken: props.retirement.poolName,
+              retirementToken: props.purchaseOrRetirement.poolName,
               quantity: amount,
-              isDefaultProject: props.retirement.isPoolDefault,
-              projectTokenAddress: props.retirement.projectTokenAddress,
+              isDefaultProject: props.purchaseOrRetirement.isPoolDefault,
+              projectTokenAddress:
+                props.purchaseOrRetirement.projectTokenAddress,
               currentUrl: asPath,
             })
           : getListingConsumptionCost({
               inputToken: paymentMethod,
               quantity: amount,
               currentUrl: asPath,
-              listingId: props.retirement.id,
+              listingId: props.purchaseOrRetirement.id,
             }));
 
         props.setCosts(totalPrice);
@@ -203,7 +205,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             className={cx(isFiatOrBankTransfer && styles.textTransition)}
           >
             {formatToPrice(
-              props.retirement.singleUnitPrice,
+              props.purchaseOrRetirement.singleUnitPrice,
               locale,
               isFiatOrBankTransfer
             )}
