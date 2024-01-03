@@ -1,11 +1,14 @@
 import { css } from "@emotion/css";
 
 export const activity = css`
-  background-color: #fafaff;
   border-left: 2px solid var(--manatee);
   padding: 0.6rem 1.4rem;
   display: grid;
   gap: 0.8rem;
+
+  :nth-child(odd) {
+    background-color: #fafaff;
+  }
 
   .account {
     color: var(--bright-blue);
