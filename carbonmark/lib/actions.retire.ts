@@ -39,6 +39,10 @@ export const getListingConsumptionCost = async (params: {
   currentUrl: string;
   listingId: string;
 }): Promise<string> => {
+  if (params.inputToken === "bank-transfer") {
+    return "0";
+  }
+
   const fiatCosts = await getFiatRetirementCost({
     cancelUrl: `${urls.baseUrl}${params.currentUrl}`,
     referrer: "carbonmark",
