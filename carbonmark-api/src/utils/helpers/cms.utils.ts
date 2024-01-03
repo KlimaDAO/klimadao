@@ -32,7 +32,7 @@ export type CarbonProject = GetCmsProjectQuery["allProject"][number] & {
 /**
  * Fetches a carbon project based on the provided registry and id.
  */
-export const fetchCarbonProject = async (sdk: GQL_SDK, args: Args) => {
+export const fetchCMSProject = async (sdk: GQL_SDK, args: Args) => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([
     sdk.cms.getCMSProject(args),
     sdk.cms.getCMSProjectContent(args),

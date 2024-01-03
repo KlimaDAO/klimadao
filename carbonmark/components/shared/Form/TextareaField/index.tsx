@@ -7,6 +7,7 @@ interface Props {
   id: string;
   textareaProps: TextareaHTMLAttributes<HTMLTextAreaElement>;
   label: string;
+  required?: boolean;
   errorMessage?: string;
   hideLabel?: boolean;
 }
@@ -30,6 +31,7 @@ export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
       <div className={styles.container}>
         <label htmlFor={props.id} className={visuallyHidden}>
           <Text t="body1">{props.label}</Text>
+          {props.required && <span className={styles.required}>*</span>}
         </label>
 
         <textarea

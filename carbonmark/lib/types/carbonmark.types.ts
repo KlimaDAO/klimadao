@@ -204,4 +204,4 @@ export type Balance = {
 };
 
 // add more methods here later
-export type CarbonmarkPaymentMethod = "usdc" | "fiat";
+export type CarbonmarkPaymentMethod = "usdc" | "fiat" | "bank-transfer";

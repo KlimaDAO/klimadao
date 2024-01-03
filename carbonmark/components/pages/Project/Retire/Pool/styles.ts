@@ -271,6 +271,34 @@ export const stickyContentWrapper = css`
   top: 1rem;
 `;
 
+export const buttonWrapper = css`
+  margin: 0;
+
+  button {
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+  }
+`;
+
+export const bankTransferModal = css`
+  .modalContent {
+    width: 36.4rem;
+  }
+`;
+
+export const confirmBankTransfer = css`
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+
+  svg {
+    width: 4rem;
+    height: 4rem;
+    color: var(--manatee);
+  }
+`;
+
 export const confirmCreditCard = css`
   margin-top: 2rem;
   display: grid;

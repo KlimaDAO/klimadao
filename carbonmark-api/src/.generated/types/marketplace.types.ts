@@ -1280,6 +1280,8 @@ export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key:
 
 export type ActivityFragmentFragment = { __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } };
 
+export type PurchaseFragmentFragment = { __typename?: 'Purchase', amount: string, id: any, price: string, listing: { __typename?: 'Listing', id: string, tokenAddress: any, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }, seller: { __typename?: 'User', id: any } } };
+
 export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1294,6 +1296,11 @@ export type GetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: string }> };
+
+export type GetPurchasesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetPurchasesQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', amount: string, id: any, price: string, listing: { __typename?: 'Listing', id: string, tokenAddress: any, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }, seller: { __typename?: 'User', id: any } } }> };
 
 export type GetPurchaseByIdQueryVariables = Exact<{
   id: Scalars['ID'];
@@ -1401,6 +1408,23 @@ export const ActivityFragmentFragmentDoc = gql`
   }
 }
     `;
+export const PurchaseFragmentFragmentDoc = gql`
+    fragment PurchaseFragment on Purchase {
+  amount
+  id
+  listing {
+    id
+    project {
+      ...ProjectFragment
+    }
+    seller {
+      id
+    }
+    tokenAddress
+  }
+  price
+}
+    ${ProjectFragmentFragmentDoc}`;
 export const GetCategoriesDocument = gql`
     query getCategories {
   categories(first: 1000) {
@@ -1422,25 +1446,20 @@ export const GetVintagesDocument = gql`
   }
 }
     `;
+export const GetPurchasesDocument = gql`
+    query getPurchases {
+  purchases(first: 1000, orderBy: timeStamp, orderDirection: desc) {
+    ...PurchaseFragment
+  }
+}
+    ${PurchaseFragmentFragmentDoc}`;
 export const GetPurchaseByIdDocument = gql`
     query getPurchaseById($id: ID!) {
   purchase(id: $id) {
-    amount
-    id
-    listing {
-      id
-      project {
-        ...ProjectFragment
-      }
-      seller {
-        id
-      }
-      tokenAddress
-    }
-    price
+    ...PurchaseFragment
   }
 }
-    ${ProjectFragmentFragmentDoc}`;
+    ${PurchaseFragmentFragmentDoc}`;
 export const GetUserByWalletDocument = gql`
     query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
   listings(where: {seller: $wallet, expiration_gt: $expiresAfter, active: true}) {
@@ -1513,6 +1532,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getVintages(variables?: GetVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetVintagesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query');
+    },
+    getPurchases(variables?: GetPurchasesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchasesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchasesQuery>(GetPurchasesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchases', 'query');
     },
     getPurchaseById(variables: GetPurchaseByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchaseByIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query');
