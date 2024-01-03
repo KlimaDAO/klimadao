@@ -1,6 +1,6 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { East } from "@mui/icons-material";
+import EastIcon from "@mui/icons-material/East";
 import { Text } from "components/Text";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
@@ -89,7 +89,7 @@ export const Activity = (props: Props) => {
     transactionString = t`for`;
   }
   if (isUpdatePrice || isUpdateQuantity) {
-    transactionString = <East />;
+    transactionString = <EastIcon />;
   }
 
   return (
