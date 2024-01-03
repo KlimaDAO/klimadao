@@ -1,7 +1,7 @@
 import rateLimiter from "@fastify/rate-limit";
 import fp from "fastify-plugin";
 
-export const LIMIT = 20;
+export const LIMIT = 100;
 
 /**
  * This plugin adds rate limiting functionality to Fastify.
