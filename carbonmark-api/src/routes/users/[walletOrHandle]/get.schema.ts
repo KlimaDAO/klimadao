@@ -27,6 +27,7 @@ export const querystring = Type.Object({
     Type.Number({
       description:
         "Only consider projects listings and pools that contains at least this amount of credits (Tonnes)",
+      minimum: 0,
       examples: ["0"],
     })
   ),
