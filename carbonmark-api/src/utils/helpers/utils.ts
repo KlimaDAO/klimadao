@@ -26,7 +26,7 @@ export async function getAllVintages(
 ): Promise<string[]> {
   const uniqueValues = new Set<string>();
   const cacheKey = `vintages`;
-  const cachedResult = await fastify.lcache.get<string[]>(cacheKey)?.payload;
+  const cachedResult = await fastify.lcache?.get<string[]>(cacheKey)?.payload;
 
   if (cachedResult) {
     return cachedResult;
@@ -54,7 +54,7 @@ export async function getAllVintages(
 
   const result = Array.from(uniqueValues).sort().filter(notEmptyOrNil);
 
-  await fastify.lcache.set(cacheKey, { payload: result });
+  await fastify.lcache?.set(cacheKey, { payload: result });
 
   return result;
 }
@@ -67,7 +67,7 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
   // Try to get the cached result
   try {
     const cachedResult =
-      await fastify.lcache.get<Category[]>(cacheKey)?.payload;
+      await fastify.lcache?.get<Category[]>(cacheKey)?.payload;
 
     // If the cached result exists, return it
     if (cachedResult) return cachedResult;
@@ -110,7 +110,7 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
   const result: Category[] = fn(values);
 
   // Cache the result before returning it
-  await fastify.lcache.set(cacheKey, { payload: result });
+  await fastify.lcache?.set(cacheKey, { payload: result });
 
   // Return the combined and deduplicated categories
   return result;
@@ -119,7 +119,7 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
 export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   const cacheKey = `countries`;
 
-  const cachedResult = await fastify.lcache.get<Country[]>(cacheKey)?.payload;
+  const cachedResult = await fastify.lcache?.get<Country[]>(cacheKey)?.payload;
 
   if (cachedResult) {
     return cachedResult;
@@ -149,7 +149,7 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
     digitalCarbonProjects.map(extract("country")),
   ]);
 
-  await fastify.lcache.set(cacheKey, { payload: result });
+  await fastify.lcache?.set(cacheKey, { payload: result });
 
   return result;
 }

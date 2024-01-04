@@ -7,12 +7,15 @@ import fp from "fastify-plugin";
  * @see https://github.com/denbon05/fastify-lcache
  */
 export default fp(async function (fastify) {
-  await fastify.register(fastifyCaching, { ttlInMinutes: 1 });
+  //We need to disable caching in testing to allow proper mocking
+  if (process.env.NODE_ENV !== "test") {
+    await fastify.register(fastifyCaching, { ttlInMinutes: 1 });
+  }
 });
 
 declare module "fastify" {
   export interface FastifyInstance {
-    lcache: ILcacheStorage;
+    lcache: ILcacheStorage | null;
   }
 }
 

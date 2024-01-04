@@ -266,7 +266,6 @@ export const composeProjectEntries = (
     /** If there are no prices hide this project */
     const price = pickBestPrice(data, poolPrices);
     if (!price) return;
-
     // construct CarbonmarkProjectT and make typescript happy
     const entry: Project = {
       //Remove string padding on methodologies
@@ -276,7 +275,8 @@ export const composeProjectEntries = (
       name: carbonProject?.name || poolBalances?.name || "",
       location: toGeoJSON(carbonProject?.geolocation),
       country: {
-        id: carbonProject?.country || poolBalances?.country || "",
+        id:
+          carbonProject?.country?.trim() || poolBalances?.country.trim() || "",
       },
       images: carbonProject?.content?.images?.map((img) => ({
         url: img?.asset?.url ?? "",

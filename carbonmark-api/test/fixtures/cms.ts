@@ -19,6 +19,7 @@ const cmsProject = aProject({
   registry: "VCS",
   registryProjectId: "191",
   region: "Asia",
+  id: "VCS-191" as unknown as Maybe<Slug>,
   methodologies: [
     aMethodology({
       id: "ACM0002" as unknown as Maybe<Slug>, //Ugh..
@@ -28,25 +29,8 @@ const cmsProject = aProject({
   ],
 });
 
-// Generated types are wrong, id is string - https://github.com/KlimaDAO/klimadao/issues/1500
-const carbonProject = {
-  ...cmsProject,
-  // override these because the type from aProject() is wrong
-  id: "VCS-191",
-  methodologies: [
-    {
-      id: "ACM0002",
-      category: "Renewable Energy",
-      name: "Grid-connected electricity generation from renewable sources",
-    },
-  ],
-  content: cmsProjectContent,
-};
-
 /** Fixtures for queries to the carbon-projects cms */
 export default {
   cmsProject,
   cmsProjectContent,
-  carbonProject,
-  /** Project entry in `fetchAllProjects` query */
 };

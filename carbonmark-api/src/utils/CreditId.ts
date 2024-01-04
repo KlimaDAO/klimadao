@@ -1,4 +1,5 @@
 import { includes } from "lodash";
+import { notNil } from "./functional.utils";
 
 const standards = ["VCS", "PURO", "ICR"] as const;
 
@@ -101,11 +102,10 @@ export class CreditId {
   private static isValidParams(params: unknown): params is UntypedParams {
     if (!params || typeof params !== "object") return false;
     const typedParams = params as Partial<UntypedParams>;
-    /* eslint-enable @typescript-eslint/consistent-type-assertions -- type guards */
     return (
       includes(standards, typedParams.standard?.toUpperCase()) &&
-      !!Number(typedParams.registryProjectId) &&
-      !!Number(typedParams.vintage)
+      notNil(Number(typedParams.registryProjectId)) &&
+      notNil(Number(typedParams.vintage))
     );
   }
 }
