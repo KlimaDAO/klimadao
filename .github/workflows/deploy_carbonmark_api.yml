@@ -6,10 +6,29 @@ env:
 
 on:
   pull_request:
-    branches:
-      - staging
+    paths:
+      - "carbonmark-api/**"
 
 jobs:
+  # Confirm that any changes to soruce code are accompanied by a version bump
+  check-version-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0 # We need this for fetching tags
+
+      - name: Check version update
+        run: |
+          VERSION_CHANGED=$(git diff origin/${{ github.base_ref }} HEAD -- 'carbonmark-api/package.json' | grep '"version":')
+          if [ -z "$VERSION_CHANGED" ]; then
+            echo "You must update the version line in package.json when changing files in your-directory"
+            exit 1
+          fi
+
   test:
     runs-on: ubuntu-latest
     steps:

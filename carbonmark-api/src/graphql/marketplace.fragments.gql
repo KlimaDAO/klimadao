@@ -51,3 +51,19 @@ fragment ActivityFragment on Activity {
     id
   }
 }
+
+fragment PurchaseFragment on Purchase {
+  amount
+  id
+  listing {
+    id
+    project {
+      ...ProjectFragment
+    }
+    seller {
+      id
+    }
+    tokenAddress
+  }
+  price
+}

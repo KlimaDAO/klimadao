@@ -102,7 +102,7 @@ msgid "Amount to retire"
 msgstr "Amount to retire"
 
 #: components/CreateListing/Transaction/Approve.tsx:81
-#: components/Transaction/Approve.tsx:100
+#: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "Approve"
 
@@ -2332,7 +2332,7 @@ msgstr "Confirm amount"
 msgid "transaction_modal.approve.contract_address"
 msgstr "Contract address"
 
-#: components/Transaction/Approve.tsx:70
+#: components/Transaction/Approve.tsx:71
 msgid "transaction_modal.approve.price"
 msgstr "Confirm price per tonne"
 
@@ -2345,7 +2345,7 @@ msgstr "Go back"
 msgid "transaction_modal.close"
 msgstr "Close"
 
-#: components/Transaction/Approve.tsx:107
+#: components/Transaction/Approve.tsx:108
 msgid "transaction_modal.next"
 msgstr "Next"
 
