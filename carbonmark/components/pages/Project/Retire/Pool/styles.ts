@@ -1,31 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const accordion = css`
-  border: none;
-
-  button {
-    padding: 0;
-
-    > p {
-      font-size: 2rem !important;
-      font-weight: 700;
-      line-height: 2.8rem;
-      color: var(--font-02);
-    }
-  }
-
-  &[data-open="true"] {
-    .content {
-      padding: 0;
-
-      > div {
-        margin-top: 1.6rem;
-      }
-    }
-  }
-`;
-
 export const price = css`
   height: 3.6rem;
   align-self: start;
@@ -209,20 +184,6 @@ export const divider = css`
   background-color: var(--font-03);
 `;
 
-export const externalLink = css`
-  color: var(--font-01);
-  text-decoration: underline;
-  display: flex;
-  gap: 0.4rem;
-  align-items: center;
-
-  &:hover,
-  &:visited {
-    color: var(--font-02);
-    text-decoration: none;
-  }
-`;
-
 export const breakText = css`
   overflow-wrap: anywhere;
 `;
@@ -308,6 +269,34 @@ export const stickyContentWrapper = css`
   gap: 2.4rem;
   position: sticky;
   top: 1rem;
+`;
+
+export const buttonWrapper = css`
+  margin: 0;
+
+  button {
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+  }
+`;
+
+export const bankTransferModal = css`
+  .modalContent {
+    width: 36.4rem;
+  }
+`;
+
+export const confirmBankTransfer = css`
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+
+  svg {
+    width: 4rem;
+    height: 4rem;
+    color: var(--manatee);
+  }
 `;
 
 export const confirmCreditCard = css`
