@@ -1312,7 +1312,6 @@ export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typenam
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['String']>;
   expiresAfter: InputMaybe<Scalars['BigInt']>;
-  minSupply: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1324,7 +1323,6 @@ export type GetProjectsQueryVariables = Exact<{
   category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['BigInt']> | Scalars['BigInt']>;
   expiresAfter: InputMaybe<Scalars['BigInt']>;
-  minSupply: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1333,7 +1331,6 @@ export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typen
 export type GetProjectByIdQueryVariables = Exact<{
   projectId: Scalars['ID'];
   expiresAfter: InputMaybe<Scalars['BigInt']>;
-  minSupply: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1464,10 +1461,8 @@ export const GetPurchaseByIdDocument = gql`
 }
     ${PurchaseFragmentFragmentDoc}`;
 export const GetUserByWalletDocument = gql`
-    query getUserByWallet($wallet: String, $expiresAfter: BigInt, $minSupply: BigInt) {
-  listings(
-    where: {seller: $wallet, expiration_gt: $expiresAfter, leftToSell_gt: $minSupply}
-  ) {
+    query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
+  listings(where: {seller: $wallet, expiration_gt: $expiresAfter}) {
     ...ListingFragment
   }
   activities(
@@ -1482,12 +1477,12 @@ export const GetUserByWalletDocument = gql`
     ${ListingFragmentFragmentDoc}
 ${ActivityFragmentFragmentDoc}`;
 export const GetProjectsDocument = gql`
-    query getProjects($search: String, $country: [String!], $category: [String!], $vintage: [BigInt!], $expiresAfter: BigInt, $minSupply: BigInt) {
+    query getProjects($search: String, $country: [String!], $category: [String!], $vintage: [BigInt!], $expiresAfter: BigInt) {
   projects(
     where: {and: [{or: [{name_contains_nocase: $search}, {key_contains_nocase: $search}]}, {country_in: $country}, {category_in: $category}, {vintage_in: $vintage}]}
   ) {
     ...ProjectFragment
-    listings(where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply}) {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
   }
@@ -1495,10 +1490,10 @@ export const GetProjectsDocument = gql`
     ${ProjectFragmentFragmentDoc}
 ${ListingFragmentFragmentDoc}`;
 export const GetProjectByIdDocument = gql`
-    query getProjectById($projectId: ID!, $expiresAfter: BigInt, $minSupply: BigInt) {
+    query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
   project(id: $projectId) {
     ...ProjectFragment
-    listings(where: {expiration_gt: $expiresAfter, leftToSell_gt: $minSupply}) {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
   }

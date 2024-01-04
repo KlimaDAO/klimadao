@@ -26,6 +26,7 @@ export const DetailedProjectModel = Type.Object({
   listings: Type.Array(ListingModel),
   price: Type.String(),
   vintage: Type.String(),
+  hasSupply: Type.Boolean(),
 });
 
 export type DetailedProject = Static<typeof DetailedProjectModel>;

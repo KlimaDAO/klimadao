@@ -235,4 +235,8 @@ export type Project = {
      */
     caption: string;
   }[];
+  /**
+   * @type boolean
+   */
+  hasSupply: boolean;
 };

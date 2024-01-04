@@ -6,7 +6,6 @@ import { CreditId } from "../../utils/CreditId";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/cms.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { formatTonnesForSubGraph } from "../../utils/helpers/utils";
 import { Querystring, schema } from "./get.schema";
 import {
   CMSDataMap,
@@ -46,7 +45,6 @@ const handler = (fastify: FastifyInstance) =>
 
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify);
-    const minSupply = formatTonnesForSubGraph(request.query.minSupply);
 
     const [
       marketplaceProjectsData,
@@ -60,14 +58,12 @@ const handler = (fastify: FastifyInstance) =>
         country: args.country ?? allOptions.country,
         vintage: args.vintage ?? allOptions.vintage,
         expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
-        minSupply,
       }),
       sdk.digital_carbon.findDigitalCarbonProjects({
         search: request.query.search ?? "",
         category: args.category ?? allOptions.category,
         country: args.country ?? allOptions.country,
         vintage: (args.vintage ?? allOptions.vintage).map(Number),
-        minSupply,
       }),
       fetchAllCarbonProjects(sdk),
       fetchAllPoolPrices(sdk),
@@ -140,13 +136,15 @@ const handler = (fastify: FastifyInstance) =>
         marketplaceProjectData: project,
       });
     });
+    const minSupply = request.query.minSupply || 0;
 
     /** Compose all the data together to unique entries (unsorted) */
     const entries = composeProjectEntries(
       ProjectMap,
       CMSDataMap,
       allPoolPrices,
-      network
+      network,
+      minSupply
     );
 
     const sortedEntries = sortBy(entries, (e) => Number(e.price));

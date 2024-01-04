@@ -226,7 +226,8 @@
       }
     },
     "price": { "type": "string" },
-    "vintage": { "type": "string" }
+    "vintage": { "type": "string" },
+    "hasSupply": { "type": "boolean" }
   },
   "required": [
     "key",
@@ -235,7 +236,8 @@
     "prices",
     "listings",
     "price",
-    "vintage"
+    "vintage",
+    "hasSupply"
   ],
   "x-readme-ref-name": "DetailedProject"
 }

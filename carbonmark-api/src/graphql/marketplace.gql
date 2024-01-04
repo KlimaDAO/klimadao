@@ -31,18 +31,8 @@ query getPurchaseById($id: ID!) {
   }
 }
 
-query getUserByWallet(
-  $wallet: String
-  $expiresAfter: BigInt
-  $minSupply: BigInt
-) {
-  listings(
-    where: {
-      seller: $wallet
-      expiration_gt: $expiresAfter
-      leftToSell_gt: $minSupply
-    }
-  ) {
+query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
+  listings(where: { seller: $wallet, expiration_gt: $expiresAfter }) {
     ...ListingFragment
   }
   activities(
@@ -63,7 +53,6 @@ query getProjects(
   $category: [String!]
   $vintage: [BigInt!]
   $expiresAfter: BigInt
-  $minSupply: BigInt
 ) {
   projects(
     where: {
@@ -81,24 +70,16 @@ query getProjects(
     }
   ) {
     ...ProjectFragment
-    listings(
-      where: { expiration_gt: $expiresAfter, leftToSell_gt: $minSupply }
-    ) {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
   }
 }
 
-query getProjectById(
-  $projectId: ID!
-  $expiresAfter: BigInt
-  $minSupply: BigInt
-) {
+query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
   project(id: $projectId) {
     ...ProjectFragment
-    listings(
-      where: { expiration_gt: $expiresAfter, leftToSell_gt: $minSupply }
-    ) {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
   }

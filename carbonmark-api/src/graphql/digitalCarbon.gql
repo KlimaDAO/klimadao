@@ -18,16 +18,12 @@ query getDigitalCarbonProjectsCountries {
   }
 }
 
-query getProjectCredits(
-  $projectID: String!
-  $vintage: Int
-  $minSupply: BigInt
-) {
+query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: { projectID: $projectID }) {
     ...DigitalCarbonProjectFragment
     carbonCredits(where: { vintage: $vintage }) {
       ...CarbonCreditFragment
-      poolBalances(where: { balance_gt: $minSupply }) {
+      poolBalances {
         ...PoolBalancesFragment
       }
     }
@@ -39,7 +35,6 @@ query findDigitalCarbonProjects(
   $category: [String!]
   $search: String
   $vintage: [Int!]
-  $minSupply: BigInt
 ) {
   carbonProjects(
     first: 1000
@@ -59,7 +54,7 @@ query findDigitalCarbonProjects(
     ...DigitalCarbonProjectFragment
     carbonCredits(where: { vintage_in: $vintage }) {
       ...CarbonCreditFragment
-      poolBalances(where: { balance_gt: $minSupply }) {
+      poolBalances {
         ...PoolBalancesFragment
         pool {
           ...PoolFragment

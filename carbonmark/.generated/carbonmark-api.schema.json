@@ -487,6 +487,9 @@
                 "caption"
               ]
             }
+          },
+          "hasSupply": {
+            "type": "boolean"
           }
         },
         "required": [
@@ -502,7 +505,8 @@
           "region",
           "price",
           "prices",
-          "stats"
+          "stats",
+          "hasSupply"
         ]
       },
       "DetailedProject": {
@@ -1004,6 +1008,9 @@
           },
           "vintage": {
             "type": "string"
+          },
+          "hasSupply": {
+            "type": "boolean"
           }
         },
         "required": [
@@ -1013,7 +1020,8 @@
           "prices",
           "listings",
           "price",
-          "vintage"
+          "vintage",
+          "hasSupply"
         ]
       },
       "Activity": {
@@ -3091,6 +3099,9 @@
                             "caption"
                           ]
                         }
+                      },
+                      "hasSupply": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -3106,7 +3117,8 @@
                       "region",
                       "price",
                       "prices",
-                      "stats"
+                      "stats",
+                      "hasSupply"
                     ]
                   }
                 }
@@ -3903,6 +3915,9 @@
                     },
                     "vintage": {
                       "type": "string"
+                    },
+                    "hasSupply": {
+                      "type": "boolean"
                     }
                   },
                   "required": [
@@ -3912,7 +3927,8 @@
                     "prices",
                     "listings",
                     "price",
-                    "vintage"
+                    "vintage",
+                    "hasSupply"
                   ]
                 }
               }
