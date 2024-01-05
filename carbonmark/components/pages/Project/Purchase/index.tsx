@@ -45,15 +45,13 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
 
       <Layout>
         <div className={styles.container}>
-          <div className={styles.backToProjectButton}>
-            <Link
-              href={createProjectLink(props.project)}
-              className={styles.backToResults}
-            >
-              <ArrowBack className="arrow" />
-              <Trans>Back to Project</Trans>
-            </Link>
-          </div>
+          <Link
+            href={createProjectLink(props.project)}
+            className={styles.backToProject}
+          >
+            <ArrowBack className="arrow" />
+            <Trans>Back to Project</Trans>
+          </Link>
           <div className={styles.loginButton}>
             <LoginButton className="desktopLogin" />
           </div>
