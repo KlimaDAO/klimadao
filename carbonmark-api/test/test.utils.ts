@@ -1,3 +1,6 @@
+import { FastifyInstance, InjectOptions } from "fastify";
+import { DEV_URL } from "./test.constants";
+
 /**
  * Mocks the Firebase Admin SDK for testing purposes.
  *
@@ -36,4 +39,22 @@ export function disableAuth() {
 //Renable the `bearer.ts` plugin
 export function enableAuth() {
   delete process.env.IGNORE_AUTH;
+}
+
+/** Wrap fastifies inject fn, throws internal server errors in order to fail tests and debug */
+export async function mock_fetch(
+  fastify: FastifyInstance,
+  route: string,
+  opts?: InjectOptions
+) {
+  const response = await fastify.inject({
+    method: "GET",
+    url: `${DEV_URL}${route}`,
+    ...opts,
+  });
+  const data = response.json();
+  if (data.error) {
+    throw new Error("Internal server error: " + response.body);
+  }
+  return data;
 }

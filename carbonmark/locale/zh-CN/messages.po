@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-03 17:49+0000\n"
+"POT-Creation-Date: 2024-01-05 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,7 +96,7 @@ msgid "Amount to retire"
 msgstr "停用金额"
 
 #: components/CreateListing/Transaction/Approve.tsx:81
-#: components/Transaction/Approve.tsx:100
+#: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "批准"
 
@@ -2330,7 +2330,7 @@ msgstr "确认金额"
 msgid "transaction_modal.approve.contract_address"
 msgstr "合约地址"
 
-#: components/Transaction/Approve.tsx:70
+#: components/Transaction/Approve.tsx:71
 msgid "transaction_modal.approve.price"
 msgstr "确认每吨价格"
 
@@ -2343,7 +2343,7 @@ msgstr "返回"
 msgid "transaction_modal.close"
 msgstr "关闭"
 
-#: components/Transaction/Approve.tsx:107
+#: components/Transaction/Approve.tsx:108
 msgid "transaction_modal.next"
 msgstr "下一步"
 

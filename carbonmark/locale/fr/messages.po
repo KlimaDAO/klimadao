@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-03 17:49+0000\n"
+"POT-Creation-Date: 2024-01-05 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,7 +96,7 @@ msgid "Amount to retire"
 msgstr "Montant à retirer"
 
 #: components/CreateListing/Transaction/Approve.tsx:81
-#: components/Transaction/Approve.tsx:100
+#: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "Approuver"
 
@@ -2325,7 +2325,7 @@ msgstr "Confirmer le montant"
 msgid "transaction_modal.approve.contract_address"
 msgstr "Adresse du contrat"
 
-#: components/Transaction/Approve.tsx:70
+#: components/Transaction/Approve.tsx:71
 msgid "transaction_modal.approve.price"
 msgstr "Confirmer le prix par tonne"
 
@@ -2338,7 +2338,7 @@ msgstr "Retour"
 msgid "transaction_modal.close"
 msgstr "Fermer"
 
-#: components/Transaction/Approve.tsx:107
+#: components/Transaction/Approve.tsx:108
 msgid "transaction_modal.next"
 msgstr "Suivant"
 

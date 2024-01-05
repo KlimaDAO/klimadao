@@ -12,7 +12,6 @@ const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
 const POLYGON_URLS = {
   marketplace: `${GRAPH_API_ROOT_ID}/QmTfM5TvokuyKXCGWL3wTLZ1z4TqRtQ7PdVfQRVU39ovUC`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
-  offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
 };

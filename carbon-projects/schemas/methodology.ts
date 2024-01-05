@@ -6,6 +6,7 @@ const categories = [
   { title: "Industrial Processing", value: "Industrial Processing" },
   { title: "Renewable Energy", value: "Renewable Energy" },
   { title: "Blue Carbon", value: "Blue Carbon" },
+  { title: "Agriculture", value: "Agriculture" },
   { title: "Other", value: "Other" },
 ];
 
