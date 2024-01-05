@@ -2,6 +2,12 @@ import { FastifyInstance } from "fastify";
 import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
 import {
+  Project as CmsProject,
+  Maybe,
+  ProjectContent,
+  Slug,
+} from "../../../src/.generated/types/cms.types";
+import {
   CarbonProject,
   Registry,
 } from "../../../src/.generated/types/digitalCarbon.types";
@@ -41,6 +47,16 @@ const anotherMarketplaceProject: MarketplaceProject = {
   registry: "VCS",
   vintage: "2000",
 };
+const anotherCmsProject: CmsProject = {
+  ...cloneDeep(mockCmsProject),
+  registryProjectId: "111",
+  id: "VCS-111" as unknown as Maybe<Slug>,
+};
+
+const anotherCmsProjectContent: ProjectContent = cloneDeep(
+  mockCmsProjectContent
+);
+(anotherCmsProjectContent.project as any).registryProjectId = "111";
 
 const credit = fixtures.digitalCarbon.digitalCarbonProject.carbonCredits[0];
 const expectedPrices = [
@@ -74,7 +90,10 @@ describe("GET /projects", () => {
     mockMarketplaceArgs();
     mockDigitalCarbonArgs();
     mockTokens();
-    mockCms();
+    mockCms({
+      projects: [mockCmsProject, anotherCmsProject],
+      content: [mockCmsProjectContent, anotherCmsProjectContent],
+    });
   });
 
   // /** The happy path */
