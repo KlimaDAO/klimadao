@@ -12,8 +12,6 @@ import {
   ProjectDataMap,
   composeProjectEntries,
   getDefaultQueryArgs,
-  isValidMarketplaceProject,
-  isValidPoolProject,
 } from "./get.utils";
 
 /**
@@ -80,12 +78,6 @@ const handler = (fastify: FastifyInstance) =>
 
     /** Assign valid pool projects to map */
     poolProjectsData.carbonProjects.forEach((project) => {
-      if (!isValidPoolProject(project)) {
-        console.debug(
-          `Project with id ${project.projectID} is considered invalid due to a balance of zero across all tokens and has been filtered`
-        );
-        return;
-      }
       if (!CreditId.isValidProjectId(project.projectID)) {
         console.debug(
           `Project with id ${project.projectID} is considered to have an invalid id and has been filtered`
@@ -117,10 +109,7 @@ const handler = (fastify: FastifyInstance) =>
 
     /** Assign valid marketplace projects to map */
     marketplaceProjectsData.projects.forEach((project) => {
-      if (
-        !isValidMarketplaceProject(project) ||
-        !CreditId.isValidProjectId(project.key)
-      ) {
+      if (!CreditId.isValidProjectId(project.key)) {
         return;
       }
       const [standard, registryProjectId] = project.key.split("-");

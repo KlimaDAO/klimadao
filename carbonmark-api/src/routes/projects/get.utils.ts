@@ -1,15 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy } from "lodash";
-import {
-  concat,
-  map,
-  mapValues,
-  min,
-  pipe,
-  toLower,
-  trim,
-  uniq,
-} from "lodash/fp";
+import { concat, map, mapValues, min, pipe, trim, uniq } from "lodash/fp";
 import { TokenPriceT } from "src/models/TokenPrice.model";
 import { Geopoint } from "../../.generated/types/cms.types";
 import {
@@ -39,7 +30,6 @@ import {
   getAllVintages,
 } from "../../utils/helpers/utils";
 import { formatListings } from "../../utils/marketplace.utils";
-import { POOL_INFO } from "./get.constants";
 
 /**
  * Build a default FindProjectsQueryVariables object for searching
@@ -82,33 +72,6 @@ export const toGeoJSON = (
       coordinates: [point.lng, point.lat],
     },
   };
-};
-
-/**
- * For polygon-bridged-carbon subgraph projects
- * Returns true if project has >=1 tonne in any pool
- * */
-
-export const isValidPoolProject = (project: CarbonProjectType) => {
-  const balances = project.carbonCredits.flatMap(extract("poolBalances"));
-  const addresses = Object.values(POOL_INFO)
-    .map(extract("poolAddress"))
-    .map(toLower);
-  return balances.some(
-    (balance) =>
-      addresses.includes(balance.pool.id.toLowerCase()) &&
-      Number(balance.balance) > 0
-  );
-};
-
-/**
- * For marketplace subgraph projects
- * Returns true if project has an active, unexpired listing
- * */
-export const isValidMarketplaceProject = (
-  project: GetProjectsQuery["projects"][number]
-) => {
-  return !!getActiveListings(formatListings(project?.listings || [])).length;
 };
 
 /** The specific CarbonOffset type from the find findDigitalCarbon query*/
@@ -215,8 +178,8 @@ export const buildProjectEntry = (props: {
     registry: props.creditId.standard,
     vintage: props.creditId.vintage,
     // Data with fallback
-    country: c?.country || p?.country || m?.country.id || "",
-    name: c?.name || p?.name || m?.name || "",
+    country: (c?.country || p?.country || m?.country.id || "").trim(),
+    name: (c?.name || p?.name || m?.name || "").trim(),
     methodologies:
       c?.methodologies?.map(mapValues(trim)) ||
       p?.methodologies.split(",")?.map(mapValues(trim)) ||

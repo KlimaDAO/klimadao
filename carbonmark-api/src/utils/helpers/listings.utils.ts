@@ -29,7 +29,11 @@ const isActiveListing = (
     leftToSell?: string | null;
   },
   minSupply?: number
-) => !!l.active && !l.deleted && Number(l.leftToSell) >= (minSupply || 0);
+) =>
+  !!l.active &&
+  !l.deleted &&
+  Number(l.leftToSell) >= (minSupply || 0) &&
+  Number(l.leftToSell) > 0;
 
 /**
  * For marketplace subgraph projects
