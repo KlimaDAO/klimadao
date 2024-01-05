@@ -352,43 +352,45 @@ export const composeProjectEntries = (
       };
 
       entries.push(IcrEntry);
+    } else {
+      const carbonProject = cmsDataMap.get(projectId);
+      /** If there are no prices hide this project */
+      const price = pickBestPrice(data, poolPrices);
+      if (!price) return;
+      // construct CarbonmarkProjectT and make typescript happy
+      const entry: Project = {
+        //Remove string padding on methodologies
+        methodologies: carbonProject?.methodologies?.map(mapValues(trim)) ?? [],
+        description: carbonProject?.description || null,
+        short_description: carbonProject?.content?.shortDescription || null,
+        name: carbonProject?.name || poolBalances?.name || "",
+        location: toGeoJSON(carbonProject?.geolocation),
+        country: {
+          id:
+            carbonProject?.country?.trim() ||
+            poolBalances?.country.trim() ||
+            "",
+        },
+        images: carbonProject?.content?.images?.map((img) => ({
+          url: img?.asset?.url ?? "",
+          caption: img?.asset?.description ?? "",
+        })),
+        key: projectId,
+        registry,
+        region: carbonProject?.region || "",
+        projectID: registryProjectId,
+        vintage:
+          poolBalances?.carbonCredits[0].vintage.toString() ??
+          market?.vintage ??
+          "",
+        creditTokenAddress: poolBalances?.carbonCredits?.[0].id ?? "",
+        updatedAt: pickUpdatedAt(data),
+        listings: market?.listings?.map(formatListing) || null,
+        price,
+      };
+
+      entries.push(entry);
     }
-
-    const carbonProject = cmsDataMap.get(projectId);
-    /** If there are no prices hide this project */
-    const price = pickBestPrice(data, poolPrices);
-    if (!price) return;
-    // construct CarbonmarkProjectT and make typescript happy
-    const entry: Project = {
-      //Remove string padding on methodologies
-      methodologies: carbonProject?.methodologies?.map(mapValues(trim)) ?? [],
-      description: carbonProject?.description || null,
-      short_description: carbonProject?.content?.shortDescription || null,
-      name: carbonProject?.name || poolBalances?.name || "",
-      location: toGeoJSON(carbonProject?.geolocation),
-      country: {
-        id:
-          carbonProject?.country?.trim() || poolBalances?.country.trim() || "",
-      },
-      images: carbonProject?.content?.images?.map((img) => ({
-        url: img?.asset?.url ?? "",
-        caption: img?.asset?.description ?? "",
-      })),
-      key: projectId,
-      registry,
-      region: carbonProject?.region || "",
-      projectID: registryProjectId,
-      vintage:
-        poolBalances?.carbonCredits[0].vintage.toString() ??
-        market?.vintage ??
-        "",
-      creditTokenAddress: poolBalances?.carbonCredits?.[0].id ?? "",
-      updatedAt: pickUpdatedAt(data),
-      listings: market?.listings?.map(formatListing) || null,
-      price,
-    };
-
-    entries.push(entry);
   });
 
   return entries;
