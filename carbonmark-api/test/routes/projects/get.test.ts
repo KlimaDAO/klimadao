@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { clone, cloneDeep, pick, set } from "lodash";
+import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
 import {
   CarbonProject,
@@ -285,7 +285,7 @@ describe("GET /projects", () => {
     test("DigitalCarbon projects are filtered", async () => {
       //Mock digital carbon with no supply
       const emptyCarbonProject = set(
-        clone(anotherCarbonProject),
+        cloneDeep(anotherCarbonProject),
         "carbonCredits[0].poolBalances[0].balance",
         "0"
       );
@@ -305,7 +305,7 @@ describe("GET /projects", () => {
       mockDigitalCarbonProjects([]);
 
       const emptyMarketplaceProject = set(
-        clone(anotherMarketplaceProject),
+        cloneDeep(anotherMarketplaceProject),
         "listings[0].leftToSell",
         "0"
       );
