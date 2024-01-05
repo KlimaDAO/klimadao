@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { Block, BooleanFilter, CrossDatasetReference, CrossDatasetReferenceFilter, CrossDatasetReferenceSorting, DateFilter, DatetimeFilter, Document, DocumentFilter, DocumentSorting, File, FileFilter, FileSorting, FloatFilter, Geopoint, GeopointFilter, GeopointSorting, IdFilter, Image, ImageFilter, ImageSorting, IntFilter, Methodology, MethodologyFilter, MethodologySorting, Project, ProjectContent, ProjectContentFilter, ProjectContentSorting, ProjectFilter, ProjectSorting, RootQuery, SanityAssetSourceData, SanityAssetSourceDataFilter, SanityAssetSourceDataSorting, SanityFileAsset, SanityFileAssetFilter, SanityFileAssetSorting, SanityImageAsset, SanityImageAssetFilter, SanityImageAssetSorting, SanityImageCrop, SanityImageCropFilter, SanityImageCropSorting, SanityImageDimensions, SanityImageDimensionsFilter, SanityImageDimensionsSorting, SanityImageHotspot, SanityImageHotspotFilter, SanityImageHotspotSorting, SanityImageMetadata, SanityImageMetadataFilter, SanityImageMetadataSorting, SanityImagePalette, SanityImagePaletteFilter, SanityImagePaletteSorting, SanityImagePaletteSwatch, SanityImagePaletteSwatchFilter, SanityImagePaletteSwatchSorting, Sanity_DocumentFilter, Slug, SlugFilter, SlugSorting, Span, StringFilter, SortOrder } from '../types/cms.types';
+import { CmsBlock, CmsBooleanFilter, CmsCrossDatasetReference, CmsCrossDatasetReferenceFilter, CmsCrossDatasetReferenceSorting, CmsDateFilter, CmsDatetimeFilter, CmsDocument, CmsDocumentFilter, CmsDocumentSorting, CmsExternalFile, CmsExternalFileFilter, CmsExternalFileSorting, CmsFile, CmsFileFilter, CmsFileSorting, CmsFloatFilter, CmsGeopoint, CmsGeopointFilter, CmsGeopointSorting, CmsIdFilter, CmsImage, CmsImageFilter, CmsImageSorting, CmsIntFilter, CmsMethodology, CmsMethodologyFilter, CmsMethodologySorting, CmsProject, CmsProjectContent, CmsProjectContentFilter, CmsProjectContentSorting, CmsProjectFilter, CmsProjectSorting, CmsRootQuery, CmsSanityAssetSourceData, CmsSanityAssetSourceDataFilter, CmsSanityAssetSourceDataSorting, CmsSanityFileAsset, CmsSanityFileAssetFilter, CmsSanityFileAssetSorting, CmsSanityImageAsset, CmsSanityImageAssetFilter, CmsSanityImageAssetSorting, CmsSanityImageCrop, CmsSanityImageCropFilter, CmsSanityImageCropSorting, CmsSanityImageDimensions, CmsSanityImageDimensionsFilter, CmsSanityImageDimensionsSorting, CmsSanityImageHotspot, CmsSanityImageHotspotFilter, CmsSanityImageHotspotSorting, CmsSanityImageMetadata, CmsSanityImageMetadataFilter, CmsSanityImageMetadataSorting, CmsSanityImagePalette, CmsSanityImagePaletteFilter, CmsSanityImagePaletteSorting, CmsSanityImagePaletteSwatch, CmsSanityImagePaletteSwatchFilter, CmsSanityImagePaletteSwatchSorting, CmsSanity_DocumentFilter, CmsSlug, CmsSlugFilter, CmsSlugSorting, CmsSpan, CmsStringFilter, SortOrder } from '../types/cms.types';
 
-export const aBlock = (overrides?: Partial<Block>, _relationshipsToOmit: Set<string> = new Set()): Block => {
+export const aBlock = (overrides?: Partial<CmsBlock>, _relationshipsToOmit: Set<string> = new Set()): CmsBlock => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Block');
     return {
@@ -13,16 +13,17 @@ export const aBlock = (overrides?: Partial<Block>, _relationshipsToOmit: Set<str
     };
 };
 
-export const aBooleanFilter = (overrides?: Partial<BooleanFilter>, _relationshipsToOmit: Set<string> = new Set()): BooleanFilter => {
+export const aBooleanFilter = (overrides?: Partial<CmsBooleanFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsBooleanFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('BooleanFilter');
     return {
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : false,
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : false,
     };
 };
 
-export const aCrossDatasetReference = (overrides?: Partial<CrossDatasetReference>, _relationshipsToOmit: Set<string> = new Set()): CrossDatasetReference => {
+export const aCrossDatasetReference = (overrides?: Partial<CmsCrossDatasetReference>, _relationshipsToOmit: Set<string> = new Set()): CmsCrossDatasetReference => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CrossDatasetReference');
     return {
@@ -35,7 +36,7 @@ export const aCrossDatasetReference = (overrides?: Partial<CrossDatasetReference
     };
 };
 
-export const aCrossDatasetReferenceFilter = (overrides?: Partial<CrossDatasetReferenceFilter>, _relationshipsToOmit: Set<string> = new Set()): CrossDatasetReferenceFilter => {
+export const aCrossDatasetReferenceFilter = (overrides?: Partial<CmsCrossDatasetReferenceFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsCrossDatasetReferenceFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CrossDatasetReferenceFilter');
     return {
@@ -48,7 +49,7 @@ export const aCrossDatasetReferenceFilter = (overrides?: Partial<CrossDatasetRef
     };
 };
 
-export const aCrossDatasetReferenceSorting = (overrides?: Partial<CrossDatasetReferenceSorting>, _relationshipsToOmit: Set<string> = new Set()): CrossDatasetReferenceSorting => {
+export const aCrossDatasetReferenceSorting = (overrides?: Partial<CmsCrossDatasetReferenceSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsCrossDatasetReferenceSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CrossDatasetReferenceSorting');
     return {
@@ -61,33 +62,35 @@ export const aCrossDatasetReferenceSorting = (overrides?: Partial<CrossDatasetRe
     };
 };
 
-export const aDateFilter = (overrides?: Partial<DateFilter>, _relationshipsToOmit: Set<string> = new Set()): DateFilter => {
+export const aDateFilter = (overrides?: Partial<CmsDateFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsDateFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('DateFilter');
     return {
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : '1970-01-10T16:14:27.972Z',
         gt: overrides && overrides.hasOwnProperty('gt') ? overrides.gt! : '1970-01-05T09:17:44.773Z',
         gte: overrides && overrides.hasOwnProperty('gte') ? overrides.gte! : '1970-01-10T16:05:23.460Z',
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         lt: overrides && overrides.hasOwnProperty('lt') ? overrides.lt! : '1970-01-11T07:38:26.649Z',
         lte: overrides && overrides.hasOwnProperty('lte') ? overrides.lte! : '1970-01-11T14:10:50.732Z',
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : '1970-01-14T01:42:37.432Z',
     };
 };
 
-export const aDatetimeFilter = (overrides?: Partial<DatetimeFilter>, _relationshipsToOmit: Set<string> = new Set()): DatetimeFilter => {
+export const aDatetimeFilter = (overrides?: Partial<CmsDatetimeFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsDatetimeFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('DatetimeFilter');
     return {
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : 'aliquam',
         gt: overrides && overrides.hasOwnProperty('gt') ? overrides.gt! : 'temporibus',
         gte: overrides && overrides.hasOwnProperty('gte') ? overrides.gte! : 'cumque',
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         lt: overrides && overrides.hasOwnProperty('lt') ? overrides.lt! : 'odio',
         lte: overrides && overrides.hasOwnProperty('lte') ? overrides.lte! : 'qui',
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : 'cupiditate',
     };
 };
 
-export const aDocument = (overrides?: Partial<Document>, _relationshipsToOmit: Set<string> = new Set()): Document => {
+export const aDocument = (overrides?: Partial<CmsDocument>, _relationshipsToOmit: Set<string> = new Set()): CmsDocument => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Document');
     return {
@@ -99,7 +102,7 @@ export const aDocument = (overrides?: Partial<Document>, _relationshipsToOmit: S
     };
 };
 
-export const aDocumentFilter = (overrides?: Partial<DocumentFilter>, _relationshipsToOmit: Set<string> = new Set()): DocumentFilter => {
+export const aDocumentFilter = (overrides?: Partial<CmsDocumentFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsDocumentFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('DocumentFilter');
     return {
@@ -112,7 +115,7 @@ export const aDocumentFilter = (overrides?: Partial<DocumentFilter>, _relationsh
     };
 };
 
-export const aDocumentSorting = (overrides?: Partial<DocumentSorting>, _relationshipsToOmit: Set<string> = new Set()): DocumentSorting => {
+export const aDocumentSorting = (overrides?: Partial<CmsDocumentSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsDocumentSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('DocumentSorting');
     return {
@@ -124,7 +127,46 @@ export const aDocumentSorting = (overrides?: Partial<DocumentSorting>, _relation
     };
 };
 
-export const aFile = (overrides?: Partial<File>, _relationshipsToOmit: Set<string> = new Set()): File => {
+export const anExternalFile = (overrides?: Partial<CmsExternalFile>, _relationshipsToOmit: Set<string> = new Set()): CmsExternalFile => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('ExternalFile');
+    return {
+        _key: overrides && overrides.hasOwnProperty('_key') ? overrides._key! : 'architecto',
+        _type: overrides && overrides.hasOwnProperty('_type') ? overrides._type! : 'nesciunt',
+        description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : 'harum',
+        filename: overrides && overrides.hasOwnProperty('filename') ? overrides.filename! : 'praesentium',
+        mimetype: overrides && overrides.hasOwnProperty('mimetype') ? overrides.mimetype! : 'beatae',
+        uri: overrides && overrides.hasOwnProperty('uri') ? overrides.uri! : 'qui',
+    };
+};
+
+export const anExternalFileFilter = (overrides?: Partial<CmsExternalFileFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsExternalFileFilter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('ExternalFileFilter');
+    return {
+        _key: overrides && overrides.hasOwnProperty('_key') ? overrides._key! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        _type: overrides && overrides.hasOwnProperty('_type') ? overrides._type! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        filename: overrides && overrides.hasOwnProperty('filename') ? overrides.filename! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        mimetype: overrides && overrides.hasOwnProperty('mimetype') ? overrides.mimetype! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        uri: overrides && overrides.hasOwnProperty('uri') ? overrides.uri! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+    };
+};
+
+export const anExternalFileSorting = (overrides?: Partial<CmsExternalFileSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsExternalFileSorting => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('ExternalFileSorting');
+    return {
+        _key: overrides && overrides.hasOwnProperty('_key') ? overrides._key! : SortOrder.Asc,
+        _type: overrides && overrides.hasOwnProperty('_type') ? overrides._type! : SortOrder.Asc,
+        description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : SortOrder.Asc,
+        filename: overrides && overrides.hasOwnProperty('filename') ? overrides.filename! : SortOrder.Asc,
+        mimetype: overrides && overrides.hasOwnProperty('mimetype') ? overrides.mimetype! : SortOrder.Asc,
+        uri: overrides && overrides.hasOwnProperty('uri') ? overrides.uri! : SortOrder.Asc,
+    };
+};
+
+export const aFile = (overrides?: Partial<CmsFile>, _relationshipsToOmit: Set<string> = new Set()): CmsFile => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('File');
     return {
@@ -134,7 +176,7 @@ export const aFile = (overrides?: Partial<File>, _relationshipsToOmit: Set<strin
     };
 };
 
-export const aFileFilter = (overrides?: Partial<FileFilter>, _relationshipsToOmit: Set<string> = new Set()): FileFilter => {
+export const aFileFilter = (overrides?: Partial<CmsFileFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsFileFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('FileFilter');
     return {
@@ -144,7 +186,7 @@ export const aFileFilter = (overrides?: Partial<FileFilter>, _relationshipsToOmi
     };
 };
 
-export const aFileSorting = (overrides?: Partial<FileSorting>, _relationshipsToOmit: Set<string> = new Set()): FileSorting => {
+export const aFileSorting = (overrides?: Partial<CmsFileSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsFileSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('FileSorting');
     return {
@@ -153,20 +195,21 @@ export const aFileSorting = (overrides?: Partial<FileSorting>, _relationshipsToO
     };
 };
 
-export const aFloatFilter = (overrides?: Partial<FloatFilter>, _relationshipsToOmit: Set<string> = new Set()): FloatFilter => {
+export const aFloatFilter = (overrides?: Partial<CmsFloatFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsFloatFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('FloatFilter');
     return {
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : 4.03,
         gt: overrides && overrides.hasOwnProperty('gt') ? overrides.gt! : 5.81,
         gte: overrides && overrides.hasOwnProperty('gte') ? overrides.gte! : 8.02,
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         lt: overrides && overrides.hasOwnProperty('lt') ? overrides.lt! : 8.06,
         lte: overrides && overrides.hasOwnProperty('lte') ? overrides.lte! : 2.07,
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : 3.98,
     };
 };
 
-export const aGeopoint = (overrides?: Partial<Geopoint>, _relationshipsToOmit: Set<string> = new Set()): Geopoint => {
+export const aGeopoint = (overrides?: Partial<CmsGeopoint>, _relationshipsToOmit: Set<string> = new Set()): CmsGeopoint => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Geopoint');
     return {
@@ -178,7 +221,7 @@ export const aGeopoint = (overrides?: Partial<Geopoint>, _relationshipsToOmit: S
     };
 };
 
-export const aGeopointFilter = (overrides?: Partial<GeopointFilter>, _relationshipsToOmit: Set<string> = new Set()): GeopointFilter => {
+export const aGeopointFilter = (overrides?: Partial<CmsGeopointFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsGeopointFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('GeopointFilter');
     return {
@@ -190,7 +233,7 @@ export const aGeopointFilter = (overrides?: Partial<GeopointFilter>, _relationsh
     };
 };
 
-export const aGeopointSorting = (overrides?: Partial<GeopointSorting>, _relationshipsToOmit: Set<string> = new Set()): GeopointSorting => {
+export const aGeopointSorting = (overrides?: Partial<CmsGeopointSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsGeopointSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('GeopointSorting');
     return {
@@ -202,7 +245,7 @@ export const aGeopointSorting = (overrides?: Partial<GeopointSorting>, _relation
     };
 };
 
-export const anIdFilter = (overrides?: Partial<IdFilter>, _relationshipsToOmit: Set<string> = new Set()): IdFilter => {
+export const anIdFilter = (overrides?: Partial<CmsIdFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsIdFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('IdFilter');
     return {
@@ -214,7 +257,7 @@ export const anIdFilter = (overrides?: Partial<IdFilter>, _relationshipsToOmit: 
     };
 };
 
-export const anImage = (overrides?: Partial<Image>, _relationshipsToOmit: Set<string> = new Set()): Image => {
+export const anImage = (overrides?: Partial<CmsImage>, _relationshipsToOmit: Set<string> = new Set()): CmsImage => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Image');
     return {
@@ -226,7 +269,7 @@ export const anImage = (overrides?: Partial<Image>, _relationshipsToOmit: Set<st
     };
 };
 
-export const anImageFilter = (overrides?: Partial<ImageFilter>, _relationshipsToOmit: Set<string> = new Set()): ImageFilter => {
+export const anImageFilter = (overrides?: Partial<CmsImageFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsImageFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ImageFilter');
     return {
@@ -238,7 +281,7 @@ export const anImageFilter = (overrides?: Partial<ImageFilter>, _relationshipsTo
     };
 };
 
-export const anImageSorting = (overrides?: Partial<ImageSorting>, _relationshipsToOmit: Set<string> = new Set()): ImageSorting => {
+export const anImageSorting = (overrides?: Partial<CmsImageSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsImageSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ImageSorting');
     return {
@@ -249,20 +292,21 @@ export const anImageSorting = (overrides?: Partial<ImageSorting>, _relationships
     };
 };
 
-export const anIntFilter = (overrides?: Partial<IntFilter>, _relationshipsToOmit: Set<string> = new Set()): IntFilter => {
+export const anIntFilter = (overrides?: Partial<CmsIntFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsIntFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('IntFilter');
     return {
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : 9154,
         gt: overrides && overrides.hasOwnProperty('gt') ? overrides.gt! : 2833,
         gte: overrides && overrides.hasOwnProperty('gte') ? overrides.gte! : 492,
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         lt: overrides && overrides.hasOwnProperty('lt') ? overrides.lt! : 8311,
         lte: overrides && overrides.hasOwnProperty('lte') ? overrides.lte! : 6047,
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : 4351,
     };
 };
 
-export const aMethodology = (overrides?: Partial<Methodology>, _relationshipsToOmit: Set<string> = new Set()): Methodology => {
+export const aMethodology = (overrides?: Partial<CmsMethodology>, _relationshipsToOmit: Set<string> = new Set()): CmsMethodology => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Methodology');
     return {
@@ -279,7 +323,7 @@ export const aMethodology = (overrides?: Partial<Methodology>, _relationshipsToO
     };
 };
 
-export const aMethodologyFilter = (overrides?: Partial<MethodologyFilter>, _relationshipsToOmit: Set<string> = new Set()): MethodologyFilter => {
+export const aMethodologyFilter = (overrides?: Partial<CmsMethodologyFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsMethodologyFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('MethodologyFilter');
     return {
@@ -297,7 +341,7 @@ export const aMethodologyFilter = (overrides?: Partial<MethodologyFilter>, _rela
     };
 };
 
-export const aMethodologySorting = (overrides?: Partial<MethodologySorting>, _relationshipsToOmit: Set<string> = new Set()): MethodologySorting => {
+export const aMethodologySorting = (overrides?: Partial<CmsMethodologySorting>, _relationshipsToOmit: Set<string> = new Set()): CmsMethodologySorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('MethodologySorting');
     return {
@@ -314,7 +358,7 @@ export const aMethodologySorting = (overrides?: Partial<MethodologySorting>, _re
     };
 };
 
-export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set<string> = new Set()): Project => {
+export const aProject = (overrides?: Partial<CmsProject>, _relationshipsToOmit: Set<string> = new Set()): CmsProject => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Project');
     return {
@@ -329,21 +373,24 @@ export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set
         corsia: overrides && overrides.hasOwnProperty('corsia') ? overrides.corsia! : false,
         country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : 'perspiciatis',
         description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : 'voluptatem',
-        documents: overrides && overrides.hasOwnProperty('documents') ? overrides.documents! : [relationshipsToOmit.has('File') ? {} as File : aFile({}, relationshipsToOmit)],
+        externalDocuments: overrides && overrides.hasOwnProperty('externalDocuments') ? overrides.externalDocuments! : [relationshipsToOmit.has('ExternalFile') ? {} as ExternalFile : anExternalFile({}, relationshipsToOmit)],
+        externalMedia: overrides && overrides.hasOwnProperty('externalMedia') ? overrides.externalMedia! : [relationshipsToOmit.has('ExternalFile') ? {} as ExternalFile : anExternalFile({}, relationshipsToOmit)],
         geolocation: overrides && overrides.hasOwnProperty('geolocation') ? overrides.geolocation! : relationshipsToOmit.has('Geopoint') ? {} as Geopoint : aGeopoint({}, relationshipsToOmit),
-        id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : relationshipsToOmit.has('Slug') ? {} as Slug : aSlug({}, relationshipsToOmit),
+        id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'VCS-191-2008',
         methodologies: overrides && overrides.hasOwnProperty('methodologies') ? overrides.methodologies! : [relationshipsToOmit.has('Methodology') ? {} as Methodology : aMethodology({}, relationshipsToOmit)],
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : 'et',
+        projectWebsite: overrides && overrides.hasOwnProperty('projectWebsite') ? overrides.projectWebsite! : 'nisi',
         region: overrides && overrides.hasOwnProperty('region') ? overrides.region! : 'quae',
-        registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : 'nihil',
+        registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : 'VCS',
         registryProjectId: overrides && overrides.hasOwnProperty('registryProjectId') ? overrides.registryProjectId! : 'voluptatem',
         sdgs: overrides && overrides.hasOwnProperty('sdgs') ? overrides.sdgs! : ['et'],
         state: overrides && overrides.hasOwnProperty('state') ? overrides.state! : 'in',
+        subcategory: overrides && overrides.hasOwnProperty('subcategory') ? overrides.subcategory! : 'aut',
         url: overrides && overrides.hasOwnProperty('url') ? overrides.url! : 'eligendi',
     };
 };
 
-export const aProjectContent = (overrides?: Partial<ProjectContent>, _relationshipsToOmit: Set<string> = new Set()): ProjectContent => {
+export const aProjectContent = (overrides?: Partial<CmsProjectContent>, _relationshipsToOmit: Set<string> = new Set()): CmsProjectContent => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ProjectContent');
     return {
@@ -364,7 +411,7 @@ export const aProjectContent = (overrides?: Partial<ProjectContent>, _relationsh
     };
 };
 
-export const aProjectContentFilter = (overrides?: Partial<ProjectContentFilter>, _relationshipsToOmit: Set<string> = new Set()): ProjectContentFilter => {
+export const aProjectContentFilter = (overrides?: Partial<CmsProjectContentFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsProjectContentFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ProjectContentFilter');
     return {
@@ -385,7 +432,7 @@ export const aProjectContentFilter = (overrides?: Partial<ProjectContentFilter>,
     };
 };
 
-export const aProjectContentSorting = (overrides?: Partial<ProjectContentSorting>, _relationshipsToOmit: Set<string> = new Set()): ProjectContentSorting => {
+export const aProjectContentSorting = (overrides?: Partial<CmsProjectContentSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsProjectContentSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ProjectContentSorting');
     return {
@@ -404,7 +451,7 @@ export const aProjectContentSorting = (overrides?: Partial<ProjectContentSorting
     };
 };
 
-export const aProjectFilter = (overrides?: Partial<ProjectFilter>, _relationshipsToOmit: Set<string> = new Set()): ProjectFilter => {
+export const aProjectFilter = (overrides?: Partial<CmsProjectFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsProjectFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ProjectFilter');
     return {
@@ -422,15 +469,17 @@ export const aProjectFilter = (overrides?: Partial<ProjectFilter>, _relationship
         geolocation: overrides && overrides.hasOwnProperty('geolocation') ? overrides.geolocation! : relationshipsToOmit.has('GeopointFilter') ? {} as GeopointFilter : aGeopointFilter({}, relationshipsToOmit),
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : relationshipsToOmit.has('SlugFilter') ? {} as SlugFilter : aSlugFilter({}, relationshipsToOmit),
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        projectWebsite: overrides && overrides.hasOwnProperty('projectWebsite') ? overrides.projectWebsite! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         region: overrides && overrides.hasOwnProperty('region') ? overrides.region! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         registryProjectId: overrides && overrides.hasOwnProperty('registryProjectId') ? overrides.registryProjectId! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         state: overrides && overrides.hasOwnProperty('state') ? overrides.state! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        subcategory: overrides && overrides.hasOwnProperty('subcategory') ? overrides.subcategory! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         url: overrides && overrides.hasOwnProperty('url') ? overrides.url! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
     };
 };
 
-export const aProjectSorting = (overrides?: Partial<ProjectSorting>, _relationshipsToOmit: Set<string> = new Set()): ProjectSorting => {
+export const aProjectSorting = (overrides?: Partial<CmsProjectSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsProjectSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ProjectSorting');
     return {
@@ -447,15 +496,17 @@ export const aProjectSorting = (overrides?: Partial<ProjectSorting>, _relationsh
         geolocation: overrides && overrides.hasOwnProperty('geolocation') ? overrides.geolocation! : relationshipsToOmit.has('GeopointSorting') ? {} as GeopointSorting : aGeopointSorting({}, relationshipsToOmit),
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : relationshipsToOmit.has('SlugSorting') ? {} as SlugSorting : aSlugSorting({}, relationshipsToOmit),
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : SortOrder.Asc,
+        projectWebsite: overrides && overrides.hasOwnProperty('projectWebsite') ? overrides.projectWebsite! : SortOrder.Asc,
         region: overrides && overrides.hasOwnProperty('region') ? overrides.region! : SortOrder.Asc,
         registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : SortOrder.Asc,
         registryProjectId: overrides && overrides.hasOwnProperty('registryProjectId') ? overrides.registryProjectId! : SortOrder.Asc,
         state: overrides && overrides.hasOwnProperty('state') ? overrides.state! : SortOrder.Asc,
+        subcategory: overrides && overrides.hasOwnProperty('subcategory') ? overrides.subcategory! : SortOrder.Asc,
         url: overrides && overrides.hasOwnProperty('url') ? overrides.url! : SortOrder.Asc,
     };
 };
 
-export const aRootQuery = (overrides?: Partial<RootQuery>, _relationshipsToOmit: Set<string> = new Set()): RootQuery => {
+export const aRootQuery = (overrides?: Partial<CmsRootQuery>, _relationshipsToOmit: Set<string> = new Set()): CmsRootQuery => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('RootQuery');
     return {
@@ -474,7 +525,7 @@ export const aRootQuery = (overrides?: Partial<RootQuery>, _relationshipsToOmit:
     };
 };
 
-export const aSanityAssetSourceData = (overrides?: Partial<SanityAssetSourceData>, _relationshipsToOmit: Set<string> = new Set()): SanityAssetSourceData => {
+export const aSanityAssetSourceData = (overrides?: Partial<CmsSanityAssetSourceData>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityAssetSourceData => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityAssetSourceData');
     return {
@@ -486,7 +537,7 @@ export const aSanityAssetSourceData = (overrides?: Partial<SanityAssetSourceData
     };
 };
 
-export const aSanityAssetSourceDataFilter = (overrides?: Partial<SanityAssetSourceDataFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityAssetSourceDataFilter => {
+export const aSanityAssetSourceDataFilter = (overrides?: Partial<CmsSanityAssetSourceDataFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityAssetSourceDataFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityAssetSourceDataFilter');
     return {
@@ -498,7 +549,7 @@ export const aSanityAssetSourceDataFilter = (overrides?: Partial<SanityAssetSour
     };
 };
 
-export const aSanityAssetSourceDataSorting = (overrides?: Partial<SanityAssetSourceDataSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityAssetSourceDataSorting => {
+export const aSanityAssetSourceDataSorting = (overrides?: Partial<CmsSanityAssetSourceDataSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityAssetSourceDataSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityAssetSourceDataSorting');
     return {
@@ -510,7 +561,7 @@ export const aSanityAssetSourceDataSorting = (overrides?: Partial<SanityAssetSou
     };
 };
 
-export const aSanityFileAsset = (overrides?: Partial<SanityFileAsset>, _relationshipsToOmit: Set<string> = new Set()): SanityFileAsset => {
+export const aSanityFileAsset = (overrides?: Partial<CmsSanityFileAsset>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityFileAsset => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityFileAsset');
     return {
@@ -536,7 +587,7 @@ export const aSanityFileAsset = (overrides?: Partial<SanityFileAsset>, _relation
     };
 };
 
-export const aSanityFileAssetFilter = (overrides?: Partial<SanityFileAssetFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityFileAssetFilter => {
+export const aSanityFileAssetFilter = (overrides?: Partial<CmsSanityFileAssetFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityFileAssetFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityFileAssetFilter');
     return {
@@ -563,7 +614,7 @@ export const aSanityFileAssetFilter = (overrides?: Partial<SanityFileAssetFilter
     };
 };
 
-export const aSanityFileAssetSorting = (overrides?: Partial<SanityFileAssetSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityFileAssetSorting => {
+export const aSanityFileAssetSorting = (overrides?: Partial<CmsSanityFileAssetSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityFileAssetSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityFileAssetSorting');
     return {
@@ -589,7 +640,7 @@ export const aSanityFileAssetSorting = (overrides?: Partial<SanityFileAssetSorti
     };
 };
 
-export const aSanityImageAsset = (overrides?: Partial<SanityImageAsset>, _relationshipsToOmit: Set<string> = new Set()): SanityImageAsset => {
+export const aSanityImageAsset = (overrides?: Partial<CmsSanityImageAsset>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageAsset => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageAsset');
     return {
@@ -617,7 +668,7 @@ export const aSanityImageAsset = (overrides?: Partial<SanityImageAsset>, _relati
     };
 };
 
-export const aSanityImageAssetFilter = (overrides?: Partial<SanityImageAssetFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityImageAssetFilter => {
+export const aSanityImageAssetFilter = (overrides?: Partial<CmsSanityImageAssetFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageAssetFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageAssetFilter');
     return {
@@ -646,7 +697,7 @@ export const aSanityImageAssetFilter = (overrides?: Partial<SanityImageAssetFilt
     };
 };
 
-export const aSanityImageAssetSorting = (overrides?: Partial<SanityImageAssetSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityImageAssetSorting => {
+export const aSanityImageAssetSorting = (overrides?: Partial<CmsSanityImageAssetSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageAssetSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageAssetSorting');
     return {
@@ -674,7 +725,7 @@ export const aSanityImageAssetSorting = (overrides?: Partial<SanityImageAssetSor
     };
 };
 
-export const aSanityImageCrop = (overrides?: Partial<SanityImageCrop>, _relationshipsToOmit: Set<string> = new Set()): SanityImageCrop => {
+export const aSanityImageCrop = (overrides?: Partial<CmsSanityImageCrop>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageCrop => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageCrop');
     return {
@@ -687,7 +738,7 @@ export const aSanityImageCrop = (overrides?: Partial<SanityImageCrop>, _relation
     };
 };
 
-export const aSanityImageCropFilter = (overrides?: Partial<SanityImageCropFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityImageCropFilter => {
+export const aSanityImageCropFilter = (overrides?: Partial<CmsSanityImageCropFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageCropFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageCropFilter');
     return {
@@ -700,7 +751,7 @@ export const aSanityImageCropFilter = (overrides?: Partial<SanityImageCropFilter
     };
 };
 
-export const aSanityImageCropSorting = (overrides?: Partial<SanityImageCropSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityImageCropSorting => {
+export const aSanityImageCropSorting = (overrides?: Partial<CmsSanityImageCropSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageCropSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageCropSorting');
     return {
@@ -713,7 +764,7 @@ export const aSanityImageCropSorting = (overrides?: Partial<SanityImageCropSorti
     };
 };
 
-export const aSanityImageDimensions = (overrides?: Partial<SanityImageDimensions>, _relationshipsToOmit: Set<string> = new Set()): SanityImageDimensions => {
+export const aSanityImageDimensions = (overrides?: Partial<CmsSanityImageDimensions>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageDimensions => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageDimensions');
     return {
@@ -725,7 +776,7 @@ export const aSanityImageDimensions = (overrides?: Partial<SanityImageDimensions
     };
 };
 
-export const aSanityImageDimensionsFilter = (overrides?: Partial<SanityImageDimensionsFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityImageDimensionsFilter => {
+export const aSanityImageDimensionsFilter = (overrides?: Partial<CmsSanityImageDimensionsFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageDimensionsFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageDimensionsFilter');
     return {
@@ -737,7 +788,7 @@ export const aSanityImageDimensionsFilter = (overrides?: Partial<SanityImageDime
     };
 };
 
-export const aSanityImageDimensionsSorting = (overrides?: Partial<SanityImageDimensionsSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityImageDimensionsSorting => {
+export const aSanityImageDimensionsSorting = (overrides?: Partial<CmsSanityImageDimensionsSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageDimensionsSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageDimensionsSorting');
     return {
@@ -749,7 +800,7 @@ export const aSanityImageDimensionsSorting = (overrides?: Partial<SanityImageDim
     };
 };
 
-export const aSanityImageHotspot = (overrides?: Partial<SanityImageHotspot>, _relationshipsToOmit: Set<string> = new Set()): SanityImageHotspot => {
+export const aSanityImageHotspot = (overrides?: Partial<CmsSanityImageHotspot>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageHotspot => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageHotspot');
     return {
@@ -762,7 +813,7 @@ export const aSanityImageHotspot = (overrides?: Partial<SanityImageHotspot>, _re
     };
 };
 
-export const aSanityImageHotspotFilter = (overrides?: Partial<SanityImageHotspotFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityImageHotspotFilter => {
+export const aSanityImageHotspotFilter = (overrides?: Partial<CmsSanityImageHotspotFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageHotspotFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageHotspotFilter');
     return {
@@ -775,7 +826,7 @@ export const aSanityImageHotspotFilter = (overrides?: Partial<SanityImageHotspot
     };
 };
 
-export const aSanityImageHotspotSorting = (overrides?: Partial<SanityImageHotspotSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityImageHotspotSorting => {
+export const aSanityImageHotspotSorting = (overrides?: Partial<CmsSanityImageHotspotSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageHotspotSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageHotspotSorting');
     return {
@@ -788,7 +839,7 @@ export const aSanityImageHotspotSorting = (overrides?: Partial<SanityImageHotspo
     };
 };
 
-export const aSanityImageMetadata = (overrides?: Partial<SanityImageMetadata>, _relationshipsToOmit: Set<string> = new Set()): SanityImageMetadata => {
+export const aSanityImageMetadata = (overrides?: Partial<CmsSanityImageMetadata>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageMetadata => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageMetadata');
     return {
@@ -804,7 +855,7 @@ export const aSanityImageMetadata = (overrides?: Partial<SanityImageMetadata>, _
     };
 };
 
-export const aSanityImageMetadataFilter = (overrides?: Partial<SanityImageMetadataFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityImageMetadataFilter => {
+export const aSanityImageMetadataFilter = (overrides?: Partial<CmsSanityImageMetadataFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageMetadataFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageMetadataFilter');
     return {
@@ -820,7 +871,7 @@ export const aSanityImageMetadataFilter = (overrides?: Partial<SanityImageMetada
     };
 };
 
-export const aSanityImageMetadataSorting = (overrides?: Partial<SanityImageMetadataSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityImageMetadataSorting => {
+export const aSanityImageMetadataSorting = (overrides?: Partial<CmsSanityImageMetadataSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImageMetadataSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImageMetadataSorting');
     return {
@@ -836,7 +887,7 @@ export const aSanityImageMetadataSorting = (overrides?: Partial<SanityImageMetad
     };
 };
 
-export const aSanityImagePalette = (overrides?: Partial<SanityImagePalette>, _relationshipsToOmit: Set<string> = new Set()): SanityImagePalette => {
+export const aSanityImagePalette = (overrides?: Partial<CmsSanityImagePalette>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImagePalette => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImagePalette');
     return {
@@ -852,7 +903,7 @@ export const aSanityImagePalette = (overrides?: Partial<SanityImagePalette>, _re
     };
 };
 
-export const aSanityImagePaletteFilter = (overrides?: Partial<SanityImagePaletteFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityImagePaletteFilter => {
+export const aSanityImagePaletteFilter = (overrides?: Partial<CmsSanityImagePaletteFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImagePaletteFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImagePaletteFilter');
     return {
@@ -868,7 +919,7 @@ export const aSanityImagePaletteFilter = (overrides?: Partial<SanityImagePalette
     };
 };
 
-export const aSanityImagePaletteSorting = (overrides?: Partial<SanityImagePaletteSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityImagePaletteSorting => {
+export const aSanityImagePaletteSorting = (overrides?: Partial<CmsSanityImagePaletteSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImagePaletteSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImagePaletteSorting');
     return {
@@ -884,7 +935,7 @@ export const aSanityImagePaletteSorting = (overrides?: Partial<SanityImagePalett
     };
 };
 
-export const aSanityImagePaletteSwatch = (overrides?: Partial<SanityImagePaletteSwatch>, _relationshipsToOmit: Set<string> = new Set()): SanityImagePaletteSwatch => {
+export const aSanityImagePaletteSwatch = (overrides?: Partial<CmsSanityImagePaletteSwatch>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImagePaletteSwatch => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImagePaletteSwatch');
     return {
@@ -897,7 +948,7 @@ export const aSanityImagePaletteSwatch = (overrides?: Partial<SanityImagePalette
     };
 };
 
-export const aSanityImagePaletteSwatchFilter = (overrides?: Partial<SanityImagePaletteSwatchFilter>, _relationshipsToOmit: Set<string> = new Set()): SanityImagePaletteSwatchFilter => {
+export const aSanityImagePaletteSwatchFilter = (overrides?: Partial<CmsSanityImagePaletteSwatchFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImagePaletteSwatchFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImagePaletteSwatchFilter');
     return {
@@ -910,7 +961,7 @@ export const aSanityImagePaletteSwatchFilter = (overrides?: Partial<SanityImageP
     };
 };
 
-export const aSanityImagePaletteSwatchSorting = (overrides?: Partial<SanityImagePaletteSwatchSorting>, _relationshipsToOmit: Set<string> = new Set()): SanityImagePaletteSwatchSorting => {
+export const aSanityImagePaletteSwatchSorting = (overrides?: Partial<CmsSanityImagePaletteSwatchSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSanityImagePaletteSwatchSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SanityImagePaletteSwatchSorting');
     return {
@@ -923,7 +974,7 @@ export const aSanityImagePaletteSwatchSorting = (overrides?: Partial<SanityImage
     };
 };
 
-export const aSanity_DocumentFilter = (overrides?: Partial<Sanity_DocumentFilter>, _relationshipsToOmit: Set<string> = new Set()): Sanity_DocumentFilter => {
+export const aSanity_DocumentFilter = (overrides?: Partial<CmsSanity_DocumentFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSanity_DocumentFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Sanity_DocumentFilter');
     return {
@@ -932,7 +983,7 @@ export const aSanity_DocumentFilter = (overrides?: Partial<Sanity_DocumentFilter
     };
 };
 
-export const aSlug = (overrides?: Partial<Slug>, _relationshipsToOmit: Set<string> = new Set()): Slug => {
+export const aSlug = (overrides?: Partial<CmsSlug>, _relationshipsToOmit: Set<string> = new Set()): CmsSlug => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Slug');
     return {
@@ -943,7 +994,7 @@ export const aSlug = (overrides?: Partial<Slug>, _relationshipsToOmit: Set<strin
     };
 };
 
-export const aSlugFilter = (overrides?: Partial<SlugFilter>, _relationshipsToOmit: Set<string> = new Set()): SlugFilter => {
+export const aSlugFilter = (overrides?: Partial<CmsSlugFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsSlugFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SlugFilter');
     return {
@@ -954,7 +1005,7 @@ export const aSlugFilter = (overrides?: Partial<SlugFilter>, _relationshipsToOmi
     };
 };
 
-export const aSlugSorting = (overrides?: Partial<SlugSorting>, _relationshipsToOmit: Set<string> = new Set()): SlugSorting => {
+export const aSlugSorting = (overrides?: Partial<CmsSlugSorting>, _relationshipsToOmit: Set<string> = new Set()): CmsSlugSorting => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('SlugSorting');
     return {
@@ -965,7 +1016,7 @@ export const aSlugSorting = (overrides?: Partial<SlugSorting>, _relationshipsToO
     };
 };
 
-export const aSpan = (overrides?: Partial<Span>, _relationshipsToOmit: Set<string> = new Set()): Span => {
+export const aSpan = (overrides?: Partial<CmsSpan>, _relationshipsToOmit: Set<string> = new Set()): CmsSpan => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Span');
     return {
@@ -976,12 +1027,13 @@ export const aSpan = (overrides?: Partial<Span>, _relationshipsToOmit: Set<strin
     };
 };
 
-export const aStringFilter = (overrides?: Partial<StringFilter>, _relationshipsToOmit: Set<string> = new Set()): StringFilter => {
+export const aStringFilter = (overrides?: Partial<CmsStringFilter>, _relationshipsToOmit: Set<string> = new Set()): CmsStringFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('StringFilter');
     return {
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : 'sit',
         in: overrides && overrides.hasOwnProperty('in') ? overrides.in! : ['est'],
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : true,
         matches: overrides && overrides.hasOwnProperty('matches') ? overrides.matches! : 'et',
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : 'sit',
         nin: overrides && overrides.hasOwnProperty('nin') ? overrides.nin! : ['error'],

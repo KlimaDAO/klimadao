@@ -17,23 +17,25 @@ export type Scalars = {
   DateTime: any;
 };
 
-export type Block = {
+export type CmsBlock = {
   __typename?: 'Block';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
-  children: Maybe<Array<Maybe<Span>>>;
+  children: Maybe<Array<Maybe<CmsSpan>>>;
   list: Maybe<Scalars['String']>;
   style: Maybe<Scalars['String']>;
 };
 
-export type BooleanFilter = {
+export type CmsBooleanFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Boolean']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is not equal to the given input. */
   neq: InputMaybe<Scalars['Boolean']>;
 };
 
-export type CrossDatasetReference = {
+export type CmsCrossDatasetReference = {
   __typename?: 'CrossDatasetReference';
   _dataset: Maybe<Scalars['String']>;
   _key: Maybe<Scalars['String']>;
@@ -43,31 +45,33 @@ export type CrossDatasetReference = {
   _weak: Maybe<Scalars['Boolean']>;
 };
 
-export type CrossDatasetReferenceFilter = {
-  _dataset: InputMaybe<StringFilter>;
-  _key: InputMaybe<StringFilter>;
-  _projectId: InputMaybe<StringFilter>;
-  _ref: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _weak: InputMaybe<BooleanFilter>;
+export type CmsCrossDatasetReferenceFilter = {
+  _dataset: InputMaybe<CmsStringFilter>;
+  _key: InputMaybe<CmsStringFilter>;
+  _projectId: InputMaybe<CmsStringFilter>;
+  _ref: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  _weak: InputMaybe<CmsBooleanFilter>;
 };
 
-export type CrossDatasetReferenceSorting = {
-  _dataset: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _projectId: InputMaybe<SortOrder>;
-  _ref: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _weak: InputMaybe<SortOrder>;
+export type CmsCrossDatasetReferenceSorting = {
+  _dataset: InputMaybe<CmsSortOrder>;
+  _key: InputMaybe<CmsSortOrder>;
+  _projectId: InputMaybe<CmsSortOrder>;
+  _ref: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  _weak: InputMaybe<CmsSortOrder>;
 };
 
-export type DateFilter = {
+export type CmsDateFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Date']>;
   /** Checks if the value is greater than the given input. */
   gt: InputMaybe<Scalars['Date']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Date']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Date']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -76,13 +80,15 @@ export type DateFilter = {
   neq: InputMaybe<Scalars['Date']>;
 };
 
-export type DatetimeFilter = {
+export type CmsDatetimeFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['DateTime']>;
   /** Checks if the value is greater than the given input. */
   gt: InputMaybe<Scalars['DateTime']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['DateTime']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['DateTime']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -92,7 +98,7 @@ export type DatetimeFilter = {
 };
 
 /** A Sanity document */
-export type Document = {
+export type CmsDocument = {
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
   /** Document ID */
@@ -105,49 +111,79 @@ export type Document = {
   _updatedAt: Maybe<Scalars['DateTime']>;
 };
 
-export type DocumentFilter = {
+export type CmsDocumentFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
+  _: InputMaybe<CmsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CmsDatetimeFilter>;
+  _id: InputMaybe<CmsIdFilter>;
+  _rev: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  _updatedAt: InputMaybe<CmsDatetimeFilter>;
 };
 
-export type DocumentSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
+export type CmsDocumentSorting = {
+  _createdAt: InputMaybe<CmsSortOrder>;
+  _id: InputMaybe<CmsSortOrder>;
+  _rev: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  _updatedAt: InputMaybe<CmsSortOrder>;
 };
 
-export type File = {
+export type CmsExternalFile = {
+  __typename?: 'ExternalFile';
+  _key: Maybe<Scalars['String']>;
+  _type: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
+  filename: Maybe<Scalars['String']>;
+  mimetype: Maybe<Scalars['String']>;
+  uri: Maybe<Scalars['String']>;
+};
+
+export type CmsExternalFileFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  description: InputMaybe<CmsStringFilter>;
+  filename: InputMaybe<CmsStringFilter>;
+  mimetype: InputMaybe<CmsStringFilter>;
+  uri: InputMaybe<CmsStringFilter>;
+};
+
+export type CmsExternalFileSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  description: InputMaybe<CmsSortOrder>;
+  filename: InputMaybe<CmsSortOrder>;
+  mimetype: InputMaybe<CmsSortOrder>;
+  uri: InputMaybe<CmsSortOrder>;
+};
+
+export type CmsFile = {
   __typename?: 'File';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
-  asset: Maybe<SanityFileAsset>;
+  asset: Maybe<CmsSanityFileAsset>;
 };
 
-export type FileFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  asset: InputMaybe<SanityFileAssetFilter>;
+export type CmsFileFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  asset: InputMaybe<CmsSanityFileAssetFilter>;
 };
 
-export type FileSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
+export type CmsFileSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
 };
 
-export type FloatFilter = {
+export type CmsFloatFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Float']>;
   /** Checks if the value is greater than the given input. */
   gt: InputMaybe<Scalars['Float']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Float']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Float']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -156,7 +192,7 @@ export type FloatFilter = {
   neq: InputMaybe<Scalars['Float']>;
 };
 
-export type Geopoint = {
+export type CmsGeopoint = {
   __typename?: 'Geopoint';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -165,23 +201,23 @@ export type Geopoint = {
   lng: Maybe<Scalars['Float']>;
 };
 
-export type GeopointFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  alt: InputMaybe<FloatFilter>;
-  lat: InputMaybe<FloatFilter>;
-  lng: InputMaybe<FloatFilter>;
+export type CmsGeopointFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  alt: InputMaybe<CmsFloatFilter>;
+  lat: InputMaybe<CmsFloatFilter>;
+  lng: InputMaybe<CmsFloatFilter>;
 };
 
-export type GeopointSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  alt: InputMaybe<SortOrder>;
-  lat: InputMaybe<SortOrder>;
-  lng: InputMaybe<SortOrder>;
+export type CmsGeopointSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  alt: InputMaybe<CmsSortOrder>;
+  lat: InputMaybe<CmsSortOrder>;
+  lng: InputMaybe<CmsSortOrder>;
 };
 
-export type IdFilter = {
+export type CmsIdFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['ID']>;
   in: InputMaybe<Array<Scalars['ID']>>;
@@ -192,37 +228,39 @@ export type IdFilter = {
   nin: InputMaybe<Array<Scalars['ID']>>;
 };
 
-export type Image = {
+export type CmsImage = {
   __typename?: 'Image';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
-  asset: Maybe<SanityImageAsset>;
-  crop: Maybe<SanityImageCrop>;
-  hotspot: Maybe<SanityImageHotspot>;
+  asset: Maybe<CmsSanityImageAsset>;
+  crop: Maybe<CmsSanityImageCrop>;
+  hotspot: Maybe<CmsSanityImageHotspot>;
 };
 
-export type ImageFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  asset: InputMaybe<SanityImageAssetFilter>;
-  crop: InputMaybe<SanityImageCropFilter>;
-  hotspot: InputMaybe<SanityImageHotspotFilter>;
+export type CmsImageFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  asset: InputMaybe<CmsSanityImageAssetFilter>;
+  crop: InputMaybe<CmsSanityImageCropFilter>;
+  hotspot: InputMaybe<CmsSanityImageHotspotFilter>;
 };
 
-export type ImageSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  crop: InputMaybe<SanityImageCropSorting>;
-  hotspot: InputMaybe<SanityImageHotspotSorting>;
+export type CmsImageSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  crop: InputMaybe<CmsSanityImageCropSorting>;
+  hotspot: InputMaybe<CmsSanityImageHotspotSorting>;
 };
 
-export type IntFilter = {
+export type CmsIntFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Int']>;
   /** Checks if the value is greater than the given input. */
   gt: InputMaybe<Scalars['Int']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Int']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Int']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -231,7 +269,7 @@ export type IntFilter = {
   neq: InputMaybe<Scalars['Int']>;
 };
 
-export type Methodology = Document & {
+export type CmsMethodology = CmsDocument & {
   __typename?: 'Methodology';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -246,42 +284,42 @@ export type Methodology = Document & {
   _updatedAt: Maybe<Scalars['DateTime']>;
   /** From our predefined ontology of categories */
   category: Maybe<Scalars['String']>;
-  id: Maybe<Slug>;
+  id: Maybe<CmsSlug>;
   /** Link to the authoritative methodology webpage or PDF document */
   link: Maybe<Scalars['String']>;
   /** Methodology name. Use 'Title Case Capitalization'. No trailing period. No version number. */
   name: Maybe<Scalars['String']>;
 };
 
-export type MethodologyFilter = {
+export type CmsMethodologyFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  category: InputMaybe<StringFilter>;
-  id: InputMaybe<SlugFilter>;
-  link: InputMaybe<StringFilter>;
-  name: InputMaybe<StringFilter>;
+  _: InputMaybe<CmsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CmsDatetimeFilter>;
+  _id: InputMaybe<CmsIdFilter>;
+  _key: InputMaybe<CmsStringFilter>;
+  _rev: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  _updatedAt: InputMaybe<CmsDatetimeFilter>;
+  category: InputMaybe<CmsStringFilter>;
+  id: InputMaybe<CmsSlugFilter>;
+  link: InputMaybe<CmsStringFilter>;
+  name: InputMaybe<CmsStringFilter>;
 };
 
-export type MethodologySorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  category: InputMaybe<SortOrder>;
-  id: InputMaybe<SlugSorting>;
-  link: InputMaybe<SortOrder>;
-  name: InputMaybe<SortOrder>;
+export type CmsMethodologySorting = {
+  _createdAt: InputMaybe<CmsSortOrder>;
+  _id: InputMaybe<CmsSortOrder>;
+  _key: InputMaybe<CmsSortOrder>;
+  _rev: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  _updatedAt: InputMaybe<CmsSortOrder>;
+  category: InputMaybe<CmsSortOrder>;
+  id: InputMaybe<CmsSlugSorting>;
+  link: InputMaybe<CmsSortOrder>;
+  name: InputMaybe<CmsSortOrder>;
 };
 
-export type Project = Document & {
+export type CmsProject = CmsDocument & {
   __typename?: 'Project';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -294,7 +332,7 @@ export type Project = Document & {
   _type: Maybe<Scalars['String']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']>;
-  boundary: Maybe<File>;
+  boundary: Maybe<CmsFile>;
   ccbs: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Is this project CORSIA compliant? */
   corsia: Maybe<Scalars['Boolean']>;
@@ -302,12 +340,15 @@ export type Project = Document & {
   country: Maybe<Scalars['String']>;
   /** Official project description as it appears in the originating registry */
   description: Maybe<Scalars['String']>;
-  documents: Maybe<Array<Maybe<File>>>;
-  geolocation: Maybe<Geopoint>;
-  id: Maybe<Slug>;
-  methodologies: Maybe<Array<Maybe<Methodology>>>;
+  externalDocuments: Maybe<Array<Maybe<CmsExternalFile>>>;
+  externalMedia: Maybe<Array<Maybe<CmsExternalFile>>>;
+  geolocation: Maybe<CmsGeopoint>;
+  id: Maybe<CmsSlug>;
+  methodologies: Maybe<Array<Maybe<CmsMethodology>>>;
   /** Project name. Use 'Title Case Capitalization'. No trailing period */
   name: Maybe<Scalars['String']>;
+  /** External project website, if exists */
+  projectWebsite: Maybe<Scalars['String']>;
   /** Region where the project was implemented */
   region: Maybe<Scalars['String']>;
   /** Verra, Gold Standard, or EcoRegistry */
@@ -317,11 +358,13 @@ export type Project = Document & {
   sdgs: Maybe<Array<Maybe<Scalars['String']>>>;
   /** (optional) state or territory where the project was implemented */
   state: Maybe<Scalars['String']>;
-  /** Project website or resource url, if exists */
+  /** From our predefined ontology of subcategories */
+  subcategory: Maybe<Scalars['String']>;
+  /** Project's website or resource url on the registry, if exists */
   url: Maybe<Scalars['String']>;
 };
 
-export type ProjectContent = Document & {
+export type CmsProjectContent = CmsDocument & {
   __typename?: 'ProjectContent';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -334,8 +377,8 @@ export type ProjectContent = Document & {
   _type: Maybe<Scalars['String']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']>;
-  coverImage: Maybe<Image>;
-  images: Maybe<Array<Maybe<Image>>>;
+  coverImage: Maybe<CmsImage>;
+  images: Maybe<Array<Maybe<CmsImage>>>;
   /** Longer description */
   longDescription: Maybe<Scalars['String']>;
   /** Use this space to document how the long description was generated or procured, so that this work can be reproduced by others. */
@@ -343,185 +386,189 @@ export type ProjectContent = Document & {
   /** Use this space to document how this media was generated or procured, so that this work can be reproduced by others. */
   notes: Maybe<Scalars['String']>;
   /** The project this content is associated with */
-  project: Maybe<Project>;
+  project: Maybe<CmsProject>;
   /** Short description, e.g. for retirement PDFs. Ideally 300-600 chars, no newlines, no bullet points. */
   shortDescription: Maybe<Scalars['String']>;
   /** Use this space to document how the short description was generated or procured, so that this work can be reproduced by others. */
   shortDescriptionMeta: Maybe<Scalars['String']>;
 };
 
-export type ProjectContentFilter = {
+export type CmsProjectContentFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  coverImage: InputMaybe<ImageFilter>;
-  longDescription: InputMaybe<StringFilter>;
-  longDescriptionMeta: InputMaybe<StringFilter>;
-  notes: InputMaybe<StringFilter>;
-  project: InputMaybe<ProjectFilter>;
-  shortDescription: InputMaybe<StringFilter>;
-  shortDescriptionMeta: InputMaybe<StringFilter>;
+  _: InputMaybe<CmsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CmsDatetimeFilter>;
+  _id: InputMaybe<CmsIdFilter>;
+  _key: InputMaybe<CmsStringFilter>;
+  _rev: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  _updatedAt: InputMaybe<CmsDatetimeFilter>;
+  coverImage: InputMaybe<CmsImageFilter>;
+  longDescription: InputMaybe<CmsStringFilter>;
+  longDescriptionMeta: InputMaybe<CmsStringFilter>;
+  notes: InputMaybe<CmsStringFilter>;
+  project: InputMaybe<CmsProjectFilter>;
+  shortDescription: InputMaybe<CmsStringFilter>;
+  shortDescriptionMeta: InputMaybe<CmsStringFilter>;
 };
 
-export type ProjectContentSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  coverImage: InputMaybe<ImageSorting>;
-  longDescription: InputMaybe<SortOrder>;
-  longDescriptionMeta: InputMaybe<SortOrder>;
-  notes: InputMaybe<SortOrder>;
-  shortDescription: InputMaybe<SortOrder>;
-  shortDescriptionMeta: InputMaybe<SortOrder>;
+export type CmsProjectContentSorting = {
+  _createdAt: InputMaybe<CmsSortOrder>;
+  _id: InputMaybe<CmsSortOrder>;
+  _key: InputMaybe<CmsSortOrder>;
+  _rev: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  _updatedAt: InputMaybe<CmsSortOrder>;
+  coverImage: InputMaybe<CmsImageSorting>;
+  longDescription: InputMaybe<CmsSortOrder>;
+  longDescriptionMeta: InputMaybe<CmsSortOrder>;
+  notes: InputMaybe<CmsSortOrder>;
+  shortDescription: InputMaybe<CmsSortOrder>;
+  shortDescriptionMeta: InputMaybe<CmsSortOrder>;
 };
 
-export type ProjectFilter = {
+export type CmsProjectFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  boundary: InputMaybe<FileFilter>;
-  corsia: InputMaybe<BooleanFilter>;
-  country: InputMaybe<StringFilter>;
-  description: InputMaybe<StringFilter>;
-  geolocation: InputMaybe<GeopointFilter>;
-  id: InputMaybe<SlugFilter>;
-  name: InputMaybe<StringFilter>;
-  region: InputMaybe<StringFilter>;
-  registry: InputMaybe<StringFilter>;
-  registryProjectId: InputMaybe<StringFilter>;
-  state: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
+  _: InputMaybe<CmsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CmsDatetimeFilter>;
+  _id: InputMaybe<CmsIdFilter>;
+  _key: InputMaybe<CmsStringFilter>;
+  _rev: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  _updatedAt: InputMaybe<CmsDatetimeFilter>;
+  boundary: InputMaybe<CmsFileFilter>;
+  corsia: InputMaybe<CmsBooleanFilter>;
+  country: InputMaybe<CmsStringFilter>;
+  description: InputMaybe<CmsStringFilter>;
+  geolocation: InputMaybe<CmsGeopointFilter>;
+  id: InputMaybe<CmsSlugFilter>;
+  name: InputMaybe<CmsStringFilter>;
+  projectWebsite: InputMaybe<CmsStringFilter>;
+  region: InputMaybe<CmsStringFilter>;
+  registry: InputMaybe<CmsStringFilter>;
+  registryProjectId: InputMaybe<CmsStringFilter>;
+  state: InputMaybe<CmsStringFilter>;
+  subcategory: InputMaybe<CmsStringFilter>;
+  url: InputMaybe<CmsStringFilter>;
 };
 
-export type ProjectSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  boundary: InputMaybe<FileSorting>;
-  corsia: InputMaybe<SortOrder>;
-  country: InputMaybe<SortOrder>;
-  description: InputMaybe<SortOrder>;
-  geolocation: InputMaybe<GeopointSorting>;
-  id: InputMaybe<SlugSorting>;
-  name: InputMaybe<SortOrder>;
-  region: InputMaybe<SortOrder>;
-  registry: InputMaybe<SortOrder>;
-  registryProjectId: InputMaybe<SortOrder>;
-  state: InputMaybe<SortOrder>;
-  url: InputMaybe<SortOrder>;
+export type CmsProjectSorting = {
+  _createdAt: InputMaybe<CmsSortOrder>;
+  _id: InputMaybe<CmsSortOrder>;
+  _key: InputMaybe<CmsSortOrder>;
+  _rev: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  _updatedAt: InputMaybe<CmsSortOrder>;
+  boundary: InputMaybe<CmsFileSorting>;
+  corsia: InputMaybe<CmsSortOrder>;
+  country: InputMaybe<CmsSortOrder>;
+  description: InputMaybe<CmsSortOrder>;
+  geolocation: InputMaybe<CmsGeopointSorting>;
+  id: InputMaybe<CmsSlugSorting>;
+  name: InputMaybe<CmsSortOrder>;
+  projectWebsite: InputMaybe<CmsSortOrder>;
+  region: InputMaybe<CmsSortOrder>;
+  registry: InputMaybe<CmsSortOrder>;
+  registryProjectId: InputMaybe<CmsSortOrder>;
+  state: InputMaybe<CmsSortOrder>;
+  subcategory: InputMaybe<CmsSortOrder>;
+  url: InputMaybe<CmsSortOrder>;
 };
 
-export type RootQuery = {
+export type CmsRootQuery = {
   __typename?: 'RootQuery';
-  Document: Maybe<Document>;
-  Methodology: Maybe<Methodology>;
-  Project: Maybe<Project>;
-  ProjectContent: Maybe<ProjectContent>;
-  SanityFileAsset: Maybe<SanityFileAsset>;
-  SanityImageAsset: Maybe<SanityImageAsset>;
-  allDocument: Array<Document>;
-  allMethodology: Array<Methodology>;
-  allProject: Array<Project>;
-  allProjectContent: Array<ProjectContent>;
-  allSanityFileAsset: Array<SanityFileAsset>;
-  allSanityImageAsset: Array<SanityImageAsset>;
+  Document: Maybe<CmsDocument>;
+  Methodology: Maybe<CmsMethodology>;
+  Project: Maybe<CmsProject>;
+  ProjectContent: Maybe<CmsProjectContent>;
+  SanityFileAsset: Maybe<CmsSanityFileAsset>;
+  SanityImageAsset: Maybe<CmsSanityImageAsset>;
+  allDocument: Array<CmsDocument>;
+  allMethodology: Array<CmsMethodology>;
+  allProject: Array<CmsProject>;
+  allProjectContent: Array<CmsProjectContent>;
+  allSanityFileAsset: Array<CmsSanityFileAsset>;
+  allSanityImageAsset: Array<CmsSanityImageAsset>;
 };
 
 
-export type RootQueryDocumentArgs = {
+export type CmsRootQueryDocumentArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQueryMethodologyArgs = {
+export type CmsRootQueryMethodologyArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQueryProjectArgs = {
+export type CmsRootQueryProjectArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQueryProjectContentArgs = {
+export type CmsRootQueryProjectContentArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQuerySanityFileAssetArgs = {
+export type CmsRootQuerySanityFileAssetArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQuerySanityImageAssetArgs = {
+export type CmsRootQuerySanityImageAssetArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQueryAllDocumentArgs = {
+export type CmsRootQueryAllDocumentArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<DocumentSorting>>;
-  where: InputMaybe<DocumentFilter>;
+  sort: InputMaybe<Array<CmsDocumentSorting>>;
+  where: InputMaybe<CmsDocumentFilter>;
 };
 
 
-export type RootQueryAllMethodologyArgs = {
+export type CmsRootQueryAllMethodologyArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<MethodologySorting>>;
-  where: InputMaybe<MethodologyFilter>;
+  sort: InputMaybe<Array<CmsMethodologySorting>>;
+  where: InputMaybe<CmsMethodologyFilter>;
 };
 
 
-export type RootQueryAllProjectArgs = {
+export type CmsRootQueryAllProjectArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<ProjectSorting>>;
-  where: InputMaybe<ProjectFilter>;
+  sort: InputMaybe<Array<CmsProjectSorting>>;
+  where: InputMaybe<CmsProjectFilter>;
 };
 
 
-export type RootQueryAllProjectContentArgs = {
+export type CmsRootQueryAllProjectContentArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<ProjectContentSorting>>;
-  where: InputMaybe<ProjectContentFilter>;
+  sort: InputMaybe<Array<CmsProjectContentSorting>>;
+  where: InputMaybe<CmsProjectContentFilter>;
 };
 
 
-export type RootQueryAllSanityFileAssetArgs = {
+export type CmsRootQueryAllSanityFileAssetArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<SanityFileAssetSorting>>;
-  where: InputMaybe<SanityFileAssetFilter>;
+  sort: InputMaybe<Array<CmsSanityFileAssetSorting>>;
+  where: InputMaybe<CmsSanityFileAssetFilter>;
 };
 
 
-export type RootQueryAllSanityImageAssetArgs = {
+export type CmsRootQueryAllSanityImageAssetArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<SanityImageAssetSorting>>;
-  where: InputMaybe<SanityImageAssetFilter>;
+  sort: InputMaybe<Array<CmsSanityImageAssetSorting>>;
+  where: InputMaybe<CmsSanityImageAssetFilter>;
 };
 
-export type SanityAssetSourceData = {
+export type CmsSanityAssetSourceData = {
   __typename?: 'SanityAssetSourceData';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -533,23 +580,23 @@ export type SanityAssetSourceData = {
   url: Maybe<Scalars['String']>;
 };
 
-export type SanityAssetSourceDataFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  id: InputMaybe<StringFilter>;
-  name: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
+export type CmsSanityAssetSourceDataFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  id: InputMaybe<CmsStringFilter>;
+  name: InputMaybe<CmsStringFilter>;
+  url: InputMaybe<CmsStringFilter>;
 };
 
-export type SanityAssetSourceDataSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  id: InputMaybe<SortOrder>;
-  name: InputMaybe<SortOrder>;
-  url: InputMaybe<SortOrder>;
+export type CmsSanityAssetSourceDataSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  id: InputMaybe<CmsSortOrder>;
+  name: InputMaybe<CmsSortOrder>;
+  url: InputMaybe<CmsSortOrder>;
 };
 
-export type SanityFileAsset = Document & {
+export type CmsSanityFileAsset = CmsDocument & {
   __typename?: 'SanityFileAsset';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -572,58 +619,58 @@ export type SanityFileAsset = Document & {
   path: Maybe<Scalars['String']>;
   sha1hash: Maybe<Scalars['String']>;
   size: Maybe<Scalars['Float']>;
-  source: Maybe<SanityAssetSourceData>;
+  source: Maybe<CmsSanityAssetSourceData>;
   title: Maybe<Scalars['String']>;
   url: Maybe<Scalars['String']>;
 };
 
-export type SanityFileAssetFilter = {
+export type CmsSanityFileAssetFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  altText: InputMaybe<StringFilter>;
-  assetId: InputMaybe<StringFilter>;
-  description: InputMaybe<StringFilter>;
-  extension: InputMaybe<StringFilter>;
-  label: InputMaybe<StringFilter>;
-  mimeType: InputMaybe<StringFilter>;
-  originalFilename: InputMaybe<StringFilter>;
-  path: InputMaybe<StringFilter>;
-  sha1hash: InputMaybe<StringFilter>;
-  size: InputMaybe<FloatFilter>;
-  source: InputMaybe<SanityAssetSourceDataFilter>;
-  title: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
+  _: InputMaybe<CmsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CmsDatetimeFilter>;
+  _id: InputMaybe<CmsIdFilter>;
+  _key: InputMaybe<CmsStringFilter>;
+  _rev: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  _updatedAt: InputMaybe<CmsDatetimeFilter>;
+  altText: InputMaybe<CmsStringFilter>;
+  assetId: InputMaybe<CmsStringFilter>;
+  description: InputMaybe<CmsStringFilter>;
+  extension: InputMaybe<CmsStringFilter>;
+  label: InputMaybe<CmsStringFilter>;
+  mimeType: InputMaybe<CmsStringFilter>;
+  originalFilename: InputMaybe<CmsStringFilter>;
+  path: InputMaybe<CmsStringFilter>;
+  sha1hash: InputMaybe<CmsStringFilter>;
+  size: InputMaybe<CmsFloatFilter>;
+  source: InputMaybe<CmsSanityAssetSourceDataFilter>;
+  title: InputMaybe<CmsStringFilter>;
+  url: InputMaybe<CmsStringFilter>;
 };
 
-export type SanityFileAssetSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  altText: InputMaybe<SortOrder>;
-  assetId: InputMaybe<SortOrder>;
-  description: InputMaybe<SortOrder>;
-  extension: InputMaybe<SortOrder>;
-  label: InputMaybe<SortOrder>;
-  mimeType: InputMaybe<SortOrder>;
-  originalFilename: InputMaybe<SortOrder>;
-  path: InputMaybe<SortOrder>;
-  sha1hash: InputMaybe<SortOrder>;
-  size: InputMaybe<SortOrder>;
-  source: InputMaybe<SanityAssetSourceDataSorting>;
-  title: InputMaybe<SortOrder>;
-  url: InputMaybe<SortOrder>;
+export type CmsSanityFileAssetSorting = {
+  _createdAt: InputMaybe<CmsSortOrder>;
+  _id: InputMaybe<CmsSortOrder>;
+  _key: InputMaybe<CmsSortOrder>;
+  _rev: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  _updatedAt: InputMaybe<CmsSortOrder>;
+  altText: InputMaybe<CmsSortOrder>;
+  assetId: InputMaybe<CmsSortOrder>;
+  description: InputMaybe<CmsSortOrder>;
+  extension: InputMaybe<CmsSortOrder>;
+  label: InputMaybe<CmsSortOrder>;
+  mimeType: InputMaybe<CmsSortOrder>;
+  originalFilename: InputMaybe<CmsSortOrder>;
+  path: InputMaybe<CmsSortOrder>;
+  sha1hash: InputMaybe<CmsSortOrder>;
+  size: InputMaybe<CmsSortOrder>;
+  source: InputMaybe<CmsSanityAssetSourceDataSorting>;
+  title: InputMaybe<CmsSortOrder>;
+  url: InputMaybe<CmsSortOrder>;
 };
 
-export type SanityImageAsset = Document & {
+export type CmsSanityImageAsset = CmsDocument & {
   __typename?: 'SanityImageAsset';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -641,69 +688,69 @@ export type SanityImageAsset = Document & {
   description: Maybe<Scalars['String']>;
   extension: Maybe<Scalars['String']>;
   label: Maybe<Scalars['String']>;
-  metadata: Maybe<SanityImageMetadata>;
+  metadata: Maybe<CmsSanityImageMetadata>;
   mimeType: Maybe<Scalars['String']>;
   originalFilename: Maybe<Scalars['String']>;
   path: Maybe<Scalars['String']>;
   sha1hash: Maybe<Scalars['String']>;
   size: Maybe<Scalars['Float']>;
-  source: Maybe<SanityAssetSourceData>;
+  source: Maybe<CmsSanityAssetSourceData>;
   title: Maybe<Scalars['String']>;
   uploadId: Maybe<Scalars['String']>;
   url: Maybe<Scalars['String']>;
 };
 
-export type SanityImageAssetFilter = {
+export type CmsSanityImageAssetFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  altText: InputMaybe<StringFilter>;
-  assetId: InputMaybe<StringFilter>;
-  description: InputMaybe<StringFilter>;
-  extension: InputMaybe<StringFilter>;
-  label: InputMaybe<StringFilter>;
-  metadata: InputMaybe<SanityImageMetadataFilter>;
-  mimeType: InputMaybe<StringFilter>;
-  originalFilename: InputMaybe<StringFilter>;
-  path: InputMaybe<StringFilter>;
-  sha1hash: InputMaybe<StringFilter>;
-  size: InputMaybe<FloatFilter>;
-  source: InputMaybe<SanityAssetSourceDataFilter>;
-  title: InputMaybe<StringFilter>;
-  uploadId: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
+  _: InputMaybe<CmsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CmsDatetimeFilter>;
+  _id: InputMaybe<CmsIdFilter>;
+  _key: InputMaybe<CmsStringFilter>;
+  _rev: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  _updatedAt: InputMaybe<CmsDatetimeFilter>;
+  altText: InputMaybe<CmsStringFilter>;
+  assetId: InputMaybe<CmsStringFilter>;
+  description: InputMaybe<CmsStringFilter>;
+  extension: InputMaybe<CmsStringFilter>;
+  label: InputMaybe<CmsStringFilter>;
+  metadata: InputMaybe<CmsSanityImageMetadataFilter>;
+  mimeType: InputMaybe<CmsStringFilter>;
+  originalFilename: InputMaybe<CmsStringFilter>;
+  path: InputMaybe<CmsStringFilter>;
+  sha1hash: InputMaybe<CmsStringFilter>;
+  size: InputMaybe<CmsFloatFilter>;
+  source: InputMaybe<CmsSanityAssetSourceDataFilter>;
+  title: InputMaybe<CmsStringFilter>;
+  uploadId: InputMaybe<CmsStringFilter>;
+  url: InputMaybe<CmsStringFilter>;
 };
 
-export type SanityImageAssetSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  altText: InputMaybe<SortOrder>;
-  assetId: InputMaybe<SortOrder>;
-  description: InputMaybe<SortOrder>;
-  extension: InputMaybe<SortOrder>;
-  label: InputMaybe<SortOrder>;
-  metadata: InputMaybe<SanityImageMetadataSorting>;
-  mimeType: InputMaybe<SortOrder>;
-  originalFilename: InputMaybe<SortOrder>;
-  path: InputMaybe<SortOrder>;
-  sha1hash: InputMaybe<SortOrder>;
-  size: InputMaybe<SortOrder>;
-  source: InputMaybe<SanityAssetSourceDataSorting>;
-  title: InputMaybe<SortOrder>;
-  uploadId: InputMaybe<SortOrder>;
-  url: InputMaybe<SortOrder>;
+export type CmsSanityImageAssetSorting = {
+  _createdAt: InputMaybe<CmsSortOrder>;
+  _id: InputMaybe<CmsSortOrder>;
+  _key: InputMaybe<CmsSortOrder>;
+  _rev: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  _updatedAt: InputMaybe<CmsSortOrder>;
+  altText: InputMaybe<CmsSortOrder>;
+  assetId: InputMaybe<CmsSortOrder>;
+  description: InputMaybe<CmsSortOrder>;
+  extension: InputMaybe<CmsSortOrder>;
+  label: InputMaybe<CmsSortOrder>;
+  metadata: InputMaybe<CmsSanityImageMetadataSorting>;
+  mimeType: InputMaybe<CmsSortOrder>;
+  originalFilename: InputMaybe<CmsSortOrder>;
+  path: InputMaybe<CmsSortOrder>;
+  sha1hash: InputMaybe<CmsSortOrder>;
+  size: InputMaybe<CmsSortOrder>;
+  source: InputMaybe<CmsSanityAssetSourceDataSorting>;
+  title: InputMaybe<CmsSortOrder>;
+  uploadId: InputMaybe<CmsSortOrder>;
+  url: InputMaybe<CmsSortOrder>;
 };
 
-export type SanityImageCrop = {
+export type CmsSanityImageCrop = {
   __typename?: 'SanityImageCrop';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -713,25 +760,25 @@ export type SanityImageCrop = {
   top: Maybe<Scalars['Float']>;
 };
 
-export type SanityImageCropFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  bottom: InputMaybe<FloatFilter>;
-  left: InputMaybe<FloatFilter>;
-  right: InputMaybe<FloatFilter>;
-  top: InputMaybe<FloatFilter>;
+export type CmsSanityImageCropFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  bottom: InputMaybe<CmsFloatFilter>;
+  left: InputMaybe<CmsFloatFilter>;
+  right: InputMaybe<CmsFloatFilter>;
+  top: InputMaybe<CmsFloatFilter>;
 };
 
-export type SanityImageCropSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  bottom: InputMaybe<SortOrder>;
-  left: InputMaybe<SortOrder>;
-  right: InputMaybe<SortOrder>;
-  top: InputMaybe<SortOrder>;
+export type CmsSanityImageCropSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  bottom: InputMaybe<CmsSortOrder>;
+  left: InputMaybe<CmsSortOrder>;
+  right: InputMaybe<CmsSortOrder>;
+  top: InputMaybe<CmsSortOrder>;
 };
 
-export type SanityImageDimensions = {
+export type CmsSanityImageDimensions = {
   __typename?: 'SanityImageDimensions';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -740,23 +787,23 @@ export type SanityImageDimensions = {
   width: Maybe<Scalars['Float']>;
 };
 
-export type SanityImageDimensionsFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  aspectRatio: InputMaybe<FloatFilter>;
-  height: InputMaybe<FloatFilter>;
-  width: InputMaybe<FloatFilter>;
+export type CmsSanityImageDimensionsFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  aspectRatio: InputMaybe<CmsFloatFilter>;
+  height: InputMaybe<CmsFloatFilter>;
+  width: InputMaybe<CmsFloatFilter>;
 };
 
-export type SanityImageDimensionsSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  aspectRatio: InputMaybe<SortOrder>;
-  height: InputMaybe<SortOrder>;
-  width: InputMaybe<SortOrder>;
+export type CmsSanityImageDimensionsSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  aspectRatio: InputMaybe<CmsSortOrder>;
+  height: InputMaybe<CmsSortOrder>;
+  width: InputMaybe<CmsSortOrder>;
 };
 
-export type SanityImageHotspot = {
+export type CmsSanityImageHotspot = {
   __typename?: 'SanityImageHotspot';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -766,99 +813,99 @@ export type SanityImageHotspot = {
   y: Maybe<Scalars['Float']>;
 };
 
-export type SanityImageHotspotFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  height: InputMaybe<FloatFilter>;
-  width: InputMaybe<FloatFilter>;
-  x: InputMaybe<FloatFilter>;
-  y: InputMaybe<FloatFilter>;
+export type CmsSanityImageHotspotFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  height: InputMaybe<CmsFloatFilter>;
+  width: InputMaybe<CmsFloatFilter>;
+  x: InputMaybe<CmsFloatFilter>;
+  y: InputMaybe<CmsFloatFilter>;
 };
 
-export type SanityImageHotspotSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  height: InputMaybe<SortOrder>;
-  width: InputMaybe<SortOrder>;
-  x: InputMaybe<SortOrder>;
-  y: InputMaybe<SortOrder>;
+export type CmsSanityImageHotspotSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  height: InputMaybe<CmsSortOrder>;
+  width: InputMaybe<CmsSortOrder>;
+  x: InputMaybe<CmsSortOrder>;
+  y: InputMaybe<CmsSortOrder>;
 };
 
-export type SanityImageMetadata = {
+export type CmsSanityImageMetadata = {
   __typename?: 'SanityImageMetadata';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
   blurHash: Maybe<Scalars['String']>;
-  dimensions: Maybe<SanityImageDimensions>;
+  dimensions: Maybe<CmsSanityImageDimensions>;
   hasAlpha: Maybe<Scalars['Boolean']>;
   isOpaque: Maybe<Scalars['Boolean']>;
-  location: Maybe<Geopoint>;
+  location: Maybe<CmsGeopoint>;
   lqip: Maybe<Scalars['String']>;
-  palette: Maybe<SanityImagePalette>;
+  palette: Maybe<CmsSanityImagePalette>;
 };
 
-export type SanityImageMetadataFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  blurHash: InputMaybe<StringFilter>;
-  dimensions: InputMaybe<SanityImageDimensionsFilter>;
-  hasAlpha: InputMaybe<BooleanFilter>;
-  isOpaque: InputMaybe<BooleanFilter>;
-  location: InputMaybe<GeopointFilter>;
-  lqip: InputMaybe<StringFilter>;
-  palette: InputMaybe<SanityImagePaletteFilter>;
+export type CmsSanityImageMetadataFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  blurHash: InputMaybe<CmsStringFilter>;
+  dimensions: InputMaybe<CmsSanityImageDimensionsFilter>;
+  hasAlpha: InputMaybe<CmsBooleanFilter>;
+  isOpaque: InputMaybe<CmsBooleanFilter>;
+  location: InputMaybe<CmsGeopointFilter>;
+  lqip: InputMaybe<CmsStringFilter>;
+  palette: InputMaybe<CmsSanityImagePaletteFilter>;
 };
 
-export type SanityImageMetadataSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  blurHash: InputMaybe<SortOrder>;
-  dimensions: InputMaybe<SanityImageDimensionsSorting>;
-  hasAlpha: InputMaybe<SortOrder>;
-  isOpaque: InputMaybe<SortOrder>;
-  location: InputMaybe<GeopointSorting>;
-  lqip: InputMaybe<SortOrder>;
-  palette: InputMaybe<SanityImagePaletteSorting>;
+export type CmsSanityImageMetadataSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  blurHash: InputMaybe<CmsSortOrder>;
+  dimensions: InputMaybe<CmsSanityImageDimensionsSorting>;
+  hasAlpha: InputMaybe<CmsSortOrder>;
+  isOpaque: InputMaybe<CmsSortOrder>;
+  location: InputMaybe<CmsGeopointSorting>;
+  lqip: InputMaybe<CmsSortOrder>;
+  palette: InputMaybe<CmsSanityImagePaletteSorting>;
 };
 
-export type SanityImagePalette = {
+export type CmsSanityImagePalette = {
   __typename?: 'SanityImagePalette';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
-  darkMuted: Maybe<SanityImagePaletteSwatch>;
-  darkVibrant: Maybe<SanityImagePaletteSwatch>;
-  dominant: Maybe<SanityImagePaletteSwatch>;
-  lightMuted: Maybe<SanityImagePaletteSwatch>;
-  lightVibrant: Maybe<SanityImagePaletteSwatch>;
-  muted: Maybe<SanityImagePaletteSwatch>;
-  vibrant: Maybe<SanityImagePaletteSwatch>;
+  darkMuted: Maybe<CmsSanityImagePaletteSwatch>;
+  darkVibrant: Maybe<CmsSanityImagePaletteSwatch>;
+  dominant: Maybe<CmsSanityImagePaletteSwatch>;
+  lightMuted: Maybe<CmsSanityImagePaletteSwatch>;
+  lightVibrant: Maybe<CmsSanityImagePaletteSwatch>;
+  muted: Maybe<CmsSanityImagePaletteSwatch>;
+  vibrant: Maybe<CmsSanityImagePaletteSwatch>;
 };
 
-export type SanityImagePaletteFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  darkMuted: InputMaybe<SanityImagePaletteSwatchFilter>;
-  darkVibrant: InputMaybe<SanityImagePaletteSwatchFilter>;
-  dominant: InputMaybe<SanityImagePaletteSwatchFilter>;
-  lightMuted: InputMaybe<SanityImagePaletteSwatchFilter>;
-  lightVibrant: InputMaybe<SanityImagePaletteSwatchFilter>;
-  muted: InputMaybe<SanityImagePaletteSwatchFilter>;
-  vibrant: InputMaybe<SanityImagePaletteSwatchFilter>;
+export type CmsSanityImagePaletteFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  darkMuted: InputMaybe<CmsSanityImagePaletteSwatchFilter>;
+  darkVibrant: InputMaybe<CmsSanityImagePaletteSwatchFilter>;
+  dominant: InputMaybe<CmsSanityImagePaletteSwatchFilter>;
+  lightMuted: InputMaybe<CmsSanityImagePaletteSwatchFilter>;
+  lightVibrant: InputMaybe<CmsSanityImagePaletteSwatchFilter>;
+  muted: InputMaybe<CmsSanityImagePaletteSwatchFilter>;
+  vibrant: InputMaybe<CmsSanityImagePaletteSwatchFilter>;
 };
 
-export type SanityImagePaletteSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  darkMuted: InputMaybe<SanityImagePaletteSwatchSorting>;
-  darkVibrant: InputMaybe<SanityImagePaletteSwatchSorting>;
-  dominant: InputMaybe<SanityImagePaletteSwatchSorting>;
-  lightMuted: InputMaybe<SanityImagePaletteSwatchSorting>;
-  lightVibrant: InputMaybe<SanityImagePaletteSwatchSorting>;
-  muted: InputMaybe<SanityImagePaletteSwatchSorting>;
-  vibrant: InputMaybe<SanityImagePaletteSwatchSorting>;
+export type CmsSanityImagePaletteSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  darkMuted: InputMaybe<CmsSanityImagePaletteSwatchSorting>;
+  darkVibrant: InputMaybe<CmsSanityImagePaletteSwatchSorting>;
+  dominant: InputMaybe<CmsSanityImagePaletteSwatchSorting>;
+  lightMuted: InputMaybe<CmsSanityImagePaletteSwatchSorting>;
+  lightVibrant: InputMaybe<CmsSanityImagePaletteSwatchSorting>;
+  muted: InputMaybe<CmsSanityImagePaletteSwatchSorting>;
+  vibrant: InputMaybe<CmsSanityImagePaletteSwatchSorting>;
 };
 
-export type SanityImagePaletteSwatch = {
+export type CmsSanityImagePaletteSwatch = {
   __typename?: 'SanityImagePaletteSwatch';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -868,32 +915,32 @@ export type SanityImagePaletteSwatch = {
   title: Maybe<Scalars['String']>;
 };
 
-export type SanityImagePaletteSwatchFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  background: InputMaybe<StringFilter>;
-  foreground: InputMaybe<StringFilter>;
-  population: InputMaybe<FloatFilter>;
-  title: InputMaybe<StringFilter>;
+export type CmsSanityImagePaletteSwatchFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  background: InputMaybe<CmsStringFilter>;
+  foreground: InputMaybe<CmsStringFilter>;
+  population: InputMaybe<CmsFloatFilter>;
+  title: InputMaybe<CmsStringFilter>;
 };
 
-export type SanityImagePaletteSwatchSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  background: InputMaybe<SortOrder>;
-  foreground: InputMaybe<SortOrder>;
-  population: InputMaybe<SortOrder>;
-  title: InputMaybe<SortOrder>;
+export type CmsSanityImagePaletteSwatchSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  background: InputMaybe<CmsSortOrder>;
+  foreground: InputMaybe<CmsSortOrder>;
+  population: InputMaybe<CmsSortOrder>;
+  title: InputMaybe<CmsSortOrder>;
 };
 
-export type Sanity_DocumentFilter = {
+export type CmsSanity_DocumentFilter = {
   /** All documents that are drafts. */
   is_draft: InputMaybe<Scalars['Boolean']>;
   /** All documents referencing the given document ID. */
   references: InputMaybe<Scalars['ID']>;
 };
 
-export type Slug = {
+export type CmsSlug = {
   __typename?: 'Slug';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -901,28 +948,28 @@ export type Slug = {
   source: Maybe<Scalars['String']>;
 };
 
-export type SlugFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  current: InputMaybe<StringFilter>;
-  source: InputMaybe<StringFilter>;
+export type CmsSlugFilter = {
+  _key: InputMaybe<CmsStringFilter>;
+  _type: InputMaybe<CmsStringFilter>;
+  current: InputMaybe<CmsStringFilter>;
+  source: InputMaybe<CmsStringFilter>;
 };
 
-export type SlugSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  current: InputMaybe<SortOrder>;
-  source: InputMaybe<SortOrder>;
+export type CmsSlugSorting = {
+  _key: InputMaybe<CmsSortOrder>;
+  _type: InputMaybe<CmsSortOrder>;
+  current: InputMaybe<CmsSortOrder>;
+  source: InputMaybe<CmsSortOrder>;
 };
 
-export enum SortOrder {
+export enum CmsSortOrder {
   /** Sorts on the value in ascending order. */
   Asc = 'ASC',
   /** Sorts on the value in descending order. */
   Desc = 'DESC'
 }
 
-export type Span = {
+export type CmsSpan = {
   __typename?: 'Span';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -930,10 +977,12 @@ export type Span = {
   text: Maybe<Scalars['String']>;
 };
 
-export type StringFilter = {
+export type CmsStringFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['String']>;
   in: InputMaybe<Array<Scalars['String']>>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value matches the given word/words. */
   matches: InputMaybe<Scalars['String']>;
   /** Checks if the value is not equal to the given input. */

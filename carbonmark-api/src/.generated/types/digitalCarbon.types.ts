@@ -19,90 +19,90 @@ export type Scalars = {
   Int8: any;
 };
 
-export type Account = {
+export type DigitalCarbonAccount = {
   __typename?: 'Account';
-  bridges: Array<Bridge>;
-  holdingSnapshots: Array<HoldingDailySnapshot>;
-  holdings: Array<Holding>;
+  bridges: Array<DigitalCarbonBridge>;
+  holdingSnapshots: Array<DigitalCarbonHoldingDailySnapshot>;
+  holdings: Array<DigitalCarbonHolding>;
   /** Ethereum address of the account */
   id: Scalars['Bytes'];
-  poolDeposits: Array<PoolDeposit>;
-  poolRedeems: Array<PoolRedeem>;
-  retiresBeneficiary: Array<Retire>;
-  retiresInitiator: Array<Retire>;
+  poolDeposits: Array<DigitalCarbonPoolDeposit>;
+  poolRedeems: Array<DigitalCarbonPoolRedeem>;
+  retiresBeneficiary: Array<DigitalCarbonRetire>;
+  retiresInitiator: Array<DigitalCarbonRetire>;
   totalRetirements: Scalars['Int'];
 };
 
 
-export type AccountBridgesArgs = {
+export type DigitalCarbonAccountBridgesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Bridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonBridge_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Bridge_Filter>;
+  where: InputMaybe<DigitalCarbonBridge_Filter>;
 };
 
 
-export type AccountHoldingSnapshotsArgs = {
+export type DigitalCarbonAccountHoldingSnapshotsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<HoldingDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonHoldingDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<HoldingDailySnapshot_Filter>;
+  where: InputMaybe<DigitalCarbonHoldingDailySnapshot_Filter>;
 };
 
 
-export type AccountHoldingsArgs = {
+export type DigitalCarbonAccountHoldingsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Holding_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonHolding_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Holding_Filter>;
+  where: InputMaybe<DigitalCarbonHolding_Filter>;
 };
 
 
-export type AccountPoolDepositsArgs = {
+export type DigitalCarbonAccountPoolDepositsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolDeposit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolDeposit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<PoolDeposit_Filter>;
+  where: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
 };
 
 
-export type AccountPoolRedeemsArgs = {
+export type DigitalCarbonAccountPoolRedeemsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolRedeem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolRedeem_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<PoolRedeem_Filter>;
+  where: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
 };
 
 
-export type AccountRetiresBeneficiaryArgs = {
+export type DigitalCarbonAccountRetiresBeneficiaryArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Retire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonRetire_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Retire_Filter>;
+  where: InputMaybe<DigitalCarbonRetire_Filter>;
 };
 
 
-export type AccountRetiresInitiatorArgs = {
+export type DigitalCarbonAccountRetiresInitiatorArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Retire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonRetire_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Retire_Filter>;
+  where: InputMaybe<DigitalCarbonRetire_Filter>;
 };
 
-export type Account_Filter = {
+export type DigitalCarbonAccount_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Account_Filter>>>;
-  bridges_: InputMaybe<Bridge_Filter>;
-  holdingSnapshots_: InputMaybe<HoldingDailySnapshot_Filter>;
-  holdings_: InputMaybe<Holding_Filter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonAccount_Filter>>>;
+  bridges_: InputMaybe<DigitalCarbonBridge_Filter>;
+  holdingSnapshots_: InputMaybe<DigitalCarbonHoldingDailySnapshot_Filter>;
+  holdings_: InputMaybe<DigitalCarbonHolding_Filter>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -113,11 +113,11 @@ export type Account_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<Account_Filter>>>;
-  poolDeposits_: InputMaybe<PoolDeposit_Filter>;
-  poolRedeems_: InputMaybe<PoolRedeem_Filter>;
-  retiresBeneficiary_: InputMaybe<Retire_Filter>;
-  retiresInitiator_: InputMaybe<Retire_Filter>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonAccount_Filter>>>;
+  poolDeposits_: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
+  poolRedeems_: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
+  retiresBeneficiary_: InputMaybe<DigitalCarbonRetire_Filter>;
+  retiresInitiator_: InputMaybe<DigitalCarbonRetire_Filter>;
   totalRetirements: InputMaybe<Scalars['Int']>;
   totalRetirements_gt: InputMaybe<Scalars['Int']>;
   totalRetirements_gte: InputMaybe<Scalars['Int']>;
@@ -128,7 +128,7 @@ export type Account_Filter = {
   totalRetirements_not_in: InputMaybe<Array<Scalars['Int']>>;
 };
 
-export enum Account_OrderBy {
+export enum DigitalCarbonAccount_OrderBy {
   Bridges = 'bridges',
   HoldingSnapshots = 'holdingSnapshots',
   Holdings = 'holdings',
@@ -140,42 +140,42 @@ export enum Account_OrderBy {
   TotalRetirements = 'totalRetirements'
 }
 
-export type BlockChangedFilter = {
+export type DigitalCarbonBlockChangedFilter = {
   number_gte: Scalars['Int'];
 };
 
-export type Block_Height = {
+export type DigitalCarbonBlock_Height = {
   hash: InputMaybe<Scalars['Bytes']>;
   number: InputMaybe<Scalars['Int']>;
   number_gte: InputMaybe<Scalars['Int']>;
 };
 
-export type Bridge = {
+export type DigitalCarbonBridge = {
   __typename?: 'Bridge';
   /** Account receiving the bridged carbon */
-  account: Account;
+  account: DigitalCarbonAccount;
   /** Amount of tokens bridged in native units */
   amount: Scalars['BigInt'];
   /** Credit bridged */
-  credit: CarbonCredit;
+  credit: DigitalCarbonCarbonCredit;
   /** {Transaction hash}-{Log Index} */
   id: Scalars['Bytes'];
   /** Block timestamp of the bridge */
   timestamp: Scalars['BigInt'];
 };
 
-export enum BridgeProtocol {
+export enum DigitalCarbonBridgeProtocol {
   C3 = 'C3',
   Moss = 'MOSS',
   Thallo = 'THALLO',
   Toucan = 'TOUCAN'
 }
 
-export type Bridge_Filter = {
+export type DigitalCarbonBridge_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
   account: InputMaybe<Scalars['String']>;
-  account_: InputMaybe<Account_Filter>;
+  account_: InputMaybe<DigitalCarbonAccount_Filter>;
   account_contains: InputMaybe<Scalars['String']>;
   account_contains_nocase: InputMaybe<Scalars['String']>;
   account_ends_with: InputMaybe<Scalars['String']>;
@@ -203,9 +203,9 @@ export type Bridge_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<Bridge_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonBridge_Filter>>>;
   credit: InputMaybe<Scalars['String']>;
-  credit_: InputMaybe<CarbonCredit_Filter>;
+  credit_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   credit_contains: InputMaybe<Scalars['String']>;
   credit_contains_nocase: InputMaybe<Scalars['String']>;
   credit_ends_with: InputMaybe<Scalars['String']>;
@@ -235,7 +235,7 @@ export type Bridge_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<Bridge_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonBridge_Filter>>>;
   timestamp: InputMaybe<Scalars['BigInt']>;
   timestamp_gt: InputMaybe<Scalars['BigInt']>;
   timestamp_gte: InputMaybe<Scalars['BigInt']>;
@@ -246,7 +246,7 @@ export type Bridge_Filter = {
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum Bridge_OrderBy {
+export enum DigitalCarbonBridge_OrderBy {
   Account = 'account',
   AccountId = 'account__id',
   AccountTotalRetirements = 'account__totalRetirements',
@@ -265,14 +265,14 @@ export enum Bridge_OrderBy {
   Timestamp = 'timestamp'
 }
 
-export type CarbonCredit = {
+export type DigitalCarbonCarbonCredit = {
   __typename?: 'CarbonCredit';
   /** Protocol used to bridge the tons */
-  bridgeProtocol: BridgeProtocol;
+  bridgeProtocol: DigitalCarbonBridgeProtocol;
   /** Total tokens issued via bridging */
   bridged: Scalars['BigInt'];
   /** All bridge events for this credit */
-  bridges: Array<Bridge>;
+  bridges: Array<DigitalCarbonBridge>;
   /** Total tokens bridged to other chains */
   crossChainSupply: Scalars['BigInt'];
   /** Current token supply */
@@ -282,54 +282,54 @@ export type CarbonCredit = {
   /** Last batch ID that was fractionalized if applicable */
   lastBatchId: Scalars['BigInt'];
   /** Current pool balances for this credit */
-  poolBalances: Array<CarbonPoolCreditBalance>;
+  poolBalances: Array<DigitalCarbonCarbonPoolCreditBalance>;
   /** Carbon Project this token belongs to */
-  project: CarbonProject;
+  project: DigitalCarbonCarbonProject;
   /** Total provenance records for this credit */
   provenanceCount: Scalars['Int'];
   /** Total tokens retired */
   retired: Scalars['BigInt'];
   /** All retirement events for this credit */
-  retires: Array<Retire>;
+  retires: Array<DigitalCarbonRetire>;
   /** Vintage of issuance */
   vintage: Scalars['Int'];
 };
 
 
-export type CarbonCreditBridgesArgs = {
+export type DigitalCarbonCarbonCreditBridgesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Bridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonBridge_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Bridge_Filter>;
+  where: InputMaybe<DigitalCarbonBridge_Filter>;
 };
 
 
-export type CarbonCreditPoolBalancesArgs = {
+export type DigitalCarbonCarbonCreditPoolBalancesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolCreditBalance_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<CarbonPoolCreditBalance_Filter>;
+  where: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>;
 };
 
 
-export type CarbonCreditRetiresArgs = {
+export type DigitalCarbonCarbonCreditRetiresArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Retire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonRetire_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Retire_Filter>;
+  where: InputMaybe<DigitalCarbonRetire_Filter>;
 };
 
-export type CarbonCreditSnapshot = {
+export type DigitalCarbonCarbonCreditSnapshot = {
   __typename?: 'CarbonCreditSnapshot';
   /** Total tokens issued via bridging */
   bridged: Scalars['BigInt'];
   /** Timestamp created */
   createdAt: Scalars['BigInt'];
   /** Credit for this snapshot */
-  credit: CarbonCredit;
+  credit: DigitalCarbonCarbonCredit;
   /** Total tokens bridged to other chains */
   crossChainSupply: Scalars['BigInt'];
   /** Current token supply */
@@ -342,10 +342,10 @@ export type CarbonCreditSnapshot = {
   retired: Scalars['BigInt'];
 };
 
-export type CarbonCreditSnapshot_Filter = {
+export type DigitalCarbonCarbonCreditSnapshot_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CarbonCreditSnapshot_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonCreditSnapshot_Filter>>>;
   bridged: InputMaybe<Scalars['BigInt']>;
   bridged_gt: InputMaybe<Scalars['BigInt']>;
   bridged_gte: InputMaybe<Scalars['BigInt']>;
@@ -363,7 +363,7 @@ export type CarbonCreditSnapshot_Filter = {
   createdAt_not: InputMaybe<Scalars['BigInt']>;
   createdAt_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   credit: InputMaybe<Scalars['String']>;
-  credit_: InputMaybe<CarbonCredit_Filter>;
+  credit_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   credit_contains: InputMaybe<Scalars['String']>;
   credit_contains_nocase: InputMaybe<Scalars['String']>;
   credit_ends_with: InputMaybe<Scalars['String']>;
@@ -417,7 +417,7 @@ export type CarbonCreditSnapshot_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<CarbonCreditSnapshot_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonCreditSnapshot_Filter>>>;
   retired: InputMaybe<Scalars['BigInt']>;
   retired_gt: InputMaybe<Scalars['BigInt']>;
   retired_gte: InputMaybe<Scalars['BigInt']>;
@@ -428,7 +428,7 @@ export type CarbonCreditSnapshot_Filter = {
   retired_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum CarbonCreditSnapshot_OrderBy {
+export enum DigitalCarbonCarbonCreditSnapshot_OrderBy {
   Bridged = 'bridged',
   CreatedAt = 'createdAt',
   Credit = 'credit',
@@ -448,14 +448,14 @@ export enum CarbonCreditSnapshot_OrderBy {
   Retired = 'retired'
 }
 
-export type CarbonCredit_Filter = {
+export type DigitalCarbonCarbonCredit_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CarbonCredit_Filter>>>;
-  bridgeProtocol: InputMaybe<BridgeProtocol>;
-  bridgeProtocol_in: InputMaybe<Array<BridgeProtocol>>;
-  bridgeProtocol_not: InputMaybe<BridgeProtocol>;
-  bridgeProtocol_not_in: InputMaybe<Array<BridgeProtocol>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonCredit_Filter>>>;
+  bridgeProtocol: InputMaybe<DigitalCarbonBridgeProtocol>;
+  bridgeProtocol_in: InputMaybe<Array<DigitalCarbonBridgeProtocol>>;
+  bridgeProtocol_not: InputMaybe<DigitalCarbonBridgeProtocol>;
+  bridgeProtocol_not_in: InputMaybe<Array<DigitalCarbonBridgeProtocol>>;
   bridged: InputMaybe<Scalars['BigInt']>;
   bridged_gt: InputMaybe<Scalars['BigInt']>;
   bridged_gte: InputMaybe<Scalars['BigInt']>;
@@ -464,7 +464,7 @@ export type CarbonCredit_Filter = {
   bridged_lte: InputMaybe<Scalars['BigInt']>;
   bridged_not: InputMaybe<Scalars['BigInt']>;
   bridged_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  bridges_: InputMaybe<Bridge_Filter>;
+  bridges_: InputMaybe<DigitalCarbonBridge_Filter>;
   crossChainSupply: InputMaybe<Scalars['BigInt']>;
   crossChainSupply_gt: InputMaybe<Scalars['BigInt']>;
   crossChainSupply_gte: InputMaybe<Scalars['BigInt']>;
@@ -499,10 +499,10 @@ export type CarbonCredit_Filter = {
   lastBatchId_lte: InputMaybe<Scalars['BigInt']>;
   lastBatchId_not: InputMaybe<Scalars['BigInt']>;
   lastBatchId_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  or: InputMaybe<Array<InputMaybe<CarbonCredit_Filter>>>;
-  poolBalances_: InputMaybe<CarbonPoolCreditBalance_Filter>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonCredit_Filter>>>;
+  poolBalances_: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>;
   project: InputMaybe<Scalars['String']>;
-  project_: InputMaybe<CarbonProject_Filter>;
+  project_: InputMaybe<DigitalCarbonCarbonProject_Filter>;
   project_contains: InputMaybe<Scalars['String']>;
   project_contains_nocase: InputMaybe<Scalars['String']>;
   project_ends_with: InputMaybe<Scalars['String']>;
@@ -538,7 +538,7 @@ export type CarbonCredit_Filter = {
   retired_lte: InputMaybe<Scalars['BigInt']>;
   retired_not: InputMaybe<Scalars['BigInt']>;
   retired_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  retires_: InputMaybe<Retire_Filter>;
+  retires_: InputMaybe<DigitalCarbonRetire_Filter>;
   vintage: InputMaybe<Scalars['Int']>;
   vintage_gt: InputMaybe<Scalars['Int']>;
   vintage_gte: InputMaybe<Scalars['Int']>;
@@ -549,7 +549,7 @@ export type CarbonCredit_Filter = {
   vintage_not_in: InputMaybe<Array<Scalars['Int']>>;
 };
 
-export enum CarbonCredit_OrderBy {
+export enum DigitalCarbonCarbonCredit_OrderBy {
   BridgeProtocol = 'bridgeProtocol',
   Bridged = 'bridged',
   Bridges = 'bridges',
@@ -573,72 +573,72 @@ export enum CarbonCredit_OrderBy {
   Vintage = 'vintage'
 }
 
-export type CarbonPool = {
+export type DigitalCarbonCarbonPool = {
   __typename?: 'CarbonPool';
   /** Current balances of underlying project tokens */
-  creditBalances: Array<CarbonPoolCreditBalance>;
+  creditBalances: Array<DigitalCarbonCarbonPoolCreditBalance>;
   /** Total tokens bridged to other chains */
   crossChainSupply: Scalars['BigInt'];
-  dailySnapshots: Array<CarbonPoolDailySnapshot>;
+  dailySnapshots: Array<DigitalCarbonCarbonPoolDailySnapshot>;
   /** Decimals of the token */
   decimals: Scalars['Int'];
-  deposits: Array<PoolDeposit>;
+  deposits: Array<DigitalCarbonPoolDeposit>;
   /** Ethereum address of the pool contract */
   id: Scalars['Bytes'];
   lastSnapshotDayID: Scalars['Int'];
   /** Common name for the pool */
   name: Scalars['String'];
   nextSnapshotDayID: Scalars['Int'];
-  redeems: Array<PoolRedeem>;
+  redeems: Array<DigitalCarbonPoolRedeem>;
   /** Current supply */
   supply: Scalars['BigInt'];
 };
 
 
-export type CarbonPoolCreditBalancesArgs = {
+export type DigitalCarbonCarbonPoolCreditBalancesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolCreditBalance_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<CarbonPoolCreditBalance_Filter>;
+  where: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>;
 };
 
 
-export type CarbonPoolDailySnapshotsArgs = {
+export type DigitalCarbonCarbonPoolDailySnapshotsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<CarbonPoolDailySnapshot_Filter>;
+  where: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>;
 };
 
 
-export type CarbonPoolDepositsArgs = {
+export type DigitalCarbonCarbonPoolDepositsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolDeposit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolDeposit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<PoolDeposit_Filter>;
+  where: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
 };
 
 
-export type CarbonPoolRedeemsArgs = {
+export type DigitalCarbonCarbonPoolRedeemsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolRedeem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolRedeem_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<PoolRedeem_Filter>;
+  where: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
 };
 
-export type CarbonPoolCreditBalance = {
+export type DigitalCarbonCarbonPoolCreditBalance = {
   __typename?: 'CarbonPoolCreditBalance';
   /** Current balance */
   balance: Scalars['BigInt'];
   /** Credit being pooled */
-  credit: CarbonCredit;
+  credit: DigitalCarbonCarbonCredit;
   /** Current balance bridge to another chain */
   crossChainSupply: Scalars['BigInt'];
-  dailySnapshots: Array<CarbonPoolCreditBalanceDailySnapshot>;
+  dailySnapshots: Array<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot>;
   /** LTD deposited amount */
   deposited: Scalars['BigInt'];
   /** {Pool Address}-{Credit Address} */
@@ -646,28 +646,28 @@ export type CarbonPoolCreditBalance = {
   lastSnapshotDayID: Scalars['Int'];
   nextSnapshotDayID: Scalars['Int'];
   /** Target carbon pool */
-  pool: CarbonPool;
+  pool: DigitalCarbonCarbonPool;
   /** LTD redeemed amount */
   redeemed: Scalars['BigInt'];
 };
 
 
-export type CarbonPoolCreditBalanceDailySnapshotsArgs = {
+export type DigitalCarbonCarbonPoolCreditBalanceDailySnapshotsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
+  where: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>;
 };
 
-export type CarbonPoolCreditBalanceDailySnapshot = {
+export type DigitalCarbonCarbonPoolCreditBalanceDailySnapshot = {
   __typename?: 'CarbonPoolCreditBalanceDailySnapshot';
   /** Current balance */
   balance: Scalars['BigInt'];
   /** Credit being pooled */
-  credit: CarbonCredit;
+  credit: DigitalCarbonCarbonCredit;
   /** ID of the creditBalance entity */
-  creditBalance: CarbonPoolCreditBalance;
+  creditBalance: DigitalCarbonCarbonPoolCreditBalance;
   /** Current balance bridge to another chain */
   crossChainSupply: Scalars['BigInt'];
   /** Day ID of this snapshot */
@@ -682,42 +682,42 @@ export type CarbonPoolCreditBalanceDailySnapshot = {
   deltaRedeemed: Scalars['BigInt'];
   /** Deposited amount */
   deposited: Scalars['BigInt'];
-  deposits: Array<PoolDeposit>;
+  deposits: Array<DigitalCarbonPoolDeposit>;
   /** {Pool Address}-{Credit Address}-{Day ID} */
   id: Scalars['Bytes'];
   lastUpdateBlockNumber: Scalars['BigInt'];
   lastUpdateTimestamp: Scalars['BigInt'];
   /** Target carbon pool */
-  pool: CarbonPool;
+  pool: DigitalCarbonCarbonPool;
   /** The daily pool snapshot that this belongs to */
-  poolSnapshot: CarbonPoolDailySnapshot;
+  poolSnapshot: DigitalCarbonCarbonPoolDailySnapshot;
   /** Redeemed amount */
   redeemed: Scalars['BigInt'];
-  redeems: Array<PoolRedeem>;
+  redeems: Array<DigitalCarbonPoolRedeem>;
 };
 
 
-export type CarbonPoolCreditBalanceDailySnapshotDepositsArgs = {
+export type DigitalCarbonCarbonPoolCreditBalanceDailySnapshotDepositsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolDeposit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolDeposit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<PoolDeposit_Filter>;
+  where: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
 };
 
 
-export type CarbonPoolCreditBalanceDailySnapshotRedeemsArgs = {
+export type DigitalCarbonCarbonPoolCreditBalanceDailySnapshotRedeemsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolRedeem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolRedeem_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<PoolRedeem_Filter>;
+  where: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
 };
 
-export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
+export type DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>>>;
   balance: InputMaybe<Scalars['BigInt']>;
   balance_gt: InputMaybe<Scalars['BigInt']>;
   balance_gte: InputMaybe<Scalars['BigInt']>;
@@ -728,7 +728,7 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
   balance_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   credit: InputMaybe<Scalars['String']>;
   creditBalance: InputMaybe<Scalars['String']>;
-  creditBalance_: InputMaybe<CarbonPoolCreditBalance_Filter>;
+  creditBalance_: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>;
   creditBalance_contains: InputMaybe<Scalars['String']>;
   creditBalance_contains_nocase: InputMaybe<Scalars['String']>;
   creditBalance_ends_with: InputMaybe<Scalars['String']>;
@@ -748,7 +748,7 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
   creditBalance_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   creditBalance_starts_with: InputMaybe<Scalars['String']>;
   creditBalance_starts_with_nocase: InputMaybe<Scalars['String']>;
-  credit_: InputMaybe<CarbonCredit_Filter>;
+  credit_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   credit_contains: InputMaybe<Scalars['String']>;
   credit_contains_nocase: InputMaybe<Scalars['String']>;
   credit_ends_with: InputMaybe<Scalars['String']>;
@@ -824,7 +824,7 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
   deposited_lte: InputMaybe<Scalars['BigInt']>;
   deposited_not: InputMaybe<Scalars['BigInt']>;
   deposited_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  deposits_: InputMaybe<PoolDeposit_Filter>;
+  deposits_: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -851,10 +851,10 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
   lastUpdateTimestamp_lte: InputMaybe<Scalars['BigInt']>;
   lastUpdateTimestamp_not: InputMaybe<Scalars['BigInt']>;
   lastUpdateTimestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  or: InputMaybe<Array<InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
   poolSnapshot: InputMaybe<Scalars['String']>;
-  poolSnapshot_: InputMaybe<CarbonPoolDailySnapshot_Filter>;
+  poolSnapshot_: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>;
   poolSnapshot_contains: InputMaybe<Scalars['String']>;
   poolSnapshot_contains_nocase: InputMaybe<Scalars['String']>;
   poolSnapshot_ends_with: InputMaybe<Scalars['String']>;
@@ -874,7 +874,7 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
   poolSnapshot_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   poolSnapshot_starts_with: InputMaybe<Scalars['String']>;
   poolSnapshot_starts_with_nocase: InputMaybe<Scalars['String']>;
-  pool_: InputMaybe<CarbonPool_Filter>;
+  pool_: InputMaybe<DigitalCarbonCarbonPool_Filter>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
   pool_ends_with: InputMaybe<Scalars['String']>;
@@ -902,10 +902,10 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
   redeemed_lte: InputMaybe<Scalars['BigInt']>;
   redeemed_not: InputMaybe<Scalars['BigInt']>;
   redeemed_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  redeems_: InputMaybe<PoolRedeem_Filter>;
+  redeems_: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
 };
 
-export enum CarbonPoolCreditBalanceDailySnapshot_OrderBy {
+export enum DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_OrderBy {
   Balance = 'balance',
   Credit = 'credit',
   CreditBalance = 'creditBalance',
@@ -955,10 +955,10 @@ export enum CarbonPoolCreditBalanceDailySnapshot_OrderBy {
   Redeems = 'redeems'
 }
 
-export type CarbonPoolCreditBalance_Filter = {
+export type DigitalCarbonCarbonPoolCreditBalance_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CarbonPoolCreditBalance_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>>>;
   balance: InputMaybe<Scalars['BigInt']>;
   balance_gt: InputMaybe<Scalars['BigInt']>;
   balance_gte: InputMaybe<Scalars['BigInt']>;
@@ -968,7 +968,7 @@ export type CarbonPoolCreditBalance_Filter = {
   balance_not: InputMaybe<Scalars['BigInt']>;
   balance_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   credit: InputMaybe<Scalars['String']>;
-  credit_: InputMaybe<CarbonCredit_Filter>;
+  credit_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   credit_contains: InputMaybe<Scalars['String']>;
   credit_contains_nocase: InputMaybe<Scalars['String']>;
   credit_ends_with: InputMaybe<Scalars['String']>;
@@ -996,7 +996,7 @@ export type CarbonPoolCreditBalance_Filter = {
   crossChainSupply_lte: InputMaybe<Scalars['BigInt']>;
   crossChainSupply_not: InputMaybe<Scalars['BigInt']>;
   crossChainSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  dailySnapshots_: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
+  dailySnapshots_: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>;
   deposited: InputMaybe<Scalars['BigInt']>;
   deposited_gt: InputMaybe<Scalars['BigInt']>;
   deposited_gte: InputMaybe<Scalars['BigInt']>;
@@ -1031,9 +1031,9 @@ export type CarbonPoolCreditBalance_Filter = {
   nextSnapshotDayID_lte: InputMaybe<Scalars['Int']>;
   nextSnapshotDayID_not: InputMaybe<Scalars['Int']>;
   nextSnapshotDayID_not_in: InputMaybe<Array<Scalars['Int']>>;
-  or: InputMaybe<Array<InputMaybe<CarbonPoolCreditBalance_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
-  pool_: InputMaybe<CarbonPool_Filter>;
+  pool_: InputMaybe<DigitalCarbonCarbonPool_Filter>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
   pool_ends_with: InputMaybe<Scalars['String']>;
@@ -1063,7 +1063,7 @@ export type CarbonPoolCreditBalance_Filter = {
   redeemed_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum CarbonPoolCreditBalance_OrderBy {
+export enum DigitalCarbonCarbonPoolCreditBalance_OrderBy {
   Balance = 'balance',
   Credit = 'credit',
   CreditBridgeProtocol = 'credit__bridgeProtocol',
@@ -1092,58 +1092,58 @@ export enum CarbonPoolCreditBalance_OrderBy {
   Redeemed = 'redeemed'
 }
 
-export type CarbonPoolDailySnapshot = {
+export type DigitalCarbonCarbonPoolDailySnapshot = {
   __typename?: 'CarbonPoolDailySnapshot';
   /** Current balances of underlying project tokens */
-  creditBalances: Array<CarbonPoolCreditBalanceDailySnapshot>;
+  creditBalances: Array<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot>;
   /** Day ID of this snapshot */
   dayID: Maybe<Scalars['Int']>;
   /** Change in supply during this period */
   deltaSupply: Scalars['BigInt'];
-  deposits: Array<PoolDeposit>;
+  deposits: Array<DigitalCarbonPoolDeposit>;
   /** Ethereum address of the pool contract */
   id: Scalars['Bytes'];
   lastUpdateBlockNumber: Scalars['BigInt'];
   lastUpdateTimestamp: Scalars['BigInt'];
   /** Pool this snapshot belongs to */
-  pool: CarbonPool;
-  redeems: Array<PoolRedeem>;
+  pool: DigitalCarbonCarbonPool;
+  redeems: Array<DigitalCarbonPoolRedeem>;
   /** Current supply */
   supply: Scalars['BigInt'];
 };
 
 
-export type CarbonPoolDailySnapshotCreditBalancesArgs = {
+export type DigitalCarbonCarbonPoolDailySnapshotCreditBalancesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
+  where: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>;
 };
 
 
-export type CarbonPoolDailySnapshotDepositsArgs = {
+export type DigitalCarbonCarbonPoolDailySnapshotDepositsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolDeposit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolDeposit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<PoolDeposit_Filter>;
+  where: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
 };
 
 
-export type CarbonPoolDailySnapshotRedeemsArgs = {
+export type DigitalCarbonCarbonPoolDailySnapshotRedeemsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolRedeem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolRedeem_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<PoolRedeem_Filter>;
+  where: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
 };
 
-export type CarbonPoolDailySnapshot_Filter = {
+export type DigitalCarbonCarbonPoolDailySnapshot_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CarbonPoolDailySnapshot_Filter>>>;
-  creditBalances_: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>>>;
+  creditBalances_: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>;
   dayID: InputMaybe<Scalars['Int']>;
   dayID_gt: InputMaybe<Scalars['Int']>;
   dayID_gte: InputMaybe<Scalars['Int']>;
@@ -1160,7 +1160,7 @@ export type CarbonPoolDailySnapshot_Filter = {
   deltaSupply_lte: InputMaybe<Scalars['BigInt']>;
   deltaSupply_not: InputMaybe<Scalars['BigInt']>;
   deltaSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  deposits_: InputMaybe<PoolDeposit_Filter>;
+  deposits_: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -1187,9 +1187,9 @@ export type CarbonPoolDailySnapshot_Filter = {
   lastUpdateTimestamp_lte: InputMaybe<Scalars['BigInt']>;
   lastUpdateTimestamp_not: InputMaybe<Scalars['BigInt']>;
   lastUpdateTimestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  or: InputMaybe<Array<InputMaybe<CarbonPoolDailySnapshot_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
-  pool_: InputMaybe<CarbonPool_Filter>;
+  pool_: InputMaybe<DigitalCarbonCarbonPool_Filter>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
   pool_ends_with: InputMaybe<Scalars['String']>;
@@ -1209,7 +1209,7 @@ export type CarbonPoolDailySnapshot_Filter = {
   pool_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   pool_starts_with: InputMaybe<Scalars['String']>;
   pool_starts_with_nocase: InputMaybe<Scalars['String']>;
-  redeems_: InputMaybe<PoolRedeem_Filter>;
+  redeems_: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
   supply: InputMaybe<Scalars['BigInt']>;
   supply_gt: InputMaybe<Scalars['BigInt']>;
   supply_gte: InputMaybe<Scalars['BigInt']>;
@@ -1220,7 +1220,7 @@ export type CarbonPoolDailySnapshot_Filter = {
   supply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum CarbonPoolDailySnapshot_OrderBy {
+export enum DigitalCarbonCarbonPoolDailySnapshot_OrderBy {
   CreditBalances = 'creditBalances',
   DayId = 'dayID',
   DeltaSupply = 'deltaSupply',
@@ -1240,11 +1240,11 @@ export enum CarbonPoolDailySnapshot_OrderBy {
   Supply = 'supply'
 }
 
-export type CarbonPool_Filter = {
+export type DigitalCarbonCarbonPool_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CarbonPool_Filter>>>;
-  creditBalances_: InputMaybe<CarbonPoolCreditBalance_Filter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonPool_Filter>>>;
+  creditBalances_: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>;
   crossChainSupply: InputMaybe<Scalars['BigInt']>;
   crossChainSupply_gt: InputMaybe<Scalars['BigInt']>;
   crossChainSupply_gte: InputMaybe<Scalars['BigInt']>;
@@ -1253,7 +1253,7 @@ export type CarbonPool_Filter = {
   crossChainSupply_lte: InputMaybe<Scalars['BigInt']>;
   crossChainSupply_not: InputMaybe<Scalars['BigInt']>;
   crossChainSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  dailySnapshots_: InputMaybe<CarbonPoolDailySnapshot_Filter>;
+  dailySnapshots_: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>;
   decimals: InputMaybe<Scalars['Int']>;
   decimals_gt: InputMaybe<Scalars['Int']>;
   decimals_gte: InputMaybe<Scalars['Int']>;
@@ -1262,7 +1262,7 @@ export type CarbonPool_Filter = {
   decimals_lte: InputMaybe<Scalars['Int']>;
   decimals_not: InputMaybe<Scalars['Int']>;
   decimals_not_in: InputMaybe<Array<Scalars['Int']>>;
-  deposits_: InputMaybe<PoolDeposit_Filter>;
+  deposits_: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -1309,8 +1309,8 @@ export type CarbonPool_Filter = {
   nextSnapshotDayID_lte: InputMaybe<Scalars['Int']>;
   nextSnapshotDayID_not: InputMaybe<Scalars['Int']>;
   nextSnapshotDayID_not_in: InputMaybe<Array<Scalars['Int']>>;
-  or: InputMaybe<Array<InputMaybe<CarbonPool_Filter>>>;
-  redeems_: InputMaybe<PoolRedeem_Filter>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonPool_Filter>>>;
+  redeems_: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
   supply: InputMaybe<Scalars['BigInt']>;
   supply_gt: InputMaybe<Scalars['BigInt']>;
   supply_gte: InputMaybe<Scalars['BigInt']>;
@@ -1321,7 +1321,7 @@ export type CarbonPool_Filter = {
   supply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum CarbonPool_OrderBy {
+export enum DigitalCarbonCarbonPool_OrderBy {
   CreditBalances = 'creditBalances',
   CrossChainSupply = 'crossChainSupply',
   DailySnapshots = 'dailySnapshots',
@@ -1335,10 +1335,10 @@ export enum CarbonPool_OrderBy {
   Supply = 'supply'
 }
 
-export type CarbonProject = {
+export type DigitalCarbonCarbonProject = {
   __typename?: 'CarbonProject';
   /** Carbon credit tokens related to this project */
-  carbonCredits: Array<CarbonCredit>;
+  carbonCredits: Array<DigitalCarbonCarbonCredit>;
   /** Category associated with this project */
   category: Scalars['String'];
   /** Country where the project takes place */
@@ -1354,23 +1354,23 @@ export type CarbonProject = {
   /** Region within the country where the project takes place */
   region: Scalars['String'];
   /** Issuing registry */
-  registry: Registry;
+  registry: DigitalCarbonRegistry;
 };
 
 
-export type CarbonProjectCarbonCreditsArgs = {
+export type DigitalCarbonCarbonProjectCarbonCreditsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonCredit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonCredit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<CarbonCredit_Filter>;
+  where: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
 };
 
-export type CarbonProject_Filter = {
+export type DigitalCarbonCarbonProject_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CarbonProject_Filter>>>;
-  carbonCredits_: InputMaybe<CarbonCredit_Filter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonProject_Filter>>>;
+  carbonCredits_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   category: InputMaybe<Scalars['String']>;
   category_contains: InputMaybe<Scalars['String']>;
   category_contains_nocase: InputMaybe<Scalars['String']>;
@@ -1459,7 +1459,7 @@ export type CarbonProject_Filter = {
   name_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   name_starts_with: InputMaybe<Scalars['String']>;
   name_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<CarbonProject_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonCarbonProject_Filter>>>;
   projectID: InputMaybe<Scalars['String']>;
   projectID_contains: InputMaybe<Scalars['String']>;
   projectID_contains_nocase: InputMaybe<Scalars['String']>;
@@ -1500,13 +1500,13 @@ export type CarbonProject_Filter = {
   region_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   region_starts_with: InputMaybe<Scalars['String']>;
   region_starts_with_nocase: InputMaybe<Scalars['String']>;
-  registry: InputMaybe<Registry>;
-  registry_in: InputMaybe<Array<Registry>>;
-  registry_not: InputMaybe<Registry>;
-  registry_not_in: InputMaybe<Array<Registry>>;
+  registry: InputMaybe<DigitalCarbonRegistry>;
+  registry_in: InputMaybe<Array<DigitalCarbonRegistry>>;
+  registry_not: InputMaybe<DigitalCarbonRegistry>;
+  registry_not_in: InputMaybe<Array<DigitalCarbonRegistry>>;
 };
 
-export enum CarbonProject_OrderBy {
+export enum DigitalCarbonCarbonProject_OrderBy {
   CarbonCredits = 'carbonCredits',
   Category = 'category',
   Country = 'country',
@@ -1518,34 +1518,34 @@ export enum CarbonProject_OrderBy {
   Registry = 'registry'
 }
 
-export type CrossChainBridge = {
+export type DigitalCarbonCrossChainBridge = {
   __typename?: 'CrossChainBridge';
   /** Amount of tokens bridged */
   amount: Scalars['BigInt'];
   /** Bridging address */
   bridger: Scalars['Bytes'];
   /** ID of the credit being bridged, if any */
-  credit: Maybe<CarbonCredit>;
+  credit: Maybe<DigitalCarbonCarbonCredit>;
   /** Bridge direction */
-  direction: CrossChainBridgeDirection;
+  direction: DigitalCarbonCrossChainBridgeDirection;
   /** Transaction hash of the event */
   hash: Scalars['Bytes'];
   /** {Transaction hash}-{Log Index} */
   id: Scalars['Bytes'];
   /** ID of the pool being bridged, if any */
-  pool: Maybe<CarbonPool>;
+  pool: Maybe<DigitalCarbonCarbonPool>;
   /** Block timestamp of the bridge */
   timestamp: Scalars['BigInt'];
 };
 
-export enum CrossChainBridgeDirection {
+export enum DigitalCarbonCrossChainBridgeDirection {
   Received = 'RECEIVED',
   Sent = 'SENT'
 }
 
-export type CrossChainBridge_Filter = {
+export type DigitalCarbonCrossChainBridge_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
   amount: InputMaybe<Scalars['BigInt']>;
   amount_gt: InputMaybe<Scalars['BigInt']>;
   amount_gte: InputMaybe<Scalars['BigInt']>;
@@ -1554,7 +1554,7 @@ export type CrossChainBridge_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<CrossChainBridge_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonCrossChainBridge_Filter>>>;
   bridger: InputMaybe<Scalars['Bytes']>;
   bridger_contains: InputMaybe<Scalars['Bytes']>;
   bridger_gt: InputMaybe<Scalars['Bytes']>;
@@ -1566,7 +1566,7 @@ export type CrossChainBridge_Filter = {
   bridger_not_contains: InputMaybe<Scalars['Bytes']>;
   bridger_not_in: InputMaybe<Array<Scalars['Bytes']>>;
   credit: InputMaybe<Scalars['String']>;
-  credit_: InputMaybe<CarbonCredit_Filter>;
+  credit_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   credit_contains: InputMaybe<Scalars['String']>;
   credit_contains_nocase: InputMaybe<Scalars['String']>;
   credit_ends_with: InputMaybe<Scalars['String']>;
@@ -1586,10 +1586,10 @@ export type CrossChainBridge_Filter = {
   credit_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   credit_starts_with: InputMaybe<Scalars['String']>;
   credit_starts_with_nocase: InputMaybe<Scalars['String']>;
-  direction: InputMaybe<CrossChainBridgeDirection>;
-  direction_in: InputMaybe<Array<CrossChainBridgeDirection>>;
-  direction_not: InputMaybe<CrossChainBridgeDirection>;
-  direction_not_in: InputMaybe<Array<CrossChainBridgeDirection>>;
+  direction: InputMaybe<DigitalCarbonCrossChainBridgeDirection>;
+  direction_in: InputMaybe<Array<DigitalCarbonCrossChainBridgeDirection>>;
+  direction_not: InputMaybe<DigitalCarbonCrossChainBridgeDirection>;
+  direction_not_in: InputMaybe<Array<DigitalCarbonCrossChainBridgeDirection>>;
   hash: InputMaybe<Scalars['Bytes']>;
   hash_contains: InputMaybe<Scalars['Bytes']>;
   hash_gt: InputMaybe<Scalars['Bytes']>;
@@ -1610,9 +1610,9 @@ export type CrossChainBridge_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<CrossChainBridge_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonCrossChainBridge_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
-  pool_: InputMaybe<CarbonPool_Filter>;
+  pool_: InputMaybe<DigitalCarbonCarbonPool_Filter>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
   pool_ends_with: InputMaybe<Scalars['String']>;
@@ -1642,7 +1642,7 @@ export type CrossChainBridge_Filter = {
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum CrossChainBridge_OrderBy {
+export enum DigitalCarbonCrossChainBridge_OrderBy {
   Amount = 'amount',
   Bridger = 'bridger',
   Credit = 'credit',
@@ -1669,23 +1669,23 @@ export enum CrossChainBridge_OrderBy {
   Timestamp = 'timestamp'
 }
 
-export type Ecosystem = {
+export type DigitalCarbonEcosystem = {
   __typename?: 'Ecosystem';
   /** Active credits with supply > 0 */
   activeCredits: Array<Scalars['Bytes']>;
   id: Scalars['ID'];
 };
 
-export type Ecosystem_Filter = {
+export type DigitalCarbonEcosystem_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
   activeCredits: InputMaybe<Array<Scalars['Bytes']>>;
   activeCredits_contains: InputMaybe<Array<Scalars['Bytes']>>;
   activeCredits_contains_nocase: InputMaybe<Array<Scalars['Bytes']>>;
   activeCredits_not: InputMaybe<Array<Scalars['Bytes']>>;
   activeCredits_not_contains: InputMaybe<Array<Scalars['Bytes']>>;
   activeCredits_not_contains_nocase: InputMaybe<Array<Scalars['Bytes']>>;
-  and: InputMaybe<Array<InputMaybe<Ecosystem_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonEcosystem_Filter>>>;
   id: InputMaybe<Scalars['ID']>;
   id_gt: InputMaybe<Scalars['ID']>;
   id_gte: InputMaybe<Scalars['ID']>;
@@ -1694,15 +1694,15 @@ export type Ecosystem_Filter = {
   id_lte: InputMaybe<Scalars['ID']>;
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
-  or: InputMaybe<Array<InputMaybe<Ecosystem_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonEcosystem_Filter>>>;
 };
 
-export enum Ecosystem_OrderBy {
+export enum DigitalCarbonEcosystem_OrderBy {
   ActiveCredits = 'activeCredits',
   Id = 'id'
 }
 
-export type Epoch = {
+export type DigitalCarbonEpoch = {
   __typename?: 'Epoch';
   /** 600 epoch credit supply SMA */
   creditSMA: Scalars['BigInt'];
@@ -1716,10 +1716,10 @@ export type Epoch = {
   id: Scalars['ID'];
 };
 
-export type Epoch_Filter = {
+export type DigitalCarbonEpoch_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Epoch_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonEpoch_Filter>>>;
   creditSMA: InputMaybe<Scalars['BigInt']>;
   creditSMA_gt: InputMaybe<Scalars['BigInt']>;
   creditSMA_gte: InputMaybe<Scalars['BigInt']>;
@@ -1760,10 +1760,10 @@ export type Epoch_Filter = {
   id_lte: InputMaybe<Scalars['ID']>;
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
-  or: InputMaybe<Array<InputMaybe<Epoch_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonEpoch_Filter>>>;
 };
 
-export enum Epoch_OrderBy {
+export enum DigitalCarbonEpoch_OrderBy {
   CreditSma = 'creditSMA',
   CreditSupply = 'creditSupply',
   DeltaCreditSupply = 'deltaCreditSupply',
@@ -1771,44 +1771,44 @@ export enum Epoch_OrderBy {
   Id = 'id'
 }
 
-export type Holding = {
+export type DigitalCarbonHolding = {
   __typename?: 'Holding';
   /** Account this belongs to */
-  account: Account;
-  activeProvenanceRecords: Array<ProvenanceRecord>;
+  account: DigitalCarbonAccount;
+  activeProvenanceRecords: Array<DigitalCarbonProvenanceRecord>;
   /** Amount currently held in native units */
   amount: Scalars['BigInt'];
-  historicalProvenanceRecords: Array<ProvenanceRecord>;
+  historicalProvenanceRecords: Array<DigitalCarbonProvenanceRecord>;
   /** {Account}-{Token} */
   id: Scalars['Bytes'];
   /** Timestamp last updated */
   lastUpdated: Scalars['BigInt'];
   /** Token being held */
-  token: Token;
+  token: DigitalCarbonToken;
 };
 
 
-export type HoldingActiveProvenanceRecordsArgs = {
+export type DigitalCarbonHoldingActiveProvenanceRecordsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<ProvenanceRecord_Filter>;
+  where: InputMaybe<DigitalCarbonProvenanceRecord_Filter>;
 };
 
 
-export type HoldingHistoricalProvenanceRecordsArgs = {
+export type DigitalCarbonHoldingHistoricalProvenanceRecordsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<ProvenanceRecord_Filter>;
+  where: InputMaybe<DigitalCarbonProvenanceRecord_Filter>;
 };
 
-export type HoldingDailySnapshot = {
+export type DigitalCarbonHoldingDailySnapshot = {
   __typename?: 'HoldingDailySnapshot';
   /** Account this belongs to */
-  account: Account;
+  account: DigitalCarbonAccount;
   /** Amount currently held in native units */
   amount: Scalars['BigInt'];
   /** {Account}-{Token}-{Days since Unix epoch} */
@@ -1816,14 +1816,14 @@ export type HoldingDailySnapshot = {
   /** Day in Unix timestamp */
   timestamp: Scalars['BigInt'];
   /** Token being held */
-  token: Token;
+  token: DigitalCarbonToken;
 };
 
-export type HoldingDailySnapshot_Filter = {
+export type DigitalCarbonHoldingDailySnapshot_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
   account: InputMaybe<Scalars['String']>;
-  account_: InputMaybe<Account_Filter>;
+  account_: InputMaybe<DigitalCarbonAccount_Filter>;
   account_contains: InputMaybe<Scalars['String']>;
   account_contains_nocase: InputMaybe<Scalars['String']>;
   account_ends_with: InputMaybe<Scalars['String']>;
@@ -1851,7 +1851,7 @@ export type HoldingDailySnapshot_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<HoldingDailySnapshot_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonHoldingDailySnapshot_Filter>>>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -1862,7 +1862,7 @@ export type HoldingDailySnapshot_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<HoldingDailySnapshot_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonHoldingDailySnapshot_Filter>>>;
   timestamp: InputMaybe<Scalars['BigInt']>;
   timestamp_gt: InputMaybe<Scalars['BigInt']>;
   timestamp_gte: InputMaybe<Scalars['BigInt']>;
@@ -1872,7 +1872,7 @@ export type HoldingDailySnapshot_Filter = {
   timestamp_not: InputMaybe<Scalars['BigInt']>;
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   token: InputMaybe<Scalars['String']>;
-  token_: InputMaybe<Token_Filter>;
+  token_: InputMaybe<DigitalCarbonToken_Filter>;
   token_contains: InputMaybe<Scalars['String']>;
   token_contains_nocase: InputMaybe<Scalars['String']>;
   token_ends_with: InputMaybe<Scalars['String']>;
@@ -1894,7 +1894,7 @@ export type HoldingDailySnapshot_Filter = {
   token_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum HoldingDailySnapshot_OrderBy {
+export enum DigitalCarbonHoldingDailySnapshot_OrderBy {
   Account = 'account',
   AccountId = 'account__id',
   AccountTotalRetirements = 'account__totalRetirements',
@@ -1912,11 +1912,11 @@ export enum HoldingDailySnapshot_OrderBy {
   TokenSymbol = 'token__symbol'
 }
 
-export type Holding_Filter = {
+export type DigitalCarbonHolding_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
   account: InputMaybe<Scalars['String']>;
-  account_: InputMaybe<Account_Filter>;
+  account_: InputMaybe<DigitalCarbonAccount_Filter>;
   account_contains: InputMaybe<Scalars['String']>;
   account_contains_nocase: InputMaybe<Scalars['String']>;
   account_ends_with: InputMaybe<Scalars['String']>;
@@ -1937,7 +1937,7 @@ export type Holding_Filter = {
   account_starts_with: InputMaybe<Scalars['String']>;
   account_starts_with_nocase: InputMaybe<Scalars['String']>;
   activeProvenanceRecords: InputMaybe<Array<Scalars['String']>>;
-  activeProvenanceRecords_: InputMaybe<ProvenanceRecord_Filter>;
+  activeProvenanceRecords_: InputMaybe<DigitalCarbonProvenanceRecord_Filter>;
   activeProvenanceRecords_contains: InputMaybe<Array<Scalars['String']>>;
   activeProvenanceRecords_contains_nocase: InputMaybe<Array<Scalars['String']>>;
   activeProvenanceRecords_not: InputMaybe<Array<Scalars['String']>>;
@@ -1951,9 +1951,9 @@ export type Holding_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonHolding_Filter>>>;
   historicalProvenanceRecords: InputMaybe<Array<Scalars['String']>>;
-  historicalProvenanceRecords_: InputMaybe<ProvenanceRecord_Filter>;
+  historicalProvenanceRecords_: InputMaybe<DigitalCarbonProvenanceRecord_Filter>;
   historicalProvenanceRecords_contains: InputMaybe<Array<Scalars['String']>>;
   historicalProvenanceRecords_contains_nocase: InputMaybe<Array<Scalars['String']>>;
   historicalProvenanceRecords_not: InputMaybe<Array<Scalars['String']>>;
@@ -1977,9 +1977,9 @@ export type Holding_Filter = {
   lastUpdated_lte: InputMaybe<Scalars['BigInt']>;
   lastUpdated_not: InputMaybe<Scalars['BigInt']>;
   lastUpdated_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  or: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonHolding_Filter>>>;
   token: InputMaybe<Scalars['String']>;
-  token_: InputMaybe<Token_Filter>;
+  token_: InputMaybe<DigitalCarbonToken_Filter>;
   token_contains: InputMaybe<Scalars['String']>;
   token_contains_nocase: InputMaybe<Scalars['String']>;
   token_ends_with: InputMaybe<Scalars['String']>;
@@ -2001,7 +2001,7 @@ export type Holding_Filter = {
   token_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum Holding_OrderBy {
+export enum DigitalCarbonHolding_OrderBy {
   Account = 'account',
   AccountId = 'account__id',
   AccountTotalRetirements = 'account__totalRetirements',
@@ -2021,7 +2021,7 @@ export enum Holding_OrderBy {
   TokenSymbol = 'token__symbol'
 }
 
-export type KlimaRetire = {
+export type DigitalCarbonKlimaRetire = {
   __typename?: 'KlimaRetire';
   /** Fee charged for retirement in native units */
   feeAmount: Scalars['BigInt'];
@@ -2030,15 +2030,15 @@ export type KlimaRetire = {
   /** Klima retirement index */
   index: Scalars['BigInt'];
   /** Retirement made by the aggregator */
-  retire: Retire;
+  retire: DigitalCarbonRetire;
   /** Selective retirement */
   specific: Scalars['Boolean'];
 };
 
-export type KlimaRetire_Filter = {
+export type DigitalCarbonKlimaRetire_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<KlimaRetire_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonKlimaRetire_Filter>>>;
   feeAmount: InputMaybe<Scalars['BigInt']>;
   feeAmount_gt: InputMaybe<Scalars['BigInt']>;
   feeAmount_gte: InputMaybe<Scalars['BigInt']>;
@@ -2065,9 +2065,9 @@ export type KlimaRetire_Filter = {
   index_lte: InputMaybe<Scalars['BigInt']>;
   index_not: InputMaybe<Scalars['BigInt']>;
   index_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  or: InputMaybe<Array<InputMaybe<KlimaRetire_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonKlimaRetire_Filter>>>;
   retire: InputMaybe<Scalars['String']>;
-  retire_: InputMaybe<Retire_Filter>;
+  retire_: InputMaybe<DigitalCarbonRetire_Filter>;
   retire_contains: InputMaybe<Scalars['String']>;
   retire_contains_nocase: InputMaybe<Scalars['String']>;
   retire_ends_with: InputMaybe<Scalars['String']>;
@@ -2093,7 +2093,7 @@ export type KlimaRetire_Filter = {
   specific_not_in: InputMaybe<Array<Scalars['Boolean']>>;
 };
 
-export enum KlimaRetire_OrderBy {
+export enum DigitalCarbonKlimaRetire_OrderBy {
   FeeAmount = 'feeAmount',
   Id = 'id',
   Index = 'index',
@@ -2109,7 +2109,7 @@ export enum KlimaRetire_OrderBy {
   Specific = 'specific'
 }
 
-export type Methodology = {
+export type DigitalCarbonMethodology = {
   __typename?: 'Methodology';
   approvalDate: Scalars['String'];
   currentVersion: Scalars['String'];
@@ -2117,10 +2117,10 @@ export type Methodology = {
   scope: Maybe<Scalars['String']>;
 };
 
-export type Methodology_Filter = {
+export type DigitalCarbonMethodology_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Methodology_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonMethodology_Filter>>>;
   approvalDate: InputMaybe<Scalars['String']>;
   approvalDate_contains: InputMaybe<Scalars['String']>;
   approvalDate_contains_nocase: InputMaybe<Scalars['String']>;
@@ -2169,7 +2169,7 @@ export type Methodology_Filter = {
   id_lte: InputMaybe<Scalars['ID']>;
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
-  or: InputMaybe<Array<InputMaybe<Methodology_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonMethodology_Filter>>>;
   scope: InputMaybe<Scalars['String']>;
   scope_contains: InputMaybe<Scalars['String']>;
   scope_contains_nocase: InputMaybe<Scalars['String']>;
@@ -2192,7 +2192,7 @@ export type Methodology_Filter = {
   scope_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum Methodology_OrderBy {
+export enum DigitalCarbonMethodology_OrderBy {
   ApprovalDate = 'approvalDate',
   CurrentVersion = 'currentVersion',
   Id = 'id',
@@ -2200,36 +2200,36 @@ export enum Methodology_OrderBy {
 }
 
 /** Defines the order direction, either ascending or descending */
-export enum OrderDirection {
+export enum DigitalCarbonOrderDirection {
   Asc = 'asc',
   Desc = 'desc'
 }
 
-export type PoolDeposit = {
+export type DigitalCarbonPoolDeposit = {
   __typename?: 'PoolDeposit';
   /** Account making the deposit */
-  account: Account;
+  account: DigitalCarbonAccount;
   /** Amount deposited in native units */
   amount: Scalars['BigInt'];
   /** Credit deposited in the pool */
-  credit: CarbonCredit;
+  credit: DigitalCarbonCarbonCredit;
   /** {Transaction hash}-{Log Index} */
   id: Scalars['Bytes'];
   /** Pool that the credit was deposited in */
-  pool: CarbonPool;
+  pool: DigitalCarbonCarbonPool;
   /** {Pool}-{Credit}-{Day ID} for snapshot referencing */
-  poolCreditSnapshotID: CarbonPoolCreditBalanceDailySnapshot;
+  poolCreditSnapshotID: DigitalCarbonCarbonPoolCreditBalanceDailySnapshot;
   /** {Pool}-{Day ID} for snapshot referencing */
-  poolSnapshotID: CarbonPoolDailySnapshot;
+  poolSnapshotID: DigitalCarbonCarbonPoolDailySnapshot;
   /** Block timestamp of the deposit */
   timestamp: Scalars['BigInt'];
 };
 
-export type PoolDeposit_Filter = {
+export type DigitalCarbonPoolDeposit_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
   account: InputMaybe<Scalars['String']>;
-  account_: InputMaybe<Account_Filter>;
+  account_: InputMaybe<DigitalCarbonAccount_Filter>;
   account_contains: InputMaybe<Scalars['String']>;
   account_contains_nocase: InputMaybe<Scalars['String']>;
   account_ends_with: InputMaybe<Scalars['String']>;
@@ -2257,9 +2257,9 @@ export type PoolDeposit_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<PoolDeposit_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonPoolDeposit_Filter>>>;
   credit: InputMaybe<Scalars['String']>;
-  credit_: InputMaybe<CarbonCredit_Filter>;
+  credit_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   credit_contains: InputMaybe<Scalars['String']>;
   credit_contains_nocase: InputMaybe<Scalars['String']>;
   credit_ends_with: InputMaybe<Scalars['String']>;
@@ -2289,10 +2289,10 @@ export type PoolDeposit_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<PoolDeposit_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonPoolDeposit_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
   poolCreditSnapshotID: InputMaybe<Scalars['String']>;
-  poolCreditSnapshotID_: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
+  poolCreditSnapshotID_: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>;
   poolCreditSnapshotID_contains: InputMaybe<Scalars['String']>;
   poolCreditSnapshotID_contains_nocase: InputMaybe<Scalars['String']>;
   poolCreditSnapshotID_ends_with: InputMaybe<Scalars['String']>;
@@ -2313,7 +2313,7 @@ export type PoolDeposit_Filter = {
   poolCreditSnapshotID_starts_with: InputMaybe<Scalars['String']>;
   poolCreditSnapshotID_starts_with_nocase: InputMaybe<Scalars['String']>;
   poolSnapshotID: InputMaybe<Scalars['String']>;
-  poolSnapshotID_: InputMaybe<CarbonPoolDailySnapshot_Filter>;
+  poolSnapshotID_: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>;
   poolSnapshotID_contains: InputMaybe<Scalars['String']>;
   poolSnapshotID_contains_nocase: InputMaybe<Scalars['String']>;
   poolSnapshotID_ends_with: InputMaybe<Scalars['String']>;
@@ -2333,7 +2333,7 @@ export type PoolDeposit_Filter = {
   poolSnapshotID_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   poolSnapshotID_starts_with: InputMaybe<Scalars['String']>;
   poolSnapshotID_starts_with_nocase: InputMaybe<Scalars['String']>;
-  pool_: InputMaybe<CarbonPool_Filter>;
+  pool_: InputMaybe<DigitalCarbonCarbonPool_Filter>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
   pool_ends_with: InputMaybe<Scalars['String']>;
@@ -2363,7 +2363,7 @@ export type PoolDeposit_Filter = {
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum PoolDeposit_OrderBy {
+export enum DigitalCarbonPoolDeposit_OrderBy {
   Account = 'account',
   AccountId = 'account__id',
   AccountTotalRetirements = 'account__totalRetirements',
@@ -2410,31 +2410,31 @@ export enum PoolDeposit_OrderBy {
   Timestamp = 'timestamp'
 }
 
-export type PoolRedeem = {
+export type DigitalCarbonPoolRedeem = {
   __typename?: 'PoolRedeem';
   /** Account making the redemption */
-  account: Account;
+  account: DigitalCarbonAccount;
   /** Amount redeemed in native units */
   amount: Scalars['BigInt'];
   /** Credit redeemed from the pool */
-  credit: CarbonCredit;
+  credit: DigitalCarbonCarbonCredit;
   /** {Transaction hash}-{Log Index} */
   id: Scalars['Bytes'];
   /** Pool that the credit was redeemed from */
-  pool: CarbonPool;
+  pool: DigitalCarbonCarbonPool;
   /** {Pool}-{Credit}-{Day ID} for snapshot referencing */
-  poolCreditSnapshotID: CarbonPoolCreditBalanceDailySnapshot;
+  poolCreditSnapshotID: DigitalCarbonCarbonPoolCreditBalanceDailySnapshot;
   /** {Pool}-{Day ID} for snapshot referencing */
-  poolSnapshotID: CarbonPoolDailySnapshot;
+  poolSnapshotID: DigitalCarbonCarbonPoolDailySnapshot;
   /** Block timestamp of the deposit */
   timestamp: Scalars['BigInt'];
 };
 
-export type PoolRedeem_Filter = {
+export type DigitalCarbonPoolRedeem_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
   account: InputMaybe<Scalars['String']>;
-  account_: InputMaybe<Account_Filter>;
+  account_: InputMaybe<DigitalCarbonAccount_Filter>;
   account_contains: InputMaybe<Scalars['String']>;
   account_contains_nocase: InputMaybe<Scalars['String']>;
   account_ends_with: InputMaybe<Scalars['String']>;
@@ -2462,9 +2462,9 @@ export type PoolRedeem_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<PoolRedeem_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonPoolRedeem_Filter>>>;
   credit: InputMaybe<Scalars['String']>;
-  credit_: InputMaybe<CarbonCredit_Filter>;
+  credit_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   credit_contains: InputMaybe<Scalars['String']>;
   credit_contains_nocase: InputMaybe<Scalars['String']>;
   credit_ends_with: InputMaybe<Scalars['String']>;
@@ -2494,10 +2494,10 @@ export type PoolRedeem_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<PoolRedeem_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonPoolRedeem_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
   poolCreditSnapshotID: InputMaybe<Scalars['String']>;
-  poolCreditSnapshotID_: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
+  poolCreditSnapshotID_: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>;
   poolCreditSnapshotID_contains: InputMaybe<Scalars['String']>;
   poolCreditSnapshotID_contains_nocase: InputMaybe<Scalars['String']>;
   poolCreditSnapshotID_ends_with: InputMaybe<Scalars['String']>;
@@ -2518,7 +2518,7 @@ export type PoolRedeem_Filter = {
   poolCreditSnapshotID_starts_with: InputMaybe<Scalars['String']>;
   poolCreditSnapshotID_starts_with_nocase: InputMaybe<Scalars['String']>;
   poolSnapshotID: InputMaybe<Scalars['String']>;
-  poolSnapshotID_: InputMaybe<CarbonPoolDailySnapshot_Filter>;
+  poolSnapshotID_: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>;
   poolSnapshotID_contains: InputMaybe<Scalars['String']>;
   poolSnapshotID_contains_nocase: InputMaybe<Scalars['String']>;
   poolSnapshotID_ends_with: InputMaybe<Scalars['String']>;
@@ -2538,7 +2538,7 @@ export type PoolRedeem_Filter = {
   poolSnapshotID_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   poolSnapshotID_starts_with: InputMaybe<Scalars['String']>;
   poolSnapshotID_starts_with_nocase: InputMaybe<Scalars['String']>;
-  pool_: InputMaybe<CarbonPool_Filter>;
+  pool_: InputMaybe<DigitalCarbonCarbonPool_Filter>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
   pool_ends_with: InputMaybe<Scalars['String']>;
@@ -2568,7 +2568,7 @@ export type PoolRedeem_Filter = {
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum PoolRedeem_OrderBy {
+export enum DigitalCarbonPoolRedeem_OrderBy {
   Account = 'account',
   AccountId = 'account__id',
   AccountTotalRetirements = 'account__totalRetirements',
@@ -2615,7 +2615,7 @@ export enum PoolRedeem_OrderBy {
   Timestamp = 'timestamp'
 }
 
-export type ProvenanceRecord = {
+export type DigitalCarbonProvenanceRecord = {
   __typename?: 'ProvenanceRecord';
   /** Unix timestamp created */
   createdAt: Scalars['BigInt'];
@@ -2624,7 +2624,7 @@ export type ProvenanceRecord = {
   /** Original amount received */
   originalAmount: Scalars['BigInt'];
   /** Prior records associated with this transaction */
-  priorRecords: Array<ProvenanceRecord>;
+  priorRecords: Array<DigitalCarbonProvenanceRecord>;
   /** Receiver of the credit */
   receiver: Scalars['Bytes'];
   /** Any applicable registry serial numbers for origination */
@@ -2638,24 +2638,24 @@ export type ProvenanceRecord = {
   /** Transaction hash creating this record */
   transactionHash: Scalars['Bytes'];
   /** Action being made with the credit */
-  transactionType: ProvenanceType;
+  transactionType: DigitalCarbonProvenanceType;
   /** Unix timestamp updated */
   updatedAt: Scalars['BigInt'];
 };
 
 
-export type ProvenanceRecordPriorRecordsArgs = {
+export type DigitalCarbonProvenanceRecordPriorRecordsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<ProvenanceRecord_Filter>;
+  where: InputMaybe<DigitalCarbonProvenanceRecord_Filter>;
 };
 
-export type ProvenanceRecord_Filter = {
+export type DigitalCarbonProvenanceRecord_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<ProvenanceRecord_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonProvenanceRecord_Filter>>>;
   createdAt: InputMaybe<Scalars['BigInt']>;
   createdAt_gt: InputMaybe<Scalars['BigInt']>;
   createdAt_gte: InputMaybe<Scalars['BigInt']>;
@@ -2674,7 +2674,7 @@ export type ProvenanceRecord_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<ProvenanceRecord_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonProvenanceRecord_Filter>>>;
   originalAmount: InputMaybe<Scalars['BigInt']>;
   originalAmount_gt: InputMaybe<Scalars['BigInt']>;
   originalAmount_gte: InputMaybe<Scalars['BigInt']>;
@@ -2684,7 +2684,7 @@ export type ProvenanceRecord_Filter = {
   originalAmount_not: InputMaybe<Scalars['BigInt']>;
   originalAmount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   priorRecords: InputMaybe<Array<Scalars['String']>>;
-  priorRecords_: InputMaybe<ProvenanceRecord_Filter>;
+  priorRecords_: InputMaybe<DigitalCarbonProvenanceRecord_Filter>;
   priorRecords_contains: InputMaybe<Array<Scalars['String']>>;
   priorRecords_contains_nocase: InputMaybe<Array<Scalars['String']>>;
   priorRecords_not: InputMaybe<Array<Scalars['String']>>;
@@ -2744,10 +2744,10 @@ export type ProvenanceRecord_Filter = {
   transactionHash_not: InputMaybe<Scalars['Bytes']>;
   transactionHash_not_contains: InputMaybe<Scalars['Bytes']>;
   transactionHash_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  transactionType: InputMaybe<ProvenanceType>;
-  transactionType_in: InputMaybe<Array<ProvenanceType>>;
-  transactionType_not: InputMaybe<ProvenanceType>;
-  transactionType_not_in: InputMaybe<Array<ProvenanceType>>;
+  transactionType: InputMaybe<DigitalCarbonProvenanceType>;
+  transactionType_in: InputMaybe<Array<DigitalCarbonProvenanceType>>;
+  transactionType_not: InputMaybe<DigitalCarbonProvenanceType>;
+  transactionType_not_in: InputMaybe<Array<DigitalCarbonProvenanceType>>;
   updatedAt: InputMaybe<Scalars['BigInt']>;
   updatedAt_gt: InputMaybe<Scalars['BigInt']>;
   updatedAt_gte: InputMaybe<Scalars['BigInt']>;
@@ -2758,7 +2758,7 @@ export type ProvenanceRecord_Filter = {
   updatedAt_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum ProvenanceRecord_OrderBy {
+export enum DigitalCarbonProvenanceRecord_OrderBy {
   CreatedAt = 'createdAt',
   Id = 'id',
   OriginalAmount = 'originalAmount',
@@ -2773,506 +2773,506 @@ export enum ProvenanceRecord_OrderBy {
   UpdatedAt = 'updatedAt'
 }
 
-export enum ProvenanceType {
+export enum DigitalCarbonProvenanceType {
   Origination = 'ORIGINATION',
   Retirement = 'RETIREMENT',
   Transfer = 'TRANSFER'
 }
 
-export type Query = {
+export type DigitalCarbonQuery = {
   __typename?: 'Query';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  account: Maybe<Account>;
-  accounts: Array<Account>;
-  bridge: Maybe<Bridge>;
-  bridges: Array<Bridge>;
-  carbonCredit: Maybe<CarbonCredit>;
-  carbonCreditSnapshot: Maybe<CarbonCreditSnapshot>;
-  carbonCreditSnapshots: Array<CarbonCreditSnapshot>;
-  carbonCredits: Array<CarbonCredit>;
-  carbonPool: Maybe<CarbonPool>;
-  carbonPoolCreditBalance: Maybe<CarbonPoolCreditBalance>;
-  carbonPoolCreditBalanceDailySnapshot: Maybe<CarbonPoolCreditBalanceDailySnapshot>;
-  carbonPoolCreditBalanceDailySnapshots: Array<CarbonPoolCreditBalanceDailySnapshot>;
-  carbonPoolCreditBalances: Array<CarbonPoolCreditBalance>;
-  carbonPoolDailySnapshot: Maybe<CarbonPoolDailySnapshot>;
-  carbonPoolDailySnapshots: Array<CarbonPoolDailySnapshot>;
-  carbonPools: Array<CarbonPool>;
-  carbonProject: Maybe<CarbonProject>;
-  carbonProjects: Array<CarbonProject>;
-  crossChainBridge: Maybe<CrossChainBridge>;
-  crossChainBridges: Array<CrossChainBridge>;
-  ecosystem: Maybe<Ecosystem>;
-  ecosystems: Array<Ecosystem>;
-  epoch: Maybe<Epoch>;
-  epoches: Array<Epoch>;
-  holding: Maybe<Holding>;
-  holdingDailySnapshot: Maybe<HoldingDailySnapshot>;
-  holdingDailySnapshots: Array<HoldingDailySnapshot>;
-  holdings: Array<Holding>;
-  klimaRetire: Maybe<KlimaRetire>;
-  klimaRetires: Array<KlimaRetire>;
-  methodologies: Array<Methodology>;
-  methodology: Maybe<Methodology>;
-  poolDeposit: Maybe<PoolDeposit>;
-  poolDeposits: Array<PoolDeposit>;
-  poolRedeem: Maybe<PoolRedeem>;
-  poolRedeems: Array<PoolRedeem>;
-  provenanceRecord: Maybe<ProvenanceRecord>;
-  provenanceRecords: Array<ProvenanceRecord>;
-  retire: Maybe<Retire>;
-  retires: Array<Retire>;
-  token: Maybe<Token>;
-  tokens: Array<Token>;
-  toucanBatch: Maybe<ToucanBatch>;
-  toucanBatches: Array<ToucanBatch>;
+  _meta: Maybe<DigitalCarbon_Meta_>;
+  account: Maybe<DigitalCarbonAccount>;
+  accounts: Array<DigitalCarbonAccount>;
+  bridge: Maybe<DigitalCarbonBridge>;
+  bridges: Array<DigitalCarbonBridge>;
+  carbonCredit: Maybe<DigitalCarbonCarbonCredit>;
+  carbonCreditSnapshot: Maybe<DigitalCarbonCarbonCreditSnapshot>;
+  carbonCreditSnapshots: Array<DigitalCarbonCarbonCreditSnapshot>;
+  carbonCredits: Array<DigitalCarbonCarbonCredit>;
+  carbonPool: Maybe<DigitalCarbonCarbonPool>;
+  carbonPoolCreditBalance: Maybe<DigitalCarbonCarbonPoolCreditBalance>;
+  carbonPoolCreditBalanceDailySnapshot: Maybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot>;
+  carbonPoolCreditBalanceDailySnapshots: Array<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot>;
+  carbonPoolCreditBalances: Array<DigitalCarbonCarbonPoolCreditBalance>;
+  carbonPoolDailySnapshot: Maybe<DigitalCarbonCarbonPoolDailySnapshot>;
+  carbonPoolDailySnapshots: Array<DigitalCarbonCarbonPoolDailySnapshot>;
+  carbonPools: Array<DigitalCarbonCarbonPool>;
+  carbonProject: Maybe<DigitalCarbonCarbonProject>;
+  carbonProjects: Array<DigitalCarbonCarbonProject>;
+  crossChainBridge: Maybe<DigitalCarbonCrossChainBridge>;
+  crossChainBridges: Array<DigitalCarbonCrossChainBridge>;
+  ecosystem: Maybe<DigitalCarbonEcosystem>;
+  ecosystems: Array<DigitalCarbonEcosystem>;
+  epoch: Maybe<DigitalCarbonEpoch>;
+  epoches: Array<DigitalCarbonEpoch>;
+  holding: Maybe<DigitalCarbonHolding>;
+  holdingDailySnapshot: Maybe<DigitalCarbonHoldingDailySnapshot>;
+  holdingDailySnapshots: Array<DigitalCarbonHoldingDailySnapshot>;
+  holdings: Array<DigitalCarbonHolding>;
+  klimaRetire: Maybe<DigitalCarbonKlimaRetire>;
+  klimaRetires: Array<DigitalCarbonKlimaRetire>;
+  methodologies: Array<DigitalCarbonMethodology>;
+  methodology: Maybe<DigitalCarbonMethodology>;
+  poolDeposit: Maybe<DigitalCarbonPoolDeposit>;
+  poolDeposits: Array<DigitalCarbonPoolDeposit>;
+  poolRedeem: Maybe<DigitalCarbonPoolRedeem>;
+  poolRedeems: Array<DigitalCarbonPoolRedeem>;
+  provenanceRecord: Maybe<DigitalCarbonProvenanceRecord>;
+  provenanceRecords: Array<DigitalCarbonProvenanceRecord>;
+  retire: Maybe<DigitalCarbonRetire>;
+  retires: Array<DigitalCarbonRetire>;
+  token: Maybe<DigitalCarbonToken>;
+  tokens: Array<DigitalCarbonToken>;
+  toucanBatch: Maybe<DigitalCarbonToucanBatch>;
+  toucanBatches: Array<DigitalCarbonToucanBatch>;
 };
 
 
-export type Query_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQuery_MetaArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
 };
 
 
-export type QueryAccountArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryAccountArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryAccountsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryAccountsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Account_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonAccount_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Account_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonAccount_Filter>;
 };
 
 
-export type QueryBridgeArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryBridgeArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryBridgesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryBridgesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Bridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonBridge_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Bridge_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonBridge_Filter>;
 };
 
 
-export type QueryCarbonCreditArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonCreditArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonCreditSnapshotArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonCreditSnapshotArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonCreditSnapshotsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonCreditSnapshotsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonCreditSnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonCreditSnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonCreditSnapshot_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonCreditSnapshot_Filter>;
 };
 
 
-export type QueryCarbonCreditsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonCreditsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonCredit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonCredit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonCredit_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
 };
 
 
-export type QueryCarbonPoolArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonPoolArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonPoolCreditBalanceArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonPoolCreditBalanceArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonPoolCreditBalanceDailySnapshotArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonPoolCreditBalanceDailySnapshotArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonPoolCreditBalanceDailySnapshotsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonPoolCreditBalanceDailySnapshotsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>;
 };
 
 
-export type QueryCarbonPoolCreditBalancesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonPoolCreditBalancesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolCreditBalance_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonPoolCreditBalance_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>;
 };
 
 
-export type QueryCarbonPoolDailySnapshotArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonPoolDailySnapshotArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonPoolDailySnapshotsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonPoolDailySnapshotsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonPoolDailySnapshot_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>;
 };
 
 
-export type QueryCarbonPoolsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonPoolsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPool_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPool_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonPool_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonPool_Filter>;
 };
 
 
-export type QueryCarbonProjectArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonProjectArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonProjectsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCarbonProjectsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonProject_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonProject_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonProject_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonProject_Filter>;
 };
 
 
-export type QueryCrossChainBridgeArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCrossChainBridgeArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCrossChainBridgesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryCrossChainBridgesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CrossChainBridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCrossChainBridge_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CrossChainBridge_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCrossChainBridge_Filter>;
 };
 
 
-export type QueryEcosystemArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryEcosystemArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryEcosystemsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryEcosystemsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Ecosystem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonEcosystem_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Ecosystem_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonEcosystem_Filter>;
 };
 
 
-export type QueryEpochArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryEpochArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryEpochesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryEpochesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Epoch_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonEpoch_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Epoch_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonEpoch_Filter>;
 };
 
 
-export type QueryHoldingArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryHoldingArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryHoldingDailySnapshotArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryHoldingDailySnapshotArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryHoldingDailySnapshotsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryHoldingDailySnapshotsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<HoldingDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonHoldingDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<HoldingDailySnapshot_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonHoldingDailySnapshot_Filter>;
 };
 
 
-export type QueryHoldingsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryHoldingsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Holding_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonHolding_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Holding_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonHolding_Filter>;
 };
 
 
-export type QueryKlimaRetireArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryKlimaRetireArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryKlimaRetiresArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryKlimaRetiresArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<KlimaRetire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonKlimaRetire_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<KlimaRetire_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonKlimaRetire_Filter>;
 };
 
 
-export type QueryMethodologiesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryMethodologiesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Methodology_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonMethodology_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Methodology_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonMethodology_Filter>;
 };
 
 
-export type QueryMethodologyArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryMethodologyArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryPoolDepositArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryPoolDepositArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryPoolDepositsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryPoolDepositsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolDeposit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolDeposit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<PoolDeposit_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
 };
 
 
-export type QueryPoolRedeemArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryPoolRedeemArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryPoolRedeemsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryPoolRedeemsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolRedeem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolRedeem_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<PoolRedeem_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
 };
 
 
-export type QueryProvenanceRecordArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryProvenanceRecordArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryProvenanceRecordsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryProvenanceRecordsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<ProvenanceRecord_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonProvenanceRecord_Filter>;
 };
 
 
-export type QueryRetireArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryRetireArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryRetiresArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryRetiresArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Retire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonRetire_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Retire_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonRetire_Filter>;
 };
 
 
-export type QueryTokenArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryTokenArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryTokensArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryTokensArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Token_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonToken_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Token_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonToken_Filter>;
 };
 
 
-export type QueryToucanBatchArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryToucanBatchArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type QueryToucanBatchesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonQueryToucanBatchesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ToucanBatch_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonToucanBatch_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<ToucanBatch_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonToucanBatch_Filter>;
 };
 
-export enum Registry {
+export enum DigitalCarbonRegistry {
   GoldStandard = 'GOLD_STANDARD',
   PuroEarth = 'PURO_EARTH',
   Verra = 'VERRA'
 }
 
-export type Retire = {
+export type DigitalCarbonRetire = {
   __typename?: 'Retire';
   /** Amount of carbon retired */
   amount: Scalars['BigInt'];
   /** Beneficiary address */
-  beneficiaryAddress: Account;
+  beneficiaryAddress: DigitalCarbonAccount;
   /** Beneficiary description */
   beneficiaryName: Scalars['String'];
   /** Protocol specific ID */
   bridgeID: Maybe<Scalars['String']>;
   /** Carbon credit being retired */
-  credit: CarbonCredit;
+  credit: DigitalCarbonCarbonCredit;
   /** {Account}-{Total Retirement Counter} */
   id: Scalars['Bytes'];
-  klimaRetire: Maybe<KlimaRetire>;
+  klimaRetire: Maybe<DigitalCarbonKlimaRetire>;
   /** Pool credit was sourced from, if any */
-  pool: Maybe<CarbonPool>;
+  pool: Maybe<DigitalCarbonCarbonPool>;
   /** Specific retirement message */
   retirementMessage: Scalars['String'];
   /** Retiree address */
-  retiringAddress: Account;
+  retiringAddress: DigitalCarbonAccount;
   /** Retiree description */
   retiringName: Scalars['String'];
   /** Source of the retirement */
-  source: RetireSource;
+  source: DigitalCarbonRetireSource;
   /** Block timestamp of retirement */
   timestamp: Scalars['BigInt'];
 };
 
-export enum RetireSource {
+export enum DigitalCarbonRetireSource {
   Klima = 'KLIMA',
   Other = 'OTHER'
 }
 
-export type Retire_Filter = {
+export type DigitalCarbonRetire_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
   amount: InputMaybe<Scalars['BigInt']>;
   amount_gt: InputMaybe<Scalars['BigInt']>;
   amount_gte: InputMaybe<Scalars['BigInt']>;
@@ -3281,9 +3281,9 @@ export type Retire_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<Retire_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonRetire_Filter>>>;
   beneficiaryAddress: InputMaybe<Scalars['String']>;
-  beneficiaryAddress_: InputMaybe<Account_Filter>;
+  beneficiaryAddress_: InputMaybe<DigitalCarbonAccount_Filter>;
   beneficiaryAddress_contains: InputMaybe<Scalars['String']>;
   beneficiaryAddress_contains_nocase: InputMaybe<Scalars['String']>;
   beneficiaryAddress_ends_with: InputMaybe<Scalars['String']>;
@@ -3344,7 +3344,7 @@ export type Retire_Filter = {
   bridgeID_starts_with: InputMaybe<Scalars['String']>;
   bridgeID_starts_with_nocase: InputMaybe<Scalars['String']>;
   credit: InputMaybe<Scalars['String']>;
-  credit_: InputMaybe<CarbonCredit_Filter>;
+  credit_: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
   credit_contains: InputMaybe<Scalars['String']>;
   credit_contains_nocase: InputMaybe<Scalars['String']>;
   credit_ends_with: InputMaybe<Scalars['String']>;
@@ -3374,10 +3374,10 @@ export type Retire_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  klimaRetire_: InputMaybe<KlimaRetire_Filter>;
-  or: InputMaybe<Array<InputMaybe<Retire_Filter>>>;
+  klimaRetire_: InputMaybe<DigitalCarbonKlimaRetire_Filter>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonRetire_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
-  pool_: InputMaybe<CarbonPool_Filter>;
+  pool_: InputMaybe<DigitalCarbonCarbonPool_Filter>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
   pool_ends_with: InputMaybe<Scalars['String']>;
@@ -3418,7 +3418,7 @@ export type Retire_Filter = {
   retirementMessage_starts_with: InputMaybe<Scalars['String']>;
   retirementMessage_starts_with_nocase: InputMaybe<Scalars['String']>;
   retiringAddress: InputMaybe<Scalars['String']>;
-  retiringAddress_: InputMaybe<Account_Filter>;
+  retiringAddress_: InputMaybe<DigitalCarbonAccount_Filter>;
   retiringAddress_contains: InputMaybe<Scalars['String']>;
   retiringAddress_contains_nocase: InputMaybe<Scalars['String']>;
   retiringAddress_ends_with: InputMaybe<Scalars['String']>;
@@ -3458,10 +3458,10 @@ export type Retire_Filter = {
   retiringName_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   retiringName_starts_with: InputMaybe<Scalars['String']>;
   retiringName_starts_with_nocase: InputMaybe<Scalars['String']>;
-  source: InputMaybe<RetireSource>;
-  source_in: InputMaybe<Array<RetireSource>>;
-  source_not: InputMaybe<RetireSource>;
-  source_not_in: InputMaybe<Array<RetireSource>>;
+  source: InputMaybe<DigitalCarbonRetireSource>;
+  source_in: InputMaybe<Array<DigitalCarbonRetireSource>>;
+  source_not: InputMaybe<DigitalCarbonRetireSource>;
+  source_not_in: InputMaybe<Array<DigitalCarbonRetireSource>>;
   timestamp: InputMaybe<Scalars['BigInt']>;
   timestamp_gt: InputMaybe<Scalars['BigInt']>;
   timestamp_gte: InputMaybe<Scalars['BigInt']>;
@@ -3472,7 +3472,7 @@ export type Retire_Filter = {
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum Retire_OrderBy {
+export enum DigitalCarbonRetire_OrderBy {
   Amount = 'amount',
   BeneficiaryAddress = 'beneficiaryAddress',
   BeneficiaryAddressId = 'beneficiaryAddress__id',
@@ -3512,458 +3512,458 @@ export enum Retire_OrderBy {
   Timestamp = 'timestamp'
 }
 
-export type Subscription = {
+export type DigitalCarbonSubscription = {
   __typename?: 'Subscription';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  account: Maybe<Account>;
-  accounts: Array<Account>;
-  bridge: Maybe<Bridge>;
-  bridges: Array<Bridge>;
-  carbonCredit: Maybe<CarbonCredit>;
-  carbonCreditSnapshot: Maybe<CarbonCreditSnapshot>;
-  carbonCreditSnapshots: Array<CarbonCreditSnapshot>;
-  carbonCredits: Array<CarbonCredit>;
-  carbonPool: Maybe<CarbonPool>;
-  carbonPoolCreditBalance: Maybe<CarbonPoolCreditBalance>;
-  carbonPoolCreditBalanceDailySnapshot: Maybe<CarbonPoolCreditBalanceDailySnapshot>;
-  carbonPoolCreditBalanceDailySnapshots: Array<CarbonPoolCreditBalanceDailySnapshot>;
-  carbonPoolCreditBalances: Array<CarbonPoolCreditBalance>;
-  carbonPoolDailySnapshot: Maybe<CarbonPoolDailySnapshot>;
-  carbonPoolDailySnapshots: Array<CarbonPoolDailySnapshot>;
-  carbonPools: Array<CarbonPool>;
-  carbonProject: Maybe<CarbonProject>;
-  carbonProjects: Array<CarbonProject>;
-  crossChainBridge: Maybe<CrossChainBridge>;
-  crossChainBridges: Array<CrossChainBridge>;
-  ecosystem: Maybe<Ecosystem>;
-  ecosystems: Array<Ecosystem>;
-  epoch: Maybe<Epoch>;
-  epoches: Array<Epoch>;
-  holding: Maybe<Holding>;
-  holdingDailySnapshot: Maybe<HoldingDailySnapshot>;
-  holdingDailySnapshots: Array<HoldingDailySnapshot>;
-  holdings: Array<Holding>;
-  klimaRetire: Maybe<KlimaRetire>;
-  klimaRetires: Array<KlimaRetire>;
-  methodologies: Array<Methodology>;
-  methodology: Maybe<Methodology>;
-  poolDeposit: Maybe<PoolDeposit>;
-  poolDeposits: Array<PoolDeposit>;
-  poolRedeem: Maybe<PoolRedeem>;
-  poolRedeems: Array<PoolRedeem>;
-  provenanceRecord: Maybe<ProvenanceRecord>;
-  provenanceRecords: Array<ProvenanceRecord>;
-  retire: Maybe<Retire>;
-  retires: Array<Retire>;
-  token: Maybe<Token>;
-  tokens: Array<Token>;
-  toucanBatch: Maybe<ToucanBatch>;
-  toucanBatches: Array<ToucanBatch>;
+  _meta: Maybe<DigitalCarbon_Meta_>;
+  account: Maybe<DigitalCarbonAccount>;
+  accounts: Array<DigitalCarbonAccount>;
+  bridge: Maybe<DigitalCarbonBridge>;
+  bridges: Array<DigitalCarbonBridge>;
+  carbonCredit: Maybe<DigitalCarbonCarbonCredit>;
+  carbonCreditSnapshot: Maybe<DigitalCarbonCarbonCreditSnapshot>;
+  carbonCreditSnapshots: Array<DigitalCarbonCarbonCreditSnapshot>;
+  carbonCredits: Array<DigitalCarbonCarbonCredit>;
+  carbonPool: Maybe<DigitalCarbonCarbonPool>;
+  carbonPoolCreditBalance: Maybe<DigitalCarbonCarbonPoolCreditBalance>;
+  carbonPoolCreditBalanceDailySnapshot: Maybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot>;
+  carbonPoolCreditBalanceDailySnapshots: Array<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot>;
+  carbonPoolCreditBalances: Array<DigitalCarbonCarbonPoolCreditBalance>;
+  carbonPoolDailySnapshot: Maybe<DigitalCarbonCarbonPoolDailySnapshot>;
+  carbonPoolDailySnapshots: Array<DigitalCarbonCarbonPoolDailySnapshot>;
+  carbonPools: Array<DigitalCarbonCarbonPool>;
+  carbonProject: Maybe<DigitalCarbonCarbonProject>;
+  carbonProjects: Array<DigitalCarbonCarbonProject>;
+  crossChainBridge: Maybe<DigitalCarbonCrossChainBridge>;
+  crossChainBridges: Array<DigitalCarbonCrossChainBridge>;
+  ecosystem: Maybe<DigitalCarbonEcosystem>;
+  ecosystems: Array<DigitalCarbonEcosystem>;
+  epoch: Maybe<DigitalCarbonEpoch>;
+  epoches: Array<DigitalCarbonEpoch>;
+  holding: Maybe<DigitalCarbonHolding>;
+  holdingDailySnapshot: Maybe<DigitalCarbonHoldingDailySnapshot>;
+  holdingDailySnapshots: Array<DigitalCarbonHoldingDailySnapshot>;
+  holdings: Array<DigitalCarbonHolding>;
+  klimaRetire: Maybe<DigitalCarbonKlimaRetire>;
+  klimaRetires: Array<DigitalCarbonKlimaRetire>;
+  methodologies: Array<DigitalCarbonMethodology>;
+  methodology: Maybe<DigitalCarbonMethodology>;
+  poolDeposit: Maybe<DigitalCarbonPoolDeposit>;
+  poolDeposits: Array<DigitalCarbonPoolDeposit>;
+  poolRedeem: Maybe<DigitalCarbonPoolRedeem>;
+  poolRedeems: Array<DigitalCarbonPoolRedeem>;
+  provenanceRecord: Maybe<DigitalCarbonProvenanceRecord>;
+  provenanceRecords: Array<DigitalCarbonProvenanceRecord>;
+  retire: Maybe<DigitalCarbonRetire>;
+  retires: Array<DigitalCarbonRetire>;
+  token: Maybe<DigitalCarbonToken>;
+  tokens: Array<DigitalCarbonToken>;
+  toucanBatch: Maybe<DigitalCarbonToucanBatch>;
+  toucanBatches: Array<DigitalCarbonToucanBatch>;
 };
 
 
-export type Subscription_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscription_MetaArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
 };
 
 
-export type SubscriptionAccountArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionAccountArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionAccountsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionAccountsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Account_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonAccount_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Account_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonAccount_Filter>;
 };
 
 
-export type SubscriptionBridgeArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionBridgeArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionBridgesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionBridgesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Bridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonBridge_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Bridge_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonBridge_Filter>;
 };
 
 
-export type SubscriptionCarbonCreditArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonCreditArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonCreditSnapshotArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonCreditSnapshotArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonCreditSnapshotsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonCreditSnapshotsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonCreditSnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonCreditSnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonCreditSnapshot_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonCreditSnapshot_Filter>;
 };
 
 
-export type SubscriptionCarbonCreditsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonCreditsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonCredit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonCredit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonCredit_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonCredit_Filter>;
 };
 
 
-export type SubscriptionCarbonPoolArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonPoolArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonPoolCreditBalanceArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonPoolCreditBalanceArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonPoolCreditBalanceDailySnapshotArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonPoolCreditBalanceDailySnapshotArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonPoolCreditBalanceDailySnapshotsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonPoolCreditBalanceDailySnapshotsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonPoolCreditBalanceDailySnapshot_Filter>;
 };
 
 
-export type SubscriptionCarbonPoolCreditBalancesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonPoolCreditBalancesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolCreditBalance_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonPoolCreditBalance_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonPoolCreditBalance_Filter>;
 };
 
 
-export type SubscriptionCarbonPoolDailySnapshotArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonPoolDailySnapshotArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonPoolDailySnapshotsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonPoolDailySnapshotsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPoolDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonPoolDailySnapshot_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonPoolDailySnapshot_Filter>;
 };
 
 
-export type SubscriptionCarbonPoolsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonPoolsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonPool_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonPool_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonPool_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonPool_Filter>;
 };
 
 
-export type SubscriptionCarbonProjectArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonProjectArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonProjectsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCarbonProjectsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonProject_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCarbonProject_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonProject_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCarbonProject_Filter>;
 };
 
 
-export type SubscriptionCrossChainBridgeArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCrossChainBridgeArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCrossChainBridgesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionCrossChainBridgesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CrossChainBridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonCrossChainBridge_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CrossChainBridge_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonCrossChainBridge_Filter>;
 };
 
 
-export type SubscriptionEcosystemArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionEcosystemArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionEcosystemsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionEcosystemsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Ecosystem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonEcosystem_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Ecosystem_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonEcosystem_Filter>;
 };
 
 
-export type SubscriptionEpochArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionEpochArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionEpochesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionEpochesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Epoch_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonEpoch_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Epoch_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonEpoch_Filter>;
 };
 
 
-export type SubscriptionHoldingArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionHoldingArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionHoldingDailySnapshotArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionHoldingDailySnapshotArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionHoldingDailySnapshotsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionHoldingDailySnapshotsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<HoldingDailySnapshot_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonHoldingDailySnapshot_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<HoldingDailySnapshot_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonHoldingDailySnapshot_Filter>;
 };
 
 
-export type SubscriptionHoldingsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionHoldingsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Holding_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonHolding_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Holding_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonHolding_Filter>;
 };
 
 
-export type SubscriptionKlimaRetireArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionKlimaRetireArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionKlimaRetiresArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionKlimaRetiresArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<KlimaRetire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonKlimaRetire_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<KlimaRetire_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonKlimaRetire_Filter>;
 };
 
 
-export type SubscriptionMethodologiesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionMethodologiesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Methodology_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonMethodology_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Methodology_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonMethodology_Filter>;
 };
 
 
-export type SubscriptionMethodologyArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionMethodologyArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionPoolDepositArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionPoolDepositArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionPoolDepositsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionPoolDepositsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolDeposit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolDeposit_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<PoolDeposit_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonPoolDeposit_Filter>;
 };
 
 
-export type SubscriptionPoolRedeemArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionPoolRedeemArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionPoolRedeemsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionPoolRedeemsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<PoolRedeem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonPoolRedeem_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<PoolRedeem_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonPoolRedeem_Filter>;
 };
 
 
-export type SubscriptionProvenanceRecordArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionProvenanceRecordArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionProvenanceRecordsArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionProvenanceRecordsArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<ProvenanceRecord_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonProvenanceRecord_Filter>;
 };
 
 
-export type SubscriptionRetireArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionRetireArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionRetiresArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionRetiresArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Retire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonRetire_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Retire_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonRetire_Filter>;
 };
 
 
-export type SubscriptionTokenArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionTokenArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionTokensArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionTokensArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Token_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonToken_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Token_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonToken_Filter>;
 };
 
 
-export type SubscriptionToucanBatchArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionToucanBatchArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionToucanBatchesArgs = {
-  block: InputMaybe<Block_Height>;
+export type DigitalCarbonSubscriptionToucanBatchesArgs = {
+  block: InputMaybe<DigitalCarbonBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ToucanBatch_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<DigitalCarbonToucanBatch_OrderBy>;
+  orderDirection: InputMaybe<DigitalCarbonOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<ToucanBatch_Filter>;
+  subgraphError?: DigitalCarbon_SubgraphErrorPolicy_;
+  where: InputMaybe<DigitalCarbonToucanBatch_Filter>;
 };
 
-export type Token = {
+export type DigitalCarbonToken = {
   __typename?: 'Token';
   /** Decimals of the token */
   decimals: Scalars['Int'];
@@ -3983,10 +3983,10 @@ export type Token = {
   symbol: Scalars['String'];
 };
 
-export type Token_Filter = {
+export type DigitalCarbonToken_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Token_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonToken_Filter>>>;
   decimals: InputMaybe<Scalars['Int']>;
   decimals_gt: InputMaybe<Scalars['Int']>;
   decimals_gte: InputMaybe<Scalars['Int']>;
@@ -4057,7 +4057,7 @@ export type Token_Filter = {
   name_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   name_starts_with: InputMaybe<Scalars['String']>;
   name_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Token_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonToken_Filter>>>;
   symbol: InputMaybe<Scalars['String']>;
   symbol_contains: InputMaybe<Scalars['String']>;
   symbol_contains_nocase: InputMaybe<Scalars['String']>;
@@ -4080,7 +4080,7 @@ export type Token_Filter = {
   symbol_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum Token_OrderBy {
+export enum DigitalCarbonToken_OrderBy {
   Decimals = 'decimals',
   Id = 'id',
   LatestPricePerKlima = 'latestPricePerKLIMA',
@@ -4091,7 +4091,7 @@ export enum Token_OrderBy {
   Symbol = 'symbol'
 }
 
-export type ToucanBatch = {
+export type DigitalCarbonToucanBatch = {
   __typename?: 'ToucanBatch';
   /** Creation Transaction hash */
   creationTransactionHash: Scalars['Bytes'];
@@ -4101,10 +4101,10 @@ export type ToucanBatch = {
   registrySerialNumbers: Array<Scalars['String']>;
 };
 
-export type ToucanBatch_Filter = {
+export type DigitalCarbonToucanBatch_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<ToucanBatch_Filter>>>;
+  _change_block: InputMaybe<DigitalCarbonBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<DigitalCarbonToucanBatch_Filter>>>;
   creationTransactionHash: InputMaybe<Scalars['Bytes']>;
   creationTransactionHash_contains: InputMaybe<Scalars['Bytes']>;
   creationTransactionHash_gt: InputMaybe<Scalars['Bytes']>;
@@ -4123,7 +4123,7 @@ export type ToucanBatch_Filter = {
   id_lte: InputMaybe<Scalars['ID']>;
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
-  or: InputMaybe<Array<InputMaybe<ToucanBatch_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<DigitalCarbonToucanBatch_Filter>>>;
   registrySerialNumbers: InputMaybe<Array<Scalars['String']>>;
   registrySerialNumbers_contains: InputMaybe<Array<Scalars['String']>>;
   registrySerialNumbers_contains_nocase: InputMaybe<Array<Scalars['String']>>;
@@ -4132,13 +4132,13 @@ export type ToucanBatch_Filter = {
   registrySerialNumbers_not_contains_nocase: InputMaybe<Array<Scalars['String']>>;
 };
 
-export enum ToucanBatch_OrderBy {
+export enum DigitalCarbonToucanBatch_OrderBy {
   CreationTransactionHash = 'creationTransactionHash',
   Id = 'id',
   RegistrySerialNumbers = 'registrySerialNumbers'
 }
 
-export type _Block_ = {
+export type DigitalCarbon_Block_ = {
   __typename?: '_Block_';
   /** The hash of the block */
   hash: Maybe<Scalars['Bytes']>;
@@ -4149,7 +4149,7 @@ export type _Block_ = {
 };
 
 /** The type for the top-level _meta field */
-export type _Meta_ = {
+export type DigitalCarbon_Meta_ = {
   __typename?: '_Meta_';
   /**
    * Information about a specific subgraph block. The hash of the block
@@ -4158,14 +4158,14 @@ export type _Meta_ = {
    * and therefore asks for the latest  block
    *
    */
-  block: _Block_;
+  block: DigitalCarbon_Block_;
   /** The deployment ID */
   deployment: Scalars['String'];
   /** If `true`, the subgraph encountered indexing errors at some past block */
   hasIndexingErrors: Scalars['Boolean'];
 };
 
-export enum _SubgraphErrorPolicy_ {
+export enum DigitalCarbon_SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
   Allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
