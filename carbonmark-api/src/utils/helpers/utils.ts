@@ -9,7 +9,6 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
-import { ethers } from "ethers";
 import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
