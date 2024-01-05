@@ -72,7 +72,7 @@ export const LISTABLE_TOKEN_SYMBOL_REGEX = /(VCS-|PURO-|ICR-|GS-)/;
 /** Default number of days until a listing expires */
 export const DEFAULT_EXPIRATION_DAYS = 90;
 /** Default minimum fill for a listing */
-export const DEFAULT_MIN_FILL_AMOUNT = 1;
+export const DEFAULT_MIN_FILL_AMOUNT = 0.001;
 /** Minimum number of tonnes that can be listed for sale */
 export const DEFAULT_MIN_LISTING_QUANTITY = 1;
 
