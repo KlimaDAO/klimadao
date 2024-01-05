@@ -1,8 +1,7 @@
-import { TypeScriptPluginConfig } from "@graphql-codegen/typescript";
+import type { CodegenConfig } from "@graphql-codegen/cli";
 import { TypescriptMocksPluginConfig } from "graphql-codegen-typescript-mock-data";
 import { merge, upperFirst } from "lodash";
 import { GRAPH_URLS, SANITY_URLS } from "../app.constants";
-// eslint-disable-next-line @typescript-eslint/no-var-requires -- ugh
 
 const schemas = merge(GRAPH_URLS["polygon"], SANITY_URLS);
 
@@ -21,7 +20,6 @@ const typescript_mock_data_config = (
     BigNumber: "'100000000000000000000'",
     BigInt: "'100000000000000000000'",
   },
-  typesPrefix: `${upperFirst(key)}`,
   fieldGeneration: {
     MarketplaceProject: {
       id: "'VCS-191-2008'",
@@ -32,12 +30,8 @@ const typescript_mock_data_config = (
   },
 });
 
-const typescript_config = (key: string): TypeScriptPluginConfig => ({
-  typesPrefix: `${upperFirst(key)}`,
-});
-
 // Generate configuration for each schema entry
-const generates = Object.entries(schemas).reduce(
+const generates: CodegenConfig["generates"] = Object.entries(schemas).reduce(
   (acc, [key, schema]) => ({
     ...acc,
     [`${GENERATED_DIR}/${key}.types.ts`]: {
@@ -47,10 +41,13 @@ const generates = Object.entries(schemas).reduce(
         `${DOCUMENTS_DIR}/${key}.fragments.gql`,
       ],
       plugins: [
-        { typescript: typescript_config(key) },
+        "typescript",
         "typescript-operations",
         "typescript-graphql-request",
       ],
+      config: {
+        typesPrefix: `${upperFirst(key)}`,
+      },
     },
     [`${GENERATED_MOCKS_DIR}/${key}.mocks.ts`]: {
       schema,
@@ -70,7 +67,7 @@ const generates = Object.entries(schemas).reduce(
   {}
 );
 
-export default {
+const config: CodegenConfig = {
   overwrite: true,
   generates,
   config: {
@@ -78,3 +75,5 @@ export default {
     avoidOptionals: true,
   },
 };
+
+export default config;

@@ -484,12 +484,12 @@ export enum Assets_SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
-export type GetHoldingsByWalletQueryVariables = Exact<{
+export type AssetsGetHoldingsByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
 }>;
 
 
-export type GetHoldingsByWalletQuery = { __typename?: 'Query', accounts: Array<{ __typename?: 'Account', holdings: Array<{ __typename?: 'Holding', id: any, amount: string, token: { __typename?: 'Token', id: any, name: string, symbol: string, decimals: number } }> }> };
+export type AssetsGetHoldingsByWalletQuery = { __typename?: 'Query', accounts: Array<{ __typename?: 'Account', holdings: Array<{ __typename?: 'Holding', id: any, amount: string, token: { __typename?: 'Token', id: any, name: string, symbol: string, decimals: number } }> }> };
 
 
 export const GetHoldingsByWalletDocument = gql`
@@ -509,15 +509,15 @@ export const GetHoldingsByWalletDocument = gql`
 }
     `;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getHoldingsByWallet(variables?: GetHoldingsByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHoldingsByWalletQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetHoldingsByWalletQuery>(GetHoldingsByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByWallet', 'query');
+    getHoldingsByWallet(variables?: AssetsGetHoldingsByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AssetsGetHoldingsByWalletQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<AssetsGetHoldingsByWalletQuery>(GetHoldingsByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByWallet', 'query', variables);
     }
   };
 }

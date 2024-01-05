@@ -585,24 +585,24 @@ export enum Tokens_SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
-export type GetPairQueryVariables = Exact<{
+export type TokensGetPairQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
 
 
-export type GetPairQuery = { __typename?: 'Query', pair: { __typename?: 'Pair', currentprice: any } | null };
+export type TokensGetPairQuery = { __typename?: 'Query', pair: { __typename?: 'Pair', currentprice: any } | null };
 
-export type GetBySymbolQueryVariables = Exact<{
+export type TokensGetBySymbolQueryVariables = Exact<{
   symbol: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type GetBySymbolQuery = { __typename?: 'Query', tokens: Array<{ __typename?: 'Token', id: string }> };
+export type TokensGetBySymbolQuery = { __typename?: 'Query', tokens: Array<{ __typename?: 'Token', id: string }> };
 
-export type GetPoolPricesQueryVariables = Exact<{ [key: string]: never; }>;
+export type TokensGetPoolPricesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPoolPricesQuery = { __typename?: 'Query', prices: Array<{ __typename?: 'Pair', address: string, price: any }> };
+export type TokensGetPoolPricesQuery = { __typename?: 'Query', prices: Array<{ __typename?: 'Pair', address: string, price: any }> };
 
 
 export const GetPairDocument = gql`
@@ -628,21 +628,21 @@ export const GetPoolPricesDocument = gql`
 }
     `;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getPair(variables: GetPairQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPairQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPairQuery>(GetPairDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPair', 'query');
+    getPair(variables: TokensGetPairQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<TokensGetPairQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<TokensGetPairQuery>(GetPairDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPair', 'query', variables);
     },
-    getBySymbol(variables?: GetBySymbolQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetBySymbolQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetBySymbolQuery>(GetBySymbolDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBySymbol', 'query');
+    getBySymbol(variables?: TokensGetBySymbolQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<TokensGetBySymbolQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<TokensGetBySymbolQuery>(GetBySymbolDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBySymbol', 'query', variables);
     },
-    getPoolPrices(variables?: GetPoolPricesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPoolPricesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPoolPricesQuery>(GetPoolPricesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPoolPrices', 'query');
+    getPoolPrices(variables?: TokensGetPoolPricesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<TokensGetPoolPricesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<TokensGetPoolPricesQuery>(GetPoolPricesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPoolPrices', 'query', variables);
     }
   };
 }

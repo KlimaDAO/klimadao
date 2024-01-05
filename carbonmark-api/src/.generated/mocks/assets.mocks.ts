@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { AssetsAccount, AssetsAccount_Filter, AssetsBlockChangedFilter, AssetsBlock_Height, AssetsHolding, AssetsHolding_Filter, AssetsQuery, AssetsSubscription, AssetsToken, AssetsToken_Filter, Assets_Block_, Assets_Meta_, Account_OrderBy, Holding_OrderBy, OrderDirection, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/assets.types';
+import { Account, Account_Filter, BlockChangedFilter, Block_Height, Holding, Holding_Filter, Query, Subscription, Token, Token_Filter, _Block_, _Meta_, Account_OrderBy, Holding_OrderBy, OrderDirection, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/assets.types';
 
-export const anAccount = (overrides?: Partial<AssetsAccount>, _relationshipsToOmit: Set<string> = new Set()): AssetsAccount => {
+export const anAccount = (overrides?: Partial<Account>, _relationshipsToOmit: Set<string> = new Set()): Account => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Account');
     return {
@@ -10,7 +10,7 @@ export const anAccount = (overrides?: Partial<AssetsAccount>, _relationshipsToOm
     };
 };
 
-export const anAccount_Filter = (overrides?: Partial<AssetsAccount_Filter>, _relationshipsToOmit: Set<string> = new Set()): AssetsAccount_Filter => {
+export const anAccount_Filter = (overrides?: Partial<Account_Filter>, _relationshipsToOmit: Set<string> = new Set()): Account_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Account_Filter');
     return {
@@ -31,7 +31,7 @@ export const anAccount_Filter = (overrides?: Partial<AssetsAccount_Filter>, _rel
     };
 };
 
-export const aBlockChangedFilter = (overrides?: Partial<AssetsBlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): AssetsBlockChangedFilter => {
+export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): BlockChangedFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('BlockChangedFilter');
     return {
@@ -39,7 +39,7 @@ export const aBlockChangedFilter = (overrides?: Partial<AssetsBlockChangedFilter
     };
 };
 
-export const aBlock_Height = (overrides?: Partial<AssetsBlock_Height>, _relationshipsToOmit: Set<string> = new Set()): AssetsBlock_Height => {
+export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsToOmit: Set<string> = new Set()): Block_Height => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Block_Height');
     return {
@@ -49,7 +49,7 @@ export const aBlock_Height = (overrides?: Partial<AssetsBlock_Height>, _relation
     };
 };
 
-export const aHolding = (overrides?: Partial<AssetsHolding>, _relationshipsToOmit: Set<string> = new Set()): AssetsHolding => {
+export const aHolding = (overrides?: Partial<Holding>, _relationshipsToOmit: Set<string> = new Set()): Holding => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Holding');
     return {
@@ -61,7 +61,7 @@ export const aHolding = (overrides?: Partial<AssetsHolding>, _relationshipsToOmi
     };
 };
 
-export const aHolding_Filter = (overrides?: Partial<AssetsHolding_Filter>, _relationshipsToOmit: Set<string> = new Set()): AssetsHolding_Filter => {
+export const aHolding_Filter = (overrides?: Partial<Holding_Filter>, _relationshipsToOmit: Set<string> = new Set()): Holding_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Holding_Filter');
     return {
@@ -139,7 +139,7 @@ export const aHolding_Filter = (overrides?: Partial<AssetsHolding_Filter>, _rela
     };
 };
 
-export const aQuery = (overrides?: Partial<AssetsQuery>, _relationshipsToOmit: Set<string> = new Set()): AssetsQuery => {
+export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<string> = new Set()): Query => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Query');
     return {
@@ -153,7 +153,7 @@ export const aQuery = (overrides?: Partial<AssetsQuery>, _relationshipsToOmit: S
     };
 };
 
-export const aSubscription = (overrides?: Partial<AssetsSubscription>, _relationshipsToOmit: Set<string> = new Set()): AssetsSubscription => {
+export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsToOmit: Set<string> = new Set()): Subscription => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Subscription');
     return {
@@ -167,7 +167,7 @@ export const aSubscription = (overrides?: Partial<AssetsSubscription>, _relation
     };
 };
 
-export const aToken = (overrides?: Partial<AssetsToken>, _relationshipsToOmit: Set<string> = new Set()): AssetsToken => {
+export const aToken = (overrides?: Partial<Token>, _relationshipsToOmit: Set<string> = new Set()): Token => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Token');
     return {
@@ -182,7 +182,7 @@ export const aToken = (overrides?: Partial<AssetsToken>, _relationshipsToOmit: S
     };
 };
 
-export const aToken_Filter = (overrides?: Partial<AssetsToken_Filter>, _relationshipsToOmit: Set<string> = new Set()): AssetsToken_Filter => {
+export const aToken_Filter = (overrides?: Partial<Token_Filter>, _relationshipsToOmit: Set<string> = new Set()): Token_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Token_Filter');
     return {
@@ -282,7 +282,7 @@ export const aToken_Filter = (overrides?: Partial<AssetsToken_Filter>, _relation
     };
 };
 
-export const a_Block_ = (overrides?: Partial<Assets_Block_>, _relationshipsToOmit: Set<string> = new Set()): Assets_Block_ => {
+export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set<string> = new Set()): _Block_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Block_');
     return {
@@ -292,7 +292,7 @@ export const a_Block_ = (overrides?: Partial<Assets_Block_>, _relationshipsToOmi
     };
 };
 
-export const a_Meta_ = (overrides?: Partial<Assets_Meta_>, _relationshipsToOmit: Set<string> = new Set()): Assets_Meta_ => {
+export const a_Meta_ = (overrides?: Partial<_Meta_>, _relationshipsToOmit: Set<string> = new Set()): _Meta_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Meta_');
     return {

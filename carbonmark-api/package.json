@@ -42,7 +42,7 @@
     "@graphql-codegen/add": "^5.0.0",
     "@graphql-codegen/cli": "3.3.1",
     "@graphql-codegen/typescript": "3.0.4",
-    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
+    "@graphql-codegen/typescript-graphql-request": "^6.1.0",
     "@graphql-codegen/typescript-operations": "^3.0.4",
     "@types/jest": "^29.5.3",
     "@types/lodash": "^4.14.194",
