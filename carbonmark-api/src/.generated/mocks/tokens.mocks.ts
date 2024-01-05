@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BlockChangedFilter, Block_Height, Pair, Pair_Filter, Query, Subscription, Swap, Swap_Filter, Token, Token_Filter, _Block_, _Meta_, OrderDirection, Pair_OrderBy, Swap_OrderBy, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/tokens.types';
+import { TokensBlockChangedFilter, TokensBlock_Height, TokensPair, TokensPair_Filter, TokensQuery, TokensSubscription, TokensSwap, TokensSwap_Filter, TokensToken, TokensToken_Filter, Tokens_Block_, Tokens_Meta_, OrderDirection, Pair_OrderBy, Swap_OrderBy, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/tokens.types';
 
-export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): BlockChangedFilter => {
+export const aTokensBlockChangedFilter = (overrides?: Partial<TokensBlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): TokensBlockChangedFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('BlockChangedFilter');
     return {
@@ -9,7 +9,7 @@ export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _re
     };
 };
 
-export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsToOmit: Set<string> = new Set()): Block_Height => {
+export const aTokensBlock_Height = (overrides?: Partial<TokensBlock_Height>, _relationshipsToOmit: Set<string> = new Set()): TokensBlock_Height => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Block_Height');
     return {
@@ -19,27 +19,27 @@ export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsT
     };
 };
 
-export const aPair = (overrides?: Partial<Pair>, _relationshipsToOmit: Set<string> = new Set()): Pair => {
+export const aTokensPair = (overrides?: Partial<TokensPair>, _relationshipsToOmit: Set<string> = new Set()): TokensPair => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Pair');
     return {
         currentprice: overrides && overrides.hasOwnProperty('currentprice') ? overrides.currentprice! : 'eius',
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'ac2b431c-42f3-4771-9ec4-408f5f989521',
         lastupdate: overrides && overrides.hasOwnProperty('lastupdate') ? overrides.lastupdate! : 'nihil',
-        swaps: overrides && overrides.hasOwnProperty('swaps') ? overrides.swaps! : [relationshipsToOmit.has('Swap') ? {} as Swap : aSwap({}, relationshipsToOmit)],
-        token0: overrides && overrides.hasOwnProperty('token0') ? overrides.token0! : relationshipsToOmit.has('Token') ? {} as Token : aToken({}, relationshipsToOmit),
-        token1: overrides && overrides.hasOwnProperty('token1') ? overrides.token1! : relationshipsToOmit.has('Token') ? {} as Token : aToken({}, relationshipsToOmit),
+        swaps: overrides && overrides.hasOwnProperty('swaps') ? overrides.swaps! : [relationshipsToOmit.has('Swap') ? {} as Swap : aTokensSwap({}, relationshipsToOmit)],
+        token0: overrides && overrides.hasOwnProperty('token0') ? overrides.token0! : relationshipsToOmit.has('Token') ? {} as Token : aTokensToken({}, relationshipsToOmit),
+        token1: overrides && overrides.hasOwnProperty('token1') ? overrides.token1! : relationshipsToOmit.has('Token') ? {} as Token : aTokensToken({}, relationshipsToOmit),
         totalklimaearnedfees: overrides && overrides.hasOwnProperty('totalklimaearnedfees') ? overrides.totalklimaearnedfees! : 'delectus',
         totalvolume: overrides && overrides.hasOwnProperty('totalvolume') ? overrides.totalvolume! : 'aut',
     };
 };
 
-export const aPair_Filter = (overrides?: Partial<Pair_Filter>, _relationshipsToOmit: Set<string> = new Set()): Pair_Filter => {
+export const aTokensPair_Filter = (overrides?: Partial<TokensPair_Filter>, _relationshipsToOmit: Set<string> = new Set()): TokensPair_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Pair_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Pair_Filter') ? {} as Pair_Filter : aPair_Filter({}, relationshipsToOmit)],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aTokensBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Pair_Filter') ? {} as Pair_Filter : aTokensPair_Filter({}, relationshipsToOmit)],
         currentprice: overrides && overrides.hasOwnProperty('currentprice') ? overrides.currentprice! : 'voluptatibus',
         currentprice_gt: overrides && overrides.hasOwnProperty('currentprice_gt') ? overrides.currentprice_gt! : 'delectus',
         currentprice_gte: overrides && overrides.hasOwnProperty('currentprice_gte') ? overrides.currentprice_gte! : 'neque',
@@ -76,10 +76,10 @@ export const aPair_Filter = (overrides?: Partial<Pair_Filter>, _relationshipsToO
         lastupdate_not_starts_with_nocase: overrides && overrides.hasOwnProperty('lastupdate_not_starts_with_nocase') ? overrides.lastupdate_not_starts_with_nocase! : 'quasi',
         lastupdate_starts_with: overrides && overrides.hasOwnProperty('lastupdate_starts_with') ? overrides.lastupdate_starts_with! : 'tempora',
         lastupdate_starts_with_nocase: overrides && overrides.hasOwnProperty('lastupdate_starts_with_nocase') ? overrides.lastupdate_starts_with_nocase! : 'atque',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Pair_Filter') ? {} as Pair_Filter : aPair_Filter({}, relationshipsToOmit)],
-        swaps_: overrides && overrides.hasOwnProperty('swaps_') ? overrides.swaps_! : relationshipsToOmit.has('Swap_Filter') ? {} as Swap_Filter : aSwap_Filter({}, relationshipsToOmit),
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Pair_Filter') ? {} as Pair_Filter : aTokensPair_Filter({}, relationshipsToOmit)],
+        swaps_: overrides && overrides.hasOwnProperty('swaps_') ? overrides.swaps_! : relationshipsToOmit.has('Swap_Filter') ? {} as Swap_Filter : aTokensSwap_Filter({}, relationshipsToOmit),
         token0: overrides && overrides.hasOwnProperty('token0') ? overrides.token0! : 'numquam',
-        token0_: overrides && overrides.hasOwnProperty('token0_') ? overrides.token0_! : relationshipsToOmit.has('Token_Filter') ? {} as Token_Filter : aToken_Filter({}, relationshipsToOmit),
+        token0_: overrides && overrides.hasOwnProperty('token0_') ? overrides.token0_! : relationshipsToOmit.has('Token_Filter') ? {} as Token_Filter : aTokensToken_Filter({}, relationshipsToOmit),
         token0_contains: overrides && overrides.hasOwnProperty('token0_contains') ? overrides.token0_contains! : 'aut',
         token0_contains_nocase: overrides && overrides.hasOwnProperty('token0_contains_nocase') ? overrides.token0_contains_nocase! : 'eaque',
         token0_ends_with: overrides && overrides.hasOwnProperty('token0_ends_with') ? overrides.token0_ends_with! : 'non',
@@ -100,7 +100,7 @@ export const aPair_Filter = (overrides?: Partial<Pair_Filter>, _relationshipsToO
         token0_starts_with: overrides && overrides.hasOwnProperty('token0_starts_with') ? overrides.token0_starts_with! : 'veritatis',
         token0_starts_with_nocase: overrides && overrides.hasOwnProperty('token0_starts_with_nocase') ? overrides.token0_starts_with_nocase! : 'nam',
         token1: overrides && overrides.hasOwnProperty('token1') ? overrides.token1! : 'molestias',
-        token1_: overrides && overrides.hasOwnProperty('token1_') ? overrides.token1_! : relationshipsToOmit.has('Token_Filter') ? {} as Token_Filter : aToken_Filter({}, relationshipsToOmit),
+        token1_: overrides && overrides.hasOwnProperty('token1_') ? overrides.token1_! : relationshipsToOmit.has('Token_Filter') ? {} as Token_Filter : aTokensToken_Filter({}, relationshipsToOmit),
         token1_contains: overrides && overrides.hasOwnProperty('token1_contains') ? overrides.token1_contains! : 'nisi',
         token1_contains_nocase: overrides && overrides.hasOwnProperty('token1_contains_nocase') ? overrides.token1_contains_nocase! : 'quas',
         token1_ends_with: overrides && overrides.hasOwnProperty('token1_ends_with') ? overrides.token1_ends_with! : 'nulla',
@@ -139,35 +139,35 @@ export const aPair_Filter = (overrides?: Partial<Pair_Filter>, _relationshipsToO
     };
 };
 
-export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<string> = new Set()): Query => {
+export const aTokensQuery = (overrides?: Partial<TokensQuery>, _relationshipsToOmit: Set<string> = new Set()): TokensQuery => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Query');
     return {
-        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : a_Meta_({}, relationshipsToOmit),
-        pair: overrides && overrides.hasOwnProperty('pair') ? overrides.pair! : relationshipsToOmit.has('Pair') ? {} as Pair : aPair({}, relationshipsToOmit),
-        pairs: overrides && overrides.hasOwnProperty('pairs') ? overrides.pairs! : [relationshipsToOmit.has('Pair') ? {} as Pair : aPair({}, relationshipsToOmit)],
-        swap: overrides && overrides.hasOwnProperty('swap') ? overrides.swap! : relationshipsToOmit.has('Swap') ? {} as Swap : aSwap({}, relationshipsToOmit),
-        swaps: overrides && overrides.hasOwnProperty('swaps') ? overrides.swaps! : [relationshipsToOmit.has('Swap') ? {} as Swap : aSwap({}, relationshipsToOmit)],
-        token: overrides && overrides.hasOwnProperty('token') ? overrides.token! : relationshipsToOmit.has('Token') ? {} as Token : aToken({}, relationshipsToOmit),
-        tokens: overrides && overrides.hasOwnProperty('tokens') ? overrides.tokens! : [relationshipsToOmit.has('Token') ? {} as Token : aToken({}, relationshipsToOmit)],
+        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : aTokens_Meta_({}, relationshipsToOmit),
+        pair: overrides && overrides.hasOwnProperty('pair') ? overrides.pair! : relationshipsToOmit.has('Pair') ? {} as Pair : aTokensPair({}, relationshipsToOmit),
+        pairs: overrides && overrides.hasOwnProperty('pairs') ? overrides.pairs! : [relationshipsToOmit.has('Pair') ? {} as Pair : aTokensPair({}, relationshipsToOmit)],
+        swap: overrides && overrides.hasOwnProperty('swap') ? overrides.swap! : relationshipsToOmit.has('Swap') ? {} as Swap : aTokensSwap({}, relationshipsToOmit),
+        swaps: overrides && overrides.hasOwnProperty('swaps') ? overrides.swaps! : [relationshipsToOmit.has('Swap') ? {} as Swap : aTokensSwap({}, relationshipsToOmit)],
+        token: overrides && overrides.hasOwnProperty('token') ? overrides.token! : relationshipsToOmit.has('Token') ? {} as Token : aTokensToken({}, relationshipsToOmit),
+        tokens: overrides && overrides.hasOwnProperty('tokens') ? overrides.tokens! : [relationshipsToOmit.has('Token') ? {} as Token : aTokensToken({}, relationshipsToOmit)],
     };
 };
 
-export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsToOmit: Set<string> = new Set()): Subscription => {
+export const aTokensSubscription = (overrides?: Partial<TokensSubscription>, _relationshipsToOmit: Set<string> = new Set()): TokensSubscription => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Subscription');
     return {
-        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : a_Meta_({}, relationshipsToOmit),
-        pair: overrides && overrides.hasOwnProperty('pair') ? overrides.pair! : relationshipsToOmit.has('Pair') ? {} as Pair : aPair({}, relationshipsToOmit),
-        pairs: overrides && overrides.hasOwnProperty('pairs') ? overrides.pairs! : [relationshipsToOmit.has('Pair') ? {} as Pair : aPair({}, relationshipsToOmit)],
-        swap: overrides && overrides.hasOwnProperty('swap') ? overrides.swap! : relationshipsToOmit.has('Swap') ? {} as Swap : aSwap({}, relationshipsToOmit),
-        swaps: overrides && overrides.hasOwnProperty('swaps') ? overrides.swaps! : [relationshipsToOmit.has('Swap') ? {} as Swap : aSwap({}, relationshipsToOmit)],
-        token: overrides && overrides.hasOwnProperty('token') ? overrides.token! : relationshipsToOmit.has('Token') ? {} as Token : aToken({}, relationshipsToOmit),
-        tokens: overrides && overrides.hasOwnProperty('tokens') ? overrides.tokens! : [relationshipsToOmit.has('Token') ? {} as Token : aToken({}, relationshipsToOmit)],
+        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : aTokens_Meta_({}, relationshipsToOmit),
+        pair: overrides && overrides.hasOwnProperty('pair') ? overrides.pair! : relationshipsToOmit.has('Pair') ? {} as Pair : aTokensPair({}, relationshipsToOmit),
+        pairs: overrides && overrides.hasOwnProperty('pairs') ? overrides.pairs! : [relationshipsToOmit.has('Pair') ? {} as Pair : aTokensPair({}, relationshipsToOmit)],
+        swap: overrides && overrides.hasOwnProperty('swap') ? overrides.swap! : relationshipsToOmit.has('Swap') ? {} as Swap : aTokensSwap({}, relationshipsToOmit),
+        swaps: overrides && overrides.hasOwnProperty('swaps') ? overrides.swaps! : [relationshipsToOmit.has('Swap') ? {} as Swap : aTokensSwap({}, relationshipsToOmit)],
+        token: overrides && overrides.hasOwnProperty('token') ? overrides.token! : relationshipsToOmit.has('Token') ? {} as Token : aTokensToken({}, relationshipsToOmit),
+        tokens: overrides && overrides.hasOwnProperty('tokens') ? overrides.tokens! : [relationshipsToOmit.has('Token') ? {} as Token : aTokensToken({}, relationshipsToOmit)],
     };
 };
 
-export const aSwap = (overrides?: Partial<Swap>, _relationshipsToOmit: Set<string> = new Set()): Swap => {
+export const aTokensSwap = (overrides?: Partial<TokensSwap>, _relationshipsToOmit: Set<string> = new Set()): TokensSwap => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Swap');
     return {
@@ -178,19 +178,19 @@ export const aSwap = (overrides?: Partial<Swap>, _relationshipsToOmit: Set<strin
         low: overrides && overrides.hasOwnProperty('low') ? overrides.low! : 'quo',
         lpfees: overrides && overrides.hasOwnProperty('lpfees') ? overrides.lpfees! : 'assumenda',
         open: overrides && overrides.hasOwnProperty('open') ? overrides.open! : 'consequatur',
-        pair: overrides && overrides.hasOwnProperty('pair') ? overrides.pair! : relationshipsToOmit.has('Pair') ? {} as Pair : aPair({}, relationshipsToOmit),
+        pair: overrides && overrides.hasOwnProperty('pair') ? overrides.pair! : relationshipsToOmit.has('Pair') ? {} as Pair : aTokensPair({}, relationshipsToOmit),
         slippage: overrides && overrides.hasOwnProperty('slippage') ? overrides.slippage! : 'quaerat',
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'possimus',
         volume: overrides && overrides.hasOwnProperty('volume') ? overrides.volume! : 'sapiente',
     };
 };
 
-export const aSwap_Filter = (overrides?: Partial<Swap_Filter>, _relationshipsToOmit: Set<string> = new Set()): Swap_Filter => {
+export const aTokensSwap_Filter = (overrides?: Partial<TokensSwap_Filter>, _relationshipsToOmit: Set<string> = new Set()): TokensSwap_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Swap_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Swap_Filter') ? {} as Swap_Filter : aSwap_Filter({}, relationshipsToOmit)],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aTokensBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Swap_Filter') ? {} as Swap_Filter : aTokensSwap_Filter({}, relationshipsToOmit)],
         close: overrides && overrides.hasOwnProperty('close') ? overrides.close! : 'similique',
         close_gt: overrides && overrides.hasOwnProperty('close_gt') ? overrides.close_gt! : 'minima',
         close_gte: overrides && overrides.hasOwnProperty('close_gte') ? overrides.close_gte! : 'non',
@@ -247,9 +247,9 @@ export const aSwap_Filter = (overrides?: Partial<Swap_Filter>, _relationshipsToO
         open_lte: overrides && overrides.hasOwnProperty('open_lte') ? overrides.open_lte! : 'nesciunt',
         open_not: overrides && overrides.hasOwnProperty('open_not') ? overrides.open_not! : 'hic',
         open_not_in: overrides && overrides.hasOwnProperty('open_not_in') ? overrides.open_not_in! : ['perspiciatis'],
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Swap_Filter') ? {} as Swap_Filter : aSwap_Filter({}, relationshipsToOmit)],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Swap_Filter') ? {} as Swap_Filter : aTokensSwap_Filter({}, relationshipsToOmit)],
         pair: overrides && overrides.hasOwnProperty('pair') ? overrides.pair! : 'doloremque',
-        pair_: overrides && overrides.hasOwnProperty('pair_') ? overrides.pair_! : relationshipsToOmit.has('Pair_Filter') ? {} as Pair_Filter : aPair_Filter({}, relationshipsToOmit),
+        pair_: overrides && overrides.hasOwnProperty('pair_') ? overrides.pair_! : relationshipsToOmit.has('Pair_Filter') ? {} as Pair_Filter : aTokensPair_Filter({}, relationshipsToOmit),
         pair_contains: overrides && overrides.hasOwnProperty('pair_contains') ? overrides.pair_contains! : 'ipsam',
         pair_contains_nocase: overrides && overrides.hasOwnProperty('pair_contains_nocase') ? overrides.pair_contains_nocase! : 'est',
         pair_ends_with: overrides && overrides.hasOwnProperty('pair_ends_with') ? overrides.pair_ends_with! : 'et',
@@ -308,7 +308,7 @@ export const aSwap_Filter = (overrides?: Partial<Swap_Filter>, _relationshipsToO
     };
 };
 
-export const aToken = (overrides?: Partial<Token>, _relationshipsToOmit: Set<string> = new Set()): Token => {
+export const aTokensToken = (overrides?: Partial<TokensToken>, _relationshipsToOmit: Set<string> = new Set()): TokensToken => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Token');
     return {
@@ -319,12 +319,12 @@ export const aToken = (overrides?: Partial<Token>, _relationshipsToOmit: Set<str
     };
 };
 
-export const aToken_Filter = (overrides?: Partial<Token_Filter>, _relationshipsToOmit: Set<string> = new Set()): Token_Filter => {
+export const aTokensToken_Filter = (overrides?: Partial<TokensToken_Filter>, _relationshipsToOmit: Set<string> = new Set()): TokensToken_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Token_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Token_Filter') ? {} as Token_Filter : aToken_Filter({}, relationshipsToOmit)],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aTokensBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Token_Filter') ? {} as Token_Filter : aTokensToken_Filter({}, relationshipsToOmit)],
         decimals: overrides && overrides.hasOwnProperty('decimals') ? overrides.decimals! : 4104,
         decimals_gt: overrides && overrides.hasOwnProperty('decimals_gt') ? overrides.decimals_gt! : 7438,
         decimals_gte: overrides && overrides.hasOwnProperty('decimals_gte') ? overrides.decimals_gte! : 9933,
@@ -361,7 +361,7 @@ export const aToken_Filter = (overrides?: Partial<Token_Filter>, _relationshipsT
         name_not_starts_with_nocase: overrides && overrides.hasOwnProperty('name_not_starts_with_nocase') ? overrides.name_not_starts_with_nocase! : 'aliquam',
         name_starts_with: overrides && overrides.hasOwnProperty('name_starts_with') ? overrides.name_starts_with! : 'voluptas',
         name_starts_with_nocase: overrides && overrides.hasOwnProperty('name_starts_with_nocase') ? overrides.name_starts_with_nocase! : 'voluptatem',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Token_Filter') ? {} as Token_Filter : aToken_Filter({}, relationshipsToOmit)],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Token_Filter') ? {} as Token_Filter : aTokensToken_Filter({}, relationshipsToOmit)],
         symbol: overrides && overrides.hasOwnProperty('symbol') ? overrides.symbol! : 'asperiores',
         symbol_contains: overrides && overrides.hasOwnProperty('symbol_contains') ? overrides.symbol_contains! : 'vitae',
         symbol_contains_nocase: overrides && overrides.hasOwnProperty('symbol_contains_nocase') ? overrides.symbol_contains_nocase! : 'odio',
@@ -385,7 +385,7 @@ export const aToken_Filter = (overrides?: Partial<Token_Filter>, _relationshipsT
     };
 };
 
-export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set<string> = new Set()): _Block_ => {
+export const aTokens_Block_ = (overrides?: Partial<Tokens_Block_>, _relationshipsToOmit: Set<string> = new Set()): Tokens_Block_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Block_');
     return {
@@ -395,11 +395,11 @@ export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set
     };
 };
 
-export const a_Meta_ = (overrides?: Partial<_Meta_>, _relationshipsToOmit: Set<string> = new Set()): _Meta_ => {
+export const aTokens_Meta_ = (overrides?: Partial<Tokens_Meta_>, _relationshipsToOmit: Set<string> = new Set()): Tokens_Meta_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Meta_');
     return {
-        block: overrides && overrides.hasOwnProperty('block') ? overrides.block! : relationshipsToOmit.has('_Block_') ? {} as _Block_ : a_Block_({}, relationshipsToOmit),
+        block: overrides && overrides.hasOwnProperty('block') ? overrides.block! : relationshipsToOmit.has('_Block_') ? {} as _Block_ : aTokens_Block_({}, relationshipsToOmit),
         deployment: overrides && overrides.hasOwnProperty('deployment') ? overrides.deployment! : 'ut',
         hasIndexingErrors: overrides && overrides.hasOwnProperty('hasIndexingErrors') ? overrides.hasIndexingErrors! : false,
     };

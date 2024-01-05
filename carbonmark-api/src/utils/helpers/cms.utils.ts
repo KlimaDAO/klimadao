@@ -2,8 +2,8 @@ import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
-  GetCmsProjectQuery,
-  ProjectContent,
+  CmsGetCmsProjectQuery,
+  CmsProjectContent,
 } from "../../.generated/types/cms.types";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
@@ -25,8 +25,8 @@ const projectKey = ({
   registryProjectId: string | null;
 }) => `${registry}-${registryProjectId}`;
 
-export type CarbonProject = GetCmsProjectQuery["allProject"][number] & {
-  content?: ProjectContent;
+export type CarbonProject = CmsGetCmsProjectQuery["allProject"][number] & {
+  content?: CmsProjectContent;
 };
 
 /**
@@ -64,7 +64,9 @@ export const fetchAllCarbonProjects = async (
   // Clean the content, removing those without project references
   const content = pipe(
     compact,
-    filter(selector<SetRequired<ProjectContent, "project">>("project", notNil))
+    filter(
+      selector<SetRequired<CmsProjectContent, "project">>("project", notNil)
+    )
   )(allProjectContent);
 
   // Build a map for constant time lookup

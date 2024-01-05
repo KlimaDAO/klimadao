@@ -1,5 +1,5 @@
-import { GetHoldingsByWalletQuery } from "../.generated/types/assets.types";
+import { AssetsGetHoldingsByWalletQuery } from "../.generated/types/assets.types";
 
 export type Holding = NonNullable<
-  GetHoldingsByWalletQuery["accounts"]
+  AssetsGetHoldingsByWalletQuery["accounts"]
 >[number]["holdings"][number];

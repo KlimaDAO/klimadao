@@ -1,10 +1,10 @@
 import nock, { Interceptor } from "nock";
 import {
-  Project as CMSProject,
-  ProjectContent as CMSProjectContent,
+  CmsProject as CMSProject,
+  CmsProjectContent as CMSProjectContent,
 } from "src/.generated/types/cms.types";
-import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
-import { Project } from "src/.generated/types/marketplace.types";
+import { DigitalCarbonCarbonProject } from "src/.generated/types/digitalCarbon.types";
+import { MarketplaceProject } from "src/.generated/types/marketplace.types";
 import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
 import { fixtures } from "../../fixtures";
 
@@ -45,7 +45,9 @@ export const mockTokens = () =>
       data: { prices: fixtures.tokens.prices },
     });
 
-export const mockDigitalCarbonProjects = (override?: CarbonProject[]) =>
+export const mockDigitalCarbonProjects = (
+  override?: DigitalCarbonCarbonProject[]
+) =>
   nock(GRAPH_URLS["polygon"].digitalCarbon)
     .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
     .reply(200, {
@@ -136,7 +138,7 @@ export const mockDigitalCarbonArgs = () =>
       },
     });
 
-export const mockMarketplaceProjects = (override?: Project[]) =>
+export const mockMarketplaceProjects = (override?: MarketplaceProject[]) =>
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getProjects"))
     .reply(200, {

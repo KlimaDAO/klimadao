@@ -1,9 +1,9 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy, minBy, sortBy } from "lodash";
 import { map, mapValues, toLower, trim } from "lodash/fp";
-import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
-import { Geopoint } from "../../.generated/types/cms.types";
-import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
+import { DigitalCarbonFindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
+import { CmsGeopoint } from "../../.generated/types/cms.types";
+import { MarketplaceGetProjectsQuery } from "../../.generated/types/marketplace.types";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";
 import {
@@ -137,7 +137,7 @@ export const getDigitalCarbonTokenPrices = (
 };
 
 export const toGeoJSON = (
-  point?: Partial<Geopoint> | null
+  point?: Partial<CmsGeopoint> | null
 ): GeoJSONPoint | null => {
   if (!point || isNil(point?.lat) || isNil(point?.lng)) return null;
   return {
@@ -177,7 +177,7 @@ export const isActiveListing = (l: {
  * Returns true if project has >=1 tonne in any active, unexpired listing
  * */
 export const isValidMarketplaceProject = (
-  project: GetProjectsQuery["projects"][number]
+  project: MarketplaceGetProjectsQuery["projects"][number]
 ) => {
   if (!project?.listings) return false;
   const validProjects = project.listings.filter(isActiveListing);
@@ -186,13 +186,13 @@ export const isValidMarketplaceProject = (
 
 /** The specific CarbonOffset type from the find findDigitalCarbon query*/
 export type CarbonProjectType =
-  FindDigitalCarbonProjectsQuery["carbonProjects"][number];
+  DigitalCarbonFindDigitalCarbonProjectsQuery["carbonProjects"][number];
 
 /** A key may have a marketplace entry, a pool entry, or both. */
 type ProjectData = {
   key: CreditIdentifier;
   poolProjectData?: CarbonProjectType;
-  marketplaceProjectData?: GetProjectsQuery["projects"][number];
+  marketplaceProjectData?: MarketplaceGetProjectsQuery["projects"][number];
 };
 /** Map project keys to gql and cms data */
 export type ProjectDataMap = Map<CreditIdentifier, ProjectData>;

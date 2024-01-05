@@ -1,7 +1,7 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
-import { ActivityType } from "../../.generated/types/marketplace.types";
+import { MarketplaceActivityType } from "../../.generated/types/marketplace.types";
 import { Activity } from "../../models/Activity.model";
 import { CreditId } from "../CreditId";
 import { GQL_SDK } from "../gqlSdk";
@@ -9,7 +9,7 @@ import { getUserProfilesByIds } from "./users.utils";
 
 type ActivitiesParams = {
   projectId: string[]; // Project Id `"VCS-981-2017"`
-  activityType: ActivityType[]; // Activity type
+  activityType: MarketplaceActivityType[]; // Activity type
   fastify: FastifyInstance; // Fastify instance
 };
 

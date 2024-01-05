@@ -1,7 +1,7 @@
-import { GetPoolPricesQuery } from "src/.generated/types/tokens.types";
+import { TokensGetPoolPricesQuery } from "src/.generated/types/tokens.types";
 
 /** marketplace.getPoolPrices() */
-const prices: GetPoolPricesQuery["prices"] = [
+const prices: TokensGetPoolPricesQuery["prices"] = [
   {
     address: "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64",
     price: "0.2662139137900762593798471167457771",

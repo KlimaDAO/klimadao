@@ -1,13 +1,13 @@
 import { utils } from "ethers";
 import {
-  GetProjectsQuery,
-  Listing,
+  MarketplaceGetProjectsQuery,
+  MarketplaceListing,
 } from "../.generated/types/marketplace.types";
 import { Listing as ListingModel } from "../models/Listing.model";
 import { notNil } from "./functional.utils";
 import { formatGraphTimestamps } from "./helpers/utils";
 
-export const isListingActive = (listing: Partial<Listing>) =>
+export const isListingActive = (listing: Partial<MarketplaceListing>) =>
   notNil(listing.leftToSell) &&
   !/^0+$/.test(listing.leftToSell) &&
   listing.active != false &&
@@ -28,7 +28,7 @@ export const deconstructListingId = (str: string) => {
 };
 
 export type GetProjectListing = NonNullable<
-  GetProjectsQuery["projects"][number]["listings"]
+  MarketplaceGetProjectsQuery["projects"][number]["listings"]
 >[number];
 
 /** Formats a gql.marketplace listing to match Listing.model, and formats integers */

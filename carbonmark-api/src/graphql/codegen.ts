@@ -16,6 +16,8 @@ const typescript_mock_data_config = (
   typeNames: "change-case-all#pascalCase",
   transformUnderscore: false,
   terminateCircularRelationships: true,
+  typesPrefix: `${upperFirst(key)}`,
+  prefix: `a${upperFirst(key)}`,
   scalars: {
     BigNumber: "'100000000000000000000'",
     BigInt: "'100000000000000000000'",

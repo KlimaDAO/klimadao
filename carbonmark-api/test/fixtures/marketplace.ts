@@ -1,14 +1,14 @@
 import {
-  aListing,
-  aProject,
+  aMarketplaceListing,
+  aMarketplaceProject,
 } from "../../src/.generated/mocks/marketplace.mocks";
 import {
-  ActivityType,
-  GetActivitiesByProjectIdQuery,
-  GetPurchaseByIdQuery,
+  MarketplaceActivityType,
+  MarketplaceGetActivitiesByProjectIdQuery,
+  MarketplaceGetPurchaseByIdQuery,
 } from "../../src/.generated/types/marketplace.types";
 
-const listing = aListing({
+const listing = aMarketplaceListing({
   singleUnitPrice: "99000000",
   minFillAmount: "100000000000000000000",
   totalAmountToSell: "100000000000000000000",
@@ -17,7 +17,7 @@ const listing = aListing({
   createdAt: "1234",
 });
 
-const projectWithListing = aProject({
+const projectWithListing = aMarketplaceProject({
   id: "VCS-191-2008",
   registry: "VCS",
   listings: [listing],
@@ -26,7 +26,7 @@ const projectWithListing = aProject({
 });
 
 /** marketplace.getPurchaseById() */
-const purchase: GetPurchaseByIdQuery["purchase"] = {
+const purchase: MarketplaceGetPurchaseByIdQuery["purchase"] = {
   amount: "1000000000000000000", // 1 tonne
   id: "0xfe2949e3644b88d2e00e5f84f6266c191dbb0379a18e00a18192116de7c5c779",
   price: "5000000", // 5 USDC
@@ -49,7 +49,7 @@ const purchase: GetPurchaseByIdQuery["purchase"] = {
 };
 
 /** marketplace.getPurchaseById() */
-const activities: GetActivitiesByProjectIdQuery["activities"] = [
+const activities: MarketplaceGetActivitiesByProjectIdQuery["activities"] = [
   {
     id: "0x88bb718a2556970081e9cd6a8f17af2dffaabe1a05f91dc47cf477c3425225b7Sold",
     amount: "1000000000000000000",
@@ -57,7 +57,7 @@ const activities: GetActivitiesByProjectIdQuery["activities"] = [
     price: "1250000",
     previousPrice: null,
     timeStamp: "1699653865",
-    activityType: ActivityType.Sold,
+    activityType: MarketplaceActivityType.Sold,
     project: { key: "VCS-981", vintage: "2017" },
     buyer: null,
     seller: { id: "0x988bb718a2556970081e9cd6a8f17af2dffaa" },
@@ -69,7 +69,7 @@ const activities: GetActivitiesByProjectIdQuery["activities"] = [
     price: "1250000",
     previousPrice: "12500000",
     timeStamp: "1699399799",
-    activityType: ActivityType.UpdatedPrice,
+    activityType: MarketplaceActivityType.UpdatedPrice,
     project: { key: "VCS-981", vintage: "2017" },
     buyer: null,
     seller: { id: "0x488bb718a2556970081e9cd6a8f17af2dffaa" },

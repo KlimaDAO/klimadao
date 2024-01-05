@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { ActivityType } from "../../.generated/types/marketplace.types";
+import { MarketplaceActivityType } from "../../.generated/types/marketplace.types";
 import { ActivityModel } from "../../models/Activity.model";
 import { NetworkParamModel } from "../../models/NetworkParam.model";
 
@@ -14,7 +14,9 @@ export const QueryString = Type.Object({
   ),
   activityType: Type.Optional(
     Type.Array(
-      Type.Union(Object.keys(ActivityType).map((key) => Type.Literal(key)))
+      Type.Union(
+        Object.keys(MarketplaceActivityType).map((key) => Type.Literal(key))
+      )
     )
   ),
 });

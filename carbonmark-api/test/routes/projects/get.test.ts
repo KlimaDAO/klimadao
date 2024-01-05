@@ -2,10 +2,10 @@ import { FastifyInstance } from "fastify";
 import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
 import {
-  CarbonProject,
-  Registry,
+  DigitalCarbonCarbonProject,
+  DigitalCarbonRegistry,
 } from "../../../src/.generated/types/digitalCarbon.types";
-import { Project as MarketplaceProject } from "../../../src/.generated/types/marketplace.types";
+import { MarketplaceProject } from "../../../src/.generated/types/marketplace.types";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { Project } from "../../../src/models/Project.model";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
@@ -28,11 +28,11 @@ const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
 const mockMarketplaceProject = fixtures.marketplace.projectWithListing;
 const mockDigitalCarbonProject = fixtures.digitalCarbon.digitalCarbonProject;
 
-const anotherCarbonProject: CarbonProject = {
+const anotherCarbonProject: DigitalCarbonCarbonProject = {
   ...cloneDeep(mockDigitalCarbonProject),
   id: "VCS-111",
   projectID: "VCS-111",
-  registry: Registry.Verra,
+  registry: DigitalCarbonRegistry.Verra,
 };
 const anotherMarketplaceProject: MarketplaceProject = {
   ...cloneDeep(mockMarketplaceProject),

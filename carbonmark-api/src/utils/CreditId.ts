@@ -108,4 +108,5 @@ export class CreditId {
       notNil(Number(typedParams.vintage))
     );
   }
+  /* eslint-enable @typescript-eslint/consistent-type-assertions -- type guards */
 }

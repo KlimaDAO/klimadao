@@ -1,30 +1,30 @@
 //@ts-nocheck
-import { Activity, Activity_Filter, BlockChangedFilter, Block_Height, Category, Category_Filter, Country, Country_Filter, Listing, Listing_Filter, Project, Project_Filter, Purchase, Purchase_Filter, Query, Subscription, User, User_Filter, _Block_, _Meta_, ActivityType, Activity_OrderBy, Category_OrderBy, Country_OrderBy, Listing_OrderBy, OrderDirection, Project_OrderBy, Purchase_OrderBy, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types';
+import { MarketplaceActivity, MarketplaceActivity_Filter, MarketplaceBlockChangedFilter, MarketplaceBlock_Height, MarketplaceCategory, MarketplaceCategory_Filter, MarketplaceCountry, MarketplaceCountry_Filter, MarketplaceListing, MarketplaceListing_Filter, MarketplaceProject, MarketplaceProject_Filter, MarketplacePurchase, MarketplacePurchase_Filter, MarketplaceQuery, MarketplaceSubscription, MarketplaceUser, MarketplaceUser_Filter, Marketplace_Block_, Marketplace_Meta_, ActivityType, Activity_OrderBy, Category_OrderBy, Country_OrderBy, Listing_OrderBy, OrderDirection, Project_OrderBy, Purchase_OrderBy, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types';
 
-export const anActivity = (overrides?: Partial<Activity>, _relationshipsToOmit: Set<string> = new Set()): Activity => {
+export const aMarketplaceActivity = (overrides?: Partial<MarketplaceActivity>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceActivity => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Activity');
     return {
         activityType: overrides && overrides.hasOwnProperty('activityType') ? overrides.activityType! : ActivityType.CreatedListing,
         amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : '100000000000000000000',
-        buyer: overrides && overrides.hasOwnProperty('buyer') ? overrides.buyer! : relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit),
+        buyer: overrides && overrides.hasOwnProperty('buyer') ? overrides.buyer! : relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit),
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'molestiae',
-        listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit),
+        listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : relationshipsToOmit.has('Listing') ? {} as Listing : aMarketplaceListing({}, relationshipsToOmit),
         previousAmount: overrides && overrides.hasOwnProperty('previousAmount') ? overrides.previousAmount! : '100000000000000000000',
         previousPrice: overrides && overrides.hasOwnProperty('previousPrice') ? overrides.previousPrice! : '100000000000000000000',
         price: overrides && overrides.hasOwnProperty('price') ? overrides.price! : '100000000000000000000',
-        project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : relationshipsToOmit.has('Project') ? {} as Project : aProject({}, relationshipsToOmit),
-        seller: overrides && overrides.hasOwnProperty('seller') ? overrides.seller! : relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit),
+        project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : relationshipsToOmit.has('Project') ? {} as Project : aMarketplaceProject({}, relationshipsToOmit),
+        seller: overrides && overrides.hasOwnProperty('seller') ? overrides.seller! : relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit),
         timeStamp: overrides && overrides.hasOwnProperty('timeStamp') ? overrides.timeStamp! : '100000000000000000000',
-        user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit),
+        user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit),
     };
 };
 
-export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relationshipsToOmit: Set<string> = new Set()): Activity_Filter => {
+export const aMarketplaceActivity_Filter = (overrides?: Partial<MarketplaceActivity_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceActivity_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Activity_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aMarketplaceBlockChangedFilter({}, relationshipsToOmit),
         activityType: overrides && overrides.hasOwnProperty('activityType') ? overrides.activityType! : ActivityType.CreatedListing,
         activityType_in: overrides && overrides.hasOwnProperty('activityType_in') ? overrides.activityType_in! : [ActivityType.CreatedListing],
         activityType_not: overrides && overrides.hasOwnProperty('activityType_not') ? overrides.activityType_not! : ActivityType.CreatedListing,
@@ -37,9 +37,9 @@ export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relatio
         amount_lte: overrides && overrides.hasOwnProperty('amount_lte') ? overrides.amount_lte! : '100000000000000000000',
         amount_not: overrides && overrides.hasOwnProperty('amount_not') ? overrides.amount_not! : '100000000000000000000',
         amount_not_in: overrides && overrides.hasOwnProperty('amount_not_in') ? overrides.amount_not_in! : ['100000000000000000000'],
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : anActivity_Filter({}, relationshipsToOmit)],
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : aMarketplaceActivity_Filter({}, relationshipsToOmit)],
         buyer: overrides && overrides.hasOwnProperty('buyer') ? overrides.buyer! : 'deleniti',
-        buyer_: overrides && overrides.hasOwnProperty('buyer_') ? overrides.buyer_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aUser_Filter({}, relationshipsToOmit),
+        buyer_: overrides && overrides.hasOwnProperty('buyer_') ? overrides.buyer_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aMarketplaceUser_Filter({}, relationshipsToOmit),
         buyer_contains: overrides && overrides.hasOwnProperty('buyer_contains') ? overrides.buyer_contains! : 'nihil',
         buyer_contains_nocase: overrides && overrides.hasOwnProperty('buyer_contains_nocase') ? overrides.buyer_contains_nocase! : 'magnam',
         buyer_ends_with: overrides && overrides.hasOwnProperty('buyer_ends_with') ? overrides.buyer_ends_with! : 'autem',
@@ -80,7 +80,7 @@ export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relatio
         id_starts_with: overrides && overrides.hasOwnProperty('id_starts_with') ? overrides.id_starts_with! : 'cupiditate',
         id_starts_with_nocase: overrides && overrides.hasOwnProperty('id_starts_with_nocase') ? overrides.id_starts_with_nocase! : 'quis',
         listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : 'aspernatur',
-        listing_: overrides && overrides.hasOwnProperty('listing_') ? overrides.listing_! : relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aListing_Filter({}, relationshipsToOmit),
+        listing_: overrides && overrides.hasOwnProperty('listing_') ? overrides.listing_! : relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aMarketplaceListing_Filter({}, relationshipsToOmit),
         listing_contains: overrides && overrides.hasOwnProperty('listing_contains') ? overrides.listing_contains! : 'aut',
         listing_contains_nocase: overrides && overrides.hasOwnProperty('listing_contains_nocase') ? overrides.listing_contains_nocase! : 'qui',
         listing_ends_with: overrides && overrides.hasOwnProperty('listing_ends_with') ? overrides.listing_ends_with! : 'eius',
@@ -100,7 +100,7 @@ export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relatio
         listing_not_starts_with_nocase: overrides && overrides.hasOwnProperty('listing_not_starts_with_nocase') ? overrides.listing_not_starts_with_nocase! : 'assumenda',
         listing_starts_with: overrides && overrides.hasOwnProperty('listing_starts_with') ? overrides.listing_starts_with! : 'dolor',
         listing_starts_with_nocase: overrides && overrides.hasOwnProperty('listing_starts_with_nocase') ? overrides.listing_starts_with_nocase! : 'maxime',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : anActivity_Filter({}, relationshipsToOmit)],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : aMarketplaceActivity_Filter({}, relationshipsToOmit)],
         previousAmount: overrides && overrides.hasOwnProperty('previousAmount') ? overrides.previousAmount! : '100000000000000000000',
         previousAmount_gt: overrides && overrides.hasOwnProperty('previousAmount_gt') ? overrides.previousAmount_gt! : '100000000000000000000',
         previousAmount_gte: overrides && overrides.hasOwnProperty('previousAmount_gte') ? overrides.previousAmount_gte! : '100000000000000000000',
@@ -126,7 +126,7 @@ export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relatio
         price_not: overrides && overrides.hasOwnProperty('price_not') ? overrides.price_not! : '100000000000000000000',
         price_not_in: overrides && overrides.hasOwnProperty('price_not_in') ? overrides.price_not_in! : ['100000000000000000000'],
         project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : 'in',
-        project_: overrides && overrides.hasOwnProperty('project_') ? overrides.project_! : relationshipsToOmit.has('Project_Filter') ? {} as Project_Filter : aProject_Filter({}, relationshipsToOmit),
+        project_: overrides && overrides.hasOwnProperty('project_') ? overrides.project_! : relationshipsToOmit.has('Project_Filter') ? {} as Project_Filter : aMarketplaceProject_Filter({}, relationshipsToOmit),
         project_contains: overrides && overrides.hasOwnProperty('project_contains') ? overrides.project_contains! : 'quo',
         project_contains_nocase: overrides && overrides.hasOwnProperty('project_contains_nocase') ? overrides.project_contains_nocase! : 'commodi',
         project_ends_with: overrides && overrides.hasOwnProperty('project_ends_with') ? overrides.project_ends_with! : 'accusantium',
@@ -147,7 +147,7 @@ export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relatio
         project_starts_with: overrides && overrides.hasOwnProperty('project_starts_with') ? overrides.project_starts_with! : 'hic',
         project_starts_with_nocase: overrides && overrides.hasOwnProperty('project_starts_with_nocase') ? overrides.project_starts_with_nocase! : 'incidunt',
         seller: overrides && overrides.hasOwnProperty('seller') ? overrides.seller! : 'debitis',
-        seller_: overrides && overrides.hasOwnProperty('seller_') ? overrides.seller_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aUser_Filter({}, relationshipsToOmit),
+        seller_: overrides && overrides.hasOwnProperty('seller_') ? overrides.seller_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aMarketplaceUser_Filter({}, relationshipsToOmit),
         seller_contains: overrides && overrides.hasOwnProperty('seller_contains') ? overrides.seller_contains! : 'magnam',
         seller_contains_nocase: overrides && overrides.hasOwnProperty('seller_contains_nocase') ? overrides.seller_contains_nocase! : 'exercitationem',
         seller_ends_with: overrides && overrides.hasOwnProperty('seller_ends_with') ? overrides.seller_ends_with! : 'possimus',
@@ -176,7 +176,7 @@ export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relatio
         timeStamp_not: overrides && overrides.hasOwnProperty('timeStamp_not') ? overrides.timeStamp_not! : '100000000000000000000',
         timeStamp_not_in: overrides && overrides.hasOwnProperty('timeStamp_not_in') ? overrides.timeStamp_not_in! : ['100000000000000000000'],
         user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : 'sed',
-        user_: overrides && overrides.hasOwnProperty('user_') ? overrides.user_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aUser_Filter({}, relationshipsToOmit),
+        user_: overrides && overrides.hasOwnProperty('user_') ? overrides.user_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aMarketplaceUser_Filter({}, relationshipsToOmit),
         user_contains: overrides && overrides.hasOwnProperty('user_contains') ? overrides.user_contains! : 'reprehenderit',
         user_contains_nocase: overrides && overrides.hasOwnProperty('user_contains_nocase') ? overrides.user_contains_nocase! : 'et',
         user_ends_with: overrides && overrides.hasOwnProperty('user_ends_with') ? overrides.user_ends_with! : 'sequi',
@@ -199,7 +199,7 @@ export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relatio
     };
 };
 
-export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): BlockChangedFilter => {
+export const aMarketplaceBlockChangedFilter = (overrides?: Partial<MarketplaceBlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceBlockChangedFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('BlockChangedFilter');
     return {
@@ -207,7 +207,7 @@ export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _re
     };
 };
 
-export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsToOmit: Set<string> = new Set()): Block_Height => {
+export const aMarketplaceBlock_Height = (overrides?: Partial<MarketplaceBlock_Height>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceBlock_Height => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Block_Height');
     return {
@@ -217,7 +217,7 @@ export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsT
     };
 };
 
-export const aCategory = (overrides?: Partial<Category>, _relationshipsToOmit: Set<string> = new Set()): Category => {
+export const aMarketplaceCategory = (overrides?: Partial<MarketplaceCategory>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceCategory => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Category');
     return {
@@ -225,12 +225,12 @@ export const aCategory = (overrides?: Partial<Category>, _relationshipsToOmit: S
     };
 };
 
-export const aCategory_Filter = (overrides?: Partial<Category_Filter>, _relationshipsToOmit: Set<string> = new Set()): Category_Filter => {
+export const aMarketplaceCategory_Filter = (overrides?: Partial<MarketplaceCategory_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceCategory_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Category_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Category_Filter') ? {} as Category_Filter : aCategory_Filter({}, relationshipsToOmit)],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aMarketplaceBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Category_Filter') ? {} as Category_Filter : aMarketplaceCategory_Filter({}, relationshipsToOmit)],
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'iure',
         id_contains: overrides && overrides.hasOwnProperty('id_contains') ? overrides.id_contains! : 'possimus',
         id_contains_nocase: overrides && overrides.hasOwnProperty('id_contains_nocase') ? overrides.id_contains_nocase! : 'eligendi',
@@ -251,11 +251,11 @@ export const aCategory_Filter = (overrides?: Partial<Category_Filter>, _relation
         id_not_starts_with_nocase: overrides && overrides.hasOwnProperty('id_not_starts_with_nocase') ? overrides.id_not_starts_with_nocase! : 'quam',
         id_starts_with: overrides && overrides.hasOwnProperty('id_starts_with') ? overrides.id_starts_with! : 'quia',
         id_starts_with_nocase: overrides && overrides.hasOwnProperty('id_starts_with_nocase') ? overrides.id_starts_with_nocase! : 'quos',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Category_Filter') ? {} as Category_Filter : aCategory_Filter({}, relationshipsToOmit)],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Category_Filter') ? {} as Category_Filter : aMarketplaceCategory_Filter({}, relationshipsToOmit)],
     };
 };
 
-export const aCountry = (overrides?: Partial<Country>, _relationshipsToOmit: Set<string> = new Set()): Country => {
+export const aMarketplaceCountry = (overrides?: Partial<MarketplaceCountry>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceCountry => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Country');
     return {
@@ -263,12 +263,12 @@ export const aCountry = (overrides?: Partial<Country>, _relationshipsToOmit: Set
     };
 };
 
-export const aCountry_Filter = (overrides?: Partial<Country_Filter>, _relationshipsToOmit: Set<string> = new Set()): Country_Filter => {
+export const aMarketplaceCountry_Filter = (overrides?: Partial<MarketplaceCountry_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceCountry_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Country_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Country_Filter') ? {} as Country_Filter : aCountry_Filter({}, relationshipsToOmit)],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aMarketplaceBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Country_Filter') ? {} as Country_Filter : aMarketplaceCountry_Filter({}, relationshipsToOmit)],
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'optio',
         id_contains: overrides && overrides.hasOwnProperty('id_contains') ? overrides.id_contains! : 'aut',
         id_contains_nocase: overrides && overrides.hasOwnProperty('id_contains_nocase') ? overrides.id_contains_nocase! : 'commodi',
@@ -289,16 +289,16 @@ export const aCountry_Filter = (overrides?: Partial<Country_Filter>, _relationsh
         id_not_starts_with_nocase: overrides && overrides.hasOwnProperty('id_not_starts_with_nocase') ? overrides.id_not_starts_with_nocase! : 'repellendus',
         id_starts_with: overrides && overrides.hasOwnProperty('id_starts_with') ? overrides.id_starts_with! : 'quasi',
         id_starts_with_nocase: overrides && overrides.hasOwnProperty('id_starts_with_nocase') ? overrides.id_starts_with_nocase! : 'provident',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Country_Filter') ? {} as Country_Filter : aCountry_Filter({}, relationshipsToOmit)],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Country_Filter') ? {} as Country_Filter : aMarketplaceCountry_Filter({}, relationshipsToOmit)],
     };
 };
 
-export const aListing = (overrides?: Partial<Listing>, _relationshipsToOmit: Set<string> = new Set()): Listing => {
+export const aMarketplaceListing = (overrides?: Partial<MarketplaceListing>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceListing => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Listing');
     return {
         active: overrides && overrides.hasOwnProperty('active') ? overrides.active! : true,
-        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit)],
+        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : aMarketplaceActivity({}, relationshipsToOmit)],
         batchPrices: overrides && overrides.hasOwnProperty('batchPrices') ? overrides.batchPrices! : ['100000000000000000000'],
         batches: overrides && overrides.hasOwnProperty('batches') ? overrides.batches! : ['100000000000000000000'],
         createdAt: overrides && overrides.hasOwnProperty('createdAt') ? overrides.createdAt! : '100000000000000000000',
@@ -307,8 +307,8 @@ export const aListing = (overrides?: Partial<Listing>, _relationshipsToOmit: Set
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'ea53e384-4b94-4242-8032-1565569bc0b2',
         leftToSell: overrides && overrides.hasOwnProperty('leftToSell') ? overrides.leftToSell! : '100000000000000000000',
         minFillAmount: overrides && overrides.hasOwnProperty('minFillAmount') ? overrides.minFillAmount! : '100000000000000000000',
-        project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : relationshipsToOmit.has('Project') ? {} as Project : aProject({}, relationshipsToOmit),
-        seller: overrides && overrides.hasOwnProperty('seller') ? overrides.seller! : relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit),
+        project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : relationshipsToOmit.has('Project') ? {} as Project : aMarketplaceProject({}, relationshipsToOmit),
+        seller: overrides && overrides.hasOwnProperty('seller') ? overrides.seller! : relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit),
         singleUnitPrice: overrides && overrides.hasOwnProperty('singleUnitPrice') ? overrides.singleUnitPrice! : '100000000000000000000',
         tokenAddress: overrides && overrides.hasOwnProperty('tokenAddress') ? overrides.tokenAddress! : 'at',
         totalAmountToSell: overrides && overrides.hasOwnProperty('totalAmountToSell') ? overrides.totalAmountToSell! : '100000000000000000000',
@@ -316,17 +316,17 @@ export const aListing = (overrides?: Partial<Listing>, _relationshipsToOmit: Set
     };
 };
 
-export const aListing_Filter = (overrides?: Partial<Listing_Filter>, _relationshipsToOmit: Set<string> = new Set()): Listing_Filter => {
+export const aMarketplaceListing_Filter = (overrides?: Partial<MarketplaceListing_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceListing_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Listing_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aMarketplaceBlockChangedFilter({}, relationshipsToOmit),
         active: overrides && overrides.hasOwnProperty('active') ? overrides.active! : true,
         active_in: overrides && overrides.hasOwnProperty('active_in') ? overrides.active_in! : [false],
         active_not: overrides && overrides.hasOwnProperty('active_not') ? overrides.active_not! : false,
         active_not_in: overrides && overrides.hasOwnProperty('active_not_in') ? overrides.active_not_in! : [false],
-        activities_: overrides && overrides.hasOwnProperty('activities_') ? overrides.activities_! : relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : anActivity_Filter({}, relationshipsToOmit),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aListing_Filter({}, relationshipsToOmit)],
+        activities_: overrides && overrides.hasOwnProperty('activities_') ? overrides.activities_! : relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : aMarketplaceActivity_Filter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aMarketplaceListing_Filter({}, relationshipsToOmit)],
         batchPrices: overrides && overrides.hasOwnProperty('batchPrices') ? overrides.batchPrices! : ['100000000000000000000'],
         batchPrices_contains: overrides && overrides.hasOwnProperty('batchPrices_contains') ? overrides.batchPrices_contains! : ['100000000000000000000'],
         batchPrices_contains_nocase: overrides && overrides.hasOwnProperty('batchPrices_contains_nocase') ? overrides.batchPrices_contains_nocase! : ['100000000000000000000'],
@@ -383,9 +383,9 @@ export const aListing_Filter = (overrides?: Partial<Listing_Filter>, _relationsh
         minFillAmount_lte: overrides && overrides.hasOwnProperty('minFillAmount_lte') ? overrides.minFillAmount_lte! : '100000000000000000000',
         minFillAmount_not: overrides && overrides.hasOwnProperty('minFillAmount_not') ? overrides.minFillAmount_not! : '100000000000000000000',
         minFillAmount_not_in: overrides && overrides.hasOwnProperty('minFillAmount_not_in') ? overrides.minFillAmount_not_in! : ['100000000000000000000'],
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aListing_Filter({}, relationshipsToOmit)],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aMarketplaceListing_Filter({}, relationshipsToOmit)],
         project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : 'harum',
-        project_: overrides && overrides.hasOwnProperty('project_') ? overrides.project_! : relationshipsToOmit.has('Project_Filter') ? {} as Project_Filter : aProject_Filter({}, relationshipsToOmit),
+        project_: overrides && overrides.hasOwnProperty('project_') ? overrides.project_! : relationshipsToOmit.has('Project_Filter') ? {} as Project_Filter : aMarketplaceProject_Filter({}, relationshipsToOmit),
         project_contains: overrides && overrides.hasOwnProperty('project_contains') ? overrides.project_contains! : 'maiores',
         project_contains_nocase: overrides && overrides.hasOwnProperty('project_contains_nocase') ? overrides.project_contains_nocase! : 'non',
         project_ends_with: overrides && overrides.hasOwnProperty('project_ends_with') ? overrides.project_ends_with! : 'sint',
@@ -406,7 +406,7 @@ export const aListing_Filter = (overrides?: Partial<Listing_Filter>, _relationsh
         project_starts_with: overrides && overrides.hasOwnProperty('project_starts_with') ? overrides.project_starts_with! : 'illum',
         project_starts_with_nocase: overrides && overrides.hasOwnProperty('project_starts_with_nocase') ? overrides.project_starts_with_nocase! : 'sed',
         seller: overrides && overrides.hasOwnProperty('seller') ? overrides.seller! : 'ut',
-        seller_: overrides && overrides.hasOwnProperty('seller_') ? overrides.seller_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aUser_Filter({}, relationshipsToOmit),
+        seller_: overrides && overrides.hasOwnProperty('seller_') ? overrides.seller_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aMarketplaceUser_Filter({}, relationshipsToOmit),
         seller_contains: overrides && overrides.hasOwnProperty('seller_contains') ? overrides.seller_contains! : 'nulla',
         seller_contains_nocase: overrides && overrides.hasOwnProperty('seller_contains_nocase') ? overrides.seller_contains_nocase! : 'natus',
         seller_ends_with: overrides && overrides.hasOwnProperty('seller_ends_with') ? overrides.seller_ends_with! : 'et',
@@ -463,16 +463,16 @@ export const aListing_Filter = (overrides?: Partial<Listing_Filter>, _relationsh
     };
 };
 
-export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set<string> = new Set()): Project => {
+export const aMarketplaceProject = (overrides?: Partial<MarketplaceProject>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceProject => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Project');
     return {
-        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit)],
-        category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : relationshipsToOmit.has('Category') ? {} as Category : aCategory({}, relationshipsToOmit),
-        country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : relationshipsToOmit.has('Country') ? {} as Country : aCountry({}, relationshipsToOmit),
+        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : aMarketplaceActivity({}, relationshipsToOmit)],
+        category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : relationshipsToOmit.has('Category') ? {} as Category : aMarketplaceCategory({}, relationshipsToOmit),
+        country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : relationshipsToOmit.has('Country') ? {} as Country : aMarketplaceCountry({}, relationshipsToOmit),
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : '3e7d7963-406a-47bd-ad80-0448296895bf',
         key: overrides && overrides.hasOwnProperty('key') ? overrides.key! : 'delectus',
-        listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit)],
+        listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aMarketplaceListing({}, relationshipsToOmit)],
         methodology: overrides && overrides.hasOwnProperty('methodology') ? overrides.methodology! : 'doloremque',
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : 'et',
         projectAddress: overrides && overrides.hasOwnProperty('projectAddress') ? overrides.projectAddress! : 'consequatur',
@@ -482,15 +482,15 @@ export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set
     };
 };
 
-export const aProject_Filter = (overrides?: Partial<Project_Filter>, _relationshipsToOmit: Set<string> = new Set()): Project_Filter => {
+export const aMarketplaceProject_Filter = (overrides?: Partial<MarketplaceProject_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceProject_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Project_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        activities_: overrides && overrides.hasOwnProperty('activities_') ? overrides.activities_! : relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : anActivity_Filter({}, relationshipsToOmit),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Project_Filter') ? {} as Project_Filter : aProject_Filter({}, relationshipsToOmit)],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aMarketplaceBlockChangedFilter({}, relationshipsToOmit),
+        activities_: overrides && overrides.hasOwnProperty('activities_') ? overrides.activities_! : relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : aMarketplaceActivity_Filter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Project_Filter') ? {} as Project_Filter : aMarketplaceProject_Filter({}, relationshipsToOmit)],
         category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : 'amet',
-        category_: overrides && overrides.hasOwnProperty('category_') ? overrides.category_! : relationshipsToOmit.has('Category_Filter') ? {} as Category_Filter : aCategory_Filter({}, relationshipsToOmit),
+        category_: overrides && overrides.hasOwnProperty('category_') ? overrides.category_! : relationshipsToOmit.has('Category_Filter') ? {} as Category_Filter : aMarketplaceCategory_Filter({}, relationshipsToOmit),
         category_contains: overrides && overrides.hasOwnProperty('category_contains') ? overrides.category_contains! : 'nisi',
         category_contains_nocase: overrides && overrides.hasOwnProperty('category_contains_nocase') ? overrides.category_contains_nocase! : 'consequatur',
         category_ends_with: overrides && overrides.hasOwnProperty('category_ends_with') ? overrides.category_ends_with! : 'doloribus',
@@ -511,7 +511,7 @@ export const aProject_Filter = (overrides?: Partial<Project_Filter>, _relationsh
         category_starts_with: overrides && overrides.hasOwnProperty('category_starts_with') ? overrides.category_starts_with! : 'totam',
         category_starts_with_nocase: overrides && overrides.hasOwnProperty('category_starts_with_nocase') ? overrides.category_starts_with_nocase! : 'eligendi',
         country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : 'minus',
-        country_: overrides && overrides.hasOwnProperty('country_') ? overrides.country_! : relationshipsToOmit.has('Country_Filter') ? {} as Country_Filter : aCountry_Filter({}, relationshipsToOmit),
+        country_: overrides && overrides.hasOwnProperty('country_') ? overrides.country_! : relationshipsToOmit.has('Country_Filter') ? {} as Country_Filter : aMarketplaceCountry_Filter({}, relationshipsToOmit),
         country_contains: overrides && overrides.hasOwnProperty('country_contains') ? overrides.country_contains! : 'tempore',
         country_contains_nocase: overrides && overrides.hasOwnProperty('country_contains_nocase') ? overrides.country_contains_nocase! : 'delectus',
         country_ends_with: overrides && overrides.hasOwnProperty('country_ends_with') ? overrides.country_ends_with! : 'et',
@@ -559,7 +559,7 @@ export const aProject_Filter = (overrides?: Partial<Project_Filter>, _relationsh
         key_not_starts_with_nocase: overrides && overrides.hasOwnProperty('key_not_starts_with_nocase') ? overrides.key_not_starts_with_nocase! : 'architecto',
         key_starts_with: overrides && overrides.hasOwnProperty('key_starts_with') ? overrides.key_starts_with! : 'ut',
         key_starts_with_nocase: overrides && overrides.hasOwnProperty('key_starts_with_nocase') ? overrides.key_starts_with_nocase! : 'reiciendis',
-        listings_: overrides && overrides.hasOwnProperty('listings_') ? overrides.listings_! : relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aListing_Filter({}, relationshipsToOmit),
+        listings_: overrides && overrides.hasOwnProperty('listings_') ? overrides.listings_! : relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aMarketplaceListing_Filter({}, relationshipsToOmit),
         methodology: overrides && overrides.hasOwnProperty('methodology') ? overrides.methodology! : 'delectus',
         methodology_contains: overrides && overrides.hasOwnProperty('methodology_contains') ? overrides.methodology_contains! : 'consequatur',
         methodology_contains_nocase: overrides && overrides.hasOwnProperty('methodology_contains_nocase') ? overrides.methodology_contains_nocase! : 'suscipit',
@@ -600,7 +600,7 @@ export const aProject_Filter = (overrides?: Partial<Project_Filter>, _relationsh
         name_not_starts_with_nocase: overrides && overrides.hasOwnProperty('name_not_starts_with_nocase') ? overrides.name_not_starts_with_nocase! : 'illum',
         name_starts_with: overrides && overrides.hasOwnProperty('name_starts_with') ? overrides.name_starts_with! : 'rem',
         name_starts_with_nocase: overrides && overrides.hasOwnProperty('name_starts_with_nocase') ? overrides.name_starts_with_nocase! : 'modi',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Project_Filter') ? {} as Project_Filter : aProject_Filter({}, relationshipsToOmit)],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Project_Filter') ? {} as Project_Filter : aMarketplaceProject_Filter({}, relationshipsToOmit)],
         projectAddress: overrides && overrides.hasOwnProperty('projectAddress') ? overrides.projectAddress! : 'nam',
         projectAddress_contains: overrides && overrides.hasOwnProperty('projectAddress_contains') ? overrides.projectAddress_contains! : 'a',
         projectAddress_gt: overrides && overrides.hasOwnProperty('projectAddress_gt') ? overrides.projectAddress_gt! : 'nam',
@@ -650,24 +650,24 @@ export const aProject_Filter = (overrides?: Partial<Project_Filter>, _relationsh
     };
 };
 
-export const aPurchase = (overrides?: Partial<Purchase>, _relationshipsToOmit: Set<string> = new Set()): Purchase => {
+export const aMarketplacePurchase = (overrides?: Partial<MarketplacePurchase>, _relationshipsToOmit: Set<string> = new Set()): MarketplacePurchase => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Purchase');
     return {
         amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : '100000000000000000000',
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'a',
-        listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit),
+        listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : relationshipsToOmit.has('Listing') ? {} as Listing : aMarketplaceListing({}, relationshipsToOmit),
         price: overrides && overrides.hasOwnProperty('price') ? overrides.price! : '100000000000000000000',
         timeStamp: overrides && overrides.hasOwnProperty('timeStamp') ? overrides.timeStamp! : '100000000000000000000',
-        user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit),
+        user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit),
     };
 };
 
-export const aPurchase_Filter = (overrides?: Partial<Purchase_Filter>, _relationshipsToOmit: Set<string> = new Set()): Purchase_Filter => {
+export const aMarketplacePurchase_Filter = (overrides?: Partial<MarketplacePurchase_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplacePurchase_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Purchase_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aMarketplaceBlockChangedFilter({}, relationshipsToOmit),
         amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : '100000000000000000000',
         amount_gt: overrides && overrides.hasOwnProperty('amount_gt') ? overrides.amount_gt! : '100000000000000000000',
         amount_gte: overrides && overrides.hasOwnProperty('amount_gte') ? overrides.amount_gte! : '100000000000000000000',
@@ -676,7 +676,7 @@ export const aPurchase_Filter = (overrides?: Partial<Purchase_Filter>, _relation
         amount_lte: overrides && overrides.hasOwnProperty('amount_lte') ? overrides.amount_lte! : '100000000000000000000',
         amount_not: overrides && overrides.hasOwnProperty('amount_not') ? overrides.amount_not! : '100000000000000000000',
         amount_not_in: overrides && overrides.hasOwnProperty('amount_not_in') ? overrides.amount_not_in! : ['100000000000000000000'],
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Purchase_Filter') ? {} as Purchase_Filter : aPurchase_Filter({}, relationshipsToOmit)],
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Purchase_Filter') ? {} as Purchase_Filter : aMarketplacePurchase_Filter({}, relationshipsToOmit)],
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'voluptas',
         id_contains: overrides && overrides.hasOwnProperty('id_contains') ? overrides.id_contains! : 'voluptatem',
         id_gt: overrides && overrides.hasOwnProperty('id_gt') ? overrides.id_gt! : 'sed',
@@ -688,7 +688,7 @@ export const aPurchase_Filter = (overrides?: Partial<Purchase_Filter>, _relation
         id_not_contains: overrides && overrides.hasOwnProperty('id_not_contains') ? overrides.id_not_contains! : 'error',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['doloremque'],
         listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : 'dolores',
-        listing_: overrides && overrides.hasOwnProperty('listing_') ? overrides.listing_! : relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aListing_Filter({}, relationshipsToOmit),
+        listing_: overrides && overrides.hasOwnProperty('listing_') ? overrides.listing_! : relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aMarketplaceListing_Filter({}, relationshipsToOmit),
         listing_contains: overrides && overrides.hasOwnProperty('listing_contains') ? overrides.listing_contains! : 'velit',
         listing_contains_nocase: overrides && overrides.hasOwnProperty('listing_contains_nocase') ? overrides.listing_contains_nocase! : 'rerum',
         listing_ends_with: overrides && overrides.hasOwnProperty('listing_ends_with') ? overrides.listing_ends_with! : 'quibusdam',
@@ -708,7 +708,7 @@ export const aPurchase_Filter = (overrides?: Partial<Purchase_Filter>, _relation
         listing_not_starts_with_nocase: overrides && overrides.hasOwnProperty('listing_not_starts_with_nocase') ? overrides.listing_not_starts_with_nocase! : 'nesciunt',
         listing_starts_with: overrides && overrides.hasOwnProperty('listing_starts_with') ? overrides.listing_starts_with! : 'excepturi',
         listing_starts_with_nocase: overrides && overrides.hasOwnProperty('listing_starts_with_nocase') ? overrides.listing_starts_with_nocase! : 'est',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Purchase_Filter') ? {} as Purchase_Filter : aPurchase_Filter({}, relationshipsToOmit)],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Purchase_Filter') ? {} as Purchase_Filter : aMarketplacePurchase_Filter({}, relationshipsToOmit)],
         price: overrides && overrides.hasOwnProperty('price') ? overrides.price! : '100000000000000000000',
         price_gt: overrides && overrides.hasOwnProperty('price_gt') ? overrides.price_gt! : '100000000000000000000',
         price_gte: overrides && overrides.hasOwnProperty('price_gte') ? overrides.price_gte! : '100000000000000000000',
@@ -726,7 +726,7 @@ export const aPurchase_Filter = (overrides?: Partial<Purchase_Filter>, _relation
         timeStamp_not: overrides && overrides.hasOwnProperty('timeStamp_not') ? overrides.timeStamp_not! : '100000000000000000000',
         timeStamp_not_in: overrides && overrides.hasOwnProperty('timeStamp_not_in') ? overrides.timeStamp_not_in! : ['100000000000000000000'],
         user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : 'ut',
-        user_: overrides && overrides.hasOwnProperty('user_') ? overrides.user_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aUser_Filter({}, relationshipsToOmit),
+        user_: overrides && overrides.hasOwnProperty('user_') ? overrides.user_! : relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aMarketplaceUser_Filter({}, relationshipsToOmit),
         user_contains: overrides && overrides.hasOwnProperty('user_contains') ? overrides.user_contains! : 'velit',
         user_contains_nocase: overrides && overrides.hasOwnProperty('user_contains_nocase') ? overrides.user_contains_nocase! : 'nostrum',
         user_ends_with: overrides && overrides.hasOwnProperty('user_ends_with') ? overrides.user_ends_with! : 'qui',
@@ -749,68 +749,68 @@ export const aPurchase_Filter = (overrides?: Partial<Purchase_Filter>, _relation
     };
 };
 
-export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<string> = new Set()): Query => {
+export const aMarketplaceQuery = (overrides?: Partial<MarketplaceQuery>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceQuery => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Query');
     return {
-        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : a_Meta_({}, relationshipsToOmit),
-        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit)],
-        activity: overrides && overrides.hasOwnProperty('activity') ? overrides.activity! : relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit),
-        categories: overrides && overrides.hasOwnProperty('categories') ? overrides.categories! : [relationshipsToOmit.has('Category') ? {} as Category : aCategory({}, relationshipsToOmit)],
-        category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : relationshipsToOmit.has('Category') ? {} as Category : aCategory({}, relationshipsToOmit),
-        countries: overrides && overrides.hasOwnProperty('countries') ? overrides.countries! : [relationshipsToOmit.has('Country') ? {} as Country : aCountry({}, relationshipsToOmit)],
-        country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : relationshipsToOmit.has('Country') ? {} as Country : aCountry({}, relationshipsToOmit),
-        listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit),
-        listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit)],
-        project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : relationshipsToOmit.has('Project') ? {} as Project : aProject({}, relationshipsToOmit),
-        projects: overrides && overrides.hasOwnProperty('projects') ? overrides.projects! : [relationshipsToOmit.has('Project') ? {} as Project : aProject({}, relationshipsToOmit)],
-        purchase: overrides && overrides.hasOwnProperty('purchase') ? overrides.purchase! : relationshipsToOmit.has('Purchase') ? {} as Purchase : aPurchase({}, relationshipsToOmit),
-        purchases: overrides && overrides.hasOwnProperty('purchases') ? overrides.purchases! : [relationshipsToOmit.has('Purchase') ? {} as Purchase : aPurchase({}, relationshipsToOmit)],
-        user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit),
-        users: overrides && overrides.hasOwnProperty('users') ? overrides.users! : [relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit)],
+        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : aMarketplace_Meta_({}, relationshipsToOmit),
+        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : aMarketplaceActivity({}, relationshipsToOmit)],
+        activity: overrides && overrides.hasOwnProperty('activity') ? overrides.activity! : relationshipsToOmit.has('Activity') ? {} as Activity : aMarketplaceActivity({}, relationshipsToOmit),
+        categories: overrides && overrides.hasOwnProperty('categories') ? overrides.categories! : [relationshipsToOmit.has('Category') ? {} as Category : aMarketplaceCategory({}, relationshipsToOmit)],
+        category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : relationshipsToOmit.has('Category') ? {} as Category : aMarketplaceCategory({}, relationshipsToOmit),
+        countries: overrides && overrides.hasOwnProperty('countries') ? overrides.countries! : [relationshipsToOmit.has('Country') ? {} as Country : aMarketplaceCountry({}, relationshipsToOmit)],
+        country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : relationshipsToOmit.has('Country') ? {} as Country : aMarketplaceCountry({}, relationshipsToOmit),
+        listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : relationshipsToOmit.has('Listing') ? {} as Listing : aMarketplaceListing({}, relationshipsToOmit),
+        listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aMarketplaceListing({}, relationshipsToOmit)],
+        project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : relationshipsToOmit.has('Project') ? {} as Project : aMarketplaceProject({}, relationshipsToOmit),
+        projects: overrides && overrides.hasOwnProperty('projects') ? overrides.projects! : [relationshipsToOmit.has('Project') ? {} as Project : aMarketplaceProject({}, relationshipsToOmit)],
+        purchase: overrides && overrides.hasOwnProperty('purchase') ? overrides.purchase! : relationshipsToOmit.has('Purchase') ? {} as Purchase : aMarketplacePurchase({}, relationshipsToOmit),
+        purchases: overrides && overrides.hasOwnProperty('purchases') ? overrides.purchases! : [relationshipsToOmit.has('Purchase') ? {} as Purchase : aMarketplacePurchase({}, relationshipsToOmit)],
+        user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit),
+        users: overrides && overrides.hasOwnProperty('users') ? overrides.users! : [relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit)],
     };
 };
 
-export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsToOmit: Set<string> = new Set()): Subscription => {
+export const aMarketplaceSubscription = (overrides?: Partial<MarketplaceSubscription>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceSubscription => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Subscription');
     return {
-        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : a_Meta_({}, relationshipsToOmit),
-        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit)],
-        activity: overrides && overrides.hasOwnProperty('activity') ? overrides.activity! : relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit),
-        categories: overrides && overrides.hasOwnProperty('categories') ? overrides.categories! : [relationshipsToOmit.has('Category') ? {} as Category : aCategory({}, relationshipsToOmit)],
-        category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : relationshipsToOmit.has('Category') ? {} as Category : aCategory({}, relationshipsToOmit),
-        countries: overrides && overrides.hasOwnProperty('countries') ? overrides.countries! : [relationshipsToOmit.has('Country') ? {} as Country : aCountry({}, relationshipsToOmit)],
-        country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : relationshipsToOmit.has('Country') ? {} as Country : aCountry({}, relationshipsToOmit),
-        listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit),
-        listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit)],
-        project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : relationshipsToOmit.has('Project') ? {} as Project : aProject({}, relationshipsToOmit),
-        projects: overrides && overrides.hasOwnProperty('projects') ? overrides.projects! : [relationshipsToOmit.has('Project') ? {} as Project : aProject({}, relationshipsToOmit)],
-        purchase: overrides && overrides.hasOwnProperty('purchase') ? overrides.purchase! : relationshipsToOmit.has('Purchase') ? {} as Purchase : aPurchase({}, relationshipsToOmit),
-        purchases: overrides && overrides.hasOwnProperty('purchases') ? overrides.purchases! : [relationshipsToOmit.has('Purchase') ? {} as Purchase : aPurchase({}, relationshipsToOmit)],
-        user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit),
-        users: overrides && overrides.hasOwnProperty('users') ? overrides.users! : [relationshipsToOmit.has('User') ? {} as User : aUser({}, relationshipsToOmit)],
+        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : aMarketplace_Meta_({}, relationshipsToOmit),
+        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : aMarketplaceActivity({}, relationshipsToOmit)],
+        activity: overrides && overrides.hasOwnProperty('activity') ? overrides.activity! : relationshipsToOmit.has('Activity') ? {} as Activity : aMarketplaceActivity({}, relationshipsToOmit),
+        categories: overrides && overrides.hasOwnProperty('categories') ? overrides.categories! : [relationshipsToOmit.has('Category') ? {} as Category : aMarketplaceCategory({}, relationshipsToOmit)],
+        category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : relationshipsToOmit.has('Category') ? {} as Category : aMarketplaceCategory({}, relationshipsToOmit),
+        countries: overrides && overrides.hasOwnProperty('countries') ? overrides.countries! : [relationshipsToOmit.has('Country') ? {} as Country : aMarketplaceCountry({}, relationshipsToOmit)],
+        country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : relationshipsToOmit.has('Country') ? {} as Country : aMarketplaceCountry({}, relationshipsToOmit),
+        listing: overrides && overrides.hasOwnProperty('listing') ? overrides.listing! : relationshipsToOmit.has('Listing') ? {} as Listing : aMarketplaceListing({}, relationshipsToOmit),
+        listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aMarketplaceListing({}, relationshipsToOmit)],
+        project: overrides && overrides.hasOwnProperty('project') ? overrides.project! : relationshipsToOmit.has('Project') ? {} as Project : aMarketplaceProject({}, relationshipsToOmit),
+        projects: overrides && overrides.hasOwnProperty('projects') ? overrides.projects! : [relationshipsToOmit.has('Project') ? {} as Project : aMarketplaceProject({}, relationshipsToOmit)],
+        purchase: overrides && overrides.hasOwnProperty('purchase') ? overrides.purchase! : relationshipsToOmit.has('Purchase') ? {} as Purchase : aMarketplacePurchase({}, relationshipsToOmit),
+        purchases: overrides && overrides.hasOwnProperty('purchases') ? overrides.purchases! : [relationshipsToOmit.has('Purchase') ? {} as Purchase : aMarketplacePurchase({}, relationshipsToOmit)],
+        user: overrides && overrides.hasOwnProperty('user') ? overrides.user! : relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit),
+        users: overrides && overrides.hasOwnProperty('users') ? overrides.users! : [relationshipsToOmit.has('User') ? {} as User : aMarketplaceUser({}, relationshipsToOmit)],
     };
 };
 
-export const aUser = (overrides?: Partial<User>, _relationshipsToOmit: Set<string> = new Set()): User => {
+export const aMarketplaceUser = (overrides?: Partial<MarketplaceUser>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceUser => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('User');
     return {
-        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit)],
+        activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : aMarketplaceActivity({}, relationshipsToOmit)],
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'est',
-        listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit)],
-        purchases: overrides && overrides.hasOwnProperty('purchases') ? overrides.purchases! : [relationshipsToOmit.has('Purchase') ? {} as Purchase : aPurchase({}, relationshipsToOmit)],
+        listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aMarketplaceListing({}, relationshipsToOmit)],
+        purchases: overrides && overrides.hasOwnProperty('purchases') ? overrides.purchases! : [relationshipsToOmit.has('Purchase') ? {} as Purchase : aMarketplacePurchase({}, relationshipsToOmit)],
     };
 };
 
-export const aUser_Filter = (overrides?: Partial<User_Filter>, _relationshipsToOmit: Set<string> = new Set()): User_Filter => {
+export const aMarketplaceUser_Filter = (overrides?: Partial<MarketplaceUser_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceUser_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('User_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        activities_: overrides && overrides.hasOwnProperty('activities_') ? overrides.activities_! : relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : anActivity_Filter({}, relationshipsToOmit),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aUser_Filter({}, relationshipsToOmit)],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aMarketplaceBlockChangedFilter({}, relationshipsToOmit),
+        activities_: overrides && overrides.hasOwnProperty('activities_') ? overrides.activities_! : relationshipsToOmit.has('Activity_Filter') ? {} as Activity_Filter : aMarketplaceActivity_Filter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aMarketplaceUser_Filter({}, relationshipsToOmit)],
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'rerum',
         id_contains: overrides && overrides.hasOwnProperty('id_contains') ? overrides.id_contains! : 'quaerat',
         id_gt: overrides && overrides.hasOwnProperty('id_gt') ? overrides.id_gt! : 'corrupti',
@@ -821,13 +821,13 @@ export const aUser_Filter = (overrides?: Partial<User_Filter>, _relationshipsToO
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'accusantium',
         id_not_contains: overrides && overrides.hasOwnProperty('id_not_contains') ? overrides.id_not_contains! : 'facere',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['non'],
-        listings_: overrides && overrides.hasOwnProperty('listings_') ? overrides.listings_! : relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aListing_Filter({}, relationshipsToOmit),
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aUser_Filter({}, relationshipsToOmit)],
-        purchases_: overrides && overrides.hasOwnProperty('purchases_') ? overrides.purchases_! : relationshipsToOmit.has('Purchase_Filter') ? {} as Purchase_Filter : aPurchase_Filter({}, relationshipsToOmit),
+        listings_: overrides && overrides.hasOwnProperty('listings_') ? overrides.listings_! : relationshipsToOmit.has('Listing_Filter') ? {} as Listing_Filter : aMarketplaceListing_Filter({}, relationshipsToOmit),
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('User_Filter') ? {} as User_Filter : aMarketplaceUser_Filter({}, relationshipsToOmit)],
+        purchases_: overrides && overrides.hasOwnProperty('purchases_') ? overrides.purchases_! : relationshipsToOmit.has('Purchase_Filter') ? {} as Purchase_Filter : aMarketplacePurchase_Filter({}, relationshipsToOmit),
     };
 };
 
-export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set<string> = new Set()): _Block_ => {
+export const aMarketplace_Block_ = (overrides?: Partial<Marketplace_Block_>, _relationshipsToOmit: Set<string> = new Set()): Marketplace_Block_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Block_');
     return {
@@ -837,11 +837,11 @@ export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set
     };
 };
 
-export const a_Meta_ = (overrides?: Partial<_Meta_>, _relationshipsToOmit: Set<string> = new Set()): _Meta_ => {
+export const aMarketplace_Meta_ = (overrides?: Partial<Marketplace_Meta_>, _relationshipsToOmit: Set<string> = new Set()): Marketplace_Meta_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Meta_');
     return {
-        block: overrides && overrides.hasOwnProperty('block') ? overrides.block! : relationshipsToOmit.has('_Block_') ? {} as _Block_ : a_Block_({}, relationshipsToOmit),
+        block: overrides && overrides.hasOwnProperty('block') ? overrides.block! : relationshipsToOmit.has('_Block_') ? {} as _Block_ : aMarketplace_Block_({}, relationshipsToOmit),
         deployment: overrides && overrides.hasOwnProperty('deployment') ? overrides.deployment! : 'ut',
         hasIndexingErrors: overrides && overrides.hasOwnProperty('hasIndexingErrors') ? overrides.hasIndexingErrors! : false,
     };

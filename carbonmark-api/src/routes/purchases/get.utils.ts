@@ -1,5 +1,5 @@
 import { utils } from "ethers";
-import { GetPurchaseByIdQuery } from "src/.generated/types/marketplace.types";
+import { MarketplaceGetPurchaseByIdQuery } from "src/.generated/types/marketplace.types";
 import { Purchase } from "../../models/Purchase.model";
 import { CreditId } from "../../utils/CreditId";
 
@@ -10,7 +10,7 @@ export const isValidPurchaseId = (id?: string | null) => {
 };
 
 export const composePurchaseModel = (
-  purchase: NonNullable<GetPurchaseByIdQuery["purchase"]>
+  purchase: NonNullable<MarketplaceGetPurchaseByIdQuery["purchase"]>
 ): Purchase => {
   const project = purchase.listing.project;
   // The digits after the registry identifier. e.g 1234 in VCS-1234

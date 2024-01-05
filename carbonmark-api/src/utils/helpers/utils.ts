@@ -2,10 +2,10 @@ import { FastifyInstance, FastifyReply } from "fastify";
 import { compact, concat, isArray, omit } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
-  ActivityType,
-  Category,
-  Country,
-  Listing,
+  MarketplaceActivityType,
+  MarketplaceCategory,
+  MarketplaceCountry,
+  MarketplaceListing,
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
@@ -67,7 +67,7 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
   // Try to get the cached result
   try {
     const cachedResult =
-      await fastify.lcache?.get<Category[]>(cacheKey)?.payload;
+      await fastify.lcache?.get<MarketplaceCategory[]>(cacheKey)?.payload;
 
     // If the cached result exists, return it
     if (cachedResult) return cachedResult;
@@ -102,12 +102,12 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
     map(trim),
     uniq,
     compact,
-    map((id: Category) => ({ id })),
+    map((id: MarketplaceCategory) => ({ id })),
     filter(notEmptyOrNil)
   );
 
   // Apply the function pipeline to the extracted values
-  const result: Category[] = fn(values);
+  const result: MarketplaceCategory[] = fn(values);
 
   // Cache the result before returning it
   await fastify.lcache?.set(cacheKey, { payload: result });
@@ -119,7 +119,8 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
 export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   const cacheKey = `countries`;
 
-  const cachedResult = await fastify.lcache?.get<Country[]>(cacheKey)?.payload;
+  const cachedResult =
+    await fastify.lcache?.get<MarketplaceCountry[]>(cacheKey)?.payload;
 
   if (cachedResult) {
     return cachedResult;
@@ -141,10 +142,10 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
     flatten,
     uniq,
     filter(notEmptyOrNil),
-    map((id: Country) => ({ id }))
+    map((id: MarketplaceCountry) => ({ id }))
   );
 
-  const result: Country[] = fn([
+  const result: MarketplaceCountry[] = fn([
     countries?.map(extract("id")),
     digitalCarbonProjects.map(extract("country")),
   ]);
@@ -154,8 +155,11 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   return result;
 }
 
-export type PriceType = Pick<Listing, "leftToSell" | "tokenAddress"> &
-  Partial<Pick<Listing, "singleUnitPrice">> & {
+export type PriceType = Pick<
+  MarketplaceListing,
+  "leftToSell" | "tokenAddress"
+> &
+  Partial<Pick<MarketplaceListing, "singleUnitPrice">> & {
     name: string;
   };
 
@@ -244,8 +248,10 @@ export function formatGraphTimestamps<
 /**
  * Converts a String into an ActivityType without breaking typescript checks
  */
-export const stringToActivityType = (str: string): ActivityType | undefined => {
-  for (const [key, value] of Object.entries(ActivityType)) {
+export const stringToActivityType = (
+  str: string
+): MarketplaceActivityType | undefined => {
+  for (const [key, value] of Object.entries(MarketplaceActivityType)) {
     if (key == str) {
       return value;
     }
@@ -256,10 +262,12 @@ export const stringToActivityType = (str: string): ActivityType | undefined => {
  * This method will silently filter out strings that do not relate to an actually activity type
  * so make sure the handler checks for correct activity type input
  */
-export const stringsToActivityTypes = (strs: string[]): ActivityType[] => {
+export const stringsToActivityTypes = (
+  strs: string[]
+): MarketplaceActivityType[] => {
   return strs
     .map(stringToActivityType)
-    .filter((str): str is ActivityType => !!str);
+    .filter((str): str is MarketplaceActivityType => !!str);
 };
 
 /**
