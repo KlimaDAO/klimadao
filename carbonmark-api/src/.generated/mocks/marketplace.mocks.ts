@@ -470,15 +470,15 @@ export const aProject = (overrides?: Partial<MarketplaceProject>, _relationships
         activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit)],
         category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : relationshipsToOmit.has('Category') ? {} as Category : aCategory({}, relationshipsToOmit),
         country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : relationshipsToOmit.has('Country') ? {} as Country : aCountry({}, relationshipsToOmit),
-        id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'VCS-191-2008',
-        key: overrides && overrides.hasOwnProperty('key') ? overrides.key! : 'VCS-191',
+        id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : '3e7d7963-406a-47bd-ad80-0448296895bf',
+        key: overrides && overrides.hasOwnProperty('key') ? overrides.key! : 'delectus',
         listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit)],
         methodology: overrides && overrides.hasOwnProperty('methodology') ? overrides.methodology! : 'doloremque',
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : 'et',
         projectAddress: overrides && overrides.hasOwnProperty('projectAddress') ? overrides.projectAddress! : 'consequatur',
-        registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : 'VCS',
+        registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : 'nihil',
         updatedAt: overrides && overrides.hasOwnProperty('updatedAt') ? overrides.updatedAt! : '100000000000000000000',
-        vintage: overrides && overrides.hasOwnProperty('vintage') ? overrides.vintage! : '2008',
+        vintage: overrides && overrides.hasOwnProperty('vintage') ? overrides.vintage! : '100000000000000000000',
     };
 };
 

@@ -22,6 +22,14 @@ const typescript_mock_data_config = (
     BigInt: "'100000000000000000000'",
   },
   typesPrefix: `${upperFirst(key)}`,
+  fieldGeneration: {
+    MarketplaceProject: {
+      id: "'VCS-191-2008'",
+      registry: "'VCS'",
+      vintage: "'2008'",
+      key: "'VCS-191'",
+    },
+  },
 });
 
 const typescript_config = (key: string): TypeScriptPluginConfig => ({
