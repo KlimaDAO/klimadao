@@ -26,11 +26,5 @@ export const ICR_API = (
     );
   }
 
-  if (!apiConfig.url) {
-    throw new Error(
-      `ICR api url is undefined for network: ${validatedNetwork}`
-    );
-  }
-
   return { ICR_API_URL: apiConfig.url, ICR_API_KEY: apiConfig.apiKey };
 };
