@@ -227,6 +227,9 @@ export const composeProjectEntries = (
   projectDataMap.forEach((data) => {
     const creditId = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(creditId.projectId);
+
+    if (!carbonProject) return;
+
     const project = buildProjectEntry({
       creditId,
       marketplaceProject: data.marketplaceProjectData,
