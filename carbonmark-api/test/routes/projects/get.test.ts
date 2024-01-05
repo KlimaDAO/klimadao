@@ -344,8 +344,13 @@ describe("GET /projects", () => {
   });
 
   describe("Duplicate filtering", () => {
+    const duplicateMarketplaceProject = cloneDeep(mockMarketplaceProject);
+    const duplicateDigitalCarbonProject = cloneDeep(mockDigitalCarbonProject);
     test("Marketplace projects", async () => {
-      mockMarketplaceProjects([mockMarketplaceProject, mockMarketplaceProject]);
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        duplicateMarketplaceProject,
+      ]);
       mockDigitalCarbonProjects([]);
 
       const projects = await mock_fetch(fastify, "/projects");
@@ -356,7 +361,7 @@ describe("GET /projects", () => {
       //Return two projects with supply
       mockDigitalCarbonProjects([
         mockDigitalCarbonProject,
-        mockDigitalCarbonProject,
+        duplicateDigitalCarbonProject,
       ]);
       const projects = await mock_fetch(fastify, "/projects");
       expect(projects.length).toBe(1);
