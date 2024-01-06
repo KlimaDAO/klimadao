@@ -2,20 +2,12 @@ import { FastifyInstance } from "fastify";
 import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
 import {
-  Project as CmsProject,
-  Maybe,
-  ProjectContent,
-  Slug,
-} from "../../../src/.generated/types/cms.types";
-import {
   CarbonProject,
   Registry,
 } from "../../../src/.generated/types/digitalCarbon.types";
 import { Project as MarketplaceProject } from "../../../src/.generated/types/marketplace.types";
 import { GRAPH_URLS } from "../../../src/app.constants";
-import { NetworkParam } from "../../../src/models/NetworkParam.model";
 import { Project } from "../../../src/models/Project.model";
-import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
 import { fixtures } from "../../fixtures";
 import marketplace from "../../fixtures/marketplace";
@@ -26,6 +18,7 @@ import {
   mockCms,
   mockDigitalCarbonArgs,
   mockDigitalCarbonProjects,
+  mockICRFilters,
   mockMarketplaceArgs,
   mockMarketplaceProjects,
   mockTokens,
@@ -93,7 +86,9 @@ const ICR_API_URL_MUMBAI = ICR_API("mumbai").ICR_API_URL;
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
 
-  afterEach(async () => await fastify.close());
+  afterEach(async () => {
+    await fastify.close();
+  });
 
   // Setup the server
   beforeEach(async () => {
@@ -116,12 +111,6 @@ describe("GET /projects", () => {
     mockMarketplaceProjects();
     mockDigitalCarbonProjects();
 
-    nock(GRAPH_URLS["mumbai"].marketplace)
-      .post("")
-      .reply(200, {
-        data: { projects: [marketplace.projectWithListing] },
-      });
-
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects`,
@@ -136,15 +125,6 @@ describe("GET /projects", () => {
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [] } });
-
-    nock(ICR_API_URL)
-      .get("/public/projects/list?page=0&limit=50")
-      .reply(200, { projects: [] });
-
-    // mumabi nocks backup
-    nock(ICR_API_URL_MUMBAI)
-      .get("/public/projects/list?page=0&limit=50")
-      .reply(200, { projects: [] });
 
     nock(GRAPH_URLS["mumbai"].marketplace)
       .post("")
@@ -212,7 +192,7 @@ describe("GET /projects", () => {
   test("Composes a marketplace project", async () => {
     mockMarketplaceProjects();
 
-    //No digital carbon projects
+    // //No digital carbon projects
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, { data: { carbonProjects: [] } });
@@ -290,166 +270,180 @@ describe("GET /projects", () => {
         },
       });
 
-    //   const response = await fastify.inject({
-    //     method: "GET",
-    //     url: `${DEV_URL}/projects`,
-    //   });
-    //   const data = response.json();
-    //   const entryWithListing = data.find(
-    //     (entry: any) => entry.listings && entry.listings.length
-    //   );
-    //   expect(entryWithListing.price).toStrictEqual(
-    //     formatUSDC(cheapListing.singleUnitPrice)
-    //   );
-    // });
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/projects`,
+    });
+    const data = response.json();
+    const entryWithListing = data.find(
+      (entry: any) => entry.listings && entry.listings.length
+    );
+    expect(entryWithListing.price).toStrictEqual(
+      formatUSDC(cheapListing.singleUnitPrice)
+    );
+  });
 
-    test("Best price is the lowest of 2 pool prices", async () => {
-      mockDigitalCarbonProjects();
-      mockMarketplaceProjects();
+  test("Best price is the lowest of 2 pool prices", async () => {
+    mockDigitalCarbonProjects();
+    mockMarketplaceProjects();
 
-      const response = await fastify.inject({
-        method: "GET",
-        url: `${DEV_URL}/projects`,
-      });
-      const data = response.json();
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/projects`,
+    });
+    const data = response.json();
 
-      expect(data[1].price).toStrictEqual(
-        //Because BigInt is converted to a string etc we need to do this nonsense
-        Math.floor(
-          Number(
-            formatUSDC(
-              mockMarketplaceProject.listings?.[0].singleUnitPrice ?? "0"
-            )
+    expect(data[1].price).toStrictEqual(
+      //Because BigInt is converted to a string etc we need to do this nonsense
+      Math.floor(
+        Number(
+          formatUSDC(
+            mockMarketplaceProject.listings?.[0].singleUnitPrice ?? "0"
           )
-        ).toString()
+        )
+      ).toString()
+    );
+  });
+
+  describe("Supply filtering", () => {
+    let projects: Project[];
+
+    beforeEach(() => {
+      mockICRFilters();
+    });
+
+    afterEach(() => {
+      nock.cleanAll();
+    });
+
+    test("No filtering when supply greater than 0 (DigitalCarbon)", async () => {
+      mockMarketplaceProjects([]);
+      //Return two projects with supply
+      mockDigitalCarbonProjects([
+        mockDigitalCarbonProject,
+        anotherCarbonProject,
+      ]);
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(2);
+    });
+
+    test("No filtering when supply greater than 0 (Marketplace)", async () => {
+      //Mock digital carbon with no supply
+      mockDigitalCarbonProjects([]);
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        anotherMarketplaceProject,
+      ]);
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(2);
+    });
+
+    test("DigitalCarbon projects are filtered", async () => {
+      //Mock digital carbon with no supply
+      const emptyCarbonProject = set(
+        cloneDeep(anotherCarbonProject),
+        "carbonCredits[0].poolBalances[0].balance",
+        "0"
       );
+      mockDigitalCarbonProjects([mockDigitalCarbonProject, emptyCarbonProject]);
+
+      //Remove all marketplace projects
+      mockMarketplaceProjects([]);
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+
+      expect(projects.at(0)?.key).toBe("VCS-191");
     });
 
-    describe("Supply filtering", () => {
-      let projects: Project[];
+    test("Marketplace projects are filtered", async () => {
+      //Mock no digitalCarbon projects
+      mockDigitalCarbonProjects([]);
 
-      test("No filtering when supply greater than 0 (DigitalCarbon)", async () => {
-        mockMarketplaceProjects([]);
-        //Return two projects with supply
-        mockDigitalCarbonProjects([
-          mockDigitalCarbonProject,
-          anotherCarbonProject,
-        ]);
+      const emptyMarketplaceProject = set(
+        cloneDeep(anotherMarketplaceProject),
+        "listings[0].leftToSell",
+        "0"
+      );
 
-        projects = await mock_fetch(fastify, "/projects");
-        expect(projects.length).toBe(2);
-      });
+      //Mock two projects
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        emptyMarketplaceProject,
+      ]);
 
-      test("No filtering when supply greater than 0 (Marketplace)", async () => {
-        //Mock digital carbon with no supply
-        mockDigitalCarbonProjects([]);
-        mockMarketplaceProjects([
-          mockMarketplaceProject,
-          anotherMarketplaceProject,
-        ]);
+      projects = await mock_fetch(fastify, "/projects");
 
-        projects = await mock_fetch(fastify, "/projects");
-        expect(projects.length).toBe(2);
-      });
+      //Only one should be returned
+      expect(projects.length).toBe(1);
+      //Confirm the correct supply is present
+      expect(
+        Number(projects.at(0)?.listings?.at(0)?.leftToSell)
+      ).toBeGreaterThan(0);
+    });
+  });
 
-      test("DigitalCarbon projects are filtered", async () => {
-        //Mock digital carbon with no supply
-        const emptyCarbonProject = set(
-          cloneDeep(anotherCarbonProject),
-          "carbonCredits[0].poolBalances[0].balance",
-          "0"
-        );
-        mockDigitalCarbonProjects([
-          mockDigitalCarbonProject,
-          emptyCarbonProject,
-        ]);
+  describe("Duplicate filtering", () => {
+    const duplicateMarketplaceProject = cloneDeep(mockMarketplaceProject);
+    const duplicateDigitalCarbonProject = cloneDeep(mockDigitalCarbonProject);
 
-        //Remove all marketplace projects
-        mockMarketplaceProjects([]);
-
-        projects = await mock_fetch(fastify, "/projects");
-        expect(projects.length).toBe(1);
-
-        expect(projects.at(0)?.key).toBe("VCS-191");
-      });
-
-      test("Marketplace projects are filtered", async () => {
-        //Mock no digitalCarbon projects
-        mockDigitalCarbonProjects([]);
-
-        const emptyMarketplaceProject = set(
-          cloneDeep(anotherMarketplaceProject),
-          "listings[0].leftToSell",
-          "0"
-        );
-
-        //Mock two projects
-        mockMarketplaceProjects([
-          mockMarketplaceProject,
-          emptyMarketplaceProject,
-        ]);
-
-        projects = await mock_fetch(fastify, "/projects");
-
-        //Only one should be returned
-        expect(projects.length).toBe(1);
-        //Confirm the correct supply is present
-        expect(
-          Number(projects.at(0)?.listings?.at(0)?.leftToSell)
-        ).toBeGreaterThan(0);
-      });
+    beforeEach(() => {
+      mockICRFilters();
     });
 
-    describe("Duplicate filtering", () => {
-      const duplicateMarketplaceProject = cloneDeep(mockMarketplaceProject);
-      const duplicateDigitalCarbonProject = cloneDeep(mockDigitalCarbonProject);
-      test("Marketplace projects", async () => {
-        mockMarketplaceProjects([
-          mockMarketplaceProject,
-          duplicateMarketplaceProject,
-        ]);
-        mockDigitalCarbonProjects([]);
-
-        const projects = await mock_fetch(fastify, "/projects");
-        expect(projects.length).toBe(1);
-      });
-      test("DigitalCarbon projects", async () => {
-        mockMarketplaceProjects([]);
-        //Return two projects with supply
-        mockDigitalCarbonProjects([
-          mockDigitalCarbonProject,
-          duplicateDigitalCarbonProject,
-        ]);
-        const projects = await mock_fetch(fastify, "/projects");
-        expect(projects.length).toBe(1);
-      });
-      test("Marketplace & DigitalCarbon projects", async () => {
-        mockMarketplaceProjects([mockMarketplaceProject]);
-        /** Make sure this carbon project matches the marketplace project */
-        const matchingCarbonProject = set(
-          cloneDeep(mockDigitalCarbonProject),
-          "carbonCredits[0].vintage",
-          "2008"
-        );
-        //Return two projects with supply
-        mockDigitalCarbonProjects([matchingCarbonProject]);
-        const projects = await mock_fetch(fastify, "/projects");
-        expect(projects.length).toBe(1);
-      });
+    afterEach(() => {
+      nock.cleanAll();
     });
 
-    test("Subgraph fields should be sanitised", async () => {
-      mockMarketplaceProjects();
-      mockDigitalCarbonProjects();
+    test("Marketplace projects", async () => {
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        duplicateMarketplaceProject,
+      ]);
+      mockDigitalCarbonProjects([]);
 
-      const modifiedCmsProject = cloneDeep(fixtures.cms.cmsProject);
-      set(modifiedCmsProject, "country", "    lots-of-spaces   ");
-      /**@todo add other fields */
-      mockCms({ projects: [modifiedCmsProject] });
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+    test("DigitalCarbon projects", async () => {
+      mockMarketplaceProjects([]);
+      //Return two projects with supply
+      mockDigitalCarbonProjects([
+        mockDigitalCarbonProject,
+        duplicateDigitalCarbonProject,
+      ]);
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+    test("Marketplace & DigitalCarbon projects", async () => {
+      mockMarketplaceProjects([mockMarketplaceProject]);
+      /** Make sure this carbon project matches the marketplace project */
+      const matchingCarbonProject = set(
+        cloneDeep(mockDigitalCarbonProject),
+        "carbonCredits[0].vintage",
+        "2008"
+      );
+      //Return two projects with supply
+      mockDigitalCarbonProjects([matchingCarbonProject]);
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+  });
+
+  test("Subgraph fields should be sanitised", async () => {
+    mockMarketplaceProjects();
+    mockDigitalCarbonProjects();
+
+    const modifiedCmsProject = cloneDeep(fixtures.cms.cmsProject);
+    set(modifiedCmsProject, "country", "    lots-of-spaces   ");
+    /**@todo add other fields */
+    mockCms({ projects: [modifiedCmsProject] });
 
     const projects: Project[] = await mock_fetch(fastify, "/projects");
     expect(projects.length).toBe(2);
-    expect(projects.at(0)?.country).toBe("lots-of-spaces");
+    expect(projects.at(0)?.country.id).toBe("lots-of-spaces");
   });
 
   test.todo("Same asset in multiple pools and listings");

@@ -7,7 +7,11 @@ import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
 import { Project } from "src/.generated/types/marketplace.types";
 import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
 import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
-import { mockICRProject } from "../../../test/test.constants";
+import {
+  COUNTRY_CODES,
+  VINTAGES,
+  mockICRProject,
+} from "../../../test/test.constants";
 import { fixtures } from "../../fixtures";
 
 /**
@@ -49,6 +53,12 @@ export const mockCms = (overrides?: {
     });
 };
 
+export const mockICRFilters = () =>
+  nock(ICR_API_URL).persist().get("/public/projects/filters").reply(200, {
+    vintages: VINTAGES,
+    countryCodes: COUNTRY_CODES,
+  });
+
 export const mockTokens = () =>
   nock(GRAPH_URLS["polygon"].tokens)
     .post("", (body) => body.query.includes("getPoolPrices"))
@@ -56,7 +66,19 @@ export const mockTokens = () =>
       data: { prices: fixtures.tokens.prices },
     });
 
+export const mockICRRequest = () =>
+  nock(ICR_API_URL)
+    .get("/public/projects/list?page=0&limit=50")
+    .reply(200, { projects: [mockICRProject] });
+
+// mumbai nocks backup
+
+nock(ICR_API_URL_MUMBAI)
+  .get("/public/projects/list?page=0&limit=50")
+  .reply(200, { projects: [mockICRProject] });
+
 export const mockDigitalCarbonProjects = (override?: CarbonProject[]) => {
+  mockICRRequest();
   nock(GRAPH_URLS["polygon"].digitalCarbon)
     .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
     .reply(200, {
@@ -66,16 +88,6 @@ export const mockDigitalCarbonProjects = (override?: CarbonProject[]) => {
         ],
       },
     });
-
-  nock(ICR_API_URL)
-    .get("/public/projects/list?page=0&limit=50")
-    .reply(200, { projects: [mockICRProject] });
-
-  // mumbai nocks backup
-
-  nock(ICR_API_URL_MUMBAI)
-    .get("/public/projects/list?page=0&limit=50")
-    .reply(200, { projects: [mockICRProject] });
 };
 
 export const mockDigitalCarbonArgs = () =>
@@ -159,6 +171,7 @@ export const mockDigitalCarbonArgs = () =>
     });
 
 export const mockMarketplaceProjects = (override?: Project[]) => {
+  mockICRRequest();
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getProjects"))
     .reply(200, {
@@ -172,7 +185,9 @@ export const mockMarketplaceProjects = (override?: Project[]) => {
     });
 };
 //Mocks all categories, countries and vintages
-export const mockMarketplaceArgs = () =>
+export const mockMarketplaceArgs = () => {
+  mockICRFilters();
+
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getCategories"))
     .reply(200, {
@@ -273,3 +288,4 @@ export const mockMarketplaceArgs = () =>
         ],
       },
     });
+};
