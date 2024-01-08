@@ -17,7 +17,9 @@ export const ProjectModel = Type.Object({
   }),
   url: Nullable(Type.String()),
   vintage: Type.String(),
-  creditTokenAddress: Type.String(),
+  creditTokenAddress: Type.String({
+    description: "⚠️Deprecated. Project may have multiple token addresses.",
+  }),
   registry: Type.String(),
   updatedAt: Type.String(),
   country: Type.String(),
