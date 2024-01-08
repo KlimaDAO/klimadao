@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
-import { DetailedProjectModel } from "../../../models/DetailedProject.model";
 import { NetworkParamModel } from "../../../models/NetworkParam.model";
+import { ProjectModel } from "../../../models/Project.model";
 import { CreditId } from "../../../utils/CreditId";
 
 export const params = Type.Object({
@@ -44,7 +44,7 @@ export const schema = {
       description: "Project with id",
       content: {
         "application/json": {
-          schema: DetailedProjectModel,
+          schema: ProjectModel,
         },
       },
     },
