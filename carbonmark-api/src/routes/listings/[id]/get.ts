@@ -19,7 +19,7 @@ const handler = (fastify: FastifyInstance) =>
     const listing = (await getListingById(sdk, id)).listing;
 
     if (!listing) {
-      return reply.status(404);
+      return reply.notFound();
     }
 
     const symbol = (await getTokenById(sdk, listing.tokenAddress)).symbol;
