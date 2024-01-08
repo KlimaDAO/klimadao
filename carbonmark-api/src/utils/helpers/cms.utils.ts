@@ -1,18 +1,13 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
-import fetch from "node-fetch";
-import { NetworkParam } from "src/models/NetworkParam.model";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
   GetCmsProjectQuery,
   ProjectContent,
 } from "../../.generated/types/cms.types";
-import { convertIcrCountryCodeToName } from "../ICR/icr.utils";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
-import { getCategoryFromMethodology } from "../getCategoryFromMethodoloy";
 import { GQL_SDK } from "../gqlSdk";
-import { ICR_API } from "./../../../src/utils/ICR/ICR_API_endpoints";
 
 export type ProjectImage = {
   asset?: {
@@ -22,28 +17,10 @@ export type ProjectImage = {
   } | null;
 };
 
-type IcrCarbonImage = {
-  uri: string;
-  fileName: string;
+type Args = {
+  registry: string; // e.g VCS
+  registryProjectId: string; //e.g 1121
 };
-
-type SdkArgs = {
-  registry: string;
-  registryProjectId: string;
-};
-
-type IcrArgs =
-  | { serialization: string; network: NetworkParam; contractAddress?: never }
-  | {
-      contractAddress: string;
-      vintage?: string;
-      network: NetworkParam;
-      serialization?: never;
-    };
-
-export type FetchCarbonProjectMethod = GQL_SDK | string;
-
-export type FetchCarbonProjectArgs = SdkArgs | IcrArgs;
 
 /**
  * Generates a unique key for a project using its registry and id.
@@ -61,146 +38,21 @@ export type CarbonProject = GetCmsProjectQuery["allProject"][number] & {
 };
 
 // fix return type
-export const fetchCMSProject = async (
-  sdk: FetchCarbonProjectMethod,
-  args: FetchCarbonProjectArgs
-) => {
-  /** @todo all of the below workarounds can be removed once cms is the single source of project truth */
+export const fetchCMSProject = async (sdk: GQL_SDK, args: Args) => {
+  const [{ allProject }, { allProjectContent }] = await Promise.all([
+    sdk.cms.getCMSProject(args),
+    sdk.cms.getCMSProjectContent(args),
+  ]);
 
-  if (
-    ("serialization" in args || "contractAddress" in args) &&
-    typeof sdk === "string"
-  ) {
-    let url = "";
+  const project = allProject.at(0);
+  const content = allProjectContent.at(0);
+  const key = projectKey(args);
 
-    if ("serialization" in args && typeof sdk === "string") {
-      url = `${sdk}/public/projects?creditSerialization=${args.serialization}`;
-    } else if ("contractAddress" in args && typeof sdk === "string") {
-      url = `${sdk}/public/projects?contractAddress=${args.contractAddress}`;
-    }
-    const { ICR_API_KEY } = ICR_API(args.network);
-
-    try {
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${ICR_API_KEY}`,
-        },
-      });
-
-      const apiData = await response.json();
-      if (apiData.statusCode === 404) {
-        console.info("ICR API returned 404. No Project Found.");
-        return null;
-      }
-
-      // make common type to export
-      const images: ProjectImage[] =
-        apiData.media?.map((image: IcrCarbonImage) => ({
-          asset: {
-            url: image.uri,
-            caption: image.fileName,
-          },
-        })) || [];
-
-      const registry = apiData.ghgProgram?.id.toUpperCase() || null;
-
-      const findTokenIdByVintage = (
-        vintage: string | undefined
-      ): string | null => {
-        if (!vintage) {
-          return null;
-        }
-        for (const credit of apiData.carbonCredits) {
-          if (credit.vintage === vintage) {
-            return credit.tokenId;
-          }
-        }
-        return null;
-      };
-
-      const findSerializationByVintage = (
-        vintage: string | undefined
-      ): string | null => {
-        if (!vintage) {
-          return null;
-        }
-        for (const credit of apiData.carbonCredits) {
-          if (credit.vintage === vintage) {
-            return credit.serialization;
-          }
-        }
-        return null;
-      };
-      // extract the matching tokenID from the vintage in serialization
-      // @todo can avoid this by keeping project in cms and not having to fetch from ICR
-      let vintage;
-      let serialization;
-
-      if (typeof args.serialization === "string") {
-        vintage = args.serialization.split("-").pop();
-        serialization = args.serialization;
-      }
-
-      if (typeof args.contractAddress === "string") {
-        vintage = args.vintage;
-        serialization = findSerializationByVintage(args.vintage);
-      }
-
-      return {
-        key: serialization ?? "",
-        country: convertIcrCountryCodeToName(apiData.countryCode) || null,
-        description: apiData.shortDescription || null,
-        name: apiData.fullName || null,
-        region: apiData.geographicalRegion || null,
-        registry: registry || null,
-        url: apiData.website || null,
-        registryProjectId: apiData.num || null,
-        id: `${registry}-${apiData.num}` || null,
-        geolocation: apiData.geoLocation || null,
-        methodologies:
-          [
-            {
-              id: apiData?.methodology?.id,
-              category: getCategoryFromMethodology(apiData?.methodology?.id),
-              name: apiData.methodology.title,
-            },
-          ] || null,
-        shortDescription: apiData.shortDescription || null,
-        longDescription: apiData.description || null,
-        project: {
-          registry: registry || null,
-          registryProjectId: apiData.num || null,
-        },
-        coverImage: apiData.documents?.[0]?.uri || null,
-        images,
-        tokenId: findTokenIdByVintage(vintage) || null,
-        vintage: vintage || null,
-      };
-    } catch (error) {
-      // catch 403s here for mainnet keys that are not verified
-      console.error(error);
-      throw error;
-    }
-  } else if ("registry" in args && typeof sdk !== "string") {
-    const [{ allProject }, { allProjectContent }] = await Promise.all([
-      sdk.cms.getCMSProject(args),
-      sdk.cms.getCMSProjectContent(args),
-    ]);
-
-    const project = allProject?.at(0);
-    const content = allProjectContent?.at(0);
-    const key = projectKey(args);
-    return {
-      ...project,
-      ...content,
-      key,
-    };
-  }
-  throw new Error(
-    "Invalid arguments or SDK type provided to fetchCarbonProject"
-  );
+  return {
+    ...project,
+    ...content,
+    key,
+  };
 };
 
 /**

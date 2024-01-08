@@ -4,10 +4,8 @@ import { map, mapValues, toLower, trim } from "lodash/fp";
 import fetch from "node-fetch";
 import { FindDigitalCarbonProjectsQuery } from "src/.generated/types/digitalCarbon.types";
 import type { NetworkParam } from "src/models/NetworkParam.model";
-import type { IcrProject } from "src/utils/ICR/icr.types";
 import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
 import { convertIcrCountryCodeToName } from "../../../src/utils/ICR/icr.utils";
-import { getCategoryFromMethodology } from "../../../src/utils/getCategoryFromMethodoloy";
 import { Geopoint } from "../../.generated/types/cms.types";
 import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
 import { Project } from "../../models/Project.model";
@@ -290,8 +288,7 @@ const pickBestPrice = (
 export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
-  poolPrices: Record<string, PoolPrice>,
-  IcrListProjects: IcrProject[]
+  poolPrices: Record<string, PoolPrice>
 ): Project[] => {
   const entries: Project[] = [];
   projectDataMap.forEach((data) => {
@@ -304,93 +301,41 @@ export const composeProjectEntries = (
       registryProjectId,
     } = new CreditId(data.key);
 
-    // @todo create alternate construction function for ICR
-    if (registry === "ICR") {
-      const icrProject = IcrListProjects.find(
-        (project) => project.num === Number(registryProjectId)
-      );
+    const carbonProject = cmsDataMap.get(projectId);
+    /** If there are no prices hide this project */
+    const price = pickBestPrice(data, poolPrices);
+    if (!price) return;
+    // construct CarbonmarkProjectT and make typescript happy
+    const entry: Project = {
+      //Remove string padding on methodologies
+      methodologies: carbonProject?.methodologies?.map(mapValues(trim)) ?? [],
+      description: carbonProject?.description || null,
+      short_description: carbonProject?.content?.shortDescription || null,
+      name: carbonProject?.name || poolBalances?.name || "",
+      location: toGeoJSON(carbonProject?.geolocation),
+      country: {
+        id:
+          carbonProject?.country?.trim() || poolBalances?.country.trim() || "",
+      },
+      images: carbonProject?.content?.images?.map((img) => ({
+        url: img?.asset?.url ?? "",
+        caption: img?.asset?.description ?? "",
+      })),
+      key: projectId,
+      registry,
+      region: carbonProject?.region || "",
+      projectID: registryProjectId,
+      vintage:
+        poolBalances?.carbonCredits[0].vintage.toString() ??
+        market?.vintage ??
+        "",
+      creditTokenAddress: poolBalances?.carbonCredits?.[0].id ?? "",
+      updatedAt: pickUpdatedAt(data),
+      listings: market?.listings?.map(formatListing) || null,
+      price,
+    };
 
-      if (!icrProject) {
-        throw new Error(
-          `Could not find ICR project with num ${registryProjectId}`
-        );
-      }
-
-      const IcrEntry: Project = {
-        methodologies: [
-          {
-            id: icrProject.methodology?.id,
-            name: icrProject.methodology?.title,
-            category: getCategoryFromMethodology(icrProject.methodology?.id),
-          },
-        ],
-        description: icrProject?.shortDescription ?? null,
-        short_description: icrProject.shortDescription ?? null,
-        name: icrProject.fullName ?? "",
-        location: toGeoJSON(icrProject?.geoLocation),
-        country: {
-          id: convertIcrCountryCodeToName(icrProject.countryCode) ?? "",
-        },
-        images:
-          icrProject.media?.map((img) => ({
-            url: img.uri ?? "",
-            caption: img?.description ?? "",
-          })) ?? [],
-        key: projectId,
-        registry,
-        region: icrProject.geographicalRegion?.id ?? "",
-        projectID: registryProjectId,
-        vintage: market?.vintage ?? "",
-        creditTokenAddress: icrProject.projectContracts?.[0].address ?? "",
-        updatedAt: pickUpdatedAt(data),
-        price: pickBestPrice(data, poolPrices) || "0",
-        listings: market?.listings?.map(formatListing) || null,
-        serialization:
-          icrProject?.carbonCredits.find(
-            (credit) => credit.vintage === market?.vintage
-          )?.serialization ?? undefined,
-      };
-
-      entries.push(IcrEntry);
-    } else {
-      const carbonProject = cmsDataMap.get(projectId);
-      /** If there are no prices hide this project */
-      const price = pickBestPrice(data, poolPrices);
-      if (!price) return;
-      // construct CarbonmarkProjectT and make typescript happy
-      const entry: Project = {
-        //Remove string padding on methodologies
-        methodologies: carbonProject?.methodologies?.map(mapValues(trim)) ?? [],
-        description: carbonProject?.description || null,
-        short_description: carbonProject?.content?.shortDescription || null,
-        name: carbonProject?.name || poolBalances?.name || "",
-        location: toGeoJSON(carbonProject?.geolocation),
-        country: {
-          id:
-            carbonProject?.country?.trim() ||
-            poolBalances?.country.trim() ||
-            "",
-        },
-        images: carbonProject?.content?.images?.map((img) => ({
-          url: img?.asset?.url ?? "",
-          caption: img?.asset?.description ?? "",
-        })),
-        key: projectId,
-        registry,
-        region: carbonProject?.region || "",
-        projectID: registryProjectId,
-        vintage:
-          poolBalances?.carbonCredits[0].vintage.toString() ??
-          market?.vintage ??
-          "",
-        creditTokenAddress: poolBalances?.carbonCredits?.[0].id ?? "",
-        updatedAt: pickUpdatedAt(data),
-        listings: market?.listings?.map(formatListing) || null,
-        price,
-      };
-
-      entries.push(entry);
-    }
+    entries.push(entry);
   });
 
   return entries;

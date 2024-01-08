@@ -16,6 +16,13 @@ const formatHolding = (h: Holding): Holding => {
   };
 };
 
+const createICRProjectID = (serialization: string) => {
+  const elements = serialization.split("-");
+  const registry = elements[0];
+  const num = elements[3];
+  return `${registry}-${num}`;
+};
+
 /** Hacky Mumbai simulation for known testnet assets
  *  until we get a testnet version of polygon-digital-carbon */
 const fetchTestnetHoldings = async (params: {
@@ -85,7 +92,10 @@ const fetchTestnetHoldings = async (params: {
         decimals: 18,
         id: item.exPost.project.id,
         name: item.exPost.project.projectName,
-        symbol: item.exPost.serialization,
+        symbol:
+          createICRProjectID(item.exPost.serialization) +
+          "-" +
+          item.exPost.vintage,
         tokenId: item.exPost.tokenId,
       },
     }));
@@ -151,7 +161,10 @@ export const getHoldingsByWallet = async (params: {
           decimals: 0,
           id: item.exPost.project.id,
           name: item.exPost.project.projectName,
-          symbol: item.exPost.serialization,
+          symbol:
+            createICRProjectID(item.exPost.serialization) +
+            "-" +
+            item.exPost.vintage,
           tokenId: item.exPost.tokenId,
         },
       }));

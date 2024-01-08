@@ -3,7 +3,6 @@ import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
 import { Project } from "../../models/Project.model";
 import { CreditId } from "../../utils/CreditId";
-import { fetchAllICRProjects } from "../../utils/ICR/icr.utils";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/cms.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
@@ -48,30 +47,24 @@ const handler = (fastify: FastifyInstance) =>
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(sdk, fastify, network);
 
-    const [
-      marketplaceProjectsData,
-      poolProjectsData,
-      cmsProjects,
-      poolPrices,
-      IcrListProjects,
-    ] = await Promise.all([
-      sdk.marketplace.getProjects({
-        search: request.query.search ?? "",
-        category: args.category ?? allOptions.category,
-        country: args.country ?? allOptions.country,
-        vintage: args.vintage ?? allOptions.vintage,
-        expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
-      }),
-      sdk.digital_carbon.findDigitalCarbonProjects({
-        search: request.query.search ?? "",
-        category: args.category ?? allOptions.category,
-        country: args.country ?? allOptions.country,
-        vintage: (args.vintage ?? allOptions.vintage).map(Number),
-      }),
-      fetchAllCarbonProjects(sdk),
-      fetchAllPoolPrices(sdk),
-      fetchAllICRProjects(network),
-    ]);
+    const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
+      await Promise.all([
+        sdk.marketplace.getProjects({
+          search: request.query.search ?? "",
+          category: args.category ?? allOptions.category,
+          country: args.country ?? allOptions.country,
+          vintage: args.vintage ?? allOptions.vintage,
+          expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
+        }),
+        sdk.digital_carbon.findDigitalCarbonProjects({
+          search: request.query.search ?? "",
+          category: args.category ?? allOptions.category,
+          country: args.country ?? allOptions.country,
+          vintage: (args.vintage ?? allOptions.vintage).map(Number),
+        }),
+        fetchAllCarbonProjects(sdk),
+        fetchAllPoolPrices(sdk),
+      ]);
 
     const CMSDataMap: CMSDataMap = new Map();
     const ProjectMap: ProjectDataMap = new Map();
@@ -136,12 +129,7 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     /** Compose all the data together to unique entries (unsorted) */
-    const entries = composeProjectEntries(
-      ProjectMap,
-      CMSDataMap,
-      poolPrices,
-      IcrListProjects
-    );
+    const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
 
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
     // Send the transformed projects array as a JSON string in the response

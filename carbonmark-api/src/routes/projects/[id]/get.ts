@@ -1,21 +1,14 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { mapValues, pipe, trim, uniq } from "lodash/fp";
-import { REGISTRIES } from "../../../app.constants";
 import { DetailedProject } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
-import {
-  fetchCMSProject,
-  type FetchCarbonProjectArgs,
-  type FetchCarbonProjectMethod,
-  type ProjectImage,
-} from "../../../utils/helpers/cms.utils";
+import { fetchCMSProject } from "../../../utils/helpers/cms.utils";
 
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
 import { toGeoJSON } from "../get.utils";
-import { ICR_API } from "./../../../../src/utils/ICR/ICR_API_endpoints";
 import { Params, Querystring, schema } from "./get.schema";
 
 // Handler function for the "/projects/:id" route
@@ -40,30 +33,7 @@ const handler = (fastify: FastifyInstance) =>
       projectId: key,
     } = new CreditId(id);
 
-    let fetchCarbonProjectMethod: FetchCarbonProjectMethod;
-    let fetchCarbonProjectArgs: FetchCarbonProjectArgs;
     let icrSerialization: string | undefined;
-
-    switch (registry) {
-      case REGISTRIES["ICR"].id: {
-        const { ICR_API_URL } = ICR_API(network);
-        fetchCarbonProjectMethod = ICR_API_URL;
-        fetchCarbonProjectArgs = {
-          serialization: id,
-          network: network,
-        };
-        icrSerialization = id;
-        break;
-      }
-      default:
-        fetchCarbonProjectMethod = sdk;
-        fetchCarbonProjectArgs = {
-          registry,
-          registryProjectId,
-          network: network,
-        };
-        break;
-    }
 
     let poolPrices, stats, listings, projectDetails;
 
@@ -81,7 +51,10 @@ const handler = (fastify: FastifyInstance) =>
           fastify,
           expiresAfter: request.query.expiresAfter,
         }),
-        fetchCMSProject(fetchCarbonProjectMethod, fetchCarbonProjectArgs),
+        fetchCMSProject(sdk, {
+          registry,
+          registryProjectId,
+        }),
       ]);
     } catch (error) {
       console.error(error);
@@ -119,17 +92,14 @@ const handler = (fastify: FastifyInstance) =>
       price: String(bestPrice ?? 0), // remove trailing zeros
       prices: poolPrices,
       images:
-        projectDetails?.images
-          ?.filter((image): image is ProjectImage => !!image)
-          .map((image: ProjectImage) => ({
-            caption: image?.asset?.altText || "",
-            url: image?.asset?.url || "",
-          })) ?? [],
+        projectDetails?.images?.map((image) => ({
+          caption: image?.asset?.altText,
+          url: image?.asset?.url,
+        })) ?? [],
       listings,
       vintage,
       stats,
       serialization: icrSerialization,
-      tokenId: projectDetails.tokenId,
     };
     return reply
       .header("Content-Type", "application/json; charset=utf-8")
