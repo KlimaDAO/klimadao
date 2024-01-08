@@ -25,7 +25,7 @@ describe("GET /listings/:id", () => {
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, {
-        data: { token: fixtures.digitalCarbon.token },
+        data: { token: fixtures.tokens.token },
       });
     const response = await fastify.inject({
       method: "GET",
@@ -33,7 +33,7 @@ describe("GET /listings/:id", () => {
     });
     expect(response.statusCode).toEqual(200);
     const json = await response.json();
-    expect(json.symbol).toEqual(fixtures.digitalCarbon.token.symbol);
+    expect(json.symbol).toEqual(fixtures.tokens.token.symbol);
   });
 
   test("Returns 404 when listing is not found", async () => {

@@ -32,9 +32,14 @@ const prices: GetPoolPricesQuery["prices"] = [
   },
 ];
 
+export const token = {
+  symbol: "TCO2-VCS-1764-2020",
+};
+
 /** Fixtures for the tokens subgraph */
 const fixtures = {
   prices,
+  token,
 };
 
 export default fixtures;
