@@ -628,21 +628,21 @@ export const GetPoolPricesDocument = gql`
 }
     `;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getPair(variables: GetPairQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPairQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPairQuery>(GetPairDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPair', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPairQuery>(GetPairDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPair', 'query', variables);
     },
     getBySymbol(variables?: GetBySymbolQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetBySymbolQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetBySymbolQuery>(GetBySymbolDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBySymbol', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetBySymbolQuery>(GetBySymbolDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBySymbol', 'query', variables);
     },
     getPoolPrices(variables?: GetPoolPricesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPoolPricesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPoolPricesQuery>(GetPoolPricesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPoolPrices', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPoolPricesQuery>(GetPoolPricesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPoolPrices', 'query', variables);
     }
   };
 }
