@@ -1,4 +1,3 @@
-// import { ICR_CONFIG } from "../../app.constants";
 import { NetworkParam } from "../../models/NetworkParam.model";
 
 const ICR_CONFIG = {
@@ -13,7 +12,7 @@ const ICR_CONFIG = {
 };
 
 export const ICR_API = (
-  network?: "polygon" | "mumbai"
+  network?: NetworkParam
 ): { ICR_API_URL: string; ICR_API_KEY: string } => {
   const validatedNetwork: NetworkParam =
     network === "polygon" || network === "mumbai" ? network : "polygon";
