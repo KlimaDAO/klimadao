@@ -35,4 +35,35 @@ describe("GET /listings/:id", () => {
     const json = await response.json();
     expect(json.symbol).toEqual(fixtures.digitalCarbon.token.symbol);
   });
+
+  test("Returns 404 when listing is not found", async () => {
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("")
+      .reply(200, {
+        data: { listing: null },
+      });
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/listings/0x123`,
+    });
+    expect(response.statusCode).toEqual(404);
+  });
+
+  test("Returns 500 when token is not found", async () => {
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("")
+      .reply(200, {
+        data: { listing: fixtures.marketplace.listing },
+      });
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
+      .post("")
+      .reply(200, {
+        data: { token: null },
+      });
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/listings/0x123`,
+    });
+    expect(response.statusCode).toEqual(500);
+  });
 });
