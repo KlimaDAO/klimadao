@@ -10,9 +10,9 @@ export type TokenPrice = {
   supply: string;
   /**
    * @description Address of the pool itself, e.g. bct token address
-   * @type string
+   * @type boolean
    */
-  poolAddress: string;
+  poolAddress: boolean;
   /**
    * @description Address of the project token in this pool
    * @type string

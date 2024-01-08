@@ -18,14 +18,13 @@ import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
-import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
 import {
   ActivityActionT,
+  DetailedProject,
   Listing,
-  Project as SDKProject,
   TokenPrice,
 } from "lib/types/carbonmark.types";
 import { extract, notNil } from "lib/utils/functional.utils";
@@ -40,7 +39,7 @@ import { ProjectTags } from "./ProjectTags";
 import * as styles from "./styles";
 
 export type PageProps = {
-  project: SDKProject;
+  project: DetailedProject;
   activities: Activity[];
   projectID: string;
 };
@@ -54,16 +53,14 @@ export const VISIBLE_ACTIVITIES: ActivityActionT[] = [
 ];
 
 const Page: NextPage<PageProps> = (props) => {
-  const { data: project } = useGetProjectsId(props.projectID, {
-    minSupply: DEFAULT_MIN_LISTING_QUANTITY,
-  });
+  const { data: project } = useGetProjectsId(props.projectID);
   const { data: activities } = useGetProjectsIdActivity(props.projectID, {
     activityType: VISIBLE_ACTIVITIES,
   });
   const [isExpanded, setIsExpanded] = useState(false);
   const bestPrice = project?.price;
   // Project should always be defined from static page props!
-  if (isNil(project) || isNil(project.listings)) {
+  if (isNil(project)) {
     console.error(`Invalid project for ${props.projectID}`);
     return null;
   }

@@ -13,7 +13,7 @@
     "supply": { "description": "Remaining supply in pool", "type": "string" },
     "poolAddress": {
       "description": "Address of the pool itself, e.g. bct token address",
-      "type": "string"
+      "type": "boolean"
     },
     "projectTokenAddress": {
       "description": "Address of the project token in this pool",

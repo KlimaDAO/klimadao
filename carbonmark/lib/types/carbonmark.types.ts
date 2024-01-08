@@ -8,6 +8,7 @@ import type {
   Asset as SDKAsset,
   Category as SDKCategory,
   Country as SDKCountry,
+  DetailedProject as SDKDetailedProject,
   Listing as SDKListing,
   Project as SDKProject,
   TokenPrice as SDKTokenPrice,
@@ -22,6 +23,7 @@ export type User = SDKUser;
 export type Category = SDKCategory;
 export type Country = SDKCountry;
 export type Asset = SDKAsset;
+export type DetailedProject = SDKDetailedProject;
 export type CarouselImage = Image;
 export type CategoryName = keyof typeof CATEGORY_INFO;
 

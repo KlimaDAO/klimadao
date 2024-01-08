@@ -17,8 +17,8 @@ import { OnStatusHandler } from "lib/statusMessage";
 import {
   Asset,
   AssetForRetirement,
+  DetailedProject,
   PcbProject,
-  Project,
 } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { isNil } from "lodash";
@@ -308,7 +308,7 @@ export const deleteListingTransaction = async (params: {
 };
 
 export type AssetWithProject = Asset & {
-  project: Project | null;
+  project: DetailedProject | null;
 };
 
 const idFromSymbol = (symbol: string) => {
@@ -334,7 +334,7 @@ export const addProjectsToAssets = async (params: {
     const ProjectMap = projects.reduce((PMap, p) => {
       if (p?.key) PMap.set(`${p.key}-${p.vintage}`, p);
       return PMap;
-    }, new Map<string, Project>());
+    }, new Map<string, DetailedProject>());
 
     return params.assets.map((a) => ({
       ...a,

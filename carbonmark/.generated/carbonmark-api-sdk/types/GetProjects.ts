@@ -1,19 +1,18 @@
 import type { Def1 } from "./Def1";
 
-export const type2 = {
+export const type3 = {
   Feature: "Feature",
 } as const;
-export type Type2 = (typeof type2)[keyof typeof type2];
-export const geometryType2 = {
+export type Type3 = (typeof type3)[keyof typeof type3];
+export const geometryType3 = {
   Point: "Point",
 } as const;
-export type GeometryType2 = (typeof geometryType2)[keyof typeof geometryType2];
+export type GeometryType3 = (typeof geometryType3)[keyof typeof geometryType3];
 /**
  * @description List of projects
  */
 export type GetProjectsQueryResponse = {
   description?: string | null;
-  long_description?: string | null;
   short_description?: string | null;
   /**
    * @type string
@@ -30,11 +29,11 @@ export type GetProjectsQueryResponse = {
   /**
    * @type array
    */
-  methodologies: {
+  methodologies: ({
     id?: string | null;
     category?: string | null;
     name?: string | null;
-  }[];
+  } | null)[];
   /**
    * @description A GeoJSON Point feature.
    */
@@ -43,7 +42,7 @@ export type GetProjectsQueryResponse = {
      * @description `Feature`
      * @type string
      */
-    type: Type2;
+    type: Type3;
     /**
      * @type object
      */
@@ -52,20 +51,18 @@ export type GetProjectsQueryResponse = {
        * @description `Point`
        * @type string
        */
-      type: GeometryType2;
+      type: GeometryType3;
       /**
        * @type array
        */
       coordinates: number[];
     };
   } | null;
-  url?: string | null;
   /**
    * @type string
    */
   vintage: string;
   /**
-   * @description ⚠️Deprecated. Project may have multiple token addresses.
    * @type string
    */
   creditTokenAddress: string;
@@ -78,9 +75,14 @@ export type GetProjectsQueryResponse = {
    */
   updatedAt: string;
   /**
-   * @type string
+   * @type object
    */
-  country: string;
+  country: {
+    /**
+     * @type string
+     */
+    id: string;
+  };
   /**
    * @type string
    */
@@ -89,57 +91,6 @@ export type GetProjectsQueryResponse = {
    * @type string
    */
   price: string;
-  /**
-   * @type array
-   */
-  prices: {
-    /**
-     * @description Lowercase name of pool / pool token e.g. 'bct'
-     */
-    poolName: "ubo" | "nbo" | "bct" | "nct";
-    /**
-     * @description Remaining supply in pool
-     * @type string
-     */
-    supply: string;
-    /**
-     * @description Address of the pool itself, e.g. bct token address
-     * @type string
-     */
-    poolAddress: string;
-    /**
-     * @description Address of the project token in this pool
-     * @type string
-     */
-    projectTokenAddress: string;
-    /**
-     * @description True if default project for pool and no selective redemption fee applies
-     * @type boolean
-     */
-    isPoolDefault: boolean;
-    /**
-     * @description formatted USDC price for 1 tonne e.g. '0.123456'
-     * @type string
-     */
-    singleUnitPrice: string;
-  }[];
-  /**
-   * @type object
-   */
-  stats: {
-    /**
-     * @type number
-     */
-    totalBridged: number;
-    /**
-     * @type number
-     */
-    totalRetired: number;
-    /**
-     * @type number
-     */
-    totalSupply: number;
-  };
   listings?:
     | {
         /**
@@ -230,23 +181,18 @@ export type GetProjectsQueryResponse = {
         };
       }[]
     | null;
-  /**
-   * @type array | undefined
-   */
-  images?: {
-    /**
-     * @type string
-     */
-    url: string;
-    /**
-     * @type string
-     */
-    caption: string;
-  }[];
-  /**
-   * @type boolean
-   */
-  hasSupply: boolean;
+  images?:
+    | {
+        /**
+         * @type string
+         */
+        url: string;
+        /**
+         * @type string
+         */
+        caption: string;
+      }[]
+    | null;
 }[];
 
 export type GetProjectsQueryParams = {
@@ -276,9 +222,4 @@ export type GetProjectsQueryParams = {
    * @type string | undefined
    */
   expiresAfter?: string;
-  /**
-   * @description Only return projects listings and pools that contains at least this amount of credits (Tonnes)
-   * @type number | undefined
-   */
-  minSupply?: number;
 };

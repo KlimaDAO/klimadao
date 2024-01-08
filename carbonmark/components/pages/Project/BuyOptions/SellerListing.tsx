@@ -11,7 +11,7 @@ import {
   isConnectedAddress,
 } from "lib/formatWalletAddress";
 import { LO } from "lib/luckyOrange";
-import { Listing, Project } from "lib/types/carbonmark.types";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -19,7 +19,7 @@ import * as styles from "./styles";
 
 type Props = {
   listing: Listing;
-  project: Project;
+  project: DetailedProject;
   isBestPrice: boolean;
 };
 

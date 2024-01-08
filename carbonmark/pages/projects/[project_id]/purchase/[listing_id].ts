@@ -5,7 +5,6 @@ import {
 } from "components/pages/Project/Purchase";
 import { IS_PRODUCTION } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
-import { isNil } from "lodash";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -29,7 +28,7 @@ export const getStaticProps: GetStaticProps<
   try {
     let project = await getProjectsId(project_id);
 
-    if (isNil(project) || isNil(project.listings)) {
+    if (!project) {
       throw new Error("No project found");
     }
 
@@ -42,7 +41,7 @@ export const getStaticProps: GetStaticProps<
     if (!listing && !IS_PRODUCTION) {
       // check testnet listings
       project = await getProjectsId(project_id, { network: "mumbai" });
-      listing = project?.listings?.find(findListing);
+      listing = project?.listings.find(findListing);
     }
 
     if (!project || !listing) {

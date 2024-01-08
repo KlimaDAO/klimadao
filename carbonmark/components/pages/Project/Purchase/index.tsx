@@ -5,7 +5,11 @@ import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import { isPoolToken } from "lib/getPoolData";
-import { Listing, Project, TokenPrice } from "lib/types/carbonmark.types";
+import {
+  DetailedProject,
+  Listing,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { InactivePurchase } from "./InactivePurchase";
@@ -14,7 +18,7 @@ import { PoolPurchase } from "./Pool";
 
 import * as styles from "./styles";
 export interface ProjectPurchasePageProps {
-  project: Project;
+  project: DetailedProject;
   purchase: Listing | TokenPrice;
 }
 

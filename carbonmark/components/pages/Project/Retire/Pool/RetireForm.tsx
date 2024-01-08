@@ -20,7 +20,7 @@ import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { Project, TokenPrice } from "lib/types/carbonmark.types";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -37,7 +37,7 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 export interface Props {
-  project: Project;
+  project: DetailedProject;
   price: TokenPrice;
 }
 

@@ -1,25 +1,12 @@
-import type { Def1 } from "./Def1";
-
-export type GetProjectsIdPathParams = {
-  /**
-   * @description Project id & vintage
-   * @type string
-   */
-  id: string;
-};
-
-export const type4 = {
+export const type2 = {
   Feature: "Feature",
 } as const;
-export type Type4 = (typeof type4)[keyof typeof type4];
-export const geometryType4 = {
+export type Type2 = (typeof type2)[keyof typeof type2];
+export const geometryType2 = {
   Point: "Point",
 } as const;
-export type GeometryType4 = (typeof geometryType4)[keyof typeof geometryType4];
-/**
- * @description Project with id
- */
-export type GetProjectsIdQueryResponse = {
+export type GeometryType2 = (typeof geometryType2)[keyof typeof geometryType2];
+export type DetailedProject = {
   /**
    * @type string
    */
@@ -31,19 +18,17 @@ export type GetProjectsIdQueryResponse = {
   description?: string | null;
   location?: {
     /**
-     * @description `Feature`
      * @type string
      */
-    type: Type4;
+    type: Type2;
     /**
      * @type object
      */
     geometry: {
       /**
-       * @description `Point`
        * @type string
        */
-      type: GeometryType4;
+      type: GeometryType2;
       /**
        * @type array
        */
@@ -217,13 +202,4 @@ export type GetProjectsIdQueryResponse = {
    * @type string
    */
   vintage: string;
-};
-
-export type GetProjectsIdQueryParams = {
-  network?: Def1;
-  /**
-   * @description Only return projects listings that expire after this timestamp (Unix seconds)
-   * @type string | undefined
-   */
-  expiresAfter?: string;
 };

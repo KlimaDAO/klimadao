@@ -8,7 +8,6 @@ export const geometryType = {
 export type GeometryType = (typeof geometryType)[keyof typeof geometryType];
 export type Project = {
   description?: string | null;
-  long_description?: string | null;
   short_description?: string | null;
   /**
    * @type string
@@ -25,11 +24,11 @@ export type Project = {
   /**
    * @type array
    */
-  methodologies: {
+  methodologies: ({
     id?: string | null;
     category?: string | null;
     name?: string | null;
-  }[];
+  } | null)[];
   /**
    * @description A GeoJSON Point feature.
    */
@@ -52,13 +51,11 @@ export type Project = {
       coordinates: number[];
     };
   } | null;
-  url?: string | null;
   /**
    * @type string
    */
   vintage: string;
   /**
-   * @description ⚠️Deprecated. Project may have multiple token addresses.
    * @type string
    */
   creditTokenAddress: string;
@@ -71,9 +68,14 @@ export type Project = {
    */
   updatedAt: string;
   /**
-   * @type string
+   * @type object
    */
-  country: string;
+  country: {
+    /**
+     * @type string
+     */
+    id: string;
+  };
   /**
    * @type string
    */
@@ -82,57 +84,6 @@ export type Project = {
    * @type string
    */
   price: string;
-  /**
-   * @type array
-   */
-  prices: {
-    /**
-     * @description Lowercase name of pool / pool token e.g. 'bct'
-     */
-    poolName: "ubo" | "nbo" | "bct" | "nct";
-    /**
-     * @description Remaining supply in pool
-     * @type string
-     */
-    supply: string;
-    /**
-     * @description Address of the pool itself, e.g. bct token address
-     * @type string
-     */
-    poolAddress: string;
-    /**
-     * @description Address of the project token in this pool
-     * @type string
-     */
-    projectTokenAddress: string;
-    /**
-     * @description True if default project for pool and no selective redemption fee applies
-     * @type boolean
-     */
-    isPoolDefault: boolean;
-    /**
-     * @description formatted USDC price for 1 tonne e.g. '0.123456'
-     * @type string
-     */
-    singleUnitPrice: string;
-  }[];
-  /**
-   * @type object
-   */
-  stats: {
-    /**
-     * @type number
-     */
-    totalBridged: number;
-    /**
-     * @type number
-     */
-    totalRetired: number;
-    /**
-     * @type number
-     */
-    totalSupply: number;
-  };
   listings?:
     | {
         /**
@@ -223,21 +174,16 @@ export type Project = {
         };
       }[]
     | null;
-  /**
-   * @type array | undefined
-   */
-  images?: {
-    /**
-     * @type string
-     */
-    url: string;
-    /**
-     * @type string
-     */
-    caption: string;
-  }[];
-  /**
-   * @type boolean
-   */
-  hasSupply: boolean;
+  images?:
+    | {
+        /**
+         * @type string
+         */
+        url: string;
+        /**
+         * @type string
+         */
+        caption: string;
+      }[]
+    | null;
 };

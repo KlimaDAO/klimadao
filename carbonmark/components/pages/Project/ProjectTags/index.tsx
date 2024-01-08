@@ -3,13 +3,13 @@ import { Category } from "components/Category";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { getCategoriesFromProject } from "lib/projectGetter";
-import { CategoryName, Project } from "lib/types/carbonmark.types";
+import { CategoryName, DetailedProject } from "lib/types/carbonmark.types";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { FC } from "react";
 import * as styles from "./styles";
 
 export interface Props {
-  project: Project;
+  project: DetailedProject;
 }
 
 export const ProjectTags: FC<Props> = (props) => {

@@ -9,7 +9,7 @@ import { LO } from "lib/luckyOrange";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { Listing, Project } from "lib/types/carbonmark.types";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -22,7 +22,7 @@ import { TotalValues } from "./TotalValues";
 import { FormValues } from "./types";
 
 export interface Props {
-  project: Project;
+  project: DetailedProject;
   listing: Listing;
 }
 

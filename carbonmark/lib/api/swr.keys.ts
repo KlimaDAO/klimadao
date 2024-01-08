@@ -22,7 +22,7 @@ export const getUsersWalletorHandleKey = (
   for (const queryParam in query) {
     const value = query[queryParam as keyof typeof query];
     if (value) {
-      url.searchParams.set(queryParam, String(value));
+      url.searchParams.set(queryParam, value);
     }
   }
 

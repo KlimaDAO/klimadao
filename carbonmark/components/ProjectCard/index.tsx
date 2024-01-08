@@ -8,7 +8,7 @@ import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { asCategoryName, getCategoryFromProject } from "lib/projectGetter";
-import { Project } from "lib/types/carbonmark.types";
+import { DetailedProject } from "lib/types/carbonmark.types";
 import { get, pipe, uniq } from "lodash/fp";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -16,7 +16,7 @@ import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  project: Project;
+  project: DetailedProject;
   className?: string;
   url?: string;
   price?: string; // Enables displaying another price than the project's best price

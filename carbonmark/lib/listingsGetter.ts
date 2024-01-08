@@ -1,6 +1,5 @@
 import { safeAdd, safeSub } from "@klimadao/lib/utils";
 import { Listing } from "lib/types/carbonmark.types";
-import { DEFAULT_MIN_LISTING_QUANTITY } from "./constants";
 
 export const getAmountLeftToSell = (listings: Listing[]): number =>
   Number(listings.reduce((acc, curr) => safeAdd(acc, curr.leftToSell), "0"));
@@ -18,9 +17,6 @@ export const getTotalAmountSold = (listings: Listing[]): string => {
 
 export const getActiveListings = (listings: Listing[]) =>
   listings.filter((l) => l.active && l.deleted === false);
-
-export const getNonDustListings = (listings: Listing[]) =>
-  listings.filter((l) => Number(l.leftToSell) >= DEFAULT_MIN_LISTING_QUANTITY);
 
 export const getAllListings = (listings: Listing[]) =>
   listings.filter((l) => l.deleted === false);
