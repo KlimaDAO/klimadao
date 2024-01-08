@@ -208,3 +208,8 @@ export type GetUsersWalletorhandleQueryParams = {
    */
   expiresAfter?: string;
 };
+export namespace GetUsersWalletorhandleQuery {
+  export type Response = GetUsersWalletorhandleQueryResponse;
+  export type PathParams = GetUsersWalletorhandlePathParams;
+  export type QueryParams = GetUsersWalletorhandleQueryParams;
+}

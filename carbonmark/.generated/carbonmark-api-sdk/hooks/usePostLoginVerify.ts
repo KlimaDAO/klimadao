@@ -3,60 +3,66 @@ import type {
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
-import type { ResponseConfig } from "../../../lib/api/client";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   PostLoginVerifyMutationRequest,
   PostLoginVerifyMutationResponse,
 } from "../types/PostLoginVerify";
 
+type PostLoginVerifyClient = typeof client<
+  PostLoginVerifyMutationResponse,
+  never,
+  PostLoginVerifyMutationRequest
+>;
+type PostLoginVerify = {
+  data: PostLoginVerifyMutationResponse;
+  error: never;
+  request: PostLoginVerifyMutationRequest;
+  pathParams: never;
+  queryParams: never;
+  headerParams: never;
+  response: PostLoginVerifyMutationResponse;
+  client: {
+    parameters: Partial<Parameters<PostLoginVerifyClient>[0]>;
+    return: Awaited<ReturnType<PostLoginVerifyClient>>;
+  };
+};
 /**
  * @description Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.
  * @summary Verify signed data
- * @link /login/verify
- */
-
-export function usePostLoginVerify<
-  TData = PostLoginVerifyMutationResponse,
-  TError = unknown,
-  TVariables = PostLoginVerifyMutationRequest,
->(options?: {
+ * @link /login/verify */
+export function usePostLoginVerify(options?: {
   mutation?: SWRMutationConfiguration<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
+    PostLoginVerify["response"],
+    PostLoginVerify["error"]
   >;
-  client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
+  client?: PostLoginVerify["client"]["parameters"];
   shouldFetch?: boolean;
-}): SWRMutationResponse<
-  ResponseConfig<TData>,
-  TError,
-  string | null,
-  TVariables
-> {
+}): SWRMutationResponse<PostLoginVerify["response"], PostLoginVerify["error"]> {
   const {
     mutation: mutationOptions,
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/login/verify` : null;
+  const url = `/login/verify` as const;
   return useSWRMutation<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
+    PostLoginVerify["response"],
+    PostLoginVerify["error"],
+    typeof url | null
   >(
-    url,
-    (url, { arg: data }) => {
-      return client<TData, TError, TVariables>({
+    shouldFetch ? url : null,
+    async (_url, { arg: data }) => {
+      const res = await client<
+        PostLoginVerify["data"],
+        PostLoginVerify["error"],
+        PostLoginVerify["request"]
+      >({
         method: "post",
         url,
         data,
-
         ...clientOptions,
       });
+      return res.data;
     },
     mutationOptions
   );

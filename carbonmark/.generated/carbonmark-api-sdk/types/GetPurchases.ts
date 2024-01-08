@@ -1,17 +1,9 @@
 import type { Def1 } from "./Def1";
 
-export type GetPurchasesIdPathParams = {
-  /**
-   * @description ID (transaction hash) of the purchase to retrieve
-   * @type string
-   */
-  id: string;
-};
-
 /**
- * @description Successful response with listing details
+ * @description A ordered list of recent purchases and their projects
  */
-export type GetPurchasesIdQueryResponse = {
+export type GetPurchasesQueryResponse = {
   /**
    * @description ID (transaction hash) of the purchase
    * @type string
@@ -81,13 +73,12 @@ export type GetPurchasesIdQueryResponse = {
    * @type string
    */
   price: string;
-};
+}[];
 
-export type GetPurchasesIdQueryParams = {
+export type GetPurchasesQueryParams = {
   network?: Def1;
 };
-export namespace GetPurchasesIdQuery {
-  export type Response = GetPurchasesIdQueryResponse;
-  export type PathParams = GetPurchasesIdPathParams;
-  export type QueryParams = GetPurchasesIdQueryParams;
+export namespace GetPurchasesQuery {
+  export type Response = GetPurchasesQueryResponse;
+  export type QueryParams = GetPurchasesQueryParams;
 }

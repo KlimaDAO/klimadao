@@ -227,3 +227,8 @@ export type GetProjectsIdQueryParams = {
    */
   expiresAfter?: string;
 };
+export namespace GetProjectsIdQuery {
+  export type Response = GetProjectsIdQueryResponse;
+  export type PathParams = GetProjectsIdPathParams;
+  export type QueryParams = GetProjectsIdQueryParams;
+}

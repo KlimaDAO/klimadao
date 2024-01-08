@@ -54,3 +54,8 @@ export type PutUsersWalletPathParams = {
    */
   wallet: string;
 };
+export namespace PutUsersWalletMutation {
+  export type Response = PutUsersWalletMutationResponse;
+  export type Request = PutUsersWalletMutationRequest;
+  export type PathParams = PutUsersWalletPathParams;
+}

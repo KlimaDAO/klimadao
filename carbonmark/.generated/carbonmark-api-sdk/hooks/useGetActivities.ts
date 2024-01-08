@@ -1,46 +1,60 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetActivitiesQueryParams,
   GetActivitiesQueryResponse,
 } from "../types/GetActivities";
 
+type GetActivitiesClient = typeof client<
+  GetActivitiesQueryResponse,
+  never,
+  never
+>;
+type GetActivities = {
+  data: GetActivitiesQueryResponse;
+  error: never;
+  request: never;
+  pathParams: never;
+  queryParams: GetActivitiesQueryParams;
+  headerParams: never;
+  response: GetActivitiesQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetActivitiesClient>[0]>;
+    return: Awaited<ReturnType<GetActivitiesClient>>;
+  };
+};
 export function getActivitiesQueryOptions<
-  TData = GetActivitiesQueryResponse,
-  TError = unknown,
+  TData extends GetActivities["response"] = GetActivities["response"],
+  TError = GetActivities["error"],
 >(
-  params?: GetActivitiesQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetActivities["queryParams"],
+  options: GetActivities["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/activities`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Retrieve an array of activities related to a carbon project
  * @summary List project activities
- * @link /activities
- */
-
+ * @link /activities */
 export function useGetActivities<
-  TData = GetActivitiesQueryResponse,
-  TError = unknown,
+  TData extends GetActivities["response"] = GetActivities["response"],
+  TError = GetActivities["error"],
 >(
-  params?: GetActivitiesQueryParams,
+  params?: GetActivities["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetActivities["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -49,12 +63,13 @@ export function useGetActivities<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/activities` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getActivitiesQueryOptions<TData, TError>(params, clientOptions),
-    ...queryOptions,
-  });
-
+  const url = `/activities` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getActivitiesQueryOptions<TData, TError>(params, clientOptions),
+      ...queryOptions,
+    }
+  );
   return query;
 }

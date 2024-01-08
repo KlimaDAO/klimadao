@@ -3,60 +3,66 @@ import type {
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
-import type { ResponseConfig } from "../../../lib/api/client";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   PostLoginMutationRequest,
   PostLoginMutationResponse,
 } from "../types/PostLogin";
 
+type PostLoginClient = typeof client<
+  PostLoginMutationResponse,
+  never,
+  PostLoginMutationRequest
+>;
+type PostLogin = {
+  data: PostLoginMutationResponse;
+  error: never;
+  request: PostLoginMutationRequest;
+  pathParams: never;
+  queryParams: never;
+  headerParams: never;
+  response: PostLoginMutationResponse;
+  client: {
+    parameters: Partial<Parameters<PostLoginClient>[0]>;
+    return: Awaited<ReturnType<PostLoginClient>>;
+  };
+};
 /**
  * @description Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.
  * @summary Get nonce
- * @link /login
- */
-
-export function usePostLogin<
-  TData = PostLoginMutationResponse,
-  TError = unknown,
-  TVariables = PostLoginMutationRequest,
->(options?: {
+ * @link /login */
+export function usePostLogin(options?: {
   mutation?: SWRMutationConfiguration<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
+    PostLogin["response"],
+    PostLogin["error"]
   >;
-  client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
+  client?: PostLogin["client"]["parameters"];
   shouldFetch?: boolean;
-}): SWRMutationResponse<
-  ResponseConfig<TData>,
-  TError,
-  string | null,
-  TVariables
-> {
+}): SWRMutationResponse<PostLogin["response"], PostLogin["error"]> {
   const {
     mutation: mutationOptions,
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/login` : null;
+  const url = `/login` as const;
   return useSWRMutation<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
+    PostLogin["response"],
+    PostLogin["error"],
+    typeof url | null
   >(
-    url,
-    (url, { arg: data }) => {
-      return client<TData, TError, TVariables>({
+    shouldFetch ? url : null,
+    async (_url, { arg: data }) => {
+      const res = await client<
+        PostLogin["data"],
+        PostLogin["error"],
+        PostLogin["request"]
+      >({
         method: "post",
         url,
         data,
-
         ...clientOptions,
       });
+      return res.data;
     },
     mutationOptions
   );

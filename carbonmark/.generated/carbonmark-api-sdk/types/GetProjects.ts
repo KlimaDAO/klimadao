@@ -223,3 +223,7 @@ export type GetProjectsQueryParams = {
    */
   expiresAfter?: string;
 };
+export namespace GetProjectsQuery {
+  export type Response = GetProjectsQueryResponse;
+  export type QueryParams = GetProjectsQueryParams;
+}

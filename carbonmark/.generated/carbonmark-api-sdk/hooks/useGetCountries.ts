@@ -1,38 +1,53 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type { GetCountriesQueryResponse } from "../types/GetCountries";
 
+type GetCountriesClient = typeof client<
+  GetCountriesQueryResponse,
+  never,
+  never
+>;
+type GetCountries = {
+  data: GetCountriesQueryResponse;
+  error: never;
+  request: never;
+  pathParams: never;
+  queryParams: never;
+  headerParams: never;
+  response: GetCountriesQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetCountriesClient>[0]>;
+    return: Awaited<ReturnType<GetCountriesClient>>;
+  };
+};
 export function getCountriesQueryOptions<
-  TData = GetCountriesQueryResponse,
-  TError = unknown,
+  TData extends GetCountries["response"] = GetCountries["response"],
+  TError = GetCountries["error"],
 >(
-  options: Partial<Parameters<typeof client>[0]> = {}
+  options: GetCountries["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/countries`,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Retrieve an array containing the countries that carbon projects originate from
  * @summary Countries
- * @link /countries
- */
-
+ * @link /countries */
 export function useGetCountries<
-  TData = GetCountriesQueryResponse,
-  TError = unknown,
+  TData extends GetCountries["response"] = GetCountries["response"],
+  TError = GetCountries["error"],
 >(options?: {
   query?: SWRConfiguration<TData, TError>;
-  client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+  client?: GetCountries["client"]["parameters"];
   shouldFetch?: boolean;
 }): SWRResponse<TData, TError> {
   const {
@@ -40,12 +55,13 @@ export function useGetCountries<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/countries` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getCountriesQueryOptions<TData, TError>(clientOptions),
-    ...queryOptions,
-  });
-
+  const url = `/countries` as const;
+  const query = useSWR<TData, TError, typeof url | null>(
+    shouldFetch ? url : null,
+    {
+      ...getCountriesQueryOptions<TData, TError>(clientOptions),
+      ...queryOptions,
+    }
+  );
   return query;
 }

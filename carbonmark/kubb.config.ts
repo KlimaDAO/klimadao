@@ -29,10 +29,12 @@ export default defineConfig(async () => {
       createSwagger({}),
       createSwaggerTS({}),
       createSwaggerClient({
-        client: "./lib/api/client.ts",
+        client: {
+          importPath: "../client",
+        },
       }),
       createSwaggerSWR({
-        client: "./lib/api/client.ts",
+        client: { importPath: "../client" },
       }),
     ],
   };

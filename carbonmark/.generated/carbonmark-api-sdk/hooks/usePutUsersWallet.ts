@@ -3,63 +3,69 @@ import type {
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
-import type { ResponseConfig } from "../../../lib/api/client";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   PutUsersWalletMutationRequest,
   PutUsersWalletMutationResponse,
   PutUsersWalletPathParams,
 } from "../types/PutUsersWallet";
 
+type PutUsersWalletClient = typeof client<
+  PutUsersWalletMutationResponse,
+  never,
+  PutUsersWalletMutationRequest
+>;
+type PutUsersWallet = {
+  data: PutUsersWalletMutationResponse;
+  error: never;
+  request: PutUsersWalletMutationRequest;
+  pathParams: PutUsersWalletPathParams;
+  queryParams: never;
+  headerParams: never;
+  response: PutUsersWalletMutationResponse;
+  client: {
+    parameters: Partial<Parameters<PutUsersWalletClient>[0]>;
+    return: Awaited<ReturnType<PutUsersWalletClient>>;
+  };
+};
 /**
  * @summary Update user profile
- * @link /users/:wallet
- */
-
-export function usePutUsersWallet<
-  TData = PutUsersWalletMutationResponse,
-  TError = unknown,
-  TVariables = PutUsersWalletMutationRequest,
->(
+ * @link /users/:wallet */
+export function usePutUsersWallet(
   wallet: PutUsersWalletPathParams["wallet"],
   options?: {
     mutation?: SWRMutationConfiguration<
-      ResponseConfig<TData>,
-      TError,
-      string | null,
-      TVariables
+      PutUsersWallet["response"],
+      PutUsersWallet["error"]
     >;
-    client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
+    client?: PutUsersWallet["client"]["parameters"];
     shouldFetch?: boolean;
   }
-): SWRMutationResponse<
-  ResponseConfig<TData>,
-  TError,
-  string | null,
-  TVariables
-> {
+): SWRMutationResponse<PutUsersWallet["response"], PutUsersWallet["error"]> {
   const {
     mutation: mutationOptions,
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/users/${wallet}` : null;
+  const url = `/users/${wallet}` as const;
   return useSWRMutation<
-    ResponseConfig<TData>,
-    TError,
-    string | null,
-    TVariables
+    PutUsersWallet["response"],
+    PutUsersWallet["error"],
+    typeof url | null
   >(
-    url,
-    (url, { arg: data }) => {
-      return client<TData, TError, TVariables>({
+    shouldFetch ? url : null,
+    async (_url, { arg: data }) => {
+      const res = await client<
+        PutUsersWallet["data"],
+        PutUsersWallet["error"],
+        PutUsersWallet["request"]
+      >({
         method: "put",
         url,
         data,
-
         ...clientOptions,
       });
+      return res.data;
     },
     mutationOptions
   );

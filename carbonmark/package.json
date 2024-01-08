@@ -10,7 +10,7 @@
     "lingui:compile": "lingui compile",
     "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
     "postinstall": "npm run lingui:compile",
-    "generate:types": "tsx ./scripts/fetch-api-schema.ts && kubb"
+    "generate:types": "tsx ./scripts/fetch-api-schema.ts && kubb && cp lib/api/client.ts .generated/carbonmark-api-sdk"
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.7.1",
@@ -47,12 +47,12 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.6",
-    "@kubb/cli": "^1.14.3",
-    "@kubb/core": "^1.14.3",
-    "@kubb/swagger": "^1.14.0",
-    "@kubb/swagger-ts": "^1.14.0",
-    "@kubb/swagger-client": "^1.14.0",
-    "@kubb/swagger-swr": "^1.14.0",
+    "@kubb/cli": "^2.1.6",
+    "@kubb/core": "^2.1.6",
+    "@kubb/swagger": "^2.1.6",
+    "@kubb/swagger-ts": "^2.1.6",
+    "@kubb/swagger-client": "^2.1.6",
+    "@kubb/swagger-swr": "^2.1.6",
     "@lingui/cli": "^3.17.2",
     "@lingui/loader": "^3.17.2",
     "@lingui/macro": "^3.17.2",
