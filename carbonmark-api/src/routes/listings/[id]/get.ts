@@ -17,6 +17,11 @@ const handler = (fastify: FastifyInstance) =>
     const sdk = gql_sdk(request.query.network);
 
     const listing = (await getListingById(sdk, id)).listing;
+
+    if (!listing) {
+      return reply.status(404);
+    }
+
     const symbol = (await getTokenById(sdk, listing.tokenAddress)).symbol;
 
     const formattedListing = formatListing(listing);
