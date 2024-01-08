@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-05 08:59+0000\n"
+"POT-Creation-Date: 2024-01-05 23:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -173,8 +173,8 @@ msgstr ""
 msgid "BETA"
 msgstr "बीटा"
 
-#: components/pages/Project/Purchase/index.tsx:54
-#: components/pages/Project/Retire/index.tsx:37
+#: components/pages/Project/Purchase/index.tsx:53
+#: components/pages/Project/Retire/index.tsx:36
 msgid "Back to Project"
 msgstr "वापस प्रॉजेक्ट पर"
 
@@ -1776,7 +1776,7 @@ msgstr "Z-A"
 msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 msgstr "शून्य-शुल्क कार्बन क्रेडिट ट्रेडिंग - तात्कालिक, पारदर्शी और हमेशा उपलब्ध। कार्बन क्रेडिट व्यापारी के रूप में कार्बनमार्क आपके लिए क्या कर सकता है, इसके बारे में और जानें।"
 
-#: components/Activities/Activity.tsx:31
+#: components/Activities/Activity.tsx:33
 msgid "at"
 msgstr "पर"
 
@@ -1851,7 +1851,7 @@ msgstr "KlimaDAO.finance पर आपके द्वारा ख़रीदे 
 msgid "exitmodal.you_will_be_taken"
 msgstr "इस लेन-देन को पूरा करने के लिए आपको KlimaDAO.finance पर ले जाया जाएगा।"
 
-#: components/Activities/Activity.tsx:86
+#: components/Activities/Activity.tsx:89
 msgid "for"
 msgstr "के लिए"
 
