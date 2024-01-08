@@ -60,7 +60,8 @@ export const Approve: FC<Props> = (props) => {
             </Text>
           }
           value={props.amount}
-          icon={carbonmarkTokenInfoMap["usdc"].icon}
+          /* No icon for retiring/listing carbon etc. */
+          icon={props.price ? carbonmarkTokenInfoMap["usdc"].icon : undefined}
           iconName="usdc"
         />
         {!!props.price && (

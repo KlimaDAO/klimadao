@@ -19,17 +19,15 @@ export const loginButton = css`
   }
 `;
 
-export const backToProjectButton = css`
-  align-items: center;
-  margin-top: 0rem;
+export const backToProject = css`
+  white-space: nowrap;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
   align-items: center;
   height: min-content;
   width: min-content;
-  a {
-    white-space: nowrap;
-  }
+  color: var(--font-01) !important;
   ${breakpoints.desktop} {
     justify-content: center;
     height: 4.8rem;
@@ -42,14 +40,6 @@ export const backToProjectButton = css`
 export const projectLink = css`
   display: inline-flex;
   margin: 1rem 0;
-`;
-
-export const backToResults = css`
-  color: var(--font-01) !important;
-
-  svg {
-    margin-right: 0.8rem;
-  }
 `;
 
 export const price = css`

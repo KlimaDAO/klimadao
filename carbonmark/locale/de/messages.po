@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-21 15:38+0000\n"
+"POT-Creation-Date: 2024-01-05 23:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,7 +42,7 @@ msgstr "@Benutzername (Achtung: dies kann nicht mehr verändert werden!)"
 
 #: components/pages/Project/PayWithBank/index.tsx:153
 msgid "A valid email address is required"
-msgstr ""
+msgstr "Eine gültige E-Mail-Adresse wird benötigt"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:77
 msgid "A-Z"
@@ -96,7 +96,7 @@ msgid "Amount to retire"
 msgstr "Auszugleichende Menge"
 
 #: components/CreateListing/Transaction/Approve.tsx:81
-#: components/Transaction/Approve.tsx:100
+#: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "Genehmigen"
 
@@ -173,8 +173,8 @@ msgstr "Verfügbar: {unlistedBalance}"
 msgid "BETA"
 msgstr "BETA"
 
-#: components/pages/Project/Purchase/index.tsx:54
-#: components/pages/Project/Retire/index.tsx:37
+#: components/pages/Project/Purchase/index.tsx:53
+#: components/pages/Project/Retire/index.tsx:36
 msgid "Back to Project"
 msgstr "Zurück zum Projekt"
 
@@ -207,7 +207,7 @@ msgstr "Name des Begünstigten"
 #: components/pages/Project/PayWithBank/index.tsx:232
 #: components/pages/Project/PayWithBank/index.tsx:349
 msgid "Beneficiary wallet address"
-msgstr ""
+msgstr "Wallet-Adresse des Begünstigten"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
@@ -281,7 +281,7 @@ msgstr "Carbonmark-Gebühr"
 
 #: components/pages/Project/PayWithBank/index.tsx:101
 msgid "Carbonmark now offers the ability to pay for retirement transactions via bank transfer. Simply fill out the form below and we'll reach out within 2 business days (upon receiving all required information) to collect some further information and send you an invoice."
-msgstr ""
+msgstr "Durch Carbonmark können Sie jetzt auch via Banküberweisung CO2 ausgleichen. Füllen Sie dazu das Formular aus und wir werden Sie innerhalb von zwei Werktagen kontaktieren, um letzte Details zu klären und Ihnen eine Rechnung zuzustellen."
 
 #: components/pages/Home/index.tsx:54
 #: components/pages/Home/index.tsx:55
@@ -329,11 +329,11 @@ msgstr "Demnächst"
 #: components/pages/Project/PayWithBank/index.tsx:167
 #: components/pages/Project/PayWithBank/index.tsx:319
 msgid "Company name"
-msgstr ""
+msgstr "Name des Unternehmens"
 
 #: components/pages/Project/PayWithBank/index.tsx:173
 msgid "Company name is required"
-msgstr ""
+msgstr "Unternehmensname ist erforderlich"
 
 #: components/pages/Home/index.tsx:348
 msgid "Compare prices across all sellers and trading pools"
@@ -505,11 +505,11 @@ msgstr "Angebot bearbeiten"
 #: components/pages/Project/PayWithBank/index.tsx:143
 #: components/pages/Project/PayWithBank/index.tsx:307
 msgid "Email"
-msgstr ""
+msgstr "E-Mail"
 
 #: components/pages/Project/PayWithBank/index.tsx:149
 msgid "Email address is required"
-msgstr ""
+msgstr "E-Mailadresse ist erforderlich"
 
 #: lib/getCategoryInfo.ts:47
 msgid "Energy Efficiency"
@@ -542,15 +542,15 @@ msgstr "Hier finden Sie die neuesten Updates, Guides und Dokumente, um Carbonmar
 #: components/pages/Project/PayWithBank/index.tsx:187
 #: components/pages/Project/PayWithBank/index.tsx:331
 msgid "First name"
-msgstr ""
+msgstr "Vorname"
 
 #: components/pages/Project/PayWithBank/index.tsx:193
 msgid "First name is required"
-msgstr ""
+msgstr "Vorname ist erforderlich"
 
 #: components/pages/Project/PayWithBank/index.tsx:197
 msgid "First name should not contain numbers or special characters"
-msgstr ""
+msgstr "Der Vorname sollte keine Zahlen oder Sonderzeichen enthalten"
 
 #: components/CreateListing/Transaction/Approve.tsx:37
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
@@ -570,7 +570,7 @@ msgstr "Forstwirtschaft"
 
 #: components/pages/Project/PayWithBank/index.tsx:289
 msgid "Form complete"
-msgstr ""
+msgstr "Formular ausgefüllt"
 
 #: components/pages/Home/index.tsx:79
 msgid "Get Started"
@@ -582,7 +582,7 @@ msgstr "Transaktionsabwicklung in Sekunden: werden Sie sofort bezahlt"
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:42
 msgid "Go Back"
-msgstr ""
+msgstr "Zurück"
 
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:35
 msgid "Go back"
@@ -630,11 +630,11 @@ msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen?"
 
 #: components/pages/Project/PayWithBank/index.tsx:301
 msgid "How many tonnes would you like to retire?"
-msgstr ""
+msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen?"
 
 #: components/pages/Project/PayWithBank/index.tsx:122
 msgid "How much would you like to retire?"
-msgstr ""
+msgstr "Wie viel CO2 möchten Sie ausgleichen?"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -642,7 +642,7 @@ msgstr "Falls Sie einige CO2-Credits aus diesem Kauf nutzen möchten, um Ihren C
 
 #: components/pages/Project/PayWithBank/index.tsx:116
 msgid "Indicates required field"
-msgstr ""
+msgstr "Zeigt Pflichtfelder an"
 
 #: lib/getCategoryInfo.ts:59
 msgid "Industrial Processing"
@@ -663,7 +663,7 @@ msgstr "Ungültig"
 #: components/pages/Project/PayWithBank/index.tsx:181
 #: components/pages/Project/PayWithBank/index.tsx:325
 msgid "Job title"
-msgstr ""
+msgstr "Berufsbezeichnung"
 
 #: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:550
@@ -677,15 +677,15 @@ msgstr "KlimaDAO bietet eine transparente, neutrale und öffentliche Infrastrukt
 #: components/pages/Project/PayWithBank/index.tsx:206
 #: components/pages/Project/PayWithBank/index.tsx:337
 msgid "Last name"
-msgstr ""
+msgstr "Nachname"
 
 #: components/pages/Project/PayWithBank/index.tsx:212
 msgid "Last name is required"
-msgstr ""
+msgstr "Nachname ist erforderlich"
 
 #: components/pages/Project/PayWithBank/index.tsx:216
 msgid "Last name should not contain numbers or special characters"
-msgstr ""
+msgstr "Der Nachname sollte keine Zahlen oder Sonderzeichen enthalten"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -878,11 +878,11 @@ msgstr "PROJEKT"
 #: components/pages/Project/PayWithBank/index.tsx:89
 #: components/pages/Project/PayWithBank/index.tsx:90
 msgid "Pay with Bank Transfer | Carbonmark"
-msgstr ""
+msgstr "Bezahlen Sie per Banküberweisung | Carbonmark"
 
 #: components/pages/Project/PayWithBank/index.tsx:98
 msgid "Pay with bank transfer"
-msgstr ""
+msgstr "Bezahlen Sie per Banküberweisung"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:98
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:112
@@ -901,7 +901,7 @@ msgstr "Zahlungsabwicklungsgebühr"
 #: components/pages/Project/PayWithBank/index.tsx:161
 #: components/pages/Project/PayWithBank/index.tsx:313
 msgid "Phone number"
-msgstr ""
+msgstr "Telefonnummer"
 
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
@@ -909,7 +909,7 @@ msgstr "Bitte melden Sie sich an"
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:30
 msgid "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days (upon receiving all required information)."
-msgstr ""
+msgstr "Bitte füllen Sie das Formular auf der nächsten Seite aus. Wir werden Ihnen innerhalb von zwei Tagen eine Rechnung zukommen lassen."
 
 #: components/pages/Portfolio/index.tsx:66
 #: components/pages/Users/SellerConnected/index.tsx:81
@@ -973,7 +973,7 @@ msgstr "CO2-Ausgleich wird verarbeitet"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:78
 msgid "Processing retirement..."
-msgstr ""
+msgstr "CO2-Ausgleich wird bearbeitet..."
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -987,7 +987,7 @@ msgstr "Profilbild"
 #: components/pages/Project/PayWithBank/index.tsx:253
 #: components/pages/Project/PayWithBank/index.tsx:357
 msgid "Project names of interest"
-msgstr ""
+msgstr "Ähnliche Projektnamen"
 
 #: components/pages/Retire/FromPortfolio/index.tsx:79
 msgid "Purchase Carbon"
@@ -1168,7 +1168,7 @@ msgstr "Jetzt ausgleichen oder CO2 kaufen und später ausgleichen: Sobald CO2-As
 
 #: components/pages/Project/PayWithBank/index.tsx:91
 msgid "Retire your carbon via bank transfer."
-msgstr ""
+msgstr "Gleich Sie CO2 via Banküberweisung aus."
 
 #: components/pages/Portfolio/Retire/index.tsx:92
 #: components/pages/Portfolio/Retire/index.tsx:93
@@ -1320,7 +1320,7 @@ msgstr "Danke für die Unterstützung unseres Planeten! Die Kaufdetails finden S
 
 #: components/pages/Project/PayWithBank/index.tsx:292
 msgid "Thank you for supporting the planet! We'll reach out soon to confirm some details and provide you with an with an invoice."
-msgstr ""
+msgstr "Vielen Dank, dass Sie den Planeten unterstützen! Wir werden uns demnächst mit Ihnen in Verbindung setzen, um einige Details zu bestätigen und Ihnen eine Rechnung zukommen zu lassen."
 
 #: components/pages/Home/index.tsx:68
 msgid "The Universal Carbon Marketplace"
@@ -1363,12 +1363,12 @@ msgstr "Sie müssen mindestens 0,001 Tonne ausgleichen"
 #: components/pages/Project/PayWithBank/index.tsx:133
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:73
 msgid "The minimum amount to retire is 1 Tonne"
-msgstr ""
+msgstr "Sie müssen mindestens eine Tonne ausgleichen"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:97
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:103
 msgid "The minimum amount to retire via bank transfer is 100 Tonnes"
-msgstr ""
+msgstr "Via Banküberweisung müssen Sie mindestens 100 Tonnen ausgleichen"
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:53
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
@@ -1401,7 +1401,7 @@ msgstr "Die App funktioniert nur im Polygon-Mainnet."
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
 msgid "This is your portfolio. Here you will find supported carbon assets you own. Assets shown here can be retired or listed for sale in the marketplace once you have a profile."
-msgstr ""
+msgstr "Dies ist Ihr Portfolio. Hier finden Sie alle CO2-Assets in Ihrem Besitz, die von Carbonmark unterstützt werden. Sie können die hier angezeigten CO2-Assets verkaufen oder für einen CO2-Ausgleich nutzen, sobald Sie ein Profil erstellt haben."
 
 #: components/pages/Users/Badge/index.tsx:17
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
@@ -1437,7 +1437,7 @@ msgstr "Um zu beginnen, sollten Sie Ihr <0>Profil</0> vollständig ausfüllen un
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:25
 msgid "To pay via bank transfer, we'll need to gather some information from you."
-msgstr ""
+msgstr "Um via Banküberweisung zu bezahlen, benötigen wir einige Informationen über Sie."
 
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:70
 msgid "Toggle Select Project"
@@ -1500,7 +1500,7 @@ msgstr "Insgesamt bewilligt"
 
 #: components/pages/Project/PayWithBank/index.tsx:129
 msgid "Total amount of tonnes to retire is required"
-msgstr ""
+msgstr "Gesamttonnenanzahl ist erforderlich"
 
 #: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Total carbon tonnes retired"
@@ -1718,7 +1718,7 @@ msgstr "Sie haben Ihre verfügbare Menge an Tokens überschritten"
 
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:19
 msgid "You must have a profile created to view carbon assets you own in your Carbonmark portfolio."
-msgstr ""
+msgstr "Sie müssen ein Profil erstellen, um Ihre CO2-Assets in Ihrem Carbonmark-Portfolio anzusehen."
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
 msgid "You successfully acquired carbon!"
@@ -1754,7 +1754,7 @@ msgstr "Ihre Verkäuferdaten"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:82
 msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
-msgstr ""
+msgstr "Ihre Transaktion war erfolgreich, aber das Netzwerk benötigt länger als erwartet, um Ihre Daten zu bearbeiten. Die Details Ihres CO2-Ausgleichs sollten in wenigen Sekunden zur Verfügung stehen."
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
@@ -1768,7 +1768,7 @@ msgstr "Z-A"
 msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 msgstr "Gebührenfreier Handel mit digitalen Emissionszertifikaten: innerhalb von Sekunden, transparent und immer verfügbar. Erfahren Sie, was Carbonmark für Sie als Händler digitaler Emissionszertifikate tun kann."
 
-#: components/Activities/Activity.tsx:31
+#: components/Activities/Activity.tsx:33
 msgid "at"
 msgstr "bei"
 
@@ -1843,7 +1843,7 @@ msgstr "Von Ihnen auf klimadao.finance gekaufte oder ausgegliche CO2-Credits wer
 msgid "exitmodal.you_will_be_taken"
 msgstr "Sie werden zu klimadao.finance weitergeleitet, um diese Transaktion abzuschließen."
 
-#: components/Activities/Activity.tsx:86
+#: components/Activities/Activity.tsx:89
 msgid "for"
 msgstr "für"
 
@@ -2323,7 +2323,7 @@ msgstr "Menge bestätigen"
 msgid "transaction_modal.approve.contract_address"
 msgstr "Vertragsadresse"
 
-#: components/Transaction/Approve.tsx:70
+#: components/Transaction/Approve.tsx:71
 msgid "transaction_modal.approve.price"
 msgstr "Preis pro CO2-Tonne bestätigen"
 
@@ -2336,7 +2336,7 @@ msgstr "Zurück"
 msgid "transaction_modal.close"
 msgstr "Schließen"
 
-#: components/Transaction/Approve.tsx:107
+#: components/Transaction/Approve.tsx:108
 msgid "transaction_modal.next"
 msgstr "Weiter"
 

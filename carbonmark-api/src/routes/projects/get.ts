@@ -122,9 +122,9 @@ const handler = (fastify: FastifyInstance) =>
         marketplaceProjectData: project,
       });
     });
+
     /** Compose all the data together to unique entries (unsorted) */
     const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
-
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
     // Send the transformed projects array as a JSON string in the response
     return reply

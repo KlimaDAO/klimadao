@@ -102,7 +102,7 @@ msgid "Amount to retire"
 msgstr "Amount to retire"
 
 #: components/CreateListing/Transaction/Approve.tsx:81
-#: components/Transaction/Approve.tsx:100
+#: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "Approve"
 
@@ -182,8 +182,8 @@ msgstr "Available: {unlistedBalance}"
 msgid "BETA"
 msgstr "BETA"
 
-#: components/pages/Project/Purchase/index.tsx:54
-#: components/pages/Project/Retire/index.tsx:37
+#: components/pages/Project/Purchase/index.tsx:53
+#: components/pages/Project/Retire/index.tsx:36
 msgid "Back to Project"
 msgstr "Back to Project"
 
@@ -1777,7 +1777,7 @@ msgstr "Z-A"
 msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 msgstr "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 
-#: components/Activities/Activity.tsx:31
+#: components/Activities/Activity.tsx:33
 msgid "at"
 msgstr "at"
 
@@ -1852,7 +1852,7 @@ msgstr "Carbon credits you purchase or any retirements you make on KlimaDAO.fina
 msgid "exitmodal.you_will_be_taken"
 msgstr "You will be taken to KlimaDAO.finance to complete this transaction."
 
-#: components/Activities/Activity.tsx:86
+#: components/Activities/Activity.tsx:89
 msgid "for"
 msgstr "for"
 
@@ -2332,7 +2332,7 @@ msgstr "Confirm amount"
 msgid "transaction_modal.approve.contract_address"
 msgstr "Contract address"
 
-#: components/Transaction/Approve.tsx:70
+#: components/Transaction/Approve.tsx:71
 msgid "transaction_modal.approve.price"
 msgstr "Confirm price per tonne"
 
@@ -2345,7 +2345,7 @@ msgstr "Go back"
 msgid "transaction_modal.close"
 msgstr "Close"
 
-#: components/Transaction/Approve.tsx:107
+#: components/Transaction/Approve.tsx:108
 msgid "transaction_modal.next"
 msgstr "Next"
 

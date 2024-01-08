@@ -19,21 +19,15 @@ query getVintages {
   }
 }
 
+query getPurchases {
+  purchases(first: 1000, orderBy: timeStamp, orderDirection: desc) {
+    ...PurchaseFragment
+  }
+}
+
 query getPurchaseById($id: ID!) {
   purchase(id: $id) {
-    amount
-    id
-    listing {
-      id
-      project {
-        ...ProjectFragment
-      }
-      seller {
-        id
-      }
-      tokenAddress
-    }
-    price
+    ...PurchaseFragment
   }
 }
 

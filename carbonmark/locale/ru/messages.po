@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-21 15:38+0000\n"
+"POT-Creation-Date: 2024-01-05 23:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,7 +96,7 @@ msgid "Amount to retire"
 msgstr "Сумма к выбиванию"
 
 #: components/CreateListing/Transaction/Approve.tsx:81
-#: components/Transaction/Approve.tsx:100
+#: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "Одобрить"
 
@@ -173,8 +173,8 @@ msgstr ""
 msgid "BETA"
 msgstr "БЕТА"
 
-#: components/pages/Project/Purchase/index.tsx:54
-#: components/pages/Project/Retire/index.tsx:37
+#: components/pages/Project/Purchase/index.tsx:53
+#: components/pages/Project/Retire/index.tsx:36
 msgid "Back to Project"
 msgstr "Вернуться к проекту"
 
@@ -1768,7 +1768,7 @@ msgstr "Я-А"
 msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 msgstr "Торговля квотами на выбросы углерода с нулевой комиссией — мгновенная, прозрачная и всегда доступная. Узнайте больше о том, что Carbonmark может сделать для вас как продавца углеродных кредитов."
 
-#: components/Activities/Activity.tsx:31
+#: components/Activities/Activity.tsx:33
 msgid "at"
 msgstr "на"
 
@@ -1843,7 +1843,7 @@ msgstr "Углеродные кредиты, которые вы приобре�
 msgid "exitmodal.you_will_be_taken"
 msgstr "Вы будете перенаправлены на KlimaDAO.finance для завершения этой транзакции."
 
-#: components/Activities/Activity.tsx:86
+#: components/Activities/Activity.tsx:89
 msgid "for"
 msgstr "для"
 
@@ -2325,7 +2325,7 @@ msgstr "Подтвердить сумму"
 msgid "transaction_modal.approve.contract_address"
 msgstr "Адрес контракта"
 
-#: components/Transaction/Approve.tsx:70
+#: components/Transaction/Approve.tsx:71
 msgid "transaction_modal.approve.price"
 msgstr "Подтвердить цену за тонну"
 
@@ -2338,7 +2338,7 @@ msgstr "Вернуться назад"
 msgid "transaction_modal.close"
 msgstr "Закрыть"
 
-#: components/Transaction/Approve.tsx:107
+#: components/Transaction/Approve.tsx:108
 msgid "transaction_modal.next"
 msgstr "Следующий"
 

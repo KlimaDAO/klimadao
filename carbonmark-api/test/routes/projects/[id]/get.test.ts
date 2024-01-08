@@ -40,7 +40,6 @@ describe("GET /projects/:id", () => {
     nock(GRAPH_URLS["polygon"].digitalCarbon).post("").twice().reply(200, {
       data: {},
     });
-    nock(GRAPH_URLS["polygon"].offsets).post("").reply(200, { data: {} });
     nock(GRAPH_URLS["polygon"].marketplace).post("").reply(200, {
       data: {},
     });
@@ -83,7 +82,6 @@ describe("GET /projects/:id", () => {
           carbonProjects: [digitalCarbon.digitalCarbonProject],
         },
       });
-    nock(GRAPH_URLS["polygon"].offsets).post("").reply(200, { data: {} });
     nock(GRAPH_URLS["polygon"].marketplace).post("").reply(200, {
       data: {},
     });
@@ -125,7 +123,6 @@ describe("GET /projects/:id", () => {
           carbonProjects: [digitalCarbon.digitalCarbonProject],
         },
       });
-    nock(GRAPH_URLS["polygon"].offsets).post("").reply(200, { data: {} });
     nock(GRAPH_URLS["polygon"].marketplace).post("").reply(200, {
       data: {},
     });

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-21 15:38+0000\n"
+"POT-Creation-Date: 2024-01-05 23:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,7 +45,7 @@ msgstr "Introduce la cantidad"
 
 #: components/views/Offset/index.tsx:45
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
-msgstr ""
+msgstr "Para los usuarios que quieran compensar el pago con un pool token, utilice <0>este sitio</0> ."
 
 #: components/views/Stake/index.tsx:247
 #: components/views/Wrap/index.tsx:225
