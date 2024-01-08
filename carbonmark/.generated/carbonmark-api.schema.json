@@ -2217,90 +2217,6 @@
     }
   },
   "paths": {
-    "/categories": {
-      "get": {
-        "summary": "Categories",
-        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Blue Carbon"
-                    },
-                    {
-                      "id": "Forestry"
-                    },
-                    {
-                      "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/activities": {
       "get": {
         "summary": "List project activities",
@@ -2529,6 +2445,48 @@
                     ]
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Categories",
+        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Blue Carbon"
+                    },
+                    {
+                      "id": "Forestry"
+                    },
+                    {
+                      "id": "Other"
+                    }
+                  ]
+                ]
               }
             }
           }
@@ -3306,6 +3264,48 @@
         }
       }
     },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/vintages": {
 <<<<<<< HEAD
       "get": {
@@ -3911,7 +3911,7 @@
           {
             "schema": {
               "type": "string",
-              "pattern": "^(VCS|PURO|GS|ICR)-\\d+-(19\\d{2}|20\\d{2})$|^ICR-(?:[A-Z]+-\\d+-(\\d+-)?\\d+-[A-Z]-\\d+-(19\\d{2}|20\\d{2})|[A-Z]+-\\d+-\\d+-\\d+-[A-Z]-\\d+-\\d+)$"
+              "pattern": "^(VCS|PURO|ICR|GS)-\\d+-(19\\d{2}|20\\d{2})$"
             },
             "example": "VCS-191-2008",
             "in": "path",
@@ -4966,6 +4966,7 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "/purchases/{id}": {
       "get": {
@@ -5228,6 +5229,8 @@
         }
       }
     },
+=======
+>>>>>>> 7e222d490 (app: updated generated hooks)
     "/users/{walletOrHandle}": {
       "get": {
         "summary": "User details",
@@ -5726,6 +5729,260 @@
         }
       }
     },
+    "/users/{wallet}": {
+      "put": {
+        "summary": "Update user profile",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "wallet": {
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "username": {
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  "description": {
+                    "minLength": 2,
+                    "maxLength": 500,
+                    "type": "string"
+                  },
+                  "profileImgUrl": {
+                    "type": "string"
+                  },
+                  "handle": {
+                    "minLength": 3,
+                    "maxLength": 24,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "wallet",
+                  "username",
+                  "description"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
+            "in": "path",
+            "name": "wallet",
+            "required": true,
+            "description": "The target wallet address"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "wallet": {
+                      "minLength": 3,
+                      "type": "string"
+                    },
+                    "username": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "description": {
+                      "minLength": 2,
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    "profileImgUrl": {
+                      "type": "string"
+                    },
+                    "handle": {
+                      "minLength": 3,
+                      "maxLength": 24,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "wallet",
+                    "username",
+                    "description"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Quantity of credits purchased",
+                      "examples": [
+                        "1.0"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "tokenAddress": {
+                          "description": "Address of the asset that was purchased",
+                          "type": "string"
+                        },
+                        "seller": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "Address of the seller",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            },
+                            "serialization": {
+                              "examples": [
+                                "ICR-ISL-354-78040-14-R-0-2021"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "tokenAddress",
+                        "seller",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Total purchase price (USDC)",
+                      "examples": [
+                        "5.0"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/projects/{id}/activity": {
       "get": {
         "summary": "List project activities",
@@ -5805,7 +6062,7 @@
           {
             "schema": {
               "type": "string",
-              "pattern": "^(VCS|PURO|GS|ICR)-\\d+-(19\\d{2}|20\\d{2})$|^ICR-(?:[A-Z]+-\\d+-(\\d+-)?\\d+-[A-Z]-\\d+-(19\\d{2}|20\\d{2})|[A-Z]+-\\d+-\\d+-\\d+-[A-Z]-\\d+-\\d+)$"
+              "pattern": "^(VCS|PURO|ICR|GS)-\\d+-(19\\d{2}|20\\d{2})$"
             },
             "example": "VCS-191-2008",
             "in": "path",
