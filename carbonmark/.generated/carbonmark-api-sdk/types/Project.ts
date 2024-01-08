@@ -25,11 +25,11 @@ export type Project = {
   /**
    * @type array
    */
-  methodologies: ({
+  methodologies: {
     id?: string | null;
     category?: string | null;
     name?: string | null;
-  } | null)[];
+  }[];
   /**
    * @description A GeoJSON Point feature.
    */
@@ -58,6 +58,7 @@ export type Project = {
    */
   vintage: string;
   /**
+   * @description ⚠️Deprecated. Project may have multiple token addresses.
    * @type string
    */
   creditTokenAddress: string;

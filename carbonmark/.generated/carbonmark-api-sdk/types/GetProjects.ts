@@ -1,13 +1,13 @@
 import type { Def1 } from "./Def1";
 
-export const type3 = {
+export const type2 = {
   Feature: "Feature",
 } as const;
-export type Type3 = (typeof type3)[keyof typeof type3];
-export const geometryType3 = {
+export type Type2 = (typeof type2)[keyof typeof type2];
+export const geometryType2 = {
   Point: "Point",
 } as const;
-export type GeometryType3 = (typeof geometryType3)[keyof typeof geometryType3];
+export type GeometryType2 = (typeof geometryType2)[keyof typeof geometryType2];
 /**
  * @description List of projects
  */
@@ -30,11 +30,11 @@ export type GetProjectsQueryResponse = {
   /**
    * @type array
    */
-  methodologies: ({
+  methodologies: {
     id?: string | null;
     category?: string | null;
     name?: string | null;
-  } | null)[];
+  }[];
   /**
    * @description A GeoJSON Point feature.
    */
@@ -43,7 +43,7 @@ export type GetProjectsQueryResponse = {
      * @description `Feature`
      * @type string
      */
-    type: Type3;
+    type: Type2;
     /**
      * @type object
      */
@@ -52,7 +52,7 @@ export type GetProjectsQueryResponse = {
        * @description `Point`
        * @type string
        */
-      type: GeometryType3;
+      type: GeometryType2;
       /**
        * @type array
        */
@@ -65,6 +65,7 @@ export type GetProjectsQueryResponse = {
    */
   vintage: string;
   /**
+   * @description ⚠️Deprecated. Project may have multiple token addresses.
    * @type string
    */
   creditTokenAddress: string;

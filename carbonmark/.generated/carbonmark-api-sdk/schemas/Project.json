@@ -12,19 +12,12 @@
     "methodologies": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "type": "object",
-            "properties": {
-              "id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-              "category": {
-                "anyOf": [{ "type": "string" }, { "type": "null" }]
-              },
-              "name": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-            }
-          },
-          { "type": "null" }
-        ]
+        "type": "object",
+        "properties": {
+          "id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "category": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "name": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+        }
       }
     },
     "location": {
@@ -55,7 +48,10 @@
     },
     "url": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
     "vintage": { "type": "string" },
-    "creditTokenAddress": { "type": "string" },
+    "creditTokenAddress": {
+      "description": "⚠️Deprecated. Project may have multiple token addresses.",
+      "type": "string"
+    },
     "registry": { "type": "string" },
     "updatedAt": { "type": "string" },
     "country": { "type": "string" },

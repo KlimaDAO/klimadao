@@ -24,8 +24,8 @@ import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
 import {
   ActivityActionT,
-  DetailedProject,
   Listing,
+  Project as SDKProject,
   TokenPrice,
 } from "lib/types/carbonmark.types";
 import { extract, notNil } from "lib/utils/functional.utils";
@@ -40,7 +40,7 @@ import { ProjectTags } from "./ProjectTags";
 import * as styles from "./styles";
 
 export type PageProps = {
-  project: DetailedProject;
+  project: SDKProject;
   activities: Activity[];
   projectID: string;
 };
@@ -63,7 +63,7 @@ const Page: NextPage<PageProps> = (props) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const bestPrice = project?.price;
   // Project should always be defined from static page props!
-  if (isNil(project)) {
+  if (isNil(project) || isNil(project.listings)) {
     console.error(`Invalid project for ${props.projectID}`);
     return null;
   }
