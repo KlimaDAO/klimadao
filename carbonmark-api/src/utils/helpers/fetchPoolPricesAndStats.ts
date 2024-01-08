@@ -10,8 +10,13 @@ export const getTokenById = async (
   id: string
 ): Promise<{ symbol: string }> => {
   const query = await sdk.digital_carbon.getTokenById({ id });
+
+  if (!query.token) {
+    throw new Error(`Token with id '${id}' not found`);
+  }
+
   return {
-    symbol: query.token!.symbol,
+    symbol: query.token.symbol,
   };
 };
 
