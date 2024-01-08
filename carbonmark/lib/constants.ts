@@ -41,7 +41,7 @@ export const API_PROD_URL = "https://v5.2.1.api.carbonmark.com";
 //   : API_PROD_URL;
 // @todo remove and change to above before merge
 const API_PREVIEW_URL =
-  "https://carbonmark-api-git-apifeature-icr-api-integration-klimadao.vercel.app";
+  "https://carbonmark-api-git-feature-icr-api-integration-klimadao.vercel.app";
 
 /**
  * The API URL to target when developing the app,
