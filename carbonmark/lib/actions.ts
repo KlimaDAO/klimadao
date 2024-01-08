@@ -1,4 +1,5 @@
 import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
+import { NetworkParam } from ".generated/carbonmark-api-sdk/types";
 import IERC1155 from "@klimadao/lib/abi/IERC1155.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
@@ -207,7 +208,7 @@ export const createListingTransaction = async (params: {
       provider: signer,
       network: getSignerNetwork(signer) === "mumbai" ? "testnet" : "mainnet",
     });
-
+    console.log("createListing params", params);
     params.onStatus("userConfirmation", "");
 
     /** Handle overloaded method definition */
@@ -402,7 +403,7 @@ const idFromSymbol = (symbol: string) => {
 
 export const addProjectsToAssets = async (params: {
   assets: Asset[];
-  network: "polygon" | "mumbai";
+  network: NetworkParam;
 }): Promise<AssetWithProject[]> => {
   try {
     const projectIdSet = new Set<string>();
@@ -415,16 +416,13 @@ export const addProjectsToAssets = async (params: {
     );
 
     const ProjectMap = projects.reduce((PMap, p) => {
-      if (p?.key.startsWith("ICR")) {
-        PMap.set(p.key, p);
-      }
       if (p?.key) PMap.set(`${p.key}-${p.vintage}`, p);
       return PMap;
     }, new Map<string, Project>());
 
-    return params.assets.map((asset) => ({
-      ...asset,
-      project: ProjectMap.get(idFromSymbol(asset.token.symbol)) ?? null,
+    return params.assets.map((a) => ({
+      ...a,
+      project: ProjectMap.get(idFromSymbol(a.token.symbol)) ?? null,
     }));
   } catch (e) {
     throw e;
