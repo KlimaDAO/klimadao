@@ -62,8 +62,6 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
       // price change
       const price7DaysAgo =
         prices7daysAgo[`${token}_price` as Extract<keyof PricesItem, number>];
-      const priceChangePercentage =
-        ((tokenInfo.price - price7DaysAgo) * 100) / tokenInfo.price;
 
       // Selective cost
       const selectiveCostInfo =
