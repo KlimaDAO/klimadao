@@ -6,7 +6,11 @@ import { LoginButton } from "components/LoginButton";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { createProjectPurchaseLink } from "lib/createUrls";
-import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
+import {
+  getActiveListings,
+  getNonDustListings,
+  getSortByUpdateListings,
+} from "lib/listingsGetter";
 import { FC } from "react";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";
@@ -22,7 +26,9 @@ type Props = {
 export const SellerUnconnected: FC<Props> = (props) => {
   const { address, isConnected, toggleModal } = useWeb3();
 
-  const activeListings = getActiveListings(props.user?.listings ?? []);
+  const activeListings = getNonDustListings(
+    getActiveListings(props.user?.listings ?? [])
+  );
   const hasListings = !!activeListings.length;
 
   const sortedListings =

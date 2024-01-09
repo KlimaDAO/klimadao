@@ -12,10 +12,7 @@ import {
 } from "lib/actions.redeem";
 import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import {
-  DetailedProject,
-  TokenPrice as PriceType,
-} from "lib/types/carbonmark.types";
+import { TokenPrice as PriceType, Project } from "lib/types/carbonmark.types";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import * as styles from "../styles";
@@ -28,7 +25,7 @@ import { TotalValues } from "./TotalValues";
 import { FormValues } from "./types";
 
 export interface Props {
-  project: DetailedProject;
+  project: Project;
   price: PriceType;
 }
 

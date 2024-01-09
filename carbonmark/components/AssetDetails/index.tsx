@@ -9,7 +9,7 @@ import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createProjectTokenName } from "lib/projectGetter";
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
+import { Project, TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -17,7 +17,7 @@ import * as styles from "./styles";
 
 type TotalValuesProps = {
   price: TokenPrice;
-  project: DetailedProject;
+  project: Project;
   actionLabel: string;
   availableLabel: string;
   polyscanUrl: string;
