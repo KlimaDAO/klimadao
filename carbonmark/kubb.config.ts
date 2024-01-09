@@ -35,6 +35,16 @@ export default defineConfig(async () => {
       }),
       createSwaggerSWR({
         client: { importPath: "../client" },
+        /**
+         * Unfortunately we need to disable hook generation for PUT and POST calls.
+         * This should be temporary until the issue can be resolved, see:
+         *  */
+        exclude: [
+          {
+            type: "method",
+            pattern: "post|put",
+          },
+        ],
       }),
     ],
   };
