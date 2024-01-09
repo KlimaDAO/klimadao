@@ -38,6 +38,7 @@ export default defineConfig(async () => {
         /**
          * Unfortunately we need to disable hook generation for PUT and POST calls.
          * This should be temporary until the issue can be resolved, see:
+         * https://github.com/KlimaDAO/klimadao/issues/2089
          *  */
         exclude: [
           {
