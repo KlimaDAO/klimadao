@@ -29,20 +29,23 @@ export const getStaticProps: GetStaticProps<
   }
 
   try {
-    let project = await getProjectsId(project_id);
+    let [project, listing] = await Promise.all([
+      getProjectsId(project_id),
+      getListingsId(listing_id.toLowerCase()),
+    ]);
 
     if (!project) {
       throw new Error("No project found");
     }
 
-    let listing = await getListingsId(listing_id.toLowerCase());
-
     if (!listing && !IS_PRODUCTION) {
       // check testnet listings
-      project = await getProjectsId(project_id, { network: "mumbai" });
-      listing = await getListingsId(listing_id.toLowerCase(), {
-        network: "mumbai",
-      });
+      [project, listing] = await Promise.all([
+        getProjectsId(project_id, { network: "mumbai" }),
+        getListingsId(listing_id.toLowerCase(), {
+          network: "mumbai",
+        }),
+      ]);
     }
 
     if (!project || !listing) {
