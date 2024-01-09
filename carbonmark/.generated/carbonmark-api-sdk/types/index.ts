@@ -11,7 +11,6 @@ export * from "./GetCountries";
 export * from "./GetProjects";
 export * from "./GetProjectsId";
 export * from "./GetProjectsIdActivity";
-export * from "./GetPurchases";
 export * from "./GetPurchasesId";
 export * from "./GetUsersWalletorhandle";
 export * from "./GetVintages";
