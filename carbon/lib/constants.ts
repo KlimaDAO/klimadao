@@ -42,8 +42,8 @@ const api_url =
     : // Client side we use the proxy
       "/api";
 
-export const CACHE_DURATION = 3600;
-export const TOKENS_CACHE_DURATION = 60;
+export const CACHE_DURATION_SECONDS = 3600;
+export const TOKENS_CACHE_DURATION_SECONDS = 60;
 
 export const urls = {
   baseUrl: config.urls.baseUrl[ENVIRONMENT],

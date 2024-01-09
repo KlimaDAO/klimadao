@@ -1,4 +1,8 @@
-import { CACHE_DURATION, TOKENS_CACHE_DURATION, urls } from "lib/constants";
+import {
+  CACHE_DURATION_SECONDS,
+  TOKENS_CACHE_DURATION_SECONDS,
+  urls,
+} from "lib/constants";
 import {
   AggregatedCredits,
   AggregatedCreditsByBridge,
@@ -51,7 +55,7 @@ async function query<R, Q extends object>(
   revalidate?: number
 ): Promise<R> {
   // Default cache
-  revalidate = revalidate || CACHE_DURATION;
+  revalidate = revalidate || CACHE_DURATION_SECONDS;
   // Remove undefined parameters
   if (params) {
     const cleanParams = (
@@ -179,7 +183,7 @@ export const queryTokensInfo = function (): Promise<TokensInfo> {
   return paginatedQuery<TokenInfo, undefined>(
     urls.api.tokens,
     undefined,
-    TOKENS_CACHE_DURATION
+    TOKENS_CACHE_DURATION_SECONDS
   );
 };
 /** Queries the Tokens endpoint and return info for a particular token */
