@@ -32,9 +32,7 @@ query getPurchaseById($id: ID!) {
 }
 
 query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
-  listings(
-    where: { seller: $wallet, expiration_gt: $expiresAfter, active: true }
-  ) {
+  listings(where: { seller: $wallet, expiration_gt: $expiresAfter }) {
     ...ListingFragment
   }
   activities(
@@ -58,10 +56,17 @@ query getProjects(
 ) {
   projects(
     where: {
-      name_contains_nocase: $search
-      country_in: $country
-      category_in: $category
-      vintage_in: $vintage
+      and: [
+        {
+          or: [
+            { name_contains_nocase: $search }
+            { key_contains_nocase: $search }
+          ]
+        }
+        { country_in: $country }
+        { category_in: $category }
+        { vintage_in: $vintage }
+      ]
     }
   ) {
     ...ProjectFragment
