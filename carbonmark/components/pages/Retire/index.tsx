@@ -11,7 +11,7 @@ import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import { createProjectPoolRetireLink } from "lib/createUrls";
 import { getDefaultPoolFromPrices } from "lib/getPoolData";
-import { DetailedProject } from "lib/types/carbonmark.types";
+import { Project } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { RetireActivity } from "./Activity";
@@ -19,8 +19,8 @@ import { RetireFromPortfolio } from "./FromPortfolio";
 import * as styles from "./styles";
 
 export type PageProps = {
-  featuredProjects: DetailedProject[];
-  defaultProjects: DetailedProject[];
+  featuredProjects: Project[];
+  defaultProjects: Project[];
 };
 
 export const Retire: NextPage<PageProps> = (props) => {

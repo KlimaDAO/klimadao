@@ -2,13 +2,13 @@ import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
-import { DetailedProject, Listing } from "lib/types/carbonmark.types";
+import { Listing, Project } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { Price } from "./Listing/Price";
 import * as styles from "./styles";
 
 export interface Props {
-  project: DetailedProject;
+  project: Project;
   seller?: Listing["seller"];
   singleUnitPrice?: Listing["singleUnitPrice"];
 }

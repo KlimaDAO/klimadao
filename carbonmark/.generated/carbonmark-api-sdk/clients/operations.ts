@@ -4,6 +4,7 @@ export const operations = {
   get_countries: { path: "/countries", method: "get" },
   post_login: { path: "/login", method: "post" },
   get_projects: { path: "/projects", method: "get" },
+  get_purchases: { path: "/purchases", method: "get" },
   post_users: { path: "/users", method: "post" },
   get_vintages: { path: "/vintages", method: "get" },
   "post_login-verify": { path: "/login/verify", method: "post" },

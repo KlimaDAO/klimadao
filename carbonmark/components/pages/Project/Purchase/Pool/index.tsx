@@ -1,10 +1,10 @@
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
+import { Project, TokenPrice } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { PurchaseForm } from "./PurchaseForm";
 
 type Props = {
   price: TokenPrice;
-  project: DetailedProject;
+  project: Project;
 };
 
 export const PoolPurchase: FC<Props> = (props) => {
