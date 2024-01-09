@@ -2,6 +2,7 @@ import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { Activity } from "../../../models/Activity.model";
 import { User } from "../../../models/User.model";
+import { getActiveListings } from "../../../utils/helpers/listings.utils";
 import {
   getProfileByAddress,
   getProfileByHandle,
@@ -91,7 +92,10 @@ const handler = (fastify: FastifyInstance) =>
           };
         }) || [];
 
-      const listings = user?.listings?.map(formatListing) || [];
+      const listings = getActiveListings(
+        user?.listings?.map(formatListing) || [],
+        query.minSupply
+      );
 
       const response: User = {
         createdAt: profile?.createdAt || 0,

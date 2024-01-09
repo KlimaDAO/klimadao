@@ -2,6 +2,12 @@ import { FastifyInstance } from "fastify";
 import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
 import {
+  Project as CmsProject,
+  Maybe,
+  ProjectContent,
+  Slug,
+} from "../../../src/.generated/types/cms.types";
+import {
   CarbonProject,
   Registry,
 } from "../../../src/.generated/types/digitalCarbon.types";
@@ -41,6 +47,33 @@ const anotherMarketplaceProject: MarketplaceProject = {
   registry: "VCS",
   vintage: "2000",
 };
+const anotherCmsProject: CmsProject = {
+  ...cloneDeep(mockCmsProject),
+  registryProjectId: "111",
+  id: "VCS-111" as unknown as Maybe<Slug>,
+};
+
+const anotherCmsProjectContent: ProjectContent = cloneDeep(
+  mockCmsProjectContent
+);
+(anotherCmsProjectContent.project as any).registryProjectId = "111";
+
+const credit = fixtures.digitalCarbon.digitalCarbonProject.carbonCredits[0];
+const expectedPrices = [
+  {
+    isPoolDefault: true,
+    poolAddress: credit?.poolBalances[0].pool.id,
+    poolName: "bct",
+    projectTokenAddress:
+      fixtures.digitalCarbon.digitalCarbonProject.carbonCredits[0].id,
+    singleUnitPrice: "0.267999",
+    supply: "320307.9104911482",
+  },
+];
+const expectedImages = mockCmsProjectContent.images?.map((img) => ({
+  url: img?.asset?.url,
+  caption: img?.asset?.altText,
+}));
 
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
@@ -57,7 +90,10 @@ describe("GET /projects", () => {
     mockMarketplaceArgs();
     mockDigitalCarbonArgs();
     mockTokens();
-    mockCms();
+    mockCms({
+      projects: [mockCmsProject, anotherCmsProject],
+      content: [mockCmsProjectContent, anotherCmsProjectContent],
+    });
   });
 
   // /** The happy path */
@@ -99,6 +135,7 @@ describe("GET /projects", () => {
         name: mockCmsProject.name,
         // applies short_description property from cms
         short_description: mockCmsProjectContent?.shortDescription,
+        long_description: mockCmsProjectContent?.longDescription,
         // Takes numeric from full id, "VCS-191" -> "191"
         projectID: mockDigitalCarbonProject.projectID.split("-")[1],
         vintage: mockDigitalCarbonProject.carbonCredits[0].vintage.toString(),
@@ -108,13 +145,16 @@ describe("GET /projects", () => {
         updatedAt:
           mockDigitalCarbonProject.carbonCredits[0].poolBalances[0].pool
             .dailySnapshots[0].lastUpdateTimestamp,
-        country: {
-          id: mockCmsProject.country,
-        },
-        //This price is a result of the mock in `fixtures.tokens`
+        country: mockCmsProject.country,
         price: "0.267999",
-        listings: null,
+        prices: expectedPrices,
         key: mockDigitalCarbonProject.projectID,
+        stats: {
+          totalBridged: 320308,
+          totalRetired: 0,
+          totalSupply: 320308,
+        },
+        url: mockCmsProject.url,
         location: {
           geometry: {
             coordinates: [
@@ -125,10 +165,9 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
-        images: mockCmsProjectContent.images?.map((img) => ({
-          url: img?.asset?.url,
-          caption: img?.asset?.description,
-        })),
+        images: expectedImages,
+        listings: [],
+        hasSupply: true,
       },
     ];
 
@@ -157,9 +196,7 @@ describe("GET /projects", () => {
         methodologies: [
           pick(mockCmsProject.methodologies?.[0], ["category", "id", "name"]),
         ],
-        country: {
-          id: mockCmsProject.country,
-        },
+        country: mockCmsProject.country,
         location: {
           geometry: {
             coordinates: [
@@ -170,13 +207,11 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
+        hasSupply: true,
 
         /** CMS Project Content */
         short_description: mockCmsProjectContent?.shortDescription,
-        images: mockCmsProjectContent?.images?.map((img) => ({
-          url: img?.asset?.url,
-          caption: img?.asset?.description,
-        })),
+        images: expectedImages,
 
         /** Marketplace Data */
         vintage: mockMarketplaceProject.vintage,
@@ -376,7 +411,7 @@ describe("GET /projects", () => {
 
     const projects: Project[] = await mock_fetch(fastify, "/projects");
     expect(projects.length).toBe(2);
-    expect(projects.at(0)?.country.id).toBe("lots-of-spaces");
+    expect(projects.at(0)?.country).toBe("lots-of-spaces");
   });
 
   test.todo("Same asset in multiple pools and listings");

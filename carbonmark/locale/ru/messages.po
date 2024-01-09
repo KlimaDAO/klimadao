@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-05 23:55+0000\n"
+"POT-Creation-Date: 2024-01-09 15:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -147,7 +147,7 @@ msgstr "Доступный запас превышен"
 msgid "Available to list: {0}"
 msgstr "Доступно: {0}"
 
-#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:213
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:210
 msgid "Available to purchase"
 msgstr "Доступно для покупки"
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "BETA"
 msgstr "БЕТА"
 
-#: components/pages/Project/Purchase/index.tsx:53
+#: components/pages/Project/Purchase/index.tsx:49
 #: components/pages/Project/Retire/index.tsx:36
 msgid "Back to Project"
 msgstr "Вернуться к проекту"
@@ -216,7 +216,7 @@ msgstr "Адрес кошелька получателя (необязатель
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:136
+#: components/pages/Project/index.tsx:139
 msgid "Best Price"
 msgstr "Лучшая цена"
 
@@ -445,12 +445,12 @@ msgstr "В настоящее время Carbonmark принимает толь�
 msgid "DATE"
 msgstr "ДАТА"
 
-#: components/pages/Project/index.tsx:233
+#: components/pages/Project/index.tsx:236
 msgid "Data for this project and vintage"
 msgstr "Данные для этого проекта и урожая"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:90
+#: components/pages/Users/SellerUnconnected/index.tsx:96
 msgid "Data for this seller"
 msgstr "Данные по этому продавцу"
 
@@ -462,7 +462,7 @@ msgstr "По умолчанию используется адрес подклю
 msgid "Describe the purpose of this retirement"
 msgstr "Опишите цель этого вывода"
 
-#: components/pages/Project/index.tsx:184
+#: components/pages/Project/index.tsx:187
 msgid "Description"
 msgstr "Описание"
 
@@ -716,7 +716,7 @@ msgid "Listed tonnes:"
 msgstr "Опубликованные тонны:"
 
 #: components/pages/Users/SellerConnected/index.tsx:133
-#: components/pages/Users/SellerUnconnected/index.tsx:48
+#: components/pages/Users/SellerUnconnected/index.tsx:54
 msgid "Listings"
 msgstr "Объявления"
 
@@ -772,7 +772,7 @@ msgstr "Торговая площадка | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Максимизируйте свое воздействие на климат."
 
-#: components/pages/Project/index.tsx:143
+#: components/pages/Project/index.tsx:146
 msgid "Methodology"
 msgstr "Методология"
 
@@ -797,7 +797,7 @@ msgid "No Activity to show."
 msgstr "Нет активности для отображения."
 
 #: components/pages/Users/SellerConnected/index.tsx:196
-#: components/pages/Users/SellerUnconnected/index.tsx:84
+#: components/pages/Users/SellerUnconnected/index.tsx:90
 msgid "No active listings."
 msgstr "Нет активных объявлений."
 
@@ -817,7 +817,7 @@ msgstr "Нет данных для отображения"
 msgid "No listable assets found."
 msgstr "Список объектов не найден."
 
-#: components/pages/Project/index.tsx:223
+#: components/pages/Project/index.tsx:226
 msgid "No listings found for this project."
 msgstr "Не найдено объявлений для этого проекта."
 
@@ -1011,8 +1011,8 @@ msgstr "Купите больше углерода"
 msgid "Purchase successful"
 msgstr "Покупка прошла успешно"
 
-#: components/pages/Project/Purchase/index.tsx:41
-#: components/pages/Project/Purchase/index.tsx:42
+#: components/pages/Project/Purchase/index.tsx:37
+#: components/pages/Project/Purchase/index.tsx:38
 msgid "Purchase {0} | Carbonmark"
 msgstr "Купить {0} | Carbonmark"
 
@@ -1050,11 +1050,11 @@ msgstr "Быстрый вывод"
 msgid "RETIRE CARBON"
 msgstr "ВЫВЕДЕНО УГЛЕРОДА"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:200
 msgid "Read Less"
 msgstr "Читать меньше"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:200
 msgid "Read More"
 msgstr "Подробнее"
 
@@ -1246,7 +1246,7 @@ msgstr "Войти / Подключиться, чтобы купить"
 msgid "Single unit price"
 msgstr "Цена за единицу"
 
-#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:111
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:108
 msgid "Something went wrong loading the allowance"
 msgstr "Что-то пошло не так при загрузке пособия"
 
@@ -1456,7 +1456,7 @@ msgstr "Сменить способ оплаты"
 msgid "Toggle sort menu"
 msgstr "Переключить меню сортировки"
 
-#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:212
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:209
 msgid "Token you will receive"
 msgstr "Токен, который вы получите"
 
@@ -1580,7 +1580,7 @@ msgstr "Просмотр"
 msgid "View Carbonmark Profile"
 msgstr "Посмотреть профиль Carbonmark"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:209
 msgid "View Registry Details <0/>"
 msgstr "Просмотр сведений о реестре <0/>"
 
@@ -1613,7 +1613,7 @@ msgstr "Посмотреть все проекты"
 msgid "View all Retirements"
 msgstr "Просмотреть всего выведено"
 
-#: components/pages/Project/index.tsx:113
+#: components/pages/Project/index.tsx:116
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Посмотреть и приобрести этот проект компенсации выбросов углерода на Carbonmark"
 
@@ -2242,7 +2242,7 @@ msgstr "Всего выбыло тонн углерода"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Всего транзакции выбивания"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:71
+#: components/pages/Users/SellerUnconnected/index.tsx:77
 msgid "seller.listing.buy"
 msgstr "Купить"
 
@@ -2251,7 +2251,7 @@ msgid "seller.listing.quantity_available"
 msgstr "Доступное количество:"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:61
+#: components/pages/Users/SellerUnconnected/index.tsx:67
 msgid "shared.connect_to_buy"
 msgstr "Войти / Подключиться, чтобы купить"
 

@@ -4,6 +4,7 @@ export * from "./useGetCountries";
 export * from "./useGetProjects";
 export * from "./useGetProjectsId";
 export * from "./useGetProjectsIdActivity";
+export * from "./useGetPurchases";
 export * from "./useGetPurchasesId";
 export * from "./useGetUsersWalletorhandle";
 export * from "./useGetVintages";

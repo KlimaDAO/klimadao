@@ -1,5 +1,6 @@
 import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks/useGetProjects";
 import { Project } from ".generated/carbonmark-api-sdk/types";
+import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
 import { emptyToUndefined, joinArray } from "lib/utils/string.utils";
 import { mapValues } from "lodash";
 import { pipe } from "lodash/fp";
@@ -15,5 +16,8 @@ export type ProjectsProps = {
 export const useFetchProjects = () => {
   const { query } = useRouter();
   const mappedParams = mapValues(query, pipe(joinArray, emptyToUndefined));
-  return useGetProjects(mappedParams);
+  return useGetProjects({
+    ...mappedParams,
+    minSupply: DEFAULT_MIN_LISTING_QUANTITY,
+  });
 };
