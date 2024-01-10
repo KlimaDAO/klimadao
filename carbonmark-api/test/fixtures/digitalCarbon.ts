@@ -59,7 +59,14 @@ export const digitalCarbonProject = aCarbonProject({
   carbonCredits: [carbonCredit as CarbonCredit],
 });
 
+const empty_countries = {
+  data: {
+    carbonProjects: [],
+  },
+};
+
 const fixtures = {
+  empty_countries,
   carbonCredit,
   poolBalance,
   digitalCarbonProject,

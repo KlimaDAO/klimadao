@@ -6,6 +6,12 @@ query getDigitalCarbonProjectsVintages {
   }
 }
 
+query getTokenById($id: ID!) {
+  token(id: $id) {
+    symbol
+  }
+}
+
 query getDigitalCarbonProjectsCategories {
   carbonProjects(first: 1000) {
     category

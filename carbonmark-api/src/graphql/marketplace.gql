@@ -31,6 +31,12 @@ query getPurchaseById($id: ID!) {
   }
 }
 
+query getListingById($id: ID!) {
+  listing(id: $id) {
+    ...ListingFragment
+  }
+}
+
 query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
   listings(where: { seller: $wallet, expiration_gt: $expiresAfter }) {
     ...ListingFragment
