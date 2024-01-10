@@ -100,6 +100,7 @@ export const CreateListing: FC<Props> = (props) => {
    */
   const hasApproval = () => {
     if (!Number(inputValues?.amount)) return false;
+    // 1155 approvals are all or nothing approvals across all tokenIds and amount
     if (!!inputValues?.tokenId) {
       return currentAllowance === constants.MaxUint256.toString();
     }
