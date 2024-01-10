@@ -17,7 +17,7 @@ import { OnStatusHandler } from "lib/statusMessage";
 import {
   Asset,
   AssetForRetirement,
-  PcbProject,
+  DigitalCarbonCredit,
   Project,
 } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
@@ -347,15 +347,15 @@ export const addProjectsToAssets = async (params: {
 
 interface CompositeAssetParams {
   asset: Asset;
-  project: PcbProject;
+  credit: DigitalCarbonCredit;
 }
 
 export const createCompositeAsset = (
   params: CompositeAssetParams
 ): AssetForRetirement => {
-  const { asset, project } = params;
-  if (!project) {
-    throw new Error("Project field is not defined in the asset");
+  const { asset, credit } = params;
+  if (!credit) {
+    throw new Error("credit field is not defined in the asset");
   }
 
   const compositeAsset: AssetForRetirement = {
@@ -365,7 +365,7 @@ export const createCompositeAsset = (
     tokenName: asset.token.name,
     balance: asset.amount,
     tokenSymbol: asset.token.symbol,
-    project,
+    credit,
   };
 
   return compositeAsset;

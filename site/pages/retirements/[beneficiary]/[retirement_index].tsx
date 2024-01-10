@@ -4,11 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire as IKlimaRetire } from "@klimadao/lib/types/subgraph";
-import {
-  getRetirementDetails,
-  queryKlimaRetireByIndex,
-} from "@klimadao/lib/utils";
-
+import { getRetirementDetails } from "@klimadao/lib/utils";
 import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
 import { Pledge } from "components/pages/Pledge/types";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
@@ -16,6 +12,7 @@ import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
 import { INFURA_ID } from "lib/secrets";
+import { queryKlimaRetireByIndex } from "../../../../carbonmark/lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */

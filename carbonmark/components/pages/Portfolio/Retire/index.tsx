@@ -9,7 +9,7 @@ import { PageHead } from "components/PageHead";
 import { createCompositeAsset } from "lib/actions";
 import type {
   AssetForRetirement,
-  PcbProject,
+  DigitalCarbonCredit,
 } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
@@ -21,7 +21,7 @@ import { UnregisteredMessage } from "./UnregisteredMessage";
 import * as styles from "./styles";
 
 export type RetirePageProps = {
-  project: PcbProject;
+  project: DigitalCarbonCredit;
   translation: Messages;
   fixedThemeName: string;
 };
@@ -61,13 +61,13 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
     if (isConnected && !isLoading && carbonmarkUser) {
       function createRetirementAsset() {
         // unlikely, but this allows for duplicate projects
-        const targetProject = Array.isArray(props.project)
+        const targetCredit = Array.isArray(props.project)
           ? props.project[0]
           : undefined;
 
-        if (targetProject && carbonmarkUser?.assets) {
+        if (targetCredit && carbonmarkUser?.assets) {
           const asset = carbonmarkUser?.assets.filter((asset) => {
-            return asset.token.id == targetProject.tokenAddress;
+            return asset.token.id == targetCredit.id;
           })[0];
 
           if (!asset) {
@@ -76,7 +76,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
           }
           const compositeAsset = createCompositeAsset({
             asset,
-            project: targetProject,
+            credit: targetCredit,
           });
 
           setRetirementAsset(compositeAsset);

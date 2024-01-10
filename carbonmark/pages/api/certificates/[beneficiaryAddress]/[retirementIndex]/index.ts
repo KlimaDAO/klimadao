@@ -1,10 +1,8 @@
 import { urls } from "@klimadao/lib/constants";
-import {
-  getRetirementTokenByAddress,
-  queryKlimaRetireByIndex,
-} from "@klimadao/lib/utils";
+import { getRetirementTokenByAddress } from "@klimadao/lib/utils";
 import { isAddress } from "ethers-v6";
 import { generateCertificate } from "lib/retirementCertificates";
+import { queryKlimaRetireByIndex } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { isNumber } from "lodash";
@@ -51,8 +49,11 @@ export default async function handler(
     const certificateParams = {
       retirement,
       retirementIndex,
-      retirementUrl: `${urls.retirements_carbonmark}/${retirement.beneficiaryAddress}/${retirementIndex}`,
-      retiredToken: getRetirementTokenByAddress(retirement.pool),
+      retirementUrl: `${urls.retirements_carbonmark}/${retirement.retire.beneficiaryAddress}/${retirementIndex}`,
+      retiredToken: getRetirementTokenByAddress(
+        retirement.retire.credit?.poolBalances?.pool?.id ??
+          retirement.retire.credit.id
+      ),
     };
 
     res.setHeader("Content-Type", "application/pdf");
