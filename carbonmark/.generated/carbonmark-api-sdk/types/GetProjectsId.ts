@@ -263,6 +263,10 @@ export type GetProjectsIdQueryResponse = {
   /**
    * @type string | undefined
    */
+  tokenId?: string;
+  /**
+   * @type string | undefined
+   */
   serialization?: string;
 };
 

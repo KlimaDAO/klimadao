@@ -241,6 +241,7 @@
       }
     },
     "hasSupply": { "type": "boolean" },
+    "tokenId": { "type": "string" },
     "serialization": { "type": "string" }
   },
   "required": [

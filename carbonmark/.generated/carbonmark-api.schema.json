@@ -489,6 +489,9 @@
           "hasSupply": {
             "type": "boolean"
           },
+          "tokenId": {
+            "type": "string"
+          },
           "serialization": {
             "type": "string"
           }
@@ -1729,13 +1732,86 @@
         }
       }
     },
-    "/countries": {
+    "/activities": {
       "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "summary": "List project activities",
+        "tags": [
+          "Activities"
+        ],
+        "description": "Retrieve an array of activities related to a carbon project",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "array",
+              "items": {
+                "description": "Filter returned activities by project",
+                "type": "string"
+              }
+            },
+            "in": "query",
+            "name": "projectId",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "CreatedListing"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "DeletedListing"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "Purchase"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "Sold"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "UpdatedPrice"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "UpdatedQuantity"
+                    ]
+                  }
+                ]
+              }
+            },
+            "in": "query",
+            "name": "activityType",
+            "required": false
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "List of project activities",
             "content": {
               "application/json": {
                 "schema": {
@@ -1745,26 +1821,145 @@
                     "properties": {
                       "id": {
                         "type": "string"
+                      },
+                      "project": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "vintage": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "vintage"
+                        ]
+                      },
+                      "amount": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "previousAmount": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "price": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "previousPrice": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "timeStamp": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "activityType": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "seller": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "handle": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "buyer": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "handle": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
                       }
                     },
                     "required": [
-                      "id"
+                      "id",
+                      "project"
                     ]
                   }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
+                }
               }
             }
           }
@@ -2374,6 +2569,9 @@
                       "hasSupply": {
                         "type": "boolean"
                       },
+                      "tokenId": {
+                        "type": "string"
+                      },
                       "serialization": {
                         "type": "string"
                       }
@@ -2402,86 +2600,13 @@
         }
       }
     },
-    "/activities": {
+    "/countries": {
       "get": {
-        "summary": "List project activities",
-        "tags": [
-          "Activities"
-        ],
-        "description": "Retrieve an array of activities related to a carbon project",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "array",
-              "items": {
-                "description": "Filter returned activities by project",
-                "type": "string"
-              }
-            },
-            "in": "query",
-            "name": "projectId",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "enum": [
-                      "CreatedListing"
-                    ]
-                  },
-                  {
-                    "type": "string",
-                    "enum": [
-                      "DeletedListing"
-                    ]
-                  },
-                  {
-                    "type": "string",
-                    "enum": [
-                      "Purchase"
-                    ]
-                  },
-                  {
-                    "type": "string",
-                    "enum": [
-                      "Sold"
-                    ]
-                  },
-                  {
-                    "type": "string",
-                    "enum": [
-                      "UpdatedPrice"
-                    ]
-                  },
-                  {
-                    "type": "string",
-                    "enum": [
-                      "UpdatedQuantity"
-                    ]
-                  }
-                ]
-              }
-            },
-            "in": "query",
-            "name": "activityType",
-            "required": false
-          }
-        ],
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
         "responses": {
           "200": {
-            "description": "List of project activities",
+            "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
@@ -2491,155 +2616,36 @@
                     "properties": {
                       "id": {
                         "type": "string"
-                      },
-                      "project": {
-                        "type": "object",
-                        "properties": {
-                          "key": {
-                            "type": "string"
-                          },
-                          "vintage": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "key",
-                          "vintage"
-                        ]
-                      },
-                      "amount": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "previousAmount": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "price": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "previousPrice": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "timeStamp": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "activityType": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "seller": {
-                        "anyOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "handle": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ]
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "buyer": {
-                        "anyOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "handle": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ]
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
                       }
                     },
                     "required": [
-                      "id",
-                      "project"
+                      "id"
                     ]
                   }
-                }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
+                    }
+                  ]
+                ]
               }
             }
           }
         }
       }
     },
-    "/vintages": {
+    "/purchases": {
       "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
+        "summary": "Recent purchases",
+        "description": "Retrieve a list of recent purchases",
         "parameters": [
           {
             "schema": {
@@ -2652,34 +2658,133 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "A ordered list of recent purchases and their projects",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "ID (transaction hash) of the purchase",
+                        "examples": [
+                          "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                        ],
+                        "type": "string"
+                      },
+                      "amount": {
+                        "description": "Quantity of credits purchased",
+                        "examples": [
+                          "1.0"
+                        ],
+                        "type": "string"
+                      },
+                      "listing": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "ID of the listing that was purchased",
+                            "examples": [
+                              "0x1"
+                            ],
+                            "type": "string"
+                          },
+                          "tokenAddress": {
+                            "description": "Address of the asset that was purchased",
+                            "type": "string"
+                          },
+                          "seller": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Address of the seller",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          "project": {
+                            "type": "object",
+                            "properties": {
+                              "country": {
+                                "examples": [
+                                  "China"
+                                ],
+                                "type": "string"
+                              },
+                              "key": {
+                                "examples": [
+                                  "VCS-191"
+                                ],
+                                "type": "string"
+                              },
+                              "methodology": {
+                                "examples": [
+                                  "ACM0002"
+                                ],
+                                "type": "string"
+                              },
+                              "name": {
+                                "examples": [
+                                  "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                                ],
+                                "type": "string"
+                              },
+                              "projectID": {
+                                "examples": [
+                                  "191"
+                                ],
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "examples": [
+                                  "2008"
+                                ],
+                                "type": "string"
+                              },
+                              "serialization": {
+                                "examples": [
+                                  "ICR-ISL-354-78040-14-R-0-2021"
+                                ],
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "country",
+                              "key",
+                              "methodology",
+                              "name",
+                              "projectID",
+                              "vintage"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "tokenAddress",
+                          "seller",
+                          "project"
+                        ]
+                      },
+                      "price": {
+                        "description": "Total purchase price (USDC)",
+                        "examples": [
+                          "5.0"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "amount",
+                      "listing",
+                      "price"
+                    ]
                   }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
+                }
               }
             }
           }
@@ -3686,6 +3791,9 @@
                     "hasSupply": {
                       "type": "boolean"
                     },
+                    "tokenId": {
+                      "type": "string"
+                    },
                     "serialization": {
                       "type": "string"
                     }
@@ -3705,6 +3813,162 @@
                     "prices",
                     "stats",
                     "hasSupply"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Quantity of credits purchased",
+                      "examples": [
+                        "1.0"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "tokenAddress": {
+                          "description": "Address of the asset that was purchased",
+                          "type": "string"
+                        },
+                        "seller": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "Address of the seller",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            },
+                            "serialization": {
+                              "examples": [
+                                "ICR-ISL-354-78040-14-R-0-2021"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "tokenAddress",
+                        "seller",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Total purchase price (USDC)",
+                      "examples": [
+                        "5.0"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
                   ]
                 }
               }
@@ -4218,162 +4482,6 @@
                     "updatedAt",
                     "createdAt",
                     "wallet"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/purchases/{id}": {
-      "get": {
-        "summary": "Purchase details",
-        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "ID (transaction hash) of the purchase to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response with listing details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "ID (transaction hash) of the purchase",
-                      "examples": [
-                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                      ],
-                      "type": "string"
-                    },
-                    "amount": {
-                      "description": "Quantity of credits purchased",
-                      "examples": [
-                        "1.0"
-                      ],
-                      "type": "string"
-                    },
-                    "listing": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
-                          "type": "string"
-                        },
-                        "tokenAddress": {
-                          "description": "Address of the asset that was purchased",
-                          "type": "string"
-                        },
-                        "seller": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Address of the seller",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        "project": {
-                          "type": "object",
-                          "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
-                              "type": "string"
-                            },
-                            "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
-                              "type": "string"
-                            },
-                            "serialization": {
-                              "examples": [
-                                "ICR-ISL-354-78040-14-R-0-2021"
-                              ],
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "country",
-                            "key",
-                            "methodology",
-                            "name",
-                            "projectID",
-                            "vintage"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "tokenAddress",
-                        "seller",
-                        "project"
-                      ]
-                    },
-                    "price": {
-                      "description": "Total purchase price (USDC)",
-                      "examples": [
-                        "5.0"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "amount",
-                    "listing",
-                    "price"
                   ]
                 }
               }
