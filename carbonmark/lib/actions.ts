@@ -208,7 +208,6 @@ export const createListingTransaction = async (params: {
       provider: signer,
       network: getSignerNetwork(signer) === "mumbai" ? "testnet" : "mainnet",
     });
-    console.log("createListing params", params);
     params.onStatus("userConfirmation", "");
 
     /** Handle overloaded method definition */
@@ -310,7 +309,6 @@ export const makePurchase = async (params: {
   projectKey: string;
   onStatus: OnStatusHandler;
 }): Promise<Transaction> => {
-  console.log("makePurchase params", params);
   try {
     const signer = params.provider.getSigner();
     const network = getSignerNetwork(signer);
