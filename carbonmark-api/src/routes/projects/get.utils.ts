@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { compact, isArray, isNil, max, maxBy } from "lodash";
 import { concat, map, mapValues, min, pipe, trim, uniq } from "lodash/fp";
+import fetch from "node-fetch";
 import { NetworkParam } from "src/models/NetworkParam.model";
 import { TokenPriceT } from "src/models/TokenPrice.model";
 import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";

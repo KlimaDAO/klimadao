@@ -1,6 +1,13 @@
 import { FastifyInstance } from "fastify";
 import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
+import { NetworkParam } from "src/models/NetworkParam.model";
+import {
+  Project as CmsProject,
+  Maybe,
+  ProjectContent,
+  Slug,
+} from "../../../src/.generated/types/cms.types";
 import {
   CarbonProject,
   Registry,
@@ -79,9 +86,6 @@ jest.mock("../../../src/utils/ICR/ICR_API_endpoints", () => ({
     return { ICR_API_URL: baseUrl };
   },
 }));
-
-const ICR_API_URL = ICR_API("polygon").ICR_API_URL;
-const ICR_API_URL_MUMBAI = ICR_API("mumbai").ICR_API_URL;
 
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
@@ -443,7 +447,7 @@ describe("GET /projects", () => {
 
     const projects: Project[] = await mock_fetch(fastify, "/projects");
     expect(projects.length).toBe(2);
-    expect(projects.at(0)?.country.id).toBe("lots-of-spaces");
+    expect(projects.at(0)?.country).toBe("lots-of-spaces");
   });
 
   test.todo("Same asset in multiple pools and listings");
