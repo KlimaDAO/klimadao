@@ -2,12 +2,11 @@ import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { NetworkParam } from "src/models/NetworkParam.model";
 import { GRAPH_URLS, SANITY_URLS } from "../../../../src/app.constants";
-import { ICR_API } from "../../../../src/utils/ICR/ICR_API_endpoints";
 import { fixtures } from "../../../fixtures";
 import digitalCarbon from "../../../fixtures/digitalCarbon";
 import tokens from "../../../fixtures/tokens";
 import { build } from "../../../helper";
-import { DEV_URL, mockICRProject } from "../../../test.constants";
+import { DEV_URL } from "../../../test.constants";
 
 jest.mock("../../../../src/utils/ICR/ICR_API_endpoints", () => ({
   ICR_API: (network: NetworkParam) => {
@@ -25,13 +24,9 @@ const mockActivities = fixtures.marketplace.activities;
 
 describe("GET /projects/:id", () => {
   let fastify: FastifyInstance;
-  let ICR_API_URL: string;
-  let ICR_API_URL_MUMBAI: string;
 
   // Setup the server
   beforeEach(async () => {
-    ICR_API_URL = ICR_API("polygon").ICR_API_URL;
-    ICR_API_URL_MUMBAI = ICR_API("mumbai").ICR_API_URL;
     try {
       fastify = await build();
     } catch (e) {
@@ -71,14 +66,6 @@ describe("GET /projects/:id", () => {
           activities: mockActivities,
         },
       });
-    nock(ICR_API_URL)
-      .get("/public/projects")
-      .reply(200, { projects: [mockICRProject] });
-
-    // mumbai nocks backup
-    nock(ICR_API_URL_MUMBAI)
-      .get("/public/projects")
-      .reply(200, { projects: [mockICRProject] });
 
     nock(GRAPH_URLS["mumbai"].marketplace).post("").reply(200, {
       data: {},
@@ -126,14 +113,6 @@ describe("GET /projects/:id", () => {
           activities: fixtures.marketplace.activities,
         },
       });
-    nock(ICR_API_URL)
-      .get("/public/projects")
-      .reply(200, { projects: [mockICRProject] });
-
-    // mumbai nocks backup
-    nock(ICR_API_URL_MUMBAI)
-      .get("/public/projects")
-      .reply(200, { projects: [mockICRProject] });
 
     nock(GRAPH_URLS["mumbai"].marketplace).post("").reply(200, {
       data: {},
@@ -181,14 +160,6 @@ describe("GET /projects/:id", () => {
           activities: fixtures.marketplace.activities,
         },
       });
-    nock(ICR_API_URL)
-      .get("/public/projects")
-      .reply(200, { projects: [mockICRProject] });
-
-    // // mumbai nocks backup
-    nock(ICR_API_URL_MUMBAI)
-      .get("/public/projects")
-      .reply(200, { projects: [mockICRProject] });
 
     nock(GRAPH_URLS["mumbai"].marketplace).post("").reply(200, {
       data: {},

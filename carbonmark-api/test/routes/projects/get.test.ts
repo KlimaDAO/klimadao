@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
-import { NetworkParam } from "src/models/NetworkParam.model";
 import {
   Project as CmsProject,
   Maybe,
@@ -75,16 +74,6 @@ const expectedPrices = [
 const expectedImages = mockCmsProjectContent.images?.map((img) => ({
   url: img?.asset?.url,
   caption: img?.asset?.altText,
-}));
-
-jest.mock("../../../src/utils/ICR/ICR_API_endpoints", () => ({
-  ICR_API: (network: NetworkParam) => {
-    let baseUrl = "https://api.carbonregistry.com/v0";
-    if (network === "mumbai") {
-      baseUrl = "https://gaia-api-dev.mojoflower.io/v0";
-    }
-    return { ICR_API_URL: baseUrl };
-  },
 }));
 
 describe("GET /projects", () => {
