@@ -1,4 +1,3 @@
-import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
 import { PoolToken } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
@@ -42,7 +41,7 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
     <Accordion label={t`Asset details`} className={styles.accordion}>
       <div className={styles.totalsText}>
         <Text color="lightest">{props.actionLabel}</Text>
-        <div className={cx(styles.iconAndText)}>
+        <div className={styles.iconAndText}>
           <Text t="h5">{tokenName}</Text>
         </div>
       </div>
