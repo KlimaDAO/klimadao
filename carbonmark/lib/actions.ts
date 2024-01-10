@@ -39,7 +39,7 @@ export const getCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
   tokenId?: string;
-  network?: "mumbai" | "polygon";
+  network?: NetworkParam;
 }): Promise<string> => {
   // If there is a tokenID, handle as ERC1155
   if (!!params.tokenId) {

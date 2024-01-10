@@ -133,7 +133,7 @@ export const RetireForm = (props: RetireFormProps) => {
     if (props.asset.project.registry.startsWith("ICR")) {
       return (
         Number.isInteger(parseFloat(value)) ||
-        "ICR credits can only be retired in whole tonnes"
+        t`ICR credits can only be retired in whole tonnes`
       );
     }
     return true;

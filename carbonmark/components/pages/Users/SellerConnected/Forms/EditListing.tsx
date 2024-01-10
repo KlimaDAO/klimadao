@@ -124,7 +124,7 @@ export const EditListing: FC<Props> = (props) => {
                   isWholeNumber: (value) =>
                     !props.listing.project.id.startsWith("ICR") ||
                     Number.isInteger(parseFloat(value)) ||
-                    "ICR credits can only be listed in whole tonnes",
+                    t`ICR credits can only be listed in whole tonnes`,
                 },
               }),
             }}

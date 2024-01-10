@@ -89,7 +89,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
                   isWholeNumber: (value) =>
                     !props.listing.project.id.startsWith("ICR") ||
                     Number.isInteger(parseFloat(value)) ||
-                    "ICR credits can only be bought in whole tonnes",
+                    t`ICR credits can only be bought in whole tonnes`,
                 },
               }),
             }}
