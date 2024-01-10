@@ -1,7 +1,7 @@
 import { isStringArray } from "./types.utils";
 
 /**
- * Joins an array of strings into a single string.
+ * Joins an array of strings into a single comma-separated string.
  * If the input is already a string, it returns the input as is.
  */
 export const joinArray = (value: string | string[]): string =>
