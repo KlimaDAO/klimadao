@@ -10,7 +10,6 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Spinner } from "components/shared/Spinner";
 import { useFetchUsersWalletOrHandle } from "hooks/useFetchUsersWalletOrHandle";
 import { activityIsAdded, getUserUntil } from "lib/api";
-import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
 import { first, get, pipe } from "lodash/fp";
 import { NextPage } from "next";
@@ -38,7 +37,7 @@ export const Portfolio: NextPage = () => {
   const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
     address,
     params,
-    { shouldFetch: address !== "" && notNil(address) }
+    { shouldFetch: !!address }
   );
 
   const [isPending, setIsPending] = useState(false);

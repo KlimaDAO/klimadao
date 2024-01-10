@@ -1,3 +1,4 @@
+import { NetworkParam } from ".generated/carbonmark-api-sdk/types";
 import { getContract } from "@klimadao/lib/utils";
 import type { BigNumber } from "ethers";
 import { providers } from "ethers";
@@ -78,7 +79,7 @@ export const retireProjectTokenTransaction = async (params: {
   beneficiaryAddress: string;
   beneficiaryName: string;
   retirementMessage: string;
-  network: "polygon" | "mumbai";
+  network: NetworkParam;
   onStatus: OnStatusHandler;
 }): Promise<RetireCarbonTransactionResult> => {
   enum TransferMode {

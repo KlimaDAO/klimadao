@@ -1,3 +1,4 @@
+import { NetworkParam } from ".generated/carbonmark-api-sdk/types";
 import IERC1155 from "@klimadao/lib/abi/IERC1155.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
@@ -16,7 +17,7 @@ export const hasApproval = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
   tokenAddress: string;
-  network: "polygon" | "mumbai";
+  network: NetworkParam;
 }) => {
   if (params.tokenStandard === "ERC1155") {
     const aggregatorApproval = await getAggregatorIsApprovedForAll({
@@ -43,7 +44,7 @@ export const approveProjectToken = async (params: {
   signer: providers.JsonRpcSigner;
   tokenAddress: string;
   tokenStandard: string;
-  network: "polygon" | "mumbai";
+  network: NetworkParam;
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   let aggregatorAddress;
@@ -105,7 +106,7 @@ interface HandleApproveProps {
   updateStatus: (statusType: TxnStatus, message?: string) => void;
   tokenAddress: string;
   tokenStandard: string;
-  network: "polygon" | "mumbai";
+  network: NetworkParam;
 }
 
 export const handleApprove = async (props: HandleApproveProps) => {

@@ -1,7 +1,6 @@
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { LO } from "lib/luckyOrange";
-import { notNil } from "lib/utils/functional.utils";
 import { FC, useEffect } from "react";
 
 interface Props {
@@ -14,7 +13,7 @@ export const UserTracker: FC<Props> = (props) => {
   const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
     address ?? "",
     { network: networkLabel },
-    { shouldFetch: address !== "" && notNil(address) }
+    { shouldFetch: !!address }
   );
   useEffect(() => {
     // Start tracking only if we finished loading carbonmarkUser data

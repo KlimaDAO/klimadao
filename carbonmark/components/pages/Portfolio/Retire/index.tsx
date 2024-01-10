@@ -11,7 +11,6 @@ import type {
   AssetForRetirement,
   ProjectRetirementDetails,
 } from "lib/types/carbonmark.types";
-import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -39,7 +38,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
     address,
     { network: networkLabel, expiresAfter: "0" },
-    { shouldFetch: address !== "" && notNil(address) }
+    { shouldFetch: !!address }
   );
 
   const [retirementAsset, setRetirementAsset] =

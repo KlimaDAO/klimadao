@@ -5,7 +5,6 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { useFetchUsersWalletOrHandle } from "hooks/useFetchUsersWalletOrHandle";
 import { addProjectsToAssets, AssetWithProject } from "lib/actions";
-import { notNil } from "lib/utils/functional.utils";
 import { isListableToken } from "lib/utils/listings.utils";
 import { isNil } from "lodash";
 import { FC, useEffect, useState } from "react";
@@ -21,7 +20,7 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
   const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
     props.address,
     { network: networkLabel, expiresAfter: "0" },
-    { shouldFetch: props.address !== "" && notNil(props.address) }
+    { shouldFetch: !!props.address }
   );
 
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);

@@ -454,7 +454,7 @@ export const createCompositeAsset = (
 
 export const getUSDCBalance = async (params: {
   userAddress: string;
-  network?: "polygon" | "mumbai";
+  network?: NetworkParam;
 }) => {
   const tokenContract = getContract({
     contractName: "usdc",
