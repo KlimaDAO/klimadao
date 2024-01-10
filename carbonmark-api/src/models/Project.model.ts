@@ -41,6 +41,7 @@ export const ProjectModel = Type.Object({
     )
   ),
   hasSupply: Type.Boolean(),
+  tokenId: Type.Optional(Type.String()),
   serialization: Type.Optional(Type.String()),
 });
 

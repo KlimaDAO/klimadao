@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { compact, isNil, max, maxBy } from "lodash";
+import { compact, isArray, isNil, max, maxBy } from "lodash";
 import { concat, map, mapValues, min, pipe, trim, uniq } from "lodash/fp";
 import { NetworkParam } from "src/models/NetworkParam.model";
 import { TokenPriceT } from "src/models/TokenPrice.model";
@@ -146,7 +146,7 @@ export const buildProjectEntry = (props: {
   poolProject?: GetProjectCreditsQuery["carbonProjects"][0];
   cmsProject?: CarbonProject;
   allPoolPrices: Record<string, PoolPrice>;
-  network: "polygon" | "mumbai" | undefined;
+  network: NetworkParam | undefined;
   minSupply: number;
 }): Project => {
   const credits = props.poolProject?.carbonCredits;
@@ -252,7 +252,7 @@ export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
   allPoolPrices: Record<string, PoolPrice>,
-  network: "polygon" | "mumbai" | undefined,
+  network: NetworkParam | undefined,
   minSupply: number
 ): Project[] => {
   const entries: Project[] = [];

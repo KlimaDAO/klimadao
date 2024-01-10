@@ -1,4 +1,4 @@
-import { compact } from "lodash";
+import { compact, isNil } from "lodash";
 import { filter, pipe } from "lodash/fp";
 import {
   GetCmsProjectContentQuery,
