@@ -237,21 +237,11 @@
           "url": { "type": "string" },
           "caption": { "type": "string" }
         },
-<<<<<<< HEAD
         "required": ["url", "caption"]
       }
     },
-    "hasSupply": { "type": "boolean" }
-=======
-        { "type": "null" }
-      ]
-<<<<<<< HEAD
-    }
->>>>>>> d0219afb6 (carbonmark api-schema update)
-=======
-    },
+    "hasSupply": { "type": "boolean" },
     "serialization": { "type": "string" }
->>>>>>> 02ab31e74 (updated schema and types)
   },
   "required": [
     "key",

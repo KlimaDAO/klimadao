@@ -66,13 +66,10 @@ export type GetPurchasesQueryResponse = {
        * @type string
        */
       vintage: string;
-<<<<<<< HEAD
-=======
       /**
        * @type string | undefined
        */
       serialization?: string;
->>>>>>> 7e222d490 (app: updated generated hooks)
     };
   };
   /**

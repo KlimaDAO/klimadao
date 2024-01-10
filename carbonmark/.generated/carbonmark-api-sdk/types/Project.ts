@@ -228,7 +228,6 @@ export type Project = {
         symbol?: string;
       }[]
     | null;
-<<<<<<< HEAD
   /**
    * @type array | undefined
    */
@@ -246,22 +245,8 @@ export type Project = {
    * @type boolean
    */
   hasSupply: boolean;
-=======
-  images?:
-    | {
-        /**
-         * @type string
-         */
-        url: string;
-        /**
-         * @type string
-         */
-        caption: string;
-      }[]
-    | null;
   /**
    * @type string | undefined
    */
->>>>>>> 02ab31e74 (updated schema and types)
   serialization?: string;
 };
