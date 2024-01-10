@@ -9,19 +9,17 @@ import type {
 /**
  * @description Retrieve a carbon project by its project ID
  * @summary Project details
- * @link /projects/:id
- */
-export async function getProjectsId<TData = GetProjectsIdQueryResponse>(
+ * @link /projects/:id */
+export async function getProjectsId(
   id: GetProjectsIdPathParams["id"],
   params?: GetProjectsIdQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData>({
+): Promise<ResponseConfig<GetProjectsIdQueryResponse>["data"]> {
+  const res = await client<GetProjectsIdQueryResponse>({
     method: "get",
     url: `/projects/${id}`,
     params,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }

@@ -213,3 +213,8 @@ export type GetUsersWalletorhandleQueryParams = {
    */
   minSupply?: number;
 };
+export namespace GetUsersWalletorhandleQuery {
+  export type Response = GetUsersWalletorhandleQueryResponse;
+  export type PathParams = GetUsersWalletorhandlePathParams;
+  export type QueryParams = GetUsersWalletorhandleQueryParams;
+}

@@ -8,7 +8,3 @@ export * from "./useGetPurchases";
 export * from "./useGetPurchasesId";
 export * from "./useGetUsersWalletorhandle";
 export * from "./useGetVintages";
-export * from "./usePostLogin";
-export * from "./usePostLoginVerify";
-export * from "./usePostUsers";
-export * from "./usePutUsersWallet";

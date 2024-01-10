@@ -7,3 +7,6 @@ export type GetCategoriesQueryResponse = {
    */
   id: string;
 }[];
+export namespace GetCategoriesQuery {
+  export type Response = GetCategoriesQueryResponse;
+}

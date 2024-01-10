@@ -8,18 +8,16 @@ import type {
 /**
  * @description Retrieve an array of carbon projects filtered by desired query parameters
  * @summary List projects
- * @link /projects
- */
-export async function getProjects<TData = GetProjectsQueryResponse>(
+ * @link /projects */
+export async function getProjects(
   params?: GetProjectsQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData>({
+): Promise<ResponseConfig<GetProjectsQueryResponse>["data"]> {
+  const res = await client<GetProjectsQueryResponse>({
     method: "get",
     url: `/projects`,
     params,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }

@@ -8,22 +8,20 @@ import type {
 
 /**
  * @summary Update user profile
- * @link /users/:wallet
- */
-export async function putUsersWallet<
-  TData = PutUsersWalletMutationResponse,
-  TVariables = PutUsersWalletMutationRequest,
->(
+ * @link /users/:wallet */
+export async function putUsersWallet(
   wallet: PutUsersWalletPathParams["wallet"],
-  data: TVariables,
+  data: PutUsersWalletMutationRequest,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData, TVariables>({
+): Promise<ResponseConfig<PutUsersWalletMutationResponse>["data"]> {
+  const res = await client<
+    PutUsersWalletMutationResponse,
+    PutUsersWalletMutationRequest
+  >({
     method: "put",
     url: `/users/${wallet}`,
     data,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }
