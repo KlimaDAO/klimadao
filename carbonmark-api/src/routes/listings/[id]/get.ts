@@ -1,8 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { gql_sdk } from "../../../utils/gqlSdk";
-import { getTokenById } from "../../../utils/helpers/fetchTokens";
 import { getListingById } from "../../../utils/helpers/listings.utils";
-import { formatListing } from "../../../utils/marketplace.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
 const handler = (fastify: FastifyInstance) =>
@@ -16,24 +14,15 @@ const handler = (fastify: FastifyInstance) =>
     const { id } = request.params;
     const sdk = gql_sdk(request.query.network);
 
-    const listing = (await getListingById(sdk, id)).listing;
+    const listing = await getListingById(sdk, id);
 
     if (!listing) {
       return reply.notFound();
     }
 
-    const symbol = (await getTokenById(sdk, listing.tokenAddress)).symbol;
-
-    const formattedListing = formatListing(listing);
-
-    const response = {
-      ...formattedListing,
-      symbol,
-    };
-
     return reply
       .header("Content-Type", "application/json; charset=utf-8")
-      .send(JSON.stringify(response));
+      .send(JSON.stringify(listing));
   };
 
 export default async (fastify: FastifyInstance) =>

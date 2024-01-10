@@ -2,6 +2,8 @@ import { FastifyInstance } from "fastify";
 import { sortBy } from "lodash";
 import { Listing } from "../../models/Listing.model";
 import { GQL_SDK } from "../gqlSdk";
+import { formatListing } from "../marketplace.utils";
+import { getTokenById } from "./fetchTokens";
 import { getUserProfilesByIds } from "./users.utils";
 
 export const getCreditListings = async (
@@ -37,8 +39,14 @@ const isActiveListing = (
   Number(l.leftToSell) > 0;
 
 export const getListingById = async (sdk: GQL_SDK, id: string) => {
-  const listing = await sdk.marketplace.getListingById({ id });
-  return listing;
+  const { listing } = await sdk.marketplace.getListingById({ id });
+  if (!listing) {
+    return null;
+  }
+
+  const symbol = (await getTokenById(sdk, listing.tokenAddress)).symbol;
+  const formattedListing = formatListing(listing);
+  return { ...formattedListing, symbol };
 };
 
 /**
