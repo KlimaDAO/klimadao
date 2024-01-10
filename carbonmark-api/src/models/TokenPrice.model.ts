@@ -16,7 +16,7 @@ export const TokenPriceModel = Type.Object({
   // The number of tokens in the pool available for retirement
   supply: Type.String({ description: "Remaining supply in pool" }),
   // The address of the pool / pool token
-  poolAddress: Type.Boolean({
+  poolAddress: Type.String({
     description: "Address of the pool itself, e.g. bct token address",
   }),
   // The address of the project token in the pool

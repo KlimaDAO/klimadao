@@ -1,4 +1,5 @@
 import { utils } from "ethers";
+import { compact } from "lodash/fp";
 import {
   GetProjectsQuery,
   Listing,
@@ -46,4 +47,9 @@ export const formatListing = (listing: GetProjectListing): ListingModel => {
       country: listing.project.country?.id || "",
     },
   };
+};
+export const formatListings = (
+  listings: GetProjectListing[]
+): ListingModel[] => {
+  return compact(listings.map(formatListing));
 };

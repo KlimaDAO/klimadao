@@ -3,14 +3,14 @@ import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
 import { createSellerLink } from "lib/createUrls";
 import { getCategoryFromProject } from "lib/projectGetter";
-import { DetailedProject, Listing } from "lib/types/carbonmark.types";
+import { Listing, Project } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { FC } from "react";
 import { ProjectTags } from "../ProjectTags";
 import * as styles from "./styles";
 
 export interface Props {
-  project: DetailedProject;
+  project: Project;
   seller?: Listing["seller"];
 }
 

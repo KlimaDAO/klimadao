@@ -15,7 +15,7 @@ import { Col } from "components/TwoColLayout";
 import { Navigation } from "components/shared/Navigation";
 import { Spinner } from "components/shared/Spinner";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
-import { CategoryName, DetailedProject } from "lib/types/carbonmark.types";
+import { CategoryName, Project } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -37,7 +37,7 @@ export interface SingleRetirementPageProps {
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  project?: DetailedProject | null;
+  project?: Project | null;
 }
 
 export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
