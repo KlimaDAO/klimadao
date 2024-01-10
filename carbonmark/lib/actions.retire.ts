@@ -63,8 +63,8 @@ export const getPoolConsumptionCost = async (params: {
   inputToken: CarbonmarkPaymentMethod;
   retirementToken: PoolToken;
   quantity: string;
-  isDefaultProject: boolean | null;
-  projectTokenAddress: string | null;
+  isDefaultProject: boolean;
+  projectTokenAddress: string;
   currentUrl: string;
 }): Promise<string> => {
   if (params.inputToken === "bank-transfer") {
