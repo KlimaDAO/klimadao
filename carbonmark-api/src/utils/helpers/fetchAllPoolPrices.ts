@@ -1,4 +1,4 @@
-import { POOL_INFO } from "../../routes/projects/get.constants";
+import { LP_ADDRESSES, POOL_INFO } from "../../routes/projects/get.constants";
 import { GQL_SDK } from "../gqlSdk";
 
 /**
@@ -34,14 +34,18 @@ const calculateSelectivePrice = (
  */
 export const fetchAllPoolPrices = async (sdk: GQL_SDK) => {
   const data = await sdk.tokens.getPoolPrices();
-
   const allPrices = data?.prices ? data.prices : [];
+  const klimaPrice = allPrices.find((p) => p.address === LP_ADDRESSES.klima)
+    ?.price;
 
   return Object.keys(POOL_INFO).reduce<Record<string, PoolPrice>>(
     (prev, poolName) => {
-      const defaultPrice = allPrices.find(
+      let defaultPrice = allPrices.find(
         (p) => p.address === POOL_INFO[poolName].lpAddress
       )?.price;
+      if (POOL_INFO[poolName].isKlimaLp) {
+        defaultPrice *= klimaPrice;
+      }
       prev[poolName] = {
         poolName,
         defaultPrice: Number(defaultPrice).toFixed(6),

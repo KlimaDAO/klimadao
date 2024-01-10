@@ -99,8 +99,8 @@ describe("GET /projects/:id", () => {
     const project = await response.json();
     expect(response.statusCode).toEqual(200);
     expect(project.prices).toHaveLength(1);
-    expect(project.prices[0].singleUnitBuyPrice).toBe("0.358940");
-    expect(project.prices[0].singleUnitSellPrice).toBe("0.361620");
+    expect(project.prices[0].singleUnitBuyPrice).toBe("0.356549");
+    expect(project.prices[0].singleUnitSellPrice).toBe("0.359211");
   });
 
   test("Empty network param default is polygon", async () => {

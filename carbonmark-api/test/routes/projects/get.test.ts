@@ -66,7 +66,7 @@ const expectedPrices = [
     poolName: "bct",
     projectTokenAddress:
       fixtures.digitalCarbon.digitalCarbonProject.carbonCredits[0].id,
-    singleUnitPrice: "0.267999",
+    singleUnitPrice: "0.266214",
     supply: "320307.9104911482",
   },
 ];
@@ -146,7 +146,7 @@ describe("GET /projects", () => {
           mockDigitalCarbonProject.carbonCredits[0].poolBalances[0].pool
             .dailySnapshots[0].lastUpdateTimestamp,
         country: mockCmsProject.country,
-        price: "0.267999",
+        price: expectedPrices[0].singleUnitPrice,
         prices: expectedPrices,
         key: mockDigitalCarbonProject.projectID,
         stats: {

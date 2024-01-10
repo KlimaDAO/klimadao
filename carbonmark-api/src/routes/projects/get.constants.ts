@@ -4,7 +4,6 @@ export const DEFAULT_POOL_PROJECT_TOKENS = {
   bct: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
   nct: "0x6362364a37f34d39a1f4993fb595dab4116daf0d",
 };
-
 const POOL_ADDRESSES = {
   nbo: "0x6bca3b77c1909ce1a4ba1a20d1103bde8d222e48",
   ubo: "0x2b3ecb0991af0498ece9135bcd04013d7993110c",
@@ -12,11 +11,12 @@ const POOL_ADDRESSES = {
   nct: "0xd838290e877e0188a4a44700463419ed96c16107",
 };
 
-const LP_ADDRESSES = {
+export const LP_ADDRESSES = {
   ubo: "0x5400a05b8b45eaf9105315b4f2e31f806ab706de",
   nbo: "0x251ca6a70cbd93ccd7039b6b708d4cb9683c266c",
-  bct: "0x9803c7ae526049210a1725f7487af26fe2c24614",
+  bct: "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64",
   nct: "0xdb995f975f1bfc3b2157495c47e4efb31196b2ca",
+  klima: "0x5786b267d35f9d011c4750e0b0ba584e1fdbead1",
 };
 
 export type PoolInfo = {
@@ -27,6 +27,7 @@ export type PoolInfo = {
   poolFeeRatio: number;
   assetSwapFeeRatio: number;
   retirementServiceFeeRatio: number;
+  isKlimaLp: boolean;
 };
 
 function c3PoolFee(fee: number) {
@@ -43,6 +44,7 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["nbo"],
     poolAddress: POOL_ADDRESSES["nbo"],
     lpAddress: LP_ADDRESSES["nbo"],
+    isKlimaLp: true,
     poolName: "nbo",
     poolFeeRatio: c3PoolFee(0.025),
     assetSwapFeeRatio: 0.003,
@@ -52,6 +54,7 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["ubo"],
     poolAddress: POOL_ADDRESSES["ubo"],
     lpAddress: LP_ADDRESSES["ubo"],
+    isKlimaLp: true,
     poolName: "ubo",
     poolFeeRatio: c3PoolFee(0.025),
     assetSwapFeeRatio: 0.003,
@@ -61,6 +64,7 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["bct"],
     poolAddress: POOL_ADDRESSES["bct"],
     lpAddress: LP_ADDRESSES["bct"],
+    isKlimaLp: false,
     poolName: "bct",
     poolFeeRatio: toucanPoolFee(0.25),
     assetSwapFeeRatio: 0.006,
@@ -70,6 +74,7 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["nct"],
     poolAddress: POOL_ADDRESSES["nct"],
     lpAddress: LP_ADDRESSES["nct"],
+    isKlimaLp: false,
     poolName: "nct",
     poolFeeRatio: toucanPoolFee(0.1),
     assetSwapFeeRatio: 0.003,
