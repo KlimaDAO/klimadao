@@ -181,10 +181,11 @@ export const RetireInputs: FC<Props> = (props) => {
     !!props.userBalance &&
     Number(props.userBalance) <= Number(props.approvalValue);
 
-  const supply =
+  const supply = Number(
     props.product.type === "pool"
       ? props.product.supply
-      : props.product.leftToSell;
+      : props.product.leftToSell
+  );
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
