@@ -168,36 +168,36 @@ export type Cancellation_Filter = {
 };
 
 export enum Cancellation_OrderBy {
-  Amount = 'amount',
-  CancelledBy = 'cancelledBy',
-  CancelledByAddress = 'cancelledBy__address',
-  CancelledByCancelledAmount = 'cancelledBy__cancelledAmount',
-  CancelledById = 'cancelledBy__id',
-  CancelledByRetiredAmount = 'cancelledBy__retiredAmount',
-  CreatedAt = 'createdAt',
-  ExPost = 'exPost',
-  ExPostCancelledAmount = 'exPost__cancelledAmount',
-  ExPostEstimatedAmount = 'exPost__estimatedAmount',
-  ExPostId = 'exPost__id',
-  ExPostLastVerificationTimestamp = 'exPost__lastVerificationTimestamp',
-  ExPostRetiredAmount = 'exPost__retiredAmount',
-  ExPostSerialization = 'exPost__serialization',
-  ExPostSupply = 'exPost__supply',
-  ExPostTokenId = 'exPost__tokenId',
-  ExPostVerificationPeriodEnd = 'exPost__verificationPeriodEnd',
-  ExPostVerificationPeriodStart = 'exPost__verificationPeriodStart',
-  ExPostVintage = 'exPost__vintage',
-  Id = 'id',
-  Project = 'project',
-  ProjectBlockNumber = 'project__blockNumber',
-  ProjectBlockTimestamp = 'project__blockTimestamp',
-  ProjectId = 'project__id',
-  ProjectProjectAddress = 'project__projectAddress',
-  ProjectProjectId = 'project__projectId',
-  ProjectProjectName = 'project__projectName',
-  ProjectTransactionHash = 'project__transactionHash',
-  Serialization = 'serialization',
-  TransactionHash = 'transactionHash'
+  amount = 'amount',
+  cancelledBy = 'cancelledBy',
+  cancelledBy__address = 'cancelledBy__address',
+  cancelledBy__cancelledAmount = 'cancelledBy__cancelledAmount',
+  cancelledBy__id = 'cancelledBy__id',
+  cancelledBy__retiredAmount = 'cancelledBy__retiredAmount',
+  createdAt = 'createdAt',
+  exPost = 'exPost',
+  exPost__cancelledAmount = 'exPost__cancelledAmount',
+  exPost__estimatedAmount = 'exPost__estimatedAmount',
+  exPost__id = 'exPost__id',
+  exPost__lastVerificationTimestamp = 'exPost__lastVerificationTimestamp',
+  exPost__retiredAmount = 'exPost__retiredAmount',
+  exPost__serialization = 'exPost__serialization',
+  exPost__supply = 'exPost__supply',
+  exPost__tokenId = 'exPost__tokenId',
+  exPost__verificationPeriodEnd = 'exPost__verificationPeriodEnd',
+  exPost__verificationPeriodStart = 'exPost__verificationPeriodStart',
+  exPost__vintage = 'exPost__vintage',
+  id = 'id',
+  project = 'project',
+  project__blockNumber = 'project__blockNumber',
+  project__blockTimestamp = 'project__blockTimestamp',
+  project__id = 'project__id',
+  project__projectAddress = 'project__projectAddress',
+  project__projectId = 'project__projectId',
+  project__projectName = 'project__projectName',
+  project__transactionHash = 'project__transactionHash',
+  serialization = 'serialization',
+  transactionHash = 'transactionHash'
 }
 
 export type ExAnte = {
@@ -314,20 +314,20 @@ export type ExAnteHolder_Filter = {
 };
 
 export enum ExAnteHolder_OrderBy {
-  Amount = 'amount',
-  CreatedAt = 'createdAt',
-  ExAnte = 'exAnte',
-  ExAnteId = 'exAnte__id',
-  ExAnteSerialization = 'exAnte__serialization',
-  ExAnteSupply = 'exAnte__supply',
-  ExAnteTokenId = 'exAnte__tokenId',
-  Holder = 'holder',
-  HolderAddress = 'holder__address',
-  HolderCancelledAmount = 'holder__cancelledAmount',
-  HolderId = 'holder__id',
-  HolderRetiredAmount = 'holder__retiredAmount',
-  Id = 'id',
-  UpdatedAt = 'updatedAt'
+  amount = 'amount',
+  createdAt = 'createdAt',
+  exAnte = 'exAnte',
+  exAnte__id = 'exAnte__id',
+  exAnte__serialization = 'exAnte__serialization',
+  exAnte__supply = 'exAnte__supply',
+  exAnte__tokenId = 'exAnte__tokenId',
+  holder = 'holder',
+  holder__address = 'holder__address',
+  holder__cancelledAmount = 'holder__cancelledAmount',
+  holder__id = 'holder__id',
+  holder__retiredAmount = 'holder__retiredAmount',
+  id = 'id',
+  updatedAt = 'updatedAt'
 }
 
 export type ExAnte_Filter = {
@@ -427,31 +427,31 @@ export type ExAnte_Filter = {
 };
 
 export enum ExAnte_OrderBy {
-  ExPost = 'exPost',
-  ExPostCancelledAmount = 'exPost__cancelledAmount',
-  ExPostEstimatedAmount = 'exPost__estimatedAmount',
-  ExPostId = 'exPost__id',
-  ExPostLastVerificationTimestamp = 'exPost__lastVerificationTimestamp',
-  ExPostRetiredAmount = 'exPost__retiredAmount',
-  ExPostSerialization = 'exPost__serialization',
-  ExPostSupply = 'exPost__supply',
-  ExPostTokenId = 'exPost__tokenId',
-  ExPostVerificationPeriodEnd = 'exPost__verificationPeriodEnd',
-  ExPostVerificationPeriodStart = 'exPost__verificationPeriodStart',
-  ExPostVintage = 'exPost__vintage',
-  Holders = 'holders',
-  Id = 'id',
-  Project = 'project',
-  ProjectBlockNumber = 'project__blockNumber',
-  ProjectBlockTimestamp = 'project__blockTimestamp',
-  ProjectId = 'project__id',
-  ProjectProjectAddress = 'project__projectAddress',
-  ProjectProjectId = 'project__projectId',
-  ProjectProjectName = 'project__projectName',
-  ProjectTransactionHash = 'project__transactionHash',
-  Serialization = 'serialization',
-  Supply = 'supply',
-  TokenId = 'tokenId'
+  exPost = 'exPost',
+  exPost__cancelledAmount = 'exPost__cancelledAmount',
+  exPost__estimatedAmount = 'exPost__estimatedAmount',
+  exPost__id = 'exPost__id',
+  exPost__lastVerificationTimestamp = 'exPost__lastVerificationTimestamp',
+  exPost__retiredAmount = 'exPost__retiredAmount',
+  exPost__serialization = 'exPost__serialization',
+  exPost__supply = 'exPost__supply',
+  exPost__tokenId = 'exPost__tokenId',
+  exPost__verificationPeriodEnd = 'exPost__verificationPeriodEnd',
+  exPost__verificationPeriodStart = 'exPost__verificationPeriodStart',
+  exPost__vintage = 'exPost__vintage',
+  holders = 'holders',
+  id = 'id',
+  project = 'project',
+  project__blockNumber = 'project__blockNumber',
+  project__blockTimestamp = 'project__blockTimestamp',
+  project__id = 'project__id',
+  project__projectAddress = 'project__projectAddress',
+  project__projectId = 'project__projectId',
+  project__projectName = 'project__projectName',
+  project__transactionHash = 'project__transactionHash',
+  serialization = 'serialization',
+  supply = 'supply',
+  tokenId = 'tokenId'
 }
 
 export type ExPost = {
@@ -604,28 +604,28 @@ export type ExPostHolder_Filter = {
 };
 
 export enum ExPostHolder_OrderBy {
-  Amount = 'amount',
-  CreatedAt = 'createdAt',
-  ExPost = 'exPost',
-  ExPostCancelledAmount = 'exPost__cancelledAmount',
-  ExPostEstimatedAmount = 'exPost__estimatedAmount',
-  ExPostId = 'exPost__id',
-  ExPostLastVerificationTimestamp = 'exPost__lastVerificationTimestamp',
-  ExPostRetiredAmount = 'exPost__retiredAmount',
-  ExPostSerialization = 'exPost__serialization',
-  ExPostSupply = 'exPost__supply',
-  ExPostTokenId = 'exPost__tokenId',
-  ExPostVerificationPeriodEnd = 'exPost__verificationPeriodEnd',
-  ExPostVerificationPeriodStart = 'exPost__verificationPeriodStart',
-  ExPostVintage = 'exPost__vintage',
-  Holder = 'holder',
-  HolderAddress = 'holder__address',
-  HolderCancelledAmount = 'holder__cancelledAmount',
-  HolderId = 'holder__id',
-  HolderRetiredAmount = 'holder__retiredAmount',
-  Id = 'id',
-  RetiredAmount = 'retiredAmount',
-  UpdatedAt = 'updatedAt'
+  amount = 'amount',
+  createdAt = 'createdAt',
+  exPost = 'exPost',
+  exPost__cancelledAmount = 'exPost__cancelledAmount',
+  exPost__estimatedAmount = 'exPost__estimatedAmount',
+  exPost__id = 'exPost__id',
+  exPost__lastVerificationTimestamp = 'exPost__lastVerificationTimestamp',
+  exPost__retiredAmount = 'exPost__retiredAmount',
+  exPost__serialization = 'exPost__serialization',
+  exPost__supply = 'exPost__supply',
+  exPost__tokenId = 'exPost__tokenId',
+  exPost__verificationPeriodEnd = 'exPost__verificationPeriodEnd',
+  exPost__verificationPeriodStart = 'exPost__verificationPeriodStart',
+  exPost__vintage = 'exPost__vintage',
+  holder = 'holder',
+  holder__address = 'holder__address',
+  holder__cancelledAmount = 'holder__cancelledAmount',
+  holder__id = 'holder__id',
+  holder__retiredAmount = 'holder__retiredAmount',
+  id = 'id',
+  retiredAmount = 'retiredAmount',
+  updatedAt = 'updatedAt'
 }
 
 export type ExPost_Filter = {
@@ -775,33 +775,33 @@ export type ExPost_Filter = {
 };
 
 export enum ExPost_OrderBy {
-  Cancellations = 'cancellations',
-  CancelledAmount = 'cancelledAmount',
-  EstimatedAmount = 'estimatedAmount',
-  ExAnte = 'exAnte',
-  ExAnteId = 'exAnte__id',
-  ExAnteSerialization = 'exAnte__serialization',
-  ExAnteSupply = 'exAnte__supply',
-  ExAnteTokenId = 'exAnte__tokenId',
-  Holders = 'holders',
-  Id = 'id',
-  LastVerificationTimestamp = 'lastVerificationTimestamp',
-  Project = 'project',
-  ProjectBlockNumber = 'project__blockNumber',
-  ProjectBlockTimestamp = 'project__blockTimestamp',
-  ProjectId = 'project__id',
-  ProjectProjectAddress = 'project__projectAddress',
-  ProjectProjectId = 'project__projectId',
-  ProjectProjectName = 'project__projectName',
-  ProjectTransactionHash = 'project__transactionHash',
-  RetiredAmount = 'retiredAmount',
-  RetirementCertificates = 'retirementCertificates',
-  Serialization = 'serialization',
-  Supply = 'supply',
-  TokenId = 'tokenId',
-  VerificationPeriodEnd = 'verificationPeriodEnd',
-  VerificationPeriodStart = 'verificationPeriodStart',
-  Vintage = 'vintage'
+  cancellations = 'cancellations',
+  cancelledAmount = 'cancelledAmount',
+  estimatedAmount = 'estimatedAmount',
+  exAnte = 'exAnte',
+  exAnte__id = 'exAnte__id',
+  exAnte__serialization = 'exAnte__serialization',
+  exAnte__supply = 'exAnte__supply',
+  exAnte__tokenId = 'exAnte__tokenId',
+  holders = 'holders',
+  id = 'id',
+  lastVerificationTimestamp = 'lastVerificationTimestamp',
+  project = 'project',
+  project__blockNumber = 'project__blockNumber',
+  project__blockTimestamp = 'project__blockTimestamp',
+  project__id = 'project__id',
+  project__projectAddress = 'project__projectAddress',
+  project__projectId = 'project__projectId',
+  project__projectName = 'project__projectName',
+  project__transactionHash = 'project__transactionHash',
+  retiredAmount = 'retiredAmount',
+  retirementCertificates = 'retirementCertificates',
+  serialization = 'serialization',
+  supply = 'supply',
+  tokenId = 'tokenId',
+  verificationPeriodEnd = 'verificationPeriodEnd',
+  verificationPeriodStart = 'verificationPeriodStart',
+  vintage = 'vintage'
 }
 
 export type Holder = {
@@ -900,20 +900,20 @@ export type Holder_Filter = {
 };
 
 export enum Holder_OrderBy {
-  Address = 'address',
-  Cancellations = 'cancellations',
-  CancelledAmount = 'cancelledAmount',
-  ExAnteAmounts = 'exAnteAmounts',
-  ExPostAmounts = 'exPostAmounts',
-  Id = 'id',
-  RetiredAmount = 'retiredAmount',
-  RetirementCertificates = 'retirementCertificates'
+  address = 'address',
+  cancellations = 'cancellations',
+  cancelledAmount = 'cancelledAmount',
+  exAnteAmounts = 'exAnteAmounts',
+  exPostAmounts = 'exPostAmounts',
+  id = 'id',
+  retiredAmount = 'retiredAmount',
+  retirementCertificates = 'retirementCertificates'
 }
 
 /** Defines the order direction, either ascending or descending */
 export enum OrderDirection {
-  Asc = 'asc',
-  Desc = 'desc'
+  asc = 'asc',
+  desc = 'desc'
 }
 
 export type Project = {
@@ -1053,17 +1053,17 @@ export type Project_Filter = {
 };
 
 export enum Project_OrderBy {
-  BlockNumber = 'blockNumber',
-  BlockTimestamp = 'blockTimestamp',
-  Cancellations = 'cancellations',
-  ExAntes = 'exAntes',
-  ExPosts = 'exPosts',
-  Id = 'id',
-  ProjectAddress = 'projectAddress',
-  ProjectId = 'projectId',
-  ProjectName = 'projectName',
-  RetirementCertificates = 'retirementCertificates',
-  TransactionHash = 'transactionHash'
+  blockNumber = 'blockNumber',
+  blockTimestamp = 'blockTimestamp',
+  cancellations = 'cancellations',
+  exAntes = 'exAntes',
+  exPosts = 'exPosts',
+  id = 'id',
+  projectAddress = 'projectAddress',
+  projectId = 'projectId',
+  projectName = 'projectName',
+  retirementCertificates = 'retirementCertificates',
+  transactionHash = 'transactionHash'
 }
 
 export type Query = {
@@ -1407,42 +1407,42 @@ export type RetirementCertificate_Filter = {
 };
 
 export enum RetirementCertificate_OrderBy {
-  Amount = 'amount',
-  CreatedAt = 'createdAt',
-  ExPost = 'exPost',
-  ExPostCancelledAmount = 'exPost__cancelledAmount',
-  ExPostEstimatedAmount = 'exPost__estimatedAmount',
-  ExPostId = 'exPost__id',
-  ExPostLastVerificationTimestamp = 'exPost__lastVerificationTimestamp',
-  ExPostRetiredAmount = 'exPost__retiredAmount',
-  ExPostSerialization = 'exPost__serialization',
-  ExPostSupply = 'exPost__supply',
-  ExPostTokenId = 'exPost__tokenId',
-  ExPostVerificationPeriodEnd = 'exPost__verificationPeriodEnd',
-  ExPostVerificationPeriodStart = 'exPost__verificationPeriodStart',
-  ExPostVintage = 'exPost__vintage',
-  Holder = 'holder',
-  HolderAddress = 'holder__address',
-  HolderCancelledAmount = 'holder__cancelledAmount',
-  HolderId = 'holder__id',
-  HolderRetiredAmount = 'holder__retiredAmount',
-  Id = 'id',
-  Project = 'project',
-  ProjectBlockNumber = 'project__blockNumber',
-  ProjectBlockTimestamp = 'project__blockTimestamp',
-  ProjectId = 'project__id',
-  ProjectProjectAddress = 'project__projectAddress',
-  ProjectProjectId = 'project__projectId',
-  ProjectProjectName = 'project__projectName',
-  ProjectTransactionHash = 'project__transactionHash',
-  Retiree = 'retiree',
-  RetireeAddress = 'retiree__address',
-  RetireeCancelledAmount = 'retiree__cancelledAmount',
-  RetireeId = 'retiree__id',
-  RetireeRetiredAmount = 'retiree__retiredAmount',
-  Serialization = 'serialization',
-  TokenId = 'tokenId',
-  TransactionHash = 'transactionHash'
+  amount = 'amount',
+  createdAt = 'createdAt',
+  exPost = 'exPost',
+  exPost__cancelledAmount = 'exPost__cancelledAmount',
+  exPost__estimatedAmount = 'exPost__estimatedAmount',
+  exPost__id = 'exPost__id',
+  exPost__lastVerificationTimestamp = 'exPost__lastVerificationTimestamp',
+  exPost__retiredAmount = 'exPost__retiredAmount',
+  exPost__serialization = 'exPost__serialization',
+  exPost__supply = 'exPost__supply',
+  exPost__tokenId = 'exPost__tokenId',
+  exPost__verificationPeriodEnd = 'exPost__verificationPeriodEnd',
+  exPost__verificationPeriodStart = 'exPost__verificationPeriodStart',
+  exPost__vintage = 'exPost__vintage',
+  holder = 'holder',
+  holder__address = 'holder__address',
+  holder__cancelledAmount = 'holder__cancelledAmount',
+  holder__id = 'holder__id',
+  holder__retiredAmount = 'holder__retiredAmount',
+  id = 'id',
+  project = 'project',
+  project__blockNumber = 'project__blockNumber',
+  project__blockTimestamp = 'project__blockTimestamp',
+  project__id = 'project__id',
+  project__projectAddress = 'project__projectAddress',
+  project__projectId = 'project__projectId',
+  project__projectName = 'project__projectName',
+  project__transactionHash = 'project__transactionHash',
+  retiree = 'retiree',
+  retiree__address = 'retiree__address',
+  retiree__cancelledAmount = 'retiree__cancelledAmount',
+  retiree__id = 'retiree__id',
+  retiree__retiredAmount = 'retiree__retiredAmount',
+  serialization = 'serialization',
+  tokenId = 'tokenId',
+  transactionHash = 'transactionHash'
 }
 
 export type Subscription = {
@@ -1645,9 +1645,9 @@ export type _Meta_ = {
 
 export enum _SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
-  Allow = 'allow',
+  allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
-  Deny = 'deny'
+  deny = 'deny'
 }
 
 export type IcrProjectFragmentFragment = { __typename?: 'Project', id: any, projectAddress: any, projectName: string, transactionHash: any };
