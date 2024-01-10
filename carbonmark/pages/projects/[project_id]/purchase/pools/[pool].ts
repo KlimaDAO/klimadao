@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps<
     return {
       props: {
         project,
-        purchase: {
+        product: {
           ...poolPrice,
           type: "pool",
         },

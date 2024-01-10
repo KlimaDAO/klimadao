@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps<
     return {
       props: {
         project,
-        retirement: {
+        product: {
           ...listing,
           type: "listing",
         },

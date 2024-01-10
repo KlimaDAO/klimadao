@@ -15,10 +15,7 @@ import {
 } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
-import {
-  CarbonmarkPaymentMethod,
-  PurchaseOrRetirement,
-} from "lib/types/carbonmark.types";
+import { CarbonmarkPaymentMethod, Product } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -33,7 +30,7 @@ import { FormValues } from "./types";
 
 type Props = {
   onSubmit: (values: FormValues) => void;
-  price: PurchaseOrRetirement;
+  product: Product;
   values: null | FormValues;
   userBalance: string | null;
   fiatBalance: string | null;
@@ -149,7 +146,7 @@ export const RetireInputs: FC<Props> = (props) => {
   const calcCreditCardFee = (): string => {
     if (!isFiat || !Number(totalPrice)) return "$0.00";
     const priceWithoutFees =
-      Number(quantity) * Number(props.price.singleUnitPrice);
+      Number(quantity) * Number(props.product.singleUnitPrice);
     const fee = Number(safeSub(totalPrice, priceWithoutFees.toString()));
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
@@ -185,7 +182,9 @@ export const RetireInputs: FC<Props> = (props) => {
     Number(props.userBalance) <= Number(props.approvalValue);
 
   const supply =
-    props.price.type === "pool" ? props.price.supply : props.price.leftToSell;
+    props.product.type === "pool"
+      ? props.product.supply
+      : props.product.leftToSell;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

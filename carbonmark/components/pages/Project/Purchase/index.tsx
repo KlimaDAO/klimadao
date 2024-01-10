@@ -7,7 +7,7 @@ import { createProjectLink } from "lib/createUrls";
 import {
   DetailedProject,
   Listing,
-  PurchaseOrRetirement,
+  Product,
   TokenPrice,
 } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
@@ -19,12 +19,12 @@ import { PoolPurchase } from "./Pool";
 import * as styles from "./styles";
 export interface ProjectPurchasePageProps {
   project: DetailedProject;
-  purchase: PurchaseOrRetirement;
+  product: Product;
 }
 
 export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
-  const isPoolPurchase = props.purchase.type === "pool";
-  const isListingPurchase = props.purchase.type === "listing";
+  const isPoolPurchase = props.product.type === "pool";
+  const isListingPurchase = props.product.type === "listing";
   const isNone = !isPoolPurchase && !isListingPurchase;
 
   return (
@@ -53,14 +53,14 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
           {isPoolPurchase && (
             <PoolPurchase
               project={props.project}
-              price={props.purchase as TokenPrice}
+              product={props.product as TokenPrice}
             />
           )}
 
           {isListingPurchase && (
             <ListingPurchase
               project={props.project}
-              listing={props.purchase as Listing}
+              listing={props.product as Listing}
             />
           )}
 

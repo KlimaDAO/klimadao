@@ -11,7 +11,7 @@ import {
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { PurchaseOrRetirement } from "lib/types/carbonmark.types";
+import { Product } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -20,7 +20,7 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  purchaseOrRetirement: PurchaseOrRetirement;
+  product: Product;
   userBalance: string | null;
   fiatBalance: string | null;
   fiatMinimum: string | null;
@@ -48,7 +48,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const isFiatOrBankTransfer = isFiat || isBankTransfer;
 
   const priceWithoutFees =
-    Number(amount) * Number(props.purchaseOrRetirement.singleUnitPrice);
+    Number(amount) * Number(props.product.singleUnitPrice);
 
   /** Credit card fee string to display in the price card for fiat payments */
   const calcCreditCardFee = (): string => {
@@ -89,21 +89,20 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       try {
         setIsLoading(true);
 
-        const totalPrice = await (props.purchaseOrRetirement.type === "pool"
+        const totalPrice = await (props.product.type === "pool"
           ? getPoolConsumptionCost({
               inputToken: paymentMethod,
-              retirementToken: props.purchaseOrRetirement.poolName,
+              retirementToken: props.product.poolName,
               quantity: amount,
-              isDefaultProject: props.purchaseOrRetirement.isPoolDefault,
-              projectTokenAddress:
-                props.purchaseOrRetirement.projectTokenAddress,
+              isDefaultProject: props.product.isPoolDefault,
+              projectTokenAddress: props.product.projectTokenAddress,
               currentUrl: asPath,
             })
           : getListingConsumptionCost({
               inputToken: paymentMethod,
               quantity: amount,
               currentUrl: asPath,
-              listingId: props.purchaseOrRetirement.id,
+              listingId: props.product.id,
             }));
 
         props.setCosts(totalPrice);
@@ -205,7 +204,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             className={cx(isFiatOrBankTransfer && styles.textTransition)}
           >
             {formatToPrice(
-              props.purchaseOrRetirement.singleUnitPrice,
+              props.product.singleUnitPrice,
               locale,
               isFiatOrBankTransfer
             )}

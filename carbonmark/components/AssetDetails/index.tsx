@@ -8,16 +8,13 @@ import { Text } from "components/Text";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { createProjectTokenName } from "lib/projectGetter";
-import {
-  DetailedProject,
-  PurchaseOrRetirement,
-} from "lib/types/carbonmark.types";
+import { DetailedProject, Product } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type TotalValuesProps = {
-  purchaseOrRetirement: PurchaseOrRetirement;
+  product: Product;
   project: DetailedProject;
   actionLabel: string;
   availableLabel: string;
@@ -28,18 +25,18 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
   const { locale } = useRouter();
 
   let tokenName: string;
-  if (props.purchaseOrRetirement.type === "pool") {
+  if (props.product.type === "pool") {
     const tokenType = getPoolTokenType(
-      props.purchaseOrRetirement.poolName.toUpperCase() as Uppercase<PoolToken>
+      props.product.poolName.toUpperCase() as Uppercase<PoolToken>
     );
     tokenName = createProjectTokenName(props.project, tokenType);
   } else {
-    tokenName = props.purchaseOrRetirement.symbol;
+    tokenName = props.product.symbol;
   }
   const availableTonnes =
-    props.purchaseOrRetirement.type === "pool"
-      ? formatToTonnes(props.purchaseOrRetirement.supply, locale, 2)
-      : props.purchaseOrRetirement.leftToSell;
+    props.product.type === "pool"
+      ? formatToTonnes(props.product.supply, locale, 2)
+      : props.product.leftToSell;
 
   return (
     <Accordion label={t`Asset details`} className={styles.accordion}>

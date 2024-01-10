@@ -29,7 +29,7 @@ import { FormValues } from "./types";
 
 export interface Props {
   project: DetailedProject;
-  price: PriceType;
+  product: PriceType;
 }
 
 export const PurchaseForm: FC<Props> = (props) => {
@@ -150,10 +150,10 @@ export const PurchaseForm: FC<Props> = (props) => {
       setIsProcessing(true);
       const result = await redeemCarbonTransaction({
         paymentMethod: inputValues.paymentMethod,
-        pool: props.price.poolName,
+        pool: props.product.poolName,
         maxCost: getApprovalValue(),
-        projectTokenAddress: props.price.projectTokenAddress,
-        isPoolDefault: props.price.isPoolDefault,
+        projectTokenAddress: props.product.projectTokenAddress,
+        isPoolDefault: props.product.isPoolDefault,
         quantity: inputValues.quantity,
         provider,
         onStatus: onUpdateStatus,
@@ -174,11 +174,11 @@ export const PurchaseForm: FC<Props> = (props) => {
           <Card>
             <ProjectHeader project={props.project} />
             <div className={styles.formContainer}>
-              <Price price={props.price.singleUnitPrice} />
+              <Price price={props.product.singleUnitPrice} />
 
               <PurchaseInputs
                 onSubmit={onContinue}
-                price={props.price}
+                price={props.product}
                 values={inputValues}
                 balance={balance}
                 approvalValue={getApprovalValue()}
@@ -199,7 +199,7 @@ export const PurchaseForm: FC<Props> = (props) => {
             <Card>
               <TotalValues
                 balance={balance}
-                price={props.price}
+                price={props.product}
                 costs={costs}
                 setCosts={setCosts}
                 approvalValue={getApprovalValue()}
@@ -207,11 +207,11 @@ export const PurchaseForm: FC<Props> = (props) => {
             </Card>
             <Card>
               <AssetDetails
-                purchaseOrRetirement={{ ...props.price, type: "pool" }}
+                product={{ ...props.product, type: "pool" }}
                 project={props.project}
                 actionLabel={t`Token you will receive`}
                 availableLabel={t`Available to purchase`}
-                polyscanUrl={`https://polygonscan.com/token/${props.price.projectTokenAddress}`}
+                polyscanUrl={`https://polygonscan.com/token/${props.product.projectTokenAddress}`}
               />
             </Card>
           </div>
@@ -242,7 +242,7 @@ export const PurchaseForm: FC<Props> = (props) => {
             transactionHash={transactionHash}
             paymentMethod={inputValues?.paymentMethod}
             address={address}
-            price={props.price}
+            price={props.product}
             quantity={inputValues?.quantity || "0"}
           />
         }

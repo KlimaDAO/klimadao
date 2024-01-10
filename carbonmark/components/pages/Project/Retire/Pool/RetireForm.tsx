@@ -20,10 +20,7 @@ import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import {
-  DetailedProject,
-  PurchaseOrRetirement,
-} from "lib/types/carbonmark.types";
+import { DetailedProject, Product } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -41,7 +38,7 @@ import { FormValues } from "./types";
 
 export interface Props {
   project: DetailedProject;
-  purchaseOrRetirement: PurchaseOrRetirement;
+  product: Product;
 }
 
 export const RetireForm: FC<Props> = (props) => {
@@ -74,8 +71,8 @@ export const RetireForm: FC<Props> = (props) => {
     mode: "onChange",
     defaultValues: {
       projectTokenAddress:
-        props.purchaseOrRetirement.type === "pool"
-          ? props.purchaseOrRetirement?.projectTokenAddress
+        props.product.type === "pool"
+          ? props.product?.projectTokenAddress
           : undefined,
       paymentMethod: "fiat",
       ...inputValues,
@@ -96,10 +93,10 @@ export const RetireForm: FC<Props> = (props) => {
   }, []);
 
   let polygonScanAddress: string;
-  if (props.purchaseOrRetirement.type === "pool") {
-    polygonScanAddress = props.purchaseOrRetirement.projectTokenAddress;
+  if (props.product.type === "pool") {
+    polygonScanAddress = props.product.projectTokenAddress;
   } else {
-    polygonScanAddress = props.purchaseOrRetirement.tokenAddress;
+    polygonScanAddress = props.product.tokenAddress;
   }
 
   useEffect(() => {
@@ -179,19 +176,16 @@ export const RetireForm: FC<Props> = (props) => {
       retirement_message: inputValues.retirementMessage,
       // pass token address if not default project
       project_address:
-        props.purchaseOrRetirement.type === "pool"
-          ? !props.purchaseOrRetirement.isPoolDefault
+        props.product.type === "pool"
+          ? !props.product.isPoolDefault
             ? inputValues.projectTokenAddress
             : null
           : null,
       retirement_token:
-        props.purchaseOrRetirement.type === "pool"
-          ? (props.purchaseOrRetirement.poolName.toLowerCase() as PoolToken)
+        props.product.type === "pool"
+          ? (props.product.poolName.toLowerCase() as PoolToken)
           : null,
-      listing_id:
-        props.purchaseOrRetirement.type === "listing"
-          ? props.purchaseOrRetirement.id
-          : null,
+      listing_id: props.product.type === "listing" ? props.product.id : null,
     };
     try {
       setIsRedirecting(true);
@@ -303,21 +297,18 @@ export const RetireForm: FC<Props> = (props) => {
     try {
       setIsProcessing(true);
 
-      if (props.purchaseOrRetirement.type !== "pool") {
-        throw new Error(
-          `Unsupported retirement type: ${props.purchaseOrRetirement.type}`
-        );
+      if (props.product.type !== "pool") {
+        throw new Error(`Unsupported retirement type: ${props.product.type}`);
       }
 
       const receipt = await retireCarbonTransaction({
         provider,
         address,
-        projectAddress: props.purchaseOrRetirement.projectTokenAddress,
+        projectAddress: props.product.projectTokenAddress,
         paymentMethod: inputValues.paymentMethod,
-        isPoolDefault: props.purchaseOrRetirement.isPoolDefault,
+        isPoolDefault: props.product.isPoolDefault,
         maxAmountIn: getApprovalValue(),
-        retirementToken:
-          props.purchaseOrRetirement.poolName.toLowerCase() as PoolToken,
+        retirementToken: props.product.poolName.toLowerCase() as PoolToken,
         quantity: inputValues.quantity,
         beneficiaryAddress: inputValues.beneficiaryAddress,
         beneficiaryName: inputValues.beneficiaryName,
@@ -360,14 +351,14 @@ export const RetireForm: FC<Props> = (props) => {
           <Card>
             <ProjectHeader project={props.project} />
             <div className={styles.formContainer}>
-              <Price price={props.purchaseOrRetirement.singleUnitPrice} />
+              <Price price={props.product.singleUnitPrice} />
               <RetireInputs
                 onSubmit={onContinue}
                 values={inputValues}
                 userBalance={userBalance}
                 fiatBalance={fiatBalance}
                 fiatMinimum={fiatMinimum}
-                price={props.purchaseOrRetirement}
+                product={props.product}
                 address={address}
                 fiatAmountError={fiatAmountError}
                 approvalValue={getApprovalValue()}
@@ -387,7 +378,7 @@ export const RetireForm: FC<Props> = (props) => {
           <div className={styles.stickyContentWrapper}>
             <Card>
               <AssetDetails
-                purchaseOrRetirement={props.purchaseOrRetirement}
+                product={props.product}
                 project={props.project}
                 actionLabel={t`Retiring Token`}
                 availableLabel={t`Available to retire`}
@@ -397,7 +388,7 @@ export const RetireForm: FC<Props> = (props) => {
             <div className={styles.reverseOrder}>
               <Card>
                 <TotalValues
-                  purchaseOrRetirement={props.purchaseOrRetirement}
+                  product={props.product}
                   userBalance={userBalance}
                   fiatMinimum={fiatMinimum}
                   fiatBalance={fiatBalance}
