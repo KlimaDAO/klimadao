@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { ListingWithTokenSymbolModel } from "../../..//models/Listing.model";
+import { ListingModel } from "../../../models/Listing.model";
 import { NetworkParamModel } from "../../../models/NetworkParam.model";
 
 export const params = Type.Object(
@@ -33,7 +33,7 @@ export const schema = {
       description: "Successful response",
       content: {
         "application/json": {
-          schema: ListingWithTokenSymbolModel,
+          schema: ListingModel,
         },
       },
     },

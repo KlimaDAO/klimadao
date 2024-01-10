@@ -48,18 +48,11 @@ export const ListingModel = Type.Object(
       country: Type.String(),
       methodology: Type.String(),
     }),
+    symbol: Type.Optional(Type.String({ description: "Symbol of the token" })),
   },
   {
     description: "Marketplace listing with per-tonne price and project info.",
   }
 );
 
-export const ListingWithTokenSymbolModel = Type.Intersect([
-  ListingModel,
-  Type.Object({
-    symbol: Type.String({ description: "Symbol of the token" }),
-  }),
-]);
-
 export type Listing = Static<typeof ListingModel>;
-export type ListingWithTokenSymbol = Static<typeof ListingModel>;
