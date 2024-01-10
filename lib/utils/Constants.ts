@@ -43,6 +43,8 @@ export const KLIMA_UBO_PAIR = Address.fromString('0x5400A05B8B45EaF9105315B4F2e3
 export const KLIMA_UBO_PAIR_BLOCK = BigInt.fromString('26470811')
 export const KLIMA_NBO_PAIR = Address.fromString('0x251cA6A70cbd93Ccd7039B6b708D4cb9683c266C')
 export const KLIMA_NBO_PAIR_BLOCK = BigInt.fromString('26470990')
+export const KLIMA_NCT_PAIR = Address.fromString('0xb2D0D5C86d933b0aceFE9B95bEC160d514d152E1')
+export const KLIMA_NCT_PAIR_BLOCK = BigInt.fromString('32607148')
 export const MCO2_USDC_PAIR = Address.fromString('0x68aB4656736d48bb1DE8661b9A323713104e24cF')
 export const TREASURY_ADDRESS = Address.fromString('0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7')
 

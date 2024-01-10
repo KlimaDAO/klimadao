@@ -7,6 +7,7 @@ type ProtocolMetric @entity {
   totalKlimaUnstaked: BigDecimal!
   treasuryUSDCInLP: BigDecimal
   treasuryBalanceUSDC: BigDecimal
+  treasuryBalanceKLIMA: BigDecimal
   daoBalanceUSDC: BigDecimal
   daoBalanceKLIMA: BigDecimal
   totalSupply: BigDecimal!
