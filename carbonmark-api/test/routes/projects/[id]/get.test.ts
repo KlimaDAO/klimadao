@@ -1,22 +1,11 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { NetworkParam } from "src/models/NetworkParam.model";
 import { GRAPH_URLS, SANITY_URLS } from "../../../../src/app.constants";
 import { fixtures } from "../../../fixtures";
 import digitalCarbon from "../../../fixtures/digitalCarbon";
 import tokens from "../../../fixtures/tokens";
 import { build } from "../../../helper";
 import { DEV_URL } from "../../../test.constants";
-
-jest.mock("../../../../src/utils/ICR/ICR_API_endpoints", () => ({
-  ICR_API: (network: NetworkParam) => {
-    let baseUrl = "https://api.carbonregistry.com/v0";
-    if (network === "mumbai") {
-      baseUrl = "https://gaia-api-dev.mojoflower.io/v0";
-    }
-    return { ICR_API_URL: baseUrl };
-  },
-}));
 
 const mockCmsProject = fixtures.cms.cmsProject;
 const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
