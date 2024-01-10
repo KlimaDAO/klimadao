@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { getListingById } from "src/utils/helpers/listings.utils";
 import { gql_sdk } from "../../../utils/gqlSdk";
-import { getListingById } from "../../../utils/helpers/fetchMarketplaceListings";
-import { getTokenById } from "../../../utils/helpers/fetchPoolPricesAndStats";
+import { getTokenById } from "../../../utils/helpers/fetchTokens";
 import { formatListing } from "../../../utils/marketplace.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
