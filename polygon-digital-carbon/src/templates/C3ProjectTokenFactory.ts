@@ -7,7 +7,7 @@ export function handleNewC3T(event: NewTokenProject): void {
   // Start indexing the C3T tokens; `event.params.tokenAddress` is the
   // address of the new token contract
   C3ProjectToken.create(event.params.tokenAddress)
-  loadOrCreateCarbonCredit(event.params.tokenAddress, 'C3')
+  loadOrCreateCarbonCredit(event.params.tokenAddress, 'C3', null)
   createTokenWithCall(event.params.tokenAddress)
   updateCarbonCreditWithCall(event.params.tokenAddress)
 }

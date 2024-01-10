@@ -10,12 +10,7 @@ export function handleRebase(event: LogRebase): void {
   let epoch = loadOrCreateEpoch(event.params.epoch)
 
   for (let i = 0; i < ecosystem.activeCredits.length; i++) {
-    epoch = recordCarbonCreditSnapshot(
-      Address.fromBytes(ecosystem.activeCredits[i]),
-      event.params.epoch,
-      event.block.timestamp,
-      epoch
-    )
+    epoch = recordCarbonCreditSnapshot(ecosystem.activeCredits[i], event.params.epoch, event.block.timestamp, epoch)
   }
 
   // Update deltas

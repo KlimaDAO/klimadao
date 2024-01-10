@@ -7,17 +7,24 @@ import { loadOrCreateToucanBatch } from './ToucanBatch'
 
 export function recordProvenance(
   hash: Bytes,
-  token: Address,
+  tokenAddress: Address,
+  tokenId: BigInt | null,
   sender: Address,
   receiver: Address,
   recordType: string,
   amount: BigInt,
   timestamp: BigInt
 ): void {
-  let credit = loadCarbonCredit(token)
-  let id = token.concat(receiver).concatI32(credit.provenanceCount)
+  let creditId =
+    tokenId !== null
+      ? Bytes.fromHexString(tokenAddress.toHexString()).concatI32(tokenId.toI32())
+      : Bytes.fromHexString(tokenAddress.toHexString())
+
+  let credit = loadCarbonCredit(creditId)
+  let id = creditId.concat(receiver).concatI32(credit.provenanceCount)
   let record = new ProvenanceRecord(id)
-  record.token = token
+  record.token = tokenAddress
+  record.tokenId = tokenId
   record.transactionHash = hash
   record.transactionType = recordType
   record.registrySerialNumbers = []
@@ -30,8 +37,8 @@ export function recordProvenance(
   record.updatedAt = timestamp
   record.save()
 
-  let senderHolding = loadOrCreateHolding(sender, token)
-  let receiverHolding = loadOrCreateHolding(receiver, token)
+  let senderHolding = loadOrCreateHolding(sender, tokenAddress, tokenId)
+  let receiverHolding = loadOrCreateHolding(receiver, tokenAddress, tokenId)
 
   let senderActiveRecords = senderHolding.activeProvenanceRecords
 

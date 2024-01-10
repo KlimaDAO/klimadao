@@ -3,7 +3,7 @@ import { Retire } from '../../generated/schema'
 
 export function saveRetire(
   id: Bytes,
-  credit: Address,
+  credit: Bytes,
   pool: Address,
   source: string,
   amount: BigInt,
@@ -12,7 +12,9 @@ export function saveRetire(
   retiringAddress: Address,
   retiringName: string,
   timestamp: BigInt,
-  bridgeID: string | null
+  hash: Bytes,
+  bridgeID: string | null = null,
+  message: string = ''
 ): void {
   let retire = new Retire(id)
   retire.credit = credit
@@ -21,10 +23,11 @@ export function saveRetire(
   retire.amount = amount
   retire.beneficiaryAddress = beneficiary
   retire.beneficiaryName = beneficiaryName
-  retire.retirementMessage = ''
+  retire.retirementMessage = message
   retire.retiringAddress = retiringAddress
   retire.retiringName = retiringName
   retire.timestamp = timestamp
+  retire.hash = hash
   if (bridgeID !== null) retire.bridgeID = bridgeID
   retire.save()
 }

@@ -1,4 +1,4 @@
-import { Address, BigInt } from '@graphprotocol/graph-ts'
+import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { stdYearFromTimestamp } from '../../../lib/utils/Dates'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { C3ProjectToken } from '../../generated/templates/C3ProjectToken/C3ProjectToken'
@@ -7,10 +7,17 @@ import { ToucanCarbonOffsets } from '../../generated/templates/ToucanCarbonOffse
 import { loadOrCreateCarbonProject } from './CarbonProject'
 import { MethodologyCategories } from './MethodologyCategories'
 
-export function loadOrCreateCarbonCredit(tokenAddress: Address, bridge: string): CarbonCredit {
-  let credit = CarbonCredit.load(tokenAddress)
+export function loadOrCreateCarbonCredit(tokenAddress: Address, bridge: string, tokenId: BigInt | null): CarbonCredit {
+  let id = Bytes.fromHexString(tokenAddress.toHexString())
+
+  if (tokenId !== null) {
+    id = Bytes.fromHexString(tokenAddress.toHexString()).concatI32(tokenId.toI32())
+  }
+
+  let credit = CarbonCredit.load(id)
   if (credit == null) {
-    credit = new CarbonCredit(tokenAddress)
+    credit = new CarbonCredit(id)
+    credit.tokenAddress = tokenAddress
     credit.bridgeProtocol = bridge
     credit.project = ''
     credit.vintage = 1970
@@ -20,13 +27,19 @@ export function loadOrCreateCarbonCredit(tokenAddress: Address, bridge: string):
     credit.retired = ZERO_BI
     credit.provenanceCount = 0
     credit.lastBatchId = ZERO_BI
+    credit.isExAnte = false
+
+    if (tokenId !== null) {
+      credit.tokenId = tokenId
+    }
+
     credit.save()
   }
   return credit as CarbonCredit
 }
 
-export function loadCarbonCredit(tokenAddress: Address): CarbonCredit {
-  return CarbonCredit.load(tokenAddress) as CarbonCredit
+export function loadCarbonCredit(id: Bytes): CarbonCredit {
+  return CarbonCredit.load(id) as CarbonCredit
 }
 
 export function updateCarbonCreditWithCall(tokenAddress: Address): CarbonCredit {
@@ -75,6 +88,16 @@ function updateC3Call(tokenAddress: Address, carbonCredit: CarbonCredit): Carbon
   project.category = MethodologyCategories.getMethodologyCategory(project.methodologies)
   project.save()
   return carbonCredit
+}
+
+export function updateICRCredit(tokenAddress: Address, tokenId: BigInt, timestamp: BigInt): void {
+  let defaultCredit = loadOrCreateCarbonCredit(tokenAddress, 'ICR', BigInt.fromI32(0))
+  let credit = loadOrCreateCarbonCredit(tokenAddress, 'ICR', tokenId)
+
+  credit.project = defaultCredit.project
+  credit.vintage = stdYearFromTimestamp(timestamp)
+  credit.exPostTokenId = tokenId
+  credit.save()
 }
 
 export function updateCarbonCreditCrossChain(creditAddress: Address, amount: BigInt): void {

@@ -4,6 +4,7 @@ enum Registry {
   VERRA
   GOLD_STANDARD
   PURO_EARTH
+  ICR
 }
 
 enum RetireSource {
@@ -15,7 +16,7 @@ enum BridgeProtocol {
   TOUCAN
   C3
   MOSS
-  THALLO
+  ICR
 }
 
 enum CrossChainBridgeDirection {
@@ -35,6 +36,9 @@ type ProvenanceRecord @entity {
 
   "Credit token address"
   token: Bytes!
+
+  "Credit token ID"
+  tokenId: BigInt
 
   "Transaction hash creating this record"
   transactionHash: Bytes!
@@ -161,8 +165,20 @@ type CarbonProject @entity {
 }
 
 type CarbonCredit @entity {
-  "Ethereum address where the token is deployed"
+  "{tokenAddress}-{tokenId} concatenated. If no tokenId, then just the tokenAddress."
   id: Bytes!
+
+  "Ethereum address where the token is deployed"
+  tokenAddress: Bytes!
+
+  "Token ID for the credit vintage (if applicable)"
+  tokenId: BigInt
+
+  "Flag for if this credit is exAnte"
+  isExAnte: Boolean
+
+  "ExPost Token ID for the credit vintage (if applicable)"
+  exPostTokenId: BigInt
 
   "Protocol used to bridge the tons"
   bridgeProtocol: BridgeProtocol!
@@ -305,6 +321,9 @@ type Retire @entity {
 
   "Retiree description"
   retiringName: String!
+
+  "Transaction hash of the retirement"
+  hash: Bytes!
 
   "Block timestamp of retirement"
   timestamp: BigInt!
@@ -580,6 +599,9 @@ type Holding @entity {
 
   "Token being held"
   token: Token!
+
+  "Token ID being held"
+  tokenId: BigInt
 
   "Amount currently held in native units"
   amount: BigInt!

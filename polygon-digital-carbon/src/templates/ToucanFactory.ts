@@ -8,7 +8,7 @@ export function handleNewTCO2(event: TokenCreated): void {
   // address of the new token contract
 
   ToucanCarbonOffsets.create(event.params.tokenAddress)
-  loadOrCreateCarbonCredit(event.params.tokenAddress, 'TOUCAN')
+  loadOrCreateCarbonCredit(event.params.tokenAddress, 'TOUCAN', null)
   createTokenWithCall(event.params.tokenAddress)
   updateCarbonCreditWithCall(event.params.tokenAddress)
 }

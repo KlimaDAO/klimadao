@@ -301,6 +301,30 @@ dataSources:
       eventHandlers:
         - event: VCUOMinted(address,uint256)
           handler: handleVCUOMinted
+  - kind: ethereum/contract
+    name: ICRCarbonContractRegistry
+    network: matic
+    source:
+      address: '0x9f87988ff45e9b58ae30fa1685088460125a7d8a'
+      abi: ICRCarbonContractRegistry
+      startBlock: 42035327
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/templates/ICRCarbonContractRegistry.ts
+      entities:
+        - ICRCarbonContractRegistry
+      abis:
+        - name: ICRCarbonContractRegistry
+          file: ../lib/abis/ICRCarbonContractRegistry.json
+        - name: ICRProjectToken
+          file: ../lib/abis/ICRProjectToken.json
+        - name: ERC1155
+          file: ../lib/abis/ERC1155.json
+      eventHandlers:
+        - event: ProjectCreated(indexed uint256,indexed address,string)
+          handler: handleNewICC
   # Retirement aggregator
   - kind: ethereum/contract
     name: RetireToucanCarbon
@@ -398,6 +422,8 @@ dataSources:
       eventHandlers:
         - event: CarbonRetired(uint8,indexed address,string,indexed address,string,string,indexed address,address,uint256)
           handler: handleCarbonRetired
+        - event: CarbonRetired(uint8,indexed address,string,indexed address,string,string,indexed address,address,uint256,uint256)
+          handler: handleCarbonRetiredWithTokenId
   # Track KLIMA rebases for creating supply snapshot
   - kind: ethereum/contract
     name: sKlimaERC20V1
@@ -463,4 +489,32 @@ templates:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleCreditTransfer
+      file: ./src/TransferHandler.ts
+  - name: ICRProjectToken
+    kind: ethereum/contract
+    network: matic
+    source:
+      abi: ICRProjectToken
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ICRProjectToken
+      abis:
+        - name: ICRProjectToken
+          file: ../lib/abis/ICRProjectToken.json
+        - name: ERC1155
+          file: ../lib/abis/ERC1155.json
+      eventHandlers:
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handle1155CreditTransfer
+        - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
+          handler: handle1155CreditTransferBatch
+        - event: RetiredVintage(indexed address,indexed uint256,uint256,uint256,bytes)
+          handler: handleICRRetired
+        - event: ExPostCreated(indexed uint256,uint256,uint256,uint256,string)
+          handler: handleExPostCreated
+        - event: ExAnteMinted(indexed uint256,indexed uint256,indexed address,uint256)
+          handler: handleExAnteMinted
       file: ./src/TransferHandler.ts
