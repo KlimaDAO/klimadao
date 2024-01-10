@@ -1,7 +1,6 @@
 import { ethers } from "ethers";
 import { get } from "lodash";
 import { POOL_INFO } from "../../routes/projects/get.constants";
-import { GQL_SDK } from "../gqlSdk";
 
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
 /**
@@ -23,14 +22,6 @@ type PoolInfoMap = {
   nct: PoolInfo;
   ubo: PoolInfo;
   nbo: PoolInfo;
-};
-/**
- * Params for fetchProjectPoolInfo
- */
-
-type Params = {
-  projectID: string; // Project id `"VCS-981"`
-  vintage: number; // Vintage Int 2017
 };
 
 /**
@@ -82,28 +73,16 @@ type CarbonCredit = {
 type CarbonCredits = CarbonCredit[];
 
 /**
- * Query the subgraph for a list of the C3Ts and TCO2s that exist for a credit vintage.
+ * Returns a project pool info given the token credits of this project
  * @param {Params} params
  *  @example fetchCarbonProjectTokens({ key: "VCS-981", vintage: "2017" })
  * @returns {Promise<[PoolInfoMap, Stats]>}
  * A map of project token info for each pool. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
-
-export const fetchProjectPoolInfo = async (
-  sdk: GQL_SDK,
-  params: Params
-): Promise<[Partial<PoolInfoMap>, Stats]> => {
-  const data = await sdk.digital_carbon.getProjectCredits({
-    projectID: params.projectID,
-    vintage: Number(params.vintage),
-  });
-
-  /** @type {QueryResponse[]} */
-
-  const tokens: CarbonCredits = data?.carbonProjects?.[0]?.carbonCredits || [];
-
+export const getProjectPoolInfo = (
+  tokens: CarbonCredits
+): [Partial<PoolInfoMap>, Stats] => {
   // Graph data is in 18 decimals. All operations are performed in BigNumber before converting to Number at the end
-
   const bigNumberStats: BigNumberStats = tokens.reduce(
     (stat, token) => ({
       bridged: stat.bridged.add(ethers.BigNumber.from(token.bridged)),

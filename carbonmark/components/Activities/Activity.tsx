@@ -1,5 +1,6 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import EastIcon from "@mui/icons-material/East";
 import { Text } from "components/Text";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
@@ -11,6 +12,7 @@ import {
 } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ReactNode } from "react";
 import { ActivityActions } from "./Activities.constants";
 import * as styles from "./styles";
 interface Props {
@@ -28,7 +30,7 @@ export const Activity = (props: Props) => {
   const { locale } = useRouter();
   let firstActor, secondActor;
   let amountA, amountB;
-  let transactionString = t`at`;
+  let transactionString: string | ReactNode = t`at`;
 
   const isPurchaseActivity = props.activity.activityType === "Purchase";
   const isSaleActivity = props.activity.activityType === "Sold";
@@ -77,8 +79,9 @@ export const Activity = (props: Props) => {
   if (isUpdateQuantity) {
     amountA =
       props.activity.previousAmount &&
-      formatToTonnes(props.activity.previousAmount);
-    amountB = props.activity.amount && formatToTonnes(props.activity.amount);
+      `${formatToTonnes(props.activity.previousAmount)}t`;
+    amountB =
+      props.activity.amount && `${formatToTonnes(props.activity.amount)}t`;
   }
 
   /** Determine the conjunction between the labels */
@@ -86,7 +89,7 @@ export const Activity = (props: Props) => {
     transactionString = t`for`;
   }
   if (isUpdatePrice || isUpdateQuantity) {
-    transactionString = "->";
+    transactionString = <EastIcon />;
   }
 
   return (
@@ -140,9 +143,10 @@ export const Activity = (props: Props) => {
       {!!amountA &&
         !!amountB &&
         props.activity.activityType != "DeletedListing" && (
-          <Text t="body1">
-            <span className="number">{`${amountA}`}</span> {transactionString}
-            <span className="number">{`${amountB}`}</span>
+          <Text t="body1" className={styles.activitySummary}>
+            <span className={styles.amount}>{`${amountA}`}</span>
+            <span className={styles.action}>{transactionString}</span>
+            <span className={styles.amount}>{`${amountB}`}</span>
           </Text>
         )}
     </div>

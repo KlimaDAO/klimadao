@@ -5,6 +5,7 @@ export { ButtonPrimary } from "./Buttons/ButtonPrimary";
 export { ButtonSecondary } from "./Buttons/ButtonSecondary";
 export { ConnectModal } from "./ConnectModal";
 export { CopyValueButton } from "./CopyValueButton";
+export { GTMScript } from "./GTMScript";
 export { BraveIcon } from "./Icons/BraveIcon";
 export { CircleWalletIcon } from "./Icons/CircleWalletIcon";
 export { CoinbaseWalletIcon } from "./Icons/CoinbaseWalletIcon";

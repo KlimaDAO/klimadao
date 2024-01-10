@@ -8,6 +8,7 @@ import {
 } from "components/pages/Project/Purchase";
 import { IS_PRODUCTION } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
+import { isNil } from "lodash";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -34,7 +35,7 @@ export const getStaticProps: GetStaticProps<
       getListingsId(listing_id.toLowerCase()),
     ]);
 
-    if (!project) {
+    if (isNil(project) || isNil(project.listings)) {
       throw new Error("No project found");
     }
 

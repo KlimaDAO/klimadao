@@ -7,14 +7,14 @@ import { Text } from "components/Text";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { createProjectTokenName } from "lib/projectGetter";
-import { DetailedProject, Product } from "lib/types/carbonmark.types";
+import { Project, Product } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type TotalValuesProps = {
   product: Product;
-  project: DetailedProject;
+  project: Project;
   actionLabel: string;
   availableLabel: string;
   polyscanUrl: string;

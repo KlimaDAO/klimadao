@@ -5,6 +5,7 @@ export * from "./getListingsId";
 export * from "./getProjects";
 export * from "./getProjectsId";
 export * from "./getProjectsIdActivity";
+export * from "./getPurchases";
 export * from "./getPurchasesId";
 export * from "./getUsersWalletorhandle";
 export * from "./getVintages";

@@ -5,9 +5,9 @@ import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import {
-  DetailedProject,
   Listing,
   Product,
+  Project,
   TokenPrice,
 } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
@@ -18,7 +18,7 @@ import { PoolPurchase } from "./Pool";
 
 import * as styles from "./styles";
 export interface ProjectPurchasePageProps {
-  project: DetailedProject;
+  project: Project;
   product: Product;
 }
 
@@ -37,15 +37,13 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
 
       <Layout>
         <div className={styles.container}>
-          <div className={styles.backToProjectButton}>
-            <Link
-              href={createProjectLink(props.project)}
-              className={styles.backToResults}
-            >
-              <ArrowBack className="arrow" />
-              <Trans>Back to Project</Trans>
-            </Link>
-          </div>
+          <Link
+            href={createProjectLink(props.project)}
+            className={styles.backToProject}
+          >
+            <ArrowBack className="arrow" />
+            <Trans>Back to Project</Trans>
+          </Link>
           <div className={styles.loginButton}>
             <LoginButton className="desktopLogin" />
           </div>

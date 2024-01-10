@@ -1,18 +1,8 @@
 import { FastifyInstance } from "fastify";
 import { sortBy } from "lodash";
 import { Listing } from "../../models/Listing.model";
-import { isActiveListing } from "../../routes/projects/get.utils";
 import { GQL_SDK } from "../gqlSdk";
-import { GetProjectListing, formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
-
-type ListingsParams = {
-  key: string; // Project key `"VCS-981"`
-  vintage: string; // Vintage string `"2017"`
-  fastify: FastifyInstance; // Fastify instance
-  /** UNIX seconds - default is current system timestamp */
-  expiresAfter?: string;
-};
 
 export const getCreditListings = async (
   sdk: GQL_SDK,
@@ -21,6 +11,7 @@ export const getCreditListings = async (
     vintageStr: string;
     /** UNIX seconds - default is current system timestamp */
     expiresAfter?: string;
+    minSupply: number;
   }
 ) => {
   const expiresAfter =
@@ -31,12 +22,32 @@ export const getCreditListings = async (
   });
   return project;
 };
+const isActiveListing = (
+  l: {
+    active?: boolean | null;
+    deleted?: boolean | null;
+    leftToSell?: string | null;
+  },
+  minSupply?: number
+) =>
+  !!l.active &&
+  !l.deleted &&
+  Number(l.leftToSell) >= (minSupply || 0) &&
+  Number(l.leftToSell) > 0;
 
-const formatListings = async (
-  listings: GetProjectListing[],
+/**
+ * For marketplace subgraph projects
+ * Returns true if project has an active listing
+ * Note that expired listings are already filtered at gql query level
+ * */
+export const getActiveListings = (listings?: Listing[], minSupply?: number) => {
+  return listings?.filter((l) => isActiveListing(l, minSupply)) || [];
+};
+
+export const addProfilesToListings = async (
+  formattedListings: Listing[],
   fastify: FastifyInstance
 ): Promise<Listing[]> => {
-  const formattedListings = listings.map(formatListing);
   const userIds = new Set<string>();
   formattedListings.forEach((listing) =>
     userIds.add(listing.seller.id.toLowerCase())
@@ -60,25 +71,4 @@ const formatListings = async (
     };
   });
   return listingsWithProfiles;
-};
-
-/**
- * Query the subgraph for active marketplace listings and project data for the given project
- * Filters out deleted, sold-out and inactive listings
- * Fetches seller profile info from firebase
- */
-export const fetchMarketplaceListings = async (
-  sdk: GQL_SDK,
-  { key, vintage, expiresAfter, fastify }: ListingsParams
-): Promise<[Listing[]]> => {
-  const projectId = key + "-" + vintage;
-  const { project } = await sdk.marketplace.getProjectById({
-    projectId,
-    expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
-  });
-  const filteredListings = project?.listings?.filter(isActiveListing) || [];
-
-  const listingsWithProfiles = await formatListings(filteredListings, fastify);
-
-  return [listingsWithProfiles];
 };
