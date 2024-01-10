@@ -45,5 +45,5 @@ describe("GET /listings/:id", () => {
       url: `${DEV_URL}/listings/0x123`,
     });
     expect(response.statusCode).toEqual(500);
-  }, 100_000);
+  });
 });
