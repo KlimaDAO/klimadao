@@ -4,6 +4,7 @@
   "packageManager": "yarn@3.4.1",
   "workspaces": [
     "bonds",
+    "carbonmark",
     "celo-bridged-carbon",
     "ethereum-bridged-carbon",
     "pairs",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
     "@graphprotocol/graph-ts": "0.31.0",
-    "prettier": "2.7.1"
+    "prettier": "2.7.1",
+    "ts-node": "^10.9.2"
   }
 }

@@ -87,3 +87,6 @@ protocol-metrics/generated
 user-carbon/generated
 vesting/generated
 
+# env files
+.env.local
+

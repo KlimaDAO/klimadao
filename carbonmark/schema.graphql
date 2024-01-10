@@ -1,0 +1,90 @@
+enum ActivityType {
+  UpdatedQuantity
+  UpdatedPrice
+  Purchase
+  Sold
+  CreatedListing
+  DeletedListing
+}
+
+type User @entity {
+  #id is the user's address -> also the document key on firebase
+  id: Bytes!
+  listings: [Listing!] @derivedFrom(field: "seller")
+  activities: [Activity!] @derivedFrom(field: "user")
+  purchases: [Purchase!] @derivedFrom(field: "user")
+}
+
+type Project @entity {
+  id: ID!
+  key: String!
+  # projectID: String!
+  # projectType: String!
+  # region: String!
+  name: String!
+  methodology: String!
+  vintage: BigInt!
+  projectAddress: Bytes!
+  registry: String!
+  #   #relationships
+  activities: [Activity!] @derivedFrom(field: "project")
+  listings: [Listing!] @derivedFrom(field: "project")
+  category: Category!
+  country: Country!
+  updatedAt: BigInt
+}
+
+type Country @entity {
+  id: String!
+}
+
+type Category @entity {
+  id: String!
+}
+
+type Listing @entity {
+  id: ID!
+  totalAmountToSell: BigInt!
+  leftToSell: BigInt!
+  tokenAddress: Bytes!
+  active: Boolean
+  deleted: Boolean # uint256
+  batches: [BigInt!] # uint256
+  batchPrices: [BigInt!] # uint256
+  singleUnitPrice: BigInt!
+  expiration: BigInt!
+  minFillAmount: BigInt!
+  tokenSymbol: String!
+  #relationships
+  project: Project!
+  seller: User!
+  activities: [Activity!] @derivedFrom(field: "listing")
+  createdAt: BigInt
+  updatedAt: BigInt
+}
+
+type Activity @entity {
+  id: String!
+  amount: BigInt
+  previousAmount: BigInt
+  price: BigInt
+  previousPrice: BigInt
+  timeStamp: BigInt
+  #relationships
+  activityType: ActivityType!
+  project: Project!
+  user: User
+  listing: Listing
+  seller: User!
+  buyer: User
+}
+
+type Purchase @entity {
+  id: Bytes!
+  price: BigInt!
+  amount: BigInt!
+  timeStamp: BigInt!
+  #relationships
+  user: User!
+  listing: Listing!
+}

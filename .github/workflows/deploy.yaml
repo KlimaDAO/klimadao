@@ -15,6 +15,7 @@ jobs:
         value:
           [
             'bonds',
+            'carbonmark',
             'protocol-metrics',
             'vesting',
             'user-carbon',
