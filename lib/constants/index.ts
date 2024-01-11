@@ -252,7 +252,7 @@ export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 /** Known carbon pools */
 export const poolTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 /** Known carbon tokens */
-export const projectTokens = ["tco2", "c3t"] as const;
+export const projectTokens = ["tco2", "c3t", "icr"] as const;
 
 // TODO rename to pool token
 export type RetirementToken = (typeof retirementTokens)[number];
@@ -275,12 +275,13 @@ export const offsetCompatibility: CompatMap = {
 };
 
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
+const SUBGRAPH_URL_ID = "https://api.thegraph.com/subgraphs/id";
 export const subgraphs = {
-  polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
+  polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
-  carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
+  carbonmark: `${SUBGRAPH_URL_ID}/QmX81XsUrJZcPHsv72ypUe2a5xQ375zY2Yr6cUdtRjB8sy`,
 };
 
 /** Definitions of available registries */
