@@ -148,7 +148,6 @@ export type AssetForRetirement = {
   tokenSymbol: string; // 1: C3T, 2: TCO2
   credit: DigitalCarbonCredit;
   token: Asset["token"];
-  project: ProjectRetirementDetails;
   registry: string;
 };
 

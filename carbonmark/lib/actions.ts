@@ -447,6 +447,7 @@ export const createCompositeAsset = (
     balance: asset.amount,
     tokenSymbol: asset.token.symbol,
     credit,
+    registry: credit.project.registry,
   };
 
   return compositeAsset;
