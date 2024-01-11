@@ -200,7 +200,7 @@ export const RetireForm = (props: RetireFormProps) => {
       handleInitialIndexing();
     }
   }, [retirementBlockNumber]);
-  
+
   return (
     <div>
       <TwoColLayout>
