@@ -101,5 +101,5 @@ jobs:
           tag_name: ${{ github.ref_name }}
           release_name: carbonmark-api-${{ env.RELEASE_VERSION }}
           body: ${{ env.RELEASE_NOTES }}
-          draft: true
+          draft: false
           prerelease: false
