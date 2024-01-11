@@ -13,15 +13,8 @@ const POLYGON_URLS = {
   marketplace: `${GRAPH_API_ROOT_ID}/QmXrzcwG5b31hE1nDzT5NCAiHfM9stwMLqs8uk9enJiyPf`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
-  // production below
-  // digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
-  // testing
-  digitalCarbon:
-    "https://api.thegraph.com/subgraphs/name/psparacino/digital-carbon",
-  // producion below
-  // icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-polygon`,
-  // Mainnet testing only
-  icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-main-test`,
+  digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
+  icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-polygon`,
 };
 
 const MUMBAI_URLS = {
