@@ -7,7 +7,7 @@ import { Text } from "components/Text";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { createProjectTokenName } from "lib/projectGetter";
-import { Project, Product } from "lib/types/carbonmark.types";
+import { Product, Project } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
