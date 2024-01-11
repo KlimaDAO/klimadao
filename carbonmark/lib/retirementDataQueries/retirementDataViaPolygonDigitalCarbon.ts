@@ -2,7 +2,6 @@ import { subgraphs } from "@klimadao/lib/constants";
 import { KlimaRetire, QueryKlimaRetires } from "@klimadao/lib/types/subgraph";
 import { parseUnits } from "ethers/lib/utils";
 import { convertCountryCodeToName } from "../../lib/convertCountryCodeToName";
-import { getCategoryFromMethodology } from "../../lib/getCategoryFromMethodology";
 import { ICR_API } from "../../lib/registryAPIs/ICR/ICR_API";
 
 async function fetchGraphQL(
@@ -117,9 +116,7 @@ export const queryKlimaRetireByIndex = async (
       const data = await response.json();
       klimaRetire.retire.credit.project.country =
         convertCountryCodeToName(data.countryCode) || "";
-      klimaRetire.retire.credit.project.category = (
-        getCategoryFromMethodology(data.methodology.id) ?? ""
-      ).toString();
+      klimaRetire.retire.credit.project.category || "";
 
       klimaRetire.retire.credit.project.methodologies = data.methodology.id;
       klimaRetire.retire.credit.project.region = data.geographicalRegion;

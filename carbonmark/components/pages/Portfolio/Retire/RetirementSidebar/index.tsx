@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const RetirementSidebar: FC<Props> = (props) => {
-  const { tokenSymbol, project } = props.retirementAsset;
+  const { tokenSymbol, credit } = props.retirementAsset;
   const { networkLabel } = useWeb3();
   return (
     <div className={styles.assetWrapper}>
@@ -44,7 +44,7 @@ export const RetirementSidebar: FC<Props> = (props) => {
         <Anchor
           className="link"
           href={`${getPolygonScanBaseUrl(networkLabel)}/address/${
-            project.tokenAddress
+            credit.tokenAddress
           }`}
         >
           <span className="svg">

@@ -9,7 +9,7 @@ import { useFetchUsersWalletOrHandle } from "hooks/useFetchUsersWalletOrHandle";
 import { createCompositeAsset } from "lib/actions";
 import type {
   AssetForRetirement,
-  ProjectRetirementDetails,
+  DigitalCarbonCredit,
 } from "lib/types/carbonmark.types";
 import { isNil } from "lodash";
 import { NextPage } from "next";
@@ -20,7 +20,7 @@ import { UnregisteredMessage } from "./UnregisteredMessage";
 import * as styles from "./styles";
 
 export type RetirePageProps = {
-  project: ProjectRetirementDetails;
+  project: DigitalCarbonCredit;
   translation: Messages;
   fixedThemeName: string;
 };
@@ -40,7 +40,6 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
     { network: networkLabel, expiresAfter: "0" },
     { shouldFetch: !!address }
   );
-
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
   const isConnectedUser = isConnected && address;
@@ -59,15 +58,13 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   useEffect(() => {
     if (isConnected && !isLoading && carbonmarkUser) {
       function createRetirementAsset() {
-        // unlikely, but this allows for duplicate projects
-        const targetCredit = Array.isArray(props.project)
-          ? props.project[0]
-          : undefined;
+        const targetCredit = props.project;
 
         if (targetCredit && carbonmarkUser?.assets) {
           const asset = carbonmarkUser?.assets.filter((asset) => {
-            return asset.token.id == targetCredit.id;
+            return asset.token.id == targetCredit.tokenAddress;
           })[0];
+
           if (!asset) {
             router.push("/portfolio");
             return;

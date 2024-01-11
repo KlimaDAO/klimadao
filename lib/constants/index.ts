@@ -32,16 +32,10 @@ const mainnet = {
   staking: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd",
-  // prod aggregator
-  // retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
-  // test aggregator
-  retirementAggregatorV2: "0xdFb60D6c3787d4e7705A34ea46FF8755C3633031",
+  retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
-  // prod carbonmark
-  // carbonmark: "0x7B51dBc2A8fD98Fe0924416E628D5755f57eB821",
-  // testing carbonmark
-  carbonmark: "0x6D9D36D4C4572Bd4C5F5472Ab264cD2a3f4dB85c",
+  carbonmark: "0x7B51dBc2A8fD98Fe0924416E628D5755f57eB821",
 };
 
 const testnet: typeof mainnet = {

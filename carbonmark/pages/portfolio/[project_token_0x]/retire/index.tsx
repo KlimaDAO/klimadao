@@ -1,6 +1,7 @@
 import { Retire, RetirePageProps } from "components/pages/Portfolio/Retire";
 import { loadTranslation } from "lib/i18n";
 import { getProjectInfoViaPolygonDigitalCarbon } from "lib/retirementDataQueries/getProjectInfoViaPolygonDigitalCarbon";
+import { DigitalCarbonCredit } from "lib/types/carbonmark.types";
 import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -26,34 +27,15 @@ export const getServerSideProps: GetServerSideProps<
     throw new Error("Invalid network");
   }
 
-  const exPostQuery = `
-  query getExpostByAddressAndVintage($projectAddress: String!, $vintage: String!) {
-    exPosts(
-      where: {project_: {projectAddress: $projectAddress}, vintage: $vintage}
-    ) {
-      serialization
-      tokenId
-      vintage
-      project {
-        projectName
-        projectAddress
-      }
-    }
-  }
-`;
-
-  const variables = {
-    projectAddress: params.project_token_0x.toLowerCase(),
-    vintage: vintage,
-  };
   try {
-    const project = await getProjectInfoViaPolygonDigitalCarbon(
-      params.project_token_0x.toLowerCase()
-    );
-    if (project.length === 0) {
-      throw new Error(
-        "No project found with address: " + params.project_token_0x
+    const project: DigitalCarbonCredit | null =
+      await getProjectInfoViaPolygonDigitalCarbon(
+        params.project_token_0x.toLowerCase(),
+        Number(vintage)
       );
+
+    if (!project) {
+      throw new Error("Project could not be determined.");
     }
 
     const translation = await loadTranslation(ctx.locale);

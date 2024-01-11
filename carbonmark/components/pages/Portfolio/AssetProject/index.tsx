@@ -41,11 +41,7 @@ export const AssetProject: FC<Props> = (props) => {
   const unlistedBalance = getUnlistedBalance(props.asset, props.listings);
 
   const constructUrl = () => {
-    let url = `/portfolio/${props.asset.token.id}/retire?network=${networkLabel}`;
-    if (props.asset.project?.key.startsWith("ICR")) {
-      url += `&vintage=${props.asset.project.vintage}`;
-    }
-    return url;
+    return `/portfolio/${props.asset.token.id}/retire?network=${networkLabel}&vintage=${props.asset.project?.vintage}`;
   };
 
   return (
