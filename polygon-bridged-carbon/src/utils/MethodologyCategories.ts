@@ -94,6 +94,7 @@ export class MethodologyCategories {
     map.set('AMS-III.Z', 'Energy Efficiency')
     map.set('GS TPDDTEC v 1.', 'Energy Efficiency')
     map.set('AMS-II.G.', 'Energy Efficiency')
+    map.set('AM0014', 'Energy Efficiency')
 
     //Agriculture
     map.set('VM0041', 'Agriculture')
@@ -130,7 +131,6 @@ export class MethodologyCategories {
     map.set('AR-AMS0003', 'Forestry')
     map.set('AR-AMS0007', 'Forestry')
     map.set('AR-ACM0001', 'Forestry')
-    map.set('AM0014', 'Forestry')
 
     // Blue Carbon
     map.set('VM0033', 'Blue Carbon')
