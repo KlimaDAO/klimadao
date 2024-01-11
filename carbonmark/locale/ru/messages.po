@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-10 17:53+0000\n"
+"POT-Creation-Date: 2024-01-11 14:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +32,7 @@ msgstr "500 - Ошибка сервера"
 msgid "500 - Server error occurred"
 msgstr "500 - Произошла ошибка сервера"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:216
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:221
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> Обязательное поле"
 
@@ -165,7 +165,7 @@ msgstr "Доступно: "
 msgid "Available: {0}"
 msgstr "Доступно: {0}"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:239
 msgid "Available: {unlistedBalance}"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr "Имя Получателя"
 msgid "Beneficiary wallet address"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:299
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
 msgid "Beneficiary wallet address (optional)"
 msgstr "Адрес кошелька получателя (необязательно)"
@@ -691,7 +691,7 @@ msgstr ""
 msgid "Latest First"
 msgstr "Последние Первые"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:100
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:101
 msgid "Learn More"
 msgstr "Узнать больше"
 
@@ -776,7 +776,7 @@ msgstr "Максимизируйте свое воздействие на кли
 msgid "Methodology"
 msgstr "Методология"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:52
 msgid "Moss"
 msgstr "Moss "
 
@@ -792,7 +792,7 @@ msgstr "Новая цена за единицу (USDC)"
 msgid "Next"
 msgstr "Следующий"
 
-#: components/pages/Retire/Activity/Table.tsx:88
+#: components/pages/Retire/Activity/Table.tsx:93
 msgid "No Activity to show."
 msgstr "Нет активности для отображения."
 
@@ -971,7 +971,7 @@ msgstr "Обработка покупки"
 msgid "Processing Retirement"
 msgstr "Обработка"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:78
+#: components/pages/Retirements/SingleRetirement/index.tsx:80
 msgid "Processing retirement..."
 msgstr ""
 
@@ -1127,7 +1127,7 @@ msgstr "Выбито"
 msgid "Retire Carbon"
 msgstr "Вывод карбона"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:207
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Отмените углеродные кредиты для себя или от имени другого лица или организации."
 
@@ -1342,7 +1342,7 @@ msgstr "Первым шагом является предоставление р
 msgid "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
 msgstr "Первый шаг - дать разрешение на перевод платежного актива из вашего кошелька в Carbonmark, следующий шаг - одобрить фактический перевод и завершить покупку."
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:208
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:213
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "Приведенная ниже информация будет опубликована для проверки вашего заявления об охране окружающей среды. Эта транзакция является постоянной; информация не может быть изменена после завершения транзакции."
 
@@ -1608,8 +1608,8 @@ msgstr "Посмотреть все портфолио"
 msgid "View all Projects"
 msgstr "Посмотреть все проекты"
 
-#: components/pages/Retire/Activity/Quotes.tsx:82
-#: components/pages/Retire/Activity/Table.tsx:72
+#: components/pages/Retire/Activity/Quotes.tsx:85
+#: components/pages/Retire/Activity/Table.tsx:77
 msgid "View all Retirements"
 msgstr "Просмотреть всего выведено"
 
@@ -1673,7 +1673,7 @@ msgstr "Кому будет зачислено это выбивание?"
 msgid "Wrong Network"
 msgstr "Неверная сеть"
 
-#: components/pages/Retire/Activity/Quotes.tsx:68
+#: components/pages/Retire/Activity/Quotes.tsx:71
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
@@ -1752,7 +1752,7 @@ msgstr "Ваша покупка еще не завершена. Чтобы за�
 msgid "Your seller data"
 msgstr "Ваши данные продавца"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
 msgstr ""
 
@@ -1867,35 +1867,35 @@ msgstr "Профиль"
 msgid "menu.retire"
 msgstr "Выбито"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:224
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
 msgid "offset.amount_in_tonnes"
 msgstr "Сколько тонн углерода вы хотели бы компенсировать? <0>*</0>"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:314
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.default_retirement_address"
 msgstr "По умолчанию используется адрес подключенного кошелька"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:252
 msgid "offset.offset_quantity"
 msgstr "Введите количество для компенсации"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:398
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:403
 msgid "offset.retire_carbon"
 msgstr "Подтвердить выбивание"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:277
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:282
 msgid "offset.retirement_beneficiary_name"
 msgstr "Имя Получателя"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:265
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:270
 msgid "offset.retirement_credit"
 msgstr "Кому будет зачислено это выбивание?"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:328
 msgid "offset.retirement_message"
 msgstr "Сообщение о выводе"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:334
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:339
 msgid "offset.retirement_retirement_message"
 msgstr "Сообщение о использовании"
 
@@ -1912,7 +1912,7 @@ msgstr "Спасибо за поддержку планеты!"
 msgid "offset.successModal.body3"
 msgstr "Ваша транзакция была успешно обработана, но ее индексация занимает больше времени, чем обычно. В ближайшее время она появится в вашем  <0>retirements</0>."
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:355
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:360
 msgid "offset_disclaimer"
 msgstr "Будьте осторожны, чтобы не включать какую-либо конфиденциальную личную информацию (например, адрес электронной почты) в ваше сообщение на выбивание. Информация, которую вы вводите здесь, не может быть отредактирована после ее отправки и будет постоянно существовать в общедоступной цепочке блоков."
 
@@ -2060,15 +2060,15 @@ msgstr "Пожалуйста, используйте другую комбина
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Проверьте свой запрос на наличие опечаток или попробуйте другой поисковый запрос."
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:381
 msgid "retire.back_button"
 msgstr "назад"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:367
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.submit_button"
 msgstr "Вывод карбона"
 
-#: components/pages/Retire/Activity/Quotes.tsx:70
+#: components/pages/Retire/Activity/Quotes.tsx:73
 msgid "retired"
 msgstr "Выбито"
 
@@ -2080,15 +2080,15 @@ msgstr "Имея более 20 миллионов подтвержденных �
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "О Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:130
 msgid "retirement.head.metaDescription"
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/index.tsx:126
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} изъято из эксплуатации {formattedAmount} тонн углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:114
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.title"
 msgstr "Карбонмарк | Квитанция о выводе"
 
@@ -2112,11 +2112,11 @@ msgstr "Адрес получателя:"
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "Выбивание по углеродному кредиту"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:94
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:96
 msgid "retirement.single.country_region.title"
 msgstr "Страна/регион:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:121
 msgid "retirement.single.immutable_public_records.title"
 msgstr "Это представляет собой окончательное выбытие цифрового углеродного актива. Это выбивание и связанные с ним данные являются неизменяемыми общедоступными записями."
 
@@ -2128,17 +2128,17 @@ msgstr "Сообщение о выбивании"
 msgid "retirement.single.methodology.title"
 msgstr "Методология:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
 msgid "retirement.single.moss_offset.description"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
 msgid "retirement.single.moss_offset.name"
 msgstr ""
 "MOSS Earth MC02\n"
 ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:113
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:114
 msgid "retirement.single.official_certificate.title"
 msgstr "Официальный сертификат об отказе от использования углерода в сети, предоставленный <0>Carbonmark.com</0>"
 
@@ -2146,15 +2146,15 @@ msgstr "Официальный сертификат об отказе от ис�
 msgid "retirement.single.project.title"
 msgstr "Проект:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:82
 msgid "retirement.single.project_description.title"
 msgstr "Описание"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
 msgid "retirement.single.project_details.title"
 msgstr "Детали проекта"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:65
 msgid "retirement.single.project_name.title"
 msgstr "Название проекта"
 
@@ -2194,11 +2194,11 @@ msgstr "Тип:"
 msgid "retirement.single.verified_tonnes.title"
 msgstr "Подтвержденные тонны отмененного углерода"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:140
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Посмотреть на Polygonscan"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:109
 msgid "retirement.single.vintage.title"
 msgstr "Винтаж:"
 
@@ -2276,8 +2276,8 @@ msgid "something went wrong loading the allowance"
 msgstr "что-то пошло не так при загрузке пособия"
 
 #: components/pages/Retire/Activity/Overview.tsx:75
-#: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:62
+#: components/pages/Retire/Activity/Quotes.tsx:76
+#: components/pages/Retire/Activity/Table.tsx:65
 msgid "t"
 msgstr "т"
 

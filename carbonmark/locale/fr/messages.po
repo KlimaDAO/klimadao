@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-10 17:53+0000\n"
+"POT-Creation-Date: 2024-01-11 14:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +32,7 @@ msgstr "500 - Erreur du Serveur"
 msgid "500 - Server error occurred"
 msgstr "500 - Une erreur de serveur est survenue"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:216
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:221
 msgid "<0>* </0> Required Field"
 msgstr "<0>* </0> Champ requis"
 
@@ -167,7 +167,7 @@ msgstr "Disponible :"
 msgid "Available: {0}"
 msgstr "Disponible : {0}"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:239
 msgid "Available: {unlistedBalance}"
 msgstr "Disponible : {unlistedBalance}"
 
@@ -211,7 +211,7 @@ msgstr "Nom du bénéficiaire"
 msgid "Beneficiary wallet address"
 msgstr "Adresse du portefeuille du bénéficiaire"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:299
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
 msgid "Beneficiary wallet address (optional)"
 msgstr "Adresse du portefeuille du bénéficiaire (facultatif)"
@@ -693,7 +693,7 @@ msgstr "Le nom ne doit pas contenir de chiffres ou de caractères spéciaux"
 msgid "Latest First"
 msgstr "Le plus récent en premier"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:100
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:101
 msgid "Learn More"
 msgstr "En savoir plus"
 
@@ -778,7 +778,7 @@ msgstr "Maximisez votre impact climatique."
 msgid "Methodology"
 msgstr "Méthodologie"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:52
 msgid "Moss"
 msgstr "Moss"
 
@@ -794,7 +794,7 @@ msgstr "Nouveau Prix Unitaire (USDC)"
 msgid "Next"
 msgstr "Suivant"
 
-#: components/pages/Retire/Activity/Table.tsx:88
+#: components/pages/Retire/Activity/Table.tsx:93
 msgid "No Activity to show."
 msgstr "Aucune activité à montrer"
 
@@ -973,7 +973,7 @@ msgstr "Traitement de l'achat en cours"
 msgid "Processing Retirement"
 msgstr "Traitement du retrait du marché"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:78
+#: components/pages/Retirements/SingleRetirement/index.tsx:80
 msgid "Processing retirement..."
 msgstr "Retrait du marché en cours..."
 
@@ -1129,7 +1129,7 @@ msgstr "Retirer du marché"
 msgid "Retire Carbon"
 msgstr "Retirer du marché des crédits Carbone"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:207
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retirer du marché des crédits carbone pour vous-même ou pour le compte d'une autre personne ou entreprise."
 
@@ -1344,7 +1344,7 @@ msgstr "La première étape consiste à donner l'autoriser à Carbonmark de tran
 msgid "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
 msgstr "La première étape est de donner l'autorisation à Carbonmark de transférer le type d'actif utilisé lors du paiement de votre portefeuille, l'étape suivante est d'approuver le transfert et de finaliser votre achat."
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:208
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:213
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "Les informations ci-dessous seront diffusées publiquement pour vérifier votre déclaration environnementale. Cette transaction est permanente ; les informations ne peuvent pas être modifiées une fois la transaction terminée."
 
@@ -1610,8 +1610,8 @@ msgstr "Voir tous les éléments du portefeuille"
 msgid "View all Projects"
 msgstr "Voir tous les Projets"
 
-#: components/pages/Retire/Activity/Quotes.tsx:82
-#: components/pages/Retire/Activity/Table.tsx:72
+#: components/pages/Retire/Activity/Quotes.tsx:85
+#: components/pages/Retire/Activity/Table.tsx:77
 msgid "View all Retirements"
 msgstr "Voir tous les Retraits"
 
@@ -1675,7 +1675,7 @@ msgstr "A qui ce retrait du marché carbone sera-t-elle créditée ?"
 msgid "Wrong Network"
 msgstr "Mauvais réseau"
 
-#: components/pages/Retire/Activity/Quotes.tsx:68
+#: components/pages/Retire/Activity/Quotes.tsx:71
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
@@ -1754,7 +1754,7 @@ msgstr "Votre achat n'a pas encore été finalisé. Pour finaliser votre achat, 
 msgid "Your seller data"
 msgstr "Vos données de vendeur"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
 msgstr "Votre transaction a été réalisée avec succès, mais le réseau prend plus de temps que prévu pour traiter les données. Les données relatives à votre retrait devraient apparaître ici dans quelques secondes !"
 
@@ -1869,35 +1869,35 @@ msgstr "Profil"
 msgid "menu.retire"
 msgstr "Retirer du marché"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:224
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
 msgid "offset.amount_in_tonnes"
 msgstr "Combien de tonnes de carbone souhaitez-vous compenser ? <0>*</0>"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:314
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.default_retirement_address"
 msgstr "Par défaut, l'adresse du portefeuille connecté"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:252
 msgid "offset.offset_quantity"
 msgstr "Entrez la quantité à compenser"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:398
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:403
 msgid "offset.retire_carbon"
 msgstr "Confirmer le Retrait"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:277
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:282
 msgid "offset.retirement_beneficiary_name"
 msgstr "Nom du Bénéficiaire"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:265
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:270
 msgid "offset.retirement_credit"
 msgstr "A qui ce retrait du marché carbone sera-t-elle créditée ?"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:328
 msgid "offset.retirement_message"
 msgstr "Message de retrait du marché"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:334
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:339
 msgid "offset.retirement_retirement_message"
 msgstr "Message de Retrait du marché"
 
@@ -1914,7 +1914,7 @@ msgstr "Merci de soutenir la planète !"
 msgid "offset.successModal.body3"
 msgstr "Votre transaction a été traitée avec succès, mais son indexation prend plus de temps que d'habitude. Elle apparaîtra bientôt dans vos <0>retraits</0>."
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:355
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:360
 msgid "offset_disclaimer"
 msgstr "Veillez à ne pas inclure d'informations personnelles sensibles (telles qu'une adresse électronique) dans votre nom de retrait ou votre message. Les informations que vous saisissez ici ne peuvent pas être modifiées une fois qu'elles ont été soumises et existeront de manière permanente sur une blockchain publique."
 
@@ -2062,15 +2062,15 @@ msgstr "Veuillez utiliser une autre combinaison de filtres."
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou essayez un autre terme de recherche."
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:381
 msgid "retire.back_button"
 msgstr "précédent"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:367
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.submit_button"
 msgstr "Retirer du marché des crédits Carbone"
 
-#: components/pages/Retire/Activity/Quotes.tsx:70
+#: components/pages/Retire/Activity/Quotes.tsx:73
 msgid "retired"
 msgstr "retirées"
 
@@ -2082,15 +2082,15 @@ msgstr "Avec plus de 20 millions de crédits carbone vérifiés provenant de cen
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "À propos de Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:130
 msgid "retirement.head.metaDescription"
 msgstr "Des compensations transparentes et sur la chaîne, réalisées par Carbonmark."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/index.tsx:126
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} a retiré du marché {formattedAmount} Tonnes de carbone"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:114
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.title"
 msgstr "Carbonmark | Reçu de Retrait du Marché Carbone"
 
@@ -2114,11 +2114,11 @@ msgstr "Adresse du Bénéficiaire :"
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "Retrait des Crédits Carbone"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:94
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:96
 msgid "retirement.single.country_region.title"
 msgstr "Pays/Région :"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:121
 msgid "retirement.single.immutable_public_records.title"
 msgstr "Il s'agit du retrait permanent du marché d'un actif carbone numérique. Ce retrait et les données associées sont des documents publics immuables."
 
@@ -2130,15 +2130,15 @@ msgstr "Message de Retrait :"
 msgid "retirement.single.methodology.title"
 msgstr "Méthodologie :"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
 msgid "retirement.single.moss_offset.description"
 msgstr "Les crédits MC02 sont générés par des projets qui préservent la forêt amazonienne, avec toutes sortes d'externalités positives telles que la création d'emplois locaux et la préservation de la biodiversité locale. Découvrez MCO2 sur <0>data.klimadao.finance</0>."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
 msgid "retirement.single.moss_offset.name"
 msgstr "MOSS Earth MC02"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:113
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:114
 msgid "retirement.single.official_certificate.title"
 msgstr "Certificat Officiel de Retrait du marché Carbone réalisé sur la chaîne de blocs fourni par <0>Carbonmark.com</0>"
 
@@ -2146,15 +2146,15 @@ msgstr "Certificat Officiel de Retrait du marché Carbone réalisé sur la chaî
 msgid "retirement.single.project.title"
 msgstr "Projet :"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:82
 msgid "retirement.single.project_description.title"
 msgstr "Description"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
 msgid "retirement.single.project_details.title"
 msgstr "Détails du projet"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:65
 msgid "retirement.single.project_name.title"
 msgstr "Nom du Projet"
 
@@ -2194,11 +2194,11 @@ msgstr "Type :"
 msgid "retirement.single.verified_tonnes.title"
 msgstr "Tonnes de carbone vérifiées retirées du marché"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:140
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Voir sur Polygonscan"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:109
 msgid "retirement.single.vintage.title"
 msgstr "Année :"
 
@@ -2276,8 +2276,8 @@ msgid "something went wrong loading the allowance"
 msgstr "quelque chose s'est mal passé lors du chargement de l'autorisation"
 
 #: components/pages/Retire/Activity/Overview.tsx:75
-#: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:62
+#: components/pages/Retire/Activity/Quotes.tsx:76
+#: components/pages/Retire/Activity/Table.tsx:65
 msgid "t"
 msgstr "t"
 
