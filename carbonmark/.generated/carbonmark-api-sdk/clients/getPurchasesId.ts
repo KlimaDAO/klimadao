@@ -9,19 +9,17 @@ import type {
 /**
  * @description Retrieve the details of a purchase by its ID (transaction hash)
  * @summary Purchase details
- * @link /purchases/:id
- */
-export async function getPurchasesId<TData = GetPurchasesIdQueryResponse>(
+ * @link /purchases/:id */
+export async function getPurchasesId(
   id: GetPurchasesIdPathParams["id"],
   params?: GetPurchasesIdQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData>({
+): Promise<ResponseConfig<GetPurchasesIdQueryResponse>["data"]> {
+  const res = await client<GetPurchasesIdQueryResponse>({
     method: "get",
     url: `/purchases/${id}`,
     params,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }

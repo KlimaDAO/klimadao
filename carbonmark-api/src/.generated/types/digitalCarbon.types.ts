@@ -4185,6 +4185,13 @@ export type GetDigitalCarbonProjectsVintagesQueryVariables = Exact<{ [key: strin
 
 export type GetDigitalCarbonProjectsVintagesQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number }> }> };
 
+export type GetTokenByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetTokenByIdQuery = { __typename?: 'Query', token: { __typename?: 'Token', symbol: string } | null };
+
 export type GetDigitalCarbonProjectsCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4280,6 +4287,13 @@ export const GetDigitalCarbonProjectsVintagesDocument = gql`
   }
 }
     `;
+export const GetTokenByIdDocument = gql`
+    query getTokenById($id: ID!) {
+  token(id: $id) {
+    symbol
+  }
+}
+    `;
 export const GetDigitalCarbonProjectsCategoriesDocument = gql`
     query getDigitalCarbonProjectsCategories {
   carbonProjects(first: 1000) {
@@ -4339,30 +4353,33 @@ ${CarbonCreditFragmentFragmentDoc}
 ${PoolBalancesFragmentFragmentDoc}
 ${PoolFragmentFragmentDoc}`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getDigitalCarbonProjectsVintages(variables?: GetDigitalCarbonProjectsVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDigitalCarbonProjectsVintagesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsVintagesQuery>(GetDigitalCarbonProjectsVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsVintages', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsVintagesQuery>(GetDigitalCarbonProjectsVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsVintages', 'query', variables);
+    },
+    getTokenById(variables: GetTokenByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTokenByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetTokenByIdQuery>(GetTokenByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getTokenById', 'query', variables);
     },
     getDigitalCarbonProjectsCategories(variables?: GetDigitalCarbonProjectsCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDigitalCarbonProjectsCategoriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCategoriesQuery>(GetDigitalCarbonProjectsCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCategories', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCategoriesQuery>(GetDigitalCarbonProjectsCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCategories', 'query', variables);
     },
     getDigitalCarbonProjectsCountries(variables?: GetDigitalCarbonProjectsCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDigitalCarbonProjectsCountriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCountriesQuery>(GetDigitalCarbonProjectsCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCountries', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCountriesQuery>(GetDigitalCarbonProjectsCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCountries', 'query', variables);
     },
     getProjectCredits(variables: GetProjectCreditsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectCreditsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectCreditsQuery>(GetProjectCreditsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectCredits', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectCreditsQuery>(GetProjectCreditsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectCredits', 'query', variables);
     },
     getTokenById(variables: GetTokenByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTokenByIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetTokenByIdQuery>(GetTokenByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getTokenById', 'query');
     },
     findDigitalCarbonProjects(variables?: FindDigitalCarbonProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindDigitalCarbonProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<FindDigitalCarbonProjectsQuery>(FindDigitalCarbonProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findDigitalCarbonProjects', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<FindDigitalCarbonProjectsQuery>(FindDigitalCarbonProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findDigitalCarbonProjects', 'query', variables);
     }
   };
 }

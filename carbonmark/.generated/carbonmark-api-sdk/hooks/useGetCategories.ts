@@ -1,38 +1,53 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type { GetCategoriesQueryResponse } from "../types/GetCategories";
 
+type GetCategoriesClient = typeof client<
+  GetCategoriesQueryResponse,
+  never,
+  never
+>;
+type GetCategories = {
+  data: GetCategoriesQueryResponse;
+  error: never;
+  request: never;
+  pathParams: never;
+  queryParams: never;
+  headerParams: never;
+  response: GetCategoriesQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetCategoriesClient>[0]>;
+    return: Awaited<ReturnType<GetCategoriesClient>>;
+  };
+};
 export function getCategoriesQueryOptions<
-  TData = GetCategoriesQueryResponse,
-  TError = unknown,
+  TData extends GetCategories["response"] = GetCategories["response"],
+  TError = GetCategories["error"],
 >(
-  options: Partial<Parameters<typeof client>[0]> = {}
+  options: GetCategories["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/categories`,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.
  * @summary Categories
- * @link /categories
- */
-
+ * @link /categories */
 export function useGetCategories<
-  TData = GetCategoriesQueryResponse,
-  TError = unknown,
+  TData extends GetCategories["response"] = GetCategories["response"],
+  TError = GetCategories["error"],
 >(options?: {
   query?: SWRConfiguration<TData, TError>;
-  client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+  client?: GetCategories["client"]["parameters"];
   shouldFetch?: boolean;
 }): SWRResponse<TData, TError> {
   const {
@@ -40,12 +55,13 @@ export function useGetCategories<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/categories` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getCategoriesQueryOptions<TData, TError>(clientOptions),
-    ...queryOptions,
-  });
-
+  const url = `/categories` as const;
+  const query = useSWR<TData, TError, typeof url | null>(
+    shouldFetch ? url : null,
+    {
+      ...getCategoriesQueryOptions<TData, TError>(clientOptions),
+      ...queryOptions,
+    }
+  );
   return query;
 }

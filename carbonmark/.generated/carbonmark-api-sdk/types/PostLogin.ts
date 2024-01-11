@@ -14,3 +14,7 @@ export type PostLoginMutationResponse = {
    */
   nonce: string;
 };
+export namespace PostLoginMutation {
+  export type Response = PostLoginMutationResponse;
+  export type Request = PostLoginMutationRequest;
+}

@@ -1,49 +1,63 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetPurchasesIdPathParams,
   GetPurchasesIdQueryParams,
   GetPurchasesIdQueryResponse,
 } from "../types/GetPurchasesId";
 
+type GetPurchasesIdClient = typeof client<
+  GetPurchasesIdQueryResponse,
+  never,
+  never
+>;
+type GetPurchasesId = {
+  data: GetPurchasesIdQueryResponse;
+  error: never;
+  request: never;
+  pathParams: GetPurchasesIdPathParams;
+  queryParams: GetPurchasesIdQueryParams;
+  headerParams: never;
+  response: GetPurchasesIdQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetPurchasesIdClient>[0]>;
+    return: Awaited<ReturnType<GetPurchasesIdClient>>;
+  };
+};
 export function getPurchasesIdQueryOptions<
-  TData = GetPurchasesIdQueryResponse,
-  TError = unknown,
+  TData extends GetPurchasesId["response"] = GetPurchasesId["response"],
+  TError = GetPurchasesId["error"],
 >(
   id: GetPurchasesIdPathParams["id"],
-  params?: GetPurchasesIdQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetPurchasesId["queryParams"],
+  options: GetPurchasesId["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/purchases/${id}`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Retrieve the details of a purchase by its ID (transaction hash)
  * @summary Purchase details
- * @link /purchases/:id
- */
-
+ * @link /purchases/:id */
 export function useGetPurchasesId<
-  TData = GetPurchasesIdQueryResponse,
-  TError = unknown,
+  TData extends GetPurchasesId["response"] = GetPurchasesId["response"],
+  TError = GetPurchasesId["error"],
 >(
   id: GetPurchasesIdPathParams["id"],
-  params?: GetPurchasesIdQueryParams,
+  params?: GetPurchasesId["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetPurchasesId["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -52,12 +66,13 @@ export function useGetPurchasesId<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/purchases/${id}` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getPurchasesIdQueryOptions<TData, TError>(id, params, clientOptions),
-    ...queryOptions,
-  });
-
+  const url = `/purchases/${id}` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getPurchasesIdQueryOptions<TData, TError>(id, params, clientOptions),
+      ...queryOptions,
+    }
+  );
   return query;
 }

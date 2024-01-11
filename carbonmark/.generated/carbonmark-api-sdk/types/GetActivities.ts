@@ -61,3 +61,7 @@ export type GetActivitiesQueryParams = {
     | "UpdatedQuantity"
   )[];
 };
+export namespace GetActivitiesQuery {
+  export type Response = GetActivitiesQueryResponse;
+  export type QueryParams = GetActivitiesQueryParams;
+}

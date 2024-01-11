@@ -78,6 +78,7 @@ const activities: GetActivitiesByProjectIdQuery["activities"] = [
 
 /** Fixtures for the marketplace subgraph */
 const fixtures = {
+  listing,
   projectWithListing,
   purchase,
   activities,

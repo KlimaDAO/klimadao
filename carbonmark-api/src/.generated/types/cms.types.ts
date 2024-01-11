@@ -29,6 +29,8 @@ export type Block = {
 export type BooleanFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Boolean']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is not equal to the given input. */
   neq: InputMaybe<Scalars['Boolean']>;
 };
@@ -68,6 +70,8 @@ export type DateFilter = {
   gt: InputMaybe<Scalars['Date']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Date']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Date']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -83,6 +87,8 @@ export type DatetimeFilter = {
   gt: InputMaybe<Scalars['DateTime']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['DateTime']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['DateTime']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -123,6 +129,34 @@ export type DocumentSorting = {
   _updatedAt: InputMaybe<SortOrder>;
 };
 
+export type ExternalFile = {
+  __typename?: 'ExternalFile';
+  _key: Maybe<Scalars['String']>;
+  _type: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
+  filename: Maybe<Scalars['String']>;
+  mimetype: Maybe<Scalars['String']>;
+  uri: Maybe<Scalars['String']>;
+};
+
+export type ExternalFileFilter = {
+  _key: InputMaybe<StringFilter>;
+  _type: InputMaybe<StringFilter>;
+  description: InputMaybe<StringFilter>;
+  filename: InputMaybe<StringFilter>;
+  mimetype: InputMaybe<StringFilter>;
+  uri: InputMaybe<StringFilter>;
+};
+
+export type ExternalFileSorting = {
+  _key: InputMaybe<SortOrder>;
+  _type: InputMaybe<SortOrder>;
+  description: InputMaybe<SortOrder>;
+  filename: InputMaybe<SortOrder>;
+  mimetype: InputMaybe<SortOrder>;
+  uri: InputMaybe<SortOrder>;
+};
+
 export type File = {
   __typename?: 'File';
   _key: Maybe<Scalars['String']>;
@@ -148,6 +182,8 @@ export type FloatFilter = {
   gt: InputMaybe<Scalars['Float']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Float']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Float']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -223,6 +259,8 @@ export type IntFilter = {
   gt: InputMaybe<Scalars['Int']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Int']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Int']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -302,12 +340,15 @@ export type Project = Document & {
   country: Maybe<Scalars['String']>;
   /** Official project description as it appears in the originating registry */
   description: Maybe<Scalars['String']>;
-  documents: Maybe<Array<Maybe<File>>>;
+  externalDocuments: Maybe<Array<Maybe<ExternalFile>>>;
+  externalMedia: Maybe<Array<Maybe<ExternalFile>>>;
   geolocation: Maybe<Geopoint>;
   id: Maybe<Slug>;
   methodologies: Maybe<Array<Maybe<Methodology>>>;
   /** Project name. Use 'Title Case Capitalization'. No trailing period */
   name: Maybe<Scalars['String']>;
+  /** External project website, if exists */
+  projectWebsite: Maybe<Scalars['String']>;
   /** Region where the project was implemented */
   region: Maybe<Scalars['String']>;
   /** Verra, Gold Standard, or EcoRegistry */
@@ -317,7 +358,9 @@ export type Project = Document & {
   sdgs: Maybe<Array<Maybe<Scalars['String']>>>;
   /** (optional) state or territory where the project was implemented */
   state: Maybe<Scalars['String']>;
-  /** Project website or resource url, if exists */
+  /** From our predefined ontology of subcategories */
+  subcategory: Maybe<Scalars['String']>;
+  /** Project's website or resource url on the registry, if exists */
   url: Maybe<Scalars['String']>;
 };
 
@@ -399,10 +442,12 @@ export type ProjectFilter = {
   geolocation: InputMaybe<GeopointFilter>;
   id: InputMaybe<SlugFilter>;
   name: InputMaybe<StringFilter>;
+  projectWebsite: InputMaybe<StringFilter>;
   region: InputMaybe<StringFilter>;
   registry: InputMaybe<StringFilter>;
   registryProjectId: InputMaybe<StringFilter>;
   state: InputMaybe<StringFilter>;
+  subcategory: InputMaybe<StringFilter>;
   url: InputMaybe<StringFilter>;
 };
 
@@ -420,10 +465,12 @@ export type ProjectSorting = {
   geolocation: InputMaybe<GeopointSorting>;
   id: InputMaybe<SlugSorting>;
   name: InputMaybe<SortOrder>;
+  projectWebsite: InputMaybe<SortOrder>;
   region: InputMaybe<SortOrder>;
   registry: InputMaybe<SortOrder>;
   registryProjectId: InputMaybe<SortOrder>;
   state: InputMaybe<SortOrder>;
+  subcategory: InputMaybe<SortOrder>;
   url: InputMaybe<SortOrder>;
 };
 
@@ -934,6 +981,8 @@ export type StringFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['String']>;
   in: InputMaybe<Array<Scalars['String']>>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value matches the given word/words. */
   matches: InputMaybe<Scalars['String']>;
   /** Checks if the value is not equal to the given input. */
@@ -1049,24 +1098,24 @@ export const GetAllCmsProjectContentDocument = gql`
 }
     ${CmsProjectContentFragmentFragmentDoc}`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getCMSProject(variables: GetCmsProjectQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCmsProjectQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectQuery>(GetCmsProjectDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProject', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectQuery>(GetCmsProjectDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProject', 'query', variables);
     },
     getCMSProjectContent(variables: GetCmsProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCmsProjectContentQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectContentQuery>(GetCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProjectContent', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectContentQuery>(GetCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProjectContent', 'query', variables);
     },
     getAllCMSProjects(variables?: GetAllCmsProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllCmsProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectsQuery>(GetAllCmsProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjects', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectsQuery>(GetAllCmsProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjects', 'query', variables);
     },
     getAllCMSProjectContent(variables?: GetAllCmsProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllCmsProjectContentQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectContentQuery>(GetAllCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjectContent', 'query');
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectContentQuery>(GetAllCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjectContent', 'query', variables);
     }
   };
 }

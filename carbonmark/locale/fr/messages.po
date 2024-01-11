@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-09 15:38+0000\n"
+"POT-Creation-Date: 2024-01-10 17:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,7 +42,7 @@ msgstr "@Nom d'utilisateur (note : ceci ne peut pas être changé !)"
 
 #: components/pages/Project/PayWithBank/index.tsx:153
 msgid "A valid email address is required"
-msgstr ""
+msgstr "Une adresse email valide est requise"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:77
 msgid "A-Z"
@@ -209,7 +209,7 @@ msgstr "Nom du bénéficiaire"
 #: components/pages/Project/PayWithBank/index.tsx:232
 #: components/pages/Project/PayWithBank/index.tsx:349
 msgid "Beneficiary wallet address"
-msgstr ""
+msgstr "Adresse du portefeuille du bénéficiaire"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
@@ -283,7 +283,7 @@ msgstr "Frais de Carbonmark"
 
 #: components/pages/Project/PayWithBank/index.tsx:101
 msgid "Carbonmark now offers the ability to pay for retirement transactions via bank transfer. Simply fill out the form below and we'll reach out within 2 business days (upon receiving all required information) to collect some further information and send you an invoice."
-msgstr ""
+msgstr "Carbonmark offre maintenant la possibilité de payer les transactions de retrait du marché par virement bancaire. Remplissez simplement le formulaire ci-dessous et nous vous contacterons dans les 2 jours ouvrés (après avoir reçu toutes les informations requises) pour recueillir des informations supplémentaires et vous envoyer une facture."
 
 #: components/pages/Home/index.tsx:54
 #: components/pages/Home/index.tsx:55
@@ -331,11 +331,11 @@ msgstr "Prochainement"
 #: components/pages/Project/PayWithBank/index.tsx:167
 #: components/pages/Project/PayWithBank/index.tsx:319
 msgid "Company name"
-msgstr ""
+msgstr "Nom de l'entreprise"
 
 #: components/pages/Project/PayWithBank/index.tsx:173
 msgid "Company name is required"
-msgstr ""
+msgstr "Le nom de l'entreprise est requis"
 
 #: components/pages/Home/index.tsx:348
 msgid "Compare prices across all sellers and trading pools"
@@ -507,11 +507,11 @@ msgstr "Modifier l'annonce"
 #: components/pages/Project/PayWithBank/index.tsx:143
 #: components/pages/Project/PayWithBank/index.tsx:307
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: components/pages/Project/PayWithBank/index.tsx:149
 msgid "Email address is required"
-msgstr ""
+msgstr "Une adresse email est requise"
 
 #: lib/getCategoryInfo.ts:47
 msgid "Energy Efficiency"
@@ -544,15 +544,15 @@ msgstr "Retrouvez les dernières mises à jour, les guides et les ressources pou
 #: components/pages/Project/PayWithBank/index.tsx:187
 #: components/pages/Project/PayWithBank/index.tsx:331
 msgid "First name"
-msgstr ""
+msgstr "Prénom"
 
 #: components/pages/Project/PayWithBank/index.tsx:193
 msgid "First name is required"
-msgstr ""
+msgstr "Le prénom est requis"
 
 #: components/pages/Project/PayWithBank/index.tsx:197
 msgid "First name should not contain numbers or special characters"
-msgstr ""
+msgstr "Le prénom ne doit pas contenir de chiffres ni de caractères spéciaux"
 
 #: components/CreateListing/Transaction/Approve.tsx:37
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
@@ -572,7 +572,7 @@ msgstr "Forêts"
 
 #: components/pages/Project/PayWithBank/index.tsx:289
 msgid "Form complete"
-msgstr ""
+msgstr "Formulaire rempli"
 
 #: components/pages/Home/index.tsx:79
 msgid "Get Started"
@@ -584,7 +584,7 @@ msgstr "Soyez payé immédiatement : les transactions sont exécutées en quelqu
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:42
 msgid "Go Back"
-msgstr ""
+msgstr "Retour"
 
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:35
 msgid "Go back"
@@ -632,11 +632,11 @@ msgstr "Combien de tonnes de carbone souhaitez-vous retirer du marché ?"
 
 #: components/pages/Project/PayWithBank/index.tsx:301
 msgid "How many tonnes would you like to retire?"
-msgstr ""
+msgstr "Combien de tonnes souhaitez-vous retirer du marché ?"
 
 #: components/pages/Project/PayWithBank/index.tsx:122
 msgid "How much would you like to retire?"
-msgstr ""
+msgstr "Combien souhaitez-vous retirer ?"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -644,7 +644,7 @@ msgstr "Si vous souhaitez retirer du marché une partie ou la totalité des cré
 
 #: components/pages/Project/PayWithBank/index.tsx:116
 msgid "Indicates required field"
-msgstr ""
+msgstr "Indique un champ obligatoire"
 
 #: lib/getCategoryInfo.ts:59
 msgid "Industrial Processing"
@@ -665,7 +665,7 @@ msgstr "Invalide"
 #: components/pages/Project/PayWithBank/index.tsx:181
 #: components/pages/Project/PayWithBank/index.tsx:325
 msgid "Job title"
-msgstr ""
+msgstr "Fonction"
 
 #: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:550
@@ -679,15 +679,15 @@ msgstr "KlimaDAO fournit l'infrastructure transparente, neutre et publique néce
 #: components/pages/Project/PayWithBank/index.tsx:206
 #: components/pages/Project/PayWithBank/index.tsx:337
 msgid "Last name"
-msgstr ""
+msgstr "Nom"
 
 #: components/pages/Project/PayWithBank/index.tsx:212
 msgid "Last name is required"
-msgstr ""
+msgstr "Le nom est requis"
 
 #: components/pages/Project/PayWithBank/index.tsx:216
 msgid "Last name should not contain numbers or special characters"
-msgstr ""
+msgstr "Le nom ne doit pas contenir de chiffres ou de caractères spéciaux"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -880,11 +880,11 @@ msgstr "PROJET"
 #: components/pages/Project/PayWithBank/index.tsx:89
 #: components/pages/Project/PayWithBank/index.tsx:90
 msgid "Pay with Bank Transfer | Carbonmark"
-msgstr ""
+msgstr "Payer par Virement Bancaire | Carbonmark"
 
 #: components/pages/Project/PayWithBank/index.tsx:98
 msgid "Pay with bank transfer"
-msgstr ""
+msgstr "Payer par virement bancaire"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:98
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:112
@@ -903,7 +903,7 @@ msgstr "Frais de traitement du paiement"
 #: components/pages/Project/PayWithBank/index.tsx:161
 #: components/pages/Project/PayWithBank/index.tsx:313
 msgid "Phone number"
-msgstr ""
+msgstr "Numéro de téléphone"
 
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
@@ -911,7 +911,7 @@ msgstr "Veuillez vous connecter"
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:30
 msgid "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days (upon receiving all required information)."
-msgstr ""
+msgstr "Veuillez remplir le formulaire sécurisé sur la page suivante et nous vous enverrons une facture dans les deux jours ouvrés (après réception de toutes les informations requises)."
 
 #: components/pages/Portfolio/index.tsx:66
 #: components/pages/Users/SellerConnected/index.tsx:81
@@ -989,7 +989,7 @@ msgstr "Photo de profil"
 #: components/pages/Project/PayWithBank/index.tsx:253
 #: components/pages/Project/PayWithBank/index.tsx:357
 msgid "Project names of interest"
-msgstr ""
+msgstr "Noms de projets d'intérêt"
 
 #: components/pages/Retire/FromPortfolio/index.tsx:79
 msgid "Purchase Carbon"
@@ -1170,7 +1170,7 @@ msgstr "Retirez maintenant ou acquérez du carbone pour le retirer plus tard - c
 
 #: components/pages/Project/PayWithBank/index.tsx:91
 msgid "Retire your carbon via bank transfer."
-msgstr ""
+msgstr "Retirer du marché votre carbone par virement bancaire."
 
 #: components/pages/Portfolio/Retire/index.tsx:92
 #: components/pages/Portfolio/Retire/index.tsx:93
@@ -1322,7 +1322,7 @@ msgstr "Merci de votre contribution pour la planète ! Vous pouvez voir les dét
 
 #: components/pages/Project/PayWithBank/index.tsx:292
 msgid "Thank you for supporting the planet! We'll reach out soon to confirm some details and provide you with an with an invoice."
-msgstr ""
+msgstr "Merci de soutenir la planète ! Nous vous contacterons bientôt pour confirmer certains détails et vous fournir une facture."
 
 #: components/pages/Home/index.tsx:68
 msgid "The Universal Carbon Marketplace"
@@ -1365,12 +1365,12 @@ msgstr "La quantité minimale à retirer du marché est de 0,001 Tonne"
 #: components/pages/Project/PayWithBank/index.tsx:133
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:73
 msgid "The minimum amount to retire is 1 Tonne"
-msgstr ""
+msgstr "La quantité minimale à retirer est de 1 Tonne"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:97
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:103
 msgid "The minimum amount to retire via bank transfer is 100 Tonnes"
-msgstr ""
+msgstr "La quantité minimale à retirer par virement bancaire est de 100 Tonnes"
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:53
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
@@ -1439,7 +1439,7 @@ msgstr "Pour commencer, veillez à compléter votre <0>profil</0>, puis rendez-v
 
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:25
 msgid "To pay via bank transfer, we'll need to gather some information from you."
-msgstr ""
+msgstr "Pour payer par virement bancaire, nous aurons besoin de quelques informations."
 
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:70
 msgid "Toggle Select Project"
@@ -1502,7 +1502,7 @@ msgstr "Autorisation totale"
 
 #: components/pages/Project/PayWithBank/index.tsx:129
 msgid "Total amount of tonnes to retire is required"
-msgstr ""
+msgstr "La quantité totale en tonnes à retirer est requise"
 
 #: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Total carbon tonnes retired"

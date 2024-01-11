@@ -18,3 +18,7 @@ export type PostLoginVerifyMutationResponse = {
    */
   token: string;
 };
+export namespace PostLoginVerifyMutation {
+  export type Response = PostLoginVerifyMutationResponse;
+  export type Request = PostLoginVerifyMutationRequest;
+}

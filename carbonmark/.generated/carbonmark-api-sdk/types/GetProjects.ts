@@ -282,3 +282,7 @@ export type GetProjectsQueryParams = {
    */
   minSupply?: number;
 };
+export namespace GetProjectsQuery {
+  export type Response = GetProjectsQueryResponse;
+  export type QueryParams = GetProjectsQueryParams;
+}
