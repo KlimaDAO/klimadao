@@ -80,8 +80,16 @@ export const layoutChildrenContainer = css`
   gap: 1.2rem 0rem;
   padding: 1.6rem;
   align-content: flex-start;
+
+  // Required for feature banner transition
+  transition: all 0.2s ease-in-out;
+
   ${breakpoints.desktop} {
     padding: 4rem 2.4rem;
+
+    &:has(.feature-banner) {
+      padding: 16rem 2.4rem;
+    }
   }
 
   &.fullContentWidth {

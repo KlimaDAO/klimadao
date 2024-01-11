@@ -148,6 +148,8 @@ export const urls = {
     "https://docs.carbonmark.com/get-started/understanding-fees-on-carbonmark",
   payViaBankForm:
     "https://api.hsforms.com/submissions/v3/integration/submit/26010207/2f87cd63-f8a7-43e9-9483-ac541a614762",
+  payViaBankDocs:
+    "/blog/carbonmark-now-accepts-bank-transfer-as-a-payment-method",
   projects: "/projects",
   users: "/users",
   help: "/blog/getting-started",
