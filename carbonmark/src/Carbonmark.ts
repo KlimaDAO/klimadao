@@ -19,6 +19,7 @@ export function handleListingCreated(event: ListingCreated): void {
   let listing = loadOrCreateListing(event.params.id.toHexString())
 
   let tokenContract = ERC20.bind(event.params.token)
+  let tokenSymbol = tokenContract.try_symbol()
 
   listing.totalAmountToSell = event.params.amount
   listing.leftToSell = event.params.amount
@@ -32,7 +33,9 @@ export function handleListingCreated(event: ListingCreated): void {
   listing.seller = event.params.account
   listing.createdAt = event.block.timestamp
   listing.updatedAt = event.block.timestamp
-  listing.tokenSymbol = tokenContract.symbol()
+  if (!tokenSymbol.reverted) {
+    listing.tokenSymbol = tokenSymbol.value
+  }
 
   listing.save()
 
