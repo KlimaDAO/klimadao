@@ -29,6 +29,7 @@ const handler = () =>
     }>,
     reply: FastifyReply
   ) {
+    // Get graphql client
     const network = request.query.network || "polygon";
     const graph_urls = GRAPH_URLS[network];
     const client = new GraphQLClient(graph_urls.digitalCarbon);

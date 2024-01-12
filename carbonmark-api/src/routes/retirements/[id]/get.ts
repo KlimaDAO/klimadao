@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { pick } from "lodash";
-import { getKlimaRetirement } from "../../../utils/helpers/retirements.utils";
+import { gql_sdk } from "../../../utils/gqlSdk";
+import { formatRetirement } from "../../../utils/helpers/retirements.utils";
 import { getProfileByAddress } from "../../../utils/helpers/users.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
@@ -14,14 +14,18 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     // Fetch retirement
-    const retirement = await getKlimaRetirement({
-      ...pick(request.params, ["account_id", "retirement_index"]),
-      ...pick(request.query, ["network"]),
-    });
+    const sdk = gql_sdk(request.query.network);
+    console.debug(request.params);
+    const retirements = (
+      await sdk.digital_carbon.getRetirementByHash({
+        hash: request.params.id,
+      })
+    ).retires;
 
-    if (!retirement) {
+    if (retirements.length == 0) {
       return reply.notFound();
     }
+    const retirement = formatRetirement(retirements[0]);
 
     // Add retiree profile information
     retirement.retireeProfile =

@@ -4349,12 +4349,12 @@ export type AllRetirementsQueryVariables = Exact<{
 
 export type AllRetirementsQuery = { __typename?: 'Query', retires: Array<{ __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, credit: { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, project: { __typename?: 'CarbonProject', id: string } }, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } }> };
 
-export type GetProvenanceRecordsQueryVariables = Exact<{
-  id: InputMaybe<Array<Scalars['Bytes']> | Scalars['Bytes']>;
+export type GetProvenanceRecordsByHashQueryVariables = Exact<{
+  hash: Scalars['Bytes'];
 }>;
 
 
-export type GetProvenanceRecordsQuery = { __typename?: 'Query', provenanceRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string }> }> };
+export type GetProvenanceRecordsByHashQuery = { __typename?: 'Query', provenanceRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string }> }> };
 
 export const ProvenanceRecordFragmentFragmentDoc = gql`
     fragment ProvenanceRecordFragment on ProvenanceRecord {
@@ -4531,9 +4531,9 @@ export const AllRetirementsDocument = gql`
 }
     ${RetireFragmentFragmentDoc}
 ${CarbonCreditFragmentFragmentDoc}`;
-export const GetProvenanceRecordsDocument = gql`
-    query getProvenanceRecords($id: [Bytes!]) {
-  provenanceRecords(where: {transactionHash_in: $id}) {
+export const GetProvenanceRecordsByHashDocument = gql`
+    query getProvenanceRecordsByHash($hash: Bytes!) {
+  provenanceRecords(where: {transactionHash: $hash}) {
     ...ProvenanceRecordFragment
     priorRecords(orderBy: createdAt, orderDirection: desc) {
       ...ProvenanceRecordFragment
@@ -4573,8 +4573,8 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     allRetirements(variables?: AllRetirementsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AllRetirementsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<AllRetirementsQuery>(AllRetirementsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'allRetirements', 'query');
     },
-    getProvenanceRecords(variables?: GetProvenanceRecordsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProvenanceRecordsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProvenanceRecordsQuery>(GetProvenanceRecordsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProvenanceRecords', 'query');
+    getProvenanceRecordsByHash(variables: GetProvenanceRecordsByHashQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProvenanceRecordsByHashQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProvenanceRecordsByHashQuery>(GetProvenanceRecordsByHashDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProvenanceRecordsByHash', 'query');
     }
   };
 }

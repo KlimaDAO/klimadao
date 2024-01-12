@@ -3,13 +3,11 @@ import { NetworkParamModel } from "../../../models/NetworkParam.model";
 import { RetirementModel } from "../../../models/Retirement.model";
 
 export const params = Type.Object({
-  account_id: Type.String({
-    description: "Account ID",
-    examples: ["0x087a7afb6975a2837453be685eb6272576c0bc"],
-  }),
-  retirement_index: Type.Number({
-    description: "Retirement index",
-    examples: ["5"],
+  id: Type.String({
+    description: "Retirement transaction hash",
+    examples: [
+      "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
+    ],
   }),
 });
 

@@ -88,8 +88,8 @@ query allRetirements($account_id: String) {
   }
 }
 
-query getProvenanceRecords($id: [Bytes!]) {
-  provenanceRecords(where: { transactionHash_in: $id }) {
+query getProvenanceRecordsByHash($hash: Bytes!) {
+  provenanceRecords(where: { transactionHash: $hash }) {
     ...ProvenanceRecordFragment
     priorRecords(orderBy: createdAt, orderDirection: desc) {
       ...ProvenanceRecordFragment
