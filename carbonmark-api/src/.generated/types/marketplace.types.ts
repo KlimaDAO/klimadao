@@ -221,41 +221,41 @@ export type Activity_Filter = {
 };
 
 export enum Activity_OrderBy {
-  ActivityType = 'activityType',
-  Amount = 'amount',
-  Buyer = 'buyer',
-  BuyerId = 'buyer__id',
-  Id = 'id',
-  Listing = 'listing',
-  ListingActive = 'listing__active',
-  ListingCreatedAt = 'listing__createdAt',
-  ListingDeleted = 'listing__deleted',
-  ListingExpiration = 'listing__expiration',
-  ListingId = 'listing__id',
-  ListingLeftToSell = 'listing__leftToSell',
-  ListingMinFillAmount = 'listing__minFillAmount',
-  ListingSingleUnitPrice = 'listing__singleUnitPrice',
-  ListingTokenAddress = 'listing__tokenAddress',
-  ListingTokenSymbol = 'listing__tokenSymbol',
-  ListingTotalAmountToSell = 'listing__totalAmountToSell',
-  ListingUpdatedAt = 'listing__updatedAt',
-  PreviousAmount = 'previousAmount',
-  PreviousPrice = 'previousPrice',
-  Price = 'price',
-  Project = 'project',
-  ProjectId = 'project__id',
-  ProjectKey = 'project__key',
-  ProjectMethodology = 'project__methodology',
-  ProjectName = 'project__name',
-  ProjectProjectAddress = 'project__projectAddress',
-  ProjectRegistry = 'project__registry',
-  ProjectUpdatedAt = 'project__updatedAt',
-  ProjectVintage = 'project__vintage',
-  Seller = 'seller',
-  SellerId = 'seller__id',
-  TimeStamp = 'timeStamp',
-  User = 'user',
-  UserId = 'user__id'
+  activityType = 'activityType',
+  amount = 'amount',
+  buyer = 'buyer',
+  buyer__id = 'buyer__id',
+  id = 'id',
+  listing = 'listing',
+  listing__active = 'listing__active',
+  listing__createdAt = 'listing__createdAt',
+  listing__deleted = 'listing__deleted',
+  listing__expiration = 'listing__expiration',
+  listing__id = 'listing__id',
+  listing__leftToSell = 'listing__leftToSell',
+  listing__minFillAmount = 'listing__minFillAmount',
+  listing__singleUnitPrice = 'listing__singleUnitPrice',
+  listing__tokenAddress = 'listing__tokenAddress',
+  listing__tokenSymbol = 'listing__tokenSymbol',
+  listing__totalAmountToSell = 'listing__totalAmountToSell',
+  listing__updatedAt = 'listing__updatedAt',
+  previousAmount = 'previousAmount',
+  previousPrice = 'previousPrice',
+  price = 'price',
+  project = 'project',
+  project__id = 'project__id',
+  project__key = 'project__key',
+  project__methodology = 'project__methodology',
+  project__name = 'project__name',
+  project__projectAddress = 'project__projectAddress',
+  project__registry = 'project__registry',
+  project__updatedAt = 'project__updatedAt',
+  project__vintage = 'project__vintage',
+  seller = 'seller',
+  seller__id = 'seller__id',
+  timeStamp = 'timeStamp',
+  user = 'user',
+  user__id = 'user__id'
 }
 
 export type BlockChangedFilter = {
@@ -301,7 +301,7 @@ export type Category_Filter = {
 };
 
 export enum Category_OrderBy {
-  Id = 'id'
+  id = 'id'
 }
 
 export type Country = {
@@ -337,7 +337,7 @@ export type Country_Filter = {
 };
 
 export enum Country_OrderBy {
-  Id = 'id'
+  id = 'id'
 }
 
 export type Listing = {
@@ -535,38 +535,38 @@ export type Listing_Filter = {
 };
 
 export enum Listing_OrderBy {
-  Active = 'active',
-  Activities = 'activities',
-  BatchPrices = 'batchPrices',
-  Batches = 'batches',
-  CreatedAt = 'createdAt',
-  Deleted = 'deleted',
-  Expiration = 'expiration',
-  Id = 'id',
-  LeftToSell = 'leftToSell',
-  MinFillAmount = 'minFillAmount',
-  Project = 'project',
-  ProjectId = 'project__id',
-  ProjectKey = 'project__key',
-  ProjectMethodology = 'project__methodology',
-  ProjectName = 'project__name',
-  ProjectProjectAddress = 'project__projectAddress',
-  ProjectRegistry = 'project__registry',
-  ProjectUpdatedAt = 'project__updatedAt',
-  ProjectVintage = 'project__vintage',
-  Seller = 'seller',
-  SellerId = 'seller__id',
-  SingleUnitPrice = 'singleUnitPrice',
-  TokenAddress = 'tokenAddress',
-  TokenSymbol = 'tokenSymbol',
-  TotalAmountToSell = 'totalAmountToSell',
-  UpdatedAt = 'updatedAt'
+  active = 'active',
+  activities = 'activities',
+  batchPrices = 'batchPrices',
+  batches = 'batches',
+  createdAt = 'createdAt',
+  deleted = 'deleted',
+  expiration = 'expiration',
+  id = 'id',
+  leftToSell = 'leftToSell',
+  minFillAmount = 'minFillAmount',
+  project = 'project',
+  project__id = 'project__id',
+  project__key = 'project__key',
+  project__methodology = 'project__methodology',
+  project__name = 'project__name',
+  project__projectAddress = 'project__projectAddress',
+  project__registry = 'project__registry',
+  project__updatedAt = 'project__updatedAt',
+  project__vintage = 'project__vintage',
+  seller = 'seller',
+  seller__id = 'seller__id',
+  singleUnitPrice = 'singleUnitPrice',
+  tokenAddress = 'tokenAddress',
+  tokenSymbol = 'tokenSymbol',
+  totalAmountToSell = 'totalAmountToSell',
+  updatedAt = 'updatedAt'
 }
 
 /** Defines the order direction, either ascending or descending */
 export enum OrderDirection {
-  Asc = 'asc',
-  Desc = 'desc'
+  asc = 'asc',
+  desc = 'desc'
 }
 
 export type Project = {
@@ -769,20 +769,20 @@ export type Project_Filter = {
 };
 
 export enum Project_OrderBy {
-  Activities = 'activities',
-  Category = 'category',
-  CategoryId = 'category__id',
-  Country = 'country',
-  CountryId = 'country__id',
-  Id = 'id',
-  Key = 'key',
-  Listings = 'listings',
-  Methodology = 'methodology',
-  Name = 'name',
-  ProjectAddress = 'projectAddress',
-  Registry = 'registry',
-  UpdatedAt = 'updatedAt',
-  Vintage = 'vintage'
+  activities = 'activities',
+  category = 'category',
+  category__id = 'category__id',
+  country = 'country',
+  country__id = 'country__id',
+  id = 'id',
+  key = 'key',
+  listings = 'listings',
+  methodology = 'methodology',
+  name = 'name',
+  projectAddress = 'projectAddress',
+  registry = 'registry',
+  updatedAt = 'updatedAt',
+  vintage = 'vintage'
 }
 
 export type Purchase = {
@@ -879,25 +879,25 @@ export type Purchase_Filter = {
 };
 
 export enum Purchase_OrderBy {
-  Amount = 'amount',
-  Id = 'id',
-  Listing = 'listing',
-  ListingActive = 'listing__active',
-  ListingCreatedAt = 'listing__createdAt',
-  ListingDeleted = 'listing__deleted',
-  ListingExpiration = 'listing__expiration',
-  ListingId = 'listing__id',
-  ListingLeftToSell = 'listing__leftToSell',
-  ListingMinFillAmount = 'listing__minFillAmount',
-  ListingSingleUnitPrice = 'listing__singleUnitPrice',
-  ListingTokenAddress = 'listing__tokenAddress',
-  ListingTokenSymbol = 'listing__tokenSymbol',
-  ListingTotalAmountToSell = 'listing__totalAmountToSell',
-  ListingUpdatedAt = 'listing__updatedAt',
-  Price = 'price',
-  TimeStamp = 'timeStamp',
-  User = 'user',
-  UserId = 'user__id'
+  amount = 'amount',
+  id = 'id',
+  listing = 'listing',
+  listing__active = 'listing__active',
+  listing__createdAt = 'listing__createdAt',
+  listing__deleted = 'listing__deleted',
+  listing__expiration = 'listing__expiration',
+  listing__id = 'listing__id',
+  listing__leftToSell = 'listing__leftToSell',
+  listing__minFillAmount = 'listing__minFillAmount',
+  listing__singleUnitPrice = 'listing__singleUnitPrice',
+  listing__tokenAddress = 'listing__tokenAddress',
+  listing__tokenSymbol = 'listing__tokenSymbol',
+  listing__totalAmountToSell = 'listing__totalAmountToSell',
+  listing__updatedAt = 'listing__updatedAt',
+  price = 'price',
+  timeStamp = 'timeStamp',
+  user = 'user',
+  user__id = 'user__id'
 }
 
 export type Query = {
@@ -1258,10 +1258,10 @@ export type User_Filter = {
 };
 
 export enum User_OrderBy {
-  Activities = 'activities',
-  Id = 'id',
-  Listings = 'listings',
-  Purchases = 'purchases'
+  activities = 'activities',
+  id = 'id',
+  listings = 'listings',
+  purchases = 'purchases'
 }
 
 export type _Block_ = {
@@ -1293,9 +1293,9 @@ export type _Meta_ = {
 
 export enum _SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
-  Allow = 'allow',
+  allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
-  Deny = 'deny'
+  deny = 'deny'
 }
 
 export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } };

@@ -54,8 +54,8 @@ export type Account_Filter = {
 };
 
 export enum Account_OrderBy {
-  Holdings = 'holdings',
-  Id = 'id'
+  holdings = 'holdings',
+  id = 'id'
 }
 
 export type BlockChangedFilter = {
@@ -158,26 +158,26 @@ export type Holding_Filter = {
 };
 
 export enum Holding_OrderBy {
-  Account = 'account',
-  AccountId = 'account__id',
-  Amount = 'amount',
-  Id = 'id',
-  LastUpdated = 'lastUpdated',
-  Token = 'token',
-  TokenDecimals = 'token__decimals',
-  TokenId = 'token__id',
-  TokenLatestPricePerKlima = 'token__latestPricePerKLIMA',
-  TokenLatestPricePerKlimaUpdated = 'token__latestPricePerKLIMAUpdated',
-  TokenLatestPriceUsd = 'token__latestPriceUSD',
-  TokenLatestPriceUsdUpdated = 'token__latestPriceUSDUpdated',
-  TokenName = 'token__name',
-  TokenSymbol = 'token__symbol'
+  account = 'account',
+  account__id = 'account__id',
+  amount = 'amount',
+  id = 'id',
+  lastUpdated = 'lastUpdated',
+  token = 'token',
+  token__decimals = 'token__decimals',
+  token__id = 'token__id',
+  token__latestPricePerKLIMA = 'token__latestPricePerKLIMA',
+  token__latestPricePerKLIMAUpdated = 'token__latestPricePerKLIMAUpdated',
+  token__latestPriceUSD = 'token__latestPriceUSD',
+  token__latestPriceUSDUpdated = 'token__latestPriceUSDUpdated',
+  token__name = 'token__name',
+  token__symbol = 'token__symbol'
 }
 
 /** Defines the order direction, either ascending or descending */
 export enum OrderDirection {
-  Asc = 'asc',
-  Desc = 'desc'
+  asc = 'asc',
+  desc = 'desc'
 }
 
 export type Query = {
@@ -440,14 +440,14 @@ export type Token_Filter = {
 };
 
 export enum Token_OrderBy {
-  Decimals = 'decimals',
-  Id = 'id',
-  LatestPricePerKlima = 'latestPricePerKLIMA',
-  LatestPricePerKlimaUpdated = 'latestPricePerKLIMAUpdated',
-  LatestPriceUsd = 'latestPriceUSD',
-  LatestPriceUsdUpdated = 'latestPriceUSDUpdated',
-  Name = 'name',
-  Symbol = 'symbol'
+  decimals = 'decimals',
+  id = 'id',
+  latestPricePerKLIMA = 'latestPricePerKLIMA',
+  latestPricePerKLIMAUpdated = 'latestPricePerKLIMAUpdated',
+  latestPriceUSD = 'latestPriceUSD',
+  latestPriceUSDUpdated = 'latestPriceUSDUpdated',
+  name = 'name',
+  symbol = 'symbol'
 }
 
 export type _Block_ = {
@@ -479,9 +479,9 @@ export type _Meta_ = {
 
 export enum _SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
-  Allow = 'allow',
+  allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
-  Deny = 'deny'
+  deny = 'deny'
 }
 
 export type GetHoldingsByWalletQueryVariables = Exact<{
