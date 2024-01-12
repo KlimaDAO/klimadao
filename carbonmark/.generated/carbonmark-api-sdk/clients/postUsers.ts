@@ -7,21 +7,18 @@ import type {
 
 /**
  * @summary Create user profile
- * @link /users
- */
-export async function postUsers<
-  TData = PostUsersMutationResponse,
-  TVariables = PostUsersMutationRequest,
->(
-  data: TVariables,
+ * @link /users */
+export async function postUsers(
+  data: PostUsersMutationRequest,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData, TVariables>({
-    method: "post",
-    url: `/users`,
-    data,
-    ...options,
-  });
-
-  return resData;
+): Promise<ResponseConfig<PostUsersMutationResponse>["data"]> {
+  const res = await client<PostUsersMutationResponse, PostUsersMutationRequest>(
+    {
+      method: "post",
+      url: `/users`,
+      data,
+      ...options,
+    }
+  );
+  return res.data;
 }

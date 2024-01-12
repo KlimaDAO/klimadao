@@ -6,6 +6,12 @@ query getDigitalCarbonProjectsVintages {
   }
 }
 
+query getTokenById($id: ID!) {
+  token(id: $id) {
+    symbol
+  }
+}
+
 query getDigitalCarbonProjectsCategories {
   carbonProjects(first: 1000) {
     category
@@ -64,8 +70,24 @@ query findDigitalCarbonProjects(
   }
 }
 
-query getKlimaRetirement($id: ID!) {
+query getKlimaRetirementById($id: ID!) {
   klimaRetire(id: $id) {
+    retire {
+      ...RetireFragment
+      credit {
+        ...CarbonCreditFragment
+      }
+    }
+  }
+}
+
+query getKlimaRetirementTransactionByAccountAndIndex(
+  $address: String
+  $index: BigInt
+) {
+  klimaRetires(
+    where: { retire_: { beneficiaryAddress: $address }, index: $index }
+  ) {
     retire {
       ...RetireFragment
       credit {

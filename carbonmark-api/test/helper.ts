@@ -37,7 +37,7 @@ export async function build(args?: Args) {
     // Return the prepared Fastify instance
     return fastify;
   } catch (e) {
-    console.warn("Failed to build. Try npm run build?");
+    console.warn("Setup failed to build. Try npm run build?");
     console.error(e);
     throw e;
   }

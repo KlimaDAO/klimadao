@@ -1,49 +1,63 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetProjectsIdPathParams,
   GetProjectsIdQueryParams,
   GetProjectsIdQueryResponse,
 } from "../types/GetProjectsId";
 
+type GetProjectsIdClient = typeof client<
+  GetProjectsIdQueryResponse,
+  never,
+  never
+>;
+type GetProjectsId = {
+  data: GetProjectsIdQueryResponse;
+  error: never;
+  request: never;
+  pathParams: GetProjectsIdPathParams;
+  queryParams: GetProjectsIdQueryParams;
+  headerParams: never;
+  response: GetProjectsIdQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetProjectsIdClient>[0]>;
+    return: Awaited<ReturnType<GetProjectsIdClient>>;
+  };
+};
 export function getProjectsIdQueryOptions<
-  TData = GetProjectsIdQueryResponse,
-  TError = unknown,
+  TData extends GetProjectsId["response"] = GetProjectsId["response"],
+  TError = GetProjectsId["error"],
 >(
   id: GetProjectsIdPathParams["id"],
-  params?: GetProjectsIdQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetProjectsId["queryParams"],
+  options: GetProjectsId["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/projects/${id}`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Retrieve a carbon project by its project ID
  * @summary Project details
- * @link /projects/:id
- */
-
+ * @link /projects/:id */
 export function useGetProjectsId<
-  TData = GetProjectsIdQueryResponse,
-  TError = unknown,
+  TData extends GetProjectsId["response"] = GetProjectsId["response"],
+  TError = GetProjectsId["error"],
 >(
   id: GetProjectsIdPathParams["id"],
-  params?: GetProjectsIdQueryParams,
+  params?: GetProjectsId["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetProjectsId["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -52,12 +66,13 @@ export function useGetProjectsId<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/projects/${id}` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getProjectsIdQueryOptions<TData, TError>(id, params, clientOptions),
-    ...queryOptions,
-  });
-
+  const url = `/projects/${id}` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getProjectsIdQueryOptions<TData, TError>(id, params, clientOptions),
+      ...queryOptions,
+    }
+  );
   return query;
 }

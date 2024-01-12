@@ -19,30 +19,20 @@ export const loginButton = css`
   }
 `;
 
-export const backToProjectButton = css`
-  align-items: center;
-  margin-top: 0rem;
+export const backToProject = css`
+  white-space: nowrap;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
   align-items: center;
   height: min-content;
   width: min-content;
-  a {
-    white-space: nowrap;
-  }
+  color: var(--font-01) !important;
   ${breakpoints.desktop} {
     justify-content: center;
     height: 4.8rem;
     width: 21rem;
     border: 1px solid var(--font-01);
     border-radius: 0.4rem;
-  }
-`;
-
-export const backToResults = css`
-  color: var(--font-01) !important;
-
-  svg {
-    margin-right: 0.8rem;
   }
 `;

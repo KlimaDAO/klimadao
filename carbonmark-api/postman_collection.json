@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "bf0cfc91-c6ef-4698-8966-8e8926382393",
+    "_postman_id": "19462f4c-04ed-4df3-8fef-40d7fa7fbe6f",
     "name": "carbonmark-api",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "275500"
@@ -103,19 +103,53 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/purchases/:purchaseId?network=mumbai",
+          "raw": "{{url}}/purchases",
           "host": ["{{url}}"],
-          "path": ["purchases", ":purchaseId"],
+          "path": ["purchases"],
           "query": [
             {
               "key": "network",
-              "value": "mumbai"
+              "value": "mumbai",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getPurchaseById",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/purchases/:id",
+          "host": ["{{url}}"],
+          "path": ["purchases", ":id"],
+          "query": [
+            {
+              "key": "network",
+              "value": "mumbai",
+              "disabled": true
             }
           ],
           "variable": [
             {
-              "key": "purchaseId",
-              "value": "0x03bac372ddee7c014b6c610d1ead2d20d8b01b5e2714436a3b346c488ed26885"
+              "key": "id",
+              "value": "0xcb03b785a6ee4b2614f95dd817d1ff0e00ff17da89cfbb984ec49f754edaa53a"
             }
           ]
         }
@@ -335,19 +369,19 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/project/:id/activities?activityType=Sold",
+          "raw": "{{url}}/projects/:id/activity?activityType=Sold",
           "host": ["{{url}}"],
           "path": ["projects", ":id", "activity"],
-          "variable": [
-            {
-              "key": "id",
-              "value": "VCS-191-2008"
-            }
-          ],
           "query": [
             {
               "key": "activityType",
               "value": "Sold"
+            }
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "VCS-191-2008"
             }
           ]
         }
@@ -584,6 +618,22 @@
           "raw": "{{url}}/users/login",
           "host": ["{{url}}"],
           "path": ["users", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getListingById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/listings/0xde5c717958a9a80f2dee8ebcc6f411a8d860ac7b0042e45487f4ad2afaf46d5a",
+          "host": ["{{url}}"],
+          "path": [
+            "listings",
+            "0xde5c717958a9a80f2dee8ebcc6f411a8d860ac7b0042e45487f4ad2afaf46d5a"
+          ]
         }
       },
       "response": []

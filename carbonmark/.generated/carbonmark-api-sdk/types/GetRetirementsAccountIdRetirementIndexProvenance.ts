@@ -62,3 +62,11 @@ export type GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse = {
 export type GetRetirementsAccountIdRetirementIndexProvenanceQueryParams = {
   network?: Def1;
 };
+export namespace GetRetirementsAccountIdRetirementIndexProvenanceQuery {
+  export type Response =
+    GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse;
+  export type PathParams =
+    GetRetirementsAccountIdRetirementIndexProvenancePathParams;
+  export type QueryParams =
+    GetRetirementsAccountIdRetirementIndexProvenanceQueryParams;
+}

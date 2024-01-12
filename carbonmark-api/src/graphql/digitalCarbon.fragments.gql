@@ -14,6 +14,7 @@ fragment ProvenanceRecordFragment on ProvenanceRecord {
 fragment RetireFragment on Retire {
   id
   bridgeID
+  hash
   amount
   beneficiaryAddress {
     id

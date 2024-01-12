@@ -115,3 +115,8 @@ export type GetRetirementsAccountIdRetirementIndexQueryResponse = {
 export type GetRetirementsAccountIdRetirementIndexQueryParams = {
   network?: Def1;
 };
+export namespace GetRetirementsAccountIdRetirementIndexQuery {
+  export type Response = GetRetirementsAccountIdRetirementIndexQueryResponse;
+  export type PathParams = GetRetirementsAccountIdRetirementIndexPathParams;
+  export type QueryParams = GetRetirementsAccountIdRetirementIndexQueryParams;
+}

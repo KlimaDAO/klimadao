@@ -1,46 +1,56 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetProjectsQueryParams,
   GetProjectsQueryResponse,
 } from "../types/GetProjects";
 
+type GetProjectsClient = typeof client<GetProjectsQueryResponse, never, never>;
+type GetProjects = {
+  data: GetProjectsQueryResponse;
+  error: never;
+  request: never;
+  pathParams: never;
+  queryParams: GetProjectsQueryParams;
+  headerParams: never;
+  response: GetProjectsQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetProjectsClient>[0]>;
+    return: Awaited<ReturnType<GetProjectsClient>>;
+  };
+};
 export function getProjectsQueryOptions<
-  TData = GetProjectsQueryResponse,
-  TError = unknown,
+  TData extends GetProjects["response"] = GetProjects["response"],
+  TError = GetProjects["error"],
 >(
-  params?: GetProjectsQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetProjects["queryParams"],
+  options: GetProjects["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/projects`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Retrieve an array of carbon projects filtered by desired query parameters
  * @summary List projects
- * @link /projects
- */
-
+ * @link /projects */
 export function useGetProjects<
-  TData = GetProjectsQueryResponse,
-  TError = unknown,
+  TData extends GetProjects["response"] = GetProjects["response"],
+  TError = GetProjects["error"],
 >(
-  params?: GetProjectsQueryParams,
+  params?: GetProjects["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetProjects["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -49,12 +59,13 @@ export function useGetProjects<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/projects` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getProjectsQueryOptions<TData, TError>(params, clientOptions),
-    ...queryOptions,
-  });
-
+  const url = `/projects` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getProjectsQueryOptions<TData, TError>(params, clientOptions),
+      ...queryOptions,
+    }
+  );
   return query;
 }

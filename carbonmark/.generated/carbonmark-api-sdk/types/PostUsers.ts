@@ -44,3 +44,8 @@ export type PostUsersMutationResponse = {
   description?: string | null;
   profileImgUrl?: string | null;
 };
+export namespace PostUsersMutation {
+  export type Response = PostUsersMutationResponse;
+  export type Request = PostUsersMutationRequest;
+  export type Errors = PostUsers403;
+}

@@ -1,51 +1,71 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetRetirementsAccountIdRetirementIndexProvenancePathParams,
   GetRetirementsAccountIdRetirementIndexProvenanceQueryParams,
   GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse,
 } from "../types/GetRetirementsAccountIdRetirementIndexProvenance";
 
+type GetRetirementsAccountIdRetirementIndexProvenanceClient = typeof client<
+  GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse,
+  never,
+  never
+>;
+type GetRetirementsAccountIdRetirementIndexProvenance = {
+  data: GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse;
+  error: never;
+  request: never;
+  pathParams: GetRetirementsAccountIdRetirementIndexProvenancePathParams;
+  queryParams: GetRetirementsAccountIdRetirementIndexProvenanceQueryParams;
+  headerParams: never;
+  response: GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse;
+  client: {
+    parameters: Partial<
+      Parameters<GetRetirementsAccountIdRetirementIndexProvenanceClient>[0]
+    >;
+    return: Awaited<
+      ReturnType<GetRetirementsAccountIdRetirementIndexProvenanceClient>
+    >;
+  };
+};
 export function getRetirementsAccountIdRetirementIndexProvenanceQueryOptions<
-  TData = GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse,
-  TError = unknown,
+  TData extends
+    GetRetirementsAccountIdRetirementIndexProvenance["response"] = GetRetirementsAccountIdRetirementIndexProvenance["response"],
+  TError = GetRetirementsAccountIdRetirementIndexProvenance["error"],
 >(
   accountId: GetRetirementsAccountIdRetirementIndexProvenancePathParams["account_id"],
   retirementIndex: GetRetirementsAccountIdRetirementIndexProvenancePathParams["retirement_index"],
-  params?: GetRetirementsAccountIdRetirementIndexProvenanceQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetRetirementsAccountIdRetirementIndexProvenance["queryParams"],
+  options: GetRetirementsAccountIdRetirementIndexProvenance["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/retirements/${accountId}/${retirementIndex}/provenance`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Retrieve a retirement provenance records
  * @summary Retirement provenance records
- * @link /retirements/:account_id/:retirement_index/provenance
- */
-
+ * @link /retirements/:account_id/:retirement_index/provenance */
 export function useGetRetirementsAccountIdRetirementIndexProvenance<
-  TData = GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse,
-  TError = unknown,
+  TData extends
+    GetRetirementsAccountIdRetirementIndexProvenance["response"] = GetRetirementsAccountIdRetirementIndexProvenance["response"],
+  TError = GetRetirementsAccountIdRetirementIndexProvenance["error"],
 >(
   accountId: GetRetirementsAccountIdRetirementIndexProvenancePathParams["account_id"],
   retirementIndex: GetRetirementsAccountIdRetirementIndexProvenancePathParams["retirement_index"],
-  params?: GetRetirementsAccountIdRetirementIndexProvenanceQueryParams,
+  params?: GetRetirementsAccountIdRetirementIndexProvenance["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetRetirementsAccountIdRetirementIndexProvenance["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -54,17 +74,17 @@ export function useGetRetirementsAccountIdRetirementIndexProvenance<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch
-    ? `/retirements/${accountId}/${retirementIndex}/provenance`
-    : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getRetirementsAccountIdRetirementIndexProvenanceQueryOptions<
-      TData,
-      TError
-    >(accountId, retirementIndex, params, clientOptions),
-    ...queryOptions,
-  });
-
+  const url =
+    `/retirements/${accountId}/${retirementIndex}/provenance` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getRetirementsAccountIdRetirementIndexProvenanceQueryOptions<
+        TData,
+        TError
+      >(accountId, retirementIndex, params, clientOptions),
+      ...queryOptions,
+    }
+  );
   return query;
 }

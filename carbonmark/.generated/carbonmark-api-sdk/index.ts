@@ -1,4 +1,3 @@
-export * from "./client";
-export * from "./clients";
-export * from "./hooks";
-export * from "./types";
+export * from "./clients/index";
+export * from "./hooks/index";
+export * from "./types/index";

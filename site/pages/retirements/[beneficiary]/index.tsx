@@ -2,7 +2,6 @@ import { urls } from "@klimadao/lib/constants";
 import {
   getTotalCarbonRetired,
   getTotalRetirements,
-  queryKlimaRetiresByAddress,
 } from "@klimadao/lib/utils";
 import { Props, RetirementPage } from "components/pages/Retirements";
 import { isAddress } from "ethers-v6";
@@ -11,7 +10,7 @@ import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
 import { INFURA_ID } from "lib/secrets";
 import { GetStaticProps } from "next";
-
+import { queryKlimaRetiresByAddress } from "../../../../carbonmark/lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 type Params = {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   beneficiary: string;

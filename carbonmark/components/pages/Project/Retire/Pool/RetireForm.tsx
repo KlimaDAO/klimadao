@@ -1,6 +1,7 @@
 import { PoolToken } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { AssetDetails } from "components/AssetDetails";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
@@ -10,17 +11,21 @@ import {
   getRetirementAllowance,
   retireCarbonTransaction,
 } from "lib/actions.retire";
-import { MINIMUM_TONNE_QUANTITY, urls } from "lib/constants";
+import {
+  MINIMUM_TONNE_QUANTITY,
+  MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+  urls,
+} from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
+import { Project, TokenPrice } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
-import { AssetDetails } from "./AssetDetails";
+import { BankTransferModal } from "./BankTransferModal";
 import { CreditCardModal } from "./CreditCardModal";
 import { Price } from "./Price";
 import { RetireInputs } from "./RetireInputs";
@@ -32,12 +37,12 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 export interface Props {
-  project: DetailedProject;
+  project: Project;
   price: TokenPrice;
 }
 
 export const RetireForm: FC<Props> = (props) => {
-  const { asPath } = useRouter();
+  const router = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -57,6 +62,7 @@ export const RetireForm: FC<Props> = (props) => {
   const [fiatAmountError, setFiatAmountError] = useState<boolean>(false);
 
   const [showCreditCardModal, setShowCreditCardModal] = useState(false);
+  const [showBankTransferModal, setShowBankTransferModal] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
   const [checkoutError, setCheckoutError] = useState<null | string>(null);
   const [costs, setCosts] = useState("");
@@ -75,8 +81,6 @@ export const RetireForm: FC<Props> = (props) => {
     name: "paymentMethod",
     control: methods.control,
   });
-
-  const router = useRouter();
 
   useEffect(() => {
     // for the usdc icons to be visible for the required transition
@@ -126,11 +130,15 @@ export const RetireForm: FC<Props> = (props) => {
     isProcessing;
 
   const showTransactionView = !!inputValues && !!allowanceValue;
+
+  const isQuantityValid = !quantity || Number(quantity) <= 0;
+
   const disableSubmit =
-    !quantity ||
-    Number(quantity) <= 0 ||
+    isQuantityValid ||
     (paymentMethod === "fiat"
       ? Number(costs) < Number(fiatMinimum)
+      : paymentMethod === "bank-transfer"
+      ? Number(quantity) < Number(MINIMUM_TONNE_QUANTITY_BANK_TRANSFER)
       : Number(quantity) < Number(MINIMUM_TONNE_QUANTITY));
 
   const resetStateAndCancel = () => {
@@ -165,7 +173,7 @@ export const RetireForm: FC<Props> = (props) => {
     try {
       setIsRedirecting(true);
       await redirectFiatCheckout({
-        cancelUrl: `${urls.baseUrl}${asPath}`,
+        cancelUrl: `${urls.baseUrl}${router.asPath}`,
         referrer: "carbonmark",
         retirement: reqParams,
       });
@@ -190,7 +198,26 @@ export const RetireForm: FC<Props> = (props) => {
     setShowCreditCardModal(true);
   };
 
+  const handleBankTransfer = async () => {
+    const values = methods.getValues();
+    router.push({
+      pathname: "/retire/pay-with-bank",
+      query: {
+        quantity,
+        project_name: `${props?.project.name} (${props.project.registry}-${props.project.projectID}-${props.project.vintage})`,
+        beneficiary_address: values.beneficiaryAddress || address || "",
+        beneficiary_name: values.beneficiaryName || "",
+        retirement_message: values.retirementMessage || "",
+      },
+    });
+  };
+
   const onContinue = async (values: FormValues) => {
+    if (values.paymentMethod === "bank-transfer") {
+      setShowBankTransferModal(true);
+      return;
+    }
+
     if (values.paymentMethod === "fiat") {
       continueWithFiat(values);
       setFiatAmountError(false);
@@ -234,7 +261,7 @@ export const RetireForm: FC<Props> = (props) => {
   const handleApproval = async () => {
     if (!provider || !inputValues) return;
     try {
-      inputValues.paymentMethod !== "fiat" &&
+      inputValues.paymentMethod === "usdc" &&
         (await approveTokenSpend({
           tokenName: inputValues.paymentMethod,
           spender: "retirementAggregatorV2",
@@ -329,7 +356,13 @@ export const RetireForm: FC<Props> = (props) => {
         <Col>
           <div className={styles.stickyContentWrapper}>
             <Card>
-              <AssetDetails price={props.price} project={props.project} />
+              <AssetDetails
+                price={props.price}
+                project={props.project}
+                actionLabel={t`Retiring Token`}
+                availableLabel={t`Available to retire`}
+                polyscanUrl={`https://polygonscan.com/address/${props.price.projectTokenAddress}`}
+              />
             </Card>
             <div className={styles.reverseOrder}>
               <Card>
@@ -391,6 +424,11 @@ export const RetireForm: FC<Props> = (props) => {
         onCancel={() => setShowCreditCardModal(false)}
         onSubmit={handleFiat}
         checkoutError={checkoutError}
+      />
+      <BankTransferModal
+        showModal={showBankTransferModal}
+        onSubmit={handleBankTransfer}
+        onCancel={() => setShowBankTransferModal(false)}
       />
     </FormProvider>
   );

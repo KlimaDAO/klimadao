@@ -7,6 +7,7 @@ import {
   Project,
   VISIBLE_ACTIVITIES,
 } from "components/pages/Project";
+import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -26,7 +27,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
   try {
     const [project, activities] = await Promise.all([
-      getProjectsId(params.project_id),
+      getProjectsId(params.project_id, {
+        minSupply: DEFAULT_MIN_LISTING_QUANTITY,
+      }),
       getProjectsIdActivity(params.project_id, {
         activityType: VISIBLE_ACTIVITIES,
       }),

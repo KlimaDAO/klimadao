@@ -12,6 +12,10 @@ export const inputLabel = css`
   gap: 0.4rem;
 `;
 
+export const required = css`
+  color: var(--warning-red);
+`;
+
 export const visuallyHidden = css`
   position: absolute !important;
   height: 1px;

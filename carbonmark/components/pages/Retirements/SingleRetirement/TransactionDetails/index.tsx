@@ -4,7 +4,7 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t, Trans } from "@lingui/macro";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
-import { getOffsetCategories } from "lib/offsetGetter";
+import { getOffsetMainCategory } from "lib/offsetGetter";
 import { StaticImageData } from "next/image";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -37,7 +37,7 @@ export const TransactionDetails: FC<Props> = (props) => (
           </Trans>
         </Text>
         <Text>
-          {props.retirement.beneficiaryAddress ||
+          {props.retirement.retire.beneficiaryAddress.id ||
             t({
               id: "retirement.single.beneficiary.address.placeholder",
               message: "No beneficiary address available",
@@ -51,7 +51,7 @@ export const TransactionDetails: FC<Props> = (props) => (
           </Trans>
         </Text>
         <Text>
-          {props.retirement.transaction?.id ||
+          {props.retirement.retire?.hash ||
             t({
               id: "retirement.single.transaction_id.placeholder",
               message: "No transaction id available",
@@ -60,35 +60,37 @@ export const TransactionDetails: FC<Props> = (props) => (
       </div>
       <div className={styles.gridLayout}>
         <Col className="column">
-          {props.retirement?.offset?.projectID && (
+          {props.retirement?.retire.credit?.project?.projectID && (
             <div className={cx(styles.textGroup, "row")}>
               <Text t="button" color="lightest" uppercase>
                 <Trans id="retirement.single.project.title">Project:</Trans>
               </Text>
-              <Text>{props.retirement.offset.projectID}</Text>
+              <Text>{props.retirement.retire.credit.project.projectID}</Text>
             </div>
           )}
-          {props.retirement?.offset?.methodologyCategory && (
+          {props.retirement?.retire?.credit?.project && (
             <div className={cx(styles.textGroup, "row")}>
               <Text t="button" color="lightest" uppercase>
                 <Trans id="retirement.single.type.title">Type:</Trans>
               </Text>
-              <Text>{getOffsetCategories(props.retirement.offset)}</Text>
+              <Text>{getOffsetMainCategory(props.retirement.retire)}</Text>
             </div>
           )}
-          {props.retirement?.offset?.methodology && (
+          {props.retirement?.retire.credit?.project?.methodologies && (
             <div className={cx(styles.textGroup, "row")}>
               <Text t="button" color="lightest" uppercase>
                 <Trans id="retirement.single.methodology.title">
                   Methodology:
                 </Trans>
               </Text>
-              <Text>{props.retirement.offset.methodology}</Text>
+              <Text>
+                {props.retirement?.retire.credit?.project?.methodologies}
+              </Text>
             </div>
           )}
           {/* prettier-ignore */}
-          {props.retirement?.offset?.region &&
-            props.retirement?.offset?.country && (
+          {props.retirement.retire.credit.project.country &&
+            props.retirement.retire.credit.project.region && (
               <div className={cx(styles.textGroup, "row")}>
                 <Text t="button" color="lightest" uppercase>
                   <Trans id="retirement.single.country_region.title">
@@ -96,17 +98,17 @@ export const TransactionDetails: FC<Props> = (props) => (
                   </Trans>
                 </Text>
                 <Text>
-                  {props.retirement.offset.country ||
-                    props.retirement.offset.region}
+                  {props.retirement.retire.credit.project.country ||
+                    props.retirement.retire.credit.project.region}
                 </Text>
               </div>
             )}
-          {props.retirement?.offset?.vintageYear && (
+          {props.retirement.retire.credit.vintage && (
             <div className={cx(styles.textGroup, "row")}>
               <Text t="button" color="lightest" uppercase>
                 <Trans id="retirement.single.vintage.title">Vintage:</Trans>
               </Text>
-              <Text>{props.retirement.offset.vintageYear}</Text>
+              <Text>{props.retirement.retire.credit.vintage}</Text>
             </div>
           )}
         </Col>

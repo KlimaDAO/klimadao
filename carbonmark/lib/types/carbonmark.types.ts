@@ -8,7 +8,6 @@ import type {
   Asset as SDKAsset,
   Category as SDKCategory,
   Country as SDKCountry,
-  DetailedProject as SDKDetailedProject,
   Listing as SDKListing,
   Project as SDKProject,
   TokenPrice as SDKTokenPrice,
@@ -23,46 +22,22 @@ export type User = SDKUser;
 export type Category = SDKCategory;
 export type Country = SDKCountry;
 export type Asset = SDKAsset;
-export type DetailedProject = SDKDetailedProject;
 export type CarouselImage = Image;
 export type CategoryName = keyof typeof CATEGORY_INFO;
 
-export interface PcbProject {
+export interface DigitalCarbonCredit {
   id: string;
-  projectID: string;
-  name: string;
-  methodology: string;
-  vintage: string;
-  tokenAddress: string;
-  registry: string;
-  country: string;
-  location?: {
-    type: "Feature";
-    geometry: {
-      type: "Point";
-      coordinates: [number, number];
-    };
+  vintage: number;
+  project: {
+    registry: string;
+    region: string;
+    name: string;
+    id: string;
+    country: string;
+    category: string;
+    methodologies: string;
+    projectID: string;
   };
-  description?: string;
-  isPoolProject?: boolean;
-  totalBridged: string | null;
-  totalRetired: string | null;
-  currentSupply: string | null;
-  prices?: TokenPrice[];
-  url?: string;
-  methodologyCategory: CategoryName;
-  category: string;
-  coBenefits: string;
-  correspAdjustment: string;
-  emissionType: string;
-  isCorsiaCompliant: boolean;
-  klimaRanking: string;
-  lastUpdate: string;
-  method: string;
-  region: string;
-  standard: string;
-  storageMethod: string;
-  vintageYear: string;
 }
 
 export type ActivityActionT =
@@ -168,7 +143,7 @@ export type AssetForRetirement = {
   tokenName: string;
   balance: string;
   tokenSymbol: string; // 1: C3T, 2: TCO2
-  project: PcbProject;
+  credit: DigitalCarbonCredit;
   token: Asset["token"];
 };
 
@@ -196,7 +171,7 @@ export type Purchase = {
   price: string;
 };
 
-export type CarbonmarkToken = "usdc" | "c3" | "tco2";
+export type CarbonmarkToken = "usdc" | "c3" | "tco2" | "icr";
 
 export type Balance = {
   tokenName: CarbonmarkToken;
@@ -204,4 +179,4 @@ export type Balance = {
 };
 
 // add more methods here later
-export type CarbonmarkPaymentMethod = "usdc" | "fiat";
+export type CarbonmarkPaymentMethod = "usdc" | "fiat" | "bank-transfer";

@@ -47,11 +47,3 @@ query findCarbonOffsets(
     ...CarbonOffsetFragment
   }
 }
-
-query getKlimaRetirementTransactionId($address: String, $index: BigInt) {
-  klimaRetires(where: { beneficiaryAddress: $address, index: $index }) {
-    transaction {
-      id
-    }
-  }
-}

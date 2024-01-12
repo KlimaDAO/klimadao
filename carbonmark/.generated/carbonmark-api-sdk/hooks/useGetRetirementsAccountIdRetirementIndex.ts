@@ -1,51 +1,69 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetRetirementsAccountIdRetirementIndexPathParams,
   GetRetirementsAccountIdRetirementIndexQueryParams,
   GetRetirementsAccountIdRetirementIndexQueryResponse,
 } from "../types/GetRetirementsAccountIdRetirementIndex";
 
+type GetRetirementsAccountIdRetirementIndexClient = typeof client<
+  GetRetirementsAccountIdRetirementIndexQueryResponse,
+  never,
+  never
+>;
+type GetRetirementsAccountIdRetirementIndex = {
+  data: GetRetirementsAccountIdRetirementIndexQueryResponse;
+  error: never;
+  request: never;
+  pathParams: GetRetirementsAccountIdRetirementIndexPathParams;
+  queryParams: GetRetirementsAccountIdRetirementIndexQueryParams;
+  headerParams: never;
+  response: GetRetirementsAccountIdRetirementIndexQueryResponse;
+  client: {
+    parameters: Partial<
+      Parameters<GetRetirementsAccountIdRetirementIndexClient>[0]
+    >;
+    return: Awaited<ReturnType<GetRetirementsAccountIdRetirementIndexClient>>;
+  };
+};
 export function getRetirementsAccountIdRetirementIndexQueryOptions<
-  TData = GetRetirementsAccountIdRetirementIndexQueryResponse,
-  TError = unknown,
+  TData extends
+    GetRetirementsAccountIdRetirementIndex["response"] = GetRetirementsAccountIdRetirementIndex["response"],
+  TError = GetRetirementsAccountIdRetirementIndex["error"],
 >(
   accountId: GetRetirementsAccountIdRetirementIndexPathParams["account_id"],
   retirementIndex: GetRetirementsAccountIdRetirementIndexPathParams["retirement_index"],
-  params?: GetRetirementsAccountIdRetirementIndexQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetRetirementsAccountIdRetirementIndex["queryParams"],
+  options: GetRetirementsAccountIdRetirementIndex["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/retirements/${accountId}/${retirementIndex}`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Retrieve a klima retirement by account and retirement index
  * @summary Retirement
- * @link /retirements/:account_id/:retirement_index
- */
-
+ * @link /retirements/:account_id/:retirement_index */
 export function useGetRetirementsAccountIdRetirementIndex<
-  TData = GetRetirementsAccountIdRetirementIndexQueryResponse,
-  TError = unknown,
+  TData extends
+    GetRetirementsAccountIdRetirementIndex["response"] = GetRetirementsAccountIdRetirementIndex["response"],
+  TError = GetRetirementsAccountIdRetirementIndex["error"],
 >(
   accountId: GetRetirementsAccountIdRetirementIndexPathParams["account_id"],
   retirementIndex: GetRetirementsAccountIdRetirementIndexPathParams["retirement_index"],
-  params?: GetRetirementsAccountIdRetirementIndexQueryParams,
+  params?: GetRetirementsAccountIdRetirementIndex["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetRetirementsAccountIdRetirementIndex["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -54,19 +72,18 @@ export function useGetRetirementsAccountIdRetirementIndex<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch
-    ? `/retirements/${accountId}/${retirementIndex}`
-    : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getRetirementsAccountIdRetirementIndexQueryOptions<TData, TError>(
-      accountId,
-      retirementIndex,
-      params,
-      clientOptions
-    ),
-    ...queryOptions,
-  });
-
+  const url = `/retirements/${accountId}/${retirementIndex}` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getRetirementsAccountIdRetirementIndexQueryOptions<TData, TError>(
+        accountId,
+        retirementIndex,
+        params,
+        clientOptions
+      ),
+      ...queryOptions,
+    }
+  );
   return query;
 }

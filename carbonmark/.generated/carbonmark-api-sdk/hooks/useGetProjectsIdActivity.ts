@@ -1,49 +1,65 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetProjectsIdActivityPathParams,
   GetProjectsIdActivityQueryParams,
   GetProjectsIdActivityQueryResponse,
 } from "../types/GetProjectsIdActivity";
 
+type GetProjectsIdActivityClient = typeof client<
+  GetProjectsIdActivityQueryResponse,
+  never,
+  never
+>;
+type GetProjectsIdActivity = {
+  data: GetProjectsIdActivityQueryResponse;
+  error: never;
+  request: never;
+  pathParams: GetProjectsIdActivityPathParams;
+  queryParams: GetProjectsIdActivityQueryParams;
+  headerParams: never;
+  response: GetProjectsIdActivityQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetProjectsIdActivityClient>[0]>;
+    return: Awaited<ReturnType<GetProjectsIdActivityClient>>;
+  };
+};
 export function getProjectsIdActivityQueryOptions<
-  TData = GetProjectsIdActivityQueryResponse,
-  TError = unknown,
+  TData extends
+    GetProjectsIdActivity["response"] = GetProjectsIdActivity["response"],
+  TError = GetProjectsIdActivity["error"],
 >(
   id: GetProjectsIdActivityPathParams["id"],
-  params?: GetProjectsIdActivityQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetProjectsIdActivity["queryParams"],
+  options: GetProjectsIdActivity["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/projects/${id}/activity`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Retrieve an array of activities related to a carbon project
  * @summary List project activities
- * @link /projects/:id/activity
- */
-
+ * @link /projects/:id/activity */
 export function useGetProjectsIdActivity<
-  TData = GetProjectsIdActivityQueryResponse,
-  TError = unknown,
+  TData extends
+    GetProjectsIdActivity["response"] = GetProjectsIdActivity["response"],
+  TError = GetProjectsIdActivity["error"],
 >(
   id: GetProjectsIdActivityPathParams["id"],
-  params?: GetProjectsIdActivityQueryParams,
+  params?: GetProjectsIdActivity["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetProjectsIdActivity["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -52,16 +68,17 @@ export function useGetProjectsIdActivity<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/projects/${id}/activity` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getProjectsIdActivityQueryOptions<TData, TError>(
-      id,
-      params,
-      clientOptions
-    ),
-    ...queryOptions,
-  });
-
+  const url = `/projects/${id}/activity` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getProjectsIdActivityQueryOptions<TData, TError>(
+        id,
+        params,
+        clientOptions
+      ),
+      ...queryOptions,
+    }
+  );
   return query;
 }

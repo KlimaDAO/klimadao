@@ -1,31 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const accordion = css`
-  border: none;
-
-  button {
-    padding: 0;
-
-    > p {
-      font-size: 2rem !important;
-      font-weight: 700;
-      line-height: 2.8rem;
-      color: var(--font-02);
-    }
-  }
-
-  &[data-open="true"] {
-    .content {
-      padding: 0;
-
-      > div {
-        margin-top: 1.6rem;
-      }
-    }
-  }
-`;
-
 export const container = css`
   grid-column: full;
   display: grid;
@@ -44,17 +19,15 @@ export const loginButton = css`
   }
 `;
 
-export const backToProjectButton = css`
-  align-items: center;
-  margin-top: 0rem;
+export const backToProject = css`
+  white-space: nowrap;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
   align-items: center;
   height: min-content;
   width: min-content;
-  a {
-    white-space: nowrap;
-  }
+  color: var(--font-01) !important;
   ${breakpoints.desktop} {
     justify-content: center;
     height: 4.8rem;
@@ -67,14 +40,6 @@ export const backToProjectButton = css`
 export const projectLink = css`
   display: inline-flex;
   margin: 1rem 0;
-`;
-
-export const backToResults = css`
-  color: var(--font-01) !important;
-
-  svg {
-    margin-right: 0.8rem;
-  }
 `;
 
 export const price = css`
@@ -280,20 +245,6 @@ export const successScreen = css`
   .summary {
     display: grid;
     gap: 1.2rem;
-  }
-`;
-
-export const externalLink = css`
-  color: var(--font-01);
-  text-decoration: underline;
-  display: flex;
-  gap: 0.4rem;
-  align-items: center;
-
-  &:hover,
-  &:visited {
-    color: var(--font-02);
-    text-decoration: none;
   }
 `;
 

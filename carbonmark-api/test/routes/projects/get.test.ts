@@ -1,129 +1,106 @@
 import { FastifyInstance } from "fastify";
-import { pick, set } from "lodash";
+import { cloneDeep, pick, set } from "lodash";
 import nock from "nock";
-import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
+import {
+  Project as CmsProject,
+  Maybe,
+  ProjectContent,
+  Slug,
+} from "../../../src/.generated/types/cms.types";
+import {
+  CarbonProject,
+  Registry,
+} from "../../../src/.generated/types/digitalCarbon.types";
+import { Project as MarketplaceProject } from "../../../src/.generated/types/marketplace.types";
+import { GRAPH_URLS } from "../../../src/app.constants";
+import { Project } from "../../../src/models/Project.model";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
 import { fixtures } from "../../fixtures";
-import digitalCarbon from "../../fixtures/digitalCarbon";
 import marketplace from "../../fixtures/marketplace";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
+import { mock_fetch } from "../../test.utils";
+import {
+  mockCms,
+  mockDigitalCarbonArgs,
+  mockDigitalCarbonProjects,
+  mockMarketplaceArgs,
+  mockMarketplaceProjects,
+  mockTokens,
+} from "./get.test.mocks";
 
-const mockCmsProject = fixtures.cms.carbonProject;
+const mockCmsProject = fixtures.cms.cmsProject;
 const mockCmsProjectContent = fixtures.cms.cmsProjectContent;
+const mockMarketplaceProject = fixtures.marketplace.projectWithListing;
+const mockDigitalCarbonProject = fixtures.digitalCarbon.digitalCarbonProject;
 
-jest.mock("../../../src/utils/helpers/cms.utils", () => {
-  const carbonProjectsUtils = jest.requireActual(
-    "../../../src/utils/helpers/cms.utils"
-  );
-  return {
-    ...carbonProjectsUtils,
-    fetchAllCarbonProjects: jest.fn(() => {
-      return [mockCmsProject];
-    }),
-  };
-});
-
-const poolPrices = {
-  bct: {
-    poolName: "bct",
-    defaultPrice: "1.23456",
-    selectiveRedeemPrice: "2.23456",
-  },
-  nct: {
-    poolName: "nct",
-    defaultPrice: "2.23456",
-    selectiveRedeemPrice: "3.23456",
-  },
-  ubo: {
-    poolName: "ubo",
-    defaultPrice: "3.23456",
-    selectiveRedeemPrice: "4.23456",
-  },
-  nbo: {
-    poolName: "nbo",
-    defaultPrice: "4.23456",
-    selectiveRedeemPrice: "5.23456",
-  },
+const anotherCarbonProject: CarbonProject = {
+  ...cloneDeep(mockDigitalCarbonProject),
+  id: "VCS-111",
+  projectID: "VCS-111",
+  registry: Registry.Verra,
+};
+const anotherMarketplaceProject: MarketplaceProject = {
+  ...cloneDeep(mockMarketplaceProject),
+  id: "VCS-111-2000",
+  key: "VCS-111",
+  registry: "VCS",
+  vintage: "2000",
+};
+const anotherCmsProject: CmsProject = {
+  ...cloneDeep(mockCmsProject),
+  registryProjectId: "111",
+  id: "VCS-111" as unknown as Maybe<Slug>,
 };
 
-//@todo this is super fragile, need to refactor or use nock
-jest.mock("../../../src/utils/helpers/fetchAllPoolPrices", () => ({
-  fetchAllPoolPrices: jest.fn(() => poolPrices),
-}));
+const anotherCmsProjectContent: ProjectContent = cloneDeep(
+  mockCmsProjectContent
+);
+(anotherCmsProjectContent.project as any).registryProjectId = "111";
 
-/** We want to mock network requests without breaking other utils */
-jest.mock("../../../src/routes/projects/get.utils", () => {
-  const projectUtils = jest.requireActual(
-    "../../../src/routes/projects/get.utils"
-  );
-  return {
-    ...projectUtils,
-    getDefaultQueryArgs: jest.fn(() => {
-      return {
-        category: [],
-        country: [],
-        vintage: [
-          "2003",
-          "2006",
-          "2007",
-          "2008",
-          "2009",
-          "2010",
-          "2011",
-          "2012",
-          "2013",
-          "2014",
-          "2015",
-          "2016",
-          "2017",
-          "2018",
-          "2019",
-          "2020",
-          "2021",
-        ],
-        activityType: [],
-        expiresAfter: "0",
-        search: "",
-      };
-    }),
-  };
-});
+const credit = fixtures.digitalCarbon.digitalCarbonProject.carbonCredits[0];
+const expectedPrices = [
+  {
+    isPoolDefault: true,
+    poolAddress: credit?.poolBalances[0].pool.id,
+    poolName: "bct",
+    projectTokenAddress:
+      fixtures.digitalCarbon.digitalCarbonProject.carbonCredits[0].id,
+    singleUnitPrice: "0.267999",
+    supply: "320307.9104911482",
+  },
+];
+const expectedImages = mockCmsProjectContent.images?.map((img) => ({
+  url: img?.asset?.url,
+  caption: img?.asset?.altText,
+}));
 
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
 
+  afterEach(async () => await fastify.close());
+
   // Setup the server
   beforeEach(async () => {
-    try {
-      fastify = await build();
-    } catch (e) {
-      console.error("get.test.ts setup failed", e);
-    }
-    nock(SANITY_URLS.cms)
-      .post("")
-      .reply(200, {
-        data: {
-          allProject: [fixtures.cms.cmsProject],
-          allProjectContent: [fixtures.cms.cmsProjectContent],
-        },
-      })
-      .persist();
+    fastify = await build();
   });
-  afterEach(async () => await fastify.close());
+
+  // Setup default mocks
+  beforeEach(async () => {
+    mockMarketplaceArgs();
+    mockDigitalCarbonArgs();
+    mockTokens();
+    mockCms({
+      projects: [mockCmsProject, anotherCmsProject],
+      content: [mockCmsProjectContent, anotherCmsProjectContent],
+    });
+  });
 
   // /** The happy path */
   test("Returns 200", async () => {
-    nock(GRAPH_URLS["polygon"].digitalCarbon)
-      .post("")
-      .reply(200, {
-        data: { carbonProjects: [digitalCarbon.digitalCarbonProject] },
-      });
-    nock(GRAPH_URLS["polygon"].marketplace)
-      .post("")
-      .reply(200, {
-        data: { projects: [marketplace.projectWithListing] },
-      });
+    mockMarketplaceProjects();
+    mockDigitalCarbonProjects();
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects`,
@@ -131,15 +108,12 @@ describe("GET /projects", () => {
     expect(response.statusCode).toEqual(200);
   });
 
-  test("Composes a pool project with cms data", async () => {
-    nock(GRAPH_URLS["polygon"].digitalCarbon)
-      .post("")
-      .reply(200, {
-        data: { carbonProjects: [digitalCarbon.digitalCarbonProject] },
-      });
+  test("Composes a pool project", async () => {
+    mockDigitalCarbonProjects();
+
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { projects: [] } }); // no marketplace projects
+      .reply(200, { data: { projects: [] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -147,10 +121,9 @@ describe("GET /projects", () => {
     });
     const data = response.json();
 
-    //@todo replace with composeEntries function
     const expectedResponse = [
       {
-        region: digitalCarbon.digitalCarbonProject.region,
+        region: mockDigitalCarbonProject.region,
         methodologies: [
           {
             id: mockCmsProject?.methodologies?.[0]?.id,
@@ -162,23 +135,26 @@ describe("GET /projects", () => {
         name: mockCmsProject.name,
         // applies short_description property from cms
         short_description: mockCmsProjectContent?.shortDescription,
+        long_description: mockCmsProjectContent?.longDescription,
         // Takes numeric from full id, "VCS-191" -> "191"
-        projectID: digitalCarbon.digitalCarbonProject.projectID.split("-")[1],
-        vintage:
-          digitalCarbon.digitalCarbonProject.carbonCredits[0].vintage.toString(),
-        creditTokenAddress:
-          digitalCarbon.digitalCarbonProject.carbonCredits[0].id,
+        projectID: mockDigitalCarbonProject.projectID.split("-")[1],
+        vintage: mockDigitalCarbonProject.carbonCredits[0].vintage.toString(),
+        creditTokenAddress: mockDigitalCarbonProject.carbonCredits[0].id,
         // Takes registry tag
-        registry: digitalCarbon.digitalCarbonProject.id.split("-")[0],
+        registry: mockDigitalCarbonProject.id.split("-")[0],
         updatedAt:
-          digitalCarbon.digitalCarbonProject.carbonCredits[0].poolBalances[0]
-            .pool.dailySnapshots[0].lastUpdateTimestamp,
-        country: {
-          id: mockCmsProject.country,
+          mockDigitalCarbonProject.carbonCredits[0].poolBalances[0].pool
+            .dailySnapshots[0].lastUpdateTimestamp,
+        country: mockCmsProject.country,
+        price: "0.267999",
+        prices: expectedPrices,
+        key: mockDigitalCarbonProject.projectID,
+        stats: {
+          totalBridged: 320308,
+          totalRetired: 0,
+          totalSupply: 320308,
         },
-        price: poolPrices["bct"].defaultPrice,
-        listings: null,
-        key: digitalCarbon.digitalCarbonProject.projectID,
+        url: mockCmsProject.url,
         location: {
           geometry: {
             coordinates: [
@@ -189,24 +165,22 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
-        images: mockCmsProjectContent.images?.map((img) => ({
-          url: img?.asset?.url,
-          caption: img?.asset?.description,
-        })),
+        images: expectedImages,
+        listings: [],
+        hasSupply: true,
       },
     ];
 
     expect(data).toStrictEqual(expectedResponse);
   });
 
-  test("Composes a marketplace listing with cms data", async () => {
+  test("Composes a marketplace project", async () => {
+    mockMarketplaceProjects();
+
+    //No digital carbon projects
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, { data: { carbonProjects: [] } });
-
-    nock(GRAPH_URLS["polygon"].marketplace)
-      .post("")
-      .reply(200, { data: { projects: [marketplace.projectWithListing] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -216,28 +190,13 @@ describe("GET /projects", () => {
 
     const expectedResponse = [
       {
+        /** CMS DATA */
         ...pick(marketplace.projectWithListing, ["key", "vintage"]),
-        ...pick(mockCmsProject, ["description", "name", "methodologies"]),
-        short_description: mockCmsProjectContent?.shortDescription,
-        country: {
-          id: mockCmsProject.country,
-        },
-        price: "99",
-        updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
-        listings: [
-          {
-            ...pick(marketplace.projectWithListing.listings![0], [
-              "active",
-              "batchPrices",
-              "batches",
-              "deleted",
-              "id",
-              "tokenAddress",
-            ]),
-            createdAt: 1234,
-            updatedAt: 1234,
-          },
+        ...pick(mockCmsProject, ["description", "name"]),
+        methodologies: [
+          pick(mockCmsProject.methodologies?.[0], ["category", "id", "name"]),
         ],
+        country: mockCmsProject.country,
         location: {
           geometry: {
             coordinates: [
@@ -248,25 +207,40 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
-        images: mockCmsProjectContent?.images?.map((img) => ({
-          url: img?.asset?.url,
-          caption: img?.asset?.description,
-        })),
+        hasSupply: true,
+
+        /** CMS Project Content */
+        short_description: mockCmsProjectContent?.shortDescription,
+        images: expectedImages,
+
+        /** Marketplace Data */
+        vintage: mockMarketplaceProject.vintage,
+        key: mockMarketplaceProject.key,
+        updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
+        listings: [
+          {
+            ...pick(mockMarketplaceProject.listings![0], [
+              "active",
+              "batchPrices",
+              "batches",
+              "deleted",
+              "id",
+              "tokenAddress",
+            ]),
+            updatedAt: Number(mockMarketplaceProject.listings![0].updatedAt),
+            createdAt: Number(mockMarketplaceProject.listings![0].createdAt),
+          },
+        ],
+        price: "99",
       },
     ];
 
-    //Partial match for now.. need to remove above fixture
     expect(data).toMatchObject(expectedResponse);
   });
 
   /** PRICES NOT YET ON SUBGRAPH */
-
   test("Best price is listing price", async () => {
-    nock(GRAPH_URLS["polygon"].digitalCarbon)
-      .post("")
-      .reply(200, {
-        data: { carbonProjects: [digitalCarbon.digitalCarbonProject] },
-      });
+    mockDigitalCarbonProjects();
 
     const cheapListing = {
       ...marketplace.projectWithListing.listings?.[0],
@@ -277,14 +251,9 @@ describe("GET /projects", () => {
       .post("")
       .reply(200, {
         data: {
-          projects: [
-            {
-              ...marketplace.projectWithListing,
-              listings: [cheapListing],
-            },
-          ],
+          projects: [{ ...mockMarketplaceProject, listings: [cheapListing] }],
         },
-      }); // override so listing is cheaper
+      });
 
     const response = await fastify.inject({
       method: "GET",
@@ -300,32 +269,154 @@ describe("GET /projects", () => {
   });
 
   test("Best price is the lowest of 2 pool prices", async () => {
-    nock(GRAPH_URLS["polygon"].digitalCarbon)
-      .post("")
-      .reply(200, {
-        data: {
-          carbonProjects: [
-            {
-              ...digitalCarbon.digitalCarbonProject,
-            },
-          ],
-        },
-      });
-    // override so listing is cheaper
-    const project = set(
-      marketplace.projectWithListing,
-      "listings[0].singleUnitPrice",
-      "1234560"
-    );
-    nock(GRAPH_URLS["polygon"].marketplace)
-      .post("")
-      .reply(200, { data: { projects: [project] } });
+    mockDigitalCarbonProjects();
+    mockMarketplaceProjects();
 
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects`,
     });
     const data = response.json();
-    expect(data[1].price).toStrictEqual(poolPrices.bct.defaultPrice);
+
+    expect(data[1].price).toStrictEqual(
+      //Because BigInt is converted to a string etc we need to do this nonsense
+      Math.floor(
+        Number(
+          formatUSDC(
+            mockMarketplaceProject.listings?.[0].singleUnitPrice ?? "0"
+          )
+        )
+      ).toString()
+    );
   });
+
+  describe("Supply filtering", () => {
+    let projects: Project[];
+
+    test("No filtering when supply greater than 0 (DigitalCarbon)", async () => {
+      mockMarketplaceProjects([]);
+      //Return two projects with supply
+      mockDigitalCarbonProjects([
+        mockDigitalCarbonProject,
+        anotherCarbonProject,
+      ]);
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(2);
+    });
+
+    test("No filtering when supply greater than 0 (Marketplace)", async () => {
+      //Mock digital carbon with no supply
+      mockDigitalCarbonProjects([]);
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        anotherMarketplaceProject,
+      ]);
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(2);
+    });
+
+    test("DigitalCarbon projects are filtered", async () => {
+      //Mock digital carbon with no supply
+      const emptyCarbonProject = set(
+        cloneDeep(anotherCarbonProject),
+        "carbonCredits[0].poolBalances[0].balance",
+        "0"
+      );
+      mockDigitalCarbonProjects([mockDigitalCarbonProject, emptyCarbonProject]);
+
+      //Remove all marketplace projects
+      mockMarketplaceProjects([]);
+
+      projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+
+      expect(projects.at(0)?.key).toBe("VCS-191");
+    });
+
+    test("Marketplace projects are filtered", async () => {
+      //Mock no digitalCarbon projects
+      mockDigitalCarbonProjects([]);
+
+      const emptyMarketplaceProject = set(
+        cloneDeep(anotherMarketplaceProject),
+        "listings[0].leftToSell",
+        "0"
+      );
+
+      //Mock two projects
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        emptyMarketplaceProject,
+      ]);
+
+      projects = await mock_fetch(fastify, "/projects");
+
+      //Only one should be returned
+      expect(projects.length).toBe(1);
+      //Confirm the correct supply is present
+      expect(
+        Number(projects.at(0)?.listings?.at(0)?.leftToSell)
+      ).toBeGreaterThan(0);
+    });
+  });
+
+  describe("Duplicate filtering", () => {
+    const duplicateMarketplaceProject = cloneDeep(mockMarketplaceProject);
+    const duplicateDigitalCarbonProject = cloneDeep(mockDigitalCarbonProject);
+    test("Marketplace projects", async () => {
+      mockMarketplaceProjects([
+        mockMarketplaceProject,
+        duplicateMarketplaceProject,
+      ]);
+      mockDigitalCarbonProjects([]);
+
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+    test("DigitalCarbon projects", async () => {
+      mockMarketplaceProjects([]);
+      //Return two projects with supply
+      mockDigitalCarbonProjects([
+        mockDigitalCarbonProject,
+        duplicateDigitalCarbonProject,
+      ]);
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+    test("Marketplace & DigitalCarbon projects", async () => {
+      mockMarketplaceProjects([mockMarketplaceProject]);
+      /** Make sure this carbon project matches the marketplace project */
+      const matchingCarbonProject = set(
+        cloneDeep(mockDigitalCarbonProject),
+        "carbonCredits[0].vintage",
+        "2008"
+      );
+      //Return two projects with supply
+      mockDigitalCarbonProjects([matchingCarbonProject]);
+      const projects = await mock_fetch(fastify, "/projects");
+      expect(projects.length).toBe(1);
+    });
+  });
+
+  test("Subgraph fields should be sanitised", async () => {
+    mockMarketplaceProjects();
+    mockDigitalCarbonProjects();
+
+    const modifiedCmsProject = cloneDeep(fixtures.cms.cmsProject);
+    set(modifiedCmsProject, "country", "    lots-of-spaces   ");
+    /**@todo add other fields */
+    mockCms({ projects: [modifiedCmsProject] });
+
+    const projects: Project[] = await mock_fetch(fastify, "/projects");
+    expect(projects.length).toBe(2);
+    expect(projects.at(0)?.country).toBe("lots-of-spaces");
+  });
+
+  test.todo("Same asset in multiple pools and listings");
+
+  test.todo(
+    "Different assets (of the same credit) in multiple pools and listings"
+  );
 });

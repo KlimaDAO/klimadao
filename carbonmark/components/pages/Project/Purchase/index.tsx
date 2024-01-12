@@ -5,11 +5,7 @@ import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import { isPoolToken } from "lib/getPoolData";
-import {
-  DetailedProject,
-  Listing,
-  TokenPrice,
-} from "lib/types/carbonmark.types";
+import { Listing, Project, TokenPrice } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { InactivePurchase } from "./InactivePurchase";
@@ -18,7 +14,7 @@ import { PoolPurchase } from "./Pool";
 
 import * as styles from "./styles";
 export interface ProjectPurchasePageProps {
-  project: DetailedProject;
+  project: Project;
   purchase: Listing | TokenPrice;
 }
 
@@ -45,15 +41,13 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
 
       <Layout>
         <div className={styles.container}>
-          <div className={styles.backToProjectButton}>
-            <Link
-              href={createProjectLink(props.project)}
-              className={styles.backToResults}
-            >
-              <ArrowBack className="arrow" />
-              <Trans>Back to Project</Trans>
-            </Link>
-          </div>
+          <Link
+            href={createProjectLink(props.project)}
+            className={styles.backToProject}
+          >
+            <ArrowBack className="arrow" />
+            <Trans>Back to Project</Trans>
+          </Link>
           <div className={styles.loginButton}>
             <LoginButton className="desktopLogin" />
           </div>

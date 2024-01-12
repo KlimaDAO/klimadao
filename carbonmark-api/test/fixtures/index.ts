@@ -7,9 +7,9 @@ import tokens from "./tokens";
 
 export const fixtures = {
   cms,
-  digitalCarbon,
-  tokens,
   marketplace,
-  firebase,
+  digitalCarbon,
   offsets,
+  tokens,
+  firebase,
 };

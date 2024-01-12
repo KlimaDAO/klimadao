@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-12-18 05:49+0000\n"
+"POT-Creation-Date: 2024-01-11 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +51,7 @@ msgstr "Jeder CO2-Ausgleich durch KlimaDAO erfolgt durch verifizierte CO2-Projek
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
 msgid "Explore MCO2 on data.klimadao.finance"
-msgstr ""
+msgstr "Entdecken Sie MCO2 auf data.klimadao.finance"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
@@ -61,7 +61,7 @@ msgstr "Häufig gestellte Fragen"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:55
+#: components/pages/Retirements/SingleRetirement/index.tsx:53
 msgid "Loading..."
 msgstr "Lade..."
 
@@ -91,7 +91,7 @@ msgstr "Keine Nachricht an den CO2-Ausgleich angehängt."
 msgid "Official Docs"
 msgstr "Offizielle Dokumentation"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/index.tsx:159
 msgid "Processing data..."
 msgstr "Daten werden verarbeitet..."
 
@@ -120,7 +120,7 @@ msgstr "\"Sortiere nach\" anzeigen"
 msgid "View on Polygonscan"
 msgstr "Auf Polygonscan ansehen"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:143
+#: components/pages/Retirements/SingleRetirement/index.tsx:163
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "Wir haben die Verarbeitung der Blockchaindaten für diesen Ausgleich noch nicht abgeschlossen. Dies dauert etwas länger, wenn das Netzwerk überlastet ist."
 
@@ -1660,39 +1660,39 @@ msgstr "Mit CO2-gedeckten KLIMA-Tokens kannst du handeln, Staking-Belohnungen er
 msgid "retirement.footer.buy_klima.title"
 msgstr "Kaufen, staken und belohnt werden."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:135
 msgid "retirement.head.metaDescription"
 msgstr "Transparente CO2-Offsets auf der Blockchain durch KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:131
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} hat {formattedAmount} Tonnen CO2 ausgeglichen"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:127
 msgid "retirement.head.title"
 msgstr "KlimaDAO | CO2-Ausgleichsquittung"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:259
+#: components/pages/Retirements/SingleRetirement/index.tsx:279
 msgid "retirement.share.title"
 msgstr "Zeigen Sie Ihre Wirkung"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:189
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Keinen Empfängername angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:163
+#: components/pages/Retirements/SingleRetirement/index.tsx:183
 msgid "retirement.single.beneficiary.title"
 msgstr "Empfänger"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:177
+#: components/pages/Retirements/SingleRetirement/index.tsx:197
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Empfängeradresse"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:238
+#: components/pages/Retirements/SingleRetirement/index.tsx:258
 msgid "retirement.single.create_a_pledge"
 msgstr "Jetzt Pledge erstellen."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:224
+#: components/pages/Retirements/SingleRetirement/index.tsx:244
 msgid "retirement.single.disclaimer"
 msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch tokenisierte CO2-Zertifikate auf der Polygon-Blockchain. Jeder Emissionsausgleich und die damit verbundenen Daten sind unveränderlich und öffentlich einsehbar."
 
@@ -1700,11 +1700,11 @@ msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch toke
 msgid "retirement.single.download_certificate_button"
 msgstr "PFD herunterladen"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:127
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.header.subline"
 msgstr "CO2-äquivalente Emissionen ausgeglichen (in Tonnen)"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:234
+#: components/pages/Retirements/SingleRetirement/index.tsx:254
 msgid "retirement.single.is_this_your_retirement"
 msgstr "Ist dies Ihr CO2-Ausgleich?"
 
@@ -1724,7 +1724,7 @@ msgstr "Projektinformationen"
 msgid "retirement.single.quantity"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:198
+#: components/pages/Retirements/SingleRetirement/index.tsx:218
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Zertifikat"
 
@@ -1736,7 +1736,7 @@ msgstr "Datum"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:295
+#: components/pages/Retirements/SingleRetirement/index.tsx:315
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 

@@ -56,12 +56,17 @@ export const ActivityTable: FC<Props> = (props) => {
             target="_blank"
           >
             <div className={styles.listItem}>
-              <Text>{r.offset.name || r.offset.projectID}</Text>
+              <Text>
+                {r.retire.credit.project.name ||
+                  r.retire.credit.project.projectID}
+              </Text>
               <Text align="end">
-                {formatTonnes(r.amount)}
+                {formatTonnes(r.retire.amount)}
                 {t`t`}
               </Text>
-              <Text>{getFormattedDate(r.timestamp, props.locale || "en")}</Text>
+              <Text>
+                {getFormattedDate(r.retire.timestamp, props.locale || "en")}
+              </Text>
             </div>
           </Link>
         ))}

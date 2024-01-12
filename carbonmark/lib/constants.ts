@@ -28,7 +28,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v4.0.0.api.carbonmark.com";
+export const API_PROD_URL = "https://v5.0.0.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
@@ -58,7 +58,13 @@ export const MINIMUM_TONNE_PRICE = 0.1;
 
 export const MINIMUM_TONNE_QUANTITY = 0.001;
 
+export const MINIMUM_TONNE_QUANTITY_BANK_TRANSFER = 100;
+
 export const CARBONMARK_FEE = 0.0; // 0%
+
+/** Validates the presence of an "@" & "." character in the string */
+export const EMAIL_ADDRESS_REGEX =
+  /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]+)$/;
 /** No special chars */
 export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
 /** Any token symbol containing known substrings is valid. This filters out BCT, MCO2, and other assets */
@@ -140,6 +146,8 @@ export const urls = {
   docs: "https://docs.carbonmark.com",
   docsResourcesFees:
     "https://docs.carbonmark.com/get-started/understanding-fees-on-carbonmark",
+  payViaBankForm:
+    "https://api.hsforms.com/submissions/v3/integration/submit/26010207/2f87cd63-f8a7-43e9-9483-ac541a614762",
   projects: "/projects",
   users: "/users",
   retirements: "/retirements",
