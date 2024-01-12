@@ -57,36 +57,48 @@ async function fetchCMSProject(registry: string, registryProjectId: string) {
 async function updateMainnetICRProjects() {
   const updated_PROJECT_INFO: Project[] = [...PROJECT_INFO] as Project[]
   const updatedProjects: Project[] = []
+  const limit = 50
+  let totalFetched = 0
 
   try {
-    const { data } = await axios.get('https://api.carbonregistry.com/v0/public/projects/list', {
-      headers: {
-        Authorization: `Bearer ${process.env.ICR_MAINNET_API_KEY}`,
-      },
-    })
+    while (true) {
+      const { data } = await axios.get('https://api.carbonregistry.com/v0/public/projects/list', {
+        headers: {
+          Authorization: `Bearer ${process.env.ICR_MAINNET_API_KEY}`,
+        },
+        params: {
+          limit,
+          offset: totalFetched,
+        },
+      })
 
-    const projects = data.projects
+      const projects = data.projects
+      totalFetched += projects.length
 
-    for (const project of projects) {
-      const serialization = project.carbonCredits[0].serialization
-      const elements = serialization.split('-')
-      const registry = 'ICR'
-      const registryProjectId = elements[3]
+      for (const project of projects) {
+        const serialization = project.carbonCredits[0].serialization
+        const elements = serialization.split('-')
+        const registry = 'ICR'
+        const registryProjectId = elements[3]
 
-      const cmsInfo = await fetchCMSProject(registry, registryProjectId)
+        const cmsInfo = await fetchCMSProject(registry, registryProjectId)
 
-      for (const credit of project.carbonCredits) {
-        const newProject: Project = [
-          project.projectContracts[0].address,
-          registry + '-' + registryProjectId,
-          credit.vintage,
-          project.fullName,
-          project.methodology.id,
-          cmsInfo.methodologies[0].category,
-          cmsInfo.country,
-        ]
+        for (const credit of project.carbonCredits) {
+          const newProject: Project = [
+            project.projectContracts[0].address,
+            registry + '-' + registryProjectId,
+            credit.vintage,
+            project.fullName,
+            project.methodology.id,
+            cmsInfo.methodologies[0].category,
+            cmsInfo.country,
+          ]
 
-        updatedProjects.push(newProject)
+          updatedProjects.push(newProject)
+        }
+      }
+      if (projects.length < limit) {
+        break
       }
     }
   } catch (error) {
