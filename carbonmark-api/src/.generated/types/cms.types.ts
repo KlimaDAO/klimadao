@@ -964,9 +964,9 @@ export type SlugSorting = {
 
 export enum SortOrder {
   /** Sorts on the value in ascending order. */
-  Asc = 'ASC',
+  ASC = 'ASC',
   /** Sorts on the value in descending order. */
-  Desc = 'DESC'
+  DESC = 'DESC'
 }
 
 export type Span = {
@@ -1098,24 +1098,24 @@ export const GetAllCmsProjectContentDocument = gql`
 }
     ${CmsProjectContentFragmentFragmentDoc}`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getCMSProject(variables: GetCmsProjectQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCmsProjectQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectQuery>(GetCmsProjectDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProject', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectQuery>(GetCmsProjectDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProject', 'query');
     },
     getCMSProjectContent(variables: GetCmsProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCmsProjectContentQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectContentQuery>(GetCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProjectContent', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCmsProjectContentQuery>(GetCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCMSProjectContent', 'query');
     },
     getAllCMSProjects(variables?: GetAllCmsProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllCmsProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectsQuery>(GetAllCmsProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjects', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectsQuery>(GetAllCmsProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjects', 'query');
     },
     getAllCMSProjectContent(variables?: GetAllCmsProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllCmsProjectContentQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectContentQuery>(GetAllCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjectContent', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCmsProjectContentQuery>(GetAllCmsProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllCMSProjectContent', 'query');
     }
   };
 }
