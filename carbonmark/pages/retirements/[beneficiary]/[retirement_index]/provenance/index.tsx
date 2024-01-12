@@ -1,10 +1,10 @@
 import {
-  getRetirementsAccountIdRetirementIndex,
-  getRetirementsAccountIdRetirementIndexProvenance,
+  getRetirements,
+  getRetirementsIdProvenance,
 } from ".generated/carbonmark-api-sdk/clients";
 import {
-  GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse,
-  GetRetirementsAccountIdRetirementIndexQueryResponse,
+  GetRetirementsIdProvenanceQueryResponse,
+  GetRetirementsIdQueryResponse,
 } from ".generated/carbonmark-api-sdk/types";
 import { urls } from "@klimadao/lib/constants";
 import { RetirementProvenancePage } from "components/pages/Retirements/RetirementProvenance";
@@ -14,7 +14,6 @@ import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   beneficiary: string;
@@ -23,10 +22,10 @@ interface Params extends ParsedUrlQuery {
 
 export interface RetirementProvenancePageProps {
   /** The resolved 0x address */
-  retirement: GetRetirementsAccountIdRetirementIndexQueryResponse;
+  retirement: GetRetirementsIdQueryResponse;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  provenance: GetRetirementsAccountIdRetirementIndexProvenanceQueryResponse;
+  provenance: GetRetirementsIdProvenanceQueryResponse;
   nameserviceDomain: string | null;
   retirementIndex: string;
   beneficiaryAddress: string;
@@ -69,15 +68,19 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    const [provenance, apiData, translation] = await Promise.all([
-      getRetirementsAccountIdRetirementIndexProvenance(
-        beneficiaryAddress,
-        retirementIndex
-      ),
-      getRetirementsAccountIdRetirementIndex(
-        beneficiaryAddress,
-        retirementIndex
-      ),
+    console.debug(
+      await getRetirements({ beneficiaryAddress, retirementIndex })
+    );
+    const retirement = (
+      await getRetirements({ beneficiaryAddress, retirementIndex })
+    )[0];
+
+    if (retirement === undefined) {
+      throw new Error("No retirement found");
+    }
+
+    const [provenance, translation] = await Promise.all([
+      getRetirementsIdProvenance(retirement.hash),
       loadTranslation(locale),
     ]);
 
@@ -87,7 +90,7 @@ export const getStaticProps: GetStaticProps<
 
     return {
       props: {
-        retirement: apiData,
+        retirement: retirement,
         provenance,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
         canonicalUrl: `${urls.retirements_carbonmark}/${beneficiaryInUrl}/${params.retirement_index}/provenance`,

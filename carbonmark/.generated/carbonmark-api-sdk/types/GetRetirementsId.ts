@@ -1,4 +1,17 @@
-export type Retirement = {
+import type { Def1 } from "./Def1";
+
+export type GetRetirementsIdPathParams = {
+  /**
+   * @description Retirement transaction hash
+   * @type string
+   */
+  id: string;
+};
+
+/**
+ * @description Retirement with account and index
+ */
+export type GetRetirementsIdQueryResponse = {
   /**
    * @type string | undefined
    */
@@ -97,3 +110,12 @@ export type Retirement = {
     projectId: string;
   };
 };
+
+export type GetRetirementsIdQueryParams = {
+  network?: Def1;
+};
+export namespace GetRetirementsIdQuery {
+  export type Response = GetRetirementsIdQueryResponse;
+  export type PathParams = GetRetirementsIdPathParams;
+  export type QueryParams = GetRetirementsIdQueryParams;
+}

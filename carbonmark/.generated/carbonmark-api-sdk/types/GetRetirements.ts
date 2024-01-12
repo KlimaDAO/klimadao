@@ -1,22 +1,9 @@
 import type { Def1 } from "./Def1";
 
-export type GetRetirementsAccountIdRetirementIndexPathParams = {
-  /**
-   * @description Account ID
-   * @type string
-   */
-  account_id: string;
-  /**
-   * @description Retirement index
-   * @type number
-   */
-  retirement_index: number;
-};
-
 /**
- * @description Retirement with account and index
+ * @description List of retirement
  */
-export type GetRetirementsAccountIdRetirementIndexQueryResponse = {
+export type GetRetirementsQueryResponse = {
   /**
    * @type string | undefined
    */
@@ -29,6 +16,10 @@ export type GetRetirementsAccountIdRetirementIndexQueryResponse = {
    * @type number
    */
   amount: number;
+  /**
+   * @type string
+   */
+  hash: string;
   /**
    * @type string
    */
@@ -110,13 +101,22 @@ export type GetRetirementsAccountIdRetirementIndexQueryResponse = {
      */
     projectId: string;
   };
-};
+}[];
 
-export type GetRetirementsAccountIdRetirementIndexQueryParams = {
+export type GetRetirementsQueryParams = {
   network?: Def1;
+  /**
+   * @description Address of the retirement beneficiary
+   * @type string | undefined
+   */
+  beneficiaryAddress?: string;
+  /**
+   * @description Retirement index
+   * @type number | undefined
+   */
+  retirementIndex?: number;
 };
-export namespace GetRetirementsAccountIdRetirementIndexQuery {
-  export type Response = GetRetirementsAccountIdRetirementIndexQueryResponse;
-  export type PathParams = GetRetirementsAccountIdRetirementIndexPathParams;
-  export type QueryParams = GetRetirementsAccountIdRetirementIndexQueryParams;
+export namespace GetRetirementsQuery {
+  export type Response = GetRetirementsQueryResponse;
+  export type QueryParams = GetRetirementsQueryParams;
 }

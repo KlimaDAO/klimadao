@@ -4,6 +4,7 @@
     "id": { "type": "string" },
     "bridgeId": { "type": "string" },
     "amount": { "type": "number" },
+    "hash": { "type": "string" },
     "beneficiaryAddress": { "type": "string" },
     "beneficiaryName": { "type": "string" },
     "retirementMessage": { "type": "string" },
@@ -39,6 +40,12 @@
       "required": ["currentSupply", "retired", "crossChainSupply", "projectId"]
     }
   },
-  "required": ["amount", "beneficiaryAddress", "retiringAddress", "timestamp"],
+  "required": [
+    "amount",
+    "hash",
+    "beneficiaryAddress",
+    "retiringAddress",
+    "timestamp"
+  ],
   "x-readme-ref-name": "Retirement"
 }
