@@ -1,7 +1,7 @@
 import { utils } from "ethers";
 import { pick } from "lodash";
 import { ProvenanceRecord } from "src/models/ProvenanceRecord.model";
-import { GetProvenanceRecordsQuery } from "../../.generated/types/digitalCarbon.types";
+import { GetProvenanceRecordsByHashQuery } from "../../.generated/types/digitalCarbon.types";
 
 /**
  * Format a Record coming from a GQL query into a standardized API response fragment
@@ -11,8 +11,8 @@ import { GetProvenanceRecordsQuery } from "../../.generated/types/digitalCarbon.
 
 export function formatRecord(
   record:
-    | GetProvenanceRecordsQuery["provenanceRecords"][0]
-    | GetProvenanceRecordsQuery["provenanceRecords"][0]["priorRecords"][0]
+    | GetProvenanceRecordsByHashQuery["provenanceRecords"][0]
+    | GetProvenanceRecordsByHashQuery["provenanceRecords"][0]["priorRecords"][0]
 ): ProvenanceRecord {
   return {
     ...pick(record, [

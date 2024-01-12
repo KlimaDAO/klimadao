@@ -2083,7 +2083,6 @@ export enum Holding_OrderBy {
   Id = 'id',
   LastUpdated = 'lastUpdated',
   Token = 'token',
-  TokenId = 'tokenId',
   TokenDecimals = 'token__decimals',
   TokenId = 'token__id',
   TokenLatestPricePerKlima = 'token__latestPricePerKLIMA',

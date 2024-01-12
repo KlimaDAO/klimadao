@@ -1,6 +1,6 @@
 import { utils } from "ethers";
 import { pick } from "lodash";
-import { GetKlimaRetirementQuery } from "../../.generated/types/digitalCarbon.types";
+import { GetRetirementByHashQuery } from "../../.generated/types/digitalCarbon.types";
 import { CarbonCredit } from "../../models/CarbonCredit.model";
 
 /**
@@ -9,10 +9,7 @@ import { CarbonCredit } from "../../models/CarbonCredit.model";
  * @returns
  */
 export function formatCarbonCredit(
-  credit: Exclude<
-    GetKlimaRetirementQuery["klimaRetire"],
-    null
-  >["retire"]["credit"]
+  credit: Exclude<GetRetirementByHashQuery["retires"][0], null>["credit"]
 ): CarbonCredit {
   return {
     ...pick(credit, ["id", "bridgeProtocol", "vintage"]),

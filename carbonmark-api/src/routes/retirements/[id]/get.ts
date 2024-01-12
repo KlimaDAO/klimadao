@@ -15,7 +15,6 @@ const handler = (fastify: FastifyInstance) =>
   ) {
     // Fetch retirement
     const sdk = gql_sdk(request.query.network);
-    console.debug(request.params);
     const retirements = (
       await sdk.digital_carbon.getRetirementByHash({
         hash: request.params.id,

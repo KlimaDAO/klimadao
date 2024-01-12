@@ -10,7 +10,6 @@ import {
 
 import {
   aCarbonProject,
-  aKlimaRetire,
   aProvenanceRecord,
   aRetire,
   anAccount,
@@ -42,7 +41,6 @@ const poolBalance: Partial<CarbonPoolCreditBalance> = {
     dailySnapshots: [dailySnapshot as CarbonPoolDailySnapshot],
   } as CarbonPool,
 };
-
 
 const digitalCarbonProjectWithoutCredits = aCarbonProject({
   id: "VCS-191",
@@ -78,8 +76,10 @@ const account1 = anAccount({
 const account2 = anAccount({
   id: "0x0a1g3hcbteay53hd9ee1q8e06b56e8cd6767z52",
 });
-const retire = aRetire({
+
+const retirement = aRetire({
   id: "0x0a1g3hcbteay53hd9ee1q8e06b56e8cd6767z52a01000000",
+  hash: "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
   bridgeID: "6787",
   amount: "3000000000000000000",
   beneficiaryAddress: account1,
@@ -89,9 +89,6 @@ const retire = aRetire({
   retiringName: "",
   timestamp: "1701095367",
   credit: carbonCredit as CarbonCredit,
-});
-const klimaRetirement = aKlimaRetire({
-  retire,
 });
 
 const provenanceRecordWithoutPriorRecords = aProvenanceRecord({
@@ -123,7 +120,7 @@ const fixtures = {
   carbonCredit,
   poolBalance,
   digitalCarbonProject,
-  klimaRetirement,
+  retirement,
   provenanceRecord,
 };
 
