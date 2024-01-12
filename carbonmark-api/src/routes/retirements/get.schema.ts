@@ -31,7 +31,7 @@ export const schema = {
       description: "List of retirement",
       content: {
         "application/json": {
-          schema: RetirementModel,
+          schema: Type.Array(RetirementModel),
         },
       },
     },

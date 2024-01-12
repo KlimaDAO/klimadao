@@ -389,7 +389,7 @@
       "response": []
     },
     {
-      "name": "getRetirementByAccountAndIndex",
+      "name": "getRetirementByHash",
       "event": [
         {
           "listen": "test",
@@ -408,17 +408,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/retirements/:account_id/:retirement_index",
+          "raw": "{{url}}/retirements/:id",
           "host": ["{{url}}"],
-          "path": ["retirements", ":account_id", ":retirement_index"],
+          "path": ["retirements", ":id"],
           "variable": [
             {
-              "key": "account_id",
-              "value": "0x087a7afb6975a2837453be685eb6272576c0bc06"
-            },
-            {
-              "key": "retirement_index",
-              "value": "5"
+              "key": "id",
+              "value": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509"
             }
           ]
         }
@@ -426,7 +422,7 @@
       "response": []
     },
     {
-      "name": "getRetirementProvenanceByAccountAndIndex",
+      "name": "getRetirementProvenanceByHash",
       "event": [
         {
           "listen": "test",
@@ -445,18 +441,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/retirements/:account_id/:retirement_index/provenance",
+          "raw": "{{url}}/retirements/:id/provenance",
           "host": ["{{url}}"],
-          "path": [
-            "retirements",
-            ":account_id",
-            ":retirement_index",
-            "provenance"
-          ],
+          "path": ["retirements", ":id", "provenance"],
           "variable": [
             {
-              "key": "account_id",
-              "value": "0x087a7afb6975a2837453be685eb6272576c0bc06"
+              "key": "id",
+              "value": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509"
             },
             {
               "key": "retirement_index",

@@ -10,6 +10,7 @@ import {
   Retire_Filter,
 } from "../../.generated/types/digitalCarbon.types";
 import { GRAPH_URLS } from "../../app.constants";
+import { formatRetirement } from "../../utils/helpers/retirements.utils";
 import { gqlWhereFragment } from "../../utils/helpers/utils";
 import { Querystring, schema } from "./get.schema";
 
@@ -62,9 +63,9 @@ const handler = () =>
     ${RetireFragmentFragmentDoc}
     ${CarbonCreditFragmentFragmentDoc}`;
 
-    const retirements = await client.request<AllRetirementsQuery>(
-      SearchKlimaRetirementDocument
-    );
+    const retirements = (
+      await client.request<AllRetirementsQuery>(SearchKlimaRetirementDocument)
+    ).retires.map(formatRetirement);
 
     return reply.send(JSON.stringify(retirements));
   };
