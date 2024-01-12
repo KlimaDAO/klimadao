@@ -294,12 +294,12 @@ export const RetireForm: FC<Props> = (props) => {
   const onMakeRetirement = async () => {
     if (!provider || !inputValues) return;
 
+    if (props.product.type !== "pool") {
+      return;
+    }
+
     try {
       setIsProcessing(true);
-
-      if (props.product.type !== "pool") {
-        throw new Error(`Unsupported retirement type: ${props.product.type}`);
-      }
 
       const receipt = await retireCarbonTransaction({
         provider,
