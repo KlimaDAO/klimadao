@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { pick } from "lodash";
-import { getKlimaRetirement } from "../../../../utils/helpers/retirements.utils";
-import { getProfileByAddress } from "../../../../utils/helpers/users.utils";
+import { getKlimaRetirement } from "../../../utils/helpers/retirements.utils";
+import { getProfileByAddress } from "../../../utils/helpers/users.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
 // Handler function for the "/retirements/klima/:account_id/:retirement_index" route
@@ -36,7 +36,7 @@ const handler = (fastify: FastifyInstance) =>
 export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "GET",
-    url: "/retirements/:account_id/:retirement_index",
+    url: "/retirements/:id",
     handler: handler(fastify),
     schema,
   });

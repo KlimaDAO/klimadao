@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { isEmpty } from "lodash";
-import { gql_sdk } from "../../../../../utils/gqlSdk";
-import { formatRecord } from "../../../../../utils/helpers/records.utils";
+import { gql_sdk } from "../../../../utils/gqlSdk";
+import { formatRecord } from "../../../../utils/helpers/records.utils";
 import { Params, Querystring } from "../get.schema";
 import { schema } from "./get.schema";
 
@@ -44,7 +44,7 @@ const handler = () =>
 export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "GET",
-    url: "/retirements/:account_id/:retirement_index/provenance",
+    url: "/retirements/:id/provenance",
     handler: handler(),
     schema,
   });

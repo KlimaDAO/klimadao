@@ -4335,20 +4335,19 @@ export type FindDigitalCarbonProjectsQueryVariables = Exact<{
 
 export type FindDigitalCarbonProjectsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }>, project: { __typename?: 'CarbonProject', id: string } }> }> };
 
-export type GetKlimaRetirementByIdQueryVariables = Exact<{
-  id: Scalars['ID'];
+export type GetRetirementByHashQueryVariables = Exact<{
+  hash: Scalars['Bytes'];
 }>;
 
 
-export type GetKlimaRetirementByIdQuery = { __typename?: 'Query', klimaRetire: { __typename?: 'KlimaRetire', retire: { __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, credit: { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, project: { __typename?: 'CarbonProject', id: string } }, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } } } | null };
+export type GetRetirementByHashQuery = { __typename?: 'Query', retires: Array<{ __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, credit: { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, project: { __typename?: 'CarbonProject', id: string } }, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } }> };
 
-export type GetKlimaRetirementTransactionByAccountAndIndexQueryVariables = Exact<{
-  address: InputMaybe<Scalars['String']>;
-  index: InputMaybe<Scalars['BigInt']>;
+export type AllRetirementsQueryVariables = Exact<{
+  account_id: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type GetKlimaRetirementTransactionByAccountAndIndexQuery = { __typename?: 'Query', klimaRetires: Array<{ __typename?: 'KlimaRetire', retire: { __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, credit: { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, project: { __typename?: 'CarbonProject', id: string } }, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } } }> };
+export type AllRetirementsQuery = { __typename?: 'Query', retires: Array<{ __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, credit: { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, project: { __typename?: 'CarbonProject', id: string } }, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } }> };
 
 export type GetProvenanceRecordsQueryVariables = Exact<{
   id: InputMaybe<Array<Scalars['Bytes']> | Scalars['Bytes']>;
@@ -4510,27 +4509,23 @@ export const FindDigitalCarbonProjectsDocument = gql`
 ${CarbonCreditFragmentFragmentDoc}
 ${PoolBalancesFragmentFragmentDoc}
 ${PoolFragmentFragmentDoc}`;
-export const GetKlimaRetirementByIdDocument = gql`
-    query getKlimaRetirementById($id: ID!) {
-  klimaRetire(id: $id) {
-    retire {
-      ...RetireFragment
-      credit {
-        ...CarbonCreditFragment
-      }
+export const GetRetirementByHashDocument = gql`
+    query getRetirementByHash($hash: Bytes!) {
+  retires(where: {hash: $hash}) {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
     }
   }
 }
     ${RetireFragmentFragmentDoc}
 ${CarbonCreditFragmentFragmentDoc}`;
-export const GetKlimaRetirementTransactionByAccountAndIndexDocument = gql`
-    query getKlimaRetirementTransactionByAccountAndIndex($address: String, $index: BigInt) {
-  klimaRetires(where: {retire_: {beneficiaryAddress: $address}, index: $index}) {
-    retire {
-      ...RetireFragment
-      credit {
-        ...CarbonCreditFragment
-      }
+export const AllRetirementsDocument = gql`
+    query allRetirements($account_id: String) {
+  retires {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
     }
   }
 }
@@ -4572,11 +4567,11 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     findDigitalCarbonProjects(variables?: FindDigitalCarbonProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindDigitalCarbonProjectsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<FindDigitalCarbonProjectsQuery>(FindDigitalCarbonProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findDigitalCarbonProjects', 'query');
     },
-    getKlimaRetirementById(variables: GetKlimaRetirementByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetKlimaRetirementByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetKlimaRetirementByIdQuery>(GetKlimaRetirementByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getKlimaRetirementById', 'query');
+    getRetirementByHash(variables: GetRetirementByHashQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetRetirementByHashQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetRetirementByHashQuery>(GetRetirementByHashDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getRetirementByHash', 'query');
     },
-    getKlimaRetirementTransactionByAccountAndIndex(variables?: GetKlimaRetirementTransactionByAccountAndIndexQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetKlimaRetirementTransactionByAccountAndIndexQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetKlimaRetirementTransactionByAccountAndIndexQuery>(GetKlimaRetirementTransactionByAccountAndIndexDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getKlimaRetirementTransactionByAccountAndIndex', 'query');
+    allRetirements(variables?: AllRetirementsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AllRetirementsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<AllRetirementsQuery>(AllRetirementsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'allRetirements', 'query');
     },
     getProvenanceRecords(variables?: GetProvenanceRecordsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProvenanceRecordsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProvenanceRecordsQuery>(GetProvenanceRecordsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProvenanceRecords', 'query');

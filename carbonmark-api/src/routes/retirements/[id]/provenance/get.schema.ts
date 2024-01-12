@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { ProvenanceRecordModel } from "../../../../../models/ProvenanceRecord.model";
+import { ProvenanceRecordModel } from "../../../../models/ProvenanceRecord.model";
 import { params, querystring } from "../get.schema";
 
 export const schema = {

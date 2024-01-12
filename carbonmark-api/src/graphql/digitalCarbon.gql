@@ -70,29 +70,20 @@ query findDigitalCarbonProjects(
   }
 }
 
-query getKlimaRetirementById($id: ID!) {
-  klimaRetire(id: $id) {
-    retire {
-      ...RetireFragment
-      credit {
-        ...CarbonCreditFragment
-      }
+query getRetirementByHash($hash: Bytes!) {
+  retires(where: { hash: $hash }) {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
     }
   }
 }
 
-query getKlimaRetirementTransactionByAccountAndIndex(
-  $address: String
-  $index: BigInt
-) {
-  klimaRetires(
-    where: { retire_: { beneficiaryAddress: $address }, index: $index }
-  ) {
-    retire {
-      ...RetireFragment
-      credit {
-        ...CarbonCreditFragment
-      }
+query allRetirements($account_id: String) {
+  retires {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
     }
   }
 }
