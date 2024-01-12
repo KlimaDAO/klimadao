@@ -10,7 +10,7 @@ export const querystring = Type.Object({
       examples: ["0x087a7afb6975a2837453be685eb6272576c0bc"],
     })
   ),
-  retirement_index: Type.Optional(
+  retirementIndex: Type.Optional(
     Type.Number({
       description: "Retirement index",
       examples: ["5"],

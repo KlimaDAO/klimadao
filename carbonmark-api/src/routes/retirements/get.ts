@@ -41,9 +41,9 @@ const handler = () =>
       }
     > = {};
     const klimaRetireFilter: Partial<KlimaRetire_Filter> | undefined = request
-      .query.retirement_index
+      .query.retirementIndex
       ? {
-          index: String(request.query.retirement_index),
+          index: String(request.query.retirementIndex),
         }
       : undefined;
     retireFilter.klimaRetire_ = klimaRetireFilter;
