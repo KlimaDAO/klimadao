@@ -166,8 +166,8 @@ export type Bridge = {
 
 export enum BridgeProtocol {
   C3 = 'C3',
+  Icr = 'ICR',
   Moss = 'MOSS',
-  Thallo = 'THALLO',
   Toucan = 'TOUCAN'
 }
 
@@ -256,10 +256,14 @@ export enum Bridge_OrderBy {
   CreditBridged = 'credit__bridged',
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
+  CreditExPostTokenId = 'credit__exPostTokenId',
   CreditId = 'credit__id',
+  CreditIsExAnte = 'credit__isExAnte',
   CreditLastBatchId = 'credit__lastBatchId',
   CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
+  CreditTokenAddress = 'credit__tokenAddress',
+  CreditTokenId = 'credit__tokenId',
   CreditVintage = 'credit__vintage',
   Id = 'id',
   Timestamp = 'timestamp'
@@ -277,8 +281,12 @@ export type CarbonCredit = {
   crossChainSupply: Scalars['BigInt'];
   /** Current token supply */
   currentSupply: Scalars['BigInt'];
-  /** Ethereum address where the token is deployed */
+  /** ExPost Token ID for the credit vintage (if applicable) */
+  exPostTokenId: Maybe<Scalars['BigInt']>;
+  /** {tokenAddress}-{tokenId} concatenated. If no tokenId, then just the tokenAddress. */
   id: Scalars['Bytes'];
+  /** Flag for if this credit is exAnte */
+  isExAnte: Maybe<Scalars['Boolean']>;
   /** Last batch ID that was fractionalized if applicable */
   lastBatchId: Scalars['BigInt'];
   /** Current pool balances for this credit */
@@ -291,6 +299,10 @@ export type CarbonCredit = {
   retired: Scalars['BigInt'];
   /** All retirement events for this credit */
   retires: Array<Retire>;
+  /** Ethereum address where the token is deployed */
+  tokenAddress: Scalars['Bytes'];
+  /** Token ID for the credit vintage (if applicable) */
+  tokenId: Maybe<Scalars['BigInt']>;
   /** Vintage of issuance */
   vintage: Scalars['Int'];
 };
@@ -436,10 +448,14 @@ export enum CarbonCreditSnapshot_OrderBy {
   CreditBridged = 'credit__bridged',
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
+  CreditExPostTokenId = 'credit__exPostTokenId',
   CreditId = 'credit__id',
+  CreditIsExAnte = 'credit__isExAnte',
   CreditLastBatchId = 'credit__lastBatchId',
   CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
+  CreditTokenAddress = 'credit__tokenAddress',
+  CreditTokenId = 'credit__tokenId',
   CreditVintage = 'credit__vintage',
   CrossChainSupply = 'crossChainSupply',
   CurrentSupply = 'currentSupply',
@@ -481,6 +497,14 @@ export type CarbonCredit_Filter = {
   currentSupply_lte: InputMaybe<Scalars['BigInt']>;
   currentSupply_not: InputMaybe<Scalars['BigInt']>;
   currentSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  exPostTokenId: InputMaybe<Scalars['BigInt']>;
+  exPostTokenId_gt: InputMaybe<Scalars['BigInt']>;
+  exPostTokenId_gte: InputMaybe<Scalars['BigInt']>;
+  exPostTokenId_in: InputMaybe<Array<Scalars['BigInt']>>;
+  exPostTokenId_lt: InputMaybe<Scalars['BigInt']>;
+  exPostTokenId_lte: InputMaybe<Scalars['BigInt']>;
+  exPostTokenId_not: InputMaybe<Scalars['BigInt']>;
+  exPostTokenId_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -491,6 +515,10 @@ export type CarbonCredit_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  isExAnte: InputMaybe<Scalars['Boolean']>;
+  isExAnte_in: InputMaybe<Array<Scalars['Boolean']>>;
+  isExAnte_not: InputMaybe<Scalars['Boolean']>;
+  isExAnte_not_in: InputMaybe<Array<Scalars['Boolean']>>;
   lastBatchId: InputMaybe<Scalars['BigInt']>;
   lastBatchId_gt: InputMaybe<Scalars['BigInt']>;
   lastBatchId_gte: InputMaybe<Scalars['BigInt']>;
@@ -539,6 +567,24 @@ export type CarbonCredit_Filter = {
   retired_not: InputMaybe<Scalars['BigInt']>;
   retired_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   retires_: InputMaybe<Retire_Filter>;
+  tokenAddress: InputMaybe<Scalars['Bytes']>;
+  tokenAddress_contains: InputMaybe<Scalars['Bytes']>;
+  tokenAddress_gt: InputMaybe<Scalars['Bytes']>;
+  tokenAddress_gte: InputMaybe<Scalars['Bytes']>;
+  tokenAddress_in: InputMaybe<Array<Scalars['Bytes']>>;
+  tokenAddress_lt: InputMaybe<Scalars['Bytes']>;
+  tokenAddress_lte: InputMaybe<Scalars['Bytes']>;
+  tokenAddress_not: InputMaybe<Scalars['Bytes']>;
+  tokenAddress_not_contains: InputMaybe<Scalars['Bytes']>;
+  tokenAddress_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  tokenId: InputMaybe<Scalars['BigInt']>;
+  tokenId_gt: InputMaybe<Scalars['BigInt']>;
+  tokenId_gte: InputMaybe<Scalars['BigInt']>;
+  tokenId_in: InputMaybe<Array<Scalars['BigInt']>>;
+  tokenId_lt: InputMaybe<Scalars['BigInt']>;
+  tokenId_lte: InputMaybe<Scalars['BigInt']>;
+  tokenId_not: InputMaybe<Scalars['BigInt']>;
+  tokenId_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   vintage: InputMaybe<Scalars['Int']>;
   vintage_gt: InputMaybe<Scalars['Int']>;
   vintage_gte: InputMaybe<Scalars['Int']>;
@@ -555,7 +601,9 @@ export enum CarbonCredit_OrderBy {
   Bridges = 'bridges',
   CrossChainSupply = 'crossChainSupply',
   CurrentSupply = 'currentSupply',
+  ExPostTokenId = 'exPostTokenId',
   Id = 'id',
+  IsExAnte = 'isExAnte',
   LastBatchId = 'lastBatchId',
   PoolBalances = 'poolBalances',
   Project = 'project',
@@ -570,6 +618,8 @@ export enum CarbonCredit_OrderBy {
   ProvenanceCount = 'provenanceCount',
   Retired = 'retired',
   Retires = 'retires',
+  TokenAddress = 'tokenAddress',
+  TokenId = 'tokenId',
   Vintage = 'vintage'
 }
 
@@ -920,10 +970,14 @@ export enum CarbonPoolCreditBalanceDailySnapshot_OrderBy {
   CreditBridged = 'credit__bridged',
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
+  CreditExPostTokenId = 'credit__exPostTokenId',
   CreditId = 'credit__id',
+  CreditIsExAnte = 'credit__isExAnte',
   CreditLastBatchId = 'credit__lastBatchId',
   CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
+  CreditTokenAddress = 'credit__tokenAddress',
+  CreditTokenId = 'credit__tokenId',
   CreditVintage = 'credit__vintage',
   CrossChainSupply = 'crossChainSupply',
   DayId = 'dayID',
@@ -1070,10 +1124,14 @@ export enum CarbonPoolCreditBalance_OrderBy {
   CreditBridged = 'credit__bridged',
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
+  CreditExPostTokenId = 'credit__exPostTokenId',
   CreditId = 'credit__id',
+  CreditIsExAnte = 'credit__isExAnte',
   CreditLastBatchId = 'credit__lastBatchId',
   CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
+  CreditTokenAddress = 'credit__tokenAddress',
+  CreditTokenId = 'credit__tokenId',
   CreditVintage = 'credit__vintage',
   CrossChainSupply = 'crossChainSupply',
   DailySnapshots = 'dailySnapshots',
@@ -1650,10 +1708,14 @@ export enum CrossChainBridge_OrderBy {
   CreditBridged = 'credit__bridged',
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
+  CreditExPostTokenId = 'credit__exPostTokenId',
   CreditId = 'credit__id',
+  CreditIsExAnte = 'credit__isExAnte',
   CreditLastBatchId = 'credit__lastBatchId',
   CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
+  CreditTokenAddress = 'credit__tokenAddress',
+  CreditTokenId = 'credit__tokenId',
   CreditVintage = 'credit__vintage',
   Direction = 'direction',
   Hash = 'hash',
@@ -1785,6 +1847,8 @@ export type Holding = {
   lastUpdated: Scalars['BigInt'];
   /** Token being held */
   token: Token;
+  /** Token ID being held */
+  tokenId: Maybe<Scalars['BigInt']>;
 };
 
 
@@ -1979,6 +2043,14 @@ export type Holding_Filter = {
   lastUpdated_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   or: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
   token: InputMaybe<Scalars['String']>;
+  tokenId: InputMaybe<Scalars['BigInt']>;
+  tokenId_gt: InputMaybe<Scalars['BigInt']>;
+  tokenId_gte: InputMaybe<Scalars['BigInt']>;
+  tokenId_in: InputMaybe<Array<Scalars['BigInt']>>;
+  tokenId_lt: InputMaybe<Scalars['BigInt']>;
+  tokenId_lte: InputMaybe<Scalars['BigInt']>;
+  tokenId_not: InputMaybe<Scalars['BigInt']>;
+  tokenId_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   token_: InputMaybe<Token_Filter>;
   token_contains: InputMaybe<Scalars['String']>;
   token_contains_nocase: InputMaybe<Scalars['String']>;
@@ -2011,6 +2083,7 @@ export enum Holding_OrderBy {
   Id = 'id',
   LastUpdated = 'lastUpdated',
   Token = 'token',
+  TokenId = 'tokenId',
   TokenDecimals = 'token__decimals',
   TokenId = 'token__id',
   TokenLatestPricePerKlima = 'token__latestPricePerKLIMA',
@@ -2101,6 +2174,7 @@ export enum KlimaRetire_OrderBy {
   RetireAmount = 'retire__amount',
   RetireBeneficiaryName = 'retire__beneficiaryName',
   RetireBridgeId = 'retire__bridgeID',
+  RetireHash = 'retire__hash',
   RetireId = 'retire__id',
   RetireRetirementMessage = 'retire__retirementMessage',
   RetireRetiringName = 'retire__retiringName',
@@ -2373,10 +2447,14 @@ export enum PoolDeposit_OrderBy {
   CreditBridged = 'credit__bridged',
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
+  CreditExPostTokenId = 'credit__exPostTokenId',
   CreditId = 'credit__id',
+  CreditIsExAnte = 'credit__isExAnte',
   CreditLastBatchId = 'credit__lastBatchId',
   CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
+  CreditTokenAddress = 'credit__tokenAddress',
+  CreditTokenId = 'credit__tokenId',
   CreditVintage = 'credit__vintage',
   Id = 'id',
   Pool = 'pool',
@@ -2578,10 +2656,14 @@ export enum PoolRedeem_OrderBy {
   CreditBridged = 'credit__bridged',
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
+  CreditExPostTokenId = 'credit__exPostTokenId',
   CreditId = 'credit__id',
+  CreditIsExAnte = 'credit__isExAnte',
   CreditLastBatchId = 'credit__lastBatchId',
   CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
+  CreditTokenAddress = 'credit__tokenAddress',
+  CreditTokenId = 'credit__tokenId',
   CreditVintage = 'credit__vintage',
   Id = 'id',
   Pool = 'pool',
@@ -2635,6 +2717,8 @@ export type ProvenanceRecord = {
   sender: Scalars['Bytes'];
   /** Credit token address */
   token: Scalars['Bytes'];
+  /** Credit token ID */
+  tokenId: Maybe<Scalars['BigInt']>;
   /** Transaction hash creating this record */
   transactionHash: Scalars['Bytes'];
   /** Action being made with the credit */
@@ -2725,6 +2809,14 @@ export type ProvenanceRecord_Filter = {
   sender_not_contains: InputMaybe<Scalars['Bytes']>;
   sender_not_in: InputMaybe<Array<Scalars['Bytes']>>;
   token: InputMaybe<Scalars['Bytes']>;
+  tokenId: InputMaybe<Scalars['BigInt']>;
+  tokenId_gt: InputMaybe<Scalars['BigInt']>;
+  tokenId_gte: InputMaybe<Scalars['BigInt']>;
+  tokenId_in: InputMaybe<Array<Scalars['BigInt']>>;
+  tokenId_lt: InputMaybe<Scalars['BigInt']>;
+  tokenId_lte: InputMaybe<Scalars['BigInt']>;
+  tokenId_not: InputMaybe<Scalars['BigInt']>;
+  tokenId_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   token_contains: InputMaybe<Scalars['Bytes']>;
   token_gt: InputMaybe<Scalars['Bytes']>;
   token_gte: InputMaybe<Scalars['Bytes']>;
@@ -2768,6 +2860,7 @@ export enum ProvenanceRecord_OrderBy {
   RemainingAmount = 'remainingAmount',
   Sender = 'sender',
   Token = 'token',
+  TokenId = 'tokenId',
   TransactionHash = 'transactionHash',
   TransactionType = 'transactionType',
   UpdatedAt = 'updatedAt'
@@ -3232,6 +3325,7 @@ export type QueryToucanBatchesArgs = {
 
 export enum Registry {
   GoldStandard = 'GOLD_STANDARD',
+  Icr = 'ICR',
   PuroEarth = 'PURO_EARTH',
   Verra = 'VERRA'
 }
@@ -3248,6 +3342,8 @@ export type Retire = {
   bridgeID: Maybe<Scalars['String']>;
   /** Carbon credit being retired */
   credit: CarbonCredit;
+  /** Transaction hash of the retirement */
+  hash: Scalars['Bytes'];
   /** {Account}-{Total Retirement Counter} */
   id: Scalars['Bytes'];
   klimaRetire: Maybe<KlimaRetire>;
@@ -3364,6 +3460,16 @@ export type Retire_Filter = {
   credit_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   credit_starts_with: InputMaybe<Scalars['String']>;
   credit_starts_with_nocase: InputMaybe<Scalars['String']>;
+  hash: InputMaybe<Scalars['Bytes']>;
+  hash_contains: InputMaybe<Scalars['Bytes']>;
+  hash_gt: InputMaybe<Scalars['Bytes']>;
+  hash_gte: InputMaybe<Scalars['Bytes']>;
+  hash_in: InputMaybe<Array<Scalars['Bytes']>>;
+  hash_lt: InputMaybe<Scalars['Bytes']>;
+  hash_lte: InputMaybe<Scalars['Bytes']>;
+  hash_not: InputMaybe<Scalars['Bytes']>;
+  hash_not_contains: InputMaybe<Scalars['Bytes']>;
+  hash_not_in: InputMaybe<Array<Scalars['Bytes']>>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -3484,11 +3590,16 @@ export enum Retire_OrderBy {
   CreditBridged = 'credit__bridged',
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
+  CreditExPostTokenId = 'credit__exPostTokenId',
   CreditId = 'credit__id',
+  CreditIsExAnte = 'credit__isExAnte',
   CreditLastBatchId = 'credit__lastBatchId',
   CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
+  CreditTokenAddress = 'credit__tokenAddress',
+  CreditTokenId = 'credit__tokenId',
   CreditVintage = 'credit__vintage',
+  Hash = 'hash',
   Id = 'id',
   KlimaRetire = 'klimaRetire',
   KlimaRetireFeeAmount = 'klimaRetire__feeAmount',
@@ -4339,30 +4450,30 @@ ${CarbonCreditFragmentFragmentDoc}
 ${PoolBalancesFragmentFragmentDoc}
 ${PoolFragmentFragmentDoc}`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getDigitalCarbonProjectsVintages(variables?: GetDigitalCarbonProjectsVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDigitalCarbonProjectsVintagesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsVintagesQuery>(GetDigitalCarbonProjectsVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsVintages', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsVintagesQuery>(GetDigitalCarbonProjectsVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsVintages', 'query');
     },
     getTokenById(variables: GetTokenByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetTokenByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetTokenByIdQuery>(GetTokenByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getTokenById', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetTokenByIdQuery>(GetTokenByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getTokenById', 'query');
     },
     getDigitalCarbonProjectsCategories(variables?: GetDigitalCarbonProjectsCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDigitalCarbonProjectsCategoriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCategoriesQuery>(GetDigitalCarbonProjectsCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCategories', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCategoriesQuery>(GetDigitalCarbonProjectsCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCategories', 'query');
     },
     getDigitalCarbonProjectsCountries(variables?: GetDigitalCarbonProjectsCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDigitalCarbonProjectsCountriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCountriesQuery>(GetDigitalCarbonProjectsCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCountries', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetDigitalCarbonProjectsCountriesQuery>(GetDigitalCarbonProjectsCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDigitalCarbonProjectsCountries', 'query');
     },
     getProjectCredits(variables: GetProjectCreditsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectCreditsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectCreditsQuery>(GetProjectCreditsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectCredits', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectCreditsQuery>(GetProjectCreditsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectCredits', 'query');
     },
     findDigitalCarbonProjects(variables?: FindDigitalCarbonProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindDigitalCarbonProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<FindDigitalCarbonProjectsQuery>(FindDigitalCarbonProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findDigitalCarbonProjects', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<FindDigitalCarbonProjectsQuery>(FindDigitalCarbonProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findDigitalCarbonProjects', 'query');
     }
   };
 }

@@ -509,15 +509,15 @@ export const GetHoldingsByWalletDocument = gql`
 }
     `;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getHoldingsByWallet(variables?: GetHoldingsByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHoldingsByWalletQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetHoldingsByWalletQuery>(GetHoldingsByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByWallet', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetHoldingsByWalletQuery>(GetHoldingsByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByWallet', 'query');
     }
   };
 }

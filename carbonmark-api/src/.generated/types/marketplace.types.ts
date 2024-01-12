@@ -236,6 +236,7 @@ export enum Activity_OrderBy {
   ListingMinFillAmount = 'listing__minFillAmount',
   ListingSingleUnitPrice = 'listing__singleUnitPrice',
   ListingTokenAddress = 'listing__tokenAddress',
+  ListingTokenSymbol = 'listing__tokenSymbol',
   ListingTotalAmountToSell = 'listing__totalAmountToSell',
   ListingUpdatedAt = 'listing__updatedAt',
   PreviousAmount = 'previousAmount',
@@ -355,6 +356,7 @@ export type Listing = {
   seller: User;
   singleUnitPrice: Scalars['BigInt'];
   tokenAddress: Scalars['Bytes'];
+  tokenSymbol: Scalars['String'];
   totalAmountToSell: Scalars['BigInt'];
   updatedAt: Maybe<Scalars['BigInt']>;
 };
@@ -494,6 +496,26 @@ export type Listing_Filter = {
   tokenAddress_not: InputMaybe<Scalars['Bytes']>;
   tokenAddress_not_contains: InputMaybe<Scalars['Bytes']>;
   tokenAddress_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  tokenSymbol: InputMaybe<Scalars['String']>;
+  tokenSymbol_contains: InputMaybe<Scalars['String']>;
+  tokenSymbol_contains_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_ends_with: InputMaybe<Scalars['String']>;
+  tokenSymbol_ends_with_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_gt: InputMaybe<Scalars['String']>;
+  tokenSymbol_gte: InputMaybe<Scalars['String']>;
+  tokenSymbol_in: InputMaybe<Array<Scalars['String']>>;
+  tokenSymbol_lt: InputMaybe<Scalars['String']>;
+  tokenSymbol_lte: InputMaybe<Scalars['String']>;
+  tokenSymbol_not: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_contains: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_contains_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_ends_with: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_ends_with_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_in: InputMaybe<Array<Scalars['String']>>;
+  tokenSymbol_not_starts_with: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_starts_with_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_starts_with: InputMaybe<Scalars['String']>;
+  tokenSymbol_starts_with_nocase: InputMaybe<Scalars['String']>;
   totalAmountToSell: InputMaybe<Scalars['BigInt']>;
   totalAmountToSell_gt: InputMaybe<Scalars['BigInt']>;
   totalAmountToSell_gte: InputMaybe<Scalars['BigInt']>;
@@ -536,6 +558,7 @@ export enum Listing_OrderBy {
   SellerId = 'seller__id',
   SingleUnitPrice = 'singleUnitPrice',
   TokenAddress = 'tokenAddress',
+  TokenSymbol = 'tokenSymbol',
   TotalAmountToSell = 'totalAmountToSell',
   UpdatedAt = 'updatedAt'
 }
@@ -868,6 +891,7 @@ export enum Purchase_OrderBy {
   ListingMinFillAmount = 'listing__minFillAmount',
   ListingSingleUnitPrice = 'listing__singleUnitPrice',
   ListingTokenAddress = 'listing__tokenAddress',
+  ListingTokenSymbol = 'listing__tokenSymbol',
   ListingTotalAmountToSell = 'listing__totalAmountToSell',
   ListingUpdatedAt = 'listing__updatedAt',
   Price = 'price',
@@ -1531,45 +1555,45 @@ export const GetAllActivitiesDocument = gql`
 }
     ${ActivityFragmentFragmentDoc}`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getCategories(variables?: GetCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCategoriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCategoriesQuery>(GetCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategories', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCategoriesQuery>(GetCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategories', 'query');
     },
     getCountries(variables?: GetCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCountriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCountriesQuery>(GetCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCountries', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCountriesQuery>(GetCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCountries', 'query');
     },
     getVintages(variables?: GetVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetVintagesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query');
     },
     getPurchases(variables?: GetPurchasesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchasesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchasesQuery>(GetPurchasesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchases', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchasesQuery>(GetPurchasesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchases', 'query');
     },
     getPurchaseById(variables: GetPurchaseByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchaseByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query');
     },
     getListingById(variables: GetListingByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetListingByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetListingByIdQuery>(GetListingByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getListingById', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetListingByIdQuery>(GetListingByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getListingById', 'query');
     },
     getUserByWallet(variables?: GetUserByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserByWalletQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query');
     },
     getProjects(variables?: GetProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsQuery>(GetProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjects', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsQuery>(GetProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjects', 'query');
     },
     getProjectById(variables: GetProjectByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectByIdQuery>(GetProjectByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectById', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectByIdQuery>(GetProjectByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectById', 'query');
     },
     getActivitiesByProjectId(variables?: GetActivitiesByProjectIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetActivitiesByProjectIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetActivitiesByProjectIdQuery>(GetActivitiesByProjectIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getActivitiesByProjectId', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetActivitiesByProjectIdQuery>(GetActivitiesByProjectIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getActivitiesByProjectId', 'query');
     },
     getAllActivities(variables?: GetAllActivitiesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllActivitiesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllActivitiesQuery>(GetAllActivitiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllActivities', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllActivitiesQuery>(GetAllActivitiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllActivities', 'query');
     }
   };
 }
