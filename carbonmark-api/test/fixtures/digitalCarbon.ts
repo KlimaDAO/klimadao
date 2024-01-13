@@ -41,7 +41,7 @@ const carbonCredit: Partial<CarbonCredit> = {
   currentSupply: "320308000000000000000000",
   id: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
   crossChainSupply: "0",
-  bridgeProtocol: BridgeProtocol.Toucan,
+  bridgeProtocol: BridgeProtocol.TOUCAN,
   bridged: "320308000000000000000000",
   retired: "0",
   poolBalances: [poolBalance as CarbonPoolCreditBalance],
@@ -54,7 +54,7 @@ export const digitalCarbonProject = aCarbonProject({
   methodologies: "ACM0002",
   country: "China",
   category: "Renewable Energy",
-  registry: Registry.Verra,
+  registry: Registry.VERRA,
   region: "Asia",
   carbonCredits: [carbonCredit as CarbonCredit],
 });

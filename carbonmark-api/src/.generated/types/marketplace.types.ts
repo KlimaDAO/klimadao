@@ -221,40 +221,41 @@ export type Activity_Filter = {
 };
 
 export enum Activity_OrderBy {
-  ActivityType = 'activityType',
-  Amount = 'amount',
-  Buyer = 'buyer',
-  BuyerId = 'buyer__id',
-  Id = 'id',
-  Listing = 'listing',
-  ListingActive = 'listing__active',
-  ListingCreatedAt = 'listing__createdAt',
-  ListingDeleted = 'listing__deleted',
-  ListingExpiration = 'listing__expiration',
-  ListingId = 'listing__id',
-  ListingLeftToSell = 'listing__leftToSell',
-  ListingMinFillAmount = 'listing__minFillAmount',
-  ListingSingleUnitPrice = 'listing__singleUnitPrice',
-  ListingTokenAddress = 'listing__tokenAddress',
-  ListingTotalAmountToSell = 'listing__totalAmountToSell',
-  ListingUpdatedAt = 'listing__updatedAt',
-  PreviousAmount = 'previousAmount',
-  PreviousPrice = 'previousPrice',
-  Price = 'price',
-  Project = 'project',
-  ProjectId = 'project__id',
-  ProjectKey = 'project__key',
-  ProjectMethodology = 'project__methodology',
-  ProjectName = 'project__name',
-  ProjectProjectAddress = 'project__projectAddress',
-  ProjectRegistry = 'project__registry',
-  ProjectUpdatedAt = 'project__updatedAt',
-  ProjectVintage = 'project__vintage',
-  Seller = 'seller',
-  SellerId = 'seller__id',
-  TimeStamp = 'timeStamp',
-  User = 'user',
-  UserId = 'user__id'
+  activityType = 'activityType',
+  amount = 'amount',
+  buyer = 'buyer',
+  buyer__id = 'buyer__id',
+  id = 'id',
+  listing = 'listing',
+  listing__active = 'listing__active',
+  listing__createdAt = 'listing__createdAt',
+  listing__deleted = 'listing__deleted',
+  listing__expiration = 'listing__expiration',
+  listing__id = 'listing__id',
+  listing__leftToSell = 'listing__leftToSell',
+  listing__minFillAmount = 'listing__minFillAmount',
+  listing__singleUnitPrice = 'listing__singleUnitPrice',
+  listing__tokenAddress = 'listing__tokenAddress',
+  listing__tokenSymbol = 'listing__tokenSymbol',
+  listing__totalAmountToSell = 'listing__totalAmountToSell',
+  listing__updatedAt = 'listing__updatedAt',
+  previousAmount = 'previousAmount',
+  previousPrice = 'previousPrice',
+  price = 'price',
+  project = 'project',
+  project__id = 'project__id',
+  project__key = 'project__key',
+  project__methodology = 'project__methodology',
+  project__name = 'project__name',
+  project__projectAddress = 'project__projectAddress',
+  project__registry = 'project__registry',
+  project__updatedAt = 'project__updatedAt',
+  project__vintage = 'project__vintage',
+  seller = 'seller',
+  seller__id = 'seller__id',
+  timeStamp = 'timeStamp',
+  user = 'user',
+  user__id = 'user__id'
 }
 
 export type BlockChangedFilter = {
@@ -300,7 +301,7 @@ export type Category_Filter = {
 };
 
 export enum Category_OrderBy {
-  Id = 'id'
+  id = 'id'
 }
 
 export type Country = {
@@ -336,7 +337,7 @@ export type Country_Filter = {
 };
 
 export enum Country_OrderBy {
-  Id = 'id'
+  id = 'id'
 }
 
 export type Listing = {
@@ -355,6 +356,7 @@ export type Listing = {
   seller: User;
   singleUnitPrice: Scalars['BigInt'];
   tokenAddress: Scalars['Bytes'];
+  tokenSymbol: Scalars['String'];
   totalAmountToSell: Scalars['BigInt'];
   updatedAt: Maybe<Scalars['BigInt']>;
 };
@@ -494,6 +496,26 @@ export type Listing_Filter = {
   tokenAddress_not: InputMaybe<Scalars['Bytes']>;
   tokenAddress_not_contains: InputMaybe<Scalars['Bytes']>;
   tokenAddress_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  tokenSymbol: InputMaybe<Scalars['String']>;
+  tokenSymbol_contains: InputMaybe<Scalars['String']>;
+  tokenSymbol_contains_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_ends_with: InputMaybe<Scalars['String']>;
+  tokenSymbol_ends_with_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_gt: InputMaybe<Scalars['String']>;
+  tokenSymbol_gte: InputMaybe<Scalars['String']>;
+  tokenSymbol_in: InputMaybe<Array<Scalars['String']>>;
+  tokenSymbol_lt: InputMaybe<Scalars['String']>;
+  tokenSymbol_lte: InputMaybe<Scalars['String']>;
+  tokenSymbol_not: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_contains: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_contains_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_ends_with: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_ends_with_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_in: InputMaybe<Array<Scalars['String']>>;
+  tokenSymbol_not_starts_with: InputMaybe<Scalars['String']>;
+  tokenSymbol_not_starts_with_nocase: InputMaybe<Scalars['String']>;
+  tokenSymbol_starts_with: InputMaybe<Scalars['String']>;
+  tokenSymbol_starts_with_nocase: InputMaybe<Scalars['String']>;
   totalAmountToSell: InputMaybe<Scalars['BigInt']>;
   totalAmountToSell_gt: InputMaybe<Scalars['BigInt']>;
   totalAmountToSell_gte: InputMaybe<Scalars['BigInt']>;
@@ -513,37 +535,38 @@ export type Listing_Filter = {
 };
 
 export enum Listing_OrderBy {
-  Active = 'active',
-  Activities = 'activities',
-  BatchPrices = 'batchPrices',
-  Batches = 'batches',
-  CreatedAt = 'createdAt',
-  Deleted = 'deleted',
-  Expiration = 'expiration',
-  Id = 'id',
-  LeftToSell = 'leftToSell',
-  MinFillAmount = 'minFillAmount',
-  Project = 'project',
-  ProjectId = 'project__id',
-  ProjectKey = 'project__key',
-  ProjectMethodology = 'project__methodology',
-  ProjectName = 'project__name',
-  ProjectProjectAddress = 'project__projectAddress',
-  ProjectRegistry = 'project__registry',
-  ProjectUpdatedAt = 'project__updatedAt',
-  ProjectVintage = 'project__vintage',
-  Seller = 'seller',
-  SellerId = 'seller__id',
-  SingleUnitPrice = 'singleUnitPrice',
-  TokenAddress = 'tokenAddress',
-  TotalAmountToSell = 'totalAmountToSell',
-  UpdatedAt = 'updatedAt'
+  active = 'active',
+  activities = 'activities',
+  batchPrices = 'batchPrices',
+  batches = 'batches',
+  createdAt = 'createdAt',
+  deleted = 'deleted',
+  expiration = 'expiration',
+  id = 'id',
+  leftToSell = 'leftToSell',
+  minFillAmount = 'minFillAmount',
+  project = 'project',
+  project__id = 'project__id',
+  project__key = 'project__key',
+  project__methodology = 'project__methodology',
+  project__name = 'project__name',
+  project__projectAddress = 'project__projectAddress',
+  project__registry = 'project__registry',
+  project__updatedAt = 'project__updatedAt',
+  project__vintage = 'project__vintage',
+  seller = 'seller',
+  seller__id = 'seller__id',
+  singleUnitPrice = 'singleUnitPrice',
+  tokenAddress = 'tokenAddress',
+  tokenSymbol = 'tokenSymbol',
+  totalAmountToSell = 'totalAmountToSell',
+  updatedAt = 'updatedAt'
 }
 
 /** Defines the order direction, either ascending or descending */
 export enum OrderDirection {
-  Asc = 'asc',
-  Desc = 'desc'
+  asc = 'asc',
+  desc = 'desc'
 }
 
 export type Project = {
@@ -746,20 +769,20 @@ export type Project_Filter = {
 };
 
 export enum Project_OrderBy {
-  Activities = 'activities',
-  Category = 'category',
-  CategoryId = 'category__id',
-  Country = 'country',
-  CountryId = 'country__id',
-  Id = 'id',
-  Key = 'key',
-  Listings = 'listings',
-  Methodology = 'methodology',
-  Name = 'name',
-  ProjectAddress = 'projectAddress',
-  Registry = 'registry',
-  UpdatedAt = 'updatedAt',
-  Vintage = 'vintage'
+  activities = 'activities',
+  category = 'category',
+  category__id = 'category__id',
+  country = 'country',
+  country__id = 'country__id',
+  id = 'id',
+  key = 'key',
+  listings = 'listings',
+  methodology = 'methodology',
+  name = 'name',
+  projectAddress = 'projectAddress',
+  registry = 'registry',
+  updatedAt = 'updatedAt',
+  vintage = 'vintage'
 }
 
 export type Purchase = {
@@ -856,24 +879,25 @@ export type Purchase_Filter = {
 };
 
 export enum Purchase_OrderBy {
-  Amount = 'amount',
-  Id = 'id',
-  Listing = 'listing',
-  ListingActive = 'listing__active',
-  ListingCreatedAt = 'listing__createdAt',
-  ListingDeleted = 'listing__deleted',
-  ListingExpiration = 'listing__expiration',
-  ListingId = 'listing__id',
-  ListingLeftToSell = 'listing__leftToSell',
-  ListingMinFillAmount = 'listing__minFillAmount',
-  ListingSingleUnitPrice = 'listing__singleUnitPrice',
-  ListingTokenAddress = 'listing__tokenAddress',
-  ListingTotalAmountToSell = 'listing__totalAmountToSell',
-  ListingUpdatedAt = 'listing__updatedAt',
-  Price = 'price',
-  TimeStamp = 'timeStamp',
-  User = 'user',
-  UserId = 'user__id'
+  amount = 'amount',
+  id = 'id',
+  listing = 'listing',
+  listing__active = 'listing__active',
+  listing__createdAt = 'listing__createdAt',
+  listing__deleted = 'listing__deleted',
+  listing__expiration = 'listing__expiration',
+  listing__id = 'listing__id',
+  listing__leftToSell = 'listing__leftToSell',
+  listing__minFillAmount = 'listing__minFillAmount',
+  listing__singleUnitPrice = 'listing__singleUnitPrice',
+  listing__tokenAddress = 'listing__tokenAddress',
+  listing__tokenSymbol = 'listing__tokenSymbol',
+  listing__totalAmountToSell = 'listing__totalAmountToSell',
+  listing__updatedAt = 'listing__updatedAt',
+  price = 'price',
+  timeStamp = 'timeStamp',
+  user = 'user',
+  user__id = 'user__id'
 }
 
 export type Query = {
@@ -1234,10 +1258,10 @@ export type User_Filter = {
 };
 
 export enum User_OrderBy {
-  Activities = 'activities',
-  Id = 'id',
-  Listings = 'listings',
-  Purchases = 'purchases'
+  activities = 'activities',
+  id = 'id',
+  listings = 'listings',
+  purchases = 'purchases'
 }
 
 export type _Block_ = {
@@ -1269,9 +1293,9 @@ export type _Meta_ = {
 
 export enum _SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
-  Allow = 'allow',
+  allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
-  Deny = 'deny'
+  deny = 'deny'
 }
 
 export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } };
@@ -1531,45 +1555,45 @@ export const GetAllActivitiesDocument = gql`
 }
     ${ActivityFragmentFragmentDoc}`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, variables) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getCategories(variables?: GetCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCategoriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCategoriesQuery>(GetCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategories', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCategoriesQuery>(GetCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategories', 'query');
     },
     getCountries(variables?: GetCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCountriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCountriesQuery>(GetCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCountries', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCountriesQuery>(GetCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCountries', 'query');
     },
     getVintages(variables?: GetVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetVintagesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query');
     },
     getPurchases(variables?: GetPurchasesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchasesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchasesQuery>(GetPurchasesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchases', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchasesQuery>(GetPurchasesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchases', 'query');
     },
     getPurchaseById(variables: GetPurchaseByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchaseByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query');
     },
     getListingById(variables: GetListingByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetListingByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetListingByIdQuery>(GetListingByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getListingById', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetListingByIdQuery>(GetListingByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getListingById', 'query');
     },
     getUserByWallet(variables?: GetUserByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserByWalletQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query');
     },
     getProjects(variables?: GetProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsQuery>(GetProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjects', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsQuery>(GetProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjects', 'query');
     },
     getProjectById(variables: GetProjectByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectByIdQuery>(GetProjectByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectById', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectByIdQuery>(GetProjectByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectById', 'query');
     },
     getActivitiesByProjectId(variables?: GetActivitiesByProjectIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetActivitiesByProjectIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetActivitiesByProjectIdQuery>(GetActivitiesByProjectIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getActivitiesByProjectId', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetActivitiesByProjectIdQuery>(GetActivitiesByProjectIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getActivitiesByProjectId', 'query');
     },
     getAllActivities(variables?: GetAllActivitiesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllActivitiesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllActivitiesQuery>(GetAllActivitiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllActivities', 'query', variables);
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllActivitiesQuery>(GetAllActivitiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllActivities', 'query');
     }
   };
 }
