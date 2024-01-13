@@ -139,13 +139,15 @@ export const ProjectDetails: FC<Props> = (props) => {
             href={`https://polygonscan.com/tx/${props.retirement?.retire.hash}`}
           />
         )}
-        <CarbonmarkButton
-          icon={<LaunchIcon />}
-          target="_blank"
-          variant="transparent"
-          label={<Trans>Carbon provenance</Trans>}
-          href={`${carbonmarkUrls.retirements}/${props.beneficiaryAddress}/${props.retirementIndex}/provenance`}
-        />
+        {!props.isMossOffset && (
+          <CarbonmarkButton
+            icon={<LaunchIcon />}
+            target="_blank"
+            variant="transparent"
+            label={<Trans>Carbon provenance</Trans>}
+            href={`${carbonmarkUrls.retirements}/${props.beneficiaryAddress}/${props.retirementIndex}/provenance`}
+          />
+        )}
       </div>
     </>
   );

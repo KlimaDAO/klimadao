@@ -5,6 +5,7 @@
     "bridgeId": { "type": "string" },
     "amount": { "type": "number" },
     "hash": { "type": "string" },
+    "hasProvenanceDetails": { "type": "boolean" },
     "beneficiaryAddress": { "type": "string" },
     "beneficiaryName": { "type": "string" },
     "retirementMessage": { "type": "string" },
@@ -43,6 +44,7 @@
   "required": [
     "amount",
     "hash",
+    "hasProvenanceDetails",
     "beneficiaryAddress",
     "retiringAddress",
     "timestamp"

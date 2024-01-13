@@ -68,9 +68,6 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    console.debug(
-      await getRetirements({ beneficiaryAddress, retirementIndex })
-    );
     const retirement = (
       await getRetirements({ beneficiaryAddress, retirementIndex })
     )[0];

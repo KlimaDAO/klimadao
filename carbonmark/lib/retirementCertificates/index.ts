@@ -404,15 +404,17 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       link: `https://polygonscan.com/tx/${params.retirement.retire.hash}`,
     });
 
-    doc.text(
-      "View carbon provenance",
-      doc.page.width - 360,
-      startPosition + 124,
-      {
-        underline: true,
-        link: `${urls.carbonmark}/retirements/${params.beneficiaryAddress}/${params.retirementIndex}/provenance`,
-      }
-    );
+    if (!isMossRetirement) {
+      doc.text(
+        "View carbon provenance",
+        doc.page.width - 360,
+        startPosition + 124,
+        {
+          underline: true,
+          link: `${urls.carbonmark}/retirements/${params.beneficiaryAddress}/${params.retirementIndex}/provenance`,
+        }
+      );
+    }
   };
 
   const printMossProjectDetails = (): void => {

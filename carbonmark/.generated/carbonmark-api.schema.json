@@ -1679,6 +1679,9 @@
           "hash": {
             "type": "string"
           },
+          "hasProvenanceDetails": {
+            "type": "boolean"
+          },
           "beneficiaryAddress": {
             "type": "string"
           },
@@ -1786,6 +1789,7 @@
         "required": [
           "amount",
           "hash",
+          "hasProvenanceDetails",
           "beneficiaryAddress",
           "retiringAddress",
           "timestamp"
@@ -3029,6 +3033,9 @@
                       "hash": {
                         "type": "string"
                       },
+                      "hasProvenanceDetails": {
+                        "type": "boolean"
+                      },
                       "beneficiaryAddress": {
                         "type": "string"
                       },
@@ -3136,6 +3143,7 @@
                     "required": [
                       "amount",
                       "hash",
+                      "hasProvenanceDetails",
                       "beneficiaryAddress",
                       "retiringAddress",
                       "timestamp"
@@ -4369,6 +4377,9 @@
                     "hash": {
                       "type": "string"
                     },
+                    "hasProvenanceDetails": {
+                      "type": "boolean"
+                    },
                     "beneficiaryAddress": {
                       "type": "string"
                     },
@@ -4476,6 +4487,7 @@
                   "required": [
                     "amount",
                     "hash",
+                    "hasProvenanceDetails",
                     "beneficiaryAddress",
                     "retiringAddress",
                     "timestamp"

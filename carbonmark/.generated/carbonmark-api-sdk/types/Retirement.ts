@@ -16,6 +16,10 @@ export type Retirement = {
    */
   hash: string;
   /**
+   * @type boolean
+   */
+  hasProvenanceDetails: boolean;
+  /**
    * @type string
    */
   beneficiaryAddress: string;

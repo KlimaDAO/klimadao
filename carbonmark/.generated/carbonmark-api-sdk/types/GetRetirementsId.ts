@@ -29,6 +29,10 @@ export type GetRetirementsIdQueryResponse = {
    */
   hash: string;
   /**
+   * @type boolean
+   */
+  hasProvenanceDetails: boolean;
+  /**
    * @type string
    */
   beneficiaryAddress: string;
