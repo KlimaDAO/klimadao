@@ -3,6 +3,7 @@ import { pick } from "lodash";
 import { GetRetirementByHashQuery } from "../../.generated/types/digitalCarbon.types";
 import { Retirement } from "../../models/Retirement.model";
 import { formatCarbonCredit } from "./carbonCredits.utils";
+import { MOSS_POOL } from "./utils.constants";
 
 /**
  * Formats a KlimaRetirement from the GQL query into a standardized API response fragment
@@ -26,6 +27,7 @@ export function formatRetirement(
     retiringAddress: retirement.retiringAddress.id,
     timestamp: Number(retirement.timestamp),
     amount: Number(utils.formatUnits(retirement.amount || 0, 18)),
+    hasProvenanceDetails: retirement.pool?.id == MOSS_POOL,
     credit: retirement.credit
       ? formatCarbonCredit(retirement.credit)
       : undefined,

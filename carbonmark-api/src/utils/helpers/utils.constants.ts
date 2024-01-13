@@ -32,6 +32,8 @@ export const TOKEN_POOLS = [
   },
 ] as const;
 
+export const MOSS_POOL = TOKEN_ADDRESSES[ENV].MOSS_POOL;
+
 export type TokenPool = (typeof TOKEN_POOLS)[number];
 
 /** The value by which to truncate token prices */

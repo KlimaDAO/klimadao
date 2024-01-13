@@ -16,6 +16,9 @@ fragment RetireFragment on Retire {
   bridgeID
   hash
   amount
+  pool {
+    id
+  }
   beneficiaryAddress {
     id
   }

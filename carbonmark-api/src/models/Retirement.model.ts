@@ -7,6 +7,7 @@ export const RetirementModel = Type.Object({
   bridgeId: Type.Optional(Type.String()),
   amount: Type.Number(),
   hash: Type.String(),
+  hasProvenanceDetails: Type.Boolean(),
   beneficiaryAddress: Type.String(),
   beneficiaryName: Type.Optional(Type.String()),
   retirementMessage: Type.Optional(Type.String()),
