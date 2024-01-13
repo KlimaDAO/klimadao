@@ -115,7 +115,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   const isMossOffset = retirement?.retire.credit.bridgeProtocol === "MOSS";
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenInfoMap[carbonTokenName];
-  console.log("tokenData", tokenData);
   return (
     <GridContainer>
       <PageHead
