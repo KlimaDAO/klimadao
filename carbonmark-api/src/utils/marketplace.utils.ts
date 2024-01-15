@@ -35,13 +35,24 @@ export type GetProjectListing = NonNullable<
 /** Formats a gql.marketplace listing to match Listing.model, and formats integers */
 
 export const formatListing = (listing: GetProjectListing): ListingModel => {
+  const registry = listing.project.key.split("-")[0];
+
   return {
     ...formatGraphTimestamps(listing),
 
-    leftToSell: listing.leftToSell,
+    leftToSell:
+      registry === "ICR"
+        ? listing.leftToSell
+        : utils.formatUnits(listing.leftToSell, 18),
     singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
-    minFillAmount: listing.minFillAmount,
-    totalAmountToSell: listing.totalAmountToSell,
+    minFillAmount:
+      registry === "ICR"
+        ? listing.minFillAmount
+        : utils.formatUnits(listing.minFillAmount, 18),
+    totalAmountToSell:
+      registry === "ICR"
+        ? listing.totalAmountToSell
+        : utils.formatUnits(listing.totalAmountToSell, 18),
     expiration: Number(listing.expiration),
     project: {
       ...listing.project,
