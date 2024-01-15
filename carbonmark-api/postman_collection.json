@@ -389,6 +389,39 @@
       "response": []
     },
     {
+      "name": "getRetirements",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Retirements are filtered by account as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].beneficiaryAddress).to.eql('0x087a7afb6975a2837453be685eb6272576c0bc06');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/retirements?beneficiaryAddress=0x087a7afb6975a2837453be685eb6272576c0bc06",
+          "host": ["{{url}}"],
+          "path": ["retirements"],
+          "query": [
+            {
+              "key": "beneficiaryAddress",
+              "value": "0x087a7afb6975a2837453be685eb6272576c0bc06"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "getRetirementByHash",
       "event": [
         {
