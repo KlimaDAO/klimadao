@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:361
 msgid "0% listing fee"
@@ -73,6 +79,11 @@ msgstr "Alle Assets stammen von großen Zertifizierern"
 #: components/CreateListing/Transaction/Submit.tsx:41
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr "Fast fertig! Im letzten Schritt erstellen Sie den Eintrag und übertragen ihn ins System. Bitte verifizieren Sie unten noch einmal die Menge und den Preis."
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:176
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:83
+msgid "Amount"
+msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
 msgid "Amount is required"
@@ -228,6 +239,10 @@ msgstr "Blue Carbon"
 msgid "Book a demo"
 msgstr "Demo anfordern"
 
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:89
+msgid "Bridge"
+msgstr ""
+
 #: components/pages/Home/index.tsx:160
 #: components/pages/Home/index.tsx:191
 #: components/pages/Home/index.tsx:244
@@ -249,6 +264,10 @@ msgstr "Kaufen"
 msgid "Buy or retire carbon"
 msgstr "CO2 kaufen oder für CO2-Ausgleich nutzen"
 
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:87
+msgid "By"
+msgstr ""
+
 #: components/ExitModal/index.tsx:44
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -264,6 +283,11 @@ msgstr "CO2-Ausgleiche"
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:42
 msgid "Carbon assets you purchase can be listed for sale on Carbonmark at any time from your <0>portfolio</0>."
 msgstr "Sie können die von Ihnen gekauften CO2-Assets jederzeit aus Ihrem <0>Portfolio</0> heraus auf Carbonmark anbieten."
+
+#: components/pages/Retirements/RetirementProvenance/index.tsx:140
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:147
+msgid "Carbon provenance"
+msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "Carbonmark Overview"
@@ -412,13 +436,17 @@ msgstr "Erstellen und bearbeiten Sie Einträge und protokollieren Sie Ihre Aktiv
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr "Erstellen Sie Ihr eigenes CO2-Schaufenster. Verkaufen Sie direkt an Organisationen oder Einzelpersonen."
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:67
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:58
 msgid "Create your own retirement"
 msgstr "Ihren eigenen CO2-Ausgleich erstellen"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:82
 msgid "Created:"
 msgstr "Erstellt:"
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:162
+msgid "Credit ID"
+msgstr ""
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:103
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
@@ -454,6 +482,10 @@ msgstr "Informationen über dieses Projekt und diesen Jahrgang"
 msgid "Data for this seller"
 msgstr "Informationen über diesen Verkäufer"
 
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:89
+msgid "Date"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:289
 msgid "Defaults to the connected wallet address"
 msgstr "Standardmäßig die aktuell verbundene Walletadresse"
@@ -482,11 +514,11 @@ msgstr "Anzeigename"
 msgid "Display name is required"
 msgstr "Anzeigename ist erforderlich"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:34
 msgid "Download PDF"
 msgstr "PDF herunterladen"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:34
 msgid "Downloading ..."
 msgstr "Wird heruntergeladen ..."
 
@@ -611,6 +643,10 @@ msgstr "Hilfe"
 msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
 msgstr "Dies ist eine Liste aus reichhaltig verfügbaren, vergünstigten CO2-Tokens, die Sie schnell und einfach ausgleichen können."
 
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:119
+msgid "Hide {numberOfTransfers} transfers"
+msgstr ""
+
 #: components/CreateListing/Form/index.tsx:74
 msgid "How many tonnes do you want to list for sale?"
 msgstr "Wie viele Tonnen möchten Sie zum Verkauf anbieten?"
@@ -691,7 +727,7 @@ msgstr "Der Nachname sollte keine Zahlen oder Sonderzeichen enthalten"
 msgid "Latest First"
 msgstr "Neueste Einträge zuerst"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:101
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:103
 msgid "Learn More"
 msgstr "Erfahren Sie mehr"
 
@@ -776,7 +812,7 @@ msgstr "Maximieren Sie Ihre positive Klimawirkung."
 msgid "Methodology"
 msgstr "Methodik"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:52
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:54
 msgid "Moss"
 msgstr "Moss"
 
@@ -850,6 +886,10 @@ msgstr "Keine gültige Polygonadresse"
 #: components/pages/Resources/lib/cmsDataMap.ts:72
 msgid "Oldest First"
 msgstr "Älteste Einträge zuerst"
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:266
+msgid "On the Verra page, search (CTRL+F) for the specific serial number."
+msgstr ""
 
 #: lib/getCategoryInfo.ts:41
 msgid "Other"
@@ -1177,6 +1217,10 @@ msgstr "Gleich Sie CO2 via Banküberweisung aus."
 msgid "Retire | Carbonmark"
 msgstr "Ausgleichen | Carbonmark"
 
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:67
+msgid "Retirement"
+msgstr ""
+
 #: components/pages/Retire/Activity/Quotes.tsx:32
 msgid "Retirement Activity"
 msgstr "Ausgleichsaktivität"
@@ -1236,6 +1280,14 @@ msgstr "Ihre digitalen CO2-Tokens direkt an Käufer verkaufen"
 #: components/pages/Project/BuyOptions/SellerListing.tsx:58
 msgid "Seller Listing"
 msgstr "Verkäufereintrag"
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:242
+msgid "Serial Number"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/index.tsx:156
+msgid "Share this page"
+msgstr ""
 
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:31
 #: components/pages/Project/Purchase/Pool/SubmitButton.tsx:31
@@ -1530,6 +1582,10 @@ msgstr "Gesamte Ausgleichstransaktionen"
 msgid "Total sale cost"
 msgstr "Gesamtverkaufskosten"
 
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:78
+msgid "Transfer"
+msgstr ""
+
 #: components/CreateListing/Form/index.tsx:106
 msgid "USDC per tonne"
 msgstr "USDC pro Tonne"
@@ -1621,6 +1677,10 @@ msgstr "Betrachten und kaufen Sie dieses CO2-Ausgleichsprojekt auf Carbonmark"
 msgid "View and share certificate"
 msgstr "Zertifikat ansehen und teilen"
 
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:262
+msgid "View issuance on Verra"
+msgstr ""
+
 #: components/AssetDetails/index.tsx:60
 msgid "View on PolygonScan"
 msgstr "Auf PolygonScan ansehen"
@@ -1629,9 +1689,21 @@ msgstr "Auf PolygonScan ansehen"
 msgid "View on PolygonScan <0/>"
 msgstr "Auf PolygonScan ansehen <0/>"
 
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:99
+msgid "View retirement"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/index.tsx:143
+msgid "View the entire transaction history - from bridging event until retirement - for each credit and partial credit included in the following retirement transaction:"
+msgstr ""
+
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
 msgstr "Projektdetails und weitere Informationen über diesen Kauf ansehen."
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:121
+msgid "View {numberOfTransfers} transfers"
+msgstr ""
 
 #: components/ProjectFilterModal/index.tsx:141
 msgid "Vintage"
@@ -2092,6 +2164,18 @@ msgstr "{retiree} hat {formattedAmount} Tonnen CO2 ausgeglichen"
 msgid "retirement.head.title"
 msgstr "Carbonmark | Quittung für CO2-Ausgleich"
 
+#: components/pages/Retirements/RetirementProvenance/index.tsx:130
+msgid "retirement.provenance.head.metaDescription"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/index.tsx:126
+msgid "retirement.provenance.head.metaTitle"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/index.tsx:122
+msgid "retirement.provenance.head.title"
+msgstr ""
+
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:41
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "Keine Empfängeradresse verfügbar"
@@ -2116,7 +2200,7 @@ msgstr "CO2-Credit-Ausgleich"
 msgid "retirement.single.country_region.title"
 msgstr "Land/Region:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:121
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:123
 msgid "retirement.single.immutable_public_records.title"
 msgstr "Dies repräsentiert einen permanenten CO2-Ausgleich durch ein digitales CO2-Asset. Der Ausgleichsvorgang und alle damit verbundenen Daten werden unveränderbar und öffentlich zugänglich aufgezeichnet."
 
@@ -2128,15 +2212,15 @@ msgstr "Ausgleichsnachricht:"
 msgid "retirement.single.methodology.title"
 msgstr "Methodik:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
 msgid "retirement.single.moss_offset.description"
 msgstr "MCO2-Zertifikate werden durch Projekte aus dem Amazonas-Regenwald generiert, die zahlreiche positiven externen Nebeneffekt mitbringen - wie die Schaffung regionaler Arbeitsplätze und den Erhalt lokaler Artenvielfalt. Entdecken Sie MCO2 auf <0>https://data.klimadao.finance/de/token-details?tab=moss</0>."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:73
 msgid "retirement.single.moss_offset.name"
 msgstr "Moss Earth MCO2"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:114
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:116
 msgid "retirement.single.official_certificate.title"
 msgstr "Offizielles Zertifikat für On-Chain-CO2-Ausgleich bereitgestellt von <0>Carbonmark.com</0>"
 
@@ -2144,15 +2228,15 @@ msgstr "Offizielles Zertifikat für On-Chain-CO2-Ausgleich bereitgestellt von <0
 msgid "retirement.single.project.title"
 msgstr "Projekt:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
 msgid "retirement.single.project_description.title"
 msgstr "Beschreibung"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:44
 msgid "retirement.single.project_details.title"
 msgstr "Projektinformationen"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:65
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:67
 msgid "retirement.single.project_name.title"
 msgstr "Projektname"
 
@@ -2164,7 +2248,7 @@ msgstr "Beweis für"
 msgid "retirement.single.quantity.title"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:29
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:27
 msgid "retirement.single.share_retirement.title"
 msgstr "Diesen Ausgleich teilen"
 
@@ -2192,7 +2276,7 @@ msgstr "Typ:"
 msgid "retirement.single.verified_tonnes.title"
 msgstr "Verifizierte CO2-Tonnen ausgeglichen"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:140
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:135
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
@@ -2442,6 +2526,15 @@ msgstr "{DEFAULT_EXPIRATION_DAYS} Tage ({expirationDatestring})"
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr "{amount} Tonnen wurden für Projekt {0} gekauft"
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:179
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:85
+msgid "{formattedAmount} Tonnes"
+msgstr ""
+
+#: components/Quantity/index.tsx:27
+msgid "{formattedAmount} tonnes"
+msgstr ""
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:29
 msgid "{tokenSymbol}"
