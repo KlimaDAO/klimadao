@@ -95,8 +95,9 @@ export const layoutChildrenContainer = css`
 
   ${breakpoints.desktop} {
     padding: 4rem 2.4rem;
+
     &:has(.feature-banner.initial-banner),
-    &:has(.feature-banner) {
+    &:has(.feature-banner):not(.initial-banner) {
       padding: 16rem 2.4rem;
     }
   }
