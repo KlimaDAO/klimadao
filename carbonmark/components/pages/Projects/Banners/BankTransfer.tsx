@@ -39,8 +39,7 @@ export const BankTransferBanner: FC = () => {
   };
 
   const onClose = () => {
-    setIsVisible(false);
-    setStorageValues(["1"], false);
+    setStorageValues(["1"]);
   };
 
   const onShowLater = () => {
