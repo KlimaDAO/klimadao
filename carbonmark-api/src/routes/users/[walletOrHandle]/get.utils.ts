@@ -154,21 +154,24 @@ export const getHoldingsByWallet = async (params: {
     let icrHoldings: MultipleTokenStandardType[] = [];
 
     if (IcrHoldingsResponse.holder?.exPostAmounts) {
-      icrHoldings = IcrHoldingsResponse.holder.exPostAmounts.map((item) => ({
-        amount: item.amount,
-        id: item.exPost.serialization,
-        token: {
-          decimals: 0,
-          id: item.exPost.project.id,
-          name: item.exPost.project.projectName,
-          symbol:
-            createICRProjectID(item.exPost.serialization) +
-            "-" +
-            item.exPost.vintage,
-          tokenId: item.exPost.tokenId,
-        },
-      }));
+      icrHoldings = IcrHoldingsResponse.holder.exPostAmounts
+        .filter((item) => Number(item.amount) > 0)
+        .map((item) => ({
+          id: item.exPost.serialization,
+          token: {
+            decimals: 0,
+            id: item.exPost.project.id,
+            name: item.exPost.project.projectName,
+            symbol:
+              createICRProjectID(item.exPost.serialization) +
+              "-" +
+              item.exPost.vintage,
+            tokenId: item.exPost.tokenId,
+          },
+          amount: item.amount,
+        }));
     }
+
     const assetsHoldings = holdingsResponse.accounts.at(0)?.holdings ?? [];
 
     const allHoldings = [...assetsHoldings, ...icrHoldings];
