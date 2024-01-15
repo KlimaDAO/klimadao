@@ -1,16 +1,13 @@
 import { FastifyInstance } from "fastify";
-import { pick } from "lodash";
-import { fixtures } from "../../../../test/fixtures";
 import { build } from "../../../helper";
 import { DEV_URL } from "../../../test.constants";
 import {
+  expectedTransformedRetirement,
   mockDatabaseProfile,
   mockDigitalCarbonRetirements,
-} from "./get.test.mocks";
+} from "../get.test.mocks";
 
 mockDatabaseProfile();
-const mockRetirement = fixtures.digitalCarbon.retirement;
-const mockProfile = fixtures.firebase.profile;
 
 describe("GET /retirements/:id", () => {
   let fastify: FastifyInstance;
@@ -31,28 +28,6 @@ describe("GET /retirements/:id", () => {
     });
     const retirement = await response.json();
     expect(response.statusCode).toEqual(200);
-    expect(retirement).toEqual({
-      ...pick(mockRetirement, [
-        "id",
-        "bridgeID",
-        "beneficiaryName",
-        "retirementMessage",
-        "retiringName",
-      ]),
-      timestamp: 1701095367,
-      retiringAddress: mockRetirement.retiringAddress.id,
-      beneficiaryAddress: mockRetirement.beneficiaryAddress.id,
-      amount: 3,
-      hash: mockRetirement.hash,
-      "hasProvenanceDetails": false,
-      credit: {
-        ...pick(retirement.credit, ["id", "bridgeProtocol", "vintage"]),
-        projectId: retirement.credit.projectId,
-        currentSupply: 320308,
-        retired: 0,
-        crossChainSupply: 0,
-      },
-      retireeProfile: mockProfile,
-    });
+    expect(retirement).toEqual(expectedTransformedRetirement);
   });
 });
