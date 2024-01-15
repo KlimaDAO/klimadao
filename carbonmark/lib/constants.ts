@@ -150,7 +150,6 @@ export const urls = {
     "https://api.hsforms.com/submissions/v3/integration/submit/26010207/2f87cd63-f8a7-43e9-9483-ac541a614762",
   projects: "/projects",
   users: "/users",
-  retirements: "/retirements",
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",

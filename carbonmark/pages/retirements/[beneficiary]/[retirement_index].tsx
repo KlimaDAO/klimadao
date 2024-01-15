@@ -1,5 +1,5 @@
 import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
-import { projectIDRegExp, urls } from "@klimadao/lib/constants";
+import { urls } from "@klimadao/lib/constants";
 import { getRetirementDetails } from "@klimadao/lib/utils";
 import {
   SingleRetirementPage,
@@ -12,6 +12,7 @@ import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   beneficiary: string;
@@ -102,9 +103,13 @@ export const getStaticProps: GetStaticProps<
     }
 
     let project;
-    const projectId = `${retirement?.retire.credit.project.projectID}-${retirement?.retire.credit.vintage}`;
-    if (projectId.match(projectIDRegExp)) {
-      project = await getProjectsId(projectId);
+    if (
+      retirement?.retire.credit.project.projectID &&
+      retirement?.retire.credit.vintage
+    ) {
+      project = await getProjectsId(
+        `${retirement.retire.credit.project.projectID}-${retirement.retire.credit.vintage}`
+      );
     }
 
     const pageProps: SingleRetirementPageProps = {

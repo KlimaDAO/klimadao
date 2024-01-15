@@ -207,10 +207,6 @@
                   "country",
                   "methodology"
                 ]
-              },
-              "symbol": {
-                "description": "Symbol of the token",
-                "type": "string"
               }
             },
             "required": [
