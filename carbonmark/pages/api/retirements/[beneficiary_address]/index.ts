@@ -1,4 +1,5 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
+import { formatUnits } from "@klimadao/lib/utils";
 import { isAddress } from "ethers-v6";
 import { queryProjects } from "lib/cms/queriesProjects";
 import { NextApiHandler } from "next";
@@ -7,6 +8,17 @@ import { queryKlimaRetiresByAddress } from "../../../../lib/retirementDataQuerie
 export interface APIDefaultResponse {
   message: string;
 }
+
+const formatAmount = (r: KlimaRetire["retire"]) => {
+  const amount = r.amount;
+  const registry = r.credit.project.registry;
+
+  if (registry === "ICR") {
+    return amount;
+  } else {
+    return formatUnits(amount, 18);
+  }
+};
 
 /** GET "/api/retirements/<beneficiary_address>?limit=12345" */
 
@@ -56,8 +68,13 @@ const getRetirements: NextApiHandler<
         // attach name from CMS to retirement data
         const mergedRetirements = limittedRetirements.map((r) => ({
           ...r,
+          retire: {
+            ...r.retire,
+            amount: formatAmount(r.retire),
+          },
           offset: {
             ...r.retire,
+            amount: formatAmount(r.retire),
             name:
               cmsProjects.find(
                 (p) => p.id === r.retire.credit.project.projectID

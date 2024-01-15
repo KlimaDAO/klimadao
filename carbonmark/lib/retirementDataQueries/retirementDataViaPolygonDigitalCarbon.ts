@@ -121,15 +121,15 @@ export const queryKlimaRetireByIndex = async (
 
 export const queryKlimaRetiresByAddress = async (
   beneficiaryAddress: string
-): Promise<KlimaRetire[] | false> => {
+): Promise<KlimaRetire[]> => {
   try {
     const json: QueryKlimaRetires = await fetchGraphQL(
       generateKlimaRetireQuery(beneficiaryAddress)
     );
-    return !!json.data.klimaRetires.length && json.data.klimaRetires;
+    return json.data.klimaRetires || [];
   } catch (e) {
     console.error("Failed to query KlimaRetiresByAddress", e);
-    return Promise.reject(e);
+    return [];
   }
 };
 
