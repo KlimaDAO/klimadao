@@ -302,11 +302,8 @@ export const REGISTRIES = {
 export const verra = {
   projectSearch: `${REGISTRIES.Verra.api}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
   projectDetailPage: `${REGISTRIES.Verra.url}/app/projectDetail/VCS`, // add ID after VCS like /191
-  appSearch: `${REGISTRIES.Verra.url}/app/search/VCS`,
 };
 
 export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
-
-export const projectIDRegExp = /^(VCS|PURO|ICR|GS)-\d+-(19\d{2}|20\d{2})$/;

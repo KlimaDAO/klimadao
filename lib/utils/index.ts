@@ -32,7 +32,6 @@ export { getTokenDecimals } from "./getTokenDecimals";
 export { getTotalCarbonRetired } from "./getTotalCarbonRetired";
 export { getTotalRetirements } from "./getTotalRetirements";
 export { getTreasuryBalance } from "./getTreasuryBalance";
-export { insertWhiteSpaces } from "./insertWhiteSpaces";
 export { isTestnetChainId } from "./isTestnetChainId";
 export {
   KNSContract,
