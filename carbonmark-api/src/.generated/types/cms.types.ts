@@ -964,9 +964,9 @@ export type SlugSorting = {
 
 export enum SortOrder {
   /** Sorts on the value in ascending order. */
-  Asc = 'ASC',
+  ASC = 'ASC',
   /** Sorts on the value in descending order. */
-  Desc = 'DESC'
+  DESC = 'DESC'
 }
 
 export type Span = {

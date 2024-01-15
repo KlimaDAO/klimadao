@@ -38,7 +38,7 @@ const anotherCarbonProject: CarbonProject = {
   ...cloneDeep(mockDigitalCarbonProject),
   id: "VCS-111",
   projectID: "VCS-111",
-  registry: Registry.Verra,
+  registry: Registry.VERRA,
 };
 const anotherMarketplaceProject: MarketplaceProject = {
   ...cloneDeep(mockMarketplaceProject),

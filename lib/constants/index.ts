@@ -281,7 +281,7 @@ export const subgraphs = {
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
-  carbonmark: `${SUBGRAPH_URL_ID}/QmX81XsUrJZcPHsv72ypUe2a5xQ375zY2Yr6cUdtRjB8sy`,
+  carbonmark: `${SUBGRAPH_URL_ID}/QmdDsUGwLLkzsFmXneaNc13BS43v8wFZL7vDTqWK4YZp1Z`,
 };
 
 /** Definitions of available registries */

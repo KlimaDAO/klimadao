@@ -44,6 +44,7 @@ describe("GET /retirements/:id", () => {
       beneficiaryAddress: mockRetirement.beneficiaryAddress.id,
       amount: 3,
       hash: mockRetirement.hash,
+      "hasProvenanceDetails": false,
       credit: {
         ...pick(retirement.credit, ["id", "bridgeProtocol", "vintage"]),
         projectId: retirement.credit.projectId,

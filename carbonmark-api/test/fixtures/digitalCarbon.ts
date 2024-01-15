@@ -49,7 +49,7 @@ const digitalCarbonProjectWithoutCredits = aCarbonProject({
   methodologies: "ACM0002",
   country: "China",
   category: "Renewable Energy",
-  registry: Registry.Verra,
+  registry: Registry.VERRA,
   region: "Asia",
 });
 
@@ -58,15 +58,22 @@ const carbonCredit: Partial<CarbonCredit> = {
   currentSupply: "320308000000000000000000",
   id: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
   crossChainSupply: "0",
-  bridgeProtocol: BridgeProtocol.Toucan,
+  bridgeProtocol: BridgeProtocol.TOUCAN,
   bridged: "320308000000000000000000",
   retired: "0",
   poolBalances: [poolBalance as CarbonPoolCreditBalance],
   project: digitalCarbonProjectWithoutCredits,
 };
 
-const digitalCarbonProject = aCarbonProject({
-  ...digitalCarbonProjectWithoutCredits,
+export const digitalCarbonProject = aCarbonProject({
+  id: "VCS-191",
+  name: "Grid-connected electricity generation from renewable sources",
+  projectID: "VCS-191",
+  methodologies: "ACM0002",
+  country: "China",
+  category: "Renewable Energy",
+  registry: Registry.VERRA,
+  region: "Asia",
   carbonCredits: [carbonCredit as CarbonCredit],
 });
 
@@ -93,7 +100,7 @@ const retirement = aRetire({
 
 const provenanceRecordWithoutPriorRecords = aProvenanceRecord({
   id: "0xc645b80fdaa23d14e9d59626ba3fz72e8a59d4cb00000000000000000000000000000000000000007d030000",
-  transactionType: ProvenanceType.Retirement,
+  transactionType: ProvenanceType.RETIREMENT,
   registrySerialNumbers: [],
   token: "0xc645b80zd8a23a1459d59626ba3f872e8a59d4cb",
   sender: "0xace5id96z5371fb2a068986d32c85de8e6e995f8",

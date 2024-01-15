@@ -129,15 +129,15 @@ export type Account_Filter = {
 };
 
 export enum Account_OrderBy {
-  Bridges = 'bridges',
-  HoldingSnapshots = 'holdingSnapshots',
-  Holdings = 'holdings',
-  Id = 'id',
-  PoolDeposits = 'poolDeposits',
-  PoolRedeems = 'poolRedeems',
-  RetiresBeneficiary = 'retiresBeneficiary',
-  RetiresInitiator = 'retiresInitiator',
-  TotalRetirements = 'totalRetirements'
+  bridges = 'bridges',
+  holdingSnapshots = 'holdingSnapshots',
+  holdings = 'holdings',
+  id = 'id',
+  poolDeposits = 'poolDeposits',
+  poolRedeems = 'poolRedeems',
+  retiresBeneficiary = 'retiresBeneficiary',
+  retiresInitiator = 'retiresInitiator',
+  totalRetirements = 'totalRetirements'
 }
 
 export type BlockChangedFilter = {
@@ -166,9 +166,9 @@ export type Bridge = {
 
 export enum BridgeProtocol {
   C3 = 'C3',
-  Icr = 'ICR',
-  Moss = 'MOSS',
-  Toucan = 'TOUCAN'
+  ICR = 'ICR',
+  MOSS = 'MOSS',
+  TOUCAN = 'TOUCAN'
 }
 
 export type Bridge_Filter = {
@@ -247,26 +247,26 @@ export type Bridge_Filter = {
 };
 
 export enum Bridge_OrderBy {
-  Account = 'account',
-  AccountId = 'account__id',
-  AccountTotalRetirements = 'account__totalRetirements',
-  Amount = 'amount',
-  Credit = 'credit',
-  CreditBridgeProtocol = 'credit__bridgeProtocol',
-  CreditBridged = 'credit__bridged',
-  CreditCrossChainSupply = 'credit__crossChainSupply',
-  CreditCurrentSupply = 'credit__currentSupply',
-  CreditExPostTokenId = 'credit__exPostTokenId',
-  CreditId = 'credit__id',
-  CreditIsExAnte = 'credit__isExAnte',
-  CreditLastBatchId = 'credit__lastBatchId',
-  CreditProvenanceCount = 'credit__provenanceCount',
-  CreditRetired = 'credit__retired',
-  CreditTokenAddress = 'credit__tokenAddress',
-  CreditTokenId = 'credit__tokenId',
-  CreditVintage = 'credit__vintage',
-  Id = 'id',
-  Timestamp = 'timestamp'
+  account = 'account',
+  account__id = 'account__id',
+  account__totalRetirements = 'account__totalRetirements',
+  amount = 'amount',
+  credit = 'credit',
+  credit__bridgeProtocol = 'credit__bridgeProtocol',
+  credit__bridged = 'credit__bridged',
+  credit__crossChainSupply = 'credit__crossChainSupply',
+  credit__currentSupply = 'credit__currentSupply',
+  credit__exPostTokenId = 'credit__exPostTokenId',
+  credit__id = 'credit__id',
+  credit__isExAnte = 'credit__isExAnte',
+  credit__lastBatchId = 'credit__lastBatchId',
+  credit__provenanceCount = 'credit__provenanceCount',
+  credit__retired = 'credit__retired',
+  credit__tokenAddress = 'credit__tokenAddress',
+  credit__tokenId = 'credit__tokenId',
+  credit__vintage = 'credit__vintage',
+  id = 'id',
+  timestamp = 'timestamp'
 }
 
 export type CarbonCredit = {
@@ -441,27 +441,27 @@ export type CarbonCreditSnapshot_Filter = {
 };
 
 export enum CarbonCreditSnapshot_OrderBy {
-  Bridged = 'bridged',
-  CreatedAt = 'createdAt',
-  Credit = 'credit',
-  CreditBridgeProtocol = 'credit__bridgeProtocol',
-  CreditBridged = 'credit__bridged',
-  CreditCrossChainSupply = 'credit__crossChainSupply',
-  CreditCurrentSupply = 'credit__currentSupply',
-  CreditExPostTokenId = 'credit__exPostTokenId',
-  CreditId = 'credit__id',
-  CreditIsExAnte = 'credit__isExAnte',
-  CreditLastBatchId = 'credit__lastBatchId',
-  CreditProvenanceCount = 'credit__provenanceCount',
-  CreditRetired = 'credit__retired',
-  CreditTokenAddress = 'credit__tokenAddress',
-  CreditTokenId = 'credit__tokenId',
-  CreditVintage = 'credit__vintage',
-  CrossChainSupply = 'crossChainSupply',
-  CurrentSupply = 'currentSupply',
-  Epoch = 'epoch',
-  Id = 'id',
-  Retired = 'retired'
+  bridged = 'bridged',
+  createdAt = 'createdAt',
+  credit = 'credit',
+  credit__bridgeProtocol = 'credit__bridgeProtocol',
+  credit__bridged = 'credit__bridged',
+  credit__crossChainSupply = 'credit__crossChainSupply',
+  credit__currentSupply = 'credit__currentSupply',
+  credit__exPostTokenId = 'credit__exPostTokenId',
+  credit__id = 'credit__id',
+  credit__isExAnte = 'credit__isExAnte',
+  credit__lastBatchId = 'credit__lastBatchId',
+  credit__provenanceCount = 'credit__provenanceCount',
+  credit__retired = 'credit__retired',
+  credit__tokenAddress = 'credit__tokenAddress',
+  credit__tokenId = 'credit__tokenId',
+  credit__vintage = 'credit__vintage',
+  crossChainSupply = 'crossChainSupply',
+  currentSupply = 'currentSupply',
+  epoch = 'epoch',
+  id = 'id',
+  retired = 'retired'
 }
 
 export type CarbonCredit_Filter = {
@@ -596,31 +596,31 @@ export type CarbonCredit_Filter = {
 };
 
 export enum CarbonCredit_OrderBy {
-  BridgeProtocol = 'bridgeProtocol',
-  Bridged = 'bridged',
-  Bridges = 'bridges',
-  CrossChainSupply = 'crossChainSupply',
-  CurrentSupply = 'currentSupply',
-  ExPostTokenId = 'exPostTokenId',
-  Id = 'id',
-  IsExAnte = 'isExAnte',
-  LastBatchId = 'lastBatchId',
-  PoolBalances = 'poolBalances',
-  Project = 'project',
-  ProjectCategory = 'project__category',
-  ProjectCountry = 'project__country',
-  ProjectId = 'project__id',
-  ProjectMethodologies = 'project__methodologies',
-  ProjectName = 'project__name',
-  ProjectProjectId = 'project__projectID',
-  ProjectRegion = 'project__region',
-  ProjectRegistry = 'project__registry',
-  ProvenanceCount = 'provenanceCount',
-  Retired = 'retired',
-  Retires = 'retires',
-  TokenAddress = 'tokenAddress',
-  TokenId = 'tokenId',
-  Vintage = 'vintage'
+  bridgeProtocol = 'bridgeProtocol',
+  bridged = 'bridged',
+  bridges = 'bridges',
+  crossChainSupply = 'crossChainSupply',
+  currentSupply = 'currentSupply',
+  exPostTokenId = 'exPostTokenId',
+  id = 'id',
+  isExAnte = 'isExAnte',
+  lastBatchId = 'lastBatchId',
+  poolBalances = 'poolBalances',
+  project = 'project',
+  project__category = 'project__category',
+  project__country = 'project__country',
+  project__id = 'project__id',
+  project__methodologies = 'project__methodologies',
+  project__name = 'project__name',
+  project__projectID = 'project__projectID',
+  project__region = 'project__region',
+  project__registry = 'project__registry',
+  provenanceCount = 'provenanceCount',
+  retired = 'retired',
+  retires = 'retires',
+  tokenAddress = 'tokenAddress',
+  tokenId = 'tokenId',
+  vintage = 'vintage'
 }
 
 export type CarbonPool = {
@@ -956,57 +956,57 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
 };
 
 export enum CarbonPoolCreditBalanceDailySnapshot_OrderBy {
-  Balance = 'balance',
-  Credit = 'credit',
-  CreditBalance = 'creditBalance',
-  CreditBalanceBalance = 'creditBalance__balance',
-  CreditBalanceCrossChainSupply = 'creditBalance__crossChainSupply',
-  CreditBalanceDeposited = 'creditBalance__deposited',
-  CreditBalanceId = 'creditBalance__id',
-  CreditBalanceLastSnapshotDayId = 'creditBalance__lastSnapshotDayID',
-  CreditBalanceNextSnapshotDayId = 'creditBalance__nextSnapshotDayID',
-  CreditBalanceRedeemed = 'creditBalance__redeemed',
-  CreditBridgeProtocol = 'credit__bridgeProtocol',
-  CreditBridged = 'credit__bridged',
-  CreditCrossChainSupply = 'credit__crossChainSupply',
-  CreditCurrentSupply = 'credit__currentSupply',
-  CreditExPostTokenId = 'credit__exPostTokenId',
-  CreditId = 'credit__id',
-  CreditIsExAnte = 'credit__isExAnte',
-  CreditLastBatchId = 'credit__lastBatchId',
-  CreditProvenanceCount = 'credit__provenanceCount',
-  CreditRetired = 'credit__retired',
-  CreditTokenAddress = 'credit__tokenAddress',
-  CreditTokenId = 'credit__tokenId',
-  CreditVintage = 'credit__vintage',
-  CrossChainSupply = 'crossChainSupply',
-  DayId = 'dayID',
-  DeltaBalance = 'deltaBalance',
-  DeltaCrossChainSupply = 'deltaCrossChainSupply',
-  DeltaDeposited = 'deltaDeposited',
-  DeltaRedeemed = 'deltaRedeemed',
-  Deposited = 'deposited',
-  Deposits = 'deposits',
-  Id = 'id',
-  LastUpdateBlockNumber = 'lastUpdateBlockNumber',
-  LastUpdateTimestamp = 'lastUpdateTimestamp',
-  Pool = 'pool',
-  PoolSnapshot = 'poolSnapshot',
-  PoolSnapshotDayId = 'poolSnapshot__dayID',
-  PoolSnapshotDeltaSupply = 'poolSnapshot__deltaSupply',
-  PoolSnapshotId = 'poolSnapshot__id',
-  PoolSnapshotLastUpdateBlockNumber = 'poolSnapshot__lastUpdateBlockNumber',
-  PoolSnapshotLastUpdateTimestamp = 'poolSnapshot__lastUpdateTimestamp',
-  PoolSnapshotSupply = 'poolSnapshot__supply',
-  PoolCrossChainSupply = 'pool__crossChainSupply',
-  PoolDecimals = 'pool__decimals',
-  PoolId = 'pool__id',
-  PoolLastSnapshotDayId = 'pool__lastSnapshotDayID',
-  PoolName = 'pool__name',
-  PoolNextSnapshotDayId = 'pool__nextSnapshotDayID',
-  PoolSupply = 'pool__supply',
-  Redeemed = 'redeemed',
-  Redeems = 'redeems'
+  balance = 'balance',
+  credit = 'credit',
+  creditBalance = 'creditBalance',
+  creditBalance__balance = 'creditBalance__balance',
+  creditBalance__crossChainSupply = 'creditBalance__crossChainSupply',
+  creditBalance__deposited = 'creditBalance__deposited',
+  creditBalance__id = 'creditBalance__id',
+  creditBalance__lastSnapshotDayID = 'creditBalance__lastSnapshotDayID',
+  creditBalance__nextSnapshotDayID = 'creditBalance__nextSnapshotDayID',
+  creditBalance__redeemed = 'creditBalance__redeemed',
+  credit__bridgeProtocol = 'credit__bridgeProtocol',
+  credit__bridged = 'credit__bridged',
+  credit__crossChainSupply = 'credit__crossChainSupply',
+  credit__currentSupply = 'credit__currentSupply',
+  credit__exPostTokenId = 'credit__exPostTokenId',
+  credit__id = 'credit__id',
+  credit__isExAnte = 'credit__isExAnte',
+  credit__lastBatchId = 'credit__lastBatchId',
+  credit__provenanceCount = 'credit__provenanceCount',
+  credit__retired = 'credit__retired',
+  credit__tokenAddress = 'credit__tokenAddress',
+  credit__tokenId = 'credit__tokenId',
+  credit__vintage = 'credit__vintage',
+  crossChainSupply = 'crossChainSupply',
+  dayID = 'dayID',
+  deltaBalance = 'deltaBalance',
+  deltaCrossChainSupply = 'deltaCrossChainSupply',
+  deltaDeposited = 'deltaDeposited',
+  deltaRedeemed = 'deltaRedeemed',
+  deposited = 'deposited',
+  deposits = 'deposits',
+  id = 'id',
+  lastUpdateBlockNumber = 'lastUpdateBlockNumber',
+  lastUpdateTimestamp = 'lastUpdateTimestamp',
+  pool = 'pool',
+  poolSnapshot = 'poolSnapshot',
+  poolSnapshot__dayID = 'poolSnapshot__dayID',
+  poolSnapshot__deltaSupply = 'poolSnapshot__deltaSupply',
+  poolSnapshot__id = 'poolSnapshot__id',
+  poolSnapshot__lastUpdateBlockNumber = 'poolSnapshot__lastUpdateBlockNumber',
+  poolSnapshot__lastUpdateTimestamp = 'poolSnapshot__lastUpdateTimestamp',
+  poolSnapshot__supply = 'poolSnapshot__supply',
+  pool__crossChainSupply = 'pool__crossChainSupply',
+  pool__decimals = 'pool__decimals',
+  pool__id = 'pool__id',
+  pool__lastSnapshotDayID = 'pool__lastSnapshotDayID',
+  pool__name = 'pool__name',
+  pool__nextSnapshotDayID = 'pool__nextSnapshotDayID',
+  pool__supply = 'pool__supply',
+  redeemed = 'redeemed',
+  redeems = 'redeems'
 }
 
 export type CarbonPoolCreditBalance_Filter = {
@@ -1118,36 +1118,36 @@ export type CarbonPoolCreditBalance_Filter = {
 };
 
 export enum CarbonPoolCreditBalance_OrderBy {
-  Balance = 'balance',
-  Credit = 'credit',
-  CreditBridgeProtocol = 'credit__bridgeProtocol',
-  CreditBridged = 'credit__bridged',
-  CreditCrossChainSupply = 'credit__crossChainSupply',
-  CreditCurrentSupply = 'credit__currentSupply',
-  CreditExPostTokenId = 'credit__exPostTokenId',
-  CreditId = 'credit__id',
-  CreditIsExAnte = 'credit__isExAnte',
-  CreditLastBatchId = 'credit__lastBatchId',
-  CreditProvenanceCount = 'credit__provenanceCount',
-  CreditRetired = 'credit__retired',
-  CreditTokenAddress = 'credit__tokenAddress',
-  CreditTokenId = 'credit__tokenId',
-  CreditVintage = 'credit__vintage',
-  CrossChainSupply = 'crossChainSupply',
-  DailySnapshots = 'dailySnapshots',
-  Deposited = 'deposited',
-  Id = 'id',
-  LastSnapshotDayId = 'lastSnapshotDayID',
-  NextSnapshotDayId = 'nextSnapshotDayID',
-  Pool = 'pool',
-  PoolCrossChainSupply = 'pool__crossChainSupply',
-  PoolDecimals = 'pool__decimals',
-  PoolId = 'pool__id',
-  PoolLastSnapshotDayId = 'pool__lastSnapshotDayID',
-  PoolName = 'pool__name',
-  PoolNextSnapshotDayId = 'pool__nextSnapshotDayID',
-  PoolSupply = 'pool__supply',
-  Redeemed = 'redeemed'
+  balance = 'balance',
+  credit = 'credit',
+  credit__bridgeProtocol = 'credit__bridgeProtocol',
+  credit__bridged = 'credit__bridged',
+  credit__crossChainSupply = 'credit__crossChainSupply',
+  credit__currentSupply = 'credit__currentSupply',
+  credit__exPostTokenId = 'credit__exPostTokenId',
+  credit__id = 'credit__id',
+  credit__isExAnte = 'credit__isExAnte',
+  credit__lastBatchId = 'credit__lastBatchId',
+  credit__provenanceCount = 'credit__provenanceCount',
+  credit__retired = 'credit__retired',
+  credit__tokenAddress = 'credit__tokenAddress',
+  credit__tokenId = 'credit__tokenId',
+  credit__vintage = 'credit__vintage',
+  crossChainSupply = 'crossChainSupply',
+  dailySnapshots = 'dailySnapshots',
+  deposited = 'deposited',
+  id = 'id',
+  lastSnapshotDayID = 'lastSnapshotDayID',
+  nextSnapshotDayID = 'nextSnapshotDayID',
+  pool = 'pool',
+  pool__crossChainSupply = 'pool__crossChainSupply',
+  pool__decimals = 'pool__decimals',
+  pool__id = 'pool__id',
+  pool__lastSnapshotDayID = 'pool__lastSnapshotDayID',
+  pool__name = 'pool__name',
+  pool__nextSnapshotDayID = 'pool__nextSnapshotDayID',
+  pool__supply = 'pool__supply',
+  redeemed = 'redeemed'
 }
 
 export type CarbonPoolDailySnapshot = {
@@ -1279,23 +1279,23 @@ export type CarbonPoolDailySnapshot_Filter = {
 };
 
 export enum CarbonPoolDailySnapshot_OrderBy {
-  CreditBalances = 'creditBalances',
-  DayId = 'dayID',
-  DeltaSupply = 'deltaSupply',
-  Deposits = 'deposits',
-  Id = 'id',
-  LastUpdateBlockNumber = 'lastUpdateBlockNumber',
-  LastUpdateTimestamp = 'lastUpdateTimestamp',
-  Pool = 'pool',
-  PoolCrossChainSupply = 'pool__crossChainSupply',
-  PoolDecimals = 'pool__decimals',
-  PoolId = 'pool__id',
-  PoolLastSnapshotDayId = 'pool__lastSnapshotDayID',
-  PoolName = 'pool__name',
-  PoolNextSnapshotDayId = 'pool__nextSnapshotDayID',
-  PoolSupply = 'pool__supply',
-  Redeems = 'redeems',
-  Supply = 'supply'
+  creditBalances = 'creditBalances',
+  dayID = 'dayID',
+  deltaSupply = 'deltaSupply',
+  deposits = 'deposits',
+  id = 'id',
+  lastUpdateBlockNumber = 'lastUpdateBlockNumber',
+  lastUpdateTimestamp = 'lastUpdateTimestamp',
+  pool = 'pool',
+  pool__crossChainSupply = 'pool__crossChainSupply',
+  pool__decimals = 'pool__decimals',
+  pool__id = 'pool__id',
+  pool__lastSnapshotDayID = 'pool__lastSnapshotDayID',
+  pool__name = 'pool__name',
+  pool__nextSnapshotDayID = 'pool__nextSnapshotDayID',
+  pool__supply = 'pool__supply',
+  redeems = 'redeems',
+  supply = 'supply'
 }
 
 export type CarbonPool_Filter = {
@@ -1380,17 +1380,17 @@ export type CarbonPool_Filter = {
 };
 
 export enum CarbonPool_OrderBy {
-  CreditBalances = 'creditBalances',
-  CrossChainSupply = 'crossChainSupply',
-  DailySnapshots = 'dailySnapshots',
-  Decimals = 'decimals',
-  Deposits = 'deposits',
-  Id = 'id',
-  LastSnapshotDayId = 'lastSnapshotDayID',
-  Name = 'name',
-  NextSnapshotDayId = 'nextSnapshotDayID',
-  Redeems = 'redeems',
-  Supply = 'supply'
+  creditBalances = 'creditBalances',
+  crossChainSupply = 'crossChainSupply',
+  dailySnapshots = 'dailySnapshots',
+  decimals = 'decimals',
+  deposits = 'deposits',
+  id = 'id',
+  lastSnapshotDayID = 'lastSnapshotDayID',
+  name = 'name',
+  nextSnapshotDayID = 'nextSnapshotDayID',
+  redeems = 'redeems',
+  supply = 'supply'
 }
 
 export type CarbonProject = {
@@ -1565,15 +1565,15 @@ export type CarbonProject_Filter = {
 };
 
 export enum CarbonProject_OrderBy {
-  CarbonCredits = 'carbonCredits',
-  Category = 'category',
-  Country = 'country',
-  Id = 'id',
-  Methodologies = 'methodologies',
-  Name = 'name',
-  ProjectId = 'projectID',
-  Region = 'region',
-  Registry = 'registry'
+  carbonCredits = 'carbonCredits',
+  category = 'category',
+  country = 'country',
+  id = 'id',
+  methodologies = 'methodologies',
+  name = 'name',
+  projectID = 'projectID',
+  region = 'region',
+  registry = 'registry'
 }
 
 export type CrossChainBridge = {
@@ -1597,8 +1597,8 @@ export type CrossChainBridge = {
 };
 
 export enum CrossChainBridgeDirection {
-  Received = 'RECEIVED',
-  Sent = 'SENT'
+  RECEIVED = 'RECEIVED',
+  SENT = 'SENT'
 }
 
 export type CrossChainBridge_Filter = {
@@ -1701,34 +1701,34 @@ export type CrossChainBridge_Filter = {
 };
 
 export enum CrossChainBridge_OrderBy {
-  Amount = 'amount',
-  Bridger = 'bridger',
-  Credit = 'credit',
-  CreditBridgeProtocol = 'credit__bridgeProtocol',
-  CreditBridged = 'credit__bridged',
-  CreditCrossChainSupply = 'credit__crossChainSupply',
-  CreditCurrentSupply = 'credit__currentSupply',
-  CreditExPostTokenId = 'credit__exPostTokenId',
-  CreditId = 'credit__id',
-  CreditIsExAnte = 'credit__isExAnte',
-  CreditLastBatchId = 'credit__lastBatchId',
-  CreditProvenanceCount = 'credit__provenanceCount',
-  CreditRetired = 'credit__retired',
-  CreditTokenAddress = 'credit__tokenAddress',
-  CreditTokenId = 'credit__tokenId',
-  CreditVintage = 'credit__vintage',
-  Direction = 'direction',
-  Hash = 'hash',
-  Id = 'id',
-  Pool = 'pool',
-  PoolCrossChainSupply = 'pool__crossChainSupply',
-  PoolDecimals = 'pool__decimals',
-  PoolId = 'pool__id',
-  PoolLastSnapshotDayId = 'pool__lastSnapshotDayID',
-  PoolName = 'pool__name',
-  PoolNextSnapshotDayId = 'pool__nextSnapshotDayID',
-  PoolSupply = 'pool__supply',
-  Timestamp = 'timestamp'
+  amount = 'amount',
+  bridger = 'bridger',
+  credit = 'credit',
+  credit__bridgeProtocol = 'credit__bridgeProtocol',
+  credit__bridged = 'credit__bridged',
+  credit__crossChainSupply = 'credit__crossChainSupply',
+  credit__currentSupply = 'credit__currentSupply',
+  credit__exPostTokenId = 'credit__exPostTokenId',
+  credit__id = 'credit__id',
+  credit__isExAnte = 'credit__isExAnte',
+  credit__lastBatchId = 'credit__lastBatchId',
+  credit__provenanceCount = 'credit__provenanceCount',
+  credit__retired = 'credit__retired',
+  credit__tokenAddress = 'credit__tokenAddress',
+  credit__tokenId = 'credit__tokenId',
+  credit__vintage = 'credit__vintage',
+  direction = 'direction',
+  hash = 'hash',
+  id = 'id',
+  pool = 'pool',
+  pool__crossChainSupply = 'pool__crossChainSupply',
+  pool__decimals = 'pool__decimals',
+  pool__id = 'pool__id',
+  pool__lastSnapshotDayID = 'pool__lastSnapshotDayID',
+  pool__name = 'pool__name',
+  pool__nextSnapshotDayID = 'pool__nextSnapshotDayID',
+  pool__supply = 'pool__supply',
+  timestamp = 'timestamp'
 }
 
 export type Ecosystem = {
@@ -1760,8 +1760,8 @@ export type Ecosystem_Filter = {
 };
 
 export enum Ecosystem_OrderBy {
-  ActiveCredits = 'activeCredits',
-  Id = 'id'
+  activeCredits = 'activeCredits',
+  id = 'id'
 }
 
 export type Epoch = {
@@ -1826,11 +1826,11 @@ export type Epoch_Filter = {
 };
 
 export enum Epoch_OrderBy {
-  CreditSma = 'creditSMA',
-  CreditSupply = 'creditSupply',
-  DeltaCreditSupply = 'deltaCreditSupply',
-  Epoch = 'epoch',
-  Id = 'id'
+  creditSMA = 'creditSMA',
+  creditSupply = 'creditSupply',
+  deltaCreditSupply = 'deltaCreditSupply',
+  epoch = 'epoch',
+  id = 'id'
 }
 
 export type Holding = {
@@ -1959,21 +1959,21 @@ export type HoldingDailySnapshot_Filter = {
 };
 
 export enum HoldingDailySnapshot_OrderBy {
-  Account = 'account',
-  AccountId = 'account__id',
-  AccountTotalRetirements = 'account__totalRetirements',
-  Amount = 'amount',
-  Id = 'id',
-  Timestamp = 'timestamp',
-  Token = 'token',
-  TokenDecimals = 'token__decimals',
-  TokenId = 'token__id',
-  TokenLatestPricePerKlima = 'token__latestPricePerKLIMA',
-  TokenLatestPricePerKlimaUpdated = 'token__latestPricePerKLIMAUpdated',
-  TokenLatestPriceUsd = 'token__latestPriceUSD',
-  TokenLatestPriceUsdUpdated = 'token__latestPriceUSDUpdated',
-  TokenName = 'token__name',
-  TokenSymbol = 'token__symbol'
+  account = 'account',
+  account__id = 'account__id',
+  account__totalRetirements = 'account__totalRetirements',
+  amount = 'amount',
+  id = 'id',
+  timestamp = 'timestamp',
+  token = 'token',
+  token__decimals = 'token__decimals',
+  token__id = 'token__id',
+  token__latestPricePerKLIMA = 'token__latestPricePerKLIMA',
+  token__latestPricePerKLIMAUpdated = 'token__latestPricePerKLIMAUpdated',
+  token__latestPriceUSD = 'token__latestPriceUSD',
+  token__latestPriceUSDUpdated = 'token__latestPriceUSDUpdated',
+  token__name = 'token__name',
+  token__symbol = 'token__symbol'
 }
 
 export type Holding_Filter = {
@@ -2074,24 +2074,24 @@ export type Holding_Filter = {
 };
 
 export enum Holding_OrderBy {
-  Account = 'account',
-  AccountId = 'account__id',
-  AccountTotalRetirements = 'account__totalRetirements',
-  ActiveProvenanceRecords = 'activeProvenanceRecords',
-  Amount = 'amount',
-  HistoricalProvenanceRecords = 'historicalProvenanceRecords',
-  Id = 'id',
-  LastUpdated = 'lastUpdated',
-  Token = 'token',
-  TokenId = 'tokenId',
-  TokenDecimals = 'token__decimals',
-  TokenId = 'token__id',
-  TokenLatestPricePerKlima = 'token__latestPricePerKLIMA',
-  TokenLatestPricePerKlimaUpdated = 'token__latestPricePerKLIMAUpdated',
-  TokenLatestPriceUsd = 'token__latestPriceUSD',
-  TokenLatestPriceUsdUpdated = 'token__latestPriceUSDUpdated',
-  TokenName = 'token__name',
-  TokenSymbol = 'token__symbol'
+  account = 'account',
+  account__id = 'account__id',
+  account__totalRetirements = 'account__totalRetirements',
+  activeProvenanceRecords = 'activeProvenanceRecords',
+  amount = 'amount',
+  historicalProvenanceRecords = 'historicalProvenanceRecords',
+  id = 'id',
+  lastUpdated = 'lastUpdated',
+  token = 'token',
+  tokenId = 'tokenId',
+  token__decimals = 'token__decimals',
+  token__id = 'token__id',
+  token__latestPricePerKLIMA = 'token__latestPricePerKLIMA',
+  token__latestPricePerKLIMAUpdated = 'token__latestPricePerKLIMAUpdated',
+  token__latestPriceUSD = 'token__latestPriceUSD',
+  token__latestPriceUSDUpdated = 'token__latestPriceUSDUpdated',
+  token__name = 'token__name',
+  token__symbol = 'token__symbol'
 }
 
 export type KlimaRetire = {
@@ -2167,20 +2167,20 @@ export type KlimaRetire_Filter = {
 };
 
 export enum KlimaRetire_OrderBy {
-  FeeAmount = 'feeAmount',
-  Id = 'id',
-  Index = 'index',
-  Retire = 'retire',
-  RetireAmount = 'retire__amount',
-  RetireBeneficiaryName = 'retire__beneficiaryName',
-  RetireBridgeId = 'retire__bridgeID',
-  RetireHash = 'retire__hash',
-  RetireId = 'retire__id',
-  RetireRetirementMessage = 'retire__retirementMessage',
-  RetireRetiringName = 'retire__retiringName',
-  RetireSource = 'retire__source',
-  RetireTimestamp = 'retire__timestamp',
-  Specific = 'specific'
+  feeAmount = 'feeAmount',
+  id = 'id',
+  index = 'index',
+  retire = 'retire',
+  retire__amount = 'retire__amount',
+  retire__beneficiaryName = 'retire__beneficiaryName',
+  retire__bridgeID = 'retire__bridgeID',
+  retire__hash = 'retire__hash',
+  retire__id = 'retire__id',
+  retire__retirementMessage = 'retire__retirementMessage',
+  retire__retiringName = 'retire__retiringName',
+  retire__source = 'retire__source',
+  retire__timestamp = 'retire__timestamp',
+  specific = 'specific'
 }
 
 export type Methodology = {
@@ -2267,16 +2267,16 @@ export type Methodology_Filter = {
 };
 
 export enum Methodology_OrderBy {
-  ApprovalDate = 'approvalDate',
-  CurrentVersion = 'currentVersion',
-  Id = 'id',
-  Scope = 'scope'
+  approvalDate = 'approvalDate',
+  currentVersion = 'currentVersion',
+  id = 'id',
+  scope = 'scope'
 }
 
 /** Defines the order direction, either ascending or descending */
 export enum OrderDirection {
-  Asc = 'asc',
-  Desc = 'desc'
+  asc = 'asc',
+  desc = 'desc'
 }
 
 export type PoolDeposit = {
@@ -2438,54 +2438,54 @@ export type PoolDeposit_Filter = {
 };
 
 export enum PoolDeposit_OrderBy {
-  Account = 'account',
-  AccountId = 'account__id',
-  AccountTotalRetirements = 'account__totalRetirements',
-  Amount = 'amount',
-  Credit = 'credit',
-  CreditBridgeProtocol = 'credit__bridgeProtocol',
-  CreditBridged = 'credit__bridged',
-  CreditCrossChainSupply = 'credit__crossChainSupply',
-  CreditCurrentSupply = 'credit__currentSupply',
-  CreditExPostTokenId = 'credit__exPostTokenId',
-  CreditId = 'credit__id',
-  CreditIsExAnte = 'credit__isExAnte',
-  CreditLastBatchId = 'credit__lastBatchId',
-  CreditProvenanceCount = 'credit__provenanceCount',
-  CreditRetired = 'credit__retired',
-  CreditTokenAddress = 'credit__tokenAddress',
-  CreditTokenId = 'credit__tokenId',
-  CreditVintage = 'credit__vintage',
-  Id = 'id',
-  Pool = 'pool',
-  PoolCreditSnapshotId = 'poolCreditSnapshotID',
-  PoolCreditSnapshotIdBalance = 'poolCreditSnapshotID__balance',
-  PoolCreditSnapshotIdCrossChainSupply = 'poolCreditSnapshotID__crossChainSupply',
-  PoolCreditSnapshotIdDayId = 'poolCreditSnapshotID__dayID',
-  PoolCreditSnapshotIdDeltaBalance = 'poolCreditSnapshotID__deltaBalance',
-  PoolCreditSnapshotIdDeltaCrossChainSupply = 'poolCreditSnapshotID__deltaCrossChainSupply',
-  PoolCreditSnapshotIdDeltaDeposited = 'poolCreditSnapshotID__deltaDeposited',
-  PoolCreditSnapshotIdDeltaRedeemed = 'poolCreditSnapshotID__deltaRedeemed',
-  PoolCreditSnapshotIdDeposited = 'poolCreditSnapshotID__deposited',
-  PoolCreditSnapshotIdId = 'poolCreditSnapshotID__id',
-  PoolCreditSnapshotIdLastUpdateBlockNumber = 'poolCreditSnapshotID__lastUpdateBlockNumber',
-  PoolCreditSnapshotIdLastUpdateTimestamp = 'poolCreditSnapshotID__lastUpdateTimestamp',
-  PoolCreditSnapshotIdRedeemed = 'poolCreditSnapshotID__redeemed',
-  PoolSnapshotId = 'poolSnapshotID',
-  PoolSnapshotIdDayId = 'poolSnapshotID__dayID',
-  PoolSnapshotIdDeltaSupply = 'poolSnapshotID__deltaSupply',
-  PoolSnapshotIdId = 'poolSnapshotID__id',
-  PoolSnapshotIdLastUpdateBlockNumber = 'poolSnapshotID__lastUpdateBlockNumber',
-  PoolSnapshotIdLastUpdateTimestamp = 'poolSnapshotID__lastUpdateTimestamp',
-  PoolSnapshotIdSupply = 'poolSnapshotID__supply',
-  PoolCrossChainSupply = 'pool__crossChainSupply',
-  PoolDecimals = 'pool__decimals',
-  PoolId = 'pool__id',
-  PoolLastSnapshotDayId = 'pool__lastSnapshotDayID',
-  PoolName = 'pool__name',
-  PoolNextSnapshotDayId = 'pool__nextSnapshotDayID',
-  PoolSupply = 'pool__supply',
-  Timestamp = 'timestamp'
+  account = 'account',
+  account__id = 'account__id',
+  account__totalRetirements = 'account__totalRetirements',
+  amount = 'amount',
+  credit = 'credit',
+  credit__bridgeProtocol = 'credit__bridgeProtocol',
+  credit__bridged = 'credit__bridged',
+  credit__crossChainSupply = 'credit__crossChainSupply',
+  credit__currentSupply = 'credit__currentSupply',
+  credit__exPostTokenId = 'credit__exPostTokenId',
+  credit__id = 'credit__id',
+  credit__isExAnte = 'credit__isExAnte',
+  credit__lastBatchId = 'credit__lastBatchId',
+  credit__provenanceCount = 'credit__provenanceCount',
+  credit__retired = 'credit__retired',
+  credit__tokenAddress = 'credit__tokenAddress',
+  credit__tokenId = 'credit__tokenId',
+  credit__vintage = 'credit__vintage',
+  id = 'id',
+  pool = 'pool',
+  poolCreditSnapshotID = 'poolCreditSnapshotID',
+  poolCreditSnapshotID__balance = 'poolCreditSnapshotID__balance',
+  poolCreditSnapshotID__crossChainSupply = 'poolCreditSnapshotID__crossChainSupply',
+  poolCreditSnapshotID__dayID = 'poolCreditSnapshotID__dayID',
+  poolCreditSnapshotID__deltaBalance = 'poolCreditSnapshotID__deltaBalance',
+  poolCreditSnapshotID__deltaCrossChainSupply = 'poolCreditSnapshotID__deltaCrossChainSupply',
+  poolCreditSnapshotID__deltaDeposited = 'poolCreditSnapshotID__deltaDeposited',
+  poolCreditSnapshotID__deltaRedeemed = 'poolCreditSnapshotID__deltaRedeemed',
+  poolCreditSnapshotID__deposited = 'poolCreditSnapshotID__deposited',
+  poolCreditSnapshotID__id = 'poolCreditSnapshotID__id',
+  poolCreditSnapshotID__lastUpdateBlockNumber = 'poolCreditSnapshotID__lastUpdateBlockNumber',
+  poolCreditSnapshotID__lastUpdateTimestamp = 'poolCreditSnapshotID__lastUpdateTimestamp',
+  poolCreditSnapshotID__redeemed = 'poolCreditSnapshotID__redeemed',
+  poolSnapshotID = 'poolSnapshotID',
+  poolSnapshotID__dayID = 'poolSnapshotID__dayID',
+  poolSnapshotID__deltaSupply = 'poolSnapshotID__deltaSupply',
+  poolSnapshotID__id = 'poolSnapshotID__id',
+  poolSnapshotID__lastUpdateBlockNumber = 'poolSnapshotID__lastUpdateBlockNumber',
+  poolSnapshotID__lastUpdateTimestamp = 'poolSnapshotID__lastUpdateTimestamp',
+  poolSnapshotID__supply = 'poolSnapshotID__supply',
+  pool__crossChainSupply = 'pool__crossChainSupply',
+  pool__decimals = 'pool__decimals',
+  pool__id = 'pool__id',
+  pool__lastSnapshotDayID = 'pool__lastSnapshotDayID',
+  pool__name = 'pool__name',
+  pool__nextSnapshotDayID = 'pool__nextSnapshotDayID',
+  pool__supply = 'pool__supply',
+  timestamp = 'timestamp'
 }
 
 export type PoolRedeem = {
@@ -2647,54 +2647,54 @@ export type PoolRedeem_Filter = {
 };
 
 export enum PoolRedeem_OrderBy {
-  Account = 'account',
-  AccountId = 'account__id',
-  AccountTotalRetirements = 'account__totalRetirements',
-  Amount = 'amount',
-  Credit = 'credit',
-  CreditBridgeProtocol = 'credit__bridgeProtocol',
-  CreditBridged = 'credit__bridged',
-  CreditCrossChainSupply = 'credit__crossChainSupply',
-  CreditCurrentSupply = 'credit__currentSupply',
-  CreditExPostTokenId = 'credit__exPostTokenId',
-  CreditId = 'credit__id',
-  CreditIsExAnte = 'credit__isExAnte',
-  CreditLastBatchId = 'credit__lastBatchId',
-  CreditProvenanceCount = 'credit__provenanceCount',
-  CreditRetired = 'credit__retired',
-  CreditTokenAddress = 'credit__tokenAddress',
-  CreditTokenId = 'credit__tokenId',
-  CreditVintage = 'credit__vintage',
-  Id = 'id',
-  Pool = 'pool',
-  PoolCreditSnapshotId = 'poolCreditSnapshotID',
-  PoolCreditSnapshotIdBalance = 'poolCreditSnapshotID__balance',
-  PoolCreditSnapshotIdCrossChainSupply = 'poolCreditSnapshotID__crossChainSupply',
-  PoolCreditSnapshotIdDayId = 'poolCreditSnapshotID__dayID',
-  PoolCreditSnapshotIdDeltaBalance = 'poolCreditSnapshotID__deltaBalance',
-  PoolCreditSnapshotIdDeltaCrossChainSupply = 'poolCreditSnapshotID__deltaCrossChainSupply',
-  PoolCreditSnapshotIdDeltaDeposited = 'poolCreditSnapshotID__deltaDeposited',
-  PoolCreditSnapshotIdDeltaRedeemed = 'poolCreditSnapshotID__deltaRedeemed',
-  PoolCreditSnapshotIdDeposited = 'poolCreditSnapshotID__deposited',
-  PoolCreditSnapshotIdId = 'poolCreditSnapshotID__id',
-  PoolCreditSnapshotIdLastUpdateBlockNumber = 'poolCreditSnapshotID__lastUpdateBlockNumber',
-  PoolCreditSnapshotIdLastUpdateTimestamp = 'poolCreditSnapshotID__lastUpdateTimestamp',
-  PoolCreditSnapshotIdRedeemed = 'poolCreditSnapshotID__redeemed',
-  PoolSnapshotId = 'poolSnapshotID',
-  PoolSnapshotIdDayId = 'poolSnapshotID__dayID',
-  PoolSnapshotIdDeltaSupply = 'poolSnapshotID__deltaSupply',
-  PoolSnapshotIdId = 'poolSnapshotID__id',
-  PoolSnapshotIdLastUpdateBlockNumber = 'poolSnapshotID__lastUpdateBlockNumber',
-  PoolSnapshotIdLastUpdateTimestamp = 'poolSnapshotID__lastUpdateTimestamp',
-  PoolSnapshotIdSupply = 'poolSnapshotID__supply',
-  PoolCrossChainSupply = 'pool__crossChainSupply',
-  PoolDecimals = 'pool__decimals',
-  PoolId = 'pool__id',
-  PoolLastSnapshotDayId = 'pool__lastSnapshotDayID',
-  PoolName = 'pool__name',
-  PoolNextSnapshotDayId = 'pool__nextSnapshotDayID',
-  PoolSupply = 'pool__supply',
-  Timestamp = 'timestamp'
+  account = 'account',
+  account__id = 'account__id',
+  account__totalRetirements = 'account__totalRetirements',
+  amount = 'amount',
+  credit = 'credit',
+  credit__bridgeProtocol = 'credit__bridgeProtocol',
+  credit__bridged = 'credit__bridged',
+  credit__crossChainSupply = 'credit__crossChainSupply',
+  credit__currentSupply = 'credit__currentSupply',
+  credit__exPostTokenId = 'credit__exPostTokenId',
+  credit__id = 'credit__id',
+  credit__isExAnte = 'credit__isExAnte',
+  credit__lastBatchId = 'credit__lastBatchId',
+  credit__provenanceCount = 'credit__provenanceCount',
+  credit__retired = 'credit__retired',
+  credit__tokenAddress = 'credit__tokenAddress',
+  credit__tokenId = 'credit__tokenId',
+  credit__vintage = 'credit__vintage',
+  id = 'id',
+  pool = 'pool',
+  poolCreditSnapshotID = 'poolCreditSnapshotID',
+  poolCreditSnapshotID__balance = 'poolCreditSnapshotID__balance',
+  poolCreditSnapshotID__crossChainSupply = 'poolCreditSnapshotID__crossChainSupply',
+  poolCreditSnapshotID__dayID = 'poolCreditSnapshotID__dayID',
+  poolCreditSnapshotID__deltaBalance = 'poolCreditSnapshotID__deltaBalance',
+  poolCreditSnapshotID__deltaCrossChainSupply = 'poolCreditSnapshotID__deltaCrossChainSupply',
+  poolCreditSnapshotID__deltaDeposited = 'poolCreditSnapshotID__deltaDeposited',
+  poolCreditSnapshotID__deltaRedeemed = 'poolCreditSnapshotID__deltaRedeemed',
+  poolCreditSnapshotID__deposited = 'poolCreditSnapshotID__deposited',
+  poolCreditSnapshotID__id = 'poolCreditSnapshotID__id',
+  poolCreditSnapshotID__lastUpdateBlockNumber = 'poolCreditSnapshotID__lastUpdateBlockNumber',
+  poolCreditSnapshotID__lastUpdateTimestamp = 'poolCreditSnapshotID__lastUpdateTimestamp',
+  poolCreditSnapshotID__redeemed = 'poolCreditSnapshotID__redeemed',
+  poolSnapshotID = 'poolSnapshotID',
+  poolSnapshotID__dayID = 'poolSnapshotID__dayID',
+  poolSnapshotID__deltaSupply = 'poolSnapshotID__deltaSupply',
+  poolSnapshotID__id = 'poolSnapshotID__id',
+  poolSnapshotID__lastUpdateBlockNumber = 'poolSnapshotID__lastUpdateBlockNumber',
+  poolSnapshotID__lastUpdateTimestamp = 'poolSnapshotID__lastUpdateTimestamp',
+  poolSnapshotID__supply = 'poolSnapshotID__supply',
+  pool__crossChainSupply = 'pool__crossChainSupply',
+  pool__decimals = 'pool__decimals',
+  pool__id = 'pool__id',
+  pool__lastSnapshotDayID = 'pool__lastSnapshotDayID',
+  pool__name = 'pool__name',
+  pool__nextSnapshotDayID = 'pool__nextSnapshotDayID',
+  pool__supply = 'pool__supply',
+  timestamp = 'timestamp'
 }
 
 export type ProvenanceRecord = {
@@ -2851,25 +2851,25 @@ export type ProvenanceRecord_Filter = {
 };
 
 export enum ProvenanceRecord_OrderBy {
-  CreatedAt = 'createdAt',
-  Id = 'id',
-  OriginalAmount = 'originalAmount',
-  PriorRecords = 'priorRecords',
-  Receiver = 'receiver',
-  RegistrySerialNumbers = 'registrySerialNumbers',
-  RemainingAmount = 'remainingAmount',
-  Sender = 'sender',
-  Token = 'token',
-  TokenId = 'tokenId',
-  TransactionHash = 'transactionHash',
-  TransactionType = 'transactionType',
-  UpdatedAt = 'updatedAt'
+  createdAt = 'createdAt',
+  id = 'id',
+  originalAmount = 'originalAmount',
+  priorRecords = 'priorRecords',
+  receiver = 'receiver',
+  registrySerialNumbers = 'registrySerialNumbers',
+  remainingAmount = 'remainingAmount',
+  sender = 'sender',
+  token = 'token',
+  tokenId = 'tokenId',
+  transactionHash = 'transactionHash',
+  transactionType = 'transactionType',
+  updatedAt = 'updatedAt'
 }
 
 export enum ProvenanceType {
-  Origination = 'ORIGINATION',
-  Retirement = 'RETIREMENT',
-  Transfer = 'TRANSFER'
+  ORIGINATION = 'ORIGINATION',
+  RETIREMENT = 'RETIREMENT',
+  TRANSFER = 'TRANSFER'
 }
 
 export type Query = {
@@ -3324,10 +3324,10 @@ export type QueryToucanBatchesArgs = {
 };
 
 export enum Registry {
-  GoldStandard = 'GOLD_STANDARD',
-  Icr = 'ICR',
-  PuroEarth = 'PURO_EARTH',
-  Verra = 'VERRA'
+  GOLD_STANDARD = 'GOLD_STANDARD',
+  ICR = 'ICR',
+  PURO_EARTH = 'PURO_EARTH',
+  VERRA = 'VERRA'
 }
 
 export type Retire = {
@@ -3362,8 +3362,8 @@ export type Retire = {
 };
 
 export enum RetireSource {
-  Klima = 'KLIMA',
-  Other = 'OTHER'
+  KLIMA = 'KLIMA',
+  OTHER = 'OTHER'
 }
 
 export type Retire_Filter = {
@@ -3579,48 +3579,48 @@ export type Retire_Filter = {
 };
 
 export enum Retire_OrderBy {
-  Amount = 'amount',
-  BeneficiaryAddress = 'beneficiaryAddress',
-  BeneficiaryAddressId = 'beneficiaryAddress__id',
-  BeneficiaryAddressTotalRetirements = 'beneficiaryAddress__totalRetirements',
-  BeneficiaryName = 'beneficiaryName',
-  BridgeId = 'bridgeID',
-  Credit = 'credit',
-  CreditBridgeProtocol = 'credit__bridgeProtocol',
-  CreditBridged = 'credit__bridged',
-  CreditCrossChainSupply = 'credit__crossChainSupply',
-  CreditCurrentSupply = 'credit__currentSupply',
-  CreditExPostTokenId = 'credit__exPostTokenId',
-  CreditId = 'credit__id',
-  CreditIsExAnte = 'credit__isExAnte',
-  CreditLastBatchId = 'credit__lastBatchId',
-  CreditProvenanceCount = 'credit__provenanceCount',
-  CreditRetired = 'credit__retired',
-  CreditTokenAddress = 'credit__tokenAddress',
-  CreditTokenId = 'credit__tokenId',
-  CreditVintage = 'credit__vintage',
-  Hash = 'hash',
-  Id = 'id',
-  KlimaRetire = 'klimaRetire',
-  KlimaRetireFeeAmount = 'klimaRetire__feeAmount',
-  KlimaRetireId = 'klimaRetire__id',
-  KlimaRetireIndex = 'klimaRetire__index',
-  KlimaRetireSpecific = 'klimaRetire__specific',
-  Pool = 'pool',
-  PoolCrossChainSupply = 'pool__crossChainSupply',
-  PoolDecimals = 'pool__decimals',
-  PoolId = 'pool__id',
-  PoolLastSnapshotDayId = 'pool__lastSnapshotDayID',
-  PoolName = 'pool__name',
-  PoolNextSnapshotDayId = 'pool__nextSnapshotDayID',
-  PoolSupply = 'pool__supply',
-  RetirementMessage = 'retirementMessage',
-  RetiringAddress = 'retiringAddress',
-  RetiringAddressId = 'retiringAddress__id',
-  RetiringAddressTotalRetirements = 'retiringAddress__totalRetirements',
-  RetiringName = 'retiringName',
-  Source = 'source',
-  Timestamp = 'timestamp'
+  amount = 'amount',
+  beneficiaryAddress = 'beneficiaryAddress',
+  beneficiaryAddress__id = 'beneficiaryAddress__id',
+  beneficiaryAddress__totalRetirements = 'beneficiaryAddress__totalRetirements',
+  beneficiaryName = 'beneficiaryName',
+  bridgeID = 'bridgeID',
+  credit = 'credit',
+  credit__bridgeProtocol = 'credit__bridgeProtocol',
+  credit__bridged = 'credit__bridged',
+  credit__crossChainSupply = 'credit__crossChainSupply',
+  credit__currentSupply = 'credit__currentSupply',
+  credit__exPostTokenId = 'credit__exPostTokenId',
+  credit__id = 'credit__id',
+  credit__isExAnte = 'credit__isExAnte',
+  credit__lastBatchId = 'credit__lastBatchId',
+  credit__provenanceCount = 'credit__provenanceCount',
+  credit__retired = 'credit__retired',
+  credit__tokenAddress = 'credit__tokenAddress',
+  credit__tokenId = 'credit__tokenId',
+  credit__vintage = 'credit__vintage',
+  hash = 'hash',
+  id = 'id',
+  klimaRetire = 'klimaRetire',
+  klimaRetire__feeAmount = 'klimaRetire__feeAmount',
+  klimaRetire__id = 'klimaRetire__id',
+  klimaRetire__index = 'klimaRetire__index',
+  klimaRetire__specific = 'klimaRetire__specific',
+  pool = 'pool',
+  pool__crossChainSupply = 'pool__crossChainSupply',
+  pool__decimals = 'pool__decimals',
+  pool__id = 'pool__id',
+  pool__lastSnapshotDayID = 'pool__lastSnapshotDayID',
+  pool__name = 'pool__name',
+  pool__nextSnapshotDayID = 'pool__nextSnapshotDayID',
+  pool__supply = 'pool__supply',
+  retirementMessage = 'retirementMessage',
+  retiringAddress = 'retiringAddress',
+  retiringAddress__id = 'retiringAddress__id',
+  retiringAddress__totalRetirements = 'retiringAddress__totalRetirements',
+  retiringName = 'retiringName',
+  source = 'source',
+  timestamp = 'timestamp'
 }
 
 export type Subscription = {
@@ -4192,14 +4192,14 @@ export type Token_Filter = {
 };
 
 export enum Token_OrderBy {
-  Decimals = 'decimals',
-  Id = 'id',
-  LatestPricePerKlima = 'latestPricePerKLIMA',
-  LatestPricePerKlimaUpdated = 'latestPricePerKLIMAUpdated',
-  LatestPriceUsd = 'latestPriceUSD',
-  LatestPriceUsdUpdated = 'latestPriceUSDUpdated',
-  Name = 'name',
-  Symbol = 'symbol'
+  decimals = 'decimals',
+  id = 'id',
+  latestPricePerKLIMA = 'latestPricePerKLIMA',
+  latestPricePerKLIMAUpdated = 'latestPricePerKLIMAUpdated',
+  latestPriceUSD = 'latestPriceUSD',
+  latestPriceUSDUpdated = 'latestPriceUSDUpdated',
+  name = 'name',
+  symbol = 'symbol'
 }
 
 export type ToucanBatch = {
@@ -4244,9 +4244,9 @@ export type ToucanBatch_Filter = {
 };
 
 export enum ToucanBatch_OrderBy {
-  CreationTransactionHash = 'creationTransactionHash',
-  Id = 'id',
-  RegistrySerialNumbers = 'registrySerialNumbers'
+  creationTransactionHash = 'creationTransactionHash',
+  id = 'id',
+  registrySerialNumbers = 'registrySerialNumbers'
 }
 
 export type _Block_ = {
@@ -4278,9 +4278,9 @@ export type _Meta_ = {
 
 export enum _SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
-  Allow = 'allow',
+  allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
-  Deny = 'deny'
+  deny = 'deny'
 }
 
 export type ProvenanceRecordFragmentFragment = { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string };
