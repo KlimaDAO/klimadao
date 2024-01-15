@@ -11,6 +11,7 @@ type Props = {
   showClose?: boolean;
   description: string;
   onClose: () => void;
+  isInitialBanner: boolean;
   children: React.ReactNode;
   showNewFeatureLabel?: boolean;
 };
@@ -20,16 +21,17 @@ const FeatureBanner: FC<Props> = (props) => {
     <div
       className={cx(styles.banner, {
         "feature-banner": !!props.isVisible,
+        "initial-banner": !!props.isVisible && !!props.isInitialBanner,
       })}
     >
       {props.showClose && <Close className="close" onClick={props.onClose} />}
       <div className="contents">
         <div className={styles.title}>
           {props.showNewFeatureLabel && (
-            <>
+            <div className="new-feature">
               <Celebration />
-              <Text className="new-feature">{t`NEW FEATURE:`}</Text>
-            </>
+              <Text>{t`NEW FEATURE:`}</Text>
+            </div>
           )}
           <Text>{props.title}</Text>
         </div>

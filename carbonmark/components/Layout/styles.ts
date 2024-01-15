@@ -40,6 +40,7 @@ export const container = css`
 `;
 
 export const mainContentGrid = css`
+  position: relative;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns:
@@ -65,7 +66,7 @@ export const mobileLogo = css`
 
 export const desktopNavMenu = css`
   display: none;
-  //To properly allow modal overlay
+  // to properly allow modal overlay
   z-index: 1;
   ${breakpoints.desktop} {
     display: flex;
@@ -81,12 +82,20 @@ export const layoutChildrenContainer = css`
   padding: 1.6rem;
   align-content: flex-start;
 
-  // Required for feature banner transition
+  &:has(.feature-banner):not(.initial-banner) {
+    padding: 17rem 2.4rem;
+  }
+
+  &:has(.feature-banner.initial-banner) {
+    padding: 20rem 2.4rem;
+  }
+
+  // required for feature banner transition
   transition: all 0.2s ease-in-out;
 
   ${breakpoints.desktop} {
     padding: 4rem 2.4rem;
-
+    &:has(.feature-banner.initial-banner),
     &:has(.feature-banner) {
       padding: 16rem 2.4rem;
     }

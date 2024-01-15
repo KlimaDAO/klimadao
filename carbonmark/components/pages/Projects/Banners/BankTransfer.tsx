@@ -25,18 +25,27 @@ export const BankTransferBanner: FC = () => {
     setSessionStorage(window.sessionStorage.getItem("feature-banner") ?? "0");
   };
 
-  const setStorageValues = ([local, session]: string[]) => {
+  const setStorageValues = (
+    [local, session]: string[],
+    shouldUpdate = true
+  ) => {
     window.localStorage.setItem("feature-banner", local || "0");
     window.sessionStorage.setItem("feature-banner", session || "0");
-    updateStateValues();
+    if (shouldUpdate) updateStateValues();
   };
 
   const onLetsGo = () => {
-    setStorageValues(["1"]);
+    setStorageValues(["1"], false);
+  };
+
+  const onClose = () => {
+    setIsVisible(false);
+    setStorageValues(["1"], false);
   };
 
   const onShowLater = () => {
-    setStorageValues(["0", "1"]);
+    setIsVisible(false);
+    setStorageValues(["0", "1"], false);
   };
 
   const onDontRemindLater = () => {
@@ -47,13 +56,14 @@ export const BankTransferBanner: FC = () => {
     <>
       <FeatureBanner
         isVisible={isVisible}
-        onClose={onDontRemindLater}
+        isInitialBanner={isInitialBanner}
+        onClose={onClose}
         title={t`Pay via Bank Transfer / Wire`}
         showClose={isInitialBanner}
         showNewFeatureLabel={isInitialBanner}
         description={
           isInitialBanner
-            ? t`Purchase retirements from any project on Carbonmark and pay via bank transfer`
+            ? t`Purchase retirements from any project on Carbonmark and pay via bank transfer.`
             : t`Can we remind you about this new feature later?`
         }
       >
