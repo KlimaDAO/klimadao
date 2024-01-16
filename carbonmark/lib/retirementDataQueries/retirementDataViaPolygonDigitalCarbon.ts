@@ -20,6 +20,7 @@ async function fetchGraphQL(
   }
   const json = await response.json();
 
+  // ICR amounts are currently in regular integers in the subgraph. This standardizes them to wei to match the other registries and combining retirement data
   if (json.data.klimaRetires) {
     json.data.klimaRetires.forEach((retirement: KlimaRetire) => {
       if (retirement.retire.credit.project.registry === "ICR") {
