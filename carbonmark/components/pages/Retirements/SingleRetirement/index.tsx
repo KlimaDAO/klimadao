@@ -94,9 +94,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   }
 
   const formattedAmount = formatTonnes({
-    amount: retirement.retire.credit.project.registry.startsWith("ICR")
-      ? retirement.retire.amount
-      : formatUnits(retirement.retire.amount),
+    amount: formatUnits(retirement.retire.amount),
     locale: locale || "en",
   });
 

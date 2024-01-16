@@ -18,7 +18,19 @@ async function fetchGraphQL(
     const error = await response.json();
     throw new Error(error);
   }
-  return response.json();
+  const json = await response.json();
+
+  if (json.data.klimaRetires) {
+    json.data.klimaRetires.forEach((retirement: KlimaRetire) => {
+      if (retirement.retire.credit.project.registry === "ICR") {
+        retirement.retire.amount = parseUnits(
+          retirement.retire.amount,
+          18
+        ).toString();
+      }
+    });
+  }
+  return json;
 }
 
 function generateKlimaRetireQuery(beneficiaryAddress: string, index?: number) {
@@ -127,17 +139,6 @@ export const queryKlimaRetiresByAddress = async (
     const json: QueryKlimaRetires = await fetchGraphQL(
       generateKlimaRetireQuery(beneficiaryAddress)
     );
-
-    if (json.data.klimaRetires) {
-      json.data.klimaRetires.forEach((retirement) => {
-        if (retirement.retire.credit.project.registry === "ICR") {
-          retirement.retire.amount = parseUnits(
-            retirement.retire.amount,
-            18
-          ).toString();
-        }
-      });
-    }
     return json.data.klimaRetires || [];
   } catch (e) {
     throw new Error("Failed to query KlimaRetiresByAddress", e);
