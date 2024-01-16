@@ -1,8 +1,6 @@
 import { subgraphs } from "@klimadao/lib/constants";
 import { KlimaRetire, QueryKlimaRetires } from "@klimadao/lib/types/subgraph";
 import { parseUnits } from "ethers/lib/utils";
-import { convertCountryCodeToName } from "../../lib/convertCountryCodeToName";
-import { ICR_API } from "../../lib/registryAPIs/ICR/ICR_API";
 
 async function fetchGraphQL(
   query: string,
