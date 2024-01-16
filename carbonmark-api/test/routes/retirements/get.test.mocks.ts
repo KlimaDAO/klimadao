@@ -2,7 +2,7 @@ import { pick } from "lodash";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { fixtures } from "../../fixtures";
-
+import { mockFirebase } from "../../test.utils";
 const mockProfile = fixtures.firebase.profile;
 const mockRetirement = fixtures.digitalCarbon.retirement;
 
@@ -31,17 +31,7 @@ export const expectedTransformedRetirement = {
 };
 
 export const mockDatabaseProfile = () =>
-  jest.mock("../../../src//utils/helpers/users.utils", () => {
-    const carbonProjectsUtils = jest.requireActual(
-      "../../../src/utils/helpers/users.utils"
-    );
-    return {
-      ...carbonProjectsUtils,
-      getProfileByAddress: jest.fn(() => {
-        return mockProfile;
-      }),
-    };
-  });
+  mockFirebase({ get: jest.fn(() => mockProfile) });
 
 export const mockDigitalCarbonRetirements = () =>
   nock(GRAPH_URLS["polygon"].digitalCarbon)
