@@ -24,3 +24,8 @@ export function stdYearFromTimestamp(timestamp: BigInt): i32 {
   let date = new Date(<i64>timestamp.toI32() * 1000)
   return date.getUTCFullYear()
 }
+
+export function stdYearFromTimestampNew(timestamp: BigInt): i32 {
+  let date = new Date(timestamp.toI64() * 1000)
+  return date.getUTCFullYear()
+}
