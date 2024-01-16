@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-16 15:37+0000\n"
+"POT-Creation-Date: 2024-01-16 19:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -730,8 +730,8 @@ msgstr "正在加载您的资产"
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:159
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:285
-#: components/pages/Retire/Activity/Overview.tsx:71
-#: components/pages/Retire/Activity/Overview.tsx:82
+#: components/pages/Retire/Activity/Overview.tsx:73
+#: components/pages/Retire/Activity/Overview.tsx:84
 msgid "Loading..."
 msgstr "正在加载..."
 
@@ -809,7 +809,7 @@ msgstr "无可显示的活动"
 msgid "No barriers to entry for verified carbon projects"
 msgstr "经过验证的碳项目没有准入门槛"
 
-#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "无可显示数据"
 
@@ -1193,8 +1193,8 @@ msgstr "碳停用活动"
 msgid "Retirement Message"
 msgstr "停用消息"
 
-#: components/pages/Retire/Activity/Overview.tsx:58
-#: components/pages/Retire/Activity/Overview.tsx:68
+#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Retirement Overview"
 msgstr "碳停用概览"
 
@@ -1393,7 +1393,7 @@ msgstr "结账过程中出现错误。请再试一次。"
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
 msgstr "获取您的碳停用数据时出错。请刷新页面重试。"
 
-#: components/pages/Retire/Activity/Overview.tsx:47
+#: components/pages/Retire/Activity/Overview.tsx:49
 msgid "There was an error getting your total retirement data"
 msgstr "获取您的总碳停用数据时出错"
 
@@ -1509,7 +1509,7 @@ msgstr "总授权额"
 msgid "Total amount of tonnes to retire is required"
 msgstr "总停用碳吨量为必填项"
 
-#: components/pages/Retire/Activity/Overview.tsx:70
+#: components/pages/Retire/Activity/Overview.tsx:72
 msgid "Total carbon tonnes retired"
 msgstr "停用总碳吨"
 
@@ -1528,7 +1528,7 @@ msgstr "总价"
 msgid "Total quantity to list for sale"
 msgstr "待售总数量"
 
-#: components/pages/Retire/Activity/Overview.tsx:81
+#: components/pages/Retire/Activity/Overview.tsx:83
 msgid "Total retirement transactions"
 msgstr "停用碳交易总额"
 
@@ -2087,15 +2087,15 @@ msgstr "Carbonmark 拥有来自数百个项目的超过 2000 万个经过验证�
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "关于 Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:130
+#: components/pages/Retirements/SingleRetirement/index.tsx:128
 msgid "retirement.head.metaDescription"
 msgstr "由 Carbonmark 提供支持的完全透明的链上抵消。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:124
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:120
 msgid "retirement.head.title"
 msgstr "Carbonmark | 碳停用收据"
 
@@ -2280,7 +2280,7 @@ msgstr "卖给"
 msgid "something went wrong loading the allowance"
 msgstr "加载津贴时出了点问题"
 
-#: components/pages/Retire/Activity/Overview.tsx:75
+#: components/pages/Retire/Activity/Overview.tsx:77
 #: components/pages/Retire/Activity/Quotes.tsx:76
 #: components/pages/Retire/Activity/Table.tsx:65
 msgid "t"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-16 15:37+0000\n"
+"POT-Creation-Date: 2024-01-16 19:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -730,8 +730,8 @@ msgstr "Assets werden geladen"
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:159
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:285
-#: components/pages/Retire/Activity/Overview.tsx:71
-#: components/pages/Retire/Activity/Overview.tsx:82
+#: components/pages/Retire/Activity/Overview.tsx:73
+#: components/pages/Retire/Activity/Overview.tsx:84
 msgid "Loading..."
 msgstr "Lade..."
 
@@ -809,7 +809,7 @@ msgstr "Keine Aktivitäten zum Anzeigen"
 msgid "No barriers to entry for verified carbon projects"
 msgstr "Keine Barrieren für verifizierte CO2-Projekte"
 
-#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "Keine Daten zum Anzeigen"
 
@@ -1186,8 +1186,8 @@ msgstr "Ausgleichsaktivität"
 msgid "Retirement Message"
 msgstr "Ausgleichsnachricht"
 
-#: components/pages/Retire/Activity/Overview.tsx:58
-#: components/pages/Retire/Activity/Overview.tsx:68
+#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Retirement Overview"
 msgstr "Ausgleichsübersicht"
 
@@ -1386,7 +1386,7 @@ msgstr "Beim Bezahlvorgang ist ein Fehler aufgetreten. Bitte versuchen Sie es er
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
 msgstr "Beim Abrufen Ihrer Ausgleichsdaten ist ein Fehler aufgetreten. Bitte aktualisieren Sie die Seite und versuchen Sie es erneut."
 
-#: components/pages/Retire/Activity/Overview.tsx:47
+#: components/pages/Retire/Activity/Overview.tsx:49
 msgid "There was an error getting your total retirement data"
 msgstr "Beim Abrufen Ihrer kompletten Ausgleichsdaten ist ein Fehler aufgetreten"
 
@@ -1502,7 +1502,7 @@ msgstr "Insgesamt bewilligt"
 msgid "Total amount of tonnes to retire is required"
 msgstr "Gesamttonnenanzahl ist erforderlich"
 
-#: components/pages/Retire/Activity/Overview.tsx:70
+#: components/pages/Retire/Activity/Overview.tsx:72
 msgid "Total carbon tonnes retired"
 msgstr "CO2-Tonnen insgesamt ausgeglichen"
 
@@ -1521,7 +1521,7 @@ msgstr "Gesamtpreis"
 msgid "Total quantity to list for sale"
 msgstr "Gesamtmenge, die zum Verkauf angeboten wird"
 
-#: components/pages/Retire/Activity/Overview.tsx:81
+#: components/pages/Retire/Activity/Overview.tsx:83
 msgid "Total retirement transactions"
 msgstr "Gesamte Ausgleichstransaktionen"
 
@@ -2080,15 +2080,15 @@ msgstr "Mit über 20 Millionen verifizierten Emissionszertifikaten von Hunderten
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "Über Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:130
+#: components/pages/Retirements/SingleRetirement/index.tsx:128
 msgid "retirement.head.metaDescription"
 msgstr "Transparente On-Chain-Offsets von Carbonmark."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:124
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} hat {formattedAmount} Tonnen CO2 ausgeglichen"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:120
 msgid "retirement.head.title"
 msgstr "Carbonmark | Quittung für CO2-Ausgleich"
 
@@ -2273,7 +2273,7 @@ msgstr "Verkauft an"
 msgid "something went wrong loading the allowance"
 msgstr "Beim Laden des Guthabens ist etwas schiefgelaufen"
 
-#: components/pages/Retire/Activity/Overview.tsx:75
+#: components/pages/Retire/Activity/Overview.tsx:77
 #: components/pages/Retire/Activity/Quotes.tsx:76
 #: components/pages/Retire/Activity/Table.tsx:65
 msgid "t"
