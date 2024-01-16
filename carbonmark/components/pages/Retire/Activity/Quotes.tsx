@@ -54,12 +54,15 @@ export const ActivityQuotes: FC<Props> = (props) => {
             target="_blank"
             className={styles.activityQuote}
           >
-            <Text t="h5">{r.offset.name || r.offset.projectID}</Text>
+            <Text t="h5">
+              {r.retire.credit.project.name ||
+                r.retire.credit.project.projectID}
+            </Text>
             <Text color="lighter">
               <i>
                 {getElapsedTime({
                   locale: props.locale,
-                  timeStamp: Number(r.timestamp),
+                  timeStamp: Number(r.retire.timestamp),
                 })}
               </i>
             </Text>
@@ -69,7 +72,7 @@ export const ActivityQuotes: FC<Props> = (props) => {
               </span>{" "}
               <Trans>retired</Trans>{" "}
               <span className="number">
-                {trimWithLocale(r.amount, 2, props.locale)}
+                {trimWithLocale(r.retire.amount, 2, props.locale)}
                 {t`t`}
               </span>
             </Text>

@@ -1,12 +1,13 @@
+import { TypeScriptPluginConfig } from "@graphql-codegen/typescript";
 import { merge } from "lodash";
 import { GRAPH_URLS, SANITY_URLS } from "../app.constants";
 // eslint-disable-next-line @typescript-eslint/no-var-requires -- ugh
 
-const PLUGINS = [
-  "typescript",
-  "typescript-operations",
-  "typescript-graphql-request",
-];
+const PLUGINS = ["typescript-operations", "typescript-graphql-request"];
+
+const tsConfig: TypeScriptPluginConfig = {
+  namingConvention: { enumValues: "keep" },
+};
 
 const schemas = merge(GRAPH_URLS["polygon"], SANITY_URLS);
 
@@ -24,7 +25,12 @@ const generates = Object.entries(schemas).reduce(
         `${DOCUMENTS_DIR}/${key}.gql`,
         `${DOCUMENTS_DIR}/${key}.fragments.gql`,
       ],
-      plugins: PLUGINS,
+      plugins: [
+        {
+          typescript: tsConfig,
+        },
+        ...PLUGINS,
+      ],
     },
     [`${GENERATED_MOCKS_DIR}/${key}.mocks.ts`]: {
       schema,

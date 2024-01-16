@@ -9,21 +9,17 @@ import type {
 /**
  * @description Get a user's profile and activity
  * @summary User details
- * @link /users/:walletOrHandle
- */
-export async function getUsersWalletorhandle<
-  TData = GetUsersWalletorhandleQueryResponse,
->(
+ * @link /users/:walletOrHandle */
+export async function getUsersWalletorhandle(
   walletOrHandle: GetUsersWalletorhandlePathParams["walletOrHandle"],
   params?: GetUsersWalletorhandleQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData>({
+): Promise<ResponseConfig<GetUsersWalletorhandleQueryResponse>["data"]> {
+  const res = await client<GetUsersWalletorhandleQueryResponse>({
     method: "get",
     url: `/users/${walletOrHandle}`,
     params,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }

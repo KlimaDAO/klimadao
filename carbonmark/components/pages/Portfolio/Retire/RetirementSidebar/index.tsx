@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const RetirementSidebar: FC<Props> = (props) => {
-  const { tokenSymbol, project } = props.retirementAsset;
+  const { tokenSymbol, credit } = props.retirementAsset;
   return (
     <div className={styles.assetWrapper}>
       <Text t="h4" className={styles.bold}>
@@ -40,7 +40,7 @@ export const RetirementSidebar: FC<Props> = (props) => {
       <div className={styles.linkWithIcon}>
         <Anchor
           className="link"
-          href={`https://polygonscan.com/address/${project.tokenAddress}`}
+          href={`https://polygonscan.com/address/${credit.id}`}
         >
           <span className="svg">
             <Text t="body2" color="lighter">

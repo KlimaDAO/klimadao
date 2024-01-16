@@ -29,13 +29,6 @@ export const PageHead = (props: PageHeadProps) => {
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
-      {IS_PRODUCTION && (
-        <script
-          defer
-          data-domain="carbonmark.com"
-          src="https://plausible.io/js/script.outbound-links.js"
-        />
-      )}
       <title>{props.title}</title>
       <meta property="og:title" content={props.mediaTitle} />
 

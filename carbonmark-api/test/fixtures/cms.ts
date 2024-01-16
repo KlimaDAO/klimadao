@@ -19,6 +19,7 @@ const cmsProject = aProject({
   registry: "VCS",
   registryProjectId: "191",
   region: "Asia",
+  url: "http://myurl.com",
   id: "VCS-191" as unknown as Maybe<Slug>,
   methodologies: [
     aMethodology({

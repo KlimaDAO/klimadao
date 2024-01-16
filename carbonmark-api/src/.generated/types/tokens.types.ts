@@ -31,8 +31,8 @@ export type Block_Height = {
 
 /** Defines the order direction, either ascending or descending */
 export enum OrderDirection {
-  Asc = 'asc',
-  Desc = 'desc'
+  asc = 'asc',
+  desc = 'desc'
 }
 
 export type Pair = {
@@ -159,22 +159,22 @@ export type Pair_Filter = {
 };
 
 export enum Pair_OrderBy {
-  Currentprice = 'currentprice',
-  Id = 'id',
-  Lastupdate = 'lastupdate',
-  Swaps = 'swaps',
-  Token0 = 'token0',
-  Token0Decimals = 'token0__decimals',
-  Token0Id = 'token0__id',
-  Token0Name = 'token0__name',
-  Token0Symbol = 'token0__symbol',
-  Token1 = 'token1',
-  Token1Decimals = 'token1__decimals',
-  Token1Id = 'token1__id',
-  Token1Name = 'token1__name',
-  Token1Symbol = 'token1__symbol',
-  Totalklimaearnedfees = 'totalklimaearnedfees',
-  Totalvolume = 'totalvolume'
+  currentprice = 'currentprice',
+  id = 'id',
+  lastupdate = 'lastupdate',
+  swaps = 'swaps',
+  token0 = 'token0',
+  token0__decimals = 'token0__decimals',
+  token0__id = 'token0__id',
+  token0__name = 'token0__name',
+  token0__symbol = 'token0__symbol',
+  token1 = 'token1',
+  token1__decimals = 'token1__decimals',
+  token1__id = 'token1__id',
+  token1__name = 'token1__name',
+  token1__symbol = 'token1__symbol',
+  totalklimaearnedfees = 'totalklimaearnedfees',
+  totalvolume = 'totalvolume'
 }
 
 export type Query = {
@@ -455,22 +455,22 @@ export type Swap_Filter = {
 };
 
 export enum Swap_OrderBy {
-  Close = 'close',
-  High = 'high',
-  Id = 'id',
-  Klimaearnedfees = 'klimaearnedfees',
-  Low = 'low',
-  Lpfees = 'lpfees',
-  Open = 'open',
-  Pair = 'pair',
-  PairCurrentprice = 'pair__currentprice',
-  PairId = 'pair__id',
-  PairLastupdate = 'pair__lastupdate',
-  PairTotalklimaearnedfees = 'pair__totalklimaearnedfees',
-  PairTotalvolume = 'pair__totalvolume',
-  Slippage = 'slippage',
-  Timestamp = 'timestamp',
-  Volume = 'volume'
+  close = 'close',
+  high = 'high',
+  id = 'id',
+  klimaearnedfees = 'klimaearnedfees',
+  low = 'low',
+  lpfees = 'lpfees',
+  open = 'open',
+  pair = 'pair',
+  pair__currentprice = 'pair__currentprice',
+  pair__id = 'pair__id',
+  pair__lastupdate = 'pair__lastupdate',
+  pair__totalklimaearnedfees = 'pair__totalklimaearnedfees',
+  pair__totalvolume = 'pair__totalvolume',
+  slippage = 'slippage',
+  timestamp = 'timestamp',
+  volume = 'volume'
 }
 
 export type Token = {
@@ -545,10 +545,10 @@ export type Token_Filter = {
 };
 
 export enum Token_OrderBy {
-  Decimals = 'decimals',
-  Id = 'id',
-  Name = 'name',
-  Symbol = 'symbol'
+  decimals = 'decimals',
+  id = 'id',
+  name = 'name',
+  symbol = 'symbol'
 }
 
 export type _Block_ = {
@@ -580,9 +580,9 @@ export type _Meta_ = {
 
 export enum _SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
-  Allow = 'allow',
+  allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
-  Deny = 'deny'
+  deny = 'deny'
 }
 
 export type GetPairQueryVariables = Exact<{

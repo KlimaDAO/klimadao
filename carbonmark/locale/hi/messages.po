@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-05 23:55+0000\n"
+"POT-Creation-Date: 2024-01-15 15:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +32,7 @@ msgstr "500 - सर्वर त्रुटि"
 msgid "500 - Server error occurred"
 msgstr "500 - सर्वर त्रुटि हो गई"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:216
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:221
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> आवश्यक क्षेत्र"
 
@@ -147,7 +147,7 @@ msgstr "उपलब्ध आपूर्तिराशि पार हो �
 msgid "Available to list: {0}"
 msgstr "उपलब्ध: {0}"
 
-#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:213
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:210
 msgid "Available to purchase"
 msgstr "खरीदने के लिए उपलब्ध है"
 
@@ -165,7 +165,7 @@ msgstr "उपलब्ध:"
 msgid "Available: {0}"
 msgstr "उपलब्ध: {0}"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:234
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:239
 msgid "Available: {unlistedBalance}"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "BETA"
 msgstr "बीटा"
 
-#: components/pages/Project/Purchase/index.tsx:53
+#: components/pages/Project/Purchase/index.tsx:49
 #: components/pages/Project/Retire/index.tsx:36
 msgid "Back to Project"
 msgstr "वापस प्रॉजेक्ट पर"
@@ -209,14 +209,14 @@ msgstr "लाभार्थी का नाम"
 msgid "Beneficiary wallet address"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:299
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
 msgid "Beneficiary wallet address (optional)"
 msgstr "लाभार्थी वॉलेट पता (वैकल्पिक)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
-#: components/pages/Project/index.tsx:136
+#: components/pages/Project/index.tsx:139
 msgid "Best Price"
 msgstr "सर्वोत्तम क़ीमत"
 
@@ -447,12 +447,12 @@ msgstr "वर्तमान में, कार्बनमार्क क�
 msgid "DATE"
 msgstr "दिनांक"
 
-#: components/pages/Project/index.tsx:233
+#: components/pages/Project/index.tsx:236
 msgid "Data for this project and vintage"
 msgstr "इस प्रॉजेक्ट और विंटेज के लिए डेटा"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:90
+#: components/pages/Users/SellerUnconnected/index.tsx:96
 msgid "Data for this seller"
 msgstr "इस विक्रेता संबंधी डेटा"
 
@@ -464,7 +464,7 @@ msgstr "कनेक्टेड वॉलेट का पते पर कि�
 msgid "Describe the purpose of this retirement"
 msgstr "इस रिटायरमेंट के उद्देश्य का वर्णन करें"
 
-#: components/pages/Project/index.tsx:184
+#: components/pages/Project/index.tsx:187
 msgid "Description"
 msgstr "विवरण"
 
@@ -695,7 +695,7 @@ msgstr ""
 msgid "Latest First"
 msgstr "नवीनतम पहले"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:100
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:101
 msgid "Learn More"
 msgstr "और जानें"
 
@@ -720,7 +720,7 @@ msgid "Listed tonnes:"
 msgstr "सूचीबद्ध टन:"
 
 #: components/pages/Users/SellerConnected/index.tsx:133
-#: components/pages/Users/SellerUnconnected/index.tsx:48
+#: components/pages/Users/SellerUnconnected/index.tsx:54
 msgid "Listings"
 msgstr "सूचियाँ"
 
@@ -776,11 +776,11 @@ msgstr "मार्केटप्लेस | कार्बनमार्क
 msgid "Maximize your climate impact."
 msgstr "अपने जलवायु प्रभाव को अधिकतम करें."
 
-#: components/pages/Project/index.tsx:143
+#: components/pages/Project/index.tsx:146
 msgid "Methodology"
 msgstr "कार्यप्रणाली"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:52
 msgid "Moss"
 msgstr "Moss (मॉस)"
 
@@ -796,12 +796,12 @@ msgstr "नया यूनिट मूल्य (USDC)"
 msgid "Next"
 msgstr "इसके बाद"
 
-#: components/pages/Retire/Activity/Table.tsx:88
+#: components/pages/Retire/Activity/Table.tsx:93
 msgid "No Activity to show."
 msgstr "दिखाने के लिए कोई गतिविधि नहीं।"
 
 #: components/pages/Users/SellerConnected/index.tsx:196
-#: components/pages/Users/SellerUnconnected/index.tsx:84
+#: components/pages/Users/SellerUnconnected/index.tsx:90
 msgid "No active listings."
 msgstr "शून्य सक्रिय सूचियाँ"
 
@@ -821,7 +821,7 @@ msgstr "दिखाने के लिए कोई डेटा नहीं"
 msgid "No listable assets found."
 msgstr "एक भी सूचीयोग्य ऐसेट मौजूद नहीं"
 
-#: components/pages/Project/index.tsx:223
+#: components/pages/Project/index.tsx:226
 msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
@@ -975,7 +975,7 @@ msgstr "विक्रय संपन्न करना"
 msgid "Processing Retirement"
 msgstr "रिटायरमेंट प्रोसेसिंग"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:78
+#: components/pages/Retirements/SingleRetirement/index.tsx:80
 msgid "Processing retirement..."
 msgstr ""
 
@@ -1015,8 +1015,8 @@ msgstr "अधिक कार्बन खरीदें"
 msgid "Purchase successful"
 msgstr "खरीदारी सफल"
 
-#: components/pages/Project/Purchase/index.tsx:41
-#: components/pages/Project/Purchase/index.tsx:42
+#: components/pages/Project/Purchase/index.tsx:37
+#: components/pages/Project/Purchase/index.tsx:38
 msgid "Purchase {0} | Carbonmark"
 msgstr "ख़रीद {0} | कार्बनमार्क"
 
@@ -1054,11 +1054,11 @@ msgstr "शीघ्र रिटायर करें"
 msgid "RETIRE CARBON"
 msgstr "कार्बन रिटायर करें"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:200
 msgid "Read Less"
 msgstr "कम पढ़ें"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:200
 msgid "Read More"
 msgstr "और पढ़ें"
 
@@ -1131,7 +1131,7 @@ msgstr "रिटायर"
 msgid "Retire Carbon"
 msgstr "कार्बन रिटायर करें"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:207
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "अपने लिए या किसी अन्य व्यक्ति या संगठन की ओर से कार्बन क्रेडिट रिटायर करें।"
 
@@ -1250,7 +1250,7 @@ msgstr "साइन इन / कनेक्ट टु बाय"
 msgid "Single unit price"
 msgstr "एकल यूनिट मूल्य"
 
-#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:111
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:108
 msgid "Something went wrong loading the allowance"
 msgstr "भत्ता लोड करते समय कुछ गड़बड़ी हुई"
 
@@ -1346,7 +1346,7 @@ msgstr "पहला कदम अपनी कार्बन संपत्�
 msgid "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
 msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी ख़रीदारी संपन्न करनी है।"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:208
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:213
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "आपके पर्यावरणीय दावे को सत्यापित करने के लिए नीचे दी गई जानकारी सार्वजनिक रूप से प्रसारित की जाएगी। यह लेन-देन स्थायी है; आपके लेन-देन पूरे हो जाने के बाद जानकारी को बदला नहीं जा सकता।"
 
@@ -1462,7 +1462,7 @@ msgstr "भुगतान विधि टॉगल करें"
 msgid "Toggle sort menu"
 msgstr "सॉर्ट मेनू टॉगल करें"
 
-#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:212
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:209
 msgid "Token you will receive"
 msgstr "टोकन आपको प्राप्त होगा"
 
@@ -1588,7 +1588,7 @@ msgstr ""
 msgid "View Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल देखें"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:209
 msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
 
@@ -1616,12 +1616,12 @@ msgstr "सभी पोर्टफोलियो आइटम देखें
 msgid "View all Projects"
 msgstr "सभी प्रोजेक्ट देखें"
 
-#: components/pages/Retire/Activity/Quotes.tsx:82
-#: components/pages/Retire/Activity/Table.tsx:72
+#: components/pages/Retire/Activity/Quotes.tsx:85
+#: components/pages/Retire/Activity/Table.tsx:77
 msgid "View all Retirements"
 msgstr "सभी रिटयरमेंट देखें"
 
-#: components/pages/Project/index.tsx:113
+#: components/pages/Project/index.tsx:116
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "कार्बनमार्क पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
 
@@ -1681,7 +1681,7 @@ msgstr "यह रिटायरमेंट किसके खाते म�
 msgid "Wrong Network"
 msgstr "ग़लत नेटवर्क"
 
-#: components/pages/Retire/Activity/Quotes.tsx:68
+#: components/pages/Retire/Activity/Quotes.tsx:71
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
@@ -1760,7 +1760,7 @@ msgstr "आपकी ख़रीदारी अभी पूर्ण नही�
 msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
 msgstr ""
 
@@ -1875,35 +1875,35 @@ msgstr "प्रोफ़ाइल"
 msgid "menu.retire"
 msgstr "रिटायर"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:224
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
 msgid "offset.amount_in_tonnes"
 msgstr "आप कितने टन कार्बन को ऑफ़सेट करना चाहेंगे?<0>* </0>"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:314
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:319
 msgid "offset.default_retirement_address"
 msgstr "कनेक्टेड वॉलेट का पते पर किए गए डिफ़ॉल्ट"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:252
 msgid "offset.offset_quantity"
 msgstr "ऑफ़सेट करने के लिए मात्रा दर्ज करें"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:398
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:403
 msgid "offset.retire_carbon"
 msgstr "रिटायरमेंट की पुष्टि करें"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:277
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:282
 msgid "offset.retirement_beneficiary_name"
 msgstr "लाभार्थी का नाम"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:265
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:270
 msgid "offset.retirement_credit"
 msgstr "यह रिटायरमेंट किसके खाते में जाएगी?"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:328
 msgid "offset.retirement_message"
 msgstr "रिटायरमेंट संदेश"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:334
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:339
 msgid "offset.retirement_retirement_message"
 msgstr "रिटायरमेंट सन्देश"
 
@@ -1920,7 +1920,7 @@ msgstr "पृथ्वी का समर्थन करने के लि�
 msgid "offset.successModal.body3"
 msgstr "आप की लेन-देन सफलतापूर्वक प्रोसेस हो गयी है लेकिन इन्डेक्स होने में सामान्य से अधिक समय लग रहा है। यह आपकी <0>रिटायरमैंट</0> में जल्द ही दिखाई देगा ।"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:355
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:360
 msgid "offset_disclaimer"
 msgstr "अपने रिटायरमैंट नाम या संदेश में किसी भी संवेदनशील व्यक्तिगत जानकारी (जैसे ईमेल पता) को शामिल करते सयय सावधान रहें। आपके द्वारा यहां दर्ज की गई जानकारी को एक बार जमा करने के बाद संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
@@ -2068,15 +2068,15 @@ msgstr "कृपया किसी भिन्न फ़िल्टर क�
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "टाइपो-त्रुटियों के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज-शब्द आज़माएँ।"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:381
 msgid "retire.back_button"
 msgstr "वापस"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:367
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
 msgid "retire.submit_button"
 msgstr "कार्बन रिटायर करें"
 
-#: components/pages/Retire/Activity/Quotes.tsx:70
+#: components/pages/Retire/Activity/Quotes.tsx:73
 msgid "retired"
 msgstr "रिटायर्ड"
 
@@ -2088,15 +2088,15 @@ msgstr "सैकड़ों परियोजनाओं से 20 मिल
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "कार्बनमार्क के बारे में"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:130
 msgid "retirement.head.metaDescription"
 msgstr "कार्बनमार्क द्वारा संचालित पारदर्शी, ऑन-चेन ऑफ़सेट।"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/index.tsx:126
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्बन"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:114
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.title"
 msgstr "कार्बनमार्क | कार्बन रिटायरमेंट रसीद"
 
@@ -2120,11 +2120,11 @@ msgstr "लाभार्थी का पता"
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "कार्बन क्रेडिट रिटायरमेंट"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:94
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:96
 msgid "retirement.single.country_region.title"
 msgstr "देश/क्षेत्र:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:121
 msgid "retirement.single.immutable_public_records.title"
 msgstr "यह एक डिजिटल कार्बन संपत्ति की स्थायी रिटायरमैंट का प्रतिनिधित्व करता है। यह रिटायरमैंट और संबद्ध डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
 
@@ -2136,15 +2136,15 @@ msgstr "रिटायरमेंट संदेश:"
 msgid "retirement.single.methodology.title"
 msgstr "कार्यप्रणाली:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
 msgid "retirement.single.moss_offset.description"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
 msgid "retirement.single.moss_offset.name"
 msgstr "MOSS अर्थ MC02"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:113
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:114
 msgid "retirement.single.official_certificate.title"
 msgstr "<0>Carbonmark.com द्वारा प्रदान किया गया ऑन-चेन कार्बन रिटायरमेंट का आधिकारिक प्रमाणपत्र</0>"
 
@@ -2152,15 +2152,15 @@ msgstr "<0>Carbonmark.com द्वारा प्रदान किया ग
 msgid "retirement.single.project.title"
 msgstr "प्रॉजेक्ट:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:82
 msgid "retirement.single.project_description.title"
 msgstr "विवरण"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
 msgid "retirement.single.project_details.title"
 msgstr "प्रॉजेक्ट का विवरण"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:65
 msgid "retirement.single.project_name.title"
 msgstr "परियोजना का नाम"
 
@@ -2200,11 +2200,11 @@ msgstr "प्रकार:"
 msgid "retirement.single.verified_tonnes.title"
 msgstr " कार्बन के सत्यापित रिटायर्ड टन"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:140
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखें"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:109
 msgid "retirement.single.vintage.title"
 msgstr "विंटेज:"
 
@@ -2248,7 +2248,7 @@ msgstr "कुल रिटायर किए गए कार्बन टन"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "कुल रिटायरमेंट लेनदेन"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:71
+#: components/pages/Users/SellerUnconnected/index.tsx:77
 msgid "seller.listing.buy"
 msgstr "ख़रीदें"
 
@@ -2257,7 +2257,7 @@ msgid "seller.listing.quantity_available"
 msgstr "उपलब्ध मात्रा:"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:61
+#: components/pages/Users/SellerUnconnected/index.tsx:67
 msgid "shared.connect_to_buy"
 msgstr "साइन इन / कनेक्ट टु बाय"
 
@@ -2282,8 +2282,8 @@ msgid "something went wrong loading the allowance"
 msgstr "कुछ गड़बड़ हो गई जानकारी लोड हो रही है"
 
 #: components/pages/Retire/Activity/Overview.tsx:75
-#: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:62
+#: components/pages/Retire/Activity/Quotes.tsx:76
+#: components/pages/Retire/Activity/Table.tsx:65
 msgid "t"
 msgstr "टी"
 

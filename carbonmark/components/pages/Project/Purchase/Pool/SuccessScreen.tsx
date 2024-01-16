@@ -11,7 +11,7 @@ import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createProjectTokenName } from "lib/projectGetter";
 import {
   CarbonmarkPaymentMethod,
-  DetailedProject,
+  Project,
   TokenPrice,
 } from "lib/types/carbonmark.types";
 import Image from "next/image";
@@ -20,7 +20,7 @@ import { FC } from "react";
 import * as styles from "../styles";
 
 type Props = {
-  project: DetailedProject;
+  project: Project;
   totalPrice?: string;
   transactionHash: string | null;
   paymentMethod?: CarbonmarkPaymentMethod;

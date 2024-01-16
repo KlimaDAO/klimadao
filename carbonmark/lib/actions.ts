@@ -17,8 +17,8 @@ import { OnStatusHandler } from "lib/statusMessage";
 import {
   Asset,
   AssetForRetirement,
-  DetailedProject,
-  PcbProject,
+  DigitalCarbonCredit,
+  Project,
 } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { isNil } from "lodash";
@@ -308,7 +308,7 @@ export const deleteListingTransaction = async (params: {
 };
 
 export type AssetWithProject = Asset & {
-  project: DetailedProject | null;
+  project: Project | null;
 };
 
 const idFromSymbol = (symbol: string) => {
@@ -334,7 +334,7 @@ export const addProjectsToAssets = async (params: {
     const ProjectMap = projects.reduce((PMap, p) => {
       if (p?.key) PMap.set(`${p.key}-${p.vintage}`, p);
       return PMap;
-    }, new Map<string, DetailedProject>());
+    }, new Map<string, Project>());
 
     return params.assets.map((a) => ({
       ...a,
@@ -347,15 +347,15 @@ export const addProjectsToAssets = async (params: {
 
 interface CompositeAssetParams {
   asset: Asset;
-  project: PcbProject;
+  credit: DigitalCarbonCredit;
 }
 
 export const createCompositeAsset = (
   params: CompositeAssetParams
 ): AssetForRetirement => {
-  const { asset, project } = params;
-  if (!project) {
-    throw new Error("Project field is not defined in the asset");
+  const { asset, credit } = params;
+  if (!credit) {
+    throw new Error("credit field is not defined in the asset");
   }
 
   const compositeAsset: AssetForRetirement = {
@@ -365,7 +365,7 @@ export const createCompositeAsset = (
     tokenName: asset.token.name,
     balance: asset.amount,
     tokenSymbol: asset.token.symbol,
-    project,
+    credit,
   };
 
   return compositeAsset;

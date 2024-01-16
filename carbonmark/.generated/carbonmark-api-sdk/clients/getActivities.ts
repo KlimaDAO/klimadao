@@ -8,18 +8,16 @@ import type {
 /**
  * @description Retrieve an array of activities related to a carbon project
  * @summary List project activities
- * @link /activities
- */
-export async function getActivities<TData = GetActivitiesQueryResponse>(
+ * @link /activities */
+export async function getActivities(
   params?: GetActivitiesQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData>({
+): Promise<ResponseConfig<GetActivitiesQueryResponse>["data"]> {
+  const res = await client<GetActivitiesQueryResponse>({
     method: "get",
     url: `/activities`,
     params,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }

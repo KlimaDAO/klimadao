@@ -69,3 +69,8 @@ export type GetProjectsIdActivityQueryParams = {
     | "UpdatedQuantity"
   )[];
 };
+export namespace GetProjectsIdActivityQuery {
+  export type Response = GetProjectsIdActivityQueryResponse;
+  export type PathParams = GetProjectsIdActivityPathParams;
+  export type QueryParams = GetProjectsIdActivityQueryParams;
+}

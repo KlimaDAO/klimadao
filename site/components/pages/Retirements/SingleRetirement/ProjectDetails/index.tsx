@@ -9,7 +9,7 @@ import { ProjectDetail } from "./List";
 import * as styles from "./styles";
 
 type Props = {
-  offset: KlimaRetire["offset"];
+  retire: KlimaRetire["retire"];
 };
 
 const constructVerraUrl = (id: string) => {
@@ -19,7 +19,7 @@ const constructVerraUrl = (id: string) => {
 };
 
 export const ProjectDetails: FC<Props> = (props) => {
-  const isMossOffset = props.offset.bridge === "Moss";
+  const isMossOffset = props.retire.credit.bridgeProtocol === "MOSS";
   return (
     <div className={styles.projectDetails}>
       <div className={styles.title}>
@@ -43,23 +43,26 @@ export const ProjectDetails: FC<Props> = (props) => {
         projectLink={
           isMossOffset
             ? "https://mco2token.moss.earth/"
-            : constructVerraUrl(props.offset.projectID)
+            : constructVerraUrl(props.retire.credit.project.projectID)
         }
         headline={
           isMossOffset
             ? t`MCO2 Token`
-            : props.offset.name ||
+            : props.retire.credit.project.name ||
               normalizeProjectId({
-                id: props.offset.projectID,
-                standard: props.offset.standard,
+                id: props.retire.credit.project.projectID,
+                standard: props.retire.credit.project.registry,
               })
         }
-        tokenAddress={props.offset.tokenAddress}
+        tokenAddress={props.retire.credit.id}
         isMossOffset={isMossOffset}
-        totalRetired={props.offset.totalRetired}
-        currentSupply={props.offset.currentSupply}
-        methodology={props.offset.methodology}
-        location={props.offset.country || props.offset.region}
+        totalRetired={props.retire.credit.retired}
+        currentSupply={props.retire.credit.currentSupply}
+        methodology={props.retire.credit.project.methodologies[0]}
+        location={
+          props.retire.credit.project.country ||
+          props.retire.credit.project.region
+        }
       />
     </div>
   );

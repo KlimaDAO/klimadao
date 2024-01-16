@@ -86,3 +86,8 @@ export type GetPurchasesIdQueryResponse = {
 export type GetPurchasesIdQueryParams = {
   network?: Def1;
 };
+export namespace GetPurchasesIdQuery {
+  export type Response = GetPurchasesIdQueryResponse;
+  export type PathParams = GetPurchasesIdPathParams;
+  export type QueryParams = GetPurchasesIdQueryParams;
+}

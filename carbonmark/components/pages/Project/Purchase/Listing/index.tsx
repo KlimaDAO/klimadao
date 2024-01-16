@@ -1,11 +1,11 @@
-import { DetailedProject, Listing } from "lib/types/carbonmark.types";
+import { Listing, Project } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { InactivePurchase } from "../InactivePurchase";
 import { PurchaseForm } from "./PurchaseForm";
 
 type Props = {
   listing: Listing;
-  project: DetailedProject;
+  project: Project;
 };
 
 export const ListingPurchase: FC<Props> = (props) => {

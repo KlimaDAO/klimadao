@@ -2,6 +2,7 @@
   "type": "object",
   "properties": {
     "description": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "long_description": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
     "short_description": {
       "anyOf": [{ "type": "string" }, { "type": "null" }]
     },
@@ -11,19 +12,12 @@
     "methodologies": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "type": "object",
-            "properties": {
-              "id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-              "category": {
-                "anyOf": [{ "type": "string" }, { "type": "null" }]
-              },
-              "name": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-            }
-          },
-          { "type": "null" }
-        ]
+        "type": "object",
+        "properties": {
+          "id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "category": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "name": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+        }
       }
     },
     "location": {
@@ -52,17 +46,71 @@
         { "type": "null" }
       ]
     },
+    "url": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
     "vintage": { "type": "string" },
-    "creditTokenAddress": { "type": "string" },
+    "creditTokenAddress": {
+      "description": "⚠️Deprecated. Project may have multiple token addresses.",
+      "type": "string"
+    },
     "registry": { "type": "string" },
     "updatedAt": { "type": "string" },
-    "country": {
-      "type": "object",
-      "properties": { "id": { "type": "string" } },
-      "required": ["id"]
-    },
+    "country": { "type": "string" },
     "region": { "type": "string" },
     "price": { "type": "string" },
+    "prices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "poolName": {
+            "description": "Lowercase name of pool / pool token e.g. 'bct'",
+            "anyOf": [
+              { "type": "string", "enum": ["ubo"] },
+              { "type": "string", "enum": ["nbo"] },
+              { "type": "string", "enum": ["bct"] },
+              { "type": "string", "enum": ["nct"] }
+            ]
+          },
+          "supply": {
+            "description": "Remaining supply in pool",
+            "type": "string"
+          },
+          "poolAddress": {
+            "description": "Address of the pool itself, e.g. bct token address",
+            "type": "string"
+          },
+          "projectTokenAddress": {
+            "description": "Address of the project token in this pool",
+            "type": "string"
+          },
+          "isPoolDefault": {
+            "description": "True if default project for pool and no selective redemption fee applies",
+            "type": "boolean"
+          },
+          "singleUnitPrice": {
+            "description": "formatted USDC price for 1 tonne e.g. '0.123456'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "poolName",
+          "supply",
+          "poolAddress",
+          "projectTokenAddress",
+          "isPoolDefault",
+          "singleUnitPrice"
+        ]
+      }
+    },
+    "stats": {
+      "type": "object",
+      "properties": {
+        "totalBridged": { "type": "number" },
+        "totalRetired": { "type": "number" },
+        "totalSupply": { "type": "number" }
+      },
+      "required": ["totalBridged", "totalRetired", "totalSupply"]
+    },
     "listings": {
       "anyOf": [
         {
@@ -178,21 +226,17 @@
       ]
     },
     "images": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "url": { "type": "string" },
-              "caption": { "type": "string" }
-            },
-            "required": ["url", "caption"]
-          }
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" },
+          "caption": { "type": "string" }
         },
-        { "type": "null" }
-      ]
-    }
+        "required": ["url", "caption"]
+      }
+    },
+    "hasSupply": { "type": "boolean" }
   },
   "required": [
     "key",
@@ -205,7 +249,10 @@
     "updatedAt",
     "country",
     "region",
-    "price"
+    "price",
+    "prices",
+    "stats",
+    "hasSupply"
   ],
   "x-readme-ref-name": "Project"
 }

@@ -1,11 +1,12 @@
 import { urls } from "@klimadao/lib/constants";
-import { queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
+import { formatUnits } from "@klimadao/lib/utils";
 import { Props, RetirementPage } from "components/pages/Retirements";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { GetStaticProps } from "next";
+import { queryKlimaRetiresByAddress } from "../../../lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 
 type Params = {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
@@ -58,7 +59,14 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
 
       try {
         totalCarbonRetired = klimaRetires
-          .reduce((acc, retirement) => acc + parseFloat(retirement.amount), 0)
+          .reduce((acc, retirement) => {
+            const amount = retirement.retire.credit.project.registry.startsWith(
+              "ICR"
+            )
+              ? retirement.retire.amount
+              : formatUnits(retirement.retire.amount);
+            return acc + parseFloat(amount);
+          }, 0)
           .toString();
       } catch (e) {
         throw new Error(

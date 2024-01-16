@@ -207,4 +207,14 @@ export type GetUsersWalletorhandleQueryParams = {
    * @type string | undefined
    */
   expiresAfter?: string;
+  /**
+   * @description Only consider projects listings and pools that contains at least this amount of credits (Tonnes)
+   * @type number | undefined
+   */
+  minSupply?: number;
 };
+export namespace GetUsersWalletorhandleQuery {
+  export type Response = GetUsersWalletorhandleQueryResponse;
+  export type PathParams = GetUsersWalletorhandlePathParams;
+  export type QueryParams = GetUsersWalletorhandleQueryParams;
+}

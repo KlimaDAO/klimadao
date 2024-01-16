@@ -5,6 +5,7 @@ import {
   getVintages,
 } from ".generated/carbonmark-api-sdk/clients";
 import { Projects } from "components/pages/Projects";
+import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
 import {
   Category,
@@ -26,7 +27,9 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
   ctx
 ) => {
   try {
-    const projects = await getProjects();
+    const projects = await getProjects({
+      minSupply: DEFAULT_MIN_LISTING_QUANTITY,
+    });
     const vintages = await getVintages();
     const countries = await getCountries();
     /** @note because the API is returning trailing empty spaces on some categories, trim them here */

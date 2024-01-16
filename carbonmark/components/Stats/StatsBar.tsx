@@ -3,14 +3,14 @@ import { t, Trans } from "@lingui/macro";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
-import { DetailedProject } from "lib/types/carbonmark.types";
+import { Project } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
-  totalSupply: DetailedProject["stats"]["totalSupply"];
-  totalRetired: DetailedProject["stats"]["totalRetired"];
+  totalSupply: Project["stats"]["totalSupply"];
+  totalRetired: Project["stats"]["totalRetired"];
 }
 
 export const StatsBar: FC<Props> = (props) => {

@@ -30,7 +30,7 @@ const calculateSelectivePrice = (
 
 /**
  * Query the subgraph for a list of all prices for tracked pairs (bct, nct, nbo, ubo)
- * @returns {Promise<Record<string, PoolPrice>} - Map of prices and addresses
+ * @returns {Promise<Record<string, PoolPrice>>} - Map of prices and addresses
  */
 export const fetchAllPoolPrices = async (sdk: GQL_SDK) => {
   const data = await sdk.tokens.getPoolPrices();

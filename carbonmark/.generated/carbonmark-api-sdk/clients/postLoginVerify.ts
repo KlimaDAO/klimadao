@@ -8,21 +8,19 @@ import type {
 /**
  * @description Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.
  * @summary Verify signed data
- * @link /login/verify
- */
-export async function postLoginVerify<
-  TData = PostLoginVerifyMutationResponse,
-  TVariables = PostLoginVerifyMutationRequest,
->(
-  data: TVariables,
+ * @link /login/verify */
+export async function postLoginVerify(
+  data: PostLoginVerifyMutationRequest,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData, TVariables>({
+): Promise<ResponseConfig<PostLoginVerifyMutationResponse>["data"]> {
+  const res = await client<
+    PostLoginVerifyMutationResponse,
+    PostLoginVerifyMutationRequest
+  >({
     method: "post",
     url: `/login/verify`,
     data,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }

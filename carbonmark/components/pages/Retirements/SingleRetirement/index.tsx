@@ -4,8 +4,8 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   concatAddress,
   formatTonnes,
+  formatUnits,
   getRetirementTokenByAddress,
-  queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { Footer } from "components/Footer";
@@ -14,8 +14,10 @@ import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
 import { Navigation } from "components/shared/Navigation";
 import { Spinner } from "components/shared/Spinner";
+import { getProjectTokenFromBridgeProtocol } from "lib/getProjectTokenFromBridgeProtocol";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
-import { CategoryName, DetailedProject } from "lib/types/carbonmark.types";
+import { queryKlimaRetireByIndex } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
+import { CategoryName, Project } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -37,7 +39,7 @@ export interface SingleRetirementPageProps {
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  project?: DetailedProject | null;
+  project?: Project | null;
 }
 
 export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
@@ -92,22 +94,28 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   }
 
   const formattedAmount = formatTonnes({
-    amount: retirement.amount,
+    amount: retirement.retire.credit.project.registry.startsWith("ICR")
+      ? retirement.retire.amount
+      : formatUnits(retirement.retire.amount),
     locale: locale || "en",
   });
 
   const retiree =
-    retirement.beneficiary ||
+    retirement.retire.beneficiaryName ||
     props.nameserviceDomain ||
     concatAddress(props.beneficiaryAddress);
 
-  const poolTokenName = getRetirementTokenByAddress(retirement.pool); // can be null
-  const projectTokenName =
-    retirement.offset.bridge === "Toucan" ? "tco2" : "c3t";
-  const isMossOffset = retirement?.offset?.bridge === "Moss";
+  const poolTokenName = getRetirementTokenByAddress(
+    retirement.retire.credit?.poolBalances?.pool?.id ??
+      retirement.retire.credit.id
+  ); // can be null
+  const projectTokenName = getProjectTokenFromBridgeProtocol(
+    retirement.retire.credit.bridgeProtocol
+  );
+  const isMossOffset = retirement?.retire.credit.bridgeProtocol === "MOSS";
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenInfoMap[carbonTokenName];
-
+  console.log("tokenData", tokenData);
   return (
     <GridContainer>
       <PageHead
@@ -129,21 +137,23 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       <Section className={styles.section}>
         <div className={styles.gridLayout}>
           <Col className="column">
-            <RetirementDate timestamp={retirement.timestamp} />
+            <RetirementDate timestamp={retirement.retire.timestamp} />
             <RetirementHeader formattedAmount={formattedAmount} />
-            {retirement.beneficiary && props.beneficiaryAddress && (
+            {retirement.retire.beneficiaryName && props.beneficiaryAddress && (
               <BeneficiaryDetails
-                beneficiary={retirement.beneficiary}
+                beneficiary={retirement.retire.beneficiaryAddress.id}
                 beneficiaryAddress={props.beneficiaryAddress}
               />
             )}
-            {retirement.retirementMessage && (
-              <RetirementMessage message={retirement.retirementMessage} />
+            {retirement.retire.retirementMessage && (
+              <RetirementMessage
+                message={retirement.retire.retirementMessage}
+              />
             )}
             <ShareDetails
               retiree={retiree}
               formattedAmount={formattedAmount}
-              beneficiaryName={retirement.beneficiary}
+              beneficiaryName={retirement.retire.beneficiaryName}
               retirementIndex={props.retirementIndex}
               beneficiaryAddress={props.beneficiaryAddress}
             />
@@ -162,7 +172,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                 props.project?.long_description ?? props.project?.description
               }
               category={
-                (props.project?.methodologies?.[0]?.category as CategoryName) ??
+                (retirement.retire.credit.project.category as CategoryName) ??
                 null
               }
             />

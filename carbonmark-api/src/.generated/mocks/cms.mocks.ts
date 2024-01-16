@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Block, BooleanFilter, CrossDatasetReference, CrossDatasetReferenceFilter, CrossDatasetReferenceSorting, DateFilter, DatetimeFilter, Document, DocumentFilter, DocumentSorting, File, FileFilter, FileSorting, FloatFilter, Geopoint, GeopointFilter, GeopointSorting, IdFilter, Image, ImageFilter, ImageSorting, IntFilter, Methodology, MethodologyFilter, MethodologySorting, Project, ProjectContent, ProjectContentFilter, ProjectContentSorting, ProjectFilter, ProjectSorting, RootQuery, SanityAssetSourceData, SanityAssetSourceDataFilter, SanityAssetSourceDataSorting, SanityFileAsset, SanityFileAssetFilter, SanityFileAssetSorting, SanityImageAsset, SanityImageAssetFilter, SanityImageAssetSorting, SanityImageCrop, SanityImageCropFilter, SanityImageCropSorting, SanityImageDimensions, SanityImageDimensionsFilter, SanityImageDimensionsSorting, SanityImageHotspot, SanityImageHotspotFilter, SanityImageHotspotSorting, SanityImageMetadata, SanityImageMetadataFilter, SanityImageMetadataSorting, SanityImagePalette, SanityImagePaletteFilter, SanityImagePaletteSorting, SanityImagePaletteSwatch, SanityImagePaletteSwatchFilter, SanityImagePaletteSwatchSorting, Sanity_DocumentFilter, Slug, SlugFilter, SlugSorting, Span, StringFilter, SortOrder } from '../types/cms.types';
+import { Block, BooleanFilter, CrossDatasetReference, CrossDatasetReferenceFilter, CrossDatasetReferenceSorting, DateFilter, DatetimeFilter, Document, DocumentFilter, DocumentSorting, ExternalFile, ExternalFileFilter, ExternalFileSorting, File, FileFilter, FileSorting, FloatFilter, Geopoint, GeopointFilter, GeopointSorting, IdFilter, Image, ImageFilter, ImageSorting, IntFilter, Methodology, MethodologyFilter, MethodologySorting, Project, ProjectContent, ProjectContentFilter, ProjectContentSorting, ProjectFilter, ProjectSorting, RootQuery, SanityAssetSourceData, SanityAssetSourceDataFilter, SanityAssetSourceDataSorting, SanityFileAsset, SanityFileAssetFilter, SanityFileAssetSorting, SanityImageAsset, SanityImageAssetFilter, SanityImageAssetSorting, SanityImageCrop, SanityImageCropFilter, SanityImageCropSorting, SanityImageDimensions, SanityImageDimensionsFilter, SanityImageDimensionsSorting, SanityImageHotspot, SanityImageHotspotFilter, SanityImageHotspotSorting, SanityImageMetadata, SanityImageMetadataFilter, SanityImageMetadataSorting, SanityImagePalette, SanityImagePaletteFilter, SanityImagePaletteSorting, SanityImagePaletteSwatch, SanityImagePaletteSwatchFilter, SanityImagePaletteSwatchSorting, Sanity_DocumentFilter, Slug, SlugFilter, SlugSorting, Span, StringFilter, SortOrder } from '../types/cms.types';
 
 export const aBlock = (overrides?: Partial<Block>, _relationshipsToOmit: Set<string> = new Set()): Block => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
@@ -18,6 +18,7 @@ export const aBooleanFilter = (overrides?: Partial<BooleanFilter>, _relationship
     relationshipsToOmit.add('BooleanFilter');
     return {
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : false,
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : false,
     };
 };
@@ -68,6 +69,7 @@ export const aDateFilter = (overrides?: Partial<DateFilter>, _relationshipsToOmi
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : '1970-01-10T16:14:27.972Z',
         gt: overrides && overrides.hasOwnProperty('gt') ? overrides.gt! : '1970-01-05T09:17:44.773Z',
         gte: overrides && overrides.hasOwnProperty('gte') ? overrides.gte! : '1970-01-10T16:05:23.460Z',
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         lt: overrides && overrides.hasOwnProperty('lt') ? overrides.lt! : '1970-01-11T07:38:26.649Z',
         lte: overrides && overrides.hasOwnProperty('lte') ? overrides.lte! : '1970-01-11T14:10:50.732Z',
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : '1970-01-14T01:42:37.432Z',
@@ -81,6 +83,7 @@ export const aDatetimeFilter = (overrides?: Partial<DatetimeFilter>, _relationsh
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : 'aliquam',
         gt: overrides && overrides.hasOwnProperty('gt') ? overrides.gt! : 'temporibus',
         gte: overrides && overrides.hasOwnProperty('gte') ? overrides.gte! : 'cumque',
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         lt: overrides && overrides.hasOwnProperty('lt') ? overrides.lt! : 'odio',
         lte: overrides && overrides.hasOwnProperty('lte') ? overrides.lte! : 'qui',
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : 'cupiditate',
@@ -124,6 +127,45 @@ export const aDocumentSorting = (overrides?: Partial<DocumentSorting>, _relation
     };
 };
 
+export const anExternalFile = (overrides?: Partial<ExternalFile>, _relationshipsToOmit: Set<string> = new Set()): ExternalFile => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('ExternalFile');
+    return {
+        _key: overrides && overrides.hasOwnProperty('_key') ? overrides._key! : 'architecto',
+        _type: overrides && overrides.hasOwnProperty('_type') ? overrides._type! : 'nesciunt',
+        description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : 'harum',
+        filename: overrides && overrides.hasOwnProperty('filename') ? overrides.filename! : 'praesentium',
+        mimetype: overrides && overrides.hasOwnProperty('mimetype') ? overrides.mimetype! : 'beatae',
+        uri: overrides && overrides.hasOwnProperty('uri') ? overrides.uri! : 'qui',
+    };
+};
+
+export const anExternalFileFilter = (overrides?: Partial<ExternalFileFilter>, _relationshipsToOmit: Set<string> = new Set()): ExternalFileFilter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('ExternalFileFilter');
+    return {
+        _key: overrides && overrides.hasOwnProperty('_key') ? overrides._key! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        _type: overrides && overrides.hasOwnProperty('_type') ? overrides._type! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        filename: overrides && overrides.hasOwnProperty('filename') ? overrides.filename! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        mimetype: overrides && overrides.hasOwnProperty('mimetype') ? overrides.mimetype! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        uri: overrides && overrides.hasOwnProperty('uri') ? overrides.uri! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+    };
+};
+
+export const anExternalFileSorting = (overrides?: Partial<ExternalFileSorting>, _relationshipsToOmit: Set<string> = new Set()): ExternalFileSorting => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('ExternalFileSorting');
+    return {
+        _key: overrides && overrides.hasOwnProperty('_key') ? overrides._key! : SortOrder.Asc,
+        _type: overrides && overrides.hasOwnProperty('_type') ? overrides._type! : SortOrder.Asc,
+        description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : SortOrder.Asc,
+        filename: overrides && overrides.hasOwnProperty('filename') ? overrides.filename! : SortOrder.Asc,
+        mimetype: overrides && overrides.hasOwnProperty('mimetype') ? overrides.mimetype! : SortOrder.Asc,
+        uri: overrides && overrides.hasOwnProperty('uri') ? overrides.uri! : SortOrder.Asc,
+    };
+};
+
 export const aFile = (overrides?: Partial<File>, _relationshipsToOmit: Set<string> = new Set()): File => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('File');
@@ -160,6 +202,7 @@ export const aFloatFilter = (overrides?: Partial<FloatFilter>, _relationshipsToO
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : 4.03,
         gt: overrides && overrides.hasOwnProperty('gt') ? overrides.gt! : 5.81,
         gte: overrides && overrides.hasOwnProperty('gte') ? overrides.gte! : 8.02,
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         lt: overrides && overrides.hasOwnProperty('lt') ? overrides.lt! : 8.06,
         lte: overrides && overrides.hasOwnProperty('lte') ? overrides.lte! : 2.07,
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : 3.98,
@@ -256,6 +299,7 @@ export const anIntFilter = (overrides?: Partial<IntFilter>, _relationshipsToOmit
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : 9154,
         gt: overrides && overrides.hasOwnProperty('gt') ? overrides.gt! : 2833,
         gte: overrides && overrides.hasOwnProperty('gte') ? overrides.gte! : 492,
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : false,
         lt: overrides && overrides.hasOwnProperty('lt') ? overrides.lt! : 8311,
         lte: overrides && overrides.hasOwnProperty('lte') ? overrides.lte! : 6047,
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : 4351,
@@ -329,16 +373,19 @@ export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set
         corsia: overrides && overrides.hasOwnProperty('corsia') ? overrides.corsia! : false,
         country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : 'perspiciatis',
         description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : 'voluptatem',
-        documents: overrides && overrides.hasOwnProperty('documents') ? overrides.documents! : [relationshipsToOmit.has('File') ? {} as File : aFile({}, relationshipsToOmit)],
+        externalDocuments: overrides && overrides.hasOwnProperty('externalDocuments') ? overrides.externalDocuments! : [relationshipsToOmit.has('ExternalFile') ? {} as ExternalFile : anExternalFile({}, relationshipsToOmit)],
+        externalMedia: overrides && overrides.hasOwnProperty('externalMedia') ? overrides.externalMedia! : [relationshipsToOmit.has('ExternalFile') ? {} as ExternalFile : anExternalFile({}, relationshipsToOmit)],
         geolocation: overrides && overrides.hasOwnProperty('geolocation') ? overrides.geolocation! : relationshipsToOmit.has('Geopoint') ? {} as Geopoint : aGeopoint({}, relationshipsToOmit),
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : relationshipsToOmit.has('Slug') ? {} as Slug : aSlug({}, relationshipsToOmit),
         methodologies: overrides && overrides.hasOwnProperty('methodologies') ? overrides.methodologies! : [relationshipsToOmit.has('Methodology') ? {} as Methodology : aMethodology({}, relationshipsToOmit)],
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : 'et',
+        projectWebsite: overrides && overrides.hasOwnProperty('projectWebsite') ? overrides.projectWebsite! : 'nisi',
         region: overrides && overrides.hasOwnProperty('region') ? overrides.region! : 'quae',
         registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : 'nihil',
         registryProjectId: overrides && overrides.hasOwnProperty('registryProjectId') ? overrides.registryProjectId! : 'voluptatem',
         sdgs: overrides && overrides.hasOwnProperty('sdgs') ? overrides.sdgs! : ['et'],
         state: overrides && overrides.hasOwnProperty('state') ? overrides.state! : 'in',
+        subcategory: overrides && overrides.hasOwnProperty('subcategory') ? overrides.subcategory! : 'aut',
         url: overrides && overrides.hasOwnProperty('url') ? overrides.url! : 'eligendi',
     };
 };
@@ -422,10 +469,12 @@ export const aProjectFilter = (overrides?: Partial<ProjectFilter>, _relationship
         geolocation: overrides && overrides.hasOwnProperty('geolocation') ? overrides.geolocation! : relationshipsToOmit.has('GeopointFilter') ? {} as GeopointFilter : aGeopointFilter({}, relationshipsToOmit),
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : relationshipsToOmit.has('SlugFilter') ? {} as SlugFilter : aSlugFilter({}, relationshipsToOmit),
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        projectWebsite: overrides && overrides.hasOwnProperty('projectWebsite') ? overrides.projectWebsite! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         region: overrides && overrides.hasOwnProperty('region') ? overrides.region! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         registryProjectId: overrides && overrides.hasOwnProperty('registryProjectId') ? overrides.registryProjectId! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         state: overrides && overrides.hasOwnProperty('state') ? overrides.state! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
+        subcategory: overrides && overrides.hasOwnProperty('subcategory') ? overrides.subcategory! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
         url: overrides && overrides.hasOwnProperty('url') ? overrides.url! : relationshipsToOmit.has('StringFilter') ? {} as StringFilter : aStringFilter({}, relationshipsToOmit),
     };
 };
@@ -447,10 +496,12 @@ export const aProjectSorting = (overrides?: Partial<ProjectSorting>, _relationsh
         geolocation: overrides && overrides.hasOwnProperty('geolocation') ? overrides.geolocation! : relationshipsToOmit.has('GeopointSorting') ? {} as GeopointSorting : aGeopointSorting({}, relationshipsToOmit),
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : relationshipsToOmit.has('SlugSorting') ? {} as SlugSorting : aSlugSorting({}, relationshipsToOmit),
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : SortOrder.Asc,
+        projectWebsite: overrides && overrides.hasOwnProperty('projectWebsite') ? overrides.projectWebsite! : SortOrder.Asc,
         region: overrides && overrides.hasOwnProperty('region') ? overrides.region! : SortOrder.Asc,
         registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : SortOrder.Asc,
         registryProjectId: overrides && overrides.hasOwnProperty('registryProjectId') ? overrides.registryProjectId! : SortOrder.Asc,
         state: overrides && overrides.hasOwnProperty('state') ? overrides.state! : SortOrder.Asc,
+        subcategory: overrides && overrides.hasOwnProperty('subcategory') ? overrides.subcategory! : SortOrder.Asc,
         url: overrides && overrides.hasOwnProperty('url') ? overrides.url! : SortOrder.Asc,
     };
 };
@@ -982,6 +1033,7 @@ export const aStringFilter = (overrides?: Partial<StringFilter>, _relationshipsT
     return {
         eq: overrides && overrides.hasOwnProperty('eq') ? overrides.eq! : 'sit',
         in: overrides && overrides.hasOwnProperty('in') ? overrides.in! : ['est'],
+        is_defined: overrides && overrides.hasOwnProperty('is_defined') ? overrides.is_defined! : true,
         matches: overrides && overrides.hasOwnProperty('matches') ? overrides.matches! : 'et',
         neq: overrides && overrides.hasOwnProperty('neq') ? overrides.neq! : 'sit',
         nin: overrides && overrides.hasOwnProperty('nin') ? overrides.nin! : ['error'],

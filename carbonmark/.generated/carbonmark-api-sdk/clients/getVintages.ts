@@ -8,18 +8,16 @@ import type {
 /**
  * @description Retrieve an array of the vintages of available carbon projects
  * @summary Vintages
- * @link /vintages
- */
-export async function getVintages<TData = GetVintagesQueryResponse>(
+ * @link /vintages */
+export async function getVintages(
   params?: GetVintagesQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData>({
+): Promise<ResponseConfig<GetVintagesQueryResponse>["data"]> {
+  const res = await client<GetVintagesQueryResponse>({
     method: "get",
     url: `/vintages`,
     params,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }

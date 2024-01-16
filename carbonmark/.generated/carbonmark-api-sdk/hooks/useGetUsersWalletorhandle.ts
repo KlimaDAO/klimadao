@@ -1,49 +1,65 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetUsersWalletorhandlePathParams,
   GetUsersWalletorhandleQueryParams,
   GetUsersWalletorhandleQueryResponse,
 } from "../types/GetUsersWalletorhandle";
 
+type GetUsersWalletorhandleClient = typeof client<
+  GetUsersWalletorhandleQueryResponse,
+  never,
+  never
+>;
+type GetUsersWalletorhandle = {
+  data: GetUsersWalletorhandleQueryResponse;
+  error: never;
+  request: never;
+  pathParams: GetUsersWalletorhandlePathParams;
+  queryParams: GetUsersWalletorhandleQueryParams;
+  headerParams: never;
+  response: GetUsersWalletorhandleQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetUsersWalletorhandleClient>[0]>;
+    return: Awaited<ReturnType<GetUsersWalletorhandleClient>>;
+  };
+};
 export function getUsersWalletorhandleQueryOptions<
-  TData = GetUsersWalletorhandleQueryResponse,
-  TError = unknown,
+  TData extends
+    GetUsersWalletorhandle["response"] = GetUsersWalletorhandle["response"],
+  TError = GetUsersWalletorhandle["error"],
 >(
   walletOrHandle: GetUsersWalletorhandlePathParams["walletOrHandle"],
-  params?: GetUsersWalletorhandleQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetUsersWalletorhandle["queryParams"],
+  options: GetUsersWalletorhandle["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/users/${walletOrHandle}`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Get a user's profile and activity
  * @summary User details
- * @link /users/:walletOrHandle
- */
-
+ * @link /users/:walletOrHandle */
 export function useGetUsersWalletorhandle<
-  TData = GetUsersWalletorhandleQueryResponse,
-  TError = unknown,
+  TData extends
+    GetUsersWalletorhandle["response"] = GetUsersWalletorhandle["response"],
+  TError = GetUsersWalletorhandle["error"],
 >(
   walletOrHandle: GetUsersWalletorhandlePathParams["walletOrHandle"],
-  params?: GetUsersWalletorhandleQueryParams,
+  params?: GetUsersWalletorhandle["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetUsersWalletorhandle["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -52,16 +68,17 @@ export function useGetUsersWalletorhandle<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/users/${walletOrHandle}` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getUsersWalletorhandleQueryOptions<TData, TError>(
-      walletOrHandle,
-      params,
-      clientOptions
-    ),
-    ...queryOptions,
-  });
-
+  const url = `/users/${walletOrHandle}` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getUsersWalletorhandleQueryOptions<TData, TError>(
+        walletOrHandle,
+        params,
+        clientOptions
+      ),
+      ...queryOptions,
+    }
+  );
   return query;
 }
