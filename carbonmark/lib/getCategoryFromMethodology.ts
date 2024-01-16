@@ -1,4 +1,4 @@
-import { CategoryName } from "lib/types/carbonmark.types";
+import { CategoryName } from "../lib/types/carbonmark.types";
 
 const getMap = () => {
   const methodologyToCategoryMap = new Map<string, CategoryName>();

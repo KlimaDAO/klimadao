@@ -34,42 +34,19 @@ export type PoolProduct = {
 } & TokenPrice;
 export type Product = ListingProduct | PoolProduct;
 
-export interface PcbProject {
+export interface DigitalCarbonCredit {
   id: string;
-  projectID: string;
-  name: string;
-  methodology: string;
-  vintage: string;
-  tokenAddress: string;
-  registry: string;
-  country: string;
-  location?: {
-    type: "Feature";
-    geometry: {
-      type: "Point";
-      coordinates: [number, number];
-    };
+  vintage: number;
+  project: {
+    registry: string;
+    region: string;
+    name: string;
+    id: string;
+    country: string;
+    category: string;
+    methodologies: string;
+    projectID: string;
   };
-  description?: string;
-  isPoolProject?: boolean;
-  totalBridged: string | null;
-  totalRetired: string | null;
-  currentSupply: string | null;
-  prices?: TokenPrice[];
-  url?: string;
-  methodologyCategory: CategoryName;
-  category: string;
-  coBenefits: string;
-  correspAdjustment: string;
-  emissionType: string;
-  isCorsiaCompliant: boolean;
-  klimaRanking: string;
-  lastUpdate: string;
-  method: string;
-  region: string;
-  standard: string;
-  storageMethod: string;
-  vintageYear: string;
 }
 
 export type ActivityActionT =
@@ -175,7 +152,7 @@ export type AssetForRetirement = {
   tokenName: string;
   balance: string;
   tokenSymbol: string; // 1: C3T, 2: TCO2
-  project: PcbProject;
+  credit: DigitalCarbonCredit;
   token: Asset["token"];
 };
 
@@ -203,7 +180,7 @@ export type Purchase = {
   price: string;
 };
 
-export type CarbonmarkToken = "usdc" | "c3" | "tco2";
+export type CarbonmarkToken = "usdc" | "c3" | "tco2" | "icr";
 
 export type Balance = {
   tokenName: CarbonmarkToken;
