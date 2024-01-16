@@ -7,7 +7,7 @@ import { mockDigitalCarbonProvenanceRecords } from "./get.test.mocks";
 
 const mockProvenanceRecord = fixtures.digitalCarbon.provenanceRecord;
 
-describe("GET /retirements/:account_id/:retirement_index/provenance", () => {
+describe("GET /retirements/:id/provenance", () => {
   let fastify: FastifyInstance;
 
   // Setup the server

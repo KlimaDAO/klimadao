@@ -5,7 +5,7 @@ const mockProvenanceRecord = fixtures.digitalCarbon.provenanceRecord;
 
 export const mockDigitalCarbonProvenanceRecords = () =>
   nock(GRAPH_URLS["polygon"].digitalCarbon)
-    .post("")
+    .post("", (body) => body.query.includes("getProvenanceRecordsByHash"))
     .reply(200, {
       data: { provenanceRecords: [mockProvenanceRecord] },
     });
