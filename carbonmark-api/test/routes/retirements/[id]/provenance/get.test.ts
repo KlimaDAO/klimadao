@@ -46,4 +46,12 @@ describe("GET /retirements/:id/provenance", () => {
     expect(response.statusCode).toEqual(200);
     expect(record).toEqual([transformedRecord, transformedRecord]);
   });
+  test("Retirement provenance found", async () => {
+    mockDigitalCarbonProvenanceRecords([]);
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/retirements/0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7519/provenance`,
+    });
+    expect(response.statusCode).toEqual(404);
+  });
 });
