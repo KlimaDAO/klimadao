@@ -22,7 +22,7 @@ type FilterRecords =
   | null;
 type Filter = FilterRecords | FilterRecords[];
 
-// Handler function for the "/retirements/klima/:account_id/:retirement_index" route
+// Handler function for the "/retirements" route
 const handler = () =>
   async function (
     request: FastifyRequest<{
