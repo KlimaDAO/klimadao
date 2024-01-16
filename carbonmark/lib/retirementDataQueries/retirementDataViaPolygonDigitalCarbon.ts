@@ -1,5 +1,6 @@
 import { subgraphs } from "@klimadao/lib/constants";
 import { KlimaRetire, QueryKlimaRetires } from "@klimadao/lib/types/subgraph";
+import { parseUnits } from "ethers/lib/utils";
 import { convertCountryCodeToName } from "../../lib/convertCountryCodeToName";
 import { getCategoryFromMethodology } from "../../lib/getCategoryFromMethodology";
 import { ICR_API } from "../../lib/registryAPIs/ICR/ICR_API";
@@ -126,6 +127,17 @@ export const queryKlimaRetiresByAddress = async (
     const json: QueryKlimaRetires = await fetchGraphQL(
       generateKlimaRetireQuery(beneficiaryAddress)
     );
+
+    if (json.data.klimaRetires) {
+      json.data.klimaRetires.forEach((retirement) => {
+        if (retirement.retire.credit.project.registry === "ICR") {
+          retirement.retire.amount = parseUnits(
+            retirement.retire.amount,
+            18
+          ).toString();
+        }
+      });
+    }
     return json.data.klimaRetires || [];
   } catch (e) {
     throw new Error("Failed to query KlimaRetiresByAddress", e);

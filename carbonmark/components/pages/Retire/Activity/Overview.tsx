@@ -4,7 +4,6 @@ import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { ethers } from "ethers";
-import { parseUnits } from "ethers/lib/utils";
 import { queryKlimaRetiresByAddress } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -36,13 +35,7 @@ export const RetireOverview: FC = () => {
 
         const totalRetiredTonnesWei = klimaRetires.reduce((acc, r) => {
           const amount = r.retire.amount;
-
-          if (r.retire.credit.project.registry === "ICR") {
-            const parsedAmount = parseUnits(amount, 18);
-            return acc.add(ethers.BigNumber.from(parsedAmount));
-          } else {
-            return acc.add(amount);
-          }
+          return acc.add(amount);
         }, ethers.BigNumber.from(0));
 
         const formattedTotalRetiredTonnes = formatUnits(
