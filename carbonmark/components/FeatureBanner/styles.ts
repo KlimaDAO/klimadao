@@ -78,7 +78,7 @@ export const title = css`
     height: 2rem;
 
     ${breakpoints.desktop} {
-      margin-left: -2.4rem;
+      margin-left: -3.2rem;
     }
   }
 
