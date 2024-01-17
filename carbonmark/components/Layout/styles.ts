@@ -82,24 +82,8 @@ export const layoutChildrenContainer = css`
   padding: 1.6rem;
   align-content: flex-start;
 
-  &:has(.feature-banner):not(.initial-banner) {
-    padding: 17rem 2.4rem;
-  }
-
-  &:has(.feature-banner.initial-banner) {
-    padding: 20rem 2.4rem;
-  }
-
-  // required for feature banner transition
-  transition: all 0.2s ease-in-out;
-
   ${breakpoints.desktop} {
     padding: 4rem 2.4rem;
-
-    &:has(.feature-banner.initial-banner),
-    &:has(.feature-banner):not(.initial-banner) {
-      padding: 16rem 2.4rem;
-    }
   }
 
   &.fullContentWidth {

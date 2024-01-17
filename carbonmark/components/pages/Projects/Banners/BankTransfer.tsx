@@ -10,6 +10,7 @@ type SessionState = "visible" | "hidden" | "not-shown";
 
 export const BankTransferBanner: FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  // @todo Makka - create useLocalStorage/useSessionStorage hook
   const [localStorage, setLocalStorage] =
     useState<BannerState>("initial-banner");
   const [sessionStorage, setSessionStorage] = useState<SessionState>("visible");
@@ -66,43 +67,41 @@ export const BankTransferBanner: FC = () => {
   };
 
   return (
-    <>
-      <FeatureBanner
-        isVisible={isVisible}
-        isInitialBanner={isInitialBanner}
-        onClose={onClose}
-        title={t`Pay via Bank Transfer / Wire`}
-        showClose={isInitialBanner}
-        showNewFeatureLabel={isInitialBanner}
-        description={
-          isInitialBanner
-            ? t`Purchase retirements from any project on Carbonmark and pay via bank transfer.`
-            : t`Can we remind you about this new feature later?`
-        }
-      >
-        {isInitialBanner ? (
-          <>
-            <ButtonPrimary
-              onClick={onLetsGo}
-              label={t`Let's Go!`}
-              href="/retire/pay-with-bank"
-            />
-            <ButtonSecondary
-              target="_blank"
-              label={t`Learn More`}
-              href={urls.payViaBankDocs}
-            />
-          </>
-        ) : (
-          <>
-            <ButtonPrimary label={t`Sure`} onClick={onShowLater} />
-            <ButtonSecondary
-              label={t`Don't Remind Me`}
-              onClick={onDontRemindLater}
-            />
-          </>
-        )}
-      </FeatureBanner>
-    </>
+    <FeatureBanner
+      isVisible={isVisible}
+      isInitialBanner={isInitialBanner}
+      onClose={onClose}
+      title={t`Pay via Bank Transfer / Wire`}
+      showClose={isInitialBanner}
+      showNewFeatureLabel={isInitialBanner}
+      description={
+        isInitialBanner
+          ? t`Purchase retirements from any project on Carbonmark and pay via bank transfer.`
+          : t`Can we remind you about this new feature later?`
+      }
+    >
+      {isInitialBanner ? (
+        <>
+          <ButtonPrimary
+            onClick={onLetsGo}
+            label={t`Let's Go!`}
+            href="/retire/pay-with-bank"
+          />
+          <ButtonSecondary
+            target="_blank"
+            label={t`Learn More`}
+            href={urls.payViaBankDocs}
+          />
+        </>
+      ) : (
+        <>
+          <ButtonPrimary label={t`Sure`} onClick={onShowLater} />
+          <ButtonSecondary
+            label={t`Don't Remind Me`}
+            onClick={onDontRemindLater}
+          />
+        </>
+      )}
+    </FeatureBanner>
   );
 };
