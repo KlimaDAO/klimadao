@@ -16,6 +16,22 @@ const formatHolding = (h: Holding): Holding => {
   };
 };
 
+const mapICRInfo = (item: Record<string, any>) => {
+  return {
+    id: item.exPost.serialization,
+    amount: item.amount,
+    token: {
+      decimals: 0,
+      id: item.exPost.project.id,
+      name: item.exPost.project.projectName,
+      symbol: `${createICRProjectID(item.exPost.serialization)}-${
+        item.exPost.vintage
+      }`,
+      tokenId: item.exPost.tokenId,
+    },
+  };
+};
+
 const createICRProjectID = (serialization: string) => {
   const elements = serialization.split("-");
   const registry = elements[0];
@@ -85,20 +101,9 @@ const fetchTestnetHoldings = async (params: {
 
   let icrHoldings: MultipleTokenStandardType[] = [];
   if (IcrBalances.holder?.exPostAmounts) {
-    icrHoldings = IcrBalances.holder.exPostAmounts.map((item) => ({
-      amount: utils.parseUnits(item.amount, 18).toString(),
-      id: item.exPost.serialization,
-      token: {
-        decimals: 18,
-        id: item.exPost.project.id,
-        name: item.exPost.project.projectName,
-        symbol:
-          createICRProjectID(item.exPost.serialization) +
-          "-" +
-          item.exPost.vintage,
-        tokenId: item.exPost.tokenId,
-      },
-    }));
+    icrHoldings = IcrBalances.holder.exPostAmounts
+      .filter((item) => Number(item.amount) > 0)
+      .map(mapICRInfo);
   }
 
   const combinedHoldings = [...tco2Holdings, ...icrHoldings];
@@ -156,20 +161,7 @@ export const getHoldingsByWallet = async (params: {
     if (IcrHoldingsResponse.holder?.exPostAmounts) {
       icrHoldings = IcrHoldingsResponse.holder.exPostAmounts
         .filter((item) => Number(item.amount) > 0)
-        .map((item) => ({
-          id: item.exPost.serialization,
-          token: {
-            decimals: 0,
-            id: item.exPost.project.id,
-            name: item.exPost.project.projectName,
-            symbol:
-              createICRProjectID(item.exPost.serialization) +
-              "-" +
-              item.exPost.vintage,
-            tokenId: item.exPost.tokenId,
-          },
-          amount: item.amount,
-        }));
+        .map(mapICRInfo);
     }
 
     const assetsHoldings = holdingsResponse.accounts.at(0)?.holdings ?? [];
