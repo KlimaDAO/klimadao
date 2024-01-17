@@ -10,7 +10,7 @@ import {
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
 import type { NetworkParam } from "../../../src/models/NetworkParam.model";
-import { fetchIcrData } from "../../../src/routes/projects/get.utils";
+import { fetchIcrFilters } from "../ICR/icr.utils";
 import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
@@ -43,7 +43,7 @@ export async function getAllVintages(
   ] = await Promise.all([
     sdk.marketplace.getVintages(),
     sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
-    fetchIcrData(network),
+    fetchIcrFilters(network),
   ]);
 
   /** Handle invalid responses */
@@ -149,7 +149,7 @@ export async function getAllCountries(
   ] = await Promise.all([
     sdk.marketplace.getCountries(),
     sdk.digital_carbon.getDigitalCarbonProjectsCountries(),
-    fetchIcrData(network),
+    fetchIcrFilters(network),
   ]);
 
   /** Handle invalid responses */

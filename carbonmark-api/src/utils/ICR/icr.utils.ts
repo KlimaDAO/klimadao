@@ -1,4 +1,5 @@
 import { isArray } from "lodash";
+import fetch from "node-fetch";
 import { NetworkParam } from "src/models/NetworkParam.model";
 import { ICR_API } from "../../../src/app.constants";
 

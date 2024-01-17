@@ -1,11 +1,8 @@
 import { FastifyInstance } from "fastify";
-import { compact, isArray, isNil, max, maxBy } from "lodash";
+import { compact, isNil, max, maxBy } from "lodash";
 import { concat, map, mapValues, min, pipe, trim, uniq } from "lodash/fp";
-import fetch from "node-fetch";
 import { NetworkParam } from "src/models/NetworkParam.model";
 import { TokenPriceT } from "src/models/TokenPrice.model";
-import { ICR_API } from "../../../src/app.constants";
-import { convertIcrCountryCodeToName } from "../../../src/utils/ICR/icr.utils";
 import { Geopoint } from "../../.generated/types/cms.types";
 import {
   FindDigitalCarbonProjectsQuery,
@@ -45,35 +42,6 @@ import { formatListings } from "../../utils/marketplace.utils";
  * # this will cause a silent error. GQL Resolver needs to be updated to allow null search params
  * # to return all possible values
  */
-
-export const fetchIcrData = async (network: NetworkParam) => {
-  const { ICR_API_URL, ICR_API_KEY } = ICR_API(network);
-
-  const url = `${ICR_API_URL}/public/projects/filters`;
-
-  const IcrResponse = await fetch(url, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${ICR_API_KEY}`,
-    },
-  });
-
-  const { vintages: IcrVintages, countryCodes: IcrCountryCodes } =
-    await IcrResponse.json();
-
-  if (!isArray(IcrCountryCodes) || !isArray(IcrVintages)) {
-    throw new Error("Response from server did not match schema definition");
-  }
-
-  const countryNames = await Promise.all(
-    IcrCountryCodes.map((countryCode: string) =>
-      convertIcrCountryCodeToName(countryCode)
-    )
-  );
-
-  return { IcrVintages, countryNames };
-};
 
 export const getDefaultQueryArgs = async (
   sdk: GQL_SDK,
