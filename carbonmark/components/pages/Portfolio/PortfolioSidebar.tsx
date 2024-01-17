@@ -6,6 +6,8 @@ import { User } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { Balances } from "./Balances";
 import * as styles from "./styles";
+import { ConnectedWallet } from "./ConnectedWallet";
+import { useWeb3 } from "@klimadao/lib/utils";
 
 type Props = {
   user?: User | null;
@@ -16,9 +18,11 @@ export const PortfolioSidebar: FC<Props> = (props) => {
   const allListings = props.user && getAllListings(props.user.listings || []);
   const activeListings =
     props.user && getActiveListings(props.user.listings || []);
+    const { address, networkLabel } = useWeb3();
 
   return (
     <div className={styles.stickyContentWrapper}>
+      <ConnectedWallet address={address} />
       <Balances />
       <Stats
         allListings={allListings || []}
