@@ -91,20 +91,14 @@ export const SellerListing: FC<Props> = (props) => {
       {!address && !isConnected && (
         <ButtonPrimary
           className={styles.buyButton}
-          label={t({
-            id: "shared.connect_to_buy",
-            message: "Sign In / Connect To Buy",
-          })}
+          label={t`Sign In / Connect To Buy`}
           onClick={toggleModal}
         />
       )}
 
       {address && isConnected && (
         <ButtonPrimary
-          label={t({
-            id: "buy",
-            message: "Buy",
-          })}
+          label={t`Buy`}
           onClick={() => LO.track("Purchase: Buy Clicked")}
           className={styles.buyButton}
           href={

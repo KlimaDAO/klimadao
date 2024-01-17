@@ -76,17 +76,11 @@ export const CreateListingForm: FC<Props> = (props) => {
               ...register("amount", {
                 required: {
                   value: true,
-                  message: t({
-                    id: "user.listing.form.input.totalAmountToSell.required",
-                    message: "Total Amount to Sell is required",
-                  }),
+                  message: t`Total Amount to Sell is required`,
                 },
                 min: {
                   value: 1,
-                  message: t({
-                    id: "user.listing.form.input.totalAmountToSell.minimum",
-                    message: "The minimum amount to sell is 1 Tonne",
-                  }),
+                  message: t`The minimum amount to sell is 1 Tonne`,
                 },
                 max: {
                   value: Number(selectedAsset.amount),
@@ -117,12 +111,9 @@ export const CreateListingForm: FC<Props> = (props) => {
                 },
                 min: {
                   value: 0.1,
-                  message: t({
-                    id: "user.listing.form.input.singleUnitPrice.minimum",
-                    message: `The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
-                      locale
-                    )}`,
-                  }),
+                  message: t`The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
+                    locale
+                  )}`,
                 },
               }),
             }}

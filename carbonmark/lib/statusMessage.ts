@@ -17,31 +17,16 @@ export const getStatusMessage = (status: TransactionStatusMessage) => {
   const { statusType, message } = status;
   if (statusType === "error" && message) {
     if (message === "userRejected")
-      return t({
-        id: "transaction.status.user_rejected",
-        message: "You chose to reject the transaction",
-      });
+      return t`You chose to reject the transaction`;
     return message;
   } else if (statusType === "error") {
-    return t({
-      id: "transaction.status.error",
-      message: "❌ Error: something went wrong...",
-    });
+    return t`❌ Error: something went wrong...`;
   } else if (statusType === "done") {
-    return t({
-      id: "transaction.status.done",
-      message: "Transaction complete.",
-    });
+    return t`Transaction complete.`;
   } else if (statusType === "userConfirmation") {
-    return t({
-      id: "transaction.status.user_confirmation",
-      message: "Please click 'confirm' in your wallet to continue.",
-    });
+    return t`Please click 'confirm' in your wallet to continue.`;
   } else if (statusType === "networkConfirmation") {
-    return t({
-      id: "transaction.status.network_confirmation",
-      message: "Transaction initiated. Waiting for network confirmation.",
-    });
+    return t`Transaction initiated. Waiting for network confirmation.`;
   }
   return null;
 };

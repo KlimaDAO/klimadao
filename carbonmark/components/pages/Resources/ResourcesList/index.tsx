@@ -159,19 +159,13 @@ export const ResourcesList: FC<Props> = (props) => {
               <InputField
                 id="search"
                 inputProps={{
-                  placeholder: t({
-                    id: "resources.form.input.search.placeholder",
-                    message: "Search...",
-                  }),
+                  placeholder: t`Search...`,
                   type: "search",
                   autoComplete: "off",
                   className: styles.searchInput,
                   ...register("search"),
                 }}
-                label={t({
-                  id: "resources.form.input.search.label",
-                  message: "Search",
-                })}
+                label={t`Search`}
                 hideLabel
               />
               <ButtonPrimary
@@ -197,10 +191,7 @@ export const ResourcesList: FC<Props> = (props) => {
                   ...register("sortedBy"),
                 }}
                 hideLabel
-                label={t({
-                  id: "resources.form.input.sort_by.label",
-                  message: "Sort by",
-                })}
+                label={t`Sort by`}
               />
               <Text t="body1">
                 <Trans id="shared.resources.sort_by.header">Sort by:</Trans>
@@ -271,10 +262,7 @@ export const ResourcesList: FC<Props> = (props) => {
       </div>
 
       <Modal
-        title={t({
-          id: "resources.mobile_modal.title",
-          message: "Sort By",
-        })}
+        title={t`Sort By`}
         showModal={showMobileModal}
         onToggleModal={() => setShowMobileModal((prev) => !prev)}
       >

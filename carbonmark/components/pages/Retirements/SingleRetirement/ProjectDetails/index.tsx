@@ -137,10 +137,7 @@ export const ProjectDetails: FC<Props> = (props) => {
             target="_blank"
             variant="transparent"
             rel="noopener noreferrer"
-            label={t({
-              id: "retirement.single.view_on_polygon_scan",
-              message: "View on Polygonscan",
-            })}
+            label={t`View on Polygonscan`}
             href={`https://polygonscan.com/tx/${props.retirement?.retire.hash}`}
           />
         )}
