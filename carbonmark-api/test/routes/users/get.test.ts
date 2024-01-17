@@ -48,9 +48,7 @@ describe("GET /users/[walletOrHandle]", () => {
       });
 
     nock(GRAPH_URLS["polygon"].icr)
-      .post("", (body) => {
-        return body.query && body.query.includes("getHoldingsByAddress");
-      })
+      .post("", (body) => body.query?.includes("getHoldingsByAddress"))
       .reply(200, {
         mockICRHolderResponse,
       });

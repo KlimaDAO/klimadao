@@ -5,8 +5,7 @@ import {
 } from "src/.generated/types/cms.types";
 import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
 import { Project } from "src/.generated/types/marketplace.types";
-import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
-import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
+import { GRAPH_URLS, ICR_API, SANITY_URLS } from "../../../src/app.constants";
 import {
   COUNTRY_CODES,
   VINTAGES,
@@ -19,12 +18,6 @@ import { fixtures } from "../../fixtures";
  * @todo do this for all other nocks or in a more repeatable manner
  */
 let cmsInterceptor: Interceptor;
-
-jest.mock("../../../src/utils/ICR/ICR_API_endpoints", () => ({
-  ICR_API: () => ({
-    ICR_API_URL: "https://api.carbonregistry.com/v0",
-  }),
-}));
 
 const ICR_API_URL = ICR_API("polygon").ICR_API_URL;
 const ICR_API_URL_MUMBAI = ICR_API("mumbai").ICR_API_URL;

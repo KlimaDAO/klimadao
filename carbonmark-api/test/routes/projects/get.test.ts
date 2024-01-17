@@ -305,10 +305,6 @@ describe("GET /projects", () => {
       mockICRFilters();
     });
 
-    afterEach(() => {
-      nock.cleanAll();
-    });
-
     test("No filtering when supply greater than 0 (DigitalCarbon)", async () => {
       mockMarketplaceProjects([]);
       //Return two projects with supply

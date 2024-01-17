@@ -1,6 +1,7 @@
 import { Contract, providers, utils } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
+import { createICRProjectID } from "../../../../src/utils/ICR/icr.utils";
 import ERC20 from "../../../abis/ERC20.json";
 import { URLS } from "../../../app.constants";
 import { NetworkParam } from "../../../models/NetworkParam.model";
@@ -30,13 +31,6 @@ const mapICRInfo = (item: Record<string, any>) => {
       tokenId: item.exPost.tokenId,
     },
   };
-};
-
-const createICRProjectID = (serialization: string) => {
-  const elements = serialization.split("-");
-  const registry = elements[0];
-  const num = elements[3];
-  return `${registry}-${num}`;
 };
 
 /** Hacky Mumbai simulation for known testnet assets

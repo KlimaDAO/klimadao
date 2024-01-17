@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+import { NetworkParam } from "./models/NetworkParam.model";
+dotenv.config({ path: "../.env.local" });
+
 /** Adhere to JSONSchema spec by using a URI */
 export const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
 
@@ -19,7 +23,6 @@ const POLYGON_URLS = {
 
 const MUMBAI_URLS = {
   ...POLYGON_URLS,
-  // testing
   digitalCarbon: `${GRAPH_API_ROOT}/psparacino/digital-carbon`,
   marketplace: `${GRAPH_API_ROOT_ID}/QmUUnZTeRnfsJsQaTwLeiHmAQ5xvtk2jBW7VeP3AEW5bnv`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
@@ -82,4 +85,32 @@ export const REGISTRIES = {
     title: "International Carbon Registry",
     url: "https://www.carbonregistry.com",
   },
+};
+
+const ICR_CONFIG = {
+  polygon: {
+    url: "https://api.carbonregistry.com/v0",
+    apiKey: process.env.ICR_MAINNET_API_KEY,
+  },
+  mumbai: {
+    url: "https://gaia-api-dev.mojoflower.io/v0",
+    apiKey: process.env.ICR_MUMBAI_API_KEY,
+  },
+};
+
+export const ICR_API = (
+  network?: NetworkParam
+): { ICR_API_URL: string; ICR_API_KEY: string } => {
+  const VALIDATED_NETWORK: NetworkParam =
+    network === "polygon" || network === "mumbai" ? network : "polygon";
+
+  const API_CONFIG = ICR_CONFIG["polygon"];
+
+  if (!API_CONFIG.apiKey) {
+    throw new Error(
+      `ICR api key is undefined for network: ${VALIDATED_NETWORK}`
+    );
+  }
+
+  return { ICR_API_URL: API_CONFIG.url, ICR_API_KEY: API_CONFIG.apiKey };
 };

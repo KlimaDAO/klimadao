@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { GRAPH_URLS } from "../../../src/app.constants";
-import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
+import { GRAPH_URLS, ICR_API } from "../../../src/app.constants";
 import { build } from "../../helper";
 import {
   COUNTRIES,
@@ -10,12 +9,6 @@ import {
   ERROR,
   VINTAGES,
 } from "../../test.constants";
-
-jest.mock("../../../src/utils/ICR/ICR_API_endpoints", () => ({
-  ICR_API: () => ({
-    ICR_API_URL: "https://api.carbonregistry.com/v0",
-  }),
-}));
 
 describe("GET /countries", () => {
   let fastify: FastifyInstance;
@@ -47,7 +40,7 @@ describe("GET /countries", () => {
       .post("")
       .reply(200, { data: { carbonProjects: COUNTRIES } });
 
-    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
+    nock(ICR_API_URL).persist().get("/public/projects/filters").reply(200, {
       vintages: VINTAGES,
       countryCodes: COUNTRY_CODES,
     });
@@ -58,7 +51,6 @@ describe("GET /countries", () => {
     });
 
     const data = await response.json();
-
     expect(response.statusCode).toEqual(200);
     expect(data).toEqual(COUNTRIES);
   });
@@ -73,7 +65,7 @@ describe("GET /countries", () => {
 
     nock(GRAPH_URLS["polygon"].digitalCarbon).post("").reply(200, []);
 
-    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
+    nock(ICR_API_URL).persist().get("/public/projects/filters").reply(200, {
       vintages: VINTAGES,
       countryCodes: COUNTRY_CODES,
     });
@@ -96,7 +88,7 @@ describe("GET /countries", () => {
       .post("")
       .reply(200, { data: { carbonProjects: [] } });
 
-    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
+    nock(ICR_API_URL).persist().get("/public/projects/filters").reply(200, {
       vintages: [],
       countryCodes: [],
     });
@@ -108,6 +100,7 @@ describe("GET /countries", () => {
 
     expect(response.statusCode).toBe(200);
     const data = await response.json();
+
     expect(data).toEqual([]);
   });
 
@@ -120,7 +113,7 @@ describe("GET /countries", () => {
       .post("")
       .reply(200, { data: { carbonProjects: "invalid data" } });
 
-    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
+    nock(ICR_API_URL).persist().get("/public/projects/filters").reply(200, {
       vintages: "invalid data",
       countryCodes: "invalid data",
     });

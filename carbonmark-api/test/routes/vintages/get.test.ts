@@ -1,16 +1,9 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { aProject } from "../../../src/.generated/mocks/marketplace.mocks";
-import { GRAPH_URLS } from "../../../src/app.constants";
-import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
+import { GRAPH_URLS, ICR_API } from "../../../src/app.constants";
 import { build } from "../../helper";
 import { COUNTRY_CODES, DEV_URL, ERROR, VINTAGES } from "../../test.constants";
-
-jest.mock("../../../src/utils/ICR/ICR_API_endpoints", () => ({
-  ICR_API: () => ({
-    ICR_API_URL: "https://api.carbonregistry.com/v0",
-  }),
-}));
 
 describe("GET /vintages", () => {
   let fastify: FastifyInstance;
@@ -38,7 +31,6 @@ describe("GET /vintages", () => {
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [mock] } });
-
     nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
       vintages: VINTAGES,
       countryCodes: COUNTRY_CODES,

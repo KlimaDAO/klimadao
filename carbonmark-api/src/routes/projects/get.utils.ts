@@ -4,7 +4,7 @@ import { concat, map, mapValues, min, pipe, trim, uniq } from "lodash/fp";
 import fetch from "node-fetch";
 import { NetworkParam } from "src/models/NetworkParam.model";
 import { TokenPriceT } from "src/models/TokenPrice.model";
-import { ICR_API } from "../../../src/utils/ICR/ICR_API_endpoints";
+import { ICR_API } from "../../../src/app.constants";
 import { convertIcrCountryCodeToName } from "../../../src/utils/ICR/icr.utils";
 import { Geopoint } from "../../.generated/types/cms.types";
 import {
