@@ -5,50 +5,64 @@ import FeatureBanner from "components/FeatureBanner";
 import { urls } from "lib/constants";
 import { FC, useEffect, useState } from "react";
 
+type BannerState = "initial-banner" | "secondary-banner" | "none";
+type SessionState = "visible" | "hidden" | "not-shown";
+
 export const BankTransferBanner: FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [localStorage, setLocalStorage] = useState("0");
-  const [sessionStorage, setSessionStorage] = useState("0");
+  const [localStorage, setLocalStorage] =
+    useState<BannerState>("initial-banner");
+  const [sessionStorage, setSessionStorage] = useState<SessionState>("visible");
 
-  const isInitialBanner = localStorage === "0";
+  const isInitialBanner = localStorage === "initial-banner";
 
   useEffect(() => {
     updateStateValues();
   }, []);
 
   useEffect(() => {
-    setIsVisible(!(sessionStorage !== "0" || localStorage === "2"));
+    setIsVisible(!(sessionStorage !== "visible" || localStorage === "none"));
   }, [localStorage, sessionStorage]);
 
   const updateStateValues = () => {
-    setLocalStorage(window.localStorage.getItem("feature-banner") ?? "0");
-    setSessionStorage(window.sessionStorage.getItem("feature-banner") ?? "0");
+    setLocalStorage(
+      (window.localStorage.getItem("feature-banner") as BannerState) ??
+        "initial-banner"
+    );
+    setSessionStorage(
+      (window.sessionStorage.getItem("feature-banner") as SessionState) ??
+        "visible"
+    );
   };
 
   const setStorageValues = (
-    [local, session]: string[],
+    [local, session = "visible"]: [BannerState, SessionState?],
     shouldUpdate = true
   ) => {
-    window.localStorage.setItem("feature-banner", local || "0");
-    window.sessionStorage.setItem("feature-banner", session || "0");
+    window.localStorage.setItem("feature-banner", local || "initial-banner");
+    window.sessionStorage.setItem("feature-banner", session || "visible");
     if (shouldUpdate) updateStateValues();
   };
 
   const onLetsGo = () => {
-    setStorageValues(["1"], false);
+    // show secondary banner but don't re-render
+    setStorageValues(["secondary-banner"], false);
   };
 
   const onClose = () => {
-    setStorageValues(["1"]);
+    // hide the initial banner & show the secondary banner
+    setStorageValues(["secondary-banner"]);
   };
 
   const onShowLater = () => {
     setIsVisible(false);
-    setStorageValues(["0", "1"], false);
+    // show the initial banner but hide for the current session and don't re-render
+    setStorageValues(["initial-banner", "hidden"], false);
   };
 
   const onDontRemindLater = () => {
-    setStorageValues(["2", "2"]);
+    // hide the banner permanently
+    setStorageValues(["none", "not-shown"]);
   };
 
   return (
