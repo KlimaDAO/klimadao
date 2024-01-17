@@ -10,7 +10,7 @@ const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
  * This is also the case for SANITY_URLS
  */
 const POLYGON_URLS = {
-  marketplace: `${GRAPH_API_ROOT_ID}/QmdDsUGwLLkzsFmXneaNc13BS43v8wFZL7vDTqWK4YZp1Z`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmXrzcwG5b31hE1nDzT5NCAiHfM9stwMLqs8uk9enJiyPf`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
