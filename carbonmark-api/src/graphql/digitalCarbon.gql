@@ -1,6 +1,6 @@
 query getDigitalCarbonProjectsVintages {
   carbonProjects(first: 1000) {
-    carbonCredits(where: { currentSupply_not: "0" }) {
+    carbonCredits(where: { currentSupply_not: "0", isExAnte: false }) {
       vintage
     }
   }
