@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-12 16:48+0000\n"
+"POT-Creation-Date: 2024-01-16 19:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -734,8 +734,8 @@ msgstr "आपके ऐसेट्स लोड हो रहे हैं"
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:159
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:285
-#: components/pages/Retire/Activity/Overview.tsx:71
-#: components/pages/Retire/Activity/Overview.tsx:82
+#: components/pages/Retire/Activity/Overview.tsx:73
+#: components/pages/Retire/Activity/Overview.tsx:84
 msgid "Loading..."
 msgstr "लोड हो रहा है..."
 
@@ -813,7 +813,7 @@ msgstr "शून्य गतिविधियाँ मौजूद"
 msgid "No barriers to entry for verified carbon projects"
 msgstr "सत्यापित कार्बन परियोजनाओं के लिए प्रवेश में कोई बाधा नहीं"
 
-#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "दिखाने के लिए कोई डेटा नहीं"
 
@@ -1190,8 +1190,8 @@ msgstr "रिटयरमेंट गतिविधि"
 msgid "Retirement Message"
 msgstr "रिटायरमेंट सन्देश"
 
-#: components/pages/Retire/Activity/Overview.tsx:58
-#: components/pages/Retire/Activity/Overview.tsx:68
+#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Retirement Overview"
 msgstr "रिटयरमेंट अवलोकन"
 
@@ -1390,7 +1390,7 @@ msgstr "चेकआउट प्रक्रिया के दौरान �
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
 msgstr "आपका रिटयरमेंट डेटा प्राप्त करने में गड़बड़ी हुई। कृपया पुनः प्रयास करने के लिए पृष्ठ को ताज़ा करें।"
 
-#: components/pages/Retire/Activity/Overview.tsx:47
+#: components/pages/Retire/Activity/Overview.tsx:49
 msgid "There was an error getting your total retirement data"
 msgstr "आपका कुल रिटयरमेंट डेटा प्राप्त करने में गड़बड़ी हुई"
 
@@ -1508,7 +1508,7 @@ msgstr "कुल भत्ता"
 msgid "Total amount of tonnes to retire is required"
 msgstr ""
 
-#: components/pages/Retire/Activity/Overview.tsx:70
+#: components/pages/Retire/Activity/Overview.tsx:72
 msgid "Total carbon tonnes retired"
 msgstr "कुल रिटायर किए गए कार्बन टन"
 
@@ -1527,7 +1527,7 @@ msgstr "कुल कीमत"
 msgid "Total quantity to list for sale"
 msgstr "बिक्री हेतु सूचीबद्ध की जानेवाली मात्रा"
 
-#: components/pages/Retire/Activity/Overview.tsx:81
+#: components/pages/Retire/Activity/Overview.tsx:83
 msgid "Total retirement transactions"
 msgstr "कुल रिटायरमेंट लेनदेन"
 
@@ -2088,15 +2088,15 @@ msgstr "सैकड़ों परियोजनाओं से 20 मिल
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "कार्बनमार्क के बारे में"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:130
+#: components/pages/Retirements/SingleRetirement/index.tsx:128
 msgid "retirement.head.metaDescription"
 msgstr "कार्बनमार्क द्वारा संचालित पारदर्शी, ऑन-चेन ऑफ़सेट।"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:124
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्बन"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:120
 msgid "retirement.head.title"
 msgstr "कार्बनमार्क | कार्बन रिटायरमेंट रसीद"
 
@@ -2281,7 +2281,7 @@ msgstr "को बेचा गया"
 msgid "something went wrong loading the allowance"
 msgstr "कुछ गड़बड़ हो गई जानकारी लोड हो रही है"
 
-#: components/pages/Retire/Activity/Overview.tsx:75
+#: components/pages/Retire/Activity/Overview.tsx:77
 #: components/pages/Retire/Activity/Quotes.tsx:76
 #: components/pages/Retire/Activity/Table.tsx:65
 msgid "t"

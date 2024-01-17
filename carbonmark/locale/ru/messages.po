@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-12 16:48+0000\n"
+"POT-Creation-Date: 2024-01-16 19:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -730,8 +730,8 @@ msgstr "Загрузка ваших активов"
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:159
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:285
-#: components/pages/Retire/Activity/Overview.tsx:71
-#: components/pages/Retire/Activity/Overview.tsx:82
+#: components/pages/Retire/Activity/Overview.tsx:73
+#: components/pages/Retire/Activity/Overview.tsx:84
 msgid "Loading..."
 msgstr "Загрузка..."
 
@@ -809,7 +809,7 @@ msgstr "Нет активности для показа"
 msgid "No barriers to entry for verified carbon projects"
 msgstr "Нет барьеров для входа для проверенных углеродных проектов"
 
-#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "Нет данных для отображения"
 
@@ -1186,8 +1186,8 @@ msgstr "Деятельность по выбиванию"
 msgid "Retirement Message"
 msgstr "Сообщение о использовании"
 
-#: components/pages/Retire/Activity/Overview.tsx:58
-#: components/pages/Retire/Activity/Overview.tsx:68
+#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Retirement Overview"
 msgstr "Обзор Вывода"
 
@@ -1386,7 +1386,7 @@ msgstr "Во время оформления заказа произошла о�
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
 msgstr "При получении общих данных о выбивании произошла ошибка. Пожалуйста, обновите страницу, чтобы повторить попытку."
 
-#: components/pages/Retire/Activity/Overview.tsx:47
+#: components/pages/Retire/Activity/Overview.tsx:49
 msgid "There was an error getting your total retirement data"
 msgstr "При получении общих данных о выбивании произошла ошибка."
 
@@ -1502,7 +1502,7 @@ msgstr "Общая сумма резерва"
 msgid "Total amount of tonnes to retire is required"
 msgstr ""
 
-#: components/pages/Retire/Activity/Overview.tsx:70
+#: components/pages/Retire/Activity/Overview.tsx:72
 msgid "Total carbon tonnes retired"
 msgstr "Всего выведено из эксплуатации тонн углерода"
 
@@ -1521,7 +1521,7 @@ msgstr "Итоговая цена"
 msgid "Total quantity to list for sale"
 msgstr "Общее количество для продажи"
 
-#: components/pages/Retire/Activity/Overview.tsx:81
+#: components/pages/Retire/Activity/Overview.tsx:83
 msgid "Total retirement transactions"
 msgstr "Всего транзакций выбивания"
 
@@ -2080,15 +2080,15 @@ msgstr "Имея более 20 миллионов подтвержденных �
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "О Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:130
+#: components/pages/Retirements/SingleRetirement/index.tsx:128
 msgid "retirement.head.metaDescription"
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:124
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} изъято из эксплуатации {formattedAmount} тонн углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:120
 msgid "retirement.head.title"
 msgstr "Карбонмарк | Квитанция о выводе"
 
@@ -2275,7 +2275,7 @@ msgstr "проданный"
 msgid "something went wrong loading the allowance"
 msgstr "что-то пошло не так при загрузке пособия"
 
-#: components/pages/Retire/Activity/Overview.tsx:75
+#: components/pages/Retire/Activity/Overview.tsx:77
 #: components/pages/Retire/Activity/Quotes.tsx:76
 #: components/pages/Retire/Activity/Table.tsx:65
 msgid "t"
