@@ -1,14 +1,9 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS, ICR_API } from "../../../src/app.constants";
+import { COUNTRY_CODES, VINTAGES } from "../../../test/fixtures/icr";
 import { build } from "../../helper";
-import {
-  COUNTRIES,
-  COUNTRY_CODES,
-  DEV_URL,
-  ERROR,
-  VINTAGES,
-} from "../../test.constants";
+import { COUNTRIES, DEV_URL, ERROR } from "../../test.constants";
 
 describe("GET /countries", () => {
   let fastify: FastifyInstance;

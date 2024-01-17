@@ -5,13 +5,13 @@ import {
   aUser,
 } from "../../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../../src/app.constants";
+import { mockICRHolderResponse } from "../../../test/fixtures/icr";
 import { build } from "../../helper";
 import {
   DEV_URL,
   EXPECTED_USER_RESPONSE,
   MOCK_ADDRESS,
   MOCK_USER_PROFILE,
-  mockICRHolderResponse,
 } from "../../test.constants";
 import { disableAuth, mockFirebase } from "../../test.utils";
 

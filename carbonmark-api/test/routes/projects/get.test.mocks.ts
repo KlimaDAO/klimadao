@@ -10,7 +10,7 @@ import {
   COUNTRY_CODES,
   VINTAGES,
   mockICRProject,
-} from "../../../test/test.constants";
+} from "../../../test/fixtures/icr";
 import { fixtures } from "../../fixtures";
 
 /**
