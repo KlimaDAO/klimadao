@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-15 15:38+0000\n"
+"POT-Creation-Date: 2024-01-16 19:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -732,8 +732,8 @@ msgstr "Chargement de vos actifs"
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:159
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:285
-#: components/pages/Retire/Activity/Overview.tsx:71
-#: components/pages/Retire/Activity/Overview.tsx:82
+#: components/pages/Retire/Activity/Overview.tsx:73
+#: components/pages/Retire/Activity/Overview.tsx:84
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -811,7 +811,7 @@ msgstr "Aucune activité à montrer"
 msgid "No barriers to entry for verified carbon projects"
 msgstr "Aucune barrière à l'entrée pour les projets carbone vérifiés"
 
-#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "Aucune donnée à afficher"
 
@@ -1188,8 +1188,8 @@ msgstr "Activité des retraits"
 msgid "Retirement Message"
 msgstr "Message de Retrait du marché"
 
-#: components/pages/Retire/Activity/Overview.tsx:58
-#: components/pages/Retire/Activity/Overview.tsx:68
+#: components/pages/Retire/Activity/Overview.tsx:60
+#: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Retirement Overview"
 msgstr "Vue d'ensemble des Retraits"
 
@@ -1388,7 +1388,7 @@ msgstr "Une erreur s'est produite au cours de la procédure de paiement. Veuille
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
 msgstr "Une erreur est survenue dans l'obtention de vos données de retraits du marché. Veuillez actualiser la page pour réessayer."
 
-#: components/pages/Retire/Activity/Overview.tsx:47
+#: components/pages/Retire/Activity/Overview.tsx:49
 msgid "There was an error getting your total retirement data"
 msgstr "Une erreur s'est produite lors de l'obtention de l'ensemble de vos données de retraits du marché"
 
@@ -1504,7 +1504,7 @@ msgstr "Autorisation totale"
 msgid "Total amount of tonnes to retire is required"
 msgstr "La quantité totale en tonnes à retirer est requise"
 
-#: components/pages/Retire/Activity/Overview.tsx:70
+#: components/pages/Retire/Activity/Overview.tsx:72
 msgid "Total carbon tonnes retired"
 msgstr "Total des tonnes de carbone retirées du marché"
 
@@ -1523,7 +1523,7 @@ msgstr "Prix total"
 msgid "Total quantity to list for sale"
 msgstr "Quantité totale à mettre en vente"
 
-#: components/pages/Retire/Activity/Overview.tsx:81
+#: components/pages/Retire/Activity/Overview.tsx:83
 msgid "Total retirement transactions"
 msgstr "Total des transactions de retrait du marché"
 
@@ -2082,15 +2082,15 @@ msgstr "Avec plus de 20 millions de crédits carbone vérifiés provenant de cen
 msgid "retirement.footer.about_carbonmark.title"
 msgstr "À propos de Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:130
+#: components/pages/Retirements/SingleRetirement/index.tsx:128
 msgid "retirement.head.metaDescription"
 msgstr "Des compensations transparentes et sur la chaîne, réalisées par Carbonmark."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:124
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} a retiré du marché {formattedAmount} Tonnes de carbone"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:120
 msgid "retirement.head.title"
 msgstr "Carbonmark | Reçu de Retrait du Marché Carbone"
 
@@ -2275,7 +2275,7 @@ msgstr "vendu à"
 msgid "something went wrong loading the allowance"
 msgstr "quelque chose s'est mal passé lors du chargement de l'autorisation"
 
-#: components/pages/Retire/Activity/Overview.tsx:75
+#: components/pages/Retire/Activity/Overview.tsx:77
 #: components/pages/Retire/Activity/Quotes.tsx:76
 #: components/pages/Retire/Activity/Table.tsx:65
 msgid "t"
