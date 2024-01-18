@@ -1,13 +1,12 @@
 import { Trans, t } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { constants } from "ethers";
+import { formatAllowanceDisplay } from "lib/formatAllowanceDisplay";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { FC, useState } from "react";
 import { Approve } from "./Approve";
 import { Submit } from "./Submit";
 import * as styles from "./styles";
 import { Value } from "./types";
-
 interface Props {
   /** If the seller has already approved the required allowance */
   hasApproval: boolean;
@@ -59,16 +58,7 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          // if allowance is maximum allowance displays maximum allowance
-          // if allowance is greater than 10 million displays in scientific notation
-          // else displays the allowance
-          amount={t`${
-            props.allowance === constants.MaxUint256.toString()
-              ? "Maximum allowance of"
-              : Number(props.allowance) > 10000000
-              ? Number(props.allowance).toExponential(2)
-              : props.allowance
-          } tonnes`}
+          amount={t`${formatAllowanceDisplay(props.allowance)}`}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
