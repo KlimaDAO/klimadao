@@ -6,11 +6,7 @@ import {
 import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
 import { Project } from "src/.generated/types/marketplace.types";
 import { GRAPH_URLS, ICR_API, SANITY_URLS } from "../../../src/app.constants";
-import {
-  COUNTRY_CODES,
-  VINTAGES,
-  mockICRProject,
-} from "../../../test/fixtures/icr";
+import { COUNTRY_CODES, VINTAGES } from "../../../test/fixtures/icr";
 import { fixtures } from "../../fixtures";
 
 /**
@@ -20,7 +16,6 @@ import { fixtures } from "../../fixtures";
 let cmsInterceptor: Interceptor;
 
 const ICR_API_URL = ICR_API("polygon").ICR_API_URL;
-const ICR_API_URL_MUMBAI = ICR_API("mumbai").ICR_API_URL;
 
 export const mockCms = (overrides?: {
   projects?: CMSProject[];
@@ -59,19 +54,7 @@ export const mockTokens = () =>
       data: { prices: fixtures.tokens.prices },
     });
 
-export const mockICRRequest = () =>
-  nock(ICR_API_URL)
-    .get("/public/projects/list?page=0&limit=50")
-    .reply(200, { projects: [mockICRProject] });
-
-// mumbai nocks backup
-
-nock(ICR_API_URL_MUMBAI)
-  .get("/public/projects/list?page=0&limit=50")
-  .reply(200, { projects: [mockICRProject] });
-
 export const mockDigitalCarbonProjects = (override?: CarbonProject[]) => {
-  mockICRRequest();
   nock(GRAPH_URLS["polygon"].digitalCarbon)
     .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
     .reply(200, {
@@ -164,7 +147,6 @@ export const mockDigitalCarbonArgs = () =>
     });
 
 export const mockMarketplaceProjects = (override?: Project[]) => {
-  mockICRRequest();
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getProjects"))
     .reply(200, {
