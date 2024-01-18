@@ -9,11 +9,7 @@ type ProjectData = {
 };
 
 export const createProjectLink = (projectData: ProjectData) => {
-  if (projectData.key.startsWith("ICR") && projectData.serialization) {
-    return `/projects/${projectData.serialization}`;
-  } else {
-    return `/projects/${projectData.key}-${projectData.vintage}`;
-  }
+  return `/projects/${projectData.key}-${projectData.vintage}`;
 };
 
 export const createProjectPurchaseLink = (
