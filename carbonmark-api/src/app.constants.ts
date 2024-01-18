@@ -1,6 +1,4 @@
-import dotenv from "dotenv";
 import { NetworkParam } from "./models/NetworkParam.model";
-dotenv.config({ path: "../.env.local" });
 
 /** Adhere to JSONSchema spec by using a URI */
 export const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
@@ -87,20 +85,20 @@ export const REGISTRIES = {
   },
 };
 
-const ICR_CONFIG = {
-  polygon: {
-    url: "https://api.carbonregistry.com/v0",
-    apiKey: process.env.ICR_MAINNET_API_KEY,
-  },
-  mumbai: {
-    url: "https://gaia-api-dev.mojoflower.io/v0",
-    apiKey: process.env.ICR_MUMBAI_API_KEY,
-  },
-};
-
 export const ICR_API = (
   network?: NetworkParam
 ): { ICR_API_URL: string; ICR_API_KEY: string } => {
+  const ICR_CONFIG = {
+    polygon: {
+      url: "https://api.carbonregistry.com/v0",
+      apiKey: process.env.ICR_MAINNET_API_KEY,
+    },
+    mumbai: {
+      url: "https://gaia-api-dev.mojoflower.io/v0",
+      apiKey: process.env.ICR_MUMBAI_API_KEY,
+    },
+  };
+
   const VALIDATED_NETWORK: NetworkParam =
     network === "polygon" || network === "mumbai" ? network : "polygon";
 
