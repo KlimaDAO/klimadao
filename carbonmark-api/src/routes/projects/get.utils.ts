@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy } from "lodash";
 import { concat, map, mapValues, min, pipe, trim, uniq } from "lodash/fp";
-import { TokenPriceT } from "src/models/TokenPrice.model";
 import { Geopoint } from "../../.generated/types/cms.types";
 import {
   FindDigitalCarbonProjectsQuery,
@@ -21,8 +20,8 @@ import {
 import { extract } from "../../utils/functional.utils";
 import { GQL_SDK } from "../../utils/gqlSdk";
 import { CarbonProject } from "../../utils/helpers/cms.utils";
+import { getProjectPoolPrices, getProjectStats } from "../../utils/helpers/digitalCarbon.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
-import { getProjectPoolPricesAndStats } from "../../utils/helpers/getProjectPoolPricesAndStats";
 import { getActiveListings } from "../../utils/helpers/listings.utils";
 import {
   getAllCategories,
@@ -90,11 +89,7 @@ export type ProjectDataMap = Map<CreditIdentifier, ProjectData>;
 /** note: new projects may not have a CMS entry yet */
 export type CMSDataMap = Map<ProjectIdentifier, CarbonProject>;
 
-// TODO: Put all pool utils in a pools.utils.ts file?
 
-const getActivePoolPrices = (prices: TokenPriceT[], minSupply?: number) => {
-  return prices.filter((price) => Number(price.supply) > (minSupply || 0));
-};
 
 /**
  * Builds a project entry given data fetched from various sources
@@ -121,15 +116,21 @@ export const buildProjectEntry = (props: {
     ? formatListings(props.marketplaceProject?.listings)
     : undefined;
 
-  const [poolPrices, stats] =
-    props.network === "polygon" && credits
-      ? getProjectPoolPricesAndStats(credits, props.allPoolPrices)
-      : [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
+  const activePoolPrices = getProjectPoolPrices({
+    poolProject: props.poolProject,
+    network: props.network,
+    allPoolPrices: props.allPoolPrices,
+    minSupply: props.minSupply
+  })
+  const stats = getProjectStats({
+    poolProject: props.poolProject,
+    network: props.network,
+    allPoolPrices: props.allPoolPrices
+  })
 
   // Compute best price
   // For the purpose of computing the best price we only take into account active listings and pool prices with the sufficent supply
   const activeListings = getActiveListings(listings, props.minSupply);
-  const activePoolPrices = getActivePoolPrices(poolPrices, props.minSupply);
 
   const activePoolPriceValues = activePoolPrices.map((p) =>
     Number(p.singleUnitPrice)

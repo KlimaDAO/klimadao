@@ -13,6 +13,8 @@ import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
 import { CarbonProject } from "./cms.utils";
+import { projectHasPoolPrices } from "./digitalCarbon.utils";
+import { fetchAllPoolPrices } from "./fetchAllPoolPrices";
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- unable to type environment variables
 const ENV = (process.env.VERCEL_ENV ?? "development") as
   | "development"
@@ -22,7 +24,9 @@ const ENV = (process.env.VERCEL_ENV ?? "development") as
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
 export async function getAllVintages(
   sdk: GQL_SDK,
-  fastify: FastifyInstance
+  fastify: FastifyInstance,
+  network?:  "polygon" | "mumbai",
+  minSupply?: number
 ): Promise<string[]> {
   const uniqueValues = new Set<string>();
   const cacheKey = `vintages`;
@@ -32,24 +36,33 @@ export async function getAllVintages(
     return cachedResult;
   }
 
-  const [{ projects }, { carbonProjects: digitalCarbonProjects }] =
+  const [{ projects }, { carbonProjects: digitalCarbonProjects }, allPoolPrices] =
     await Promise.all([
       sdk.marketplace.getVintages(),
       sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
+      fetchAllPoolPrices(sdk)
     ]);
 
   /** Handle invalid responses */
   if (!isArray(projects) || !isArray(digitalCarbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
+  
 
-  projects.forEach((item) => uniqueValues.add(item.vintage));
+  //projects.forEach((item) => uniqueValues.add(item.vintage));
   digitalCarbonProjects.forEach((project) => {
-    project.carbonCredits.forEach((credit) => {
-      if (credit.vintage) {
-        uniqueValues.add(credit.vintage.toString());
-      }
-    });
+    if (projectHasPoolPrices({
+      poolProject: project,
+      network: netwo || "polygon",
+      allPoolPrices,
+      minSupply
+    })) {
+      project.carbonCredits.forEach((credit) => {
+        if (credit.vintage) {
+          uniqueValues.add(credit.vintage.toString());
+        }
+      });
+    }
   });
 
   const result = Array.from(uniqueValues).sort().filter(notEmptyOrNil);
