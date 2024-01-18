@@ -100,8 +100,11 @@ export const CreateListing: FC<Props> = (props) => {
    */
   const hasApproval = () => {
     if (!Number(inputValues?.amount)) return false;
+
+    const isERC1155 = !!inputValues?.tokenId;
+
     // 1155 approvals are all or nothing approvals across all tokenIds and amount
-    if (!!inputValues?.tokenId) {
+    if (isERC1155) {
       return currentAllowance === constants.MaxUint256.toString();
     }
     return (

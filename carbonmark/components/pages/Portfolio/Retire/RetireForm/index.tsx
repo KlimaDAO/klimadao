@@ -108,7 +108,7 @@ export const RetireForm = (props: RetireFormProps) => {
   const carbonTokenInfo =
     carbonmarkTokenInfoMap[getTokenPrefix(tokenSymbol) as CarbonmarkToken];
 
-  // temporary until digital-carbon subgraph credit its for ICR projects following registry-vintage format
+  // temporary until digital-carbon subgraph credit ids for ICR projects follow registry-vintage format
   const constructProjectId = (credit: DigitalCarbonCredit): string => {
     if (credit.project.registry.startsWith("ICR")) {
       return credit.project.registry + "-" + credit.vintage;
