@@ -47,7 +47,11 @@ export async function getAllVintages(
   digitalCarbonProjects.forEach((project) => {
     project.carbonCredits.forEach((credit) => {
       if (credit.vintage) {
-        uniqueValues.add(credit.vintage.toString());
+        if (
+          credit.poolBalances?.some((balance) => Number(balance.balance) > 0)
+        ) {
+          uniqueValues.add(credit.vintage.toString());
+        }
       }
     });
   });
