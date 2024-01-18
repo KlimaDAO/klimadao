@@ -14,6 +14,8 @@ export const input = css`
 export const main = css`
   display: flex;
   width: 100%;
+  background-color: white;
+  border-radius: var(--border-radius);
 
   ${breakpoints.medium} {
     max-width: 40rem;
@@ -35,7 +37,7 @@ export const main = css`
 
 export const button = css`
   padding: 1.4rem;
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  border-radius: var(--border-radius);
   color: white;
   background-color: var(--manatee) !important;
   svg {

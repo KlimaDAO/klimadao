@@ -4,16 +4,11 @@ import breakpoints, {
 } from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
-  grid-column: full;
-  position: relative; /* new stacking context */
-  z-index: 0;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   background-color: var(--surface-02);
-  display: grid;
-  align-content: flex-start;
   min-height: 100vh;
-  grid-template-rows: 1fr;
 
   &[data-scroll-lock="true"] {
     overflow-y: hidden;
@@ -22,35 +17,10 @@ export const container = css`
   ${breakpoints.desktop} {
     max-height: 100vh;
     overflow-y: hidden;
-    display: grid;
-    grid-template-columns:
-      [sidebar] 24.4rem
-      [full-start] minmax(0px, 1fr)
-      [full-end];
   }
   ${breakpoints.desktopLarge} {
     max-height: 100vh;
     overflow-y: hidden;
-    display: grid;
-    grid-template-columns:
-      [sidebar] 28.4rem
-      [full-start] minmax(0px, 1fr)
-      [full-end];
-  }
-`;
-
-export const mainContentGrid = css`
-  position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns:
-    [full-start] minmax(1.6rem, 1fr)
-    [main-start] minmax(0, 111.6rem)
-    [main-end] minmax(1.6rem, 1fr)
-    [full-end];
-  ${breakpoints.desktop} {
-    grid-template-rows: 1fr auto;
-    overflow-y: auto;
   }
 `;
 
@@ -61,15 +31,6 @@ export const mobileLogo = css`
     max-height: 5rem;
     width: 100%; // make logo auto increase
     max-width: 5rem;
-  }
-`;
-
-export const desktopNavMenu = css`
-  display: none;
-  // to properly allow modal overlay
-  z-index: 1;
-  ${breakpoints.desktop} {
-    display: flex;
   }
 `;
 
