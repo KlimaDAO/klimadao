@@ -4,6 +4,7 @@ import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Asset } from "lib/types/carbonmark.types";
+import { validateIcrAmount } from "lib/validateIcrAmount";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -99,9 +100,7 @@ export const CreateListingForm: FC<Props> = (props) => {
                 },
                 validate: {
                   isWholeNumber: (value) =>
-                    !selectedAsset.id.startsWith("ICR") ||
-                    Number.isInteger(parseFloat(value)) ||
-                    t`ICR credits can only be listed in whole tonnes`,
+                    validateIcrAmount(value, selectedAsset.id),
                 },
               }),
             }}

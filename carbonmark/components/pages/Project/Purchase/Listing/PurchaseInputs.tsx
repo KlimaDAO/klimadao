@@ -9,6 +9,7 @@ import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
 import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark.types";
+import { validateIcrAmount } from "lib/validateIcrAmount";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -87,9 +88,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
                 },
                 validate: {
                   isWholeNumber: (value) =>
-                    !props.listing.project.id.startsWith("ICR") ||
-                    Number.isInteger(parseFloat(value)) ||
-                    t`ICR credits can only be bought in whole tonnes`,
+                    validateIcrAmount(value, props.listing.project.id),
                 },
               }),
             }}

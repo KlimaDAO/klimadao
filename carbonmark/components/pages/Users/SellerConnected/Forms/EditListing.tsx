@@ -6,6 +6,7 @@ import { InputField } from "components/shared/Form/InputField";
 import { DEFAULT_EXPIRATION_DAYS, MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Listing } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
+import { validateIcrAmount } from "lib/validateIcrAmount";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -122,9 +123,7 @@ export const EditListing: FC<Props> = (props) => {
                 },
                 validate: {
                   isWholeNumber: (value) =>
-                    !props.listing.project.id.startsWith("ICR") ||
-                    Number.isInteger(parseFloat(value)) ||
-                    t`ICR credits can only be listed in whole tonnes`,
+                    validateIcrAmount(value, props.listing.project.id),
                 },
               }),
             }}
