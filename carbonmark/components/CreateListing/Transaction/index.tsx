@@ -59,6 +59,9 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
+          // if allowance is maximum allowance displays maximum allowance
+          // if allowance is greater than 10 million displays in scientific notation
+          // else displays the allowance
           amount={t`${
             props.allowance === constants.MaxUint256.toString()
               ? "Maximum allowance of"
