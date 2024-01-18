@@ -1654,6 +1654,8 @@ export type IcrProjectFragmentFragment = { __typename?: 'Project', id: any, proj
 
 export type ExPostAmountsFragmentFragment = { __typename?: 'ExPostHolder', id: any, amount: string, updatedAt: string, retiredAmount: string, exPost: { __typename?: 'ExPost', tokenId: string, vintage: string, serialization: string, project: { __typename?: 'Project', id: any, projectName: string } } };
 
+export type ExPostFragmentFragment = { __typename?: 'ExPost', tokenId: string, vintage: string, serialization: string, project: { __typename?: 'Project', id: any, projectName: string } };
+
 export type GetExPostInfoViaSerializationQueryVariables = Exact<{
   serialization: Scalars['String'];
 }>;
@@ -1676,6 +1678,17 @@ export const IcrProjectFragmentFragmentDoc = gql`
   transactionHash
 }
     `;
+export const ExPostFragmentFragmentDoc = gql`
+    fragment exPostFragment on ExPost {
+  tokenId
+  vintage
+  serialization
+  project {
+    id
+    projectName
+  }
+}
+    `;
 export const ExPostAmountsFragmentFragmentDoc = gql`
     fragment exPostAmountsFragment on ExPostHolder {
   id
@@ -1683,16 +1696,10 @@ export const ExPostAmountsFragmentFragmentDoc = gql`
   updatedAt
   retiredAmount
   exPost {
-    tokenId
-    vintage
-    serialization
-    project {
-      id
-      projectName
-    }
+    ...exPostFragment
   }
 }
-    `;
+    ${ExPostFragmentFragmentDoc}`;
 export const GetExPostInfoViaSerializationDocument = gql`
     query getExPostInfoViaSerialization($serialization: String!) {
   exPosts(where: {serialization: $serialization}) {

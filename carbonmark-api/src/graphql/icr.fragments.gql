@@ -11,12 +11,16 @@ fragment exPostAmountsFragment on ExPostHolder {
   updatedAt
   retiredAmount
   exPost {
-    tokenId
-    vintage
-    serialization
-    project {
-      id
-      projectName
-    }
+    ...exPostFragment
+  }
+}
+
+fragment exPostFragment on ExPost {
+  tokenId
+  vintage
+  serialization
+  project {
+    id
+    projectName
   }
 }
