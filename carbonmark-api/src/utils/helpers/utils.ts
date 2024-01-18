@@ -10,8 +10,8 @@ import {
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
 import type { NetworkParam } from "../../../src/models/NetworkParam.model";
-import { fetchIcrFilters } from "../ICR/icr.utils";
 import { TOKEN_ADDRESSES } from "../../app.constants";
+import { fetchIcrFilters } from "../ICR/icr.utils";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
 import { CarbonProject } from "./cms.utils";
@@ -143,9 +143,9 @@ export async function getAllCountries(
   }
 
   const [
-    { countries },
+    { countries: marketplaceCountries },
     { carbonProjects: digitalCarbonProjects },
-    { countryNames },
+    { countryNames: icrCountries },
   ] = await Promise.all([
     sdk.marketplace.getCountries(),
     sdk.digital_carbon.getDigitalCarbonProjectsCountries(),
@@ -154,9 +154,9 @@ export async function getAllCountries(
 
   /** Handle invalid responses */
   if (
-    !isArray(countries) ||
+    !isArray(marketplaceCountries) ||
     !isArray(digitalCarbonProjects) ||
-    !isArray(countryNames)
+    !isArray(icrCountries)
   ) {
     throw new Error("Response from server did not match schema definition");
   }
@@ -170,9 +170,9 @@ export async function getAllCountries(
   );
 
   const result: Country[] = fn([
-    countries?.map(extract("id")),
+    marketplaceCountries?.map(extract("id")),
     digitalCarbonProjects.map(extract("country")),
-    countryNames,
+    icrCountries,
   ]);
 
   await fastify.lcache?.set(cacheKey, { payload: result });
