@@ -1,0 +1,33 @@
+name: Align Carbonmark With Latest API Version
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Runs every Sunday at 00:00
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Update Version
+        run: node ./scripts/align_cm.js
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update api version in constants.ts
+          title: Update version in constants.ts
+          body: Align API version for Carbonmark
+          branch: update-version
