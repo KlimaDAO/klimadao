@@ -29,7 +29,7 @@ export const WALLETCONNECT_PROJECT_ID =
 // );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v5.2.1.api.carbonmark.com";
+export const API_PROD_URL = "https://v5.3.1.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
