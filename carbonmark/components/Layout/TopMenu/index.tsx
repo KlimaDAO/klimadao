@@ -15,6 +15,8 @@ export type TopMenuProps = {
 };
 
 export const TopMenu: FC<TopMenuProps> = (props) => {
+  console.log(props);
+
   return (
     <div className={styles.topMenu}>
       <Link href="/" className={styles.logo}>
