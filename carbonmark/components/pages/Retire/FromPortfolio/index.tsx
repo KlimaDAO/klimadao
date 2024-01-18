@@ -1,10 +1,11 @@
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { useFetchUsersWalletOrHandle } from "hooks/useFetchUsersWalletOrHandle";
 import { addProjectsToAssets, AssetWithProject } from "lib/actions";
+import { notNil } from "lib/utils/functional.utils";
 import { isListableToken } from "lib/utils/listings.utils";
 import { isNil } from "lodash";
 import { FC, useEffect, useState } from "react";
@@ -17,10 +18,10 @@ export type Props = {
 
 export const RetireFromPortfolio: FC<Props> = (props) => {
   const { networkLabel } = useWeb3();
-  const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
+  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
     props.address,
-    { network: networkLabel, expiresAfter: "0" },
-    { shouldFetch: !!props.address }
+    {},
+    { shouldFetch: notNil(props.address) }
   );
 
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);

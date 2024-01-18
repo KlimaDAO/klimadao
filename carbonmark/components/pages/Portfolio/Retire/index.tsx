@@ -1,3 +1,4 @@
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
 import { t } from "@lingui/macro";
@@ -5,12 +6,12 @@ import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
-import { useFetchUsersWalletOrHandle } from "hooks/useFetchUsersWalletOrHandle";
 import { createCompositeAsset } from "lib/actions";
 import type {
   AssetForRetirement,
   DigitalCarbonCredit,
 } from "lib/types/carbonmark.types";
+import { notNil } from "lib/utils/functional.utils";
 import { isNil } from "lodash";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -35,11 +36,12 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
     networkLabel,
   } = useWeb3();
 
-  const { data: carbonmarkUser, isLoading } = useFetchUsersWalletOrHandle(
-    address,
+  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
+    address ?? "",
     { network: networkLabel, expiresAfter: "0" },
-    { shouldFetch: !!address }
+    { shouldFetch: notNil(address) }
   );
+
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
   const isConnectedUser = isConnected && address;
