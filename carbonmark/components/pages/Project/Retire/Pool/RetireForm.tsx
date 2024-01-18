@@ -362,7 +362,6 @@ export const RetireForm: FC<Props> = (props) => {
                 project={props.project}
                 actionLabel={t`Retiring Token`}
                 availableLabel={t`Available to retire`}
-                polyscanUrl={`https://polygonscan.com/address/${props.price.projectTokenAddress}`}
               />
             </Card>
             <div className={styles.reverseOrder}>

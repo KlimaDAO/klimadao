@@ -22,7 +22,6 @@ type TotalValuesProps = {
   project: Project;
   actionLabel: string;
   availableLabel: string;
-  polyscanUrl: string;
 };
 
 export const AssetDetails: FC<TotalValuesProps> = (props) => {
