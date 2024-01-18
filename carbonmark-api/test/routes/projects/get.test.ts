@@ -378,10 +378,6 @@ describe("GET /projects", () => {
       mockICRFilters();
     });
 
-    afterEach(() => {
-      nock.cleanAll();
-    });
-
     test("Marketplace projects", async () => {
       mockMarketplaceProjects([
         mockMarketplaceProject,

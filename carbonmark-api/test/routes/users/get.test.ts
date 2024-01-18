@@ -62,10 +62,6 @@ describe("GET /users/[walletOrHandle]", () => {
       });
   });
 
-  afterEach(() => {
-    nock.cleanAll();
-  });
-
   test("by wallet", async () => {
     const response = await app.inject({
       method: "GET",
