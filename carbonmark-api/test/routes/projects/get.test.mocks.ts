@@ -161,7 +161,6 @@ export const mockMarketplaceProjects = (override?: Project[]) => {
 };
 //Mocks all categories, countries and vintages
 export const mockMarketplaceArgs = () => {
-
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getCategories"))
     .reply(200, {
