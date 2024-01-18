@@ -11,6 +11,7 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { InputField, TextareaField } from "components/shared/Form";
 import { ethers, providers } from "ethers";
+import { getPolygonScanBaseUrl } from "lib/createUrls";
 import { formatToDecimals } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getAddress } from "lib/networkAware/getAddress";
@@ -30,7 +31,6 @@ import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
 import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
-
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -483,11 +483,9 @@ export const RetireForm = (props: RetireFormProps) => {
             retirementUrl={`${urls.retirements_carbonmark}/${
               retirement.beneficiaryAddress || props.address
             }/${retirementTotals}`}
-            polygonScanUrl={
-              networkLabel === "polygon"
-                ? `${urls.polygonscan}/tx/${retirementTransactionHash}`
-                : `${urls.mumbaiPolygonscan}/tx/${retirementTransactionHash}`
-            }
+            polygonScanUrl={`${getPolygonScanBaseUrl(
+              networkLabel
+            )}/tx/${retirementTransactionHash}`}
             showModal={!!retirementTransactionHash}
             user={props.address}
             retirementIndex={retirementTotals}
