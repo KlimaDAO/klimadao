@@ -1,5 +1,5 @@
 import { urls } from "@klimadao/lib/constants";
-import { getRetirementTokenByAddress } from "@klimadao/lib/utils";
+import { formatUnits, getRetirementTokenByAddress } from "@klimadao/lib/utils";
 import { isAddress } from "ethers-v6";
 import { generateCertificate } from "lib/retirementCertificates";
 import { queryKlimaRetireByIndex } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
@@ -45,6 +45,9 @@ export default async function handler(
     if (!retirement) {
       return res.status(404).send("Not found");
     }
+
+    // convert amount to human readable format
+    retirement.retire.amount = formatUnits(retirement.retire.amount, 18);
 
     const certificateParams = {
       retirement,
