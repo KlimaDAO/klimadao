@@ -91,6 +91,7 @@ describe("GET /projects", () => {
   // Setup default mocks
   beforeEach(async () => {
     mockMarketplaceArgs();
+    mockICRFilters();
     mockDigitalCarbonArgs();
     mockTokens();
     mockCms({
