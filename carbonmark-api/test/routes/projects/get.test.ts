@@ -119,10 +119,6 @@ describe("GET /projects", () => {
       .post("")
       .reply(200, { data: { projects: [] } });
 
-    nock(GRAPH_URLS["mumbai"].marketplace)
-      .post("")
-      .reply(200, { data: { projects: [] } }); // no marketplace projects
-
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects`,

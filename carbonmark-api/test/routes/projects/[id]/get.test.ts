@@ -56,10 +56,6 @@ describe("GET /projects/:id", () => {
         },
       });
 
-    nock(GRAPH_URLS["mumbai"].marketplace).post("").reply(200, {
-      data: {},
-    });
-
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-191-2008`,
