@@ -61,7 +61,7 @@ export const TOKEN_ADDRESSES = {
   },
 };
 
-export const URLS = {
+export const RPC_URLS = {
   polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
 };
 
