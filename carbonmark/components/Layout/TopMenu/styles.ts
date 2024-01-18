@@ -3,6 +3,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const topMenu = css`
   justify-content: space-between;
+  flex: 0 0 6.4rem;
   min-height: 6.4rem;
   display: flex;
   gap: 0.8rem;
@@ -11,7 +12,7 @@ export const topMenu = css`
   background-color: var(--darkmode-surface-01);
 
   ${breakpoints.desktop} {
-    min-height: 7.2rem;
+    flex-basis: 7.2rem;
   }
 `;
 
