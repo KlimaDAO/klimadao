@@ -38,10 +38,6 @@ const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
   ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app`
   : API_PROD_URL;
 
-// // @todo remove and change to above before merge
-// const API_PREVIEW_URL =
-//   "https://carbonmark-api-git-feature-icr-api-integration-klimadao.vercel.app";
-
 /**
  * The API URL to target when developing the app,
  * useful for generating types that have not yet been deployed or are on  new version of the API
