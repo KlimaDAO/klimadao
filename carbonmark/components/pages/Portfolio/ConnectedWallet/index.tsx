@@ -15,14 +15,14 @@ import CheckIcon from "@mui/icons-material/Check";
 import LaunchIcon from "@mui/icons-material/Launch";
 
 type Props = {
-  address: string | undefined;
+  address: string;
 };
 
 export const ConnectedWallet: FC<Props> = (props) => {
   const web3 = useWeb3();
   const isTorus = isTorusProvider(web3?.provider?.provider);
 
-  const [cachedAddress, setAddress] = useState<string | undefined>(
+  const [cachedAddress, setAddress] = useState<string>(
     props.address
   );
   const [copied, doCopy] = useCopyToClipboard();

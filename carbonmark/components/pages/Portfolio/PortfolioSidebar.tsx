@@ -22,7 +22,7 @@ export const PortfolioSidebar: FC<Props> = (props) => {
 
   return (
     <div className={styles.stickyContentWrapper}>
-      <ConnectedWallet address={address} />
+      {address && <ConnectedWallet address={address} />}
       <Balances />
       <Stats
         allListings={allListings || []}
