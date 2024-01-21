@@ -5,4 +5,3 @@
 export const concatAddress = (address: string, numbers = 5) => {
   return address.slice(0, numbers) + "…" + address.slice(address.length - 3);
 };
-

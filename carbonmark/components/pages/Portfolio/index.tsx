@@ -18,7 +18,6 @@ import { CarbonmarkAssets } from "./CarbonmarkAssets";
 import { PortfolioSidebar } from "./PortfolioSidebar";
 import { UnregisteredMessage } from "./Retire/UnregisteredMessage";
 import * as styles from "./styles";
-import { ViewWalletButton } from "components/ViewWalletButton";
 
 export const Portfolio: NextPage = () => {
   const {

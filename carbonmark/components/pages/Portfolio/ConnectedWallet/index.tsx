@@ -1,18 +1,16 @@
+import { cx } from "@emotion/css";
+import { ButtonPrimary } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
+import { useCopyToClipboard } from "@klimadao/lib/hooks";
 import { concatAddress, isTorusProvider, useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import CheckIcon from "@mui/icons-material/Check";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { FC, useEffect, useState } from "react";
-import { ViewWalletButton } from "components/ViewWalletButton";
-import { CopyAddressButton } from "components/CopyAddressButton";
-import { urls } from "@klimadao/lib/constants";
-import { useCopyToClipboard } from "@klimadao/lib/hooks";
-import { cx } from "@emotion/css";
 import * as styles from "./styles";
-import { ButtonPrimary } from "@klimadao/lib/components";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import CheckIcon from "@mui/icons-material/Check";
-import LaunchIcon from "@mui/icons-material/Launch";
 
 type Props = {
   address: string;
@@ -22,9 +20,7 @@ export const ConnectedWallet: FC<Props> = (props) => {
   const web3 = useWeb3();
   const isTorus = isTorusProvider(web3?.provider?.provider);
 
-  const [cachedAddress, setAddress] = useState<string>(
-    props.address
-  );
+  const [cachedAddress, setAddress] = useState<string>(props.address);
   const [copied, doCopy] = useCopyToClipboard();
 
   useEffect(() => {
@@ -55,8 +51,9 @@ export const ConnectedWallet: FC<Props> = (props) => {
                 rel="noopener noreferrer"
                 onClick={(e) => {
                   e.preventDefault();
-                  window.open(urls.polygonTor, '_blank');
-                }} >
+                  window.open(urls.polygonTor, "_blank");
+                }}
+              >
                 <ButtonPrimary
                   variant="transparent"
                   icon={<LaunchIcon />}
