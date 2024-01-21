@@ -1,4 +1,17 @@
-export type Listing = {
+import type { Def1 } from "./Def1";
+
+export type GetListingsIdPathParams = {
+  /**
+   * @description The listing id
+   * @type string
+   */
+  id: string;
+};
+
+/**
+ * @description Successful response
+ */
+export type GetListingsIdQueryResponse = {
   /**
    * @description Unique listing identifier
    * @type string
@@ -91,3 +104,12 @@ export type Listing = {
    */
   symbol?: string;
 };
+
+export type GetListingsIdQueryParams = {
+  network?: Def1;
+};
+export namespace GetListingsIdQuery {
+  export type Response = GetListingsIdQueryResponse;
+  export type PathParams = GetListingsIdPathParams;
+  export type QueryParams = GetListingsIdQueryParams;
+}

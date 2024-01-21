@@ -7,6 +7,7 @@ export * from "./Def1";
 export * from "./GetActivities";
 export * from "./GetCategories";
 export * from "./GetCountries";
+export * from "./GetListingsId";
 export * from "./GetProjects";
 export * from "./GetProjectsId";
 export * from "./GetProjectsIdActivity";
