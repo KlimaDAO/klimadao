@@ -60,11 +60,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
       try {
         totalCarbonRetired = klimaRetires
           .reduce((acc, retirement) => {
-            const amount = retirement.retire.credit.project.registry.startsWith(
-              "ICR"
-            )
-              ? retirement.retire.amount
-              : formatUnits(retirement.retire.amount);
+            const amount = formatUnits(retirement.retire.amount);
             return acc + parseFloat(amount);
           }, 0)
           .toString();

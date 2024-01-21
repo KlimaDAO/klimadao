@@ -1,5 +1,6 @@
 import { subgraphs } from "@klimadao/lib/constants";
 import { KlimaRetire, QueryKlimaRetires } from "@klimadao/lib/types/subgraph";
+import { parseUnits } from "ethers/lib/utils";
 import { convertCountryCodeToName } from "../../lib/convertCountryCodeToName";
 import { getCategoryFromMethodology } from "../../lib/getCategoryFromMethodology";
 import { ICR_API } from "../../lib/registryAPIs/ICR/ICR_API";
@@ -17,7 +18,20 @@ async function fetchGraphQL(
     const error = await response.json();
     throw new Error(error);
   }
-  return response.json();
+  const json = await response.json();
+
+  // ICR amounts are currently in regular integers in the subgraph. This standardizes them to wei to match the other registries and combining retirement data
+  if (json.data.klimaRetires) {
+    json.data.klimaRetires.forEach((retirement: KlimaRetire) => {
+      if (retirement.retire.credit.project.registry === "ICR") {
+        retirement.retire.amount = parseUnits(
+          retirement.retire.amount,
+          18
+        ).toString();
+      }
+    });
+  }
+  return json;
 }
 
 function generateKlimaRetireQuery(beneficiaryAddress: string, index?: number) {
@@ -121,15 +135,14 @@ export const queryKlimaRetireByIndex = async (
 
 export const queryKlimaRetiresByAddress = async (
   beneficiaryAddress: string
-): Promise<KlimaRetire[] | false> => {
+): Promise<KlimaRetire[]> => {
   try {
     const json: QueryKlimaRetires = await fetchGraphQL(
       generateKlimaRetireQuery(beneficiaryAddress)
     );
-    return !!json.data.klimaRetires.length && json.data.klimaRetires;
+    return json.data.klimaRetires || [];
   } catch (e) {
-    console.error("Failed to query KlimaRetiresByAddress", e);
-    return Promise.reject(e);
+    throw new Error("Failed to query KlimaRetiresByAddress", e);
   }
 };
 
