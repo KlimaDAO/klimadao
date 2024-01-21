@@ -110,7 +110,11 @@ export const Portfolio: NextPage = () => {
             </Col>
 
             <Col>
-              <PortfolioSidebar address={address} user={carbonmarkUser} isPending={isPending} />
+              <PortfolioSidebar
+                address={address}
+                user={carbonmarkUser}
+                isPending={isPending}
+              />
             </Col>
           </TwoColLayout>
         </div>
