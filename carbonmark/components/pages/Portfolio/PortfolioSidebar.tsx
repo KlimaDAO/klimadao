@@ -1,4 +1,3 @@
-import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Activities } from "components/Activities";
 import { Stats } from "components/Stats";
@@ -12,17 +11,17 @@ import * as styles from "./styles";
 type Props = {
   user?: User | null;
   isPending: boolean;
+  address: string | undefined;
 };
 
 export const PortfolioSidebar: FC<Props> = (props) => {
   const allListings = props.user && getAllListings(props.user.listings || []);
   const activeListings =
     props.user && getActiveListings(props.user.listings || []);
-  const { address, networkLabel } = useWeb3();
-
+  
   return (
     <div className={styles.stickyContentWrapper}>
-      {address && <ConnectedWallet address={address} />}
+      {props.address && <ConnectedWallet address={props.address} />}
       <Balances />
       <Stats
         allListings={allListings || []}
