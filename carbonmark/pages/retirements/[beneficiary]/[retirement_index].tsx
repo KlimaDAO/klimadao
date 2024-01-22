@@ -107,6 +107,11 @@ export const getStaticProps: GetStaticProps<
       retirement?.retire.credit.project.projectID &&
       retirement?.retire.credit.vintage
     ) {
+      // temporary fix until ICR digital-carbon id matches registry-registryProjectId format
+      if (retirement.retire.credit.project.registry === "ICR") {
+        retirement.retire.credit.project.projectID =
+          retirement.retire.credit.project.id;
+      }
       project = await getProjectsId(
         `${retirement.retire.credit.project.projectID}-${retirement.retire.credit.vintage}`
       );

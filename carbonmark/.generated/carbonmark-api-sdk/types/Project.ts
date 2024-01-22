@@ -245,4 +245,12 @@ export type Project = {
    * @type boolean
    */
   hasSupply: boolean;
+  /**
+   * @type string | undefined
+   */
+  tokenId?: string;
+  /**
+   * @type string | undefined
+   */
+  serialization?: string;
 };

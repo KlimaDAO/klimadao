@@ -28,6 +28,8 @@ export type CategoryName = keyof typeof CATEGORY_INFO;
 export interface DigitalCarbonCredit {
   id: string;
   vintage: number;
+  tokenAddress: string;
+  tokenId: string | null;
   project: {
     registry: string;
     region: string;
@@ -38,6 +40,7 @@ export interface DigitalCarbonCredit {
     methodologies: string;
     projectID: string;
   };
+  tokenStandard: string; // "ERC20" || " ERC1155"
 }
 
 export type ActivityActionT =
@@ -145,6 +148,18 @@ export type AssetForRetirement = {
   tokenSymbol: string; // 1: C3T, 2: TCO2
   credit: DigitalCarbonCredit;
   token: Asset["token"];
+  registry: string;
+};
+
+export type ProjectRetirementDetails = {
+  tokenAddress: string;
+  vintageYear: string;
+  name: string;
+  registry: string;
+  methodologyCategory: string;
+  projectId: string;
+  tokenStandard: string;
+  tokenId: string;
 };
 
 export type Methodology = {

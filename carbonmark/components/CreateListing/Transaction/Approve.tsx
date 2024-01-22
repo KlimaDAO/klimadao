@@ -49,7 +49,8 @@ export const Approve: FC<Props> = (props) => {
           <strong>
             <Trans>
               The allowance below reflects the sum of all your listings for this
-              specific token.
+              specific token. For ICR credit tokens, the allowance will reflect
+              the sum of all your ICR token listings.
             </Trans>
           </strong>
         </Text>
