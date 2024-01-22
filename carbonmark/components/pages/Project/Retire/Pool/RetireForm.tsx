@@ -99,13 +99,6 @@ export const RetireForm: FC<Props> = (props) => {
     methods.setValue("paymentMethod", "fiat");
   }, []);
 
-  let polygonScanAddress: string;
-  if (isPool(product)) {
-    polygonScanAddress = product.projectTokenAddress;
-  } else {
-    polygonScanAddress = product.tokenAddress;
-  }
-
   useEffect(() => {
     if (!address) return;
 

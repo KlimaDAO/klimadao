@@ -41,6 +41,14 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
       ? formatToTonnes(props.product.supply, locale, 2)
       : props.product.leftToSell;
 
+  const tokenAddress =
+    props.product.type === "pool"
+      ? props.product.projectTokenAddress
+      : props.product.tokenAddress;
+  const polygonScanUrl = `${getPolygonScanBaseUrl(
+    networkLabel
+  )}/address/${tokenAddress}`;
+
   return (
     <Accordion label={t`Asset details`} className={styles.accordion}>
       <div className={styles.totalsText}>
@@ -56,12 +64,7 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
         </Text>
       </div>
       <div className={styles.totalsText}>
-        <Anchor
-          className={styles.iconAndText}
-          href={`${getPolygonScanBaseUrl(networkLabel)}/address/${
-            props.price.projectTokenAddress
-          }`}
-        >
+        <Anchor className={styles.iconAndText} href={polygonScanUrl}>
           <Text className={styles.externalLink} t="body2">
             {t`View on PolygonScan`} <LaunchIcon />
           </Text>
