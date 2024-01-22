@@ -1,16 +1,35 @@
 import { Contract, providers, utils } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
+import { createICRProjectID } from "../../../../src/utils/ICR/icr.utils";
 import ERC20 from "../../../abis/ERC20.json";
 import { RPC_URLS } from "../../../app.constants";
 import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Holding } from "../../../types/assets.types";
 import { gql_sdk } from "../../../utils/gqlSdk";
 
+type MultipleTokenStandardType = Holding & { token: { tokenId?: string } };
+
 const formatHolding = (h: Holding): Holding => {
   return {
     ...h,
     amount: utils.formatUnits(h.amount, h.token.decimals),
+  };
+};
+
+const mapICRInfo = (item: Record<string, any>) => {
+  return {
+    id: item.exPost.serialization,
+    amount: item.amount,
+    token: {
+      decimals: 0,
+      id: item.exPost.project.id,
+      name: item.exPost.project.projectName,
+      symbol: `${createICRProjectID(item.exPost.serialization)}-${
+        item.exPost.vintage
+      }`,
+      tokenId: item.exPost.tokenId,
+    },
   };
 };
 
@@ -20,11 +39,12 @@ const fetchTestnetHoldings = async (params: {
   address: string;
 }): Promise<Holding[]> => {
   const provider = new providers.JsonRpcProvider(RPC_URLS.polygonTestnetRpc);
+  const sdk = gql_sdk("mumbai");
   // we hardcode known testnet tokens here
   const TOKEN_INFO = [
     {
       symbol: "TCO2-VCS-981-2017",
-      address: "0xeCF4A1B92a463C843CDcB7cb7A2F2DdFe07651BB",
+      address: "0xecf4a1b92a463c843cdcb7cb7a2f2ddfe07651bb",
       decimals: 18,
     },
     {
@@ -43,23 +63,47 @@ const fetchTestnetHoldings = async (params: {
       decimals: 18,
     },
   ];
+
   const balancePromises = TOKEN_INFO.map((tco2) =>
     new Contract(tco2.address, ERC20, provider).balanceOf(params.address)
   );
-  const tco2Balances: bigint[] = await Promise.all(balancePromises);
-  const holdings: Holding[] = tco2Balances.map((balance, i) => {
-    return {
-      amount: balance.toString(),
-      id: `0x_mock_holding_id_${i}`,
-      token: {
-        decimals: 18,
-        id: TOKEN_INFO.at(i)?.address ?? "",
-        name: TOKEN_INFO.at(i)?.symbol ?? "",
-        symbol: TOKEN_INFO.at(i)?.symbol ?? "",
-      },
-    };
+
+  const fetchTco2Balances = Promise.all(balancePromises);
+  const fetchIcrHoldings = sdk.icr.getHoldingsByAddress({
+    id: params.address,
   });
-  return holdings.map(formatHolding).filter((h) => Number(h.amount) > 0);
+
+  const [tco2Balances, IcrBalances] = await Promise.all([
+    fetchTco2Balances,
+    fetchIcrHoldings,
+  ]);
+
+  const tco2Holdings: MultipleTokenStandardType[] = tco2Balances.map(
+    (balance, i) => {
+      return {
+        amount: balance.toString(),
+        id: `0x_mock_holding_id_${i}`,
+        token: {
+          decimals: 18,
+          id: TOKEN_INFO.at(i)?.address ?? "",
+          name: TOKEN_INFO.at(i)?.symbol ?? "",
+          symbol: TOKEN_INFO.at(i)?.symbol ?? "",
+        },
+      };
+    }
+  );
+
+  let icrHoldings: MultipleTokenStandardType[] = [];
+  if (IcrBalances.holder?.exPostAmounts) {
+    icrHoldings = IcrBalances.holder.exPostAmounts
+      .filter((item) => Number(item.amount) > 0)
+      .map(mapICRInfo);
+  }
+
+  const combinedHoldings = [...tco2Holdings, ...icrHoldings];
+  return combinedHoldings
+    .map(formatHolding)
+    .filter((h) => Number(h.amount) > 0);
 };
 
 /** Network-aware fetcher for marketplace user data (listings and activities) */
@@ -89,12 +133,40 @@ export const getHoldingsByWallet = async (params: {
       address: params.address,
     });
   }
+
   const sdk = gql_sdk(params.network);
-  // TODO: should be `polygon-digital-carbon` instead of `assets` subgraph
-  const { accounts } = await sdk.assets.getHoldingsByWallet({
-    wallet: params.address,
-  });
-  return accounts.at(0)?.holdings.map(formatHolding) ?? [];
+  // @todo : should be `polygon-digital-carbon` instead of `assets` subgraph
+  try {
+    const holdingsPromise = sdk.assets.getHoldingsByWallet({
+      wallet: params.address,
+    });
+    // @todo need to have ICR fetch for mainnet
+    const icrHoldingsPromise = sdk.icr.getHoldingsByAddress({
+      id: params.address,
+    });
+
+    const [holdingsResponse, IcrHoldingsResponse] = await Promise.all([
+      holdingsPromise,
+      icrHoldingsPromise,
+    ]);
+
+    let icrHoldings: MultipleTokenStandardType[] = [];
+
+    if (IcrHoldingsResponse.holder?.exPostAmounts) {
+      icrHoldings = IcrHoldingsResponse.holder.exPostAmounts
+        .filter((item) => Number(item.amount) > 0)
+        .map(mapICRInfo);
+    }
+
+    const assetsHoldings = holdingsResponse.accounts.at(0)?.holdings ?? [];
+
+    const allHoldings = [...assetsHoldings, ...icrHoldings];
+
+    return allHoldings.map(formatHolding) ?? [];
+  } catch (error) {
+    console.error("Error fetching holdings:", error);
+    return [];
+  }
 };
 
 /** Reduce an array of activities into a deduplicated sorted array of buyer and seller address strings. */

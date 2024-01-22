@@ -5,6 +5,7 @@ import {
   aUser,
 } from "../../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../../src/app.constants";
+import { mockICRHolderResponse } from "../../../test/fixtures/icr";
 import { build } from "../../helper";
 import {
   DEV_URL,
@@ -44,6 +45,12 @@ describe("GET /users/[walletOrHandle]", () => {
             // }),
           ],
         },
+      });
+
+    nock(GRAPH_URLS["polygon"].icr)
+      .post("", (body) => body.query?.includes("getHoldingsByAddress"))
+      .reply(200, {
+        mockICRHolderResponse,
       });
   });
 
