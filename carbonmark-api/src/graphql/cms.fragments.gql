@@ -17,6 +17,10 @@ fragment CMSProjectFragment on Project {
   registry
   url
   registryProjectId
+  externalMedia {
+    uri
+    description
+  }
 }
 
 fragment CMSProjectContentFragment on ProjectContent {

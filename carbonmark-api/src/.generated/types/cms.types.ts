@@ -990,7 +990,7 @@ export type StringFilter = {
   nin: InputMaybe<Array<Scalars['String']>>;
 };
 
-export type CmsProjectFragmentFragment = { __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null };
+export type CmsProjectFragmentFragment = { __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null, externalMedia: Array<{ __typename?: 'ExternalFile', uri: string | null, description: string | null } | null> | null };
 
 export type CmsProjectContentFragmentFragment = { __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null };
 
@@ -1000,7 +1000,7 @@ export type GetCmsProjectQueryVariables = Exact<{
 }>;
 
 
-export type GetCmsProjectQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
+export type GetCmsProjectQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null, externalMedia: Array<{ __typename?: 'ExternalFile', uri: string | null, description: string | null } | null> | null }> };
 
 export type GetCmsProjectContentQueryVariables = Exact<{
   registry: Scalars['String'];
@@ -1013,7 +1013,7 @@ export type GetCmsProjectContentQuery = { __typename?: 'RootQuery', allProjectCo
 export type GetAllCmsProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllCmsProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
+export type GetAllCmsProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null, externalMedia: Array<{ __typename?: 'ExternalFile', uri: string | null, description: string | null } | null> | null }> };
 
 export type GetAllCmsProjectContentQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1040,6 +1040,10 @@ export const CmsProjectFragmentFragmentDoc = gql`
   registry
   url
   registryProjectId
+  externalMedia {
+    uri
+    description
+  }
 }
     `;
 export const CmsProjectContentFragmentFragmentDoc = gql`

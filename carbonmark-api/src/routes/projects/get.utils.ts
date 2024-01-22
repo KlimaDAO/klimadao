@@ -98,6 +98,28 @@ const getActivePoolPrices = (prices: TokenPriceT[], minSupply?: number) => {
   return prices.filter((price) => Number(price.supply) > (minSupply || 0));
 };
 
+// Filter out video links as CM currently does not support
+
+type CarbonProjectImage = {
+  caption: string;
+  url: string;
+};
+
+type CarbonProjectExternalMedia = {
+  caption: string;
+  url: string;
+};
+
+type MediaItem = CarbonProjectImage | CarbonProjectExternalMedia;
+
+const filterVideo = (media: MediaItem) => {
+  return (
+    !media.url.includes("youtube") &&
+    !media.url.includes("youtu.be") &&
+    !media.url.includes("vimeo")
+  );
+};
+
 /**
  * Builds a project entry given data fetched from various sources
  * project data:
@@ -194,10 +216,19 @@ export const buildProjectEntry = (props: {
     long_description: c?.longDescription,
     url: c?.url,
     images:
-      c?.images?.map((image) => ({
-        caption: image?.asset?.altText || "",
-        url: image?.asset?.url || "",
-      })) ?? [],
+      c?.images
+        ?.map((image) => ({
+          caption: image?.asset?.altText || "",
+          url: image?.asset?.url || "",
+        }))
+        .filter(filterVideo) ||
+      c?.externalMedia
+        ?.map((image) => ({
+          caption: image?.description || "",
+          url: image?.uri || "",
+        }))
+        .filter(filterVideo) ||
+      [],
     location: toGeoJSON(c?.geolocation),
     // Pool specific data
     prices: activePoolPrices,
