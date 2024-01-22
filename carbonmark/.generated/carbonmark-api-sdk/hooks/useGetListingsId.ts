@@ -1,49 +1,63 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import client from "../../../lib/api/client";
+import client from "../client";
 import type {
   GetListingsIdPathParams,
   GetListingsIdQueryParams,
   GetListingsIdQueryResponse,
 } from "../types/GetListingsId";
 
+type GetListingsIdClient = typeof client<
+  GetListingsIdQueryResponse,
+  never,
+  never
+>;
+type GetListingsId = {
+  data: GetListingsIdQueryResponse;
+  error: never;
+  request: never;
+  pathParams: GetListingsIdPathParams;
+  queryParams: GetListingsIdQueryParams;
+  headerParams: never;
+  response: GetListingsIdQueryResponse;
+  client: {
+    parameters: Partial<Parameters<GetListingsIdClient>[0]>;
+    return: Awaited<ReturnType<GetListingsIdClient>>;
+  };
+};
 export function getListingsIdQueryOptions<
-  TData = GetListingsIdQueryResponse,
-  TError = unknown,
+  TData extends GetListingsId["response"] = GetListingsId["response"],
+  TError = GetListingsId["error"],
 >(
   id: GetListingsIdPathParams["id"],
-  params?: GetListingsIdQueryParams,
-  options: Partial<Parameters<typeof client>[0]> = {}
+  params?: GetListingsId["queryParams"],
+  options: GetListingsId["client"]["parameters"] = {}
 ): SWRConfiguration<TData, TError> {
   return {
-    fetcher: () => {
-      return client<TData, TError>({
+    fetcher: async () => {
+      const res = await client<TData, TError>({
         method: "get",
         url: `/listings/${id}`,
-
         params,
-
         ...options,
-      }).then((res) => res.data);
+      });
+      return res.data;
     },
   };
 }
-
 /**
  * @description Get a listing by its identifier
  * @summary Listing
- * @link /listings/:id
- */
-
+ * @link /listings/:id */
 export function useGetListingsId<
-  TData = GetListingsIdQueryResponse,
-  TError = unknown,
+  TData extends GetListingsId["response"] = GetListingsId["response"],
+  TError = GetListingsId["error"],
 >(
   id: GetListingsIdPathParams["id"],
-  params?: GetListingsIdQueryParams,
+  params?: GetListingsId["queryParams"],
   options?: {
     query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    client?: GetListingsId["client"]["parameters"];
     shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
@@ -52,12 +66,13 @@ export function useGetListingsId<
     client: clientOptions = {},
     shouldFetch = true,
   } = options ?? {};
-
-  const url = shouldFetch ? `/listings/${id}` : null;
-  const query = useSWR<TData, TError, string | null>(url, {
-    ...getListingsIdQueryOptions<TData, TError>(id, params, clientOptions),
-    ...queryOptions,
-  });
-
+  const url = `/listings/${id}` as const;
+  const query = useSWR<TData, TError, [typeof url, typeof params] | null>(
+    shouldFetch ? [url, params] : null,
+    {
+      ...getListingsIdQueryOptions<TData, TError>(id, params, clientOptions),
+      ...queryOptions,
+    }
+  );
   return query;
 }

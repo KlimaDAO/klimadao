@@ -100,11 +100,16 @@ export type GetListingsIdQueryResponse = {
   };
   /**
    * @description Symbol of the token
-   * @type string
+   * @type string | undefined
    */
-  symbol: string;
+  symbol?: string;
 };
 
 export type GetListingsIdQueryParams = {
   network?: Def1;
 };
+export namespace GetListingsIdQuery {
+  export type Response = GetListingsIdQueryResponse;
+  export type PathParams = GetListingsIdPathParams;
+  export type QueryParams = GetListingsIdQueryParams;
+}

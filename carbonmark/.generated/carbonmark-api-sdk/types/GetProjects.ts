@@ -228,6 +228,11 @@ export type GetProjectsQueryResponse = {
            */
           methodology: string;
         };
+        /**
+         * @description Symbol of the token
+         * @type string | undefined
+         */
+        symbol?: string;
       }[]
     | null;
   /**
