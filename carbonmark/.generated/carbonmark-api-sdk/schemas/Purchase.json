@@ -45,7 +45,11 @@
               "type": "string"
             },
             "projectID": { "examples": ["191"], "type": "string" },
-            "vintage": { "examples": ["2008"], "type": "string" }
+            "vintage": { "examples": ["2008"], "type": "string" },
+            "serialization": {
+              "examples": ["ICR-ISL-354-78040-14-R-0-2021"],
+              "type": "string"
+            }
           },
           "required": [
             "country",

@@ -1,11 +1,16 @@
+import { NetworkParam } from ".generated/carbonmark-api-sdk/types";
+import { urls } from "@klimadao/lib/constants";
 import { Project, TokenPrice } from "lib/types/carbonmark.types";
 
 type ProjectData = {
   key: Project["key"];
   vintage: Project["vintage"];
+  serialization?: Project["serialization"] | null;
 };
-export const createProjectLink = (project: ProjectData) =>
-  `/projects/${project.key}-${project.vintage}`;
+
+export const createProjectLink = (projectData: ProjectData) => {
+  return `/projects/${projectData.key}-${projectData.vintage}`;
+};
 
 export const createProjectPurchaseLink = (
   project: ProjectData,
@@ -23,3 +28,7 @@ export const createProjectPoolPurchaseLink = (
   project: ProjectData,
   pool: TokenPrice["poolName"]
 ) => `${createProjectLink(project)}/purchase/pools/${pool}`;
+
+export const getPolygonScanBaseUrl = (networkLabel: NetworkParam): string => {
+  return networkLabel === "polygon" ? urls.polygonscan : urls.mumbaiPolygonscan;
+};

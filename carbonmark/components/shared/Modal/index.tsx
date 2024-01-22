@@ -34,7 +34,9 @@ export const Modal: FC<ModalProps> = (props) => {
           ref={focusTrapRef}
         >
           <div className="title">
-            <Text t="h4">{props.title}</Text>
+            <Text as="span" t="h4">
+              {props.title}
+            </Text>
 
             {showCloseButton && (
               <button onClick={props.onToggleModal}>

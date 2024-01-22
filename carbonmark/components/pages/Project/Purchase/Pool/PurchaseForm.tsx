@@ -208,7 +208,6 @@ export const PurchaseForm: FC<Props> = (props) => {
                 project={props.project}
                 actionLabel={t`Token you will receive`}
                 availableLabel={t`Available to purchase`}
-                polyscanUrl={`https://polygonscan.com/token/${props.price.projectTokenAddress}`}
               />
             </Card>
           </div>

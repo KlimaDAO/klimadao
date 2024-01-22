@@ -14,6 +14,9 @@ export interface RetireCarbonTransactionProps {
   retirementToken: string;
   tokenSymbol: string;
   tokenAddress: string;
+  tokenId: string;
+  tokenStandard: string;
+  network: "polygon" | "mumbai";
   setRetireModalOpen: Dispatch<boolean>;
   setRetirementTransactionHash: Dispatch<string>;
   setRetirementTotals: Dispatch<number>;

@@ -66,6 +66,10 @@ export type GetPurchasesQueryResponse = {
        * @type string
        */
       vintage: string;
+      /**
+       * @type string | undefined
+       */
+      serialization?: string;
     };
   };
   /**
