@@ -1,5 +1,6 @@
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { Anchor as A } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ProfileLogo } from "components/pages/Users/ProfileLogo";
@@ -15,9 +16,10 @@ type Props = {
 };
 
 export const BeneficiaryDetails: FC<Props> = (props) => {
+  const { networkLabel } = useWeb3();
   const { data: carbonmarkUser } = useGetUsersWalletorhandle(
     props.beneficiaryAddress,
-    {},
+    { network: networkLabel },
     { shouldFetch: notNil(props.beneficiaryAddress) }
   );
   return (

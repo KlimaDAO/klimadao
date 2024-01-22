@@ -43,6 +43,9 @@ export const PurchaseModel = Type.Object({
       vintage: Type.String({
         examples: ["2008"],
       }),
+      serialization: Type.Optional(
+        Type.String({ examples: ["ICR-ISL-354-78040-14-R-0-2021"] })
+      ),
     }),
   }),
   price: Type.String({

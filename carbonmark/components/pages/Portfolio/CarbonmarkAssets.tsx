@@ -1,3 +1,4 @@
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { CreateListing } from "components/CreateListing";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
@@ -27,6 +28,7 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
   const isUpdatingUser = props.isLoadingUser || isLoadingAssets;
   const hasAssets = !isLoadingAssets && !!listableAssets.length;
   const emptyAssets = !isUpdatingUser && !assetsData?.length;
+  const { networkLabel } = useWeb3();
 
   // load Assets every time user changed
   useEffect(() => {
@@ -38,6 +40,7 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
           if (listableAssets.length) {
             const assetsWithProject = await addProjectsToAssets({
               assets: listableAssets,
+              network: networkLabel,
             });
             setAssetsData(assetsWithProject);
           }

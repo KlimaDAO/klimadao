@@ -5,6 +5,7 @@ import { Transaction } from "components/CreateListing/Transaction";
 import { Text } from "components/Text";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
+import { constants } from "ethers";
 import {
   approveTokenSpend,
   deleteListingTransaction,
@@ -61,10 +62,13 @@ export const ListingEditable: FC<Props> = (props) => {
     setIsLoading(true);
     try {
       if (!address) return;
+
       const allowance = await getCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
         network: networkLabel,
+        // @todo add tokenID to project type on the subgraph. temporary workaround only to mock a tokenID to identify as 1155
+        tokenId: listingToEdit?.project.id.startsWith("ICR") ? "0" : undefined,
       });
       setCurrentAllowance(allowance);
       setInputValues(values);
@@ -91,9 +95,13 @@ export const ListingEditable: FC<Props> = (props) => {
   /** Return true if the user has exactly the required approval for all listings of this asset */
   const hasApproval = () => {
     if (!listingToEdit) return false;
-    return (
-      Number(currentAllowance || "0") === getTotalAssetApproval(listingToEdit)
-    );
+    if (listingToEdit.project.id.startsWith("ICR")) {
+      return Number(currentAllowance) === Number(constants.MaxUint256);
+    } else {
+      return (
+        Number(currentAllowance || "0") === getTotalAssetApproval(listingToEdit)
+      );
+    }
   };
 
   const handleApproval = async () => {
@@ -107,6 +115,8 @@ export const ListingEditable: FC<Props> = (props) => {
         signer: provider.getSigner(),
         value: newAllowanceValue,
         onStatus: onUpdateStatus,
+        // @todo add tokenID to project type on the subgraph. temporary workaround only to mock a tokenID to identify as 1155
+        tokenId: listingToEdit?.project.id.startsWith("ICR") ? "0" : undefined,
       });
       setCurrentAllowance(newAllowanceValue);
     } catch (e) {
@@ -120,6 +130,7 @@ export const ListingEditable: FC<Props> = (props) => {
     try {
       await updateListingTransaction({
         listingId: listingToEdit.id,
+        projectId: listingToEdit.project.id,
         provider,
         newAmount: inputValues.newQuantity,
         singleUnitPrice: inputValues.newSingleUnitPrice,

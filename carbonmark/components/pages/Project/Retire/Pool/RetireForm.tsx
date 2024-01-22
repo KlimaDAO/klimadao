@@ -48,6 +48,7 @@ export interface Props {
 
 export const RetireForm: FC<Props> = (props) => {
   const router = useRouter();
+  const { prefetch } = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -330,7 +331,7 @@ export const RetireForm: FC<Props> = (props) => {
     const handleInitialIndexing = async () => {
       const status = await waitForIndexStatus(retirementBlockNumber);
       if (status === "indexed") {
-        router.prefetch(`/retirements/${retirementAddress}/${retirementIndex}`);
+        prefetch(`/retirements/${retirementAddress}/${retirementIndex}`);
         setSubgraphIndexStatus("indexed");
       } else if (status === "timeout") {
         setSubgraphIndexStatus("timeout");
@@ -379,7 +380,6 @@ export const RetireForm: FC<Props> = (props) => {
                 project={props.project}
                 actionLabel={t`Retiring Token`}
                 availableLabel={t`Available to retire`}
-                polyscanUrl={`https://polygonscan.com/address/${polygonScanAddress}`}
               />
             </Card>
             <div className={styles.reverseOrder}>
