@@ -40,7 +40,13 @@ export const ConnectedWallet: FC<Props> = (props) => {
               /** Transparent by default */
               className={styles.marginLeft}
               variant={"transparent"}
-              icon={copied ? <CheckIcon className={styles.icons} /> : <ContentCopyIcon className={styles.icons}/>}
+              icon={
+                copied ? (
+                  <CheckIcon className={styles.icons} />
+                ) : (
+                  <ContentCopyIcon className={styles.icons} />
+                )
+              }
               onClick={() => cachedAddress && doCopy(cachedAddress)}
               iconPos="suffix"
             />
