@@ -294,21 +294,15 @@ export const RetireForm: FC<Props> = (props) => {
   const onMakeRetirement = async () => {
     if (!provider || !inputValues) return;
 
-    if (props.product.type !== "pool") {
-      return;
-    }
-
     try {
       setIsProcessing(true);
 
       const receipt = await retireCarbonTransaction({
         provider,
         address,
-        projectAddress: props.product.projectTokenAddress,
+        product: props.product,
         paymentMethod: inputValues.paymentMethod,
-        isPoolDefault: props.product.isPoolDefault,
         maxAmountIn: getApprovalValue(),
-        retirementToken: props.product.poolName.toLowerCase() as PoolToken,
         quantity: inputValues.quantity,
         beneficiaryAddress: inputValues.beneficiaryAddress,
         beneficiaryName: inputValues.beneficiaryName,
