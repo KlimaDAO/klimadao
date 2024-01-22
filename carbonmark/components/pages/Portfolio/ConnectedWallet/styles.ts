@@ -8,10 +8,6 @@ export const cardbody = css`
   align-items: center;
 `;
 
-export const marginLeft = css`
-  margin-left: 0.5rem;
-`;
-
 export const icons = css`
   height: 2rem !important;
   width: 2rem !important;

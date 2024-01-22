@@ -38,7 +38,6 @@ export const ConnectedWallet: FC<Props> = (props) => {
           <div className={styles.cardbody}>
             <ButtonPrimary
               /** Transparent by default */
-              className={styles.marginLeft}
               variant={"transparent"}
               icon={
                 copied ? (
