@@ -17,7 +17,7 @@ export const mockICRHolderResponse: PartialExPostHolder = {
       {
         id: "0x1234abcd5678ef9012345678abcd9012ef3456789abcdef1234567890abcdef1234abcd5678ef90",
         amount: "100",
-        updatedAt: "1702675",
+        updatedAt: "1702675170",
         retiredAmount: "60",
         exPost: {
           tokenId: "10",
@@ -26,7 +26,7 @@ export const mockICRHolderResponse: PartialExPostHolder = {
           project: {
             id: "0x9abcdef1234567890abcdef1234567890abcdef12",
             projectName: "Green Energy Initiative",
-            blockNumber: "1702675",
+            blockNumber: "52604627",
             blockTimestamp: "1629820800",
           },
         },

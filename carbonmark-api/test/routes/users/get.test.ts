@@ -52,14 +52,6 @@ describe("GET /users/[walletOrHandle]", () => {
       .reply(200, {
         mockICRHolderResponse,
       });
-
-    nock(GRAPH_URLS["mumbai"].icr)
-      .post("", (body) => {
-        return body.query && body.query.includes("getHoldingsByAddress");
-      })
-      .reply(200, {
-        mockICRHolderResponse,
-      });
   });
 
   test("by wallet", async () => {
