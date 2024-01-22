@@ -30,6 +30,9 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
     );
     tokenName = createProjectTokenName(props.project, tokenType);
   } else {
+    if (!props.product.symbol) {
+      throw new Error("Missing listing symbol");
+    }
     tokenName = props.product.symbol;
   }
   const availableTonnes =

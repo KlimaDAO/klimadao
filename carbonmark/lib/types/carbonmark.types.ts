@@ -27,7 +27,6 @@ export type CategoryName = keyof typeof CATEGORY_INFO;
 
 export type ListingProduct = {
   type: "listing";
-  symbol: string;
 } & Listing;
 export type PoolProduct = {
   type: "pool";
