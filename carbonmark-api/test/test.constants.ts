@@ -32,6 +32,24 @@ export const COUNTRIES = [
   {
     id: "A Random Country",
   },
+  {
+    id: "China",
+  },
+  {
+    id: "Spain",
+  },
+  {
+    id: "United Kingdom",
+  },
+  {
+    id: "Iceland",
+  },
+  {
+    id: "Ukraine",
+  },
+  {
+    id: "Vietnam",
+  },
 ];
 
 export const MOCK_USER_PROFILE: UserProfile = {
