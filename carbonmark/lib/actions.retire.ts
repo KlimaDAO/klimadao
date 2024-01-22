@@ -5,7 +5,7 @@ import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
 import { BigNumber, Contract, providers } from "ethers";
 import { parseUnits } from "ethers-v6";
-import { urls } from "lib/constants";
+import { CARBONMARK_FEE, urls } from "lib/constants";
 import { getFiatRetirementCost } from "lib/fiat/fiatCosts";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getAllowance } from "lib/networkAware/getAllowance";
@@ -35,6 +35,7 @@ export const getRetirementAllowance = async (params: {
 
 export const getListingConsumptionCost = async (params: {
   inputToken: CarbonmarkPaymentMethod;
+  unitPrice: string;
   quantity: string;
   currentUrl: string;
   listingId: string;
@@ -43,20 +44,29 @@ export const getListingConsumptionCost = async (params: {
     return "0";
   }
 
-  const fiatCosts = await getFiatRetirementCost({
-    cancelUrl: `${urls.baseUrl}${params.currentUrl}`,
-    referrer: "carbonmark",
-    retirement: {
-      quantity: params.quantity,
-      retirement_token: null,
-      beneficiary_address: null,
-      beneficiary_name: "placeholder",
-      retirement_message: "placeholder",
-      project_address: null,
-      listing_id: params.listingId,
-    },
-  });
-  return fiatCosts;
+  if (params.inputToken === "fiat") {
+    const fiatCosts = await getFiatRetirementCost({
+      cancelUrl: `${urls.baseUrl}${params.currentUrl}`,
+      referrer: "carbonmark",
+      retirement: {
+        quantity: params.quantity,
+        retirement_token: null,
+        beneficiary_address: null,
+        beneficiary_name: "placeholder",
+        retirement_message: "placeholder",
+        project_address: null,
+        listing_id: params.listingId,
+      },
+    });
+    return fiatCosts;
+  }
+
+  const price = Number(params.unitPrice) * Number(params.quantity);
+  const totalPrice = price + price * CARBONMARK_FEE || 0;
+  const totalPriceTrimmed = totalPrice.toFixed(getTokenDecimals("usdc")); // deal with js math overflows
+  const totalPriceFormatted = parseFloat(totalPriceTrimmed).toString(); // trim trailing zeros
+
+  return totalPriceFormatted;
 };
 
 export const getPoolConsumptionCost = async (params: {
@@ -211,8 +221,8 @@ export const retireCarbonTransaction = async (params: {
           params.product.id,
           params.product.seller.id,
           params.product.tokenAddress,
-          params.product.leftToSell,
-          params.product.singleUnitPrice,
+          parseUnits(params.product.leftToSell, 18),
+          parseUnits(params.product.singleUnitPrice, getTokenDecimals("usdc")),
         ],
         parsedMaxAmountIn,
         // TODO: ICR tokens have zero decimal places

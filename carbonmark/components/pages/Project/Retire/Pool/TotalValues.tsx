@@ -101,6 +101,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           : getListingConsumptionCost({
               inputToken: paymentMethod,
               quantity: amount,
+              unitPrice: props.product.singleUnitPrice,
               currentUrl: asPath,
               listingId: props.product.id,
             }));
