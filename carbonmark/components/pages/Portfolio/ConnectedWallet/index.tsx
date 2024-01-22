@@ -30,7 +30,7 @@ export const ConnectedWallet: FC<Props> = (props) => {
   return (
     <Card>
       <Text t="h4">
-        <Trans id="portfolio.balances.connected">Connected Wallet</Trans>
+        <Trans>Connected Wallet</Trans>
       </Text>
       {props.address && (
         <div className={styles.cardbody}>
@@ -40,13 +40,13 @@ export const ConnectedWallet: FC<Props> = (props) => {
               /** Transparent by default */
               className={styles.marginLeft}
               variant={"transparent"}
-              icon={copied ? <CheckIcon /> : <ContentCopyIcon />}
+              icon={copied ? <CheckIcon className={styles.icons} /> : <ContentCopyIcon className={styles.icons}/>}
               onClick={() => cachedAddress && doCopy(cachedAddress)}
               iconPos="suffix"
             />
             {isTorus && (
               <a
-                className={cx(styles.marginLeft, styles.hrefLink)}
+                className={cx(styles.icons, styles.hrefLink)}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => {
@@ -56,7 +56,7 @@ export const ConnectedWallet: FC<Props> = (props) => {
               >
                 <ButtonPrimary
                   variant="transparent"
-                  icon={<LaunchIcon />}
+                  icon={<LaunchIcon className={styles.icons} />}
                   iconPos="suffix"
                 />
               </a>
