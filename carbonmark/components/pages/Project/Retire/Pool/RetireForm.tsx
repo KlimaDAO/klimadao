@@ -20,7 +20,12 @@ import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { Product, Project } from "lib/types/carbonmark.types";
+import {
+  ListingProduct,
+  PoolProduct,
+  Product,
+  Project,
+} from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -70,10 +75,9 @@ export const RetireForm: FC<Props> = (props) => {
   const methods = useForm<FormValues>({
     mode: "onChange",
     defaultValues: {
-      projectTokenAddress:
-        props.product.type === "pool"
-          ? props.product?.projectTokenAddress
-          : undefined,
+      projectTokenAddress: isPoolProduct(props.product)
+        ? props.product?.projectTokenAddress
+        : undefined,
       paymentMethod: "fiat",
       ...inputValues,
     },
@@ -93,7 +97,7 @@ export const RetireForm: FC<Props> = (props) => {
   }, []);
 
   let polygonScanAddress: string;
-  if (props.product.type === "pool") {
+  if (isPoolProduct(props.product)) {
     polygonScanAddress = props.product.projectTokenAddress;
   } else {
     polygonScanAddress = props.product.tokenAddress;
@@ -175,17 +179,15 @@ export const RetireForm: FC<Props> = (props) => {
       beneficiary_name: inputValues.beneficiaryName,
       retirement_message: inputValues.retirementMessage,
       // pass token address if not default project
-      project_address:
-        props.product.type === "pool"
-          ? !props.product.isPoolDefault
-            ? inputValues.projectTokenAddress
-            : null
-          : null,
-      retirement_token:
-        props.product.type === "pool"
-          ? (props.product.poolName.toLowerCase() as PoolToken)
-          : null,
-      listing_id: props.product.type === "listing" ? props.product.id : null,
+      project_address: isPoolProduct(props.product)
+        ? !props.product.isPoolDefault
+          ? inputValues.projectTokenAddress
+          : null
+        : null,
+      retirement_token: isPoolProduct(props.product)
+        ? (props.product.poolName.toLowerCase() as PoolToken)
+        : null,
+      listing_id: isListingProduct(props.product) ? props.product.id : null,
     };
     try {
       setIsRedirecting(true);
@@ -448,3 +450,11 @@ export const RetireForm: FC<Props> = (props) => {
     </FormProvider>
   );
 };
+
+function isPoolProduct(product: Product): product is PoolProduct {
+  return product.type === "pool";
+}
+
+function isListingProduct(product: Product): product is ListingProduct {
+  return product.type === "listing";
+}
