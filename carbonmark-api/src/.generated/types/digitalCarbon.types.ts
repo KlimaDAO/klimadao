@@ -4294,7 +4294,7 @@ export type PoolFragmentFragment = { __typename?: 'CarbonPool', name: string, su
 export type GetDigitalCarbonProjectsVintagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetDigitalCarbonProjectsVintagesQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string }> }> }> };
+export type GetDigitalCarbonProjectsVintagesQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number }> }> };
 
 export type GetTokenByIdQueryVariables = Exact<{
   id: Scalars['ID'];
@@ -4385,11 +4385,10 @@ export const PoolFragmentFragmentDoc = gql`
 export const GetDigitalCarbonProjectsVintagesDocument = gql`
     query getDigitalCarbonProjectsVintages {
   carbonProjects(first: 1000) {
-    carbonCredits(where: {currentSupply_not: "0", isExAnte: false}) {
+    carbonCredits(
+      where: {currentSupply_not: "0", isExAnte: false, poolBalances_: {balance_gte: "0"}}
+    ) {
       vintage
-      poolBalances {
-        balance
-      }
     }
   }
 }

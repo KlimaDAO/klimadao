@@ -59,11 +59,7 @@ export async function getAllVintages(
   digitalCarbonProjects.forEach((project) => {
     project.carbonCredits.forEach((credit) => {
       if (credit.vintage) {
-        if (
-          credit.poolBalances?.some((balance) => Number(balance.balance) > 0)
-        ) {
-          uniqueValues.add(credit.vintage.toString());
-        }
+        uniqueValues.add(credit.vintage.toString());
       }
     });
     IcrVintages.forEach((item: string) => uniqueValues.add(item));
