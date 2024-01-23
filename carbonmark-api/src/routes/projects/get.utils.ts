@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy } from "lodash";
 import { concat, map, mapValues, min, pipe, trim, uniq } from "lodash/fp";
+import { NetworkParam } from "src/models/NetworkParam.model";
 import { TokenPriceT } from "src/models/TokenPrice.model";
 import { Geopoint } from "../../.generated/types/cms.types";
 import {
@@ -41,15 +42,16 @@ import { formatListings } from "../../utils/marketplace.utils";
  * # this will cause a silent error. GQL Resolver needs to be updated to allow null search params
  * # to return all possible values
  */
+
 export const getDefaultQueryArgs = async (
   sdk: GQL_SDK,
-  fastify: FastifyInstance
+  fastify: FastifyInstance,
+  network: NetworkParam
 ) => {
-  //Fetch all possible parameter values
   const [category, country, vintage] = await Promise.all([
     getAllCategories(sdk, fastify).then(map(extract("id"))),
-    getAllCountries(sdk, fastify).then(map(extract("id"))),
-    getAllVintages(sdk, fastify),
+    getAllCountries(sdk, fastify, network).then(map(extract("id"))),
+    getAllVintages(sdk, fastify, network),
   ]);
 
   return {
@@ -113,7 +115,7 @@ export const buildProjectEntry = (props: {
   poolProject?: GetProjectCreditsQuery["carbonProjects"][0];
   cmsProject?: CarbonProject;
   allPoolPrices: Record<string, PoolPrice>;
-  network: "polygon" | "mumbai" | undefined;
+  network: NetworkParam | undefined;
   minSupply: number;
 }): Project => {
   const credits = props.poolProject?.carbonCredits;
@@ -219,7 +221,7 @@ export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
   allPoolPrices: Record<string, PoolPrice>,
-  network: "polygon" | "mumbai" | undefined,
+  network: NetworkParam | undefined,
   minSupply: number
 ): Project[] => {
   const entries: Project[] = [];
@@ -243,5 +245,6 @@ export const composeProjectEntries = (
     // TODO: Maybe this should be controlled via a query parameter
     if (project.hasSupply) entries.push(project);
   });
+
   return entries;
 };

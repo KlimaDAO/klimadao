@@ -8,18 +8,16 @@ import type {
 /**
  * @description Retrieve a list of recent purchases
  * @summary Recent purchases
- * @link /purchases
- */
-export async function getPurchases<TData = GetPurchasesQueryResponse>(
+ * @link /purchases */
+export async function getPurchases(
   params?: GetPurchasesQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>["data"]> {
-  const { data: resData } = await client<TData>({
+): Promise<ResponseConfig<GetPurchasesQueryResponse>["data"]> {
+  const res = await client<GetPurchasesQueryResponse>({
     method: "get",
     url: `/purchases`,
     params,
     ...options,
   });
-
-  return resData;
+  return res.data;
 }

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-18 16:25+0000\n"
+"POT-Creation-Date: 2024-01-22 09:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -253,7 +253,7 @@ msgstr "Acheter ou retirer du marché du carbone"
 
 #: components/pages/Projects/Banners/BankTransfer.tsx:80
 msgid "Can we remind you about this new feature later?"
-msgstr ""
+msgstr "Pouvons-nous vous rappeler cette nouveauté plus tard ?"
 
 #: components/ExitModal/index.tsx:44
 msgid "Cancel"
@@ -716,7 +716,7 @@ msgstr "En savoir plus sur le rôle de Carbonmark dans l'amélioration du March�
 
 #: components/pages/Projects/Banners/BankTransfer.tsx:87
 msgid "Let's Go!"
-msgstr ""
+msgstr "C'est parti !"
 
 #: components/pages/Home/index.tsx:399
 msgid "List and sell for free"
@@ -797,7 +797,7 @@ msgstr "Moss"
 
 #: components/FeatureBanner/index.tsx:33
 msgid "NEW FEATURE:"
-msgstr ""
+msgstr "NOUVELLE FONCTIONNALITÉ:"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "New Quantity"
@@ -896,7 +896,7 @@ msgstr "PROJET"
 
 #: components/pages/Projects/Banners/BankTransfer.tsx:74
 msgid "Pay via Bank Transfer / Wire"
-msgstr ""
+msgstr "Payer par Virement Bancaire / Wire"
 
 #: components/pages/Project/PayWithBank/index.tsx:89
 #: components/pages/Project/PayWithBank/index.tsx:90
@@ -1032,7 +1032,7 @@ msgstr "Acheter plus de Carbone"
 
 #: components/pages/Projects/Banners/BankTransfer.tsx:79
 msgid "Purchase retirements from any project on Carbonmark and pay via bank transfer."
-msgstr ""
+msgstr "Achetez des retraits de n'importe quel projet sur Carbonmark et payez par virement bancaire."
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:84
 msgid "Purchase successful"
@@ -1327,7 +1327,7 @@ msgstr "Succès ! Votre nouvelle annonce apparaîtra dans quelques instants sur 
 
 #: components/pages/Projects/Banners/BankTransfer.tsx:98
 msgid "Sure"
-msgstr ""
+msgstr "Bien sûr"
 
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"

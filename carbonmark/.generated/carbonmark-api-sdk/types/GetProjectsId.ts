@@ -236,6 +236,11 @@ export type GetProjectsIdQueryResponse = {
            */
           methodology: string;
         };
+        /**
+         * @description Symbol of the token
+         * @type string | undefined
+         */
+        symbol?: string;
       }[]
     | null;
   /**

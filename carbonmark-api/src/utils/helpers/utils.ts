@@ -9,10 +9,13 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
+import type { NetworkParam } from "../../../src/models/NetworkParam.model";
 import { TOKEN_ADDRESSES } from "../../app.constants";
+import { fetchIcrFilters } from "../ICR/icr.utils";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
 import { CarbonProject } from "./cms.utils";
+
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- unable to type environment variables
 const ENV = (process.env.VERCEL_ENV ?? "development") as
   | "development"
@@ -22,7 +25,8 @@ const ENV = (process.env.VERCEL_ENV ?? "development") as
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
 export async function getAllVintages(
   sdk: GQL_SDK,
-  fastify: FastifyInstance
+  fastify: FastifyInstance,
+  network: NetworkParam
 ): Promise<string[]> {
   const uniqueValues = new Set<string>();
   const cacheKey = `vintages`;
@@ -32,14 +36,22 @@ export async function getAllVintages(
     return cachedResult;
   }
 
-  const [{ projects }, { carbonProjects: digitalCarbonProjects }] =
-    await Promise.all([
-      sdk.marketplace.getVintages(),
-      sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
-    ]);
+  const [
+    { projects },
+    { carbonProjects: digitalCarbonProjects },
+    { IcrVintages },
+  ] = await Promise.all([
+    sdk.marketplace.getVintages(),
+    sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
+    fetchIcrFilters(network),
+  ]);
 
   /** Handle invalid responses */
-  if (!isArray(projects) || !isArray(digitalCarbonProjects)) {
+  if (
+    !isArray(projects) ||
+    !isArray(digitalCarbonProjects) ||
+    !isArray(IcrVintages)
+  ) {
     throw new Error("Response from server did not match schema definition");
   }
 
@@ -54,6 +66,7 @@ export async function getAllVintages(
         }
       }
     });
+    IcrVintages.forEach((item: string) => uniqueValues.add(item));
   });
 
   const result = Array.from(uniqueValues).sort().filter(notEmptyOrNil);
@@ -120,7 +133,11 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
   return result;
 }
 
-export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
+export async function getAllCountries(
+  sdk: GQL_SDK,
+  fastify: FastifyInstance,
+  network: NetworkParam
+) {
   const cacheKey = `countries`;
 
   const cachedResult = await fastify.lcache?.get<Country[]>(cacheKey)?.payload;
@@ -129,14 +146,22 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
     return cachedResult;
   }
 
-  const [{ countries }, { carbonProjects: digitalCarbonProjects }] =
-    await Promise.all([
-      sdk.marketplace.getCountries(),
-      sdk.digital_carbon.getDigitalCarbonProjectsCountries(),
-    ]);
+  const [
+    { countries: marketplaceCountries },
+    { carbonProjects: digitalCarbonProjects },
+    { countryNames: icrCountries },
+  ] = await Promise.all([
+    sdk.marketplace.getCountries(),
+    sdk.digital_carbon.getDigitalCarbonProjectsCountries(),
+    fetchIcrFilters(network),
+  ]);
 
   /** Handle invalid responses */
-  if (!isArray(countries) || !isArray(digitalCarbonProjects)) {
+  if (
+    !isArray(marketplaceCountries) ||
+    !isArray(digitalCarbonProjects) ||
+    !isArray(icrCountries)
+  ) {
     throw new Error("Response from server did not match schema definition");
   }
 
@@ -149,8 +174,9 @@ export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   );
 
   const result: Country[] = fn([
-    countries?.map(extract("id")),
+    marketplaceCountries?.map(extract("id")),
     digitalCarbonProjects.map(extract("country")),
+    icrCountries,
   ]);
 
   await fastify.lcache?.set(cacheKey, { payload: result });
