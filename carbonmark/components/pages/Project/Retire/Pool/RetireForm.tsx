@@ -352,7 +352,7 @@ export const RetireForm: FC<Props> = (props) => {
                 address={address}
                 fiatAmountError={fiatAmountError}
                 approvalValue={getApprovalValue()}
-                paymentMethods={permittedPaymentMethods}
+                enabledPaymentMethods={permittedPaymentMethods}
               />
               <SubmitButton
                 onSubmit={onContinue}
