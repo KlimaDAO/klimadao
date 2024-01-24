@@ -112,8 +112,6 @@ const validations = (
 });
 
 export const RetireInputs: FC<Props> = (props) => {
-  console.log(props.enabledPaymentMethods);
-
   const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
   const { register, handleSubmit, formState, control, clearErrors, setValue } =
