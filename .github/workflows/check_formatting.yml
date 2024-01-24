@@ -51,4 +51,4 @@ jobs:
 
       - name: Run Prettier on changed directories
         if: ${{ steps.changed-dirs.outputs.changed_dirs != '' }}
-        run: npx prettier --check ${{ steps.changed-dirs.outputs.changed_dirs }}
+        run: npx prettier --check ${{ steps.changed-dirs.outputs.changed_dirs }} --ignore-unknown
