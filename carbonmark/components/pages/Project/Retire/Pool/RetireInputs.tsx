@@ -41,6 +41,7 @@ type Props = {
   address?: string;
   fiatAmountError?: boolean;
   approvalValue: string;
+  paymentMethods: Array<CarbonmarkPaymentMethod>;
 };
 
 const validations = (
@@ -111,6 +112,8 @@ const validations = (
 });
 
 export const RetireInputs: FC<Props> = (props) => {
+  console.log(props.paymentMethods);
+
   const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
   const { register, handleSubmit, formState, control, clearErrors, setValue } =
@@ -336,7 +339,7 @@ export const RetireInputs: FC<Props> = (props) => {
                 <>
                   <button
                     type="button"
-                    disabled={value.disabled}
+                    disabled={!props.paymentMethods.includes(value.id)}
                     aria-label="Payment Method"
                     onClick={() => {
                       if (value.id === "usdc" && !isConnected && !address) {

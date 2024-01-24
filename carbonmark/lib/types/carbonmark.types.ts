@@ -194,4 +194,9 @@ export type Balance = {
 };
 
 // add more methods here later
-export type CarbonmarkPaymentMethod = "usdc" | "fiat" | "bank-transfer";
+export const CarbonmarkPaymentMethods = [
+  "usdc",
+  "fiat",
+  "bank-transfer",
+] as const;
+export type CarbonmarkPaymentMethod = (typeof CarbonmarkPaymentMethods)[number];

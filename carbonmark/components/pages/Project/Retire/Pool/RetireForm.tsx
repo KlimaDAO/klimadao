@@ -20,7 +20,12 @@ import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { Project, TokenPrice } from "lib/types/carbonmark.types";
+import {
+  CarbonmarkPaymentMethod,
+  CarbonmarkPaymentMethods,
+  Project,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -324,6 +329,11 @@ export const RetireForm: FC<Props> = (props) => {
     }
   }, [retirementBlockNumber]);
 
+  const permittedPaymentMethods: Array<CarbonmarkPaymentMethod> =
+    props.project.registry.startsWith("ICR")
+      ? CarbonmarkPaymentMethods.filter((method) => method !== "fiat")
+      : Array.from(CarbonmarkPaymentMethods);
+
   return (
     <FormProvider {...methods}>
       <TwoColLayout>
@@ -342,6 +352,7 @@ export const RetireForm: FC<Props> = (props) => {
                 address={address}
                 fiatAmountError={fiatAmountError}
                 approvalValue={getApprovalValue()}
+                paymentMethods={permittedPaymentMethods}
               />
               <SubmitButton
                 onSubmit={onContinue}
