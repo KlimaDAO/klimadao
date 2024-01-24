@@ -4,6 +4,7 @@ import { loadCarbonCredit } from './CarbonCredit'
 import { loadOrCreateHolding } from './Holding'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { loadOrCreateToucanBatch } from './ToucanBatch'
+import { ZERO_ADDRESS } from '../../../lib/utils/Constants'
 
 export function recordProvenance(
   hash: Bytes,
@@ -108,4 +109,17 @@ export function recordProvenance(
 
   senderHolding.activeProvenanceRecords = senderActiveRecords
   senderHolding.save()
+}
+
+export function updateProvenanceForRetirement(creditId: Bytes): Bytes | null {
+  let credit = loadCarbonCredit(creditId)
+  let id = creditId.concat(ZERO_ADDRESS).concatI32(credit.provenanceCount - 1)
+  let record = ProvenanceRecord.load(id)
+  if (record == null) {
+    return null
+  }
+
+  record.transactionType = 'RETIREMENT'
+  record.save()
+  return record.id
 }

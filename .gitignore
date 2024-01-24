@@ -33,9 +33,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
-bonds/node_modules/
-protocol-metrics/node_modules/
+**/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -70,22 +68,10 @@ typings/
 .next
 
 # thegraph build
-build
-bonds/build
-pairs/build
-polygon-digital-carbon/build
-protocol-metrics/build
-user-carbon/build
-vesting/build
+**/build/
 
 # thegraph generated
-generated/
-bonds/generated
-pairs/generated
-polygon-digital-carbon/generated
-protocol-metrics/generated
-user-carbon/generated
-vesting/generated
+**/generated/
 
 # env files
 .env.local

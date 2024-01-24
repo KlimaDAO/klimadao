@@ -23,7 +23,7 @@ export function handleMossRetired(event: MossRetired): void {
   loadOrCreateAccount(event.params.beneficiaryAddress)
   loadOrCreateAccount(event.params.retiringAddress)
 
-  let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
+  let retire = loadRetire(sender.id.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
 
@@ -34,7 +34,13 @@ export function handleMossRetired(event: MossRetired): void {
   retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
-  saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)
+  saveKlimaRetire(
+    event.params.beneficiaryAddress,
+    retire.id,
+    index,
+    event.params.retiredAmount.div(BigInt.fromI32(100)),
+    false
+  )
 }
 
 export function handleToucanRetired(event: ToucanRetired): void {
@@ -48,7 +54,7 @@ export function handleToucanRetired(event: ToucanRetired): void {
   loadOrCreateAccount(event.params.beneficiaryAddress)
   loadOrCreateAccount(event.params.retiringAddress)
 
-  let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
+  let retire = loadRetire(sender.id.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
 
@@ -59,7 +65,13 @@ export function handleToucanRetired(event: ToucanRetired): void {
   retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
-  saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)
+  saveKlimaRetire(
+    event.params.beneficiaryAddress,
+    retire.id,
+    index,
+    event.params.retiredAmount.div(BigInt.fromI32(100)),
+    false
+  )
 }
 
 export function handleC3Retired(event: C3Retired): void {
@@ -70,10 +82,10 @@ export function handleC3Retired(event: C3Retired): void {
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
-  loadOrCreateAccount(event.params.beneficiaryAddress)
   loadOrCreateAccount(event.params.retiringAddress)
+  loadOrCreateAccount(event.params.beneficiaryAddress)
 
-  let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
+  let retire = loadRetire(sender.id.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
 
@@ -84,7 +96,13 @@ export function handleC3Retired(event: C3Retired): void {
   retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
-  saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)
+  saveKlimaRetire(
+    event.params.beneficiaryAddress,
+    retire.id,
+    index,
+    event.params.retiredAmount.div(BigInt.fromI32(100)),
+    false
+  )
 }
 
 export function handleCarbonRetired(event: CarbonRetired): void {
@@ -95,10 +113,10 @@ export function handleCarbonRetired(event: CarbonRetired): void {
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
-  loadOrCreateAccount(event.params.beneficiaryAddress)
   loadOrCreateAccount(event.params.retiringAddress)
+  loadOrCreateAccount(event.params.beneficiaryAddress)
 
-  let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
+  let retire = loadRetire(sender.id.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
 
@@ -109,7 +127,13 @@ export function handleCarbonRetired(event: CarbonRetired): void {
   retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
-  saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)
+  saveKlimaRetire(
+    event.params.beneficiaryAddress,
+    retire.id,
+    index,
+    event.params.retiredAmount.div(BigInt.fromI32(100)),
+    false
+  )
 }
 
 export function handleCarbonRetiredWithTokenId(event: CarbonRetiredTokenId): void {
@@ -120,10 +144,10 @@ export function handleCarbonRetiredWithTokenId(event: CarbonRetiredTokenId): voi
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
-  loadOrCreateAccount(event.params.beneficiaryAddress)
   loadOrCreateAccount(event.params.retiringAddress)
+  loadOrCreateAccount(event.params.beneficiaryAddress)
 
-  let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
+  let retire = loadRetire(sender.id.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
 
@@ -134,5 +158,11 @@ export function handleCarbonRetiredWithTokenId(event: CarbonRetiredTokenId): voi
   retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
-  saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)
+  saveKlimaRetire(
+    event.params.beneficiaryAddress,
+    retire.id,
+    index,
+    event.params.retiredAmount.div(BigInt.fromI32(100)),
+    false
+  )
 }

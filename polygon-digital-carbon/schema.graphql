@@ -328,6 +328,9 @@ type Retire @entity {
   "Block timestamp of retirement"
   timestamp: BigInt!
 
+  "Final provenance record created by this retirement"
+  provenance: ProvenanceRecord
+
   ### Additional attributes if applicable ###
 
   klimaRetire: KlimaRetire @derivedFrom(field: "retire")

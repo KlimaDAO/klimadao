@@ -1,5 +1,6 @@
 import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { Retire } from '../../generated/schema'
+import { updateProvenanceForRetirement } from './Provenance'
 
 export function saveRetire(
   id: Bytes,
@@ -28,6 +29,7 @@ export function saveRetire(
   retire.retiringName = retiringName
   retire.timestamp = timestamp
   retire.hash = hash
+  retire.provenance = updateProvenanceForRetirement(credit)
   if (bridgeID !== null) retire.bridgeID = bridgeID
   retire.save()
 }

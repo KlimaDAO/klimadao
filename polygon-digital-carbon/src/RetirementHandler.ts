@@ -1,3 +1,4 @@
+import { Address } from '@graphprotocol/graph-ts'
 import { KLIMA_INFINITY_DIAMOND, MCO2_ERC20_CONTRACT, ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { C3OffsetNFT, VCUOMinted } from '../generated/C3-Offset/C3OffsetNFT'
@@ -7,7 +8,7 @@ import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/Touca
 import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Account'
 import { loadCarbonCredit, loadOrCreateCarbonCredit } from './utils/CarbonCredit'
 import { loadOrCreateCarbonProject } from './utils/CarbonProject'
-import { recordProvenance } from './utils/Provenance'
+import { recordProvenance, updateProvenanceForRetirement } from './utils/Provenance'
 import { saveRetire } from './utils/Retire'
 
 export function saveToucanRetirement(event: Retired): void {
@@ -22,35 +23,25 @@ export function saveToucanRetirement(event: Retired): void {
   credit.save()
 
   // Ensure account entities are created for all addresses
-  loadOrCreateAccount(event.params.sender)
   let sender = loadOrCreateAccount(event.transaction.from)
+  let senderAddress = event.transaction.from
+  loadOrCreateAccount(event.params.sender) // Beneficiary address
 
   saveRetire(
-    event.transaction.from.concatI32(sender.totalRetirements),
+    sender.id.concatI32(sender.totalRetirements),
     credit.id,
     ZERO_ADDRESS,
     'OTHER',
     event.params.tokenId,
     event.params.sender,
     '',
-    event.transaction.from,
+    senderAddress,
     '',
     event.block.timestamp,
     event.transaction.hash
   )
 
-  incrementAccountRetirements(event.transaction.from)
-
-  recordProvenance(
-    event.transaction.hash,
-    event.address,
-    null,
-    event.transaction.to === KLIMA_INFINITY_DIAMOND ? KLIMA_INFINITY_DIAMOND : event.params.sender,
-    ZERO_ADDRESS,
-    'RETIREMENT',
-    event.params.tokenId,
-    event.block.timestamp
-  )
+  incrementAccountRetirements(senderAddress)
 }
 
 export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
@@ -65,36 +56,26 @@ export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
   credit.save()
 
   // Ensure account entities are created for all addresses
-  loadOrCreateAccount(event.params.sender)
   let sender = loadOrCreateAccount(event.transaction.from)
+  let senderAddress = event.transaction.from
+  loadOrCreateAccount(event.params.sender) // Beneficiary address
 
   saveRetire(
-    event.transaction.from.concatI32(sender.totalRetirements),
+    sender.id.concatI32(sender.totalRetirements),
     credit.id,
     ZERO_ADDRESS,
     'OTHER',
     event.params.amount,
     event.params.sender,
     '',
-    event.transaction.from,
+    senderAddress,
     '',
     event.block.timestamp,
     event.transaction.hash,
     event.params.eventId.toString()
   )
 
-  incrementAccountRetirements(event.transaction.from)
-
-  recordProvenance(
-    event.transaction.hash,
-    event.address,
-    null,
-    event.transaction.to === KLIMA_INFINITY_DIAMOND ? KLIMA_INFINITY_DIAMOND : event.params.sender,
-    ZERO_ADDRESS,
-    'RETIREMENT',
-    event.params.amount,
-    event.block.timestamp
-  )
+  incrementAccountRetirements(senderAddress)
 }
 
 export function handleVCUOMinted(event: VCUOMinted): void {
@@ -115,33 +96,23 @@ export function handleVCUOMinted(event: VCUOMinted): void {
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)
   let sender = loadOrCreateAccount(event.transaction.from)
+  let senderAddress = event.transaction.from
 
   saveRetire(
-    event.transaction.from.concatI32(sender.totalRetirements),
+    sender.id.concatI32(sender.totalRetirements),
     projectAddress,
     ZERO_ADDRESS,
     'OTHER',
     retireAmount,
     event.params.sender,
     '',
-    event.transaction.from,
+    senderAddress,
     '',
     event.block.timestamp,
     event.transaction.hash
   )
 
-  recordProvenance(
-    event.transaction.hash,
-    projectAddress,
-    null,
-    event.transaction.to === KLIMA_INFINITY_DIAMOND ? KLIMA_INFINITY_DIAMOND : event.params.sender,
-    ZERO_ADDRESS,
-    'RETIREMENT',
-    retireAmount,
-    event.block.timestamp
-  )
-
-  incrementAccountRetirements(event.transaction.from)
+  incrementAccountRetirements(senderAddress)
 }
 
 export function handleMossRetirement(event: CarbonOffset): void {
@@ -166,22 +137,23 @@ export function handleMossRetirement(event: CarbonOffset): void {
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)
   let sender = loadOrCreateAccount(event.transaction.from)
+  let senderAddress = event.transaction.from
 
   saveRetire(
-    event.transaction.from.concatI32(sender.totalRetirements),
+    sender.id.concatI32(sender.totalRetirements),
     MCO2_ERC20_CONTRACT,
     MCO2_ERC20_CONTRACT,
     'OTHER',
     event.params.carbonTon,
     event.params.sender,
     event.params.onBehalfOf,
-    event.transaction.from,
+    senderAddress,
     '',
     event.block.timestamp,
     event.transaction.hash
   )
 
-  incrementAccountRetirements(event.transaction.from)
+  incrementAccountRetirements(senderAddress)
 }
 
 export function saveICRRetirement(event: RetiredVintage): void {
@@ -193,16 +165,17 @@ export function saveICRRetirement(event: RetiredVintage): void {
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.account)
   let sender = loadOrCreateAccount(event.transaction.from)
+  let senderAddress = event.transaction.from
 
   saveRetire(
-    event.transaction.from.concatI32(sender.totalRetirements),
+    sender.id.concatI32(sender.totalRetirements),
     credit.id,
     ZERO_ADDRESS,
     'OTHER',
     event.params.amount,
     event.params.account,
     '',
-    event.transaction.from,
+    senderAddress,
     '',
     event.block.timestamp,
     event.transaction.hash,
@@ -210,16 +183,5 @@ export function saveICRRetirement(event: RetiredVintage): void {
     event.params.data.toString()
   )
 
-  incrementAccountRetirements(event.transaction.from)
-
-  recordProvenance(
-    event.transaction.hash,
-    event.address,
-    event.params.tokenId,
-    event.transaction.to === KLIMA_INFINITY_DIAMOND ? KLIMA_INFINITY_DIAMOND : event.params.account,
-    ZERO_ADDRESS,
-    'RETIREMENT',
-    event.params.amount,
-    event.block.timestamp
-  )
+  incrementAccountRetirements(senderAddress)
 }
