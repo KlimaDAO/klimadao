@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-22 15:53+0000\n"
+"POT-Creation-Date: 2024-01-23 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -648,11 +648,11 @@ msgstr "Combien souhaitez-vous retirer ?"
 
 #: lib/validateIcrAmount.ts:7
 msgid "ICR credits can only be listed in whole tonnes"
-msgstr ""
+msgstr "Les crédits ICR ne peuvent être annoncées que par tonnes entières"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:146
 msgid "ICR credits can only be retired in whole tonnes"
-msgstr ""
+msgstr "Les crédits ICR ne peuvent être retirés que par tonnes entières"
 
 #: components/pages/Purchases/index.tsx:93
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -1367,7 +1367,7 @@ msgstr "Le Marché Universel du Carbone"
 
 #: components/CreateListing/Transaction/Approve.tsx:50
 msgid "The allowance below reflects the sum of all your listings for this specific token. For ICR credit tokens, the allowance will reflect the sum of all your ICR token listings."
-msgstr ""
+msgstr "L'autorisation ci-dessous reflète la somme de toutes vos annonces pour ce jeton spécifique. Pour les jetons de crédit ICR, l'autorisation correspondra à la somme de toutes vos annonces de jetons ICR."
 
 #: components/CreateListing/Transaction/Approve.tsx:43
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
