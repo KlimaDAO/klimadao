@@ -98,7 +98,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
+          tag_name: carbonmark-api/${{ env.RELEASE_VERSION }}
           release_name: carbonmark-api-${{ env.RELEASE_VERSION }}
           body: ${{ env.RELEASE_NOTES }}
           draft: false
