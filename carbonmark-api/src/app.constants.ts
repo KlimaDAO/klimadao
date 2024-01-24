@@ -74,16 +74,19 @@ export const REGISTRIES = {
     title: "Verra",
     url: "https://registry.verra.org",
     api: "https://registry.verra.org/uiapi",
+    decimals: 18,
   },
   GoldStandard: {
     id: "GS",
     title: "Gold Standard",
     url: "https://registry.goldstandard.org",
+    decimals: 18,
   },
   ICR: {
     id: "ICR",
     title: "International Carbon Registry",
     url: "https://www.carbonregistry.com",
+    decimals: 0,
   },
 };
 

@@ -1,5 +1,7 @@
 import { utils } from "ethers";
+import { formatUnits } from "ethers/lib/utils";
 import { compact } from "lodash/fp";
+import { REGISTRIES } from "../../src/app.constants";
 import {
   GetProjectsQuery,
   Listing,
@@ -31,6 +33,17 @@ export const deconstructListingId = (str: string) => {
 export type GetProjectListing = NonNullable<
   GetProjectsQuery["projects"][number]["listings"]
 >[number];
+
+/** Format amounts or quantities by registry decimals */
+/** Currently all registries use 18 decimals except ICR, which uses 0  */
+
+export const formatAmountByRegistry = (quantity: string, registry: string) => {
+  if (registry === REGISTRIES.ICR.id) {
+    return formatUnits(quantity, REGISTRIES.ICR.decimals);
+  } else {
+    return formatUnits(quantity, 18);
+  }
+};
 
 /** Formats a gql.marketplace listing to match Listing.model, and formats integers */
 
