@@ -23,11 +23,18 @@ const mapUserToActivities = async (
     previousPrice: activity.previousPrice
       ? utils.formatUnits(activity.previousPrice, 6)
       : null,
-    amount: activity.amount ? utils.formatUnits(activity.amount, 18) : null,
+    amount: activity.amount
+      ? activity.project.key.startsWith("ICR")
+        ? activity.amount
+        : utils.formatUnits(activity.amount, 18)
+      : null,
     previousAmount: activity.previousAmount
-      ? utils.formatUnits(activity.previousAmount, 18)
+      ? activity.project.key.startsWith("ICR")
+        ? activity.amount
+        : utils.formatUnits(activity.previousAmount, 18)
       : null,
   }));
+
   const userIds = new Set<string>();
   formattedActivities.forEach((activity) => {
     if (activity.seller) {

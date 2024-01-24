@@ -9,9 +9,10 @@ const handler = (
 ): RouteHandler<{ Querystring: Static<typeof Querystring> }> =>
   async function (request, reply) {
     let response;
-    const sdk = gql_sdk(request.query.network);
+    const network = request.query.network ?? "polygon";
+    const sdk = gql_sdk(network);
     try {
-      response = await getAllCountries(sdk, fastify);
+      response = await getAllCountries(sdk, fastify, network);
     } catch (error) {
       //Return bad gateway and pass the error
       console.error(error);

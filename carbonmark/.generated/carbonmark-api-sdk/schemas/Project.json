@@ -240,7 +240,9 @@
         "required": ["url", "caption"]
       }
     },
-    "hasSupply": { "type": "boolean" }
+    "hasSupply": { "type": "boolean" },
+    "tokenId": { "type": "string" },
+    "serialization": { "type": "string" }
   },
   "required": [
     "key",
