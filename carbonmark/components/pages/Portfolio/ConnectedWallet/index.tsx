@@ -34,7 +34,7 @@ export const ConnectedWallet: FC<Props> = (props) => {
       </Text>
       {props.address && (
         <div className={styles.cardbody}>
-          <span>{concatAddress(props.address, 20)}</span>
+          <span>{concatAddress(props.address.toLowerCase(), 20)}</span>
           <div className={styles.cardbody}>
             <ButtonPrimary
               /** Transparent by default */
