@@ -1,3 +1,4 @@
+import { NetworkParam } from ".generated/carbonmark-api-sdk/types";
 import { getContract } from "@klimadao/lib/utils";
 import type { BigNumber } from "ethers";
 import { providers } from "ethers";
@@ -23,6 +24,9 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
       onStatus,
       tokenSymbol,
       tokenAddress,
+      tokenId,
+      tokenStandard,
+      network,
       setRetireModalOpen,
       setRetirementTransactionHash,
       setRetirementTotals,
@@ -34,11 +38,14 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
         address,
         symbol: tokenSymbol,
         tokenAddress,
+        tokenId,
+        tokenStandard,
         signer: provider.getSigner(),
         quantity,
         beneficiaryAddress,
         beneficiaryName,
         retirementMessage,
+        network,
         onStatus,
       });
       if (retirement) {
@@ -65,11 +72,14 @@ export const retireProjectTokenTransaction = async (params: {
   address: string;
   symbol: string;
   tokenAddress: string;
+  tokenId: string;
+  tokenStandard: string;
   signer: providers.JsonRpcSigner;
   quantity: string;
   beneficiaryAddress: string;
   beneficiaryName: string;
   retirementMessage: string;
+  network: NetworkParam;
   onStatus: OnStatusHandler;
 }): Promise<RetireCarbonTransactionResult> => {
   enum TransferMode {
@@ -78,25 +88,59 @@ export const retireProjectTokenTransaction = async (params: {
     EXTERNAL_INTERNAL = 2,
     INTERNAL_TOLERANT = 3,
   }
-  try {
-    const args = [
-      params.tokenAddress,
-      parseUnits(params.quantity, 18),
-      params.beneficiaryAddress || (await params.signer.getAddress()),
-      params.beneficiaryName,
-      params.retirementMessage,
-      TransferMode.EXTERNAL,
-    ];
 
+  let args: (string | bigint | TransferMode)[] = [];
+  let method = "";
+  let network: "mainnet" | "testnet" = "mainnet";
+
+  if (params.network === "polygon") {
+    network = "mainnet";
+  }
+  if (params.network === "mumbai") {
+    network = "testnet";
+  }
+
+  switch (params.tokenStandard) {
+    case "ERC1155":
+      args = [
+        params.tokenAddress,
+        params.tokenId,
+        params.quantity,
+        "", // retiring entity string
+        params.beneficiaryAddress || (await params.signer.getAddress()),
+        params.beneficiaryName,
+        params.retirementMessage,
+        TransferMode.EXTERNAL,
+      ];
+
+      if (params.symbol.startsWith("ICR")) {
+        method = "icrRetireExactCarbon";
+      }
+      break;
+    case "ERC20":
+      args = [
+        params.tokenAddress,
+        parseUnits(params.quantity, 18),
+        params.beneficiaryAddress || (await params.signer.getAddress()),
+        params.beneficiaryName,
+        params.retirementMessage,
+        TransferMode.EXTERNAL,
+      ];
+      method = params.symbol.startsWith("TCO2")
+        ? "toucanRetireExactTCO2"
+        : "c3RetireExactC3T";
+      break;
+    default:
+      break;
+  }
+
+  try {
     // retire transaction
     const aggregator = getContract({
       contractName: "retirementAggregatorV2",
       provider: params.signer,
+      network: network,
     });
-
-    const method = params.symbol.startsWith("TCO2")
-      ? "toucanRetireExactTCO2"
-      : "c3RetireExactC3T";
 
     params.onStatus("userConfirmation");
 
