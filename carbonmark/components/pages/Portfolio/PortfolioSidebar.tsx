@@ -5,11 +5,13 @@ import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { Balances } from "./Balances";
+import { ConnectedWallet } from "./ConnectedWallet";
 import * as styles from "./styles";
 
 type Props = {
   user?: User | null;
   isPending: boolean;
+  address: string | undefined;
 };
 
 export const PortfolioSidebar: FC<Props> = (props) => {
@@ -19,6 +21,7 @@ export const PortfolioSidebar: FC<Props> = (props) => {
 
   return (
     <div className={styles.stickyContentWrapper}>
+      {props.address && <ConnectedWallet address={props.address} />}
       <Balances />
       <Stats
         allListings={allListings || []}

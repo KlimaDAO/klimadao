@@ -2,6 +2,6 @@
  * @example
  * // 0x123…456
  */
-export const concatAddress = (address: string) => {
-  return address.slice(0, 5) + "…" + address.slice(address.length - 3);
+export const concatAddress = (address: string, numbers = 5) => {
+  return address.slice(0, numbers) + "…" + address.slice(address.length - 3);
 };
