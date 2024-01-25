@@ -317,6 +317,7 @@ export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
 
+export const projectIDRegExp = /^(VCS|PURO|ICR|GS)-\d+-(19\d{2}|20\d{2})$/;
 export const ICR_CONFIG = {
   polygon: {
     url: "https://api.carbonregistry.com/v0",
