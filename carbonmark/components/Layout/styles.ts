@@ -9,6 +9,7 @@ export const container = css`
   overflow-y: auto;
   background-color: var(--surface-02);
   min-height: 100vh;
+  position: relative;
 
   &[data-scroll-lock="true"] {
     overflow-y: hidden;
@@ -16,11 +17,11 @@ export const container = css`
   }
   ${breakpoints.desktop} {
     max-height: 100vh;
-    overflow-y: hidden;
+    // overflow-y: hidden;
   }
   ${breakpoints.desktopLarge} {
     max-height: 100vh;
-    overflow-y: hidden;
+    // overflow-y: hidden;
   }
 `;
 
@@ -37,14 +38,12 @@ export const mobileLogo = css`
 export const layoutChildrenContainer = css`
   grid-column: full;
   width: 100%;
-  display: grid;
   grid-template-columns: inherit;
   gap: 1.2rem 0rem;
   padding: 1.6rem;
-  align-content: flex-start;
 
   ${breakpoints.desktop} {
-    padding: 4rem 2.4rem;
+    padding: 2rem 2.4rem;
   }
 
   &.fullContentWidth {

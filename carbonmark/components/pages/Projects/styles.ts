@@ -79,6 +79,7 @@ export const projectsList = css`
   flex-wrap: wrap;
   justify-content: center;
   max-width: ${FIVE_CARD_WIDTH};
+  margin-top: 3rem;
 `;
 
 export const viewContainer = css`

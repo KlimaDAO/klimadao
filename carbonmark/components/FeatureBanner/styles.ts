@@ -44,7 +44,7 @@ export const banner = css`
   .contents {
     gap: 1rem;
     display: grid;
-    grid-column: full;
+    grid-column: auto;
     padding: 1.6rem 2.4rem;
 
     ${breakpoints.desktop} {

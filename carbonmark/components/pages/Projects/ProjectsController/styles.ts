@@ -23,6 +23,7 @@ export const controller = css`
   display: grid;
   gap: 0.8rem;
   grid-column: full;
+  margin-bottom: 0.5rem;
 `;
 
 export const projectsControls = css`
@@ -50,12 +51,12 @@ export const displayOptions = css`
   display: flex;
   flex-wrap: wrap;
   grid-column: full;
-  max-width: 168rem;
+  justify-content: flex-end;
   align-items: center;
   justify-self: center;
   margin-bottom: 0.8rem;
 `;
 
 export const toggle = css`
-  margin-left: auto;
+  // margin-left: auto;
 `;
