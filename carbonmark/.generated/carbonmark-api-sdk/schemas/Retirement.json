@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "bridgeId": { "type": "string" },
+    "amount": { "type": "number" },
+    "hash": { "type": "string" },
+    "hasProvenanceDetails": { "type": "boolean" },
+    "beneficiaryAddress": { "type": "string" },
+    "beneficiaryName": { "type": "string" },
+    "retirementMessage": { "type": "string" },
+    "retiringAddress": { "type": "string" },
+    "retiringName": { "type": "string" },
+    "retireeProfile": {
+      "type": "object",
+      "properties": {
+        "handle": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "username": { "type": "string" },
+        "description": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "profileImgUrl": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }]
+        },
+        "updatedAt": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "address": { "type": "string" }
+      },
+      "required": ["username", "updatedAt", "createdAt", "address"]
+    },
+    "timestamp": { "type": "number" },
+    "credit": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "bridgeProtocol": { "type": "string" },
+        "vintage": { "type": "number" },
+        "currentSupply": { "type": "number" },
+        "retired": { "type": "number" },
+        "crossChainSupply": { "type": "number" },
+        "projectId": { "type": "string" }
+      },
+      "required": ["currentSupply", "retired", "crossChainSupply", "projectId"]
+    }
+  },
+  "required": [
+    "amount",
+    "hash",
+    "hasProvenanceDetails",
+    "beneficiaryAddress",
+    "retiringAddress",
+    "timestamp"
+  ],
+  "x-readme-ref-name": "Retirement"
+}

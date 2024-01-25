@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 5.3.0** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v5.3.0.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 5.3.5** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v5.3.5.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "5.3.0"
+    "version": "5.3.5"
   },
   "components": {
     "schemas": {
@@ -490,9 +490,6 @@
             "type": "boolean"
           },
           "tokenId": {
-            "type": "string"
-          },
-          "serialization": {
             "type": "string"
           }
         },
@@ -1014,12 +1011,6 @@
                   "vintage": {
                     "examples": [
                       "2008"
-                    ],
-                    "type": "string"
-                  },
-                  "serialization": {
-                    "examples": [
-                      "ICR-ISL-354-78040-14-R-0-2021"
                     ],
                     "type": "string"
                   }
@@ -1631,6 +1622,219 @@
             ]
           }
         }
+      },
+      "ProvenanceRecord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "registrySerialNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "token": {
+            "type": "string"
+          },
+          "sender": {
+            "type": "string"
+          },
+          "receiver": {
+            "type": "string"
+          },
+          "originalAmount": {
+            "type": "number"
+          },
+          "remainingAmount": {
+            "type": "number"
+          },
+          "createdAt": {
+            "type": "number"
+          },
+          "updatedAt": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "transactionType",
+          "registrySerialNumbers",
+          "token",
+          "sender",
+          "receiver",
+          "originalAmount",
+          "remainingAmount",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "Retirement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bridgeId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "hasProvenanceDetails": {
+            "type": "boolean"
+          },
+          "beneficiaryAddress": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "retirementMessage": {
+            "type": "string"
+          },
+          "retiringAddress": {
+            "type": "string"
+          },
+          "retiringName": {
+            "type": "string"
+          },
+          "retireeProfile": {
+            "type": "object",
+            "properties": {
+              "handle": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "username": {
+                "type": "string"
+              },
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "profileImgUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "updatedAt": {
+                "type": "number"
+              },
+              "createdAt": {
+                "type": "number"
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "username",
+              "updatedAt",
+              "createdAt",
+              "address"
+            ]
+          },
+          "timestamp": {
+            "type": "number"
+          },
+          "credit": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "bridgeProtocol": {
+                "type": "string"
+              },
+              "vintage": {
+                "type": "number"
+              },
+              "currentSupply": {
+                "type": "number"
+              },
+              "retired": {
+                "type": "number"
+              },
+              "crossChainSupply": {
+                "type": "number"
+              },
+              "projectId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "currentSupply",
+              "retired",
+              "crossChainSupply",
+              "projectId"
+            ]
+          }
+        },
+        "required": [
+          "amount",
+          "hash",
+          "hasProvenanceDetails",
+          "beneficiaryAddress",
+          "retiringAddress",
+          "timestamp"
+        ]
+      },
+      "CarbonCredit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bridgeProtocol": {
+            "type": "string"
+          },
+          "vintage": {
+            "type": "number"
+          },
+          "currentSupply": {
+            "type": "number"
+          },
+          "retired": {
+            "type": "number"
+          },
+          "crossChainSupply": {
+            "type": "number"
+          },
+          "projectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currentSupply",
+          "retired",
+          "crossChainSupply",
+          "projectId"
+        ]
       },
       "def-0": {
         "type": "object",
@@ -2613,9 +2817,6 @@
                       },
                       "tokenId": {
                         "type": "string"
-                      },
-                      "serialization": {
-                        "type": "string"
                       }
                     },
                     "required": [
@@ -2744,12 +2945,6 @@
                                   "2008"
                                 ],
                                 "type": "string"
-                              },
-                              "serialization": {
-                                "examples": [
-                                  "ICR-ISL-354-78040-14-R-0-2021"
-                                ],
-                                "type": "string"
                               }
                             },
                             "required": [
@@ -2782,6 +2977,188 @@
                       "amount",
                       "listing",
                       "price"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements": {
+      "get": {
+        "summary": "Retirement",
+        "tags": [
+          "Retirements"
+        ],
+        "description": "Retrieve an array of retirement filtered by desired query parameters",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x087a7afb6975a2837453be685eb6272576c0bc",
+            "in": "query",
+            "name": "beneficiaryAddress",
+            "required": false,
+            "description": "Address of the retirement beneficiary"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "5",
+            "in": "query",
+            "name": "retirementIndex",
+            "required": false,
+            "description": "Retirement index"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of retirement",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "bridgeId": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "hash": {
+                        "type": "string"
+                      },
+                      "hasProvenanceDetails": {
+                        "type": "boolean"
+                      },
+                      "beneficiaryAddress": {
+                        "type": "string"
+                      },
+                      "beneficiaryName": {
+                        "type": "string"
+                      },
+                      "retirementMessage": {
+                        "type": "string"
+                      },
+                      "retiringAddress": {
+                        "type": "string"
+                      },
+                      "retiringName": {
+                        "type": "string"
+                      },
+                      "retireeProfile": {
+                        "type": "object",
+                        "properties": {
+                          "handle": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "username": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "profileImgUrl": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "updatedAt": {
+                            "type": "number"
+                          },
+                          "createdAt": {
+                            "type": "number"
+                          },
+                          "address": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "username",
+                          "updatedAt",
+                          "createdAt",
+                          "address"
+                        ]
+                      },
+                      "timestamp": {
+                        "type": "number"
+                      },
+                      "credit": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "bridgeProtocol": {
+                            "type": "string"
+                          },
+                          "vintage": {
+                            "type": "number"
+                          },
+                          "currentSupply": {
+                            "type": "number"
+                          },
+                          "retired": {
+                            "type": "number"
+                          },
+                          "crossChainSupply": {
+                            "type": "number"
+                          },
+                          "projectId": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "currentSupply",
+                          "retired",
+                          "crossChainSupply",
+                          "projectId"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "hash",
+                      "hasProvenanceDetails",
+                      "beneficiaryAddress",
+                      "retiringAddress",
+                      "timestamp"
                     ]
                   }
                 }
@@ -3793,9 +4170,6 @@
                     },
                     "tokenId": {
                       "type": "string"
-                    },
-                    "serialization": {
-                      "type": "string"
                     }
                   },
                   "required": [
@@ -3931,12 +4305,6 @@
                                 "2008"
                               ],
                               "type": "string"
-                            },
-                            "serialization": {
-                              "examples": [
-                                "ICR-ISL-354-78040-14-R-0-2021"
-                              ],
-                              "type": "string"
                             }
                           },
                           "required": [
@@ -3969,6 +4337,175 @@
                     "amount",
                     "listing",
                     "price"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements/{id}": {
+      "get": {
+        "summary": "Retirement",
+        "tags": [
+          "Retirements"
+        ],
+        "description": "Retrieve a klima retirement by account and retirement index",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Retirement transaction hash"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement with account and index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "bridgeId": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "hash": {
+                      "type": "string"
+                    },
+                    "hasProvenanceDetails": {
+                      "type": "boolean"
+                    },
+                    "beneficiaryAddress": {
+                      "type": "string"
+                    },
+                    "beneficiaryName": {
+                      "type": "string"
+                    },
+                    "retirementMessage": {
+                      "type": "string"
+                    },
+                    "retiringAddress": {
+                      "type": "string"
+                    },
+                    "retiringName": {
+                      "type": "string"
+                    },
+                    "retireeProfile": {
+                      "type": "object",
+                      "properties": {
+                        "handle": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "profileImgUrl": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "updatedAt": {
+                          "type": "number"
+                        },
+                        "createdAt": {
+                          "type": "number"
+                        },
+                        "address": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "username",
+                        "updatedAt",
+                        "createdAt",
+                        "address"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "credit": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "bridgeProtocol": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "number"
+                        },
+                        "currentSupply": {
+                          "type": "number"
+                        },
+                        "retired": {
+                          "type": "number"
+                        },
+                        "crossChainSupply": {
+                          "type": "number"
+                        },
+                        "projectId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "currentSupply",
+                        "retired",
+                        "crossChainSupply",
+                        "projectId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "hash",
+                    "hasProvenanceDetails",
+                    "beneficiaryAddress",
+                    "retiringAddress",
+                    "timestamp"
                   ]
                 }
               }
@@ -4832,11 +5369,102 @@
           }
         }
       }
+    },
+    "/retirements/{id}/provenance": {
+      "get": {
+        "summary": "Retirement provenance records",
+        "tags": [
+          "Records"
+        ],
+        "description": "Retrieve a retirement provenance records",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Retirement transaction hash"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement provenance record with account id and retirement index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "transactionType": {
+                        "type": "string"
+                      },
+                      "registrySerialNumbers": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "token": {
+                        "type": "string"
+                      },
+                      "sender": {
+                        "type": "string"
+                      },
+                      "receiver": {
+                        "type": "string"
+                      },
+                      "originalAmount": {
+                        "type": "number"
+                      },
+                      "remainingAmount": {
+                        "type": "number"
+                      },
+                      "createdAt": {
+                        "type": "number"
+                      },
+                      "updatedAt": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "transactionType",
+                      "registrySerialNumbers",
+                      "token",
+                      "sender",
+                      "receiver",
+                      "originalAmount",
+                      "remainingAmount",
+                      "createdAt",
+                      "updatedAt"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "servers": [
     {
-      "url": "https://v5.3.0.api.carbonmark.com"
+      "url": "https://v5.3.5.api.carbonmark.com"
     }
   ],
   "externalDocs": {

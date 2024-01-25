@@ -256,10 +256,6 @@ export type GetProjectsQueryResponse = {
    * @type string | undefined
    */
   tokenId?: string;
-  /**
-   * @type string | undefined
-   */
-  serialization?: string;
 }[];
 
 export type GetProjectsQueryParams =
