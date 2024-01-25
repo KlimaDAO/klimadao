@@ -4,11 +4,14 @@ import { t, Trans } from "@lingui/macro";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
-import { getConsumptionCost } from "lib/actions.retire";
+import {
+  getListingConsumptionCost,
+  getPoolConsumptionCost,
+} from "lib/actions.retire";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { TokenPrice } from "lib/types/carbonmark.types";
+import { Product } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -17,7 +20,7 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  price: TokenPrice;
+  product: Product;
   userBalance: string | null;
   fiatBalance: string | null;
   fiatMinimum: string | null;
@@ -32,9 +35,6 @@ const getStringBetween = (str: string, start: string, end: string) => {
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
-  const poolName = props.price.poolName;
-  const isPoolDefault = props.price.isPoolDefault;
-
   const { locale, asPath } = useRouter();
   const { control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +47,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const isBankTransfer = paymentMethod === "bank-transfer";
   const isFiatOrBankTransfer = isFiat || isBankTransfer;
 
-  const priceWithoutFees = Number(amount) * Number(props.price.singleUnitPrice);
+  const priceWithoutFees =
+    Number(amount) * Number(props.product.singleUnitPrice);
 
   /** Credit card fee string to display in the price card for fiat payments */
   const calcCreditCardFee = (): string => {
@@ -87,14 +88,23 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
       try {
         setIsLoading(true);
-        const totalPrice = await getConsumptionCost({
-          inputToken: paymentMethod,
-          retirementToken: poolName,
-          quantity: amount,
-          isDefaultProject: isPoolDefault,
-          projectTokenAddress: props.price.projectTokenAddress,
-          currentUrl: asPath,
-        });
+
+        const totalPrice = await (props.product.type === "pool"
+          ? getPoolConsumptionCost({
+              inputToken: paymentMethod,
+              retirementToken: props.product.poolName,
+              quantity: amount,
+              isDefaultProject: props.product.isPoolDefault,
+              projectTokenAddress: props.product.projectTokenAddress,
+              currentUrl: asPath,
+            })
+          : getListingConsumptionCost({
+              inputToken: paymentMethod,
+              quantity: amount,
+              unitPrice: props.product.singleUnitPrice,
+              currentUrl: asPath,
+              listingId: props.product.id,
+            }));
 
         props.setCosts(totalPrice);
 
@@ -195,7 +205,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             className={cx(isFiatOrBankTransfer && styles.textTransition)}
           >
             {formatToPrice(
-              props.price.singleUnitPrice,
+              props.product.singleUnitPrice,
               locale,
               isFiatOrBankTransfer
             )}

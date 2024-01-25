@@ -25,6 +25,14 @@ export type Asset = SDKAsset;
 export type CarouselImage = Image;
 export type CategoryName = keyof typeof CATEGORY_INFO;
 
+export type ListingProduct = {
+  type: "listing";
+} & Listing;
+export type PoolProduct = {
+  type: "pool";
+} & TokenPrice;
+export type Product = ListingProduct | PoolProduct;
+
 export interface DigitalCarbonCredit {
   id: string;
   vintage: number;

@@ -1,6 +1,6 @@
 import { NetworkParam } from ".generated/carbonmark-api-sdk/types";
 import { urls } from "@klimadao/lib/constants";
-import { Project, TokenPrice } from "lib/types/carbonmark.types";
+import { Listing, Project, TokenPrice } from "lib/types/carbonmark.types";
 
 type ProjectData = {
   key: Project["key"];
@@ -31,4 +31,18 @@ export const createProjectPoolPurchaseLink = (
 
 export const getPolygonScanBaseUrl = (networkLabel: NetworkParam): string => {
   return networkLabel === "polygon" ? urls.polygonscan : urls.mumbaiPolygonscan;
+};
+
+export const createListingRetireLink = (
+  project: ProjectData,
+  listing: Listing
+): string => {
+  return `${createProjectLink(project)}/retire/${listing.id}`;
+};
+
+export const createListingPurchaseLink = (
+  project: ProjectData,
+  listing: Listing
+): string => {
+  return `${createProjectLink(project)}/purchase/${listing.id}`;
 };

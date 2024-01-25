@@ -15,10 +15,7 @@ import {
 } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
-import {
-  CarbonmarkPaymentMethod,
-  TokenPrice as PriceType,
-} from "lib/types/carbonmark.types";
+import { CarbonmarkPaymentMethod, Product } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -33,7 +30,7 @@ import { FormValues } from "./types";
 
 type Props = {
   onSubmit: (values: FormValues) => void;
-  price: PriceType;
+  product: Product;
   values: null | FormValues;
   userBalance: string | null;
   fiatBalance: string | null;
@@ -150,7 +147,7 @@ export const RetireInputs: FC<Props> = (props) => {
   const calcCreditCardFee = (): string => {
     if (!isFiat || !Number(totalPrice)) return "$0.00";
     const priceWithoutFees =
-      Number(quantity) * Number(props.price.singleUnitPrice);
+      Number(quantity) * Number(props.product.singleUnitPrice);
     const fee = Number(safeSub(totalPrice, priceWithoutFees.toString()));
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
@@ -185,6 +182,12 @@ export const RetireInputs: FC<Props> = (props) => {
     !!props.userBalance &&
     Number(props.userBalance) <= Number(props.approvalValue);
 
+  const supply = Number(
+    props.product.type === "pool"
+      ? props.product.supply
+      : props.product.leftToSell
+  );
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputsContainer}>
@@ -209,8 +212,7 @@ export const RetireInputs: FC<Props> = (props) => {
               <span className={styles.required}>*</span>
             </Text>
             <Text t="body3">
-              <Trans>Available:</Trans>{" "}
-              {formatToTonnes(props.price.supply, locale, 2)}
+              <Trans>Available:</Trans> {formatToTonnes(supply, locale, 2)}
             </Text>
             <InputField
               id="quantity"
@@ -218,7 +220,7 @@ export const RetireInputs: FC<Props> = (props) => {
                 placeholder: t`Tonnes`,
                 type: "number",
                 min: getValidations().quantity.min.value,
-                max: Number(props.price.supply),
+                max: Number(supply),
                 ...register("quantity", {
                   onChange: (e) => {
                     clearErrors("totalPrice");
@@ -235,7 +237,7 @@ export const RetireInputs: FC<Props> = (props) => {
                   },
                   min: getValidations().quantity.min,
                   max: {
-                    value: Number(props.price.supply),
+                    value: Number(supply),
                     message: t`Available supply exceeded`,
                   },
                 }),

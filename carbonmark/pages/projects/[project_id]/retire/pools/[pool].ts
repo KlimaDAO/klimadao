@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps<
     return {
       props: {
         project,
-        poolPrice,
+        product: { ...poolPrice, type: "pool" },
         translation,
         fixedThemeName: "theme-light",
       },
