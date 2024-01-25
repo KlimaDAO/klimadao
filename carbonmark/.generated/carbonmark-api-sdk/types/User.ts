@@ -108,6 +108,11 @@ export type User = {
        */
       methodology: string;
     };
+    /**
+     * @description Symbol of the token
+     * @type string | undefined
+     */
+    symbol?: string;
   }[];
   /**
    * @type array | undefined
@@ -179,6 +184,10 @@ export type User = {
        * @type number
        */
       decimals: number;
+      /**
+       * @type string | undefined
+       */
+      tokenId?: string;
     };
     /**
      * @type string

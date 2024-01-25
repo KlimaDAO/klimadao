@@ -27,6 +27,7 @@ export const Portfolio: NextPage = () => {
     initializing,
     networkLabel,
   } = useWeb3();
+
   const {
     data: carbonmarkUser,
     isLoading,
@@ -110,7 +111,11 @@ export const Portfolio: NextPage = () => {
             </Col>
 
             <Col>
-              <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />
+              <PortfolioSidebar
+                address={address}
+                user={carbonmarkUser}
+                isPending={isPending}
+              />
             </Col>
           </TwoColLayout>
         </div>

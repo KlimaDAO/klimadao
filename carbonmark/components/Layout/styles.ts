@@ -40,6 +40,7 @@ export const container = css`
 `;
 
 export const mainContentGrid = css`
+  position: relative;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns:
@@ -65,7 +66,7 @@ export const mobileLogo = css`
 
 export const desktopNavMenu = css`
   display: none;
-  //To properly allow modal overlay
+  // to properly allow modal overlay
   z-index: 1;
   ${breakpoints.desktop} {
     display: flex;
@@ -80,6 +81,7 @@ export const layoutChildrenContainer = css`
   gap: 1.2rem 0rem;
   padding: 1.6rem;
   align-content: flex-start;
+
   ${breakpoints.desktop} {
     padding: 4rem 2.4rem;
   }

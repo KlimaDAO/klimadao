@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, max, maxBy } from "lodash";
 import { concat, map, mapValues, min, pipe, trim, uniq } from "lodash/fp";
+import { NetworkParam } from "src/models/NetworkParam.model";
 import { TokenPriceT } from "src/models/TokenPrice.model";
 import { Geopoint } from "../../.generated/types/cms.types";
 import {
@@ -41,15 +42,16 @@ import { formatListings } from "../../utils/marketplace.utils";
  * # this will cause a silent error. GQL Resolver needs to be updated to allow null search params
  * # to return all possible values
  */
+
 export const getDefaultQueryArgs = async (
   sdk: GQL_SDK,
-  fastify: FastifyInstance
+  fastify: FastifyInstance,
+  network: NetworkParam
 ) => {
-  //Fetch all possible parameter values
   const [category, country, vintage] = await Promise.all([
     getAllCategories(sdk, fastify).then(map(extract("id"))),
-    getAllCountries(sdk, fastify).then(map(extract("id"))),
-    getAllVintages(sdk, fastify),
+    getAllCountries(sdk, fastify, network).then(map(extract("id"))),
+    getAllVintages(sdk, fastify, network),
   ]);
 
   return {
@@ -96,6 +98,28 @@ const getActivePoolPrices = (prices: TokenPriceT[], minSupply?: number) => {
   return prices.filter((price) => Number(price.supply) > (minSupply || 0));
 };
 
+// Filter out video links as CM currently does not support
+
+type CarbonProjectImage = {
+  caption: string;
+  url: string;
+};
+
+type CarbonProjectExternalMedia = {
+  caption: string;
+  url: string;
+};
+
+type MediaItem = CarbonProjectImage | CarbonProjectExternalMedia;
+
+const filterVideo = (media: MediaItem) => {
+  return (
+    !media.url.includes("youtube") &&
+    !media.url.includes("youtu.be") &&
+    !media.url.includes("vimeo")
+  );
+};
+
 /**
  * Builds a project entry given data fetched from various sources
  * project data:
@@ -113,7 +137,7 @@ export const buildProjectEntry = (props: {
   poolProject?: GetProjectCreditsQuery["carbonProjects"][0];
   cmsProject?: CarbonProject;
   allPoolPrices: Record<string, PoolPrice>;
-  network: "polygon" | "mumbai" | undefined;
+  network: NetworkParam | undefined;
   minSupply: number;
 }): Project => {
   const credits = props.poolProject?.carbonCredits;
@@ -192,10 +216,19 @@ export const buildProjectEntry = (props: {
     long_description: c?.longDescription,
     url: c?.url,
     images:
-      c?.images?.map((image) => ({
-        caption: image?.asset?.altText || "",
-        url: image?.asset?.url || "",
-      })) ?? [],
+      c?.images
+        ?.map((image) => ({
+          caption: image?.asset?.altText || "",
+          url: image?.asset?.url || "",
+        }))
+        .filter(filterVideo) ||
+      c?.externalMedia
+        ?.map((image) => ({
+          caption: image?.description || "",
+          url: image?.uri || "",
+        }))
+        .filter(filterVideo) ||
+      [],
     location: toGeoJSON(c?.geolocation),
     // Pool specific data
     prices: activePoolPrices,
@@ -219,7 +252,7 @@ export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
   allPoolPrices: Record<string, PoolPrice>,
-  network: "polygon" | "mumbai" | undefined,
+  network: NetworkParam | undefined,
   minSupply: number
 ): Project[] => {
   const entries: Project[] = [];
@@ -243,5 +276,6 @@ export const composeProjectEntries = (
     // TODO: Maybe this should be controlled via a query parameter
     if (project.hasSupply) entries.push(project);
   });
+
   return entries;
 };

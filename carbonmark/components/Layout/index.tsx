@@ -1,4 +1,4 @@
-import { cx } from "@emotion/css";
+import { ClassNamesArg, cx } from "@emotion/css";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
@@ -25,6 +25,7 @@ import * as styles from "./styles";
 type Props = {
   userAddress?: string;
   children: ReactNode;
+  customCss?: ClassNamesArg;
   fullContentWidth?: boolean;
   fullContentHeight?: boolean;
 };
@@ -71,7 +72,7 @@ export const Layout: FC<Props> = (props: Props) => {
           />
         </div>
         <div
-          className={cx(styles.layoutChildrenContainer, {
+          className={cx(styles.layoutChildrenContainer, props.customCss, {
             fullContentWidth: props.fullContentWidth,
           })}
         >

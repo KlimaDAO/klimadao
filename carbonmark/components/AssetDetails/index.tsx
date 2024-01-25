@@ -1,10 +1,12 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
 import { PoolToken } from "@klimadao/lib/constants";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Accordion } from "components/Accordion";
 import { Text } from "components/Text";
+import { getPolygonScanBaseUrl } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
@@ -20,11 +22,11 @@ type TotalValuesProps = {
   project: Project;
   actionLabel: string;
   availableLabel: string;
-  polyscanUrl: string;
 };
 
 export const AssetDetails: FC<TotalValuesProps> = (props) => {
   const { locale } = useRouter();
+  const { networkLabel } = useWeb3();
   const tokenType = getPoolTokenType(
     props.price.poolName.toUpperCase() as Uppercase<PoolToken>
   );
@@ -55,7 +57,12 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
         </Text>
       </div>
       <div className={styles.totalsText}>
-        <Anchor className={styles.iconAndText} href={props.polyscanUrl}>
+        <Anchor
+          className={styles.iconAndText}
+          href={`${getPolygonScanBaseUrl(networkLabel)}/address/${
+            props.price.projectTokenAddress
+          }`}
+        >
           <Text className={styles.externalLink} t="body2">
             {t`View on PolygonScan`} <LaunchIcon />
           </Text>

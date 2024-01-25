@@ -92,7 +92,8 @@
               "country",
               "methodology"
             ]
-          }
+          },
+          "symbol": { "description": "Symbol of the token", "type": "string" }
         },
         "required": [
           "id",
@@ -179,7 +180,8 @@
               "id": { "type": "string" },
               "name": { "type": "string" },
               "symbol": { "type": "string" },
-              "decimals": { "type": "number" }
+              "decimals": { "type": "number" },
+              "tokenId": { "type": "string" }
             },
             "required": ["id", "name", "symbol", "decimals"]
           },

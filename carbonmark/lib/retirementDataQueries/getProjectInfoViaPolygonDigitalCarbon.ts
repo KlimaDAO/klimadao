@@ -1,18 +1,26 @@
 import { subgraphs } from "@klimadao/lib/constants";
 
+import { DigitalCarbonCredit } from "lib/types/carbonmark.types";
+import fetch from "node-fetch";
+
 export const getProjectInfoViaPolygonDigitalCarbon = async (
-  address: string
-) => {
+  address: string,
+  vintage: number
+): Promise<DigitalCarbonCredit | null> => {
+  let creditWithStandard: DigitalCarbonCredit | null = null;
+
   try {
     const result = await fetch(subgraphs.polygonDigitalCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         query: `
-        query ProjectTokenInfo($address: String) {
-            carbonCredits(where: {id: $address}) {
+        query ProjectTokenInfo($address: String, $vintage: Int) {
+            carbonCredits(where: {tokenAddress: $address, vintage: $vintage}) {
               id
               vintage
+                tokenId
+              tokenAddress
               project {
                 registry
                 region
@@ -37,6 +45,7 @@ export const getProjectInfoViaPolygonDigitalCarbon = async (
                 `,
         variables: {
           address: address.toLowerCase(),
+          vintage,
         },
       }),
     });
@@ -49,7 +58,16 @@ export const getProjectInfoViaPolygonDigitalCarbon = async (
     }
 
     const data = await result.json();
-    return data.data.carbonCredits;
+
+    const credit = data.data.carbonCredits[0];
+
+    if (credit.project.registry === "ICR") {
+      creditWithStandard = { ...credit, tokenStandard: "ERC1155" };
+    } else {
+      creditWithStandard = { ...credit, tokenStandard: "ERC20" };
+    }
+
+    return creditWithStandard;
   } catch (error) {
     console.error("Error fetching project token info:", error);
     return null;

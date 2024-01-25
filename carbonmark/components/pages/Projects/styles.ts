@@ -84,3 +84,23 @@ export const projectsList = css`
 export const viewContainer = css`
   grid-column: full;
 `;
+
+export const featureBanner = css`
+  &:has(.feature-banner):not(.initial-banner) {
+    padding: 17rem 2.4rem;
+  }
+
+  &:has(.feature-banner.initial-banner) {
+    padding: 20rem 2.4rem;
+  }
+
+  // required for feature banner transition
+  transition: all 0.2s ease-in-out;
+
+  ${breakpoints.desktop} {
+    &:has(.feature-banner.initial-banner),
+    &:has(.feature-banner):not(.initial-banner) {
+      padding: 16rem 2.4rem;
+    }
+  }
+`;
