@@ -5,14 +5,14 @@ import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
 import { BigNumber, Contract, providers } from "ethers";
 import { parseUnits } from "ethers-v6";
-import { urls } from "lib/constants";
+import { CARBONMARK_FEE, urls } from "lib/constants";
 import { getFiatRetirementCost } from "lib/fiat/fiatCosts";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { OnStatusHandler } from "lib/statusMessage";
-import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
+import { CarbonmarkPaymentMethod, Product } from "lib/types/carbonmark.types";
 
 export const getRetirementAllowance = async (params: {
   userAddress: string;
@@ -33,7 +33,43 @@ export const getRetirementAllowance = async (params: {
   return allowance;
 };
 
-export const getConsumptionCost = async (params: {
+export const getListingConsumptionCost = async (params: {
+  inputToken: CarbonmarkPaymentMethod;
+  unitPrice: string;
+  quantity: string;
+  currentUrl: string;
+  listingId: string;
+}): Promise<string> => {
+  if (params.inputToken === "bank-transfer") {
+    return "0";
+  }
+
+  if (params.inputToken === "fiat") {
+    const fiatCosts = await getFiatRetirementCost({
+      cancelUrl: `${urls.baseUrl}${params.currentUrl}`,
+      referrer: "carbonmark",
+      retirement: {
+        quantity: params.quantity,
+        retirement_token: null,
+        beneficiary_address: null,
+        beneficiary_name: "placeholder",
+        retirement_message: "placeholder",
+        project_address: null,
+        listing_id: params.listingId,
+      },
+    });
+    return fiatCosts;
+  }
+
+  const price = Number(params.unitPrice) * Number(params.quantity);
+  const totalPrice = price + price * CARBONMARK_FEE || 0;
+  const totalPriceTrimmed = totalPrice.toFixed(getTokenDecimals("usdc")); // deal with js math overflows
+  const totalPriceFormatted = parseFloat(totalPriceTrimmed).toString(); // trim trailing zeros
+
+  return totalPriceFormatted;
+};
+
+export const getPoolConsumptionCost = async (params: {
   inputToken: CarbonmarkPaymentMethod;
   retirementToken: PoolToken;
   quantity: string;
@@ -59,6 +95,7 @@ export const getConsumptionCost = async (params: {
         project_address: !params.isDefaultProject
           ? params.projectTokenAddress
           : null,
+        listing_id: null,
       },
     });
     return fiatCosts;
@@ -129,16 +166,14 @@ export const approveRetireProjectToken = async (params: {
 export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
+  product: Product;
   paymentMethod: CarbonmarkPaymentMethod;
   maxAmountIn: string;
-  retirementToken: PoolToken;
   quantity: string;
   beneficiaryAddress: string;
   beneficiaryName: string;
   retirementMessage: string;
   onStatus: OnStatusHandler;
-  projectAddress: string;
-  isPoolDefault: boolean;
 }): Promise<{
   transactionHash: string;
   /** retirement transaction block number */
@@ -162,7 +197,7 @@ export const retireCarbonTransaction = async (params: {
   try {
     // retire transaction
     const retireContract = getContract({
-      contractName: "retirementAggregatorV2",
+      contractName: "klimaInfinity",
       provider: params.provider.getSigner(),
     });
 
@@ -180,31 +215,54 @@ export const retireCarbonTransaction = async (params: {
     const retirementIndex = (retirements.toNumber() || 0) + 1;
 
     let txn;
-    if (params.isPoolDefault) {
-      txn = await retireContract.retireExactCarbonDefault(
-        getAddress(params.paymentMethod),
-        getAddress(params.retirementToken),
+    if (params.product.type === "listing") {
+      txn = await retireContract.retireCarbonmarkListing(
+        [
+          params.product.id,
+          params.product.seller.id,
+          params.product.tokenAddress,
+          parseUnits(params.product.leftToSell, 18),
+          parseUnits(params.product.singleUnitPrice, getTokenDecimals("usdc")),
+        ],
         parsedMaxAmountIn,
-        parseUnits(params.quantity, getTokenDecimals(params.retirementToken)),
+        // TODO: ICR tokens have zero decimal places
+        parseUnits(params.quantity, 18),
         "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
         TransferMode.EXTERNAL
       );
-    } else {
-      txn = await retireContract.retireExactCarbonSpecific(
-        getAddress(params.paymentMethod),
-        getAddress(params.retirementToken),
-        params.projectAddress,
-        parsedMaxAmountIn,
-        parseUnits(params.quantity, getTokenDecimals(params.retirementToken)),
-        "",
-        params.beneficiaryAddress || params.address,
-        params.beneficiaryName,
-        params.retirementMessage,
-        TransferMode.EXTERNAL
-      );
+    } else if (params.product.type === "pool") {
+      const retirementToken =
+        params.product.poolName.toLowerCase() as PoolToken;
+
+      if (params.product.isPoolDefault) {
+        txn = await retireContract.retireExactCarbonDefault(
+          getAddress(params.paymentMethod),
+          getAddress(retirementToken),
+          parsedMaxAmountIn,
+          parseUnits(params.quantity, getTokenDecimals(retirementToken)),
+          "",
+          params.beneficiaryAddress || params.address,
+          params.beneficiaryName,
+          params.retirementMessage,
+          TransferMode.EXTERNAL
+        );
+      } else {
+        txn = await retireContract.retireExactCarbonSpecific(
+          getAddress(params.paymentMethod),
+          getAddress(retirementToken),
+          params.product.projectTokenAddress,
+          parsedMaxAmountIn,
+          parseUnits(params.quantity, getTokenDecimals(retirementToken)),
+          "",
+          params.beneficiaryAddress || params.address,
+          params.beneficiaryName,
+          params.retirementMessage,
+          TransferMode.EXTERNAL
+        );
+      }
     }
     params.onStatus("networkConfirmation");
     const receipt: RetirementReceipt = await txn.wait(1);

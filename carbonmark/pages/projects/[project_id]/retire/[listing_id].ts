@@ -3,12 +3,11 @@ import {
   getProjectsId,
 } from ".generated/carbonmark-api-sdk/clients";
 import {
-  ProjectPurchase,
-  ProjectPurchasePageProps,
-} from "components/pages/Project/Purchase";
+  ProjectRetire,
+  ProjectRetirePageProps,
+} from "components/pages/Project/Retire";
 import { IS_PRODUCTION } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
-import { isNil } from "lodash";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -18,7 +17,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 export const getStaticProps: GetStaticProps<
-  ProjectPurchasePageProps,
+  ProjectRetirePageProps,
   Params
 > = async (ctx) => {
   const { params, locale } = ctx;
@@ -35,7 +34,7 @@ export const getStaticProps: GetStaticProps<
       getListingsId(listing_id.toLowerCase()),
     ]);
 
-    if (isNil(project) || isNil(project.listings)) {
+    if (!project) {
       throw new Error("No project found");
     }
 
@@ -72,7 +71,7 @@ export const getStaticProps: GetStaticProps<
       revalidate: 10,
     };
   } catch (e) {
-    console.error("Failed to generate Carbonmark Project Purchase Page", e);
+    console.error("Failed to generate Carbonmark Project Retire Page", e);
     return {
       notFound: true,
       revalidate: 10,
@@ -87,4 +86,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default ProjectPurchase;
+export default ProjectRetire;

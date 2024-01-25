@@ -2,9 +2,14 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
-import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
+import {
+  createListingPurchaseLink,
+  createListingRetireLink,
+  createSellerLink,
+} from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import {
   formatWalletAddress,
@@ -40,7 +45,7 @@ function getSellerId(seller: Listing["seller"]): string | undefined {
 
 export const SellerListing: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const { address, isConnected, toggleModal } = useWeb3();
+  const { address } = useWeb3();
   const updatedAt = props.listing.updatedAt;
   const createdAt = props.listing.createdAt;
   const isConnectedSeller =
@@ -88,33 +93,24 @@ export const SellerListing: FC<Props> = (props) => {
         </Text>
       </div>
 
-      {!address && !isConnected && (
+      <div className={styles.buttons}>
         <ButtonPrimary
-          className={styles.buyButton}
-          label={t({
-            id: "shared.connect_to_buy",
-            message: "Sign In / Connect To Buy",
-          })}
-          onClick={toggleModal}
+          label={t`Buy`}
+          renderLink={(linkProps) => <Link {...linkProps} />}
+          onClick={() => {
+            LO.track("Purchase - Listing: Buy Clicked");
+          }}
+          href={createListingPurchaseLink(props.project, props.listing)}
         />
-      )}
-
-      {address && isConnected && (
-        <ButtonPrimary
-          label={t({
-            id: "buy",
-            message: "Buy",
-          })}
-          onClick={() => LO.track("Purchase: Buy Clicked")}
-          className={styles.buyButton}
-          href={
-            isConnectedSeller
-              ? undefined
-              : createProjectPurchaseLink(props.project, props.listing.id)
-          }
-          disabled={isConnectedSeller}
+        <CarbonmarkButton
+          label={t`Retire now`}
+          href={createListingRetireLink(props.project, props.listing)}
+          renderLink={(linkProps) => <Link {...linkProps} />}
+          onClick={() => {
+            LO.track("Retire - Listing: Retire Button Clicked");
+          }}
         />
-      )}
+      </div>
     </Card>
   );
 };
