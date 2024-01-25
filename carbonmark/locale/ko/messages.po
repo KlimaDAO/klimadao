@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-24 21:27+0000\n"
+"POT-Creation-Date: 2024-01-25 09:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -355,6 +355,10 @@ msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:75
 msgid "Confirm Retirement"
+msgstr ""
+
+#: components/pages/Portfolio/ConnectedWallet/index.tsx:33
+msgid "Connected Wallet"
 msgstr ""
 
 #: components/Footer/index.tsx:41
@@ -1784,7 +1788,7 @@ msgstr ""
 msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 msgstr ""
 
-#: components/pages/Portfolio/PortfolioSidebar.tsx:26
+#: components/pages/Portfolio/PortfolioSidebar.tsx:29
 #: components/pages/Users/SellerConnected/index.tsx:214
 msgid "Your seller data"
 msgstr ""
