@@ -197,6 +197,10 @@ export type GetUsersWalletorhandleQueryResponse = {
        * @type number
        */
       decimals: number;
+      /**
+       * @type string | undefined
+       */
+      tokenId?: string;
     };
     /**
      * @type string
@@ -205,21 +209,23 @@ export type GetUsersWalletorhandleQueryResponse = {
   }[];
 };
 
-export type GetUsersWalletorhandleQueryParams = {
-  network?: Def1;
-  /**
-   * @description Only return listings that expire after this timestamp (Unix seconds)
-   * @type string | undefined
-   */
-  expiresAfter?: string;
-  /**
-   * @description Only consider projects listings and pools that contains at least this amount of credits (Tonnes)
-   * @type number | undefined
-   */
-  minSupply?: number;
+export type GetUsersWalletorhandleQueryParams =
+  | {
+      network?: Def1;
+      /**
+       * @description Only return listings that expire after this timestamp (Unix seconds)
+       * @type string | undefined
+       */
+      expiresAfter?: string;
+      /**
+       * @description Only consider projects listings and pools that contains at least this amount of credits (Tonnes)
+       * @type number | undefined
+       */
+      minSupply?: number;
+    }
+  | undefined;
+export type GetUsersWalletorhandleQuery = {
+  Response: GetUsersWalletorhandleQueryResponse;
+  PathParams: GetUsersWalletorhandlePathParams;
+  QueryParams: GetUsersWalletorhandleQueryParams;
 };
-export namespace GetUsersWalletorhandleQuery {
-  export type Response = GetUsersWalletorhandleQueryResponse;
-  export type PathParams = GetUsersWalletorhandlePathParams;
-  export type QueryParams = GetUsersWalletorhandleQueryParams;
-}

@@ -7,6 +7,6 @@ export type GetCountriesQueryResponse = {
    */
   id: string;
 }[];
-export namespace GetCountriesQuery {
-  export type Response = GetCountriesQueryResponse;
-}
+export type GetCountriesQuery = {
+  Response: GetCountriesQueryResponse;
+};

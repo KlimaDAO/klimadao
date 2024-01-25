@@ -5,8 +5,9 @@ interface Retirement {
   beneficiary_name: string;
   retirement_message: string;
   quantity: string;
-  retirement_token: string;
+  retirement_token: string | null;
   project_address: string | null;
+  listing_id: string | null;
 }
 
 interface Params {

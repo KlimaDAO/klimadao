@@ -7,8 +7,5 @@ export * from "./useGetProjectsId";
 export * from "./useGetProjectsIdActivity";
 export * from "./useGetPurchases";
 export * from "./useGetPurchasesId";
-export * from "./useGetRetirements";
-export * from "./useGetRetirementsId";
-export * from "./useGetRetirementsIdProvenance";
 export * from "./useGetUsersWalletorhandle";
 export * from "./useGetVintages";

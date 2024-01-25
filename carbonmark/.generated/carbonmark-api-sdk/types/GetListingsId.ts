@@ -105,11 +105,13 @@ export type GetListingsIdQueryResponse = {
   symbol?: string;
 };
 
-export type GetListingsIdQueryParams = {
-  network?: Def1;
+export type GetListingsIdQueryParams =
+  | {
+      network?: Def1;
+    }
+  | undefined;
+export type GetListingsIdQuery = {
+  Response: GetListingsIdQueryResponse;
+  PathParams: GetListingsIdPathParams;
+  QueryParams: GetListingsIdQueryParams;
 };
-export namespace GetListingsIdQuery {
-  export type Response = GetListingsIdQueryResponse;
-  export type PathParams = GetListingsIdPathParams;
-  export type QueryParams = GetListingsIdQueryParams;
-}

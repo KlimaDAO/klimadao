@@ -93,7 +93,6 @@ export const getProjectPoolInfo = (
     }),
     initialStats
   );
-
   // project bigNumber stats
   const stats: Stats = {
     totalBridged: parseFloat(
@@ -106,6 +105,7 @@ export const getProjectPoolInfo = (
       ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
     ),
   };
+
   const poolInfoMap = Object.keys(POOL_INFO).reduce<Partial<PoolInfoMap>>(
     (prevMap, poolName) => {
       const poolAddress = POOL_INFO[poolName].poolAddress;

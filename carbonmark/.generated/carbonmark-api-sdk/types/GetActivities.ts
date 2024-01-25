@@ -43,25 +43,27 @@ export type GetActivitiesQueryResponse = {
   } | null;
 }[];
 
-export type GetActivitiesQueryParams = {
-  network?: Def1;
-  /**
-   * @type array | undefined
-   */
-  projectId?: string[];
-  /**
-   * @type array | undefined
-   */
-  activityType?: (
-    | "CreatedListing"
-    | "DeletedListing"
-    | "Purchase"
-    | "Sold"
-    | "UpdatedPrice"
-    | "UpdatedQuantity"
-  )[];
+export type GetActivitiesQueryParams =
+  | {
+      network?: Def1;
+      /**
+       * @type array | undefined
+       */
+      projectId?: string[];
+      /**
+       * @type array | undefined
+       */
+      activityType?: (
+        | "CreatedListing"
+        | "DeletedListing"
+        | "Purchase"
+        | "Sold"
+        | "UpdatedPrice"
+        | "UpdatedQuantity"
+      )[];
+    }
+  | undefined;
+export type GetActivitiesQuery = {
+  Response: GetActivitiesQueryResponse;
+  QueryParams: GetActivitiesQueryParams;
 };
-export namespace GetActivitiesQuery {
-  export type Response = GetActivitiesQueryResponse;
-  export type QueryParams = GetActivitiesQueryParams;
-}

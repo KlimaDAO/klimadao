@@ -51,26 +51,28 @@ export type GetProjectsIdActivityQueryResponse = {
   } | null;
 }[];
 
-export type GetProjectsIdActivityQueryParams = {
-  network?: Def1;
-  /**
-   * @type array | undefined
-   */
-  projectId?: string[];
-  /**
-   * @type array | undefined
-   */
-  activityType?: (
-    | "CreatedListing"
-    | "DeletedListing"
-    | "Purchase"
-    | "Sold"
-    | "UpdatedPrice"
-    | "UpdatedQuantity"
-  )[];
+export type GetProjectsIdActivityQueryParams =
+  | {
+      network?: Def1;
+      /**
+       * @type array | undefined
+       */
+      projectId?: string[];
+      /**
+       * @type array | undefined
+       */
+      activityType?: (
+        | "CreatedListing"
+        | "DeletedListing"
+        | "Purchase"
+        | "Sold"
+        | "UpdatedPrice"
+        | "UpdatedQuantity"
+      )[];
+    }
+  | undefined;
+export type GetProjectsIdActivityQuery = {
+  Response: GetProjectsIdActivityQueryResponse;
+  PathParams: GetProjectsIdActivityPathParams;
+  QueryParams: GetProjectsIdActivityQueryParams;
 };
-export namespace GetProjectsIdActivityQuery {
-  export type Response = GetProjectsIdActivityQueryResponse;
-  export type PathParams = GetProjectsIdActivityPathParams;
-  export type QueryParams = GetProjectsIdActivityQueryParams;
-}
