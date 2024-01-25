@@ -366,6 +366,10 @@ msgstr "Confirm Purchase"
 msgid "Confirm Retirement"
 msgstr "Confirm Retirement"
 
+#: components/pages/Portfolio/ConnectedWallet/index.tsx:33
+msgid "Connected Wallet"
+msgstr "Connected Wallet"
+
 #: components/Footer/index.tsx:41
 #: components/pages/Home/index.tsx:553
 msgid "Contact"
@@ -1793,7 +1797,7 @@ msgstr "Your display name"
 msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 msgstr "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 
-#: components/pages/Portfolio/PortfolioSidebar.tsx:26
+#: components/pages/Portfolio/PortfolioSidebar.tsx:29
 #: components/pages/Users/SellerConnected/index.tsx:214
 msgid "Your seller data"
 msgstr "Your seller data"
