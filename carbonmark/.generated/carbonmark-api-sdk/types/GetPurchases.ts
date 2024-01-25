@@ -66,6 +66,10 @@ export type GetPurchasesQueryResponse = {
        * @type string
        */
       vintage: string;
+      /**
+       * @type string | undefined
+       */
+      serialization?: string;
     };
   };
   /**
@@ -78,3 +82,7 @@ export type GetPurchasesQueryResponse = {
 export type GetPurchasesQueryParams = {
   network?: Def1;
 };
+export namespace GetPurchasesQuery {
+  export type Response = GetPurchasesQueryResponse;
+  export type QueryParams = GetPurchasesQueryParams;
+}

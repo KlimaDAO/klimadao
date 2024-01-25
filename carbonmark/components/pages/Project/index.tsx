@@ -60,6 +60,7 @@ const Page: NextPage<PageProps> = (props) => {
   const { data: activities } = useGetProjectsIdActivity(props.projectID, {
     activityType: VISIBLE_ACTIVITIES,
   });
+
   const [isExpanded, setIsExpanded] = useState(false);
   const bestPrice = project?.price;
   // Project should always be defined from static page props!

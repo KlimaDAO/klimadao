@@ -1,4 +1,4 @@
-import { cx } from "@emotion/css";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -33,11 +33,16 @@ interface Props {
 
 export const AssetProject: FC<Props> = (props) => {
   const { locale } = useRouter();
+  const { networkLabel } = useWeb3();
   const category = props.asset.project?.methodologies?.[0]?.category || "Other";
 
   const isSellable = hasListableBalance(props.asset, props.listings);
   const listedBalance = getListedBalance(props.asset, props.listings);
   const unlistedBalance = getUnlistedBalance(props.asset, props.listings);
+
+  const constructUrl = () => {
+    return `/portfolio/${props.asset.token.id}/retire?network=${networkLabel}&vintage=${props.asset.project?.vintage}`;
+  };
 
   return (
     <Card>
@@ -83,12 +88,9 @@ export const AssetProject: FC<Props> = (props) => {
       <div className={styles.buttons}>
         <ButtonPrimary
           label={<Trans>Retire</Trans>}
-          href={`/portfolio/${props.asset.token.id}/retire`}
-          renderLink={(linkProps) => (
-            <div className={cx({ [styles.disabled]: unlistedBalance <= 0 })}>
-              <Link {...linkProps} />
-            </div>
-          )}
+          disabled={unlistedBalance <= 0}
+          href={constructUrl()}
+          renderLink={(linkProps) => <Link {...linkProps} />}
           onClick={() => {
             LO.track("Retire: Retire Button Clicked");
           }}

@@ -1,13 +1,10 @@
 import { cx } from "@emotion/css";
-import {
-  getTotalCarbonRetired,
-  getTotalRetirements,
-  trimWithLocale,
-  useWeb3,
-} from "@klimadao/lib/utils";
+import { formatUnits, trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
+import { ethers } from "ethers";
+import { queryKlimaRetiresByAddress } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
@@ -34,14 +31,19 @@ export const RetireOverview: FC = () => {
 
       try {
         setIsLoadingTotals(true);
+        const klimaRetires = await queryKlimaRetiresByAddress(address);
 
-        const [totalRetirements, totalCarbonRetired] = await Promise.all([
-          getTotalRetirements({ beneficiaryAddress: address }),
-          getTotalCarbonRetired({ beneficiaryAddress: address }),
-        ]);
+        const totalRetiredTonnesWei = klimaRetires.reduce((acc, r) => {
+          const amount = r.retire.amount;
+          return acc.add(amount);
+        }, ethers.BigNumber.from(0));
 
-        setTotalRetirements(totalRetirements);
-        setTotalCarbonRetired(totalCarbonRetired);
+        const formattedTotalRetiredTonnes = formatUnits(
+          totalRetiredTonnesWei,
+          18
+        );
+        setTotalRetirements(klimaRetires.length);
+        setTotalCarbonRetired(formattedTotalRetiredTonnes.toString());
       } catch (e) {
         console.error(e);
         setError(t`There was an error getting your total retirement data`);

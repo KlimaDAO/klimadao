@@ -60,14 +60,11 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   useEffect(() => {
     if (isConnected && !isLoading && carbonmarkUser) {
       function createRetirementAsset() {
-        // unlikely, but this allows for duplicate projects
-        const targetCredit = Array.isArray(props.project)
-          ? props.project[0]
-          : undefined;
+        const targetCredit = props.project;
 
         if (targetCredit && carbonmarkUser?.assets) {
           const asset = carbonmarkUser?.assets.filter((asset) => {
-            return asset.token.id == targetCredit.id;
+            return asset.token.id == targetCredit.tokenAddress;
           })[0];
 
           if (!asset) {

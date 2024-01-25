@@ -62,13 +62,7 @@ export const RetirementItem: FC<Props> = (props) => {
       <div className="content">
         <div className="amount">
           <Text>
-            {trimWithLocale(
-              retirement.retire.credit.project.registry.startsWith("ICR")
-                ? retirement.retire.amount
-                : formatUnits(retirement.retire.amount),
-              4,
-              locale
-            )}
+            {trimWithLocale(formatUnits(retirement.retire.amount), 4, locale)}
           </Text>
           <Text color="lightest">
             {(tokenData && tokenData.label) ||

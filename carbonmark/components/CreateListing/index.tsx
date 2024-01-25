@@ -3,6 +3,7 @@ import { t } from "@lingui/macro";
 import { Transaction } from "components/CreateListing/Transaction";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
+import { constants } from "ethers";
 import {
   approveTokenSpend,
   createListingTransaction,
@@ -63,10 +64,13 @@ export const CreateListing: FC<Props> = (props) => {
   const onAddListingFormSubmit = async (values: FormValues) => {
     LO.track("Listing: Create Listing Clicked");
     setIsLoading(true);
+
     try {
       if (!address) return;
+
       const allowance = await getCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
+        tokenId: values.tokenId ?? undefined,
         userAddress: address,
         network: networkLabel,
       });
@@ -96,6 +100,13 @@ export const CreateListing: FC<Props> = (props) => {
    */
   const hasApproval = () => {
     if (!Number(inputValues?.amount)) return false;
+
+    const isERC1155 = !!inputValues?.tokenId;
+
+    // 1155 approvals are all or nothing approvals across all tokenIds and amount
+    if (isERC1155) {
+      return currentAllowance === constants.MaxUint256.toString();
+    }
     return (
       Number(currentAllowance || "0") === getTotalAssetApproval(inputValues)
     );
@@ -107,8 +118,10 @@ export const CreateListing: FC<Props> = (props) => {
 
     try {
       const newAllowanceValue = getTotalAssetApproval(inputValues).toString();
+
       await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
+        tokenId: inputValues?.tokenId,
         spender: "carbonmark",
         signer: provider.getSigner(),
         value: newAllowanceValue,
@@ -125,6 +138,7 @@ export const CreateListing: FC<Props> = (props) => {
     try {
       await createListingTransaction({
         tokenAddress: inputValues.tokenAddress,
+        tokenId: inputValues.tokenId ?? undefined,
         amount: inputValues.amount,
         unitPrice: inputValues.unitPrice,
         provider,
@@ -146,7 +160,6 @@ export const CreateListing: FC<Props> = (props) => {
       ...a,
       amount: getUnlistedBalance(a, props.listings).toString(),
     }));
-
   return (
     <Modal
       title={t`Create a listing`}

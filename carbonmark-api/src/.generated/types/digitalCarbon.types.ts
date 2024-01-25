@@ -4385,7 +4385,7 @@ export const PoolFragmentFragmentDoc = gql`
 export const GetDigitalCarbonProjectsVintagesDocument = gql`
     query getDigitalCarbonProjectsVintages {
   carbonProjects(first: 1000) {
-    carbonCredits {
+    carbonCredits(where: {currentSupply_not: "0", isExAnte: false}) {
       vintage
     }
   }

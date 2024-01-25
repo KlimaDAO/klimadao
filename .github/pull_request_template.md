@@ -14,6 +14,15 @@
 Closes <issue-number>
 Also related to <issue-number>
 
+## How to Test
+<!--
+ Pleas eprovide a shrot description of how a reviewer can confirm the changes
+-->
+
+1. _step1_
+2. _step2_
+3. _step3_
+
 ## Notes For QA
 <!--
 

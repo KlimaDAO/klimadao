@@ -72,10 +72,10 @@ const testnet: typeof mainnet = {
   staking: "0x2960DCE5aE04eF503b36f8581EA5Ac5238632092",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "",
-  retirementAggregatorV2: "",
+  retirementAggregatorV2: "0x62d3897089C93A0fa2B0746A6975Ec4693c13cb8",
   liveOffsetWallet: "",
   liveOffsetContract: "",
-  carbonmark: "0x5dc7083cd6ff9a46c36661750fabcbb9ae2abed2", // v2 Diamond
+  carbonmark: "0xD973F90a4C49607EABeFdb2C45d4F39436c7e7fA",
 };
 
 export const addresses = {
@@ -146,6 +146,7 @@ export const urls = {
     "https://transferto.xyz/showcase/carbon-offset?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
   polyscanGasStation: "https://gasstation.polygon.technology/v2",
   polygonscan: "https://polygonscan.com",
+  mumbaiPolygonscan: "https://mumbai.polygonscan.com",
   polygonBridge: "https://wallet.polygon.technology/polygon/bridge/deposit",
   polygonTor: "https://polygon.tor.us/",
   creolIndividualCalculator: "https://klima.creol.io/#/footprint",
@@ -281,7 +282,7 @@ export const subgraphs = {
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
-  carbonmark: `${SUBGRAPH_URL_ID}/QmdDsUGwLLkzsFmXneaNc13BS43v8wFZL7vDTqWK4YZp1Z`,
+  carbonmark: `${SUBGRAPH_URL_ID}/QmXrzcwG5b31hE1nDzT5NCAiHfM9stwMLqs8uk9enJiyPf`,
 };
 
 /** Definitions of available registries */
@@ -297,6 +298,11 @@ export const REGISTRIES = {
     title: "Gold Standard",
     url: "https://registry.goldstandard.org",
   },
+  ICR: {
+    id: "ICR",
+    title: "International Carbon Registry",
+    url: "https://www.carbonregistry.com",
+  },
 };
 
 export const verra = {
@@ -309,3 +315,13 @@ export const goldStandard = {
 };
 
 export const projectIDRegExp = /^(VCS|PURO|ICR|GS)-\d+-(19\d{2}|20\d{2})$/;
+export const ICR_CONFIG = {
+  polygon: {
+    url: "https://api.carbonregistry.com/v0",
+    apiKey: process.env.ICR_MAINNET_API_KEY,
+  },
+  mumbai: {
+    url: "https://gaia-api-dev.mojoflower.io/v0",
+    apiKey: process.env.ICR_MUMBAI_API_KEY,
+  },
+};

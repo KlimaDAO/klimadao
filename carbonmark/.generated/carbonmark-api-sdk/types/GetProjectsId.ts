@@ -236,6 +236,11 @@ export type GetProjectsIdQueryResponse = {
            */
           methodology: string;
         };
+        /**
+         * @description Symbol of the token
+         * @type string | undefined
+         */
+        symbol?: string;
       }[]
     | null;
   /**
@@ -255,6 +260,14 @@ export type GetProjectsIdQueryResponse = {
    * @type boolean
    */
   hasSupply: boolean;
+  /**
+   * @type string | undefined
+   */
+  tokenId?: string;
+  /**
+   * @type string | undefined
+   */
+  serialization?: string;
 };
 
 export type GetProjectsIdQueryParams = {

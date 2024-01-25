@@ -1,3 +1,4 @@
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
@@ -6,8 +7,7 @@ import { Card } from "components/Card";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
-import { urls } from "lib/constants";
-import { createProjectLink } from "lib/createUrls";
+import { createProjectLink, getPolygonScanBaseUrl } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { Purchase } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
@@ -22,6 +22,7 @@ export type PageProps = {
 
 export const PurchaseReceipt: NextPage<PageProps> = (props) => {
   const { locale } = useRouter();
+  const { networkLabel } = useWeb3();
   const amount =
     props.purchase?.amount && formatToTonnes(props.purchase.amount, locale);
   const metaDescription = props.purchase
@@ -78,7 +79,9 @@ export const PurchaseReceipt: NextPage<PageProps> = (props) => {
                 <Text>
                   View transaction on{" "}
                   <a
-                    href={`${urls.blockExplorer}/tx/${props.transaction}`}
+                    href={`${getPolygonScanBaseUrl(networkLabel)}/tx/${
+                      props.transaction
+                    }`}
                     target="_blank"
                     rel="noreferrer"
                   >

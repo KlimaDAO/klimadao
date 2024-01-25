@@ -1,4 +1,5 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
+import { formatUnits } from "@klimadao/lib/utils";
 import { isAddress } from "ethers-v6";
 import { queryProjects } from "lib/cms/queriesProjects";
 import { NextApiHandler } from "next";
@@ -56,8 +57,13 @@ const getRetirements: NextApiHandler<
         // attach name from CMS to retirement data
         const mergedRetirements = limittedRetirements.map((r) => ({
           ...r,
+          retire: {
+            ...r.retire,
+            amount: formatUnits(r.retire.amount, 18),
+          },
           offset: {
             ...r.retire,
+            amount: formatUnits(r.retire.amount, 18),
             name:
               cmsProjects.find(
                 (p) => p.id === r.retire.credit.project.projectID
