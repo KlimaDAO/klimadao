@@ -41,6 +41,7 @@ export const ProjectModel = Type.Object({
     )
   ),
   hasSupply: Type.Boolean(),
+  tokenId: Type.Optional(Type.String()),
 });
 
 export type Project = Static<typeof ProjectModel>;

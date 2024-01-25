@@ -7,6 +7,7 @@ export const AssetModel = Type.Object({
     name: Type.String(),
     symbol: Type.String(),
     decimals: Type.Number(),
+    tokenId: Type.Optional(Type.String()),
   }),
   amount: Type.String(),
 });

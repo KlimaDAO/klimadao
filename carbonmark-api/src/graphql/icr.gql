@@ -1,0 +1,8 @@
+query getHoldingsByAddress($id: ID!) {
+  holder(id: $id) {
+    id
+    exPostAmounts {
+      ...exPostAmountsFragment
+    }
+  }
+}

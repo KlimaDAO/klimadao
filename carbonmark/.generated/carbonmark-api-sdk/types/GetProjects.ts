@@ -252,6 +252,14 @@ export type GetProjectsQueryResponse = {
    * @type boolean
    */
   hasSupply: boolean;
+  /**
+   * @type string | undefined
+   */
+  tokenId?: string;
+  /**
+   * @type string | undefined
+   */
+  serialization?: string;
 }[];
 
 export type GetProjectsQueryParams = {

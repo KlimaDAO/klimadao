@@ -27,6 +27,7 @@ export const Portfolio: NextPage = () => {
     initializing,
     networkLabel,
   } = useWeb3();
+
   const {
     data: carbonmarkUser,
     isLoading,

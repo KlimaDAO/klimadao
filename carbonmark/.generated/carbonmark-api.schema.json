@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 5.2.1** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v5.2.1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 5.3.0** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v5.3.0.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "5.2.1"
+    "version": "5.3.0"
   },
   "components": {
     "schemas": {
@@ -488,6 +488,12 @@
           },
           "hasSupply": {
             "type": "boolean"
+          },
+          "tokenId": {
+            "type": "string"
+          },
+          "serialization": {
+            "type": "string"
           }
         },
         "required": [
@@ -1010,6 +1016,12 @@
                       "2008"
                     ],
                     "type": "string"
+                  },
+                  "serialization": {
+                    "examples": [
+                      "ICR-ISL-354-78040-14-R-0-2021"
+                    ],
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1460,6 +1472,9 @@
                     },
                     "decimals": {
                       "type": "number"
+                    },
+                    "tokenId": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -1508,6 +1523,9 @@
               },
               "decimals": {
                 "type": "number"
+              },
+              "tokenId": {
+                "type": "string"
               }
             },
             "required": [
@@ -2592,6 +2610,12 @@
                       },
                       "hasSupply": {
                         "type": "boolean"
+                      },
+                      "tokenId": {
+                        "type": "string"
+                      },
+                      "serialization": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2718,6 +2742,12 @@
                               "vintage": {
                                 "examples": [
                                   "2008"
+                                ],
+                                "type": "string"
+                              },
+                              "serialization": {
+                                "examples": [
+                                  "ICR-ISL-354-78040-14-R-0-2021"
                                 ],
                                 "type": "string"
                               }
@@ -3760,6 +3790,12 @@
                     },
                     "hasSupply": {
                       "type": "boolean"
+                    },
+                    "tokenId": {
+                      "type": "string"
+                    },
+                    "serialization": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -3893,6 +3929,12 @@
                             "vintage": {
                               "examples": [
                                 "2008"
+                              ],
+                              "type": "string"
+                            },
+                            "serialization": {
+                              "examples": [
+                                "ICR-ISL-354-78040-14-R-0-2021"
                               ],
                               "type": "string"
                             }
@@ -4411,6 +4453,9 @@
                               },
                               "decimals": {
                                 "type": "number"
+                              },
+                              "tokenId": {
+                                "type": "string"
                               }
                             },
                             "required": [
@@ -4791,7 +4836,7 @@
   },
   "servers": [
     {
-      "url": "https://v5.2.1.api.carbonmark.com"
+      "url": "https://v5.3.0.api.carbonmark.com"
     }
   ],
   "externalDocs": {
