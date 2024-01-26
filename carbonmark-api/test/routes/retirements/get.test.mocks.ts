@@ -1,8 +1,9 @@
 import { pick } from "lodash";
 import nock from "nock";
+import { Retire } from "../../../src/.generated/types/digitalCarbon.types";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { fixtures } from "../../fixtures";
-
+import { mockFirebase } from "../../test.utils";
 const mockProfile = fixtures.firebase.profile;
 const mockRetirement = fixtures.digitalCarbon.retirement;
 
@@ -27,27 +28,26 @@ export const expectedTransformedRetirement = {
     retired: 0,
     crossChainSupply: 0,
   },
-  retireeProfile: mockProfile,
+  retireeProfile: {
+    ...mockProfile,
+    updatedAt: 1702468323,
+    createdAt: 1683523732,
+  },
 };
-
 export const mockDatabaseProfile = () =>
-  jest.mock("../../../src//utils/helpers/users.utils", () => {
-    const carbonProjectsUtils = jest.requireActual(
-      "../../../src/utils/helpers/users.utils"
-    );
-    return {
-      ...carbonProjectsUtils,
-      getProfileByAddress: jest.fn(() => {
-        return mockProfile;
-      }),
-    };
+  mockFirebase({
+    get: jest.fn(() => ({
+      exists: true,
+      data: () => mockProfile,
+      docs: [{ data: () => mockProfile }],
+    })),
   });
 
-export const mockDigitalCarbonRetirements = () =>
+export const mockDigitalCarbonRetirements = (override?: Retire[]) =>
   nock(GRAPH_URLS["polygon"].digitalCarbon)
     .post("")
     .reply(200, {
       data: {
-        retires: [fixtures.digitalCarbon.retirement],
+        retires: override ?? [fixtures.digitalCarbon.retirement],
       },
     });

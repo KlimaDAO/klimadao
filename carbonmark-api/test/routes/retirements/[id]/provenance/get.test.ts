@@ -7,7 +7,7 @@ import { mockDigitalCarbonProvenanceRecords } from "./get.test.mocks";
 
 const mockProvenanceRecord = fixtures.digitalCarbon.provenanceRecord;
 
-describe("GET /retirements/:account_id/:retirement_index/provenance", () => {
+describe("GET /retirements/:id/provenance", () => {
   let fastify: FastifyInstance;
 
   // Setup the server
@@ -45,5 +45,13 @@ describe("GET /retirements/:account_id/:retirement_index/provenance", () => {
     };
     expect(response.statusCode).toEqual(200);
     expect(record).toEqual([transformedRecord, transformedRecord]);
+  });
+  test("Retirement provenance found", async () => {
+    mockDigitalCarbonProvenanceRecords([]);
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/retirements/0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7519/provenance`,
+    });
+    expect(response.statusCode).toEqual(404);
   });
 });

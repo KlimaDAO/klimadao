@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-25 15:39+0000\n"
+"POT-Creation-Date: 2024-01-26 14:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -384,7 +384,7 @@ msgstr ""
 
 #: components/pages/Portfolio/ConnectedWallet/index.tsx:33
 msgid "Connected Wallet"
-msgstr ""
+msgstr "Verbundene Wallet"
 
 #: components/Footer/index.tsx:41
 #: components/pages/Home/index.tsx:553

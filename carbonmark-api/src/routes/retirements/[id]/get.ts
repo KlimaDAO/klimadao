@@ -4,7 +4,7 @@ import { formatRetirement } from "../../../utils/helpers/retirements.utils";
 import { getProfileByAddress } from "../../../utils/helpers/users.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
-// Handler function for the "/retirements/klima/:account_id/:retirement_index" route
+// Handler function for the "/retirements/klima/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{
