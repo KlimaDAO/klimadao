@@ -38,7 +38,7 @@ const RetirementCardItem = (props: {
         {props.title}
       </Text>
       <div className={styles.iconAndText}>
-        <div>{props.icon}</div>
+        {props.icon}
         <Text t="body1" color="lightest">
           {props.text}
         </Text>

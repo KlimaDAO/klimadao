@@ -136,10 +136,10 @@ export const RetirementProvenancePage: NextPage<
       <Navigation activePage="Home" transparent={false} />
       <Section className={styles.section} variant="gray">
         <div className={styles.content}>
-          <Text t="h1">
-            <Trans>Carbon provenance</Trans>
+          <Text t="h1" align="center">
+            <Trans>Carbon Provenance</Trans>
           </Text>
-          <Text t="body1">
+          <Text t="body1" align="center">
             <Trans>
               View the entire transaction history - from bridging event until
               retirement - for each credit and partial credit included in the

@@ -8,6 +8,7 @@ import * as styles from "./styles";
 type Props = {
   quantity: number;
   locale?: string;
+  className?: string;
 };
 
 /**
@@ -23,7 +24,7 @@ export const Quantity: FC<Props> = (props) => {
   });
 
   return (
-    <Text t="body2" className={styles.quantity}>
+    <Text t="body3" className={`${props.className} ${styles.quantity}`}>
       <Trans>{formattedAmount} tonnes</Trans>
     </Text>
   );

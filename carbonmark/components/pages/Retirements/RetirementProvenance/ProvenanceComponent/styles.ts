@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const wrapper = css`
   background-color: var(--surface-01);
@@ -28,12 +29,14 @@ export const right = css`
 
 export const timeline = css`
   max-width: 36rem;
+  position: relative;
+  left: -5rem;
 `;
 
 export const timelineItem = css`
   overflow: hidden;
   min-height: auto;
-  min-width: 48rem;
+  min-width: 56rem;
   transition: max-height 0.2s;
 `;
 
@@ -63,6 +66,18 @@ export const contentFooter = css`
   display: flex;
   gap: 0.8rem;
   align-items: center;
+  max-width: 20rem;
+  ${breakpoints.medium} {
+    max-width: none;
+  }
+`;
+
+export const bridgeContentFooter = css`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: start;
+  max-width: calc(100vw - 20rem);
 `;
 
 export const inline = css`
@@ -74,12 +89,13 @@ export const verraLinkAndTooltip = css`
   display: flex;
   gap: 0.8rem;
   align-items: center;
-  a {
-    font-size: 1.6rem;
-  }
   svg {
     color: var(--font-03);
   }
+`;
+
+export const timelineItemDivider = css`
+  max-width: min(calc(100vw - 15rem), 56rem);
 `;
 
 export const divider = css`

@@ -16,10 +16,16 @@ export const content = css`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 64rem;
   align-items: center;
   text-align: center;
   margin: 16px;
+  max-width: min(100vw, 65rem);
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  ${breakpoints.medium} {
+    padding-top: 6.8rem;
+    padding-bottom: 4rem;
+  }
 `;
 
 export const title = css`
@@ -30,6 +36,9 @@ export const header = css`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  ${breakpoints.medium} {
+    flex-direction: row;
+  }
 `;
 
 export const social = css`

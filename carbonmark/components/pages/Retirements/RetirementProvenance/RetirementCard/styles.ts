@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const wrapper = css`
   background-color: var(--surface-01);
@@ -11,8 +12,13 @@ export const wrapper = css`
 `;
 export const header = css`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 4rem;
+  gap: 2rem;
+  ${breakpoints.large} {
+    flex-direction: row;
+    gap: 4rem;
+  }
 `;
 export const headerItem = css`
   display: flex;
@@ -22,10 +28,12 @@ export const headerItem = css`
   p {
     text-align: center;
   }
+  align-items: center;
 `;
 export const iconAndText = css`
   display: flex;
   align-items: center;
+  text-align: center;
   gap: 0.8rem;
   p {
     line-height: 2.7rem;

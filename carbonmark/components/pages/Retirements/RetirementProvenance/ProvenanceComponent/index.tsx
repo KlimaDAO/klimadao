@@ -157,7 +157,11 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.headerItem}>
-          <Text t="body2" color="lightest" className={styles.iconAndText}>
+          <Text
+            t="responsiveBody2"
+            color="lightest"
+            className={styles.iconAndText}
+          >
             <Token fontSize="large" />
             <Trans>Credit ID</Trans>
           </Text>
@@ -205,7 +209,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                 <div className={styles.content}>
                   <div className={styles.contentHeader}>
                     <Text t="h4">{recordInfo(record)?.label}</Text>
-                    <Text t="body3" color="lightest">
+                    <Text t="responsiveBody3" color="lightest">
                       {getFormattedDate(record.createdAt, locale)}
                     </Text>
                   </div>
@@ -213,12 +217,17 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                     <>
                       <div className={styles.contentFooter}>
                         <Quantity quantity={record.originalAmount} />
-                        <Text t="body1">{concatAddress(record.sender)}</Text>
-                        <Text t="body1" color="lightest">
+                        <Text t="responsiveBody1">
+                          {concatAddress(record.sender)}
+                        </Text>
+                        <Text t="responsiveBody1" color="lightest">
                           via Carbonmark
                         </Text>
                       </div>
-                      <Divider onClick={() => setShowTransfers(!showTransfers)}>
+                      <Divider
+                        onClick={() => setShowTransfers(!showTransfers)}
+                        className={styles.timelineItemDivider}
+                      >
                         <a className={styles.divider}>
                           <span>{dividerText}</span>
                           {dividerIcon}
@@ -229,21 +238,27 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                   {record.transactionType == "TRANSFER" && (
                     <div className={styles.contentFooter}>
                       <Quantity quantity={record.originalAmount} />
-                      <Text t="body1">{concatAddress(record.sender)}</Text>
+                      <Text t="responsiveBody1">
+                        {concatAddress(record.sender)}
+                      </Text>
                       <East />
-                      <Text t="body1">{concatAddress(record.receiver)}</Text>
+                      <Text t="responsiveBody1">
+                        {concatAddress(record.receiver)}
+                      </Text>
                     </div>
                   )}
                   {record.transactionType == "ORIGINATION" && (
-                    <div>
+                    <div
+                      className={`${styles.contentFooter} ${styles.bridgeContentFooter}`}
+                    >
                       {record.registrySerialNumbers[0] && (
                         <div>
-                          <Text t="body2" className={styles.inline}>
+                          <Text t="responsiveBody2" className={styles.inline}>
                             <Trans>Serial Number</Trans>
                           </Text>
                           :{" "}
                           <Text
-                            t="body2"
+                            t="responsiveBody2"
                             color="lightest"
                             className={styles.inline}
                           >
@@ -256,11 +271,13 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                       )}
                       {projectId && (
                         <div className={styles.verraLinkAndTooltip}>
-                          <A
-                            href={`${verra.appSearch}?programType=ISSUANCE&exactResId=${projectId}`}
-                          >
-                            <Trans>View issuance on Verra</Trans>
-                          </A>
+                          <Text t="responsiveBody2">
+                            <A
+                              href={`${verra.appSearch}?programType=ISSUANCE&exactResId=${projectId}`}
+                            >
+                              <Trans>View issuance on Verra</Trans>
+                            </A>
+                          </Text>
                           <TextInfoTooltip
                             align="start"
                             tooltip={t`On the Verra page, search (CTRL+F) for the specific serial number.`}
