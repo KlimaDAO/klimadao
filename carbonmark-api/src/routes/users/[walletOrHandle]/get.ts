@@ -8,7 +8,10 @@ import {
   getProfileByHandle,
   getUserProfilesByIds,
 } from "../../../utils/helpers/users.utils";
-import { formatListing } from "../../../utils/marketplace.utils";
+import {
+  formatAmountByRegistry,
+  formatListing,
+} from "../../../utils/marketplace.utils";
 import { Params, Querystring, schema } from "./get.schema";
 import {
   getHoldingsByWallet,
@@ -82,15 +85,17 @@ const handler = (fastify: FastifyInstance) =>
             handle:
               UserProfilesMap.get(a.seller.id.toLowerCase())?.handle || null,
           };
+
+          const registry = a.project.key.split("-")[0];
+
           return {
             ...a,
-            amount: a.project.key.startsWith("ICR")
-              ? a.amount
-              : utils.formatUnits(a.amount || "0", 18),
+            amount: formatAmountByRegistry(registry, a.amount || "0"),
             price: utils.formatUnits(a.price || "0", 6),
-            previousAmount: a.project.key.startsWith("ICR")
-              ? a.previousAmount
-              : utils.formatUnits(a.previousAmount || "0", 18),
+            previousAmount: formatAmountByRegistry(
+              registry,
+              a.previousAmount || "0"
+            ),
             previousPrice: utils.formatUnits(a.previousPrice || "0", 6),
             buyer: buyer || null,
             seller: seller || null,

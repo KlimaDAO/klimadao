@@ -37,7 +37,7 @@ export type GetProjectListing = NonNullable<
 /** Format amounts or quantities by registry decimals */
 /** Currently all registries use 18 decimals except ICR, which uses 0  */
 
-export const formatAmountByRegistry = (quantity: string, registry: string) => {
+export const formatAmountByRegistry = (registry: string, quantity: string) => {
   if (registry === REGISTRIES.ICR.id) {
     return formatUnits(quantity, REGISTRIES.ICR.decimals);
   } else {
@@ -53,19 +53,13 @@ export const formatListing = (listing: GetProjectListing): ListingModel => {
   return {
     ...formatGraphTimestamps(listing),
 
-    leftToSell:
-      registry === "ICR"
-        ? listing.leftToSell
-        : utils.formatUnits(listing.leftToSell, 18),
+    leftToSell: formatAmountByRegistry(registry, listing.leftToSell),
     singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
-    minFillAmount:
-      registry === "ICR"
-        ? listing.minFillAmount
-        : utils.formatUnits(listing.minFillAmount, 18),
-    totalAmountToSell:
-      registry === "ICR"
-        ? listing.totalAmountToSell
-        : utils.formatUnits(listing.totalAmountToSell, 18),
+    minFillAmount: formatAmountByRegistry(registry, listing.minFillAmount),
+    totalAmountToSell: formatAmountByRegistry(
+      registry,
+      listing.totalAmountToSell
+    ),
     expiration: Number(listing.expiration),
     project: {
       ...listing.project,
