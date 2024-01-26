@@ -4283,9 +4283,13 @@ export enum _SubgraphErrorPolicy_ {
   deny = 'deny'
 }
 
+export type ProvenanceRecordFragmentFragment = { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string };
+
+export type RetireFragmentFragment = { __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, pool: { __typename?: 'CarbonPool', id: any } | null, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } };
+
 export type DigitalCarbonProjectFragmentFragment = { __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string };
 
-export type CarbonCreditFragmentFragment = { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string };
+export type CarbonCreditFragmentFragment = { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, project: { __typename?: 'CarbonProject', id: string } };
 
 export type PoolBalancesFragmentFragment = { __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } };
 
@@ -4319,7 +4323,7 @@ export type GetProjectCreditsQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectCreditsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }> }> }> };
+export type GetProjectCreditsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }>, project: { __typename?: 'CarbonProject', id: string } }> }> };
 
 export type FindDigitalCarbonProjectsQueryVariables = Exact<{
   country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
@@ -4329,8 +4333,64 @@ export type FindDigitalCarbonProjectsQueryVariables = Exact<{
 }>;
 
 
-export type FindDigitalCarbonProjectsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }> }> }> };
+export type FindDigitalCarbonProjectsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', id: string, name: string, projectID: string, methodologies: string, country: string, category: string, registry: Registry, region: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }>, project: { __typename?: 'CarbonProject', id: string } }> }> };
 
+export type GetRetirementByHashQueryVariables = Exact<{
+  hash: Scalars['Bytes'];
+}>;
+
+
+export type GetRetirementByHashQuery = { __typename?: 'Query', retires: Array<{ __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, credit: { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, project: { __typename?: 'CarbonProject', id: string } }, pool: { __typename?: 'CarbonPool', id: any } | null, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } }> };
+
+export type AllRetirementsQueryVariables = Exact<{
+  account_id: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type AllRetirementsQuery = { __typename?: 'Query', retires: Array<{ __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, credit: { __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, project: { __typename?: 'CarbonProject', id: string } }, pool: { __typename?: 'CarbonPool', id: any } | null, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } }> };
+
+export type GetProvenanceRecordsByHashQueryVariables = Exact<{
+  hash: Scalars['Bytes'];
+}>;
+
+
+export type GetProvenanceRecordsByHashQuery = { __typename?: 'Query', provenanceRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string }> }> };
+
+export const ProvenanceRecordFragmentFragmentDoc = gql`
+    fragment ProvenanceRecordFragment on ProvenanceRecord {
+  id
+  transactionType
+  registrySerialNumbers
+  token
+  sender
+  receiver
+  originalAmount
+  remainingAmount
+  createdAt
+  updatedAt
+}
+    `;
+export const RetireFragmentFragmentDoc = gql`
+    fragment RetireFragment on Retire {
+  id
+  bridgeID
+  hash
+  amount
+  pool {
+    id
+  }
+  beneficiaryAddress {
+    id
+  }
+  beneficiaryName
+  retirementMessage
+  retiringAddress {
+    id
+  }
+  retiringName
+  timestamp
+}
+    `;
 export const DigitalCarbonProjectFragmentFragmentDoc = gql`
     fragment DigitalCarbonProjectFragment on CarbonProject {
   id
@@ -4352,6 +4412,9 @@ export const CarbonCreditFragmentFragmentDoc = gql`
   bridgeProtocol
   bridged
   retired
+  project {
+    id
+  }
 }
     `;
 export const PoolBalancesFragmentFragmentDoc = gql`
@@ -4451,6 +4514,38 @@ export const FindDigitalCarbonProjectsDocument = gql`
 ${CarbonCreditFragmentFragmentDoc}
 ${PoolBalancesFragmentFragmentDoc}
 ${PoolFragmentFragmentDoc}`;
+export const GetRetirementByHashDocument = gql`
+    query getRetirementByHash($hash: Bytes!) {
+  retires(where: {hash: $hash}) {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
+    }
+  }
+}
+    ${RetireFragmentFragmentDoc}
+${CarbonCreditFragmentFragmentDoc}`;
+export const AllRetirementsDocument = gql`
+    query allRetirements($account_id: String) {
+  retires {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
+    }
+  }
+}
+    ${RetireFragmentFragmentDoc}
+${CarbonCreditFragmentFragmentDoc}`;
+export const GetProvenanceRecordsByHashDocument = gql`
+    query getProvenanceRecordsByHash($hash: Bytes!) {
+  provenanceRecords(where: {transactionHash: $hash}) {
+    ...ProvenanceRecordFragment
+    priorRecords(orderBy: createdAt, orderDirection: desc) {
+      ...ProvenanceRecordFragment
+    }
+  }
+}
+    ${ProvenanceRecordFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -4476,6 +4571,15 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     findDigitalCarbonProjects(variables?: FindDigitalCarbonProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindDigitalCarbonProjectsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<FindDigitalCarbonProjectsQuery>(FindDigitalCarbonProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findDigitalCarbonProjects', 'query');
+    },
+    getRetirementByHash(variables: GetRetirementByHashQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetRetirementByHashQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetRetirementByHashQuery>(GetRetirementByHashDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getRetirementByHash', 'query');
+    },
+    allRetirements(variables?: AllRetirementsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AllRetirementsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<AllRetirementsQuery>(AllRetirementsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'allRetirements', 'query');
+    },
+    getProvenanceRecordsByHash(variables: GetProvenanceRecordsByHashQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProvenanceRecordsByHashQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProvenanceRecordsByHashQuery>(GetProvenanceRecordsByHashDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProvenanceRecordsByHash', 'query');
     }
   };
 }
