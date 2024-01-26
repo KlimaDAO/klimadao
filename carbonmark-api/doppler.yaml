@@ -1,0 +1,3 @@
+setup:
+  - project: carbonmark-api
+    config: dev

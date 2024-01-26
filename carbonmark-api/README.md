@@ -12,39 +12,30 @@
 
 ### Prerequisites
 
-You will need to be authenticated to the following in order to run the project:
+You will need to be member with access to the following in order to run the project:
 
-- Vercel - https://vercel.com/klimadao/carbonmark-api
-
-- Firebase - https://console.firebase.google.com/project/klimadao-staging
-
-\*\*Note all `vercel` commands should be run from within the root klimadao (monorepo) directory.
-
-\*\*All others should be run from within the `carbonmark-api` folder
-
-### Link your local copy of the project with vercel
-
-Install the vercel CLI
-
-```sh
-npm i -g vercel
-```
-
-Run the following from the root of the repository, accepting all options and using KlimaDAO as the project scope:
-
-```sh
-vercel link -p carbonmark-api
-```
+- [Doppler](https://dashboard.doppler.com/workplace/65dd9a1d1328d1e51f61/team/users)
 
 ### Environment Variables
 
-Some important environment variables are stored in vercel and need to be downloaded to your machine.
+Secrets are managed via Doppler and exposed as environment variables during run time. Therefore we need to setup the Doppler CLI
+
+Install the doppler CLI
 
 ```sh
-# run from root klimadao folder
-vercel env pull --environment=development carbonmark-api/.env.local
+brew install doppler
+```
+Authenticate your terminal session
+
+```sh
+doppler login
 ```
 
+Setup the instance (accept to use the existing config)
+
+```sh
+doppler setup
+```
 
 
 ### Install dependencies
