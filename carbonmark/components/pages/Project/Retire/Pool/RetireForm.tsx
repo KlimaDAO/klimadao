@@ -76,6 +76,8 @@ export const RetireForm: FC<Props> = (props) => {
   const [costs, setCosts] = useState("");
 
   const { product } = props;
+  const defaultPaymentMethod: CarbonmarkPaymentMethod =
+    props.project.registry.startsWith("ICR") ? "usdc" : "fiat";
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -83,7 +85,7 @@ export const RetireForm: FC<Props> = (props) => {
       projectTokenAddress: isPool(product)
         ? product?.projectTokenAddress
         : undefined,
-      paymentMethod: "fiat",
+      paymentMethod: defaultPaymentMethod,
       ...inputValues,
     },
   });
@@ -98,7 +100,7 @@ export const RetireForm: FC<Props> = (props) => {
     // for the usdc icons to be visible for the required transition
     // on first load the default paymentMethod is set as usdc & then
     // immediately set to fiat.
-    methods.setValue("paymentMethod", "fiat");
+    methods.setValue("paymentMethod", defaultPaymentMethod);
   }, []);
 
   useEffect(() => {
