@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
-    "dev": "tsnd --respawn --transpile-only --exit-child src/server.ts --port 3003",
+    "dev": "doppler run -- tsnd --respawn --transpile-only --exit-child src/server.ts --port 3003",
     "test": "jest --coverage",
     "lint": "eslint . --ext .ts && tsc --noEmit",
     "start:test": "npm run build && fastify start -l info dist/app.js --port 3003",
