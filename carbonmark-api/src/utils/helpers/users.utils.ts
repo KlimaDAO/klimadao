@@ -1,15 +1,6 @@
 import { app } from "firebase-admin";
 import { chunk } from "lodash";
-
-export interface UserProfile {
-  address: string;
-  createdAt: number;
-  description: string;
-  handle: string;
-  profileImgUrl?: string | null;
-  updatedAt: number;
-  username: string;
-}
+import { UserProfile } from "../../models/UserProfile.model";
 
 /**
  * This function retrieves a user by their wallet address from the Firestore database.

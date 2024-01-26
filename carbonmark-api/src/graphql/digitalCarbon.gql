@@ -75,3 +75,30 @@ query findDigitalCarbonProjects(
     }
   }
 }
+
+query getRetirementByHash($hash: Bytes!) {
+  retires(where: { hash: $hash }) {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
+    }
+  }
+}
+
+query allRetirements($account_id: String) {
+  retires {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
+    }
+  }
+}
+
+query getProvenanceRecordsByHash($hash: Bytes!) {
+  provenanceRecords(where: { transactionHash: $hash }) {
+    ...ProvenanceRecordFragment
+    priorRecords(orderBy: createdAt, orderDirection: desc) {
+      ...ProvenanceRecordFragment
+    }
+  }
+}

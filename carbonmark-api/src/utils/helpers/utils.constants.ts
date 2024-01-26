@@ -1,9 +1,9 @@
 import { TOKEN_ADDRESSES } from "../../app.constants";
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- unable to type environment variables
-const ENV = (process.env.VERCEL_ENV ?? "development") as
-  | "development"
-  | "production";
+const ENV = (
+  process.env.VERCEL_ENV !== "production" ? "development" : "production"
+) as "development" | "production";
 
 export const TOKEN_POOLS = [
   {
@@ -31,6 +31,8 @@ export const TOKEN_POOLS = [
     fee: 0.25,
   },
 ] as const;
+
+export const MOSS_POOL = TOKEN_ADDRESSES[ENV].MOSS_POOL;
 
 export type TokenPool = (typeof TOKEN_POOLS)[number];
 
