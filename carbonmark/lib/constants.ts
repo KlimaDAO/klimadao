@@ -32,7 +32,7 @@ export const API_PROD_URL = "https://v5.3.0.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
- * Testnet data can  be accessed via `network=mumbai` query param
+ * Testnet data can be accessed via `network=mumbai` query param
  */
 const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
   ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app`
