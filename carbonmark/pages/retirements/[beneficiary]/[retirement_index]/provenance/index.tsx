@@ -1,5 +1,6 @@
 import {
   getRetirements,
+  getRetirementsId,
   getRetirementsIdProvenance,
 } from ".generated/carbonmark-api-sdk/clients";
 import {
@@ -68,13 +69,14 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    const retirement = (
+    const searchedRetirement = (
       await getRetirements({ beneficiaryAddress, retirementIndex })
     )[0];
 
-    if (retirement === undefined) {
+    if (searchedRetirement === undefined) {
       throw new Error("No retirement found");
     }
+    const retirement = await getRetirementsId(searchedRetirement.hash);
 
     const [provenance, translation] = await Promise.all([
       getRetirementsIdProvenance(retirement.hash),
