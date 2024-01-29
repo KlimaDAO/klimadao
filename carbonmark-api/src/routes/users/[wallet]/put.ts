@@ -1,7 +1,7 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { FirestoreUserDoc } from "../../models/FirestoreUserDoc.model";
-import { authenticateProfile } from "./auth";
+import { FirestoreUserDoc } from "../../../models/FirestoreUserDoc.model";
+import { authenticateProfile } from "../auth";
 import { Params, RequestBody, schema } from "./put.schema";
 
 type PutRequest = FastifyRequest<{

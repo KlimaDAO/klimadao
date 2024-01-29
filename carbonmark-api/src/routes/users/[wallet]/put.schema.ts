@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { VALID_ADDRESS_REGEX } from "../../app.constants";
+import { VALID_ADDRESS_REGEX } from "../../../app.constants";
 
 export const RequestBody = Type.Object(
   {
