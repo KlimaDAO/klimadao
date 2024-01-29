@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { getFirestoreUserDoc } from "src/utils/helpers/users.utils";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { formatRetirement } from "../../../utils/helpers/retirements.utils";
+import { getFirestoreUserDoc } from "../../../utils/helpers/users.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
 // Handler function for the "/retirements/klima/:id" route
