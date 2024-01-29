@@ -34,6 +34,7 @@ const prices: GetPoolPricesQuery["prices"] = [
 
 export const token = {
   symbol: "TCO2-VCS-1764-2020",
+  id: "1",
 };
 
 /** Fixtures for the tokens subgraph */
