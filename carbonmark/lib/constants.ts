@@ -164,3 +164,5 @@ export const urls = {
 export const DEFAULT_NETWORK = config.networks[ENVIRONMENT] as
   | "mainnet"
   | "testnet";
+
+console.log(urls.api.base);
