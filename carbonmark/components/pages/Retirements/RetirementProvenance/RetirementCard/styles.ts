@@ -9,6 +9,10 @@ export const wrapper = css`
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 100%;
+  ${breakpoints.large} {
+    width: auto;
+  }
 `;
 export const header = css`
   display: flex;

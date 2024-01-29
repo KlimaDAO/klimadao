@@ -18,7 +18,6 @@ export const content = css`
   gap: 2rem;
   align-items: center;
   text-align: center;
-  margin: 16px;
   max-width: min(100vw, 65rem);
   padding-left: 1.6rem;
   padding-right: 1.6rem;
