@@ -11,6 +11,8 @@ const tsConfig: TypeScriptPluginConfig = {
 
 const schemas = merge(GRAPH_URLS["polygon"], SANITY_URLS);
 
+// delete me
+
 const GENERATED_DIR = `src/.generated/types`;
 const GENERATED_MOCKS_DIR = `src/.generated/mocks`;
 const DOCUMENTS_DIR = `src/graphql`;
