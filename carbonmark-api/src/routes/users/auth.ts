@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { verifyProfileSignature } from "../../utils/crypto.utils";
-import { getFirestoreUserDoc } from "../../utils/helpers/users.utils";
+import { getProfileByAddress } from "../../utils/helpers/users.utils";
 
 const hasWalletParams = (params?: unknown): params is { wallet: string } => {
   if (!params || !Object.hasOwn(params, "wallet")) return false;
@@ -26,16 +26,15 @@ export const authenticateProfile =
         error: "Unauthorized profile operation",
       });
     }
-    const db = fastify.firebase.firestore();
 
-    const userDoc = await getFirestoreUserDoc({
-      docId: address,
-      firestore: db,
+    const profile = await getProfileByAddress({
+      address,
+      firebase: fastify.firebase,
     });
 
     const isAuthenticated = verifyProfileSignature({
-      nonce: userDoc?.nonce,
-      expectedAddress: userDoc?.address || address,
+      nonce: profile?.nonce,
+      expectedAddress: profile?.address || address,
       signature: request.headers.authorization?.split(" ")[1] || "",
     });
 
@@ -46,5 +45,5 @@ export const authenticateProfile =
     }
 
     // pass to handler to avoid querying again
-    request.userDoc = userDoc;
+    request.userProfile = profile;
   };

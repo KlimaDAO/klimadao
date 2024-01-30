@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { formatRetirement } from "../../../utils/helpers/retirements.utils";
-import { getFirestoreUserDoc } from "../../../utils/helpers/users.utils";
+import { getProfileByAddress } from "../../../utils/helpers/users.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
 // Handler function for the "/retirements/klima/:id" route
@@ -28,9 +28,9 @@ const handler = (fastify: FastifyInstance) =>
 
     // Add retiree profile information
     retirement.retireeProfile =
-      (await getFirestoreUserDoc({
-        docId: retirement.retiringAddress,
-        firestore: fastify.firebase.firestore(),
+      (await getProfileByAddress({
+        address: retirement.retiringAddress,
+        firebase: fastify.firebase,
       })) || undefined;
 
     return reply.send(JSON.stringify(retirement));

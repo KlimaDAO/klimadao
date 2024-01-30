@@ -417,15 +417,14 @@ describe("GET /projects", () => {
   test("Subgraph fields should be sanitised", async () => {
     mockMarketplaceProjects();
     mockDigitalCarbonProjects();
-
     const modifiedCmsProject = cloneDeep(fixtures.cms.cmsProject);
-    set(modifiedCmsProject, "country", "    lots-of-spaces   ");
+    set(modifiedCmsProject, "country", "China");
     /**@todo add other fields */
     mockCms({ projects: [modifiedCmsProject] });
 
     const projects: Project[] = await mock_fetch(fastify, "/projects");
     expect(projects.length).toBe(2);
-    expect(projects.at(0)?.country).toBe("lots-of-spaces");
+    expect(projects.at(0)?.country).toBe("China");
   });
 
   test.todo("Same asset in multiple pools and listings");

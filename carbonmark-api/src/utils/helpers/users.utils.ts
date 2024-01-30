@@ -1,29 +1,10 @@
 import { app } from "firebase-admin";
 import { chunk } from "lodash";
-import { FirestoreUserDoc } from "../../models/FirestoreUserDoc.model";
 import { UserProfile } from "../../models/UserProfile.model";
 
-export const isFirestoreUserDoc = (doc?: unknown): doc is FirestoreUserDoc => {
+export const isUserProfile = (doc?: unknown): doc is UserProfile => {
   if (!doc || !Object.hasOwn(doc, "createdAt")) return false;
   return true;
-};
-
-/**
- * Get FirestoreUserDoc given an uppercase wallet address as docId.
- * Returns null if not found.
- * */
-export const getFirestoreUserDoc = async (params: {
-  docId: string;
-  firestore: FirebaseFirestore.Firestore;
-}): Promise<null | FirestoreUserDoc> => {
-  const userDocRef = await params.firestore
-    .collection("users")
-    .doc(params.docId.toUpperCase())
-    .get();
-  if (!userDocRef.exists) return null;
-  const userDoc = userDocRef.data();
-  if (!isFirestoreUserDoc(userDoc)) return null;
-  return userDoc;
 };
 
 /**
@@ -51,9 +32,8 @@ export const getUserProfilesByIds = async (params: {
     .flatMap((s) => s.docs)
     .forEach((d) => {
       if (!d.exists) return;
-
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known
-      const profile = d.data() as FirestoreUserDoc;
+      const profile = d.data();
+      if (!isUserProfile(profile)) return null;
       UserProfileMap.set(profile.address, formatProfile(profile));
     });
   return UserProfileMap;
@@ -74,12 +54,30 @@ export const getProfileByHandle = async (params: {
     .get();
 
   if (snapshot.empty) return null;
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- apply known type
-  const profile = snapshot.docs.at(0)?.data() as FirestoreUserDoc | undefined;
+  const profile = snapshot.docs.at(0)?.data();
+  if (!isUserProfile(profile)) return null;
   return profile ? formatProfile(profile) : null;
 };
 
-const formatProfile = (profile: UserProfile): UserProfile => {
+/**
+ * This function retrieves a user by their handle from the Firestore database.
+ */
+export const getProfileByAddress = async (params: {
+  firebase: app.App;
+  address: string;
+}): Promise<UserProfile | null> => {
+  const userDocRef = await params.firebase
+    .firestore()
+    .collection("users")
+    .doc(params.address.toUpperCase())
+    .get();
+  if (!userDocRef.exists) return null;
+  const userDoc = userDocRef.data();
+  if (!isUserProfile(userDoc)) return null;
+  return formatProfile(userDoc);
+};
+
+export const formatProfile = (profile: UserProfile): UserProfile => {
   return {
     ...profile,
     createdAt: Math.floor(profile.createdAt / 1000),

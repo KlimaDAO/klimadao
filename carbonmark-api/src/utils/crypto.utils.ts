@@ -37,14 +37,6 @@ export const verifyProfileSignature = (params: {
     expectedMessage,
     params.signature
   );
-  console.log(
-    "VERIFYING",
-    params.nonce,
-    params.expectedAddress,
-    signerWalletAddress,
-    expectedMessage,
-    signerWalletAddress.toLowerCase() === params.expectedAddress.toLowerCase()
-  );
   return (
     signerWalletAddress.toLowerCase() === params.expectedAddress.toLowerCase()
   );

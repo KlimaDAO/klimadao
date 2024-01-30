@@ -63,7 +63,7 @@ describe("GET /users/[walletOrHandle]", () => {
     const actual_response = await response.json();
 
     expect(response.statusCode).toBe(200);
-    expect(EXPECTED_USER_RESPONSE).toEqual(actual_response);
+    expect(actual_response).toEqual(EXPECTED_USER_RESPONSE);
   });
 
   test("by handle", async () => {
@@ -83,7 +83,6 @@ describe("GET /users/[walletOrHandle]", () => {
       docs: [
         {
           data: () => ({
-            empty: false,
             ...omit(MOCK_USER_PROFILE, "nonce"),
           }),
         },
@@ -105,11 +104,7 @@ describe("GET /users/[walletOrHandle]", () => {
       url: `${DEV_URL}/users/${MOCK_USER_PROFILE.handle}`, // use handle instead of wallet address
     });
     const expected_response = {
-      ...omit(MOCK_USER_PROFILE, ["address", "nonce"]),
-      wallet: MOCK_USER_PROFILE.address,
-      listings: [],
-      activities: [],
-      assets: [],
+      ...omit(EXPECTED_USER_RESPONSE, ["nonce"]),
     };
     const actual_response = await response?.json();
     expect(response?.statusCode).toBe(200);

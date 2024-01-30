@@ -72,7 +72,6 @@ describe("POST /User", () => {
   });
 
   test("Allow 0x names (not addresses)", async () => {
-    console.log("⭐⭐⭐⭐⭐⭐ DEBUG TEST ⭐⭐⭐⭐⭐⭐");
     const message = SIGN_PROFILE_MESSAGE; // no nonce
     const signature = await wallet.signMessage(message);
     console.log("signing", message, wallet.address);

@@ -1,6 +1,6 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { FirestoreUserDoc } from "../../models/FirestoreUserDoc.model";
+import { UserProfile } from "../../models/UserProfile.model";
 import { authenticateProfile } from "./auth";
 import { RequestBody, ResponseBody, schema } from "./post.schema";
 
@@ -13,14 +13,14 @@ const handler = (fastify: FastifyInstance) =>
     const { wallet, username, handle, description, profileImgUrl } =
       request.body;
 
-    const userDoc = request.userDoc;
-    if (userDoc) {
+    const userProfile = request.userProfile;
+    if (userProfile) {
       return reply.status(409).send({
         error: "A user record already exists for this address",
       });
     }
 
-    const createData: FirestoreUserDoc = {
+    const createData: UserProfile = {
       handle: handle.toLowerCase(),
       createdAt: Date.now(),
       updatedAt: Date.now(),

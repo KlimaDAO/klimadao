@@ -1,6 +1,6 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { FirestoreUserDoc } from "../../../models/FirestoreUserDoc.model";
+import { UserProfile } from "../../../models/UserProfile.model";
 import { authenticateProfile } from "../auth";
 import { Params, RequestBody, schema } from "./put.schema";
 
@@ -13,22 +13,22 @@ const handler = (fastify: FastifyInstance) =>
   async function (request: PutRequest, reply: FastifyReply) {
     const { username, description, profileImgUrl } = request.body;
     const { wallet } = request.params;
-    const userDoc = request.userDoc;
+    const userProfile = request.userProfile;
 
     try {
-      if (!userDoc) {
+      if (!userProfile) {
         return reply
           .code(404)
           .send({ error: "No user profile found for given handle or address" });
       }
 
-      const updatedData: Partial<FirestoreUserDoc> = {
+      const updatedData: Partial<UserProfile> = {
         // username min 2 chars
-        username: username || userDoc.username || userDoc.handle,
-        description: description ?? userDoc.description ?? "",
+        username: username || userProfile.username || userProfile.handle,
+        description: description ?? userProfile.description ?? "",
         updatedAt: Date.now(),
-        profileImgUrl: profileImgUrl ?? userDoc.profileImgUrl ?? "",
-        nonce: (userDoc.nonce ?? 0) + 1,
+        profileImgUrl: profileImgUrl ?? userProfile.profileImgUrl ?? "",
+        nonce: (userProfile.nonce ?? 0) + 1,
         // handle is not editable
       };
 
@@ -42,7 +42,7 @@ const handler = (fastify: FastifyInstance) =>
       // If the update is successful, return the new nonce
       return reply.code(200).send({
         nonce: updatedData.nonce,
-        address: userDoc.address,
+        address: userProfile.address,
       });
     } catch (err) {
       console.error(err);
