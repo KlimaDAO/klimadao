@@ -26,14 +26,13 @@ const handler = (fastify: FastifyInstance) =>
       updatedAt: Date.now(),
       address: wallet.toLowerCase(),
       username,
-      description,
-      profileImgUrl,
+      description: description || "",
+      profileImgUrl: profileImgUrl || "",
       nonce: 1,
     };
 
     try {
       const db = fastify.firebase.firestore();
-      db.settings({ ignoreUndefinedProperties: true });
 
       // Check if the handle already exists in our database
       const userSnapshot = await db
