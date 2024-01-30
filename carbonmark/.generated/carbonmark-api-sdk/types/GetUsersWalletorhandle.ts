@@ -207,6 +207,10 @@ export type GetUsersWalletorhandleQueryResponse = {
      */
     amount: string;
   }[];
+  /**
+   * @type number | undefined
+   */
+  nonce?: number;
 };
 
 export type GetUsersWalletorhandleQueryParams = {
