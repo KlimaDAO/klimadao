@@ -1,4 +1,8 @@
 import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
+import {
+  PostUsersMutationResponse,
+  PutUsersWalletMutationResponse,
+} from ".generated/carbonmark-api-sdk/types";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
@@ -8,7 +12,7 @@ import { createDownloadLink } from "./createDownloadLink";
 export const putUser = async (params: {
   user: User;
   signature: string;
-}): Promise<User> => {
+}): Promise<PutUsersWalletMutationResponse> => {
   const res = await fetch(`${urls.api.users}/${params.user.wallet}`, {
     method: "PUT",
     headers: {
@@ -18,18 +22,18 @@ export const putUser = async (params: {
     body: JSON.stringify(params.user),
   });
 
-  const data = await res.json();
-
-  if (!res.ok || data.error) {
+  if (!res.ok) {
+    const data = await res.json();
     throw new Error(data.message);
   }
+  const data: PutUsersWalletMutationResponse = await res.json();
   return data;
 };
 
 export const postUser = async (params: {
   user: User;
   signature: string;
-}): Promise<User> => {
+}): Promise<PostUsersMutationResponse> => {
   const res = await fetch(urls.api.users, {
     method: "POST",
     headers: {
@@ -39,11 +43,11 @@ export const postUser = async (params: {
     body: JSON.stringify(params.user),
   });
 
-  const data = await res.json();
-
-  if (!res.ok || data.error) {
+  if (!res.ok) {
+    const data = await res.json();
     throw new Error(data.message);
   }
+  const data: PostUsersMutationResponse = await res.json();
   return data;
 };
 

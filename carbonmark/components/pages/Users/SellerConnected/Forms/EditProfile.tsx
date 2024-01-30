@@ -1,11 +1,11 @@
 import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Spinner } from "components/shared/Spinner";
-import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
 import { postUser, putUser } from "lib/api";
 import { SIGN_PROFILE_MESSAGE, VALID_HANDLE_REGEX } from "lib/constants";
@@ -18,7 +18,7 @@ import * as styles from "./styles";
 
 type Props = {
   user?: User | null;
-  onSubmit: (data: User) => void;
+  onSubmit: (handle: string) => void;
   isCarbonmarkUser: boolean;
 };
 
@@ -80,21 +80,20 @@ export const EditProfile: FC<Props> = (props) => {
       const message = SIGN_PROFILE_MESSAGE + (user?.nonce || "");
       const signature = await signer.signMessage(message);
 
-      let response;
       if (isExistingUser) {
-        response = await putUser({
+        await putUser({
           user: values,
           signature,
         });
       } else {
-        response = await postUser({
+        await postUser({
           user: values,
           signature,
         });
       }
 
-      if (response.handle) {
-        props.onSubmit(response);
+      if (values.handle) {
+        props.onSubmit(values.handle);
       } else {
         throw new Error("Handle is missing!");
       }
