@@ -31,7 +31,6 @@ export const authenticateProfile =
       address,
       firebase: fastify.firebase,
     });
-    console.log("DEBUG", address);
     const isAuthenticated = verifyProfileSignature({
       nonce: profile?.nonce,
       expectedAddress: profile?.address || address,

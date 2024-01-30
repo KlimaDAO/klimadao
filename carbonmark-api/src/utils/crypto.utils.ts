@@ -33,17 +33,10 @@ export const verifyProfileSignature = (params: {
   if (!params.signature) return false;
   // Backwards-compat: nonce may be undefined, append empty string
   const expectedMessage = SIGN_PROFILE_MESSAGE + (params?.nonce || "");
-  console.log("expected message", expectedMessage);
-  console.log("\n");
-  console.log("expected signature", params.signature);
   const signerWalletAddress = ethers.utils.verifyMessage(
     expectedMessage,
     params.signature
   );
-  console.log("got signer address", signerWalletAddress);
-  console.log("\n");
-  console.log("expected signer address", params.expectedAddress);
-
   return (
     signerWalletAddress.toLowerCase() === params.expectedAddress.toLowerCase()
   );
