@@ -18,7 +18,7 @@ query getTokenById($id: ID!) {
   }
 }
 
-query getProjectTokenId($projectID: ID!, $vintage: Int) {
+query getProjectTokenId($projectID: ID!, $vintage: Int!) {
   carbonCredits(
     first: 1
     where: { and: [{ vintage: $vintage }, { project_: { id: $projectID } }] }

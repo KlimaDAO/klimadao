@@ -4344,7 +4344,7 @@ export type GetTokenByIdQuery = { __typename?: 'Query', token: { __typename?: 'T
 
 export type GetProjectTokenIdQueryVariables = Exact<{
   projectID: Scalars['ID'];
-  vintage: InputMaybe<Scalars['Int']>;
+  vintage: Scalars['Int'];
 }>;
 
 
@@ -4507,7 +4507,7 @@ export const GetTokenByIdDocument = gql`
 }
     `;
 export const GetProjectTokenIdDocument = gql`
-    query getProjectTokenId($projectID: ID!, $vintage: Int) {
+    query getProjectTokenId($projectID: ID!, $vintage: Int!) {
   carbonCredits(
     first: 1
     where: {and: [{vintage: $vintage}, {project_: {id: $projectID}}]}
