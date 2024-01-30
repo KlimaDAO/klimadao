@@ -16,7 +16,7 @@ describe("GET /listings/:id", () => {
     }
   });
 
-  test("Returns listing with token id if ICR project", async () => {
+  test("Returns listing with token id if the token is an ERC1155", async () => {
     mockGraphResponses({
       listing: fixtures.marketplace.icrListing,
       tokenId: { id: fixtures.tokens.tokenId },
