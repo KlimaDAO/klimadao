@@ -2201,317 +2201,6 @@
         }
       }
     },
-    "/purchases": {
-      "get": {
-        "summary": "Recent purchases",
-        "description": "Retrieve a list of recent purchases",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A ordered list of recent purchases and their projects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "ID (transaction hash) of the purchase",
-                        "examples": [
-                          "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                        ],
-                        "type": "string"
-                      },
-                      "amount": {
-                        "description": "Quantity of credits purchased",
-                        "examples": [
-                          "1.0"
-                        ],
-                        "type": "string"
-                      },
-                      "listing": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "description": "ID of the listing that was purchased",
-                            "examples": [
-                              "0x1"
-                            ],
-                            "type": "string"
-                          },
-                          "tokenAddress": {
-                            "description": "Address of the asset that was purchased",
-                            "type": "string"
-                          },
-                          "seller": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Address of the seller",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ]
-                          },
-                          "project": {
-                            "type": "object",
-                            "properties": {
-                              "country": {
-                                "examples": [
-                                  "China"
-                                ],
-                                "type": "string"
-                              },
-                              "key": {
-                                "examples": [
-                                  "VCS-191"
-                                ],
-                                "type": "string"
-                              },
-                              "methodology": {
-                                "examples": [
-                                  "ACM0002"
-                                ],
-                                "type": "string"
-                              },
-                              "name": {
-                                "examples": [
-                                  "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                                ],
-                                "type": "string"
-                              },
-                              "projectID": {
-                                "examples": [
-                                  "191"
-                                ],
-                                "type": "string"
-                              },
-                              "vintage": {
-                                "examples": [
-                                  "2008"
-                                ],
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "country",
-                              "key",
-                              "methodology",
-                              "name",
-                              "projectID",
-                              "vintage"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "tokenAddress",
-                          "seller",
-                          "project"
-                        ]
-                      },
-                      "price": {
-                        "description": "Total purchase price (USDC)",
-                        "examples": [
-                          "5.0"
-                        ],
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "amount",
-                      "listing",
-                      "price"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/retirements": {
-      "get": {
-        "summary": "Retirement",
-        "tags": [
-          "Retirements"
-        ],
-        "description": "Retrieve an array of retirement filtered by desired query parameters",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0x087a7afb6975a2837453be685eb6272576c0bc",
-            "in": "query",
-            "name": "beneficiaryAddress",
-            "required": false,
-            "description": "Address of the retirement beneficiary"
-          },
-          {
-            "schema": {
-              "type": "number"
-            },
-            "example": "5",
-            "in": "query",
-            "name": "retirementIndex",
-            "required": false,
-            "description": "Retirement index"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of retirement",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "bridgeId": {
-                        "type": "string"
-                      },
-                      "amount": {
-                        "type": "number"
-                      },
-                      "hash": {
-                        "type": "string"
-                      },
-                      "hasProvenanceDetails": {
-                        "type": "boolean"
-                      },
-                      "beneficiaryAddress": {
-                        "type": "string"
-                      },
-                      "beneficiaryName": {
-                        "type": "string"
-                      },
-                      "retirementMessage": {
-                        "type": "string"
-                      },
-                      "retiringAddress": {
-                        "type": "string"
-                      },
-                      "retiringName": {
-                        "type": "string"
-                      },
-                      "retireeProfile": {
-                        "type": "object",
-                        "properties": {
-                          "handle": {
-                            "minLength": 3,
-                            "maxLength": 24,
-                            "type": "string"
-                          },
-                          "createdAt": {
-                            "type": "number"
-                          },
-                          "updatedAt": {
-                            "type": "number"
-                          },
-                          "address": {
-                            "type": "string"
-                          },
-                          "username": {
-                            "minLength": 2,
-                            "type": "string"
-                          },
-                          "description": {
-                            "type": "string"
-                          },
-                          "profileImgUrl": {
-                            "type": "string"
-                          },
-                          "nonce": {
-                            "type": "number"
-                          }
-                        },
-                        "required": [
-                          "handle",
-                          "createdAt",
-                          "updatedAt",
-                          "address",
-                          "username"
-                        ]
-                      },
-                      "timestamp": {
-                        "type": "number"
-                      },
-                      "credit": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "bridgeProtocol": {
-                            "type": "string"
-                          },
-                          "vintage": {
-                            "type": "number"
-                          },
-                          "currentSupply": {
-                            "type": "number"
-                          },
-                          "retired": {
-                            "type": "number"
-                          },
-                          "crossChainSupply": {
-                            "type": "number"
-                          },
-                          "projectId": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "currentSupply",
-                          "retired",
-                          "crossChainSupply",
-                          "projectId"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "amount",
-                      "hash",
-                      "hasProvenanceDetails",
-                      "beneficiaryAddress",
-                      "retiringAddress",
-                      "timestamp"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/projects": {
       "get": {
         "summary": "List projects",
@@ -3094,6 +2783,317 @@
         }
       }
     },
+    "/purchases": {
+      "get": {
+        "summary": "Recent purchases",
+        "description": "Retrieve a list of recent purchases",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A ordered list of recent purchases and their projects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "ID (transaction hash) of the purchase",
+                        "examples": [
+                          "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                        ],
+                        "type": "string"
+                      },
+                      "amount": {
+                        "description": "Quantity of credits purchased",
+                        "examples": [
+                          "1.0"
+                        ],
+                        "type": "string"
+                      },
+                      "listing": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "ID of the listing that was purchased",
+                            "examples": [
+                              "0x1"
+                            ],
+                            "type": "string"
+                          },
+                          "tokenAddress": {
+                            "description": "Address of the asset that was purchased",
+                            "type": "string"
+                          },
+                          "seller": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Address of the seller",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          "project": {
+                            "type": "object",
+                            "properties": {
+                              "country": {
+                                "examples": [
+                                  "China"
+                                ],
+                                "type": "string"
+                              },
+                              "key": {
+                                "examples": [
+                                  "VCS-191"
+                                ],
+                                "type": "string"
+                              },
+                              "methodology": {
+                                "examples": [
+                                  "ACM0002"
+                                ],
+                                "type": "string"
+                              },
+                              "name": {
+                                "examples": [
+                                  "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                                ],
+                                "type": "string"
+                              },
+                              "projectID": {
+                                "examples": [
+                                  "191"
+                                ],
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "examples": [
+                                  "2008"
+                                ],
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "country",
+                              "key",
+                              "methodology",
+                              "name",
+                              "projectID",
+                              "vintage"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "tokenAddress",
+                          "seller",
+                          "project"
+                        ]
+                      },
+                      "price": {
+                        "description": "Total purchase price (USDC)",
+                        "examples": [
+                          "5.0"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "amount",
+                      "listing",
+                      "price"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements": {
+      "get": {
+        "summary": "Retirement",
+        "tags": [
+          "Retirements"
+        ],
+        "description": "Retrieve an array of retirement filtered by desired query parameters",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x087a7afb6975a2837453be685eb6272576c0bc",
+            "in": "query",
+            "name": "beneficiaryAddress",
+            "required": false,
+            "description": "Address of the retirement beneficiary"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "5",
+            "in": "query",
+            "name": "retirementIndex",
+            "required": false,
+            "description": "Retirement index"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of retirement",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "bridgeId": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "hash": {
+                        "type": "string"
+                      },
+                      "hasProvenanceDetails": {
+                        "type": "boolean"
+                      },
+                      "beneficiaryAddress": {
+                        "type": "string"
+                      },
+                      "beneficiaryName": {
+                        "type": "string"
+                      },
+                      "retirementMessage": {
+                        "type": "string"
+                      },
+                      "retiringAddress": {
+                        "type": "string"
+                      },
+                      "retiringName": {
+                        "type": "string"
+                      },
+                      "retireeProfile": {
+                        "type": "object",
+                        "properties": {
+                          "handle": {
+                            "minLength": 3,
+                            "maxLength": 24,
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "type": "number"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "username": {
+                            "minLength": 2,
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "profileImgUrl": {
+                            "type": "string"
+                          },
+                          "nonce": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "handle",
+                          "createdAt",
+                          "updatedAt",
+                          "address",
+                          "username"
+                        ]
+                      },
+                      "timestamp": {
+                        "type": "number"
+                      },
+                      "credit": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "bridgeProtocol": {
+                            "type": "string"
+                          },
+                          "vintage": {
+                            "type": "number"
+                          },
+                          "currentSupply": {
+                            "type": "number"
+                          },
+                          "retired": {
+                            "type": "number"
+                          },
+                          "crossChainSupply": {
+                            "type": "number"
+                          },
+                          "projectId": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "currentSupply",
+                          "retired",
+                          "crossChainSupply",
+                          "projectId"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "hash",
+                      "hasProvenanceDetails",
+                      "beneficiaryAddress",
+                      "retiringAddress",
+                      "timestamp"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users": {
       "post": {
         "summary": "Create user profile",
@@ -3462,311 +3462,6 @@
                     "expiration",
                     "minFillAmount",
                     "project"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/purchases/{id}": {
-      "get": {
-        "summary": "Purchase details",
-        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "ID (transaction hash) of the purchase to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response with listing details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "ID (transaction hash) of the purchase",
-                      "examples": [
-                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                      ],
-                      "type": "string"
-                    },
-                    "amount": {
-                      "description": "Quantity of credits purchased",
-                      "examples": [
-                        "1.0"
-                      ],
-                      "type": "string"
-                    },
-                    "listing": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
-                          "type": "string"
-                        },
-                        "tokenAddress": {
-                          "description": "Address of the asset that was purchased",
-                          "type": "string"
-                        },
-                        "seller": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Address of the seller",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        "project": {
-                          "type": "object",
-                          "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
-                              "type": "string"
-                            },
-                            "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "country",
-                            "key",
-                            "methodology",
-                            "name",
-                            "projectID",
-                            "vintage"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "tokenAddress",
-                        "seller",
-                        "project"
-                      ]
-                    },
-                    "price": {
-                      "description": "Total purchase price (USDC)",
-                      "examples": [
-                        "5.0"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "amount",
-                    "listing",
-                    "price"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/retirements/{id}": {
-      "get": {
-        "summary": "Retirement",
-        "tags": [
-          "Retirements"
-        ],
-        "description": "Retrieve a klima retirement by account and retirement index",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "Retirement transaction hash"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Retirement with account and index",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "bridgeId": {
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "hash": {
-                      "type": "string"
-                    },
-                    "hasProvenanceDetails": {
-                      "type": "boolean"
-                    },
-                    "beneficiaryAddress": {
-                      "type": "string"
-                    },
-                    "beneficiaryName": {
-                      "type": "string"
-                    },
-                    "retirementMessage": {
-                      "type": "string"
-                    },
-                    "retiringAddress": {
-                      "type": "string"
-                    },
-                    "retiringName": {
-                      "type": "string"
-                    },
-                    "retireeProfile": {
-                      "type": "object",
-                      "properties": {
-                        "handle": {
-                          "minLength": 3,
-                          "maxLength": 24,
-                          "type": "string"
-                        },
-                        "createdAt": {
-                          "type": "number"
-                        },
-                        "updatedAt": {
-                          "type": "number"
-                        },
-                        "address": {
-                          "type": "string"
-                        },
-                        "username": {
-                          "minLength": 2,
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "profileImgUrl": {
-                          "type": "string"
-                        },
-                        "nonce": {
-                          "type": "number"
-                        }
-                      },
-                      "required": [
-                        "handle",
-                        "createdAt",
-                        "updatedAt",
-                        "address",
-                        "username"
-                      ]
-                    },
-                    "timestamp": {
-                      "type": "number"
-                    },
-                    "credit": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "bridgeProtocol": {
-                          "type": "string"
-                        },
-                        "vintage": {
-                          "type": "number"
-                        },
-                        "currentSupply": {
-                          "type": "number"
-                        },
-                        "retired": {
-                          "type": "number"
-                        },
-                        "crossChainSupply": {
-                          "type": "number"
-                        },
-                        "projectId": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "currentSupply",
-                        "retired",
-                        "crossChainSupply",
-                        "projectId"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "amount",
-                    "hash",
-                    "hasProvenanceDetails",
-                    "beneficiaryAddress",
-                    "retiringAddress",
-                    "timestamp"
                   ]
                 }
               }
@@ -4321,6 +4016,311 @@
                     "prices",
                     "stats",
                     "hasSupply"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Quantity of credits purchased",
+                      "examples": [
+                        "1.0"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "tokenAddress": {
+                          "description": "Address of the asset that was purchased",
+                          "type": "string"
+                        },
+                        "seller": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "Address of the seller",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "tokenAddress",
+                        "seller",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Total purchase price (USDC)",
+                      "examples": [
+                        "5.0"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements/{id}": {
+      "get": {
+        "summary": "Retirement",
+        "tags": [
+          "Retirements"
+        ],
+        "description": "Retrieve a klima retirement by account and retirement index",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Retirement transaction hash"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement with account and index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "bridgeId": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "hash": {
+                      "type": "string"
+                    },
+                    "hasProvenanceDetails": {
+                      "type": "boolean"
+                    },
+                    "beneficiaryAddress": {
+                      "type": "string"
+                    },
+                    "beneficiaryName": {
+                      "type": "string"
+                    },
+                    "retirementMessage": {
+                      "type": "string"
+                    },
+                    "retiringAddress": {
+                      "type": "string"
+                    },
+                    "retiringName": {
+                      "type": "string"
+                    },
+                    "retireeProfile": {
+                      "type": "object",
+                      "properties": {
+                        "handle": {
+                          "minLength": 3,
+                          "maxLength": 24,
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "number"
+                        },
+                        "updatedAt": {
+                          "type": "number"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "minLength": 2,
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "profileImgUrl": {
+                          "type": "string"
+                        },
+                        "nonce": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "handle",
+                        "createdAt",
+                        "updatedAt",
+                        "address",
+                        "username"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "credit": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "bridgeProtocol": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "number"
+                        },
+                        "currentSupply": {
+                          "type": "number"
+                        },
+                        "retired": {
+                          "type": "number"
+                        },
+                        "crossChainSupply": {
+                          "type": "number"
+                        },
+                        "projectId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "currentSupply",
+                        "retired",
+                        "crossChainSupply",
+                        "projectId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "hash",
+                    "hasProvenanceDetails",
+                    "beneficiaryAddress",
+                    "retiringAddress",
+                    "timestamp"
                   ]
                 }
               }
@@ -4912,97 +4912,6 @@
         }
       }
     },
-    "/retirements/{id}/provenance": {
-      "get": {
-        "summary": "Retirement provenance records",
-        "tags": [
-          "Records"
-        ],
-        "description": "Retrieve a retirement provenance records",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "Retirement transaction hash"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Retirement provenance record with account id and retirement index",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "transactionType": {
-                        "type": "string"
-                      },
-                      "registrySerialNumbers": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "token": {
-                        "type": "string"
-                      },
-                      "sender": {
-                        "type": "string"
-                      },
-                      "receiver": {
-                        "type": "string"
-                      },
-                      "originalAmount": {
-                        "type": "number"
-                      },
-                      "remainingAmount": {
-                        "type": "number"
-                      },
-                      "createdAt": {
-                        "type": "number"
-                      },
-                      "updatedAt": {
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "transactionType",
-                      "registrySerialNumbers",
-                      "token",
-                      "sender",
-                      "receiver",
-                      "originalAmount",
-                      "remainingAmount",
-                      "createdAt",
-                      "updatedAt"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/projects/{id}/activity": {
       "get": {
         "summary": "List project activities",
@@ -5239,6 +5148,97 @@
                     "required": [
                       "id",
                       "project"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements/{id}/provenance": {
+      "get": {
+        "summary": "Retirement provenance records",
+        "tags": [
+          "Records"
+        ],
+        "description": "Retrieve a retirement provenance records",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Retirement transaction hash"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement provenance record with account id and retirement index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "transactionType": {
+                        "type": "string"
+                      },
+                      "registrySerialNumbers": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "token": {
+                        "type": "string"
+                      },
+                      "sender": {
+                        "type": "string"
+                      },
+                      "receiver": {
+                        "type": "string"
+                      },
+                      "originalAmount": {
+                        "type": "number"
+                      },
+                      "remainingAmount": {
+                        "type": "number"
+                      },
+                      "createdAt": {
+                        "type": "number"
+                      },
+                      "updatedAt": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "transactionType",
+                      "registrySerialNumbers",
+                      "token",
+                      "sender",
+                      "receiver",
+                      "originalAmount",
+                      "remainingAmount",
+                      "createdAt",
+                      "updatedAt"
                     ]
                   }
                 }
