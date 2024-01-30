@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { build } from "../../../helper";
 import { DEV_URL } from "../../../test.constants";
-import { disableAuth } from "../../../test.utils";
 import {
   expectedTransformedRetirement,
   mockDatabaseProfile,
@@ -10,7 +9,6 @@ import {
 
 describe("GET /retirements/:id", () => {
   let fastify: FastifyInstance;
-  disableAuth();
   mockDatabaseProfile();
   // Setup the server
   beforeEach(async () => {
