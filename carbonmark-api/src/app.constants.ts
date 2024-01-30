@@ -116,7 +116,8 @@ export const ICR_API = (
 };
 /** Message shared with frontend, to be combined with user's nonce and signed by private key. */
 export const SIGN_PROFILE_MESSAGE =
-  process.env.SIGN_PROFILE_MESSAGE || "[fallback message for local tests]";
+  process.env.SIGN_PROFILE_MESSAGE ||
+  "Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce:";
 
 /** Ethereum 0x address */
 export const VALID_ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;
