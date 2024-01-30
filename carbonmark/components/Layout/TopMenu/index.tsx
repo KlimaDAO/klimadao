@@ -1,10 +1,12 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
-import { t } from "@lingui/macro";
-import { Menu } from "@mui/icons-material";
+import { useWeb3 } from "@klimadao/lib/utils";
+import { Trans, t } from "@lingui/macro";
 import { BetaBadge } from "components/BetaBadge";
+import { NavDropdown } from "components/Layout/NavDropdown";
 import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
 import { CarbonmarkText } from "components/Logos/CarbonmarkText";
 import { SearchInput } from "components/SearchInput";
+import { UserProfile } from "components/UserProfile";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -15,8 +17,10 @@ export type TopMenuProps = {
   userAddress?: string;
 };
 
-export const TopMenu: FC<TopMenuProps> = (props) => {
+export const TopMenu: FC<TopMenuProps> = () => {
   const router = useRouter();
+  const { address, isConnected, toggleModal, initializing } = useWeb3();
+
   return (
     <div className={styles.topMenu}>
       <Link href="/" className={styles.logo}>
@@ -24,24 +28,30 @@ export const TopMenu: FC<TopMenuProps> = (props) => {
         <CarbonmarkText />
         <BetaBadge />
       </Link>
+
       {router.pathname !== "/projects" && (
         <SearchInput
           id="search-input"
           label={t`Search Carbonmark`}
           placeholder={t`Search Carbonmark`}
           buttonStyle={styles.searchButton}
-          onSubmit={() => {
-            console.log("hi");
-          }}
+          onSubmit={() => {}}
         />
       )}
-      <ButtonPrimary
-        data-mobile-only
-        variant="gray"
-        icon={<Menu />}
-        onClick={() => console.log("Toggle menu")}
-        className={styles.menuButton}
-      />
+
+      <div className={styles.navButtons}>
+        {!address && !isConnected ? (
+          <ButtonPrimary
+            label={<Trans>Login or Sign Up</Trans>}
+            className={styles.loginButton}
+            disabled={initializing}
+            onClick={toggleModal}
+          />
+        ) : (
+          <UserProfile />
+        )}
+        <NavDropdown />
+      </div>
     </div>
   );
 };

@@ -16,6 +16,18 @@ export const topMenu = css`
   }
 `;
 
+export const loginButton = css`
+  background: white !important;
+  color: blue !important;
+  border: 1px solid var(--font-03);
+`;
+
+export const navButtons = css`
+  gap: 1rem;
+  display: flex;
+  justify-content: flex-end;
+`;
+
 export const betaBadge = css`
   display: none;
   ${breakpoints.large} {
