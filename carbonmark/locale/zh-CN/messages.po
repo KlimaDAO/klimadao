@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-30 15:32+0000\n"
+"POT-Creation-Date: 2024-01-30 18:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "0% listing fee"
 msgstr "0% 挂牌费"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:200
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:193
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "推荐使用 200x200 PNG图片。将图片上传到 imgur.com 或 postimages.org 等主机，然后粘贴完整的 URL。直接上传照片即将推出！"
 
@@ -36,7 +36,7 @@ msgstr "500 - 服务器发生错误"
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0>必填项目"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
 msgid "@Username (note: this can not be changed!)"
 msgstr "@用户名（注意：用户名不可修改！）"
 
@@ -48,7 +48,7 @@ msgstr "有效的电子邮箱地址为必填项"
 msgid "A-Z"
 msgstr "A - Z"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:211
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:204
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -392,12 +392,12 @@ msgstr "国家"
 msgid "Create Carbonmark Profile"
 msgstr "创建 Carbonmark 配置文件"
 
-#: components/pages/Users/SellerConnected/index.tsx:148
-#: components/pages/Users/SellerConnected/index.tsx:172
+#: components/pages/Users/SellerConnected/index.tsx:140
+#: components/pages/Users/SellerConnected/index.tsx:164
 msgid "Create New Listing"
 msgstr "创建新挂牌"
 
-#: components/pages/Users/SellerConnected/index.tsx:118
+#: components/pages/Users/SellerConnected/index.tsx:110
 msgid "Create Profile"
 msgstr "创建个人资料"
 
@@ -483,11 +483,11 @@ msgstr "数字碳"
 msgid "Digitize your carbon by using a supported bridge"
 msgstr "使用平台支持的跨链桥将您的碳数字化"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:188
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
 msgid "Display name"
 msgstr "显示名称"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
 msgid "Display name is required"
 msgstr "显示名称为必填项"
 
@@ -507,7 +507,7 @@ msgstr "正在下载..."
 msgid "Edit"
 msgstr "编辑"
 
-#: components/pages/Users/SellerConnected/index.tsx:118
+#: components/pages/Users/SellerConnected/index.tsx:110
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
@@ -601,15 +601,15 @@ msgstr "返回"
 msgid "Go back"
 msgstr "返回"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:152
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:145
 msgid "Handle is required"
 msgstr "用户名为必填项"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
 msgid "Handle should not be an address"
 msgstr "用户名不应是地址"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:156
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
 
@@ -741,7 +741,7 @@ msgstr "只需点击几下，即可列出您的待售项目"
 msgid "Listed tonnes:"
 msgstr "已列出的吨数："
 
-#: components/pages/Users/SellerConnected/index.tsx:133
+#: components/pages/Users/SellerConnected/index.tsx:125
 #: components/pages/Users/SellerUnconnected/index.tsx:54
 msgid "Listings"
 msgstr "挂牌信息"
@@ -826,7 +826,7 @@ msgstr "下一步"
 msgid "No Activity to show."
 msgstr "无可显示活动"
 
-#: components/pages/Users/SellerConnected/index.tsx:196
+#: components/pages/Users/SellerConnected/index.tsx:188
 #: components/pages/Users/SellerUnconnected/index.tsx:90
 msgid "No active listings."
 msgstr "无活动列表。"
@@ -948,8 +948,8 @@ msgid "Please complete the secure form on the next page and we'll provide you an
 msgstr "请填写下一页的安全表格，我们将在 2 个工作日内（收到所有必需信息后）向您提供发票。"
 
 #: components/pages/Portfolio/index.tsx:67
-#: components/pages/Users/SellerConnected/index.tsx:81
-#: components/pages/Users/SellerConnected/index.tsx:107
+#: components/pages/Users/SellerConnected/index.tsx:73
+#: components/pages/Users/SellerConnected/index.tsx:99
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "请刷新页面。更新您的数据时出错：{e}。"
 
@@ -1018,7 +1018,7 @@ msgstr "正在处理碳停用"
 msgid "Profile"
 msgstr "个人资料"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:192
 msgid "Profile picture"
 msgstr "头像"
 
@@ -1254,7 +1254,7 @@ msgstr "碳停用成功"
 msgid "Retiring Token"
 msgstr "碳停用代币"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 
@@ -1300,7 +1300,7 @@ msgstr "加载津贴时出错"
 msgid "Something went wrong. Please try again."
 msgstr "出问题了。请再试一次。"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:105
 msgid "Something went wrong. Please try again. {error}"
 msgstr "出了些问题。请再试一次。 {error}"
 
@@ -1312,7 +1312,7 @@ msgstr "抱歉，我们好像发送了错误路径。"
 msgid "Sorry, something went wrong."
 msgstr "抱歉，出了一些问题。"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
 msgid "Sorry, this handle already exists"
 msgstr "抱歉，此用户名已存在"
 
@@ -1604,7 +1604,7 @@ msgstr "更新挂牌信息"
 msgid "Updated:"
 msgstr "已更新："
 
-#: components/pages/Users/SellerConnected/index.tsx:190
+#: components/pages/Users/SellerConnected/index.tsx:182
 msgid "Updating your data..."
 msgstr "正在更新您的数据..."
 
@@ -1753,7 +1753,7 @@ msgstr "您现在可以在<0>PolygonScan </0>上查看成功的交易"
 msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
 msgstr "您现在可以在<0> PolygonScan </0>上查看成功的交易。"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:110
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:103
 msgid "You chose to reject the transaction."
 msgstr "您已选择拒绝交易."
 
@@ -1789,7 +1789,7 @@ msgstr "您的余额必须至少多出交易成本的1%。"
 msgid "Your balance:"
 msgstr "您的余额："
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:178
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
 msgid "Your display name"
 msgstr "您的显示名称"
 
@@ -1798,7 +1798,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:214
+#: components/pages/Users/SellerConnected/index.tsx:206
 msgid "Your seller data"
 msgstr "您的卖家数据"
 
@@ -1806,7 +1806,7 @@ msgstr "您的卖家数据"
 msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
 msgstr "您的交易已成功，但网络处理数据的时间比预期要长。您的停用碳的详细信息将在几秒钟内出现在此处！"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:137
 msgid "Your unique handle"
 msgstr "您的唯一用户名"
 
@@ -1970,11 +1970,11 @@ msgstr "余额"
 msgid "profile.addListing_modal.submit"
 msgstr "创建挂牌"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:223
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
-#: components/pages/Users/SellerConnected/index.tsx:220
+#: components/pages/Users/SellerConnected/index.tsx:212
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 
