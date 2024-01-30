@@ -70,9 +70,14 @@ export const EditProfile: FC<Props> = (props) => {
       setIsLoading(true);
 
       if (!address || !signer) return;
-      const user = await getUsersWalletorhandle(address);
+      let user;
+      try {
+        user = await getUsersWalletorhandle(address);
+      } catch {
+        // user might not exist yet
+      }
       // For backwards compat: if the userdoc nonce is undefined, append empty string.
-      const message = SIGN_PROFILE_MESSAGE + `${user?.nonce}`;
+      const message = SIGN_PROFILE_MESSAGE + (user?.nonce || "");
       const signature = await signer.signMessage(message);
 
       let response;
