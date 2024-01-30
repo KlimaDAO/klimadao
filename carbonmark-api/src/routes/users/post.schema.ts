@@ -1,18 +1,21 @@
-import { Static, Type } from "@sinclair/typebox";
-import { Nullable } from "../../models/Utility.model";
+import { Type } from "@sinclair/typebox";
+import { VALID_ADDRESS_REGEX } from "../../app.constants";
 
 export const RequestBody = Type.Object(
   {
     handle: Type.String({ minLength: 3, maxLength: 24 }),
     username: Type.String({ minLength: 2 }),
-    wallet: Type.String({ minLength: 26, maxLength: 64 }),
-    description: Nullable(Type.String({ maxLength: 500 })),
-    profileImgUrl: Nullable(Type.String()),
+    wallet: Type.String({ pattern: VALID_ADDRESS_REGEX.source }),
+    description: Type.Optional(Type.String({ maxLength: 500 })),
+    profileImgUrl: Type.Optional(Type.String()),
   },
   { required: ["handle", "username", "wallet", "description"] }
 );
 
-export type CreateUserResponse = Static<typeof RequestBody>;
+export const ResponseBody = Type.Object({
+  address: Type.String({ pattern: VALID_ADDRESS_REGEX.source }),
+  nonce: Type.Number(),
+});
 
 export const schema = {
   summary: "Create user profile",
@@ -22,7 +25,7 @@ export const schema = {
     200: {
       content: {
         "application/json": {
-          schema: RequestBody,
+          schema: ResponseBody,
         },
       },
     },

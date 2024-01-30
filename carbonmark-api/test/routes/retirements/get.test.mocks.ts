@@ -3,7 +3,7 @@ import nock from "nock";
 import { Retire } from "../../../src/.generated/types/digitalCarbon.types";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { fixtures } from "../../fixtures";
-import { mockFirebase } from "../../test.utils";
+import { mockFirestore } from "../../test.utils";
 const mockProfile = fixtures.firebase.profile;
 const mockRetirement = fixtures.digitalCarbon.retirement;
 
@@ -35,7 +35,7 @@ export const expectedTransformedRetirement = {
   },
 };
 export const mockDatabaseProfile = () =>
-  mockFirebase({
+  mockFirestore({
     get: jest.fn(() => ({
       exists: true,
       data: () => mockProfile,

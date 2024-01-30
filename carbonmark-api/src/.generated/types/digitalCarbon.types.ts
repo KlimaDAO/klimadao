@@ -3349,6 +3349,8 @@ export type Retire = {
   klimaRetire: Maybe<KlimaRetire>;
   /** Pool credit was sourced from, if any */
   pool: Maybe<CarbonPool>;
+  /** Final provenance record created by this retirement */
+  provenance: Maybe<ProvenanceRecord>;
   /** Specific retirement message */
   retirementMessage: Scalars['String'];
   /** Retiree address */
@@ -3503,6 +3505,27 @@ export type Retire_Filter = {
   pool_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   pool_starts_with: InputMaybe<Scalars['String']>;
   pool_starts_with_nocase: InputMaybe<Scalars['String']>;
+  provenance: InputMaybe<Scalars['String']>;
+  provenance_: InputMaybe<ProvenanceRecord_Filter>;
+  provenance_contains: InputMaybe<Scalars['String']>;
+  provenance_contains_nocase: InputMaybe<Scalars['String']>;
+  provenance_ends_with: InputMaybe<Scalars['String']>;
+  provenance_ends_with_nocase: InputMaybe<Scalars['String']>;
+  provenance_gt: InputMaybe<Scalars['String']>;
+  provenance_gte: InputMaybe<Scalars['String']>;
+  provenance_in: InputMaybe<Array<Scalars['String']>>;
+  provenance_lt: InputMaybe<Scalars['String']>;
+  provenance_lte: InputMaybe<Scalars['String']>;
+  provenance_not: InputMaybe<Scalars['String']>;
+  provenance_not_contains: InputMaybe<Scalars['String']>;
+  provenance_not_contains_nocase: InputMaybe<Scalars['String']>;
+  provenance_not_ends_with: InputMaybe<Scalars['String']>;
+  provenance_not_ends_with_nocase: InputMaybe<Scalars['String']>;
+  provenance_not_in: InputMaybe<Array<Scalars['String']>>;
+  provenance_not_starts_with: InputMaybe<Scalars['String']>;
+  provenance_not_starts_with_nocase: InputMaybe<Scalars['String']>;
+  provenance_starts_with: InputMaybe<Scalars['String']>;
+  provenance_starts_with_nocase: InputMaybe<Scalars['String']>;
   retirementMessage: InputMaybe<Scalars['String']>;
   retirementMessage_contains: InputMaybe<Scalars['String']>;
   retirementMessage_contains_nocase: InputMaybe<Scalars['String']>;
@@ -3614,6 +3637,18 @@ export enum Retire_OrderBy {
   pool__name = 'pool__name',
   pool__nextSnapshotDayID = 'pool__nextSnapshotDayID',
   pool__supply = 'pool__supply',
+  provenance = 'provenance',
+  provenance__createdAt = 'provenance__createdAt',
+  provenance__id = 'provenance__id',
+  provenance__originalAmount = 'provenance__originalAmount',
+  provenance__receiver = 'provenance__receiver',
+  provenance__remainingAmount = 'provenance__remainingAmount',
+  provenance__sender = 'provenance__sender',
+  provenance__token = 'provenance__token',
+  provenance__tokenId = 'provenance__tokenId',
+  provenance__transactionHash = 'provenance__transactionHash',
+  provenance__transactionType = 'provenance__transactionType',
+  provenance__updatedAt = 'provenance__updatedAt',
   retirementMessage = 'retirementMessage',
   retiringAddress = 'retiringAddress',
   retiringAddress__id = 'retiringAddress__id',
