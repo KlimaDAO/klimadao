@@ -397,10 +397,6 @@ msgstr "Could not calculate Total Cost"
 msgid "Country"
 msgstr "Country"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:97
-msgid "Create Carbonmark Profile"
-msgstr "Create Carbonmark Profile"
-
 #: components/pages/Users/SellerConnected/index.tsx:140
 #: components/pages/Users/SellerConnected/index.tsx:164
 msgid "Create New Listing"
@@ -756,7 +752,7 @@ msgid "Listings"
 msgstr "Listings"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:60
-#: components/pages/Retire/FromPortfolio/index.tsx:63
+#: components/pages/Retire/FromPortfolio/index.tsx:52
 msgid "Loading your assets"
 msgstr "Loading your assets"
 
@@ -1031,10 +1027,6 @@ msgstr "Profile picture"
 #: components/pages/Project/PayWithBank/index.tsx:357
 msgid "Project names of interest"
 msgstr "Project names of interest"
-
-#: components/pages/Retire/FromPortfolio/index.tsx:82
-msgid "Purchase Carbon"
-msgstr "Purchase Carbon"
 
 #: components/pages/Purchases/index.tsx:36
 #: components/pages/Purchases/index.tsx:37
@@ -1701,8 +1693,7 @@ msgstr "Vintage Oldest"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 
-#: components/pages/Retire/FromPortfolio/index.tsx:77
-#: components/pages/Retire/FromPortfolio/index.tsx:92
+#: components/pages/Retire/FromPortfolio/index.tsx:65
 msgid "We couldn't find any assets in your portfolio."
 msgstr "We couldn't find any assets in your portfolio."
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-30 18:13+0000\n"
+"POT-Creation-Date: 2024-01-30 22:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -388,10 +388,6 @@ msgstr "无法计算总成本"
 msgid "Country"
 msgstr "国家"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:97
-msgid "Create Carbonmark Profile"
-msgstr "创建 Carbonmark 配置文件"
-
 #: components/pages/Users/SellerConnected/index.tsx:140
 #: components/pages/Users/SellerConnected/index.tsx:164
 msgid "Create New Listing"
@@ -747,7 +743,7 @@ msgid "Listings"
 msgstr "挂牌信息"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:60
-#: components/pages/Retire/FromPortfolio/index.tsx:63
+#: components/pages/Retire/FromPortfolio/index.tsx:52
 msgid "Loading your assets"
 msgstr "正在加载您的资产"
 
@@ -1026,10 +1022,6 @@ msgstr "头像"
 #: components/pages/Project/PayWithBank/index.tsx:357
 msgid "Project names of interest"
 msgstr "感兴趣的项目名称"
-
-#: components/pages/Retire/FromPortfolio/index.tsx:82
-msgid "Purchase Carbon"
-msgstr "购买碳"
 
 #: components/pages/Purchases/index.tsx:36
 #: components/pages/Purchases/index.tsx:37
@@ -1699,8 +1691,7 @@ msgstr "最早的历史减排效益"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "我们仍在处理您的成功购买。请在几分钟后再次访问此页面以查看您的收据。"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:77
-#: components/pages/Retire/FromPortfolio/index.tsx:92
+#: components/pages/Retire/FromPortfolio/index.tsx:65
 msgid "We couldn't find any assets in your portfolio."
 msgstr "我们在您的投资组合中找不到任何资产。"
 

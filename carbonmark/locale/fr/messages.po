@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-30 18:13+0000\n"
+"POT-Creation-Date: 2024-01-30 22:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -390,10 +390,6 @@ msgstr "Impossible de calculer le coût total"
 msgid "Country"
 msgstr "Pays"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:97
-msgid "Create Carbonmark Profile"
-msgstr "Créer un profil Carbonmark"
-
 #: components/pages/Users/SellerConnected/index.tsx:140
 #: components/pages/Users/SellerConnected/index.tsx:164
 msgid "Create New Listing"
@@ -749,7 +745,7 @@ msgid "Listings"
 msgstr "Annonces"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:60
-#: components/pages/Retire/FromPortfolio/index.tsx:63
+#: components/pages/Retire/FromPortfolio/index.tsx:52
 msgid "Loading your assets"
 msgstr "Chargement de vos actifs"
 
@@ -1024,10 +1020,6 @@ msgstr "Photo de profil"
 #: components/pages/Project/PayWithBank/index.tsx:357
 msgid "Project names of interest"
 msgstr "Noms de projets d'intérêt"
-
-#: components/pages/Retire/FromPortfolio/index.tsx:82
-msgid "Purchase Carbon"
-msgstr "Acheter du Carbone"
 
 #: components/pages/Purchases/index.tsx:36
 #: components/pages/Purchases/index.tsx:37
@@ -1694,8 +1686,7 @@ msgstr "Les Plus Anciens"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "Nous sommes encore en train de traiter votre achat. Veuillez revenir sur cette page dans quelques minutes pour consulter votre reçu."
 
-#: components/pages/Retire/FromPortfolio/index.tsx:77
-#: components/pages/Retire/FromPortfolio/index.tsx:92
+#: components/pages/Retire/FromPortfolio/index.tsx:65
 msgid "We couldn't find any assets in your portfolio."
 msgstr "Nous n'avons trouvé aucun actif dans votre portefeuille."
 
