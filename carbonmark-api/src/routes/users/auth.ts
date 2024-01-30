@@ -22,8 +22,8 @@ export const authenticateProfile =
     } else if (hasWalletBody(request.body)) {
       address = request.body.wallet;
     } else {
-      return reply.status(403).send({
-        error: "Unauthorized profile operation",
+      return reply.status(400).send({
+        error: "Can't authenticate profile without wallet",
       });
     }
 
