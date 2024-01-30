@@ -167,5 +167,4 @@ export const DEFAULT_NETWORK = config.networks[ENVIRONMENT] as
 
 /** Message shared with backend, to be combined with user's nonce and signed by private key. */
 export const SIGN_PROFILE_MESSAGE =
-  process.env.SIGN_PROFILE_MESSAGE ||
-  "Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce:";
+  process.env.SIGN_PROFILE_MESSAGE || "VerifyCarbonmarkProfileEdit";
