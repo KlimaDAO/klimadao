@@ -1,5 +1,6 @@
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { IS_REGISTRY_ID } from "../../../../src/app.constants";
 import { Activity } from "../../../models/Activity.model";
 import { User } from "../../../models/User.model";
 import { getActiveListings } from "../../../utils/helpers/listings.utils";
@@ -87,6 +88,10 @@ const handler = (fastify: FastifyInstance) =>
           };
 
           const registry = a.project.key.split("-")[0];
+
+          if (!IS_REGISTRY_ID(registry)) {
+            throw new Error(`Invalid registry id: ${registry}`);
+          }
 
           return {
             ...a,

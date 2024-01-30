@@ -67,6 +67,15 @@ export const RPC_URLS = {
   polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
 };
 
+export type RegistryKey = keyof typeof REGISTRIES;
+
+export type RegistryId = (typeof REGISTRIES)[keyof typeof REGISTRIES]["id"];
+
+export const IS_REGISTRY_ID = (id: string): id is RegistryId => {
+  const REGISTRY_IDS = Object.values(REGISTRIES).map((r) => r.id);
+  return REGISTRY_IDS.includes(id);
+};
+
 /** Definitions of available registries */
 export const REGISTRIES = {
   Verra: {

@@ -1,7 +1,11 @@
 import { utils } from "ethers";
 import { formatUnits } from "ethers/lib/utils";
 import { compact } from "lodash/fp";
-import { REGISTRIES } from "../../src/app.constants";
+import {
+  IS_REGISTRY_ID,
+  REGISTRIES,
+  RegistryId,
+} from "../../src/app.constants";
 import {
   GetProjectsQuery,
   Listing,
@@ -37,18 +41,27 @@ export type GetProjectListing = NonNullable<
 /** Format amounts or quantities by registry decimals */
 /** Currently all registries use 18 decimals except ICR, which uses 0  */
 
-export const formatAmountByRegistry = (registry: string, quantity: string) => {
-  if (registry === REGISTRIES.ICR.id) {
-    return formatUnits(quantity, REGISTRIES.ICR.decimals);
-  } else {
-    return formatUnits(quantity, 18);
+export const formatAmountByRegistry = (
+  registryId: RegistryId,
+  quantity: string
+) => {
+  const registry = Object.values(REGISTRIES).find((r) => r.id === registryId);
+
+  if (!registry) {
+    throw new Error(`Registry with id ${registryId} not found.`);
   }
+
+  return formatUnits(quantity, registry.decimals);
 };
 
 /** Formats a gql.marketplace listing to match Listing.model, and formats integers */
 
 export const formatListing = (listing: GetProjectListing): ListingModel => {
   const registry = listing.project.key.split("-")[0];
+
+  if (!IS_REGISTRY_ID(registry)) {
+    throw new Error(`Invalid registry id: ${registry}`);
+  }
 
   return {
     ...formatGraphTimestamps(listing),
