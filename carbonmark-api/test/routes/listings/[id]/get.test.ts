@@ -19,7 +19,7 @@ describe("GET /listings/:id", () => {
   test("Returns listing with token id if ICR project", async () => {
     mockGraphResponses({
       listing: fixtures.marketplace.icrListing,
-      tokenId: fixtures.tokens.token,
+      tokenId: { id: fixtures.tokens.tokenId },
     });
     const response = await fastify.inject({
       method: "GET",
@@ -27,7 +27,7 @@ describe("GET /listings/:id", () => {
     });
     expect(response.statusCode).toEqual(200);
     const json = await response.json();
-    expect(json.tokenId).toEqual(fixtures.tokens.token.id);
+    expect(json.tokenId).toEqual(fixtures.tokens.tokenId);
   });
 
   test("Returns listing with token symbol", async () => {
