@@ -55,6 +55,7 @@ export function loadOrCreateListing(id: string): Listing {
     listing.totalAmountToSell = ZERO_BI
     listing.leftToSell = ZERO_BI
     listing.tokenAddress = ZERO_ADDRESS
+    listing.tokenId = ZERO_BI
     listing.active = false
     listing.deleted = false
     listing.batches = [ZERO_BI]

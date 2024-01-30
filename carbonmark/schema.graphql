@@ -47,6 +47,7 @@ type Listing @entity {
   totalAmountToSell: BigInt!
   leftToSell: BigInt!
   tokenAddress: Bytes!
+  tokenId: BigInt!
   active: Boolean
   deleted: Boolean # uint256
   batches: [BigInt!] # uint256

@@ -24,6 +24,7 @@ export function handleListingCreated(event: ListingCreated): void {
   listing.totalAmountToSell = event.params.amount
   listing.leftToSell = event.params.amount
   listing.tokenAddress = event.params.token
+  listing.tokenId = event.params.tokenId
   listing.active = true
   listing.deleted = false
   listing.singleUnitPrice = event.params.price
