@@ -194,6 +194,8 @@ describe("POST /User", () => {
       updatedAt: expect.any(Number),
       createdAt: expect.any(Number),
       nonce: 1,
+      description: "",
+      profileImgUrl: "",
     });
   });
 });
