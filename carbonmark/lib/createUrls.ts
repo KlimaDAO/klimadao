@@ -5,7 +5,6 @@ import { Listing, Project, TokenPrice } from "lib/types/carbonmark.types";
 type ProjectData = {
   key: Project["key"];
   vintage: Project["vintage"];
-  serialization?: Project["serialization"] | null;
 };
 
 export const createProjectLink = (projectData: ProjectData) => {
