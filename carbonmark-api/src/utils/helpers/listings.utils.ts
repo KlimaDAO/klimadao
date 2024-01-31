@@ -3,7 +3,7 @@ import { sortBy } from "lodash";
 import { Listing } from "../../models/Listing.model";
 import { GQL_SDK } from "../gqlSdk";
 import { formatListing } from "../marketplace.utils";
-import { getTokenById, getTokenIdByProject } from "./fetchTokens";
+import { getTokenById } from "./fetchTokens";
 import { getUserProfilesByIds } from "./users.utils";
 
 export const getCreditListings = async (
@@ -45,23 +45,15 @@ export const getListingById = async (sdk: GQL_SDK, id: string) => {
   }
 
   let symbol;
-  let tokenId;
 
   if (listing.project.id.startsWith("ICR")) {
     symbol = listing.project.id;
-    tokenId = (
-      await getTokenIdByProject(
-        sdk,
-        listing.project.key,
-        Number(listing.project.vintage)
-      )
-    ).tokenId;
   } else {
     symbol = (await getTokenById(sdk, listing.tokenAddress)).symbol;
   }
 
   const formattedListing = formatListing(listing);
-  return { ...formattedListing, symbol, tokenId };
+  return { ...formattedListing, symbol };
 };
 
 /**

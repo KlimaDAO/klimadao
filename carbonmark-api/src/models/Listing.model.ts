@@ -49,7 +49,7 @@ export const ListingModel = Type.Object(
       methodology: Type.String(),
     }),
     symbol: Type.Optional(Type.String({ description: "Symbol of the token" })),
-    tokenId: Type.Optional(Type.String({ description: "ID of the token" })),
+    tokenId: Type.String({ description: "ID of the token" }),
   },
   {
     description: "Marketplace listing with per-tonne price and project info.",

@@ -16,20 +16,6 @@ describe("GET /listings/:id", () => {
     }
   });
 
-  test("Returns listing with token id if the token is an ERC1155", async () => {
-    mockGraphResponses({
-      listing: fixtures.marketplace.icrListing,
-      tokenId: { id: fixtures.tokens.tokenId },
-    });
-    const response = await fastify.inject({
-      method: "GET",
-      url: `${DEV_URL}/listings/0x123`,
-    });
-    expect(response.statusCode).toEqual(200);
-    const json = await response.json();
-    expect(json.tokenId).toEqual(fixtures.tokens.tokenId);
-  });
-
   test("Returns listing with token symbol", async () => {
     mockGraphResponses({
       listing: fixtures.marketplace.listing,
@@ -55,15 +41,6 @@ describe("GET /listings/:id", () => {
 
   test("Returns 500 when token symbol is not found", async () => {
     mockGraphResponses({ listing: fixtures.marketplace.listing });
-    const response = await fastify.inject({
-      method: "GET",
-      url: `${DEV_URL}/listings/0x123`,
-    });
-    expect(response.statusCode).toEqual(500);
-  });
-
-  test("Returns 500 when tokenId is not found", async () => {
-    mockGraphResponses({ listing: fixtures.marketplace.icrListing });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/listings/0x123`,
