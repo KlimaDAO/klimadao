@@ -36,13 +36,10 @@ export const token = {
   symbol: "TCO2-VCS-1764-2020",
 };
 
-export const tokenId = "1";
-
 /** Fixtures for the tokens subgraph */
 const fixtures = {
   prices,
   token,
-  tokenId,
 };
 
 export default fixtures;
