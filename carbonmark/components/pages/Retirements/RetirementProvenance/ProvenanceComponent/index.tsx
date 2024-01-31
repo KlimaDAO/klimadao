@@ -10,17 +10,15 @@ import {
   insertWhiteSpaces,
 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
-import {
-  BalanceOutlined,
-  ChangeCircleOutlined,
-  DeviceHub,
-  East,
-  KeyboardArrowDown,
-  KeyboardArrowUp,
-  Park,
-  Token,
-} from "@mui/icons-material";
+import BalanceOutlined from "@mui/icons-material/BalanceOutlined";
+import ChangeCircleOutlined from "@mui/icons-material/ChangeCircleOutlined";
+import DeviceHub from "@mui/icons-material/DeviceHub";
+import East from "@mui/icons-material/East";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp";
+import Park from "@mui/icons-material/Park";
+import Token from "@mui/icons-material/Token";
 import Timeline from "@mui/lab/Timeline";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
