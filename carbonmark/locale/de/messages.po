@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-30 06:22+0000\n"
+"POT-Creation-Date: 2024-01-30 22:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "0% listing fee"
 msgstr "0 % Angebotsgebühr"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:200
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:193
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "200*200 PNG empfohlen. Laden Sie Ihr Bild auf einer Seite wie imgur.com oder postimages.org hoch und tragen Sie hier die vollständige URL ein. Direkter Bildupload folgt demnächst!"
 
@@ -36,7 +36,7 @@ msgstr "500 - Serverfehler aufgetreten"
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> Pflichtfeld"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
 msgid "@Username (note: this can not be changed!)"
 msgstr "@Benutzername (Achtung: dies kann nicht mehr verändert werden!)"
 
@@ -48,7 +48,7 @@ msgstr "Eine gültige E-Mail-Adresse wird benötigt"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:211
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:204
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -388,16 +388,12 @@ msgstr "Gesamtkosten konnten nicht berechnet werden"
 msgid "Country"
 msgstr "Land"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:97
-msgid "Create Carbonmark Profile"
-msgstr "Carbonmark-Profil erstellen"
-
-#: components/pages/Users/SellerConnected/index.tsx:148
-#: components/pages/Users/SellerConnected/index.tsx:172
+#: components/pages/Users/SellerConnected/index.tsx:140
+#: components/pages/Users/SellerConnected/index.tsx:164
 msgid "Create New Listing"
 msgstr "Neuen Eintrag erstellen"
 
-#: components/pages/Users/SellerConnected/index.tsx:118
+#: components/pages/Users/SellerConnected/index.tsx:110
 msgid "Create Profile"
 msgstr "Profil erstellen"
 
@@ -483,11 +479,11 @@ msgstr "Digitales CO2"
 msgid "Digitize your carbon by using a supported bridge"
 msgstr "Digitalisieren Sie Ihr CO2 mithilfe eines unterstützten Anbieters"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:188
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
 msgid "Display name"
 msgstr "Anzeigename"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
 msgid "Display name is required"
 msgstr "Anzeigename ist erforderlich"
 
@@ -507,7 +503,7 @@ msgstr "Wird heruntergeladen ..."
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: components/pages/Users/SellerConnected/index.tsx:118
+#: components/pages/Users/SellerConnected/index.tsx:110
 msgid "Edit Profile"
 msgstr "Profil bearbeiten"
 
@@ -601,15 +597,15 @@ msgstr "Zurück"
 msgid "Go back"
 msgstr "Zurück"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:152
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:145
 msgid "Handle is required"
 msgstr "Name ist erforderlich"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
 msgid "Handle should not be an address"
 msgstr "Name sollte keine Adresse sein"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:156
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle should not contain any special characters"
 msgstr "Name sollte keine Sonderzeichen enthalten"
 
@@ -741,13 +737,13 @@ msgstr "Bieten Sie Ihre Projekte mit wenigen Klicks zum Verkauf an"
 msgid "Listed tonnes:"
 msgstr "Gelistete Tonnen:"
 
-#: components/pages/Users/SellerConnected/index.tsx:133
+#: components/pages/Users/SellerConnected/index.tsx:125
 #: components/pages/Users/SellerUnconnected/index.tsx:54
 msgid "Listings"
 msgstr "Einträge"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:60
-#: components/pages/Retire/FromPortfolio/index.tsx:63
+#: components/pages/Retire/FromPortfolio/index.tsx:52
 msgid "Loading your assets"
 msgstr "Assets werden geladen"
 
@@ -826,7 +822,7 @@ msgstr "Weiter"
 msgid "No Activity to show."
 msgstr "Keine Aktivitäten zum Anzeigen."
 
-#: components/pages/Users/SellerConnected/index.tsx:196
+#: components/pages/Users/SellerConnected/index.tsx:188
 #: components/pages/Users/SellerUnconnected/index.tsx:90
 msgid "No active listings."
 msgstr "Keine aktiven Einträge."
@@ -946,8 +942,8 @@ msgid "Please complete the secure form on the next page and we'll provide you an
 msgstr "Bitte füllen Sie das Formular auf der nächsten Seite aus. Wir werden Ihnen innerhalb von zwei Tagen eine Rechnung zukommen lassen."
 
 #: components/pages/Portfolio/index.tsx:67
-#: components/pages/Users/SellerConnected/index.tsx:81
-#: components/pages/Users/SellerConnected/index.tsx:107
+#: components/pages/Users/SellerConnected/index.tsx:73
+#: components/pages/Users/SellerConnected/index.tsx:99
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Bitte aktualisieren Sie die Seite. Beim Aktualisieren Ihrer Daten ist ein Fehler aufgetreten: {e}."
 
@@ -1014,7 +1010,7 @@ msgstr "CO2-Ausgleich wird bearbeitet..."
 msgid "Profile"
 msgstr "Profil"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:192
 msgid "Profile picture"
 msgstr "Profilbild"
 
@@ -1022,10 +1018,6 @@ msgstr "Profilbild"
 #: components/pages/Project/PayWithBank/index.tsx:357
 msgid "Project names of interest"
 msgstr "Ähnliche Projektnamen"
-
-#: components/pages/Retire/FromPortfolio/index.tsx:82
-msgid "Purchase Carbon"
-msgstr "CO2 kaufen"
 
 #: components/pages/Purchases/index.tsx:36
 #: components/pages/Purchases/index.tsx:37
@@ -1247,7 +1239,7 @@ msgstr "CO2-Ausgleich erfolgreich"
 msgid "Retiring Token"
 msgstr "Für Ausgleich genutztes Token"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Erzählen Sie etwas über sich. Dies wird in Ihrem Verkäuferprofil sichtbar sein."
 
@@ -1293,7 +1285,7 @@ msgstr "Beim Laden des Guthabens ist ein Fehler aufgetreten"
 msgid "Something went wrong. Please try again."
 msgstr "Etwas ist schiefgelaufen. Bitte versuche es erneut."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:105
 msgid "Something went wrong. Please try again. {error}"
 msgstr "Etwas ist schiefgelaufen. Versuchen Sie es bitte noch einmal. {error}"
 
@@ -1305,7 +1297,7 @@ msgstr "Sorry, wir haben dich wohl in eine Sackgasse geschickt."
 msgid "Sorry, something went wrong."
 msgstr "Sorry! Etwas ist schiefgelaufen."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
 msgid "Sorry, this handle already exists"
 msgstr "Leider existiert dieser Name bereits"
 
@@ -1597,7 +1589,7 @@ msgstr "Angebot aktualisieren"
 msgid "Updated:"
 msgstr "Aktualisiert:"
 
-#: components/pages/Users/SellerConnected/index.tsx:190
+#: components/pages/Users/SellerConnected/index.tsx:182
 msgid "Updating your data..."
 msgstr "Ihre Daten werden aktualisiert..."
 
@@ -1692,8 +1684,7 @@ msgstr "Jahrgang älteste"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "Ihr Kauf wird noch verarbeitet. Aktualisieren Sie diese Seite in wenigen Minuten, um Ihre Quittung zu erhalten."
 
-#: components/pages/Retire/FromPortfolio/index.tsx:77
-#: components/pages/Retire/FromPortfolio/index.tsx:92
+#: components/pages/Retire/FromPortfolio/index.tsx:65
 msgid "We couldn't find any assets in your portfolio."
 msgstr "Wir konnten keine Assets in Ihrem Portfolio finden."
 
@@ -1746,7 +1737,7 @@ msgstr "Sie können die erfolgreiche Transaktion jetzt auf <0>PolygonScan</0> an
 msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
 msgstr "Sie können die erfolgreiche Transaktion jetzt auf <0>PolygonScan</0> ansehen."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:110
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:103
 msgid "You chose to reject the transaction."
 msgstr "Sie haben die Transaktion abgelehnt"
 
@@ -1782,7 +1773,7 @@ msgstr "Ihr Guthaben muss die Kosten der Transaktion um mindestens 1 % überstei
 msgid "Your balance:"
 msgstr "Ihr Guthaben:"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:178
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
 msgid "Your display name"
 msgstr "Ihr Anzeigename"
 
@@ -1791,7 +1782,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ihr Kauf ist noch nicht abgeschlossen. Stellen Sie die Korrektheit der Informationen sicher und klicken Sie unten auf \"Absenden\", um den Kauf abzuschließen."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:214
+#: components/pages/Users/SellerConnected/index.tsx:206
 msgid "Your seller data"
 msgstr "Ihre Verkäuferdaten"
 
@@ -1799,7 +1790,7 @@ msgstr "Ihre Verkäuferdaten"
 msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
 msgstr "Ihre Transaktion war erfolgreich, aber das Netzwerk benötigt länger als erwartet, um Ihre Daten zu bearbeiten. Die Details Ihres CO2-Ausgleichs sollten in wenigen Sekunden zur Verfügung stehen."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:137
 msgid "Your unique handle"
 msgstr "Ihr einzigartiger Name"
 
@@ -1963,11 +1954,11 @@ msgstr "Guthaben"
 msgid "profile.addListing_modal.submit"
 msgstr "Eintrag erstellen"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:223
 msgid "profile.edit_modal.submit"
 msgstr "Änderungen speichern"
 
-#: components/pages/Users/SellerConnected/index.tsx:220
+#: components/pages/Users/SellerConnected/index.tsx:212
 msgid "profile.edit_profile.title"
 msgstr "Ihr Profil"
 

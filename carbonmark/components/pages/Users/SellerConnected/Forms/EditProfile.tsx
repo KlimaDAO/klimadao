@@ -1,14 +1,14 @@
 import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Spinner } from "components/shared/Spinner";
-import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
-import { loginUser, postUser, putUser, verifyUser } from "lib/api";
-import { VALID_HANDLE_REGEX } from "lib/constants";
+import { postUser, putUser } from "lib/api";
+import { SIGN_PROFILE_MESSAGE, VALID_HANDLE_REGEX } from "lib/constants";
 import { User } from "lib/types/carbonmark.types";
 import { isNil } from "lodash";
 import { FC, useState } from "react";
@@ -18,7 +18,7 @@ import * as styles from "./styles";
 
 type Props = {
   user?: User | null;
-  onSubmit: (data: User) => void;
+  onSubmit: (handle: string) => void;
   isCarbonmarkUser: boolean;
 };
 
@@ -28,10 +28,6 @@ const defaultValues = {
   description: "",
   profileImgUrl: "",
 };
-
-/** DO NOT CHANGE: This needs to be synchronized with the backend */
-export const editSignMessage = (nonce: string): string =>
-  `Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce: ${nonce}`;
 
 export const EditProfile: FC<Props> = (props) => {
   const isExistingUser = !!props.user?.handle;
@@ -73,34 +69,31 @@ export const EditProfile: FC<Props> = (props) => {
     try {
       setIsLoading(true);
 
-      if (!address) return;
-      const loginRes = await loginUser(address);
+      if (!address || !signer) return;
+      let user;
+      try {
+        user = await getUsersWalletorhandle(address);
+      } catch {
+        // user might not exist yet
+      }
+      // For backwards compat: if the userdoc nonce is undefined, append empty string.
+      const message = SIGN_PROFILE_MESSAGE + (user?.nonce || "");
+      const signature = await signer.signMessage(message);
 
-      if (!signer) return;
-      const signature = await signer.signMessage(
-        editSignMessage(loginRes.nonce)
-      );
-
-      const verifyResponse = await verifyUser({
-        address,
-        signature,
-      });
-
-      let response;
       if (isExistingUser) {
-        response = await putUser({
+        await putUser({
           user: values,
-          token: verifyResponse.token,
+          signature,
         });
       } else {
-        response = await postUser({
+        await postUser({
           user: values,
-          token: verifyResponse.token,
+          signature,
         });
       }
 
-      if (response.handle) {
-        props.onSubmit(response);
+      if (values.handle) {
+        props.onSubmit(values.handle);
       } else {
         throw new Error("Handle is missing!");
       }

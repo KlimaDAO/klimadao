@@ -194,4 +194,8 @@ export type User = {
      */
     amount: string;
   }[];
+  /**
+   * @type number | undefined
+   */
+  nonce?: number;
 };
