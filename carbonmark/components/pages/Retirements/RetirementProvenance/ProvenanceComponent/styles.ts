@@ -31,6 +31,7 @@ export const timeline = css`
   max-width: 36rem;
   position: relative;
   left: -5rem;
+  oveflow: visible;
 `;
 
 export const timelineItem = css`
@@ -42,10 +43,12 @@ export const timelineItem = css`
 
 export const timelineItemVisible = css`
   max-height: 15rem;
+  overflow: visible;
 `;
 
 export const timelineItemHidden = css`
   max-height: 0;
+  overflow: hidden;
 `;
 
 export const content = css`
@@ -95,7 +98,10 @@ export const verraLinkAndTooltip = css`
 `;
 
 export const timelineItemDivider = css`
-  max-width: min(calc(100vw - 15rem), 56rem);
+  max-width: min(calc(100vw - 11rem), 56rem);
+  width: calc(100% + 9rem);
+  position: relative;
+  left: -4.5rem;
 `;
 
 export const divider = css`

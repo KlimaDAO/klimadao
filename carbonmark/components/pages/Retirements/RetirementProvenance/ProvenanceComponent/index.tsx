@@ -278,7 +278,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                           </Text>
                           <TextInfoTooltip
                             align="start"
-                            tooltip={t`On the Verra page, search (CTRL+F) for the specific serial number.`}
+                            tooltip={t`On the Verra page, search for the specific serial number.`}
                           >
                             <InfoOutlinedIcon />
                           </TextInfoTooltip>
