@@ -37,12 +37,10 @@ const RetirementCardItem = (props: {
       <Text t="body3" color="lightest" uppercase={true}>
         {props.title}
       </Text>
-      <div className={styles.iconAndText}>
+      <Text t="body1" color="lightest" className={styles.iconAndText}>
         {props.icon}
-        <Text t="body1" color="lightest">
-          {props.text}
-        </Text>
-      </div>
+        {props.text}
+      </Text>
     </div>
   );
 };
