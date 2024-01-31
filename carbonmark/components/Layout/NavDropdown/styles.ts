@@ -4,7 +4,6 @@ import * as typography from "theme/typography";
 
 export const navMenuButton = css`
   background-color: white;
-  border: 1px solid var(--font-03);
   min-height: 4.8rem;
   min-width: 4.8rem;
   display: flex;
@@ -12,6 +11,7 @@ export const navMenuButton = css`
   align-items: center;
   margin-right: 0;
   border-radius: 0.4rem;
+  z-index: 99999;
   &:hover {
     opacity: 0.7;
   }
@@ -28,8 +28,10 @@ export const navMenuButton = css`
 
 export const userProfile = css`
   height: 5rem;
-  background: white;
-  border-bottom: 0.1rem solid black;
+  display: flex;
+  z-index: 9999;
+  background: transparent;
+  border-bottom: 0.1rem solid #626266;
 `;
 
 export const navItem = css`
@@ -38,13 +40,24 @@ export const navItem = css`
   color: #000 !important;
 `;
 
+export const bookDemoButton = css`
+  min-height: 4.8rem;
+  color: var(--font-02) !important;
+  border-color: var(--font-03);
+`;
+
+export const menuWrapper = css`
+  padding: 1rem;
+`;
+
 export const tooltip = css`
   ${typography.body1};
   text-align: center;
   background: white;
-  border-radius: 0.4rem;
-  padding: 0 1.2rem;
-  min-width: 30rem;
+  border-radius: 4px;
+  padding: 0;
+  z-index: 999 !important;
+  min-width: 29.8rem;
   box-shadow:
     0px 4px 4px rgba(0, 0, 0, 0.24),
     0px 0px 4px rgba(0, 0, 0, 0.12);
@@ -56,7 +69,7 @@ export const tooltip = css`
   }
 
   .tippy-content {
-    padding: 0.5rem 0;
+    padding: 0;
     button {
       box-shadow: none;
     }

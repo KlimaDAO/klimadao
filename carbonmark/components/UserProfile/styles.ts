@@ -9,7 +9,7 @@ export const userProfile = css`
   padding: 0 1rem;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid var(--font-03);
+  z-index: 99999;
 
   & .content {
     text-transform: initial;

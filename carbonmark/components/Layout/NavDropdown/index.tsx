@@ -1,57 +1,88 @@
+import { Anchor } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
-import { Menu } from "@mui/icons-material";
+import { Trans, t } from "@lingui/macro";
+import { Close, Menu } from "@mui/icons-material";
+import LanguageIcon from "@mui/icons-material/LanguageOutlined";
+import LogoutIcon from "@mui/icons-material/LogoutOutlined";
+import ParkIcon from "@mui/icons-material/Park";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboardOutlined";
+import StoreIcon from "@mui/icons-material/Store";
 import Tippy from "@tippyjs/react";
-import { LinkItemDesktop } from "components/shared/Navigation/LinkItemDesktop";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { useRouter } from "next/router";
 import { FC, useState } from "react";
+import { MenuButton } from "../MenuButton";
 import * as styles from "./styles";
 
 export const NavDropdown: FC = () => {
+  const { pathname } = useRouter();
   const { disconnect } = useWeb3();
   const [showMenu, setShowMenu] = useState(false);
 
   const content = (
     <>
       <div className={styles.userProfile} />
-      <LinkItemDesktop
-        url="/projects"
-        name={t`Marketplace`}
-        key="marketplace"
-        // active={activePage === "Projects"}
-      />
-      <LinkItemDesktop
-        url="/retire"
-        name={t`Retire`}
-        key="retire"
-        // active={activePage === "Projects"}
-      />
-      <LinkItemDesktop
-        url="/profile"
-        name={t`Profile`}
-        key="profile"
-        // active={activePage === "Projects"}
-      />
-      <LinkItemDesktop
-        url="/carbon-portfolio"
-        name={t`Carbon Profile`}
-        key="carbon-portfolio"
-        // active={activePage === "Projects"}
-      />
-      <LinkItemDesktop
-        url="/language"
-        name={t`Language`}
-        key="language"
-        // active={activePage === "Projects"}
-      />
-      <button className={styles.navItem} onClick={disconnect}>
-        Logout
-      </button>
+      <MenuButton
+        href={"/projects"}
+        icon={<StoreIcon />}
+        isActive={
+          pathname.startsWith("/projects") || pathname.startsWith("/purchase")
+        }
+      >
+        <Trans>Marketplace</Trans>
+      </MenuButton>
+      <MenuButton
+        href={"/retire"}
+        icon={<ParkIcon />}
+        isActive={pathname.startsWith("/retire")}
+      >
+        <Trans>Retire</Trans>
+      </MenuButton>
+      <MenuButton
+        href={"/profile"}
+        icon={<PermIdentityIcon />}
+        isActive={pathname.startsWith("/profile")}
+      >
+        <Trans>Profile</Trans>
+      </MenuButton>
+      <MenuButton
+        href={"/portfolio"}
+        icon={<SpaceDashboardIcon />}
+        isActive={pathname.startsWith("/portfolio")}
+      >
+        <Trans>Carbon Portfolio</Trans>
+      </MenuButton>
+      <MenuButton
+        href={"/language"}
+        icon={<LanguageIcon />}
+        isActive={pathname.startsWith("/language")}
+      >
+        <Trans>Language</Trans>
+      </MenuButton>
+      <MenuButton
+        href={""}
+        onClick={disconnect}
+        icon={<LogoutIcon />}
+        isActive={false}
+      >
+        <Trans>Logout</Trans>
+      </MenuButton>
+      <div className={styles.menuWrapper}>
+        <CarbonmarkButton
+          label={<Trans>Book a demo</Trans>}
+          href={urls.carbonmarkContactForm}
+          className={styles.bookDemoButton}
+          renderLink={(linkProps) => <Anchor {...linkProps} />}
+        />
+      </div>
     </>
   );
 
   return (
     <Tippy
-      offset={[0, -47]}
+      offset={[0, -48]}
       content={content}
       interactive={true}
       placement="top-end"
@@ -64,7 +95,7 @@ export const NavDropdown: FC = () => {
         className={styles.navMenuButton}
         aria-label={t`Navigation Menu`}
       >
-        <Menu />
+        {!showMenu ? <Menu /> : <Close />}
       </button>
     </Tippy>
   );

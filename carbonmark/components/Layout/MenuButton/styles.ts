@@ -6,8 +6,7 @@ export const menuButton = css`
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  padding: 0.1rem;
-  border-radius: 0.8rem;
+  padding: 0.1rem 0.5rem;
   width: 100%;
   padding: 0.8rem;
 

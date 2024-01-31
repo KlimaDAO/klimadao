@@ -8,6 +8,7 @@ interface MenuButtonProps {
   isActive: boolean;
   disabled?: boolean;
   children: ReactNode;
+  onClick?: () => void;
 }
 
 export const MenuButton: FC<MenuButtonProps> = (props) => {
@@ -21,6 +22,17 @@ export const MenuButton: FC<MenuButtonProps> = (props) => {
         <div className="iconContainer">{props.icon}</div>
         <span>{props.children}</span>
       </div>
+    );
+  }
+
+  if (props.onClick) {
+    return (
+      <Link onClick={props.onClick} href="" passHref>
+        <div className={styles.menuButton} data-active={props.isActive}>
+          <div className="iconContainer">{props.icon}</div>
+          <span>{props.children}</span>
+        </div>
+      </Link>
     );
   }
 
