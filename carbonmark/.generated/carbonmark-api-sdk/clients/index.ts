@@ -13,7 +13,5 @@ export * from "./getRetirementsIdProvenance";
 export * from "./getUsersWalletorhandle";
 export * from "./getVintages";
 export * from "./operations";
-export * from "./postLogin";
-export * from "./postLoginVerify";
 export * from "./postUsers";
 export * from "./putUsersWallet";

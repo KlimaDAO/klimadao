@@ -5,12 +5,10 @@ import type { Def1 } from "./Def1";
  */
 export type GetVintagesQueryResponse = string[];
 
-export type GetVintagesQueryParams =
-  | {
-      network?: Def1;
-    }
-  | undefined;
-export type GetVintagesQuery = {
-  Response: GetVintagesQueryResponse;
-  QueryParams: GetVintagesQueryParams;
+export type GetVintagesQueryParams = {
+  network?: Def1;
 };
+export namespace GetVintagesQuery {
+  export type Response = GetVintagesQueryResponse;
+  export type QueryParams = GetVintagesQueryParams;
+}

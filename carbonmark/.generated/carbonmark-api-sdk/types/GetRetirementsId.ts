@@ -56,25 +56,38 @@ export type GetRetirementsIdQueryResponse = {
    * @type object | undefined
    */
   retireeProfile?: {
-    handle?: string | null;
     /**
      * @type string
      */
-    username: string;
-    description?: string | null;
-    profileImgUrl?: string | null;
-    /**
-     * @type number
-     */
-    updatedAt: number;
+    handle: string;
     /**
      * @type number
      */
     createdAt: number;
     /**
+     * @type number
+     */
+    updatedAt: number;
+    /**
      * @type string
      */
     address: string;
+    /**
+     * @type string
+     */
+    username: string;
+    /**
+     * @type string | undefined
+     */
+    description?: string;
+    /**
+     * @type string | undefined
+     */
+    profileImgUrl?: string;
+    /**
+     * @type number | undefined
+     */
+    nonce?: number;
   };
   /**
    * @type number
@@ -115,13 +128,11 @@ export type GetRetirementsIdQueryResponse = {
   };
 };
 
-export type GetRetirementsIdQueryParams =
-  | {
-      network?: Def1;
-    }
-  | undefined;
-export type GetRetirementsIdQuery = {
-  Response: GetRetirementsIdQueryResponse;
-  PathParams: GetRetirementsIdPathParams;
-  QueryParams: GetRetirementsIdQueryParams;
+export type GetRetirementsIdQueryParams = {
+  network?: Def1;
 };
+export namespace GetRetirementsIdQuery {
+  export type Response = GetRetirementsIdQueryResponse;
+  export type PathParams = GetRetirementsIdPathParams;
+  export type QueryParams = GetRetirementsIdQueryParams;
+}

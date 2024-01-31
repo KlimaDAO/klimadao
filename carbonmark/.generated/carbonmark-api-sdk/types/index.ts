@@ -23,8 +23,6 @@ export * from "./Image";
 export * from "./Listing";
 export * from "./Methodology";
 export * from "./NetworkParam";
-export * from "./PostLogin";
-export * from "./PostLoginVerify";
 export * from "./PostUsers";
 export * from "./Project";
 export * from "./ProvenanceRecord";

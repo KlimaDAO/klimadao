@@ -266,23 +266,21 @@ export type GetProjectsIdQueryResponse = {
   tokenId?: string;
 };
 
-export type GetProjectsIdQueryParams =
-  | {
-      network?: Def1;
-      /**
-       * @description Only return projects listings that expire after this timestamp (Unix seconds)
-       * @type string | undefined
-       */
-      expiresAfter?: string;
-      /**
-       * @description Only consider projects listings and pools that contains at least this amount of credits (Tonnes)
-       * @type number | undefined
-       */
-      minSupply?: number;
-    }
-  | undefined;
-export type GetProjectsIdQuery = {
-  Response: GetProjectsIdQueryResponse;
-  PathParams: GetProjectsIdPathParams;
-  QueryParams: GetProjectsIdQueryParams;
+export type GetProjectsIdQueryParams = {
+  network?: Def1;
+  /**
+   * @description Only return projects listings that expire after this timestamp (Unix seconds)
+   * @type string | undefined
+   */
+  expiresAfter?: string;
+  /**
+   * @description Only consider projects listings and pools that contains at least this amount of credits (Tonnes)
+   * @type number | undefined
+   */
+  minSupply?: number;
 };
+export namespace GetProjectsIdQuery {
+  export type Response = GetProjectsIdQueryResponse;
+  export type PathParams = GetProjectsIdPathParams;
+  export type QueryParams = GetProjectsIdQueryParams;
+}

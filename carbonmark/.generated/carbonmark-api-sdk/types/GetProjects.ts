@@ -258,42 +258,40 @@ export type GetProjectsQueryResponse = {
   tokenId?: string;
 }[];
 
-export type GetProjectsQueryParams =
-  | {
-      network?: Def1;
-      /**
-       * @description Desired country of origin for carbon projects
-       * @type string | undefined
-       */
-      country?: string;
-      /**
-       * @description Desired category of carbon projects
-       * @type string | undefined
-       */
-      category?: string;
-      /**
-       * @description Search carbon project names and descriptions for a string of text
-       * @type string | undefined
-       */
-      search?: string;
-      /**
-       * @description Desired vintage of carbon projects
-       * @type string | undefined
-       */
-      vintage?: string;
-      /**
-       * @description Only return projects listings that expire after this timestamp (Unix seconds)
-       * @type string | undefined
-       */
-      expiresAfter?: string;
-      /**
-       * @description Only return projects listings and pools that contains at least this amount of credits (Tonnes)
-       * @type number | undefined
-       */
-      minSupply?: number;
-    }
-  | undefined;
-export type GetProjectsQuery = {
-  Response: GetProjectsQueryResponse;
-  QueryParams: GetProjectsQueryParams;
+export type GetProjectsQueryParams = {
+  network?: Def1;
+  /**
+   * @description Desired country of origin for carbon projects
+   * @type string | undefined
+   */
+  country?: string;
+  /**
+   * @description Desired category of carbon projects
+   * @type string | undefined
+   */
+  category?: string;
+  /**
+   * @description Search carbon project names and descriptions for a string of text
+   * @type string | undefined
+   */
+  search?: string;
+  /**
+   * @description Desired vintage of carbon projects
+   * @type string | undefined
+   */
+  vintage?: string;
+  /**
+   * @description Only return projects listings that expire after this timestamp (Unix seconds)
+   * @type string | undefined
+   */
+  expiresAfter?: string;
+  /**
+   * @description Only return projects listings and pools that contains at least this amount of credits (Tonnes)
+   * @type number | undefined
+   */
+  minSupply?: number;
 };
+export namespace GetProjectsQuery {
+  export type Response = GetProjectsQueryResponse;
+  export type QueryParams = GetProjectsQueryParams;
+}

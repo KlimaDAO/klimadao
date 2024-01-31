@@ -54,13 +54,11 @@ export type GetRetirementsIdProvenanceQueryResponse = {
   updatedAt: number;
 }[];
 
-export type GetRetirementsIdProvenanceQueryParams =
-  | {
-      network?: Def1;
-    }
-  | undefined;
-export type GetRetirementsIdProvenanceQuery = {
-  Response: GetRetirementsIdProvenanceQueryResponse;
-  PathParams: GetRetirementsIdProvenancePathParams;
-  QueryParams: GetRetirementsIdProvenanceQueryParams;
+export type GetRetirementsIdProvenanceQueryParams = {
+  network?: Def1;
 };
+export namespace GetRetirementsIdProvenanceQuery {
+  export type Response = GetRetirementsIdProvenanceQueryResponse;
+  export type PathParams = GetRetirementsIdProvenancePathParams;
+  export type QueryParams = GetRetirementsIdProvenanceQueryParams;
+}

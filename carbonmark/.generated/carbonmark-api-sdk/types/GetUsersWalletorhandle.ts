@@ -207,25 +207,27 @@ export type GetUsersWalletorhandleQueryResponse = {
      */
     amount: string;
   }[];
+  /**
+   * @type number | undefined
+   */
+  nonce?: number;
 };
 
-export type GetUsersWalletorhandleQueryParams =
-  | {
-      network?: Def1;
-      /**
-       * @description Only return listings that expire after this timestamp (Unix seconds)
-       * @type string | undefined
-       */
-      expiresAfter?: string;
-      /**
-       * @description Only consider projects listings and pools that contains at least this amount of credits (Tonnes)
-       * @type number | undefined
-       */
-      minSupply?: number;
-    }
-  | undefined;
-export type GetUsersWalletorhandleQuery = {
-  Response: GetUsersWalletorhandleQueryResponse;
-  PathParams: GetUsersWalletorhandlePathParams;
-  QueryParams: GetUsersWalletorhandleQueryParams;
+export type GetUsersWalletorhandleQueryParams = {
+  network?: Def1;
+  /**
+   * @description Only return listings that expire after this timestamp (Unix seconds)
+   * @type string | undefined
+   */
+  expiresAfter?: string;
+  /**
+   * @description Only consider projects listings and pools that contains at least this amount of credits (Tonnes)
+   * @type number | undefined
+   */
+  minSupply?: number;
 };
+export namespace GetUsersWalletorhandleQuery {
+  export type Response = GetUsersWalletorhandleQueryResponse;
+  export type PathParams = GetUsersWalletorhandlePathParams;
+  export type QueryParams = GetUsersWalletorhandleQueryParams;
+}

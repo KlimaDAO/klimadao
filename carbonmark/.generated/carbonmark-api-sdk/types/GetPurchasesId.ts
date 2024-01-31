@@ -83,13 +83,11 @@ export type GetPurchasesIdQueryResponse = {
   price: string;
 };
 
-export type GetPurchasesIdQueryParams =
-  | {
-      network?: Def1;
-    }
-  | undefined;
-export type GetPurchasesIdQuery = {
-  Response: GetPurchasesIdQueryResponse;
-  PathParams: GetPurchasesIdPathParams;
-  QueryParams: GetPurchasesIdQueryParams;
+export type GetPurchasesIdQueryParams = {
+  network?: Def1;
 };
+export namespace GetPurchasesIdQuery {
+  export type Response = GetPurchasesIdQueryResponse;
+  export type PathParams = GetPurchasesIdPathParams;
+  export type QueryParams = GetPurchasesIdQueryParams;
+}

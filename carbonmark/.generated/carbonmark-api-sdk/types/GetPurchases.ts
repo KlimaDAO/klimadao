@@ -75,12 +75,10 @@ export type GetPurchasesQueryResponse = {
   price: string;
 }[];
 
-export type GetPurchasesQueryParams =
-  | {
-      network?: Def1;
-    }
-  | undefined;
-export type GetPurchasesQuery = {
-  Response: GetPurchasesQueryResponse;
-  QueryParams: GetPurchasesQueryParams;
+export type GetPurchasesQueryParams = {
+  network?: Def1;
 };
+export namespace GetPurchasesQuery {
+  export type Response = GetPurchasesQueryResponse;
+  export type QueryParams = GetPurchasesQueryParams;
+}

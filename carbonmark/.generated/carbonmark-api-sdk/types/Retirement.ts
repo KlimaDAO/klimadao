@@ -43,25 +43,38 @@ export type Retirement = {
    * @type object | undefined
    */
   retireeProfile?: {
-    handle?: string | null;
     /**
      * @type string
      */
-    username: string;
-    description?: string | null;
-    profileImgUrl?: string | null;
-    /**
-     * @type number
-     */
-    updatedAt: number;
+    handle: string;
     /**
      * @type number
      */
     createdAt: number;
     /**
+     * @type number
+     */
+    updatedAt: number;
+    /**
      * @type string
      */
     address: string;
+    /**
+     * @type string
+     */
+    username: string;
+    /**
+     * @type string | undefined
+     */
+    description?: string;
+    /**
+     * @type string | undefined
+     */
+    profileImgUrl?: string;
+    /**
+     * @type number | undefined
+     */
+    nonce?: number;
   };
   /**
    * @type number

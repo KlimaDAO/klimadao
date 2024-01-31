@@ -14,17 +14,16 @@
     "retireeProfile": {
       "type": "object",
       "properties": {
-        "handle": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-        "username": { "type": "string" },
-        "description": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-        "profileImgUrl": {
-          "anyOf": [{ "type": "string" }, { "type": "null" }]
-        },
-        "updatedAt": { "type": "number" },
+        "handle": { "minLength": 3, "maxLength": 24, "type": "string" },
         "createdAt": { "type": "number" },
-        "address": { "type": "string" }
+        "updatedAt": { "type": "number" },
+        "address": { "type": "string" },
+        "username": { "minLength": 2, "type": "string" },
+        "description": { "type": "string" },
+        "profileImgUrl": { "type": "string" },
+        "nonce": { "type": "number" }
       },
-      "required": ["username", "updatedAt", "createdAt", "address"]
+      "required": ["handle", "createdAt", "updatedAt", "address", "username"]
     },
     "timestamp": { "type": "number" },
     "credit": {

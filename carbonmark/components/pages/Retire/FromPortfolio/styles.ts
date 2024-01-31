@@ -15,3 +15,10 @@ export const cardsList = css`
 export const buttonEmptyState = css`
   align-self: flex-start;
 `;
+
+export const emptyText = css`
+  text-align: center;
+  ${breakpoints.desktop} {
+    text-align: inherit;
+  }
+`;
