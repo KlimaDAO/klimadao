@@ -5,23 +5,15 @@ import { GRAPH_URLS } from "../../../../src/app.constants";
 export const mockGraphResponses = (props: {
   listing?: Listing;
   symbol?: { symbol: string };
-  tokenId?: { id: string };
 }) => {
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("")
     .reply(200, {
       data: { listing: props.listing },
     });
-  props.symbol &&
-    nock(GRAPH_URLS["polygon"].digitalCarbon)
-      .post("")
-      .reply(200, {
-        data: { token: props.symbol },
-      });
-  props.tokenId &&
-    nock(GRAPH_URLS["polygon"].digitalCarbon)
-      .post("")
-      .reply(200, {
-        data: { carbonCredits: [{ tokenId: props.tokenId.id }] },
-      });
+  nock(GRAPH_URLS["polygon"].digitalCarbon)
+    .post("")
+    .reply(200, {
+      data: { token: props.symbol },
+    });
 };
