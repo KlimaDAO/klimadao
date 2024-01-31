@@ -141,8 +141,8 @@ export const RetirementProvenancePage: NextPage<
           </Text>
           <Text t="body1" align="center">
             <Trans>
-              View the entire transaction history - from bridging event until
-              retirement - for each credit and partial credit included in the
+              View the entire transaction history – from bridging event until
+              retirement – for each credit and partial credit included in the
               following retirement transaction:
             </Trans>
           </Text>
