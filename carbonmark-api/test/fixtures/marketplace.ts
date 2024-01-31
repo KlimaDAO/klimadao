@@ -17,21 +17,6 @@ const listing = aListing({
   createdAt: "1234",
 });
 
-const icrListing = aListing({
-  singleUnitPrice: "99000000",
-  minFillAmount: "100000000000000000000",
-  totalAmountToSell: "100000000000000000000",
-  leftToSell: "100000000000000000000",
-  updatedAt: "1234",
-  createdAt: "1234",
-  project: aProject({
-    id: "ICR-4-2020",
-    registry: "ICR",
-    vintage: "2020",
-    key: "ICR-4",
-  }),
-});
-
 const projectWithListing = aProject({
   id: "VCS-191-2008",
   registry: "VCS",
@@ -94,7 +79,6 @@ const activities: GetActivitiesByProjectIdQuery["activities"] = [
 /** Fixtures for the marketplace subgraph */
 const fixtures = {
   listing,
-  icrListing,
   projectWithListing,
   purchase,
   activities,
