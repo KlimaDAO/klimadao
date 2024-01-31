@@ -10,7 +10,7 @@ type Props = {
   twitterTags: string[];
 };
 /**
- * Displays links to share the current URL on Tweeter, Facebook, Linkedin, and a button to copy the current URL
+ * Displays links to share the current URL on X, Facebook, Linkedin, and a button to copy the current URL
  * @param props
  * @returns
  */
