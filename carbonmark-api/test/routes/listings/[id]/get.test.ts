@@ -15,7 +15,6 @@ describe("GET /listings/:id", () => {
       console.error("/listings/:id get.test.ts setup failed", e);
     }
   });
-
   test("Returns listing with token symbol", async () => {
     mockGraphResponses({
       listing: fixtures.marketplace.listing,
@@ -39,7 +38,7 @@ describe("GET /listings/:id", () => {
     expect(response.statusCode).toEqual(404);
   });
 
-  test("Returns 500 when token symbol is not found", async () => {
+  test("Returns 500 when token is not found", async () => {
     mockGraphResponses({ listing: fixtures.marketplace.listing });
     const response = await fastify.inject({
       method: "GET",
