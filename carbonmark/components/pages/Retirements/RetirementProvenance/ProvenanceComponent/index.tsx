@@ -197,6 +197,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                 <TimelineDot
                   sx={{
                     backgroundColor: recordInfo(record)?.iconBackgroundColor,
+                    boxShadow: "unset",
                   }}
                 >
                   {recordInfo(record)?.icon}
@@ -214,7 +215,10 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
                   {record.transactionType == "RETIREMENT" && (
                     <>
                       <div className={styles.contentFooter}>
-                        <Quantity quantity={record.originalAmount} />
+                        <Quantity
+                          quantity={record.originalAmount}
+                          className={styles.quantity}
+                        />
                         <Text t="responsiveBody1">
                           {concatAddress(record.sender)}
                         </Text>

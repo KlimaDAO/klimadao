@@ -24,7 +24,7 @@ export const Quantity: FC<Props> = (props) => {
   });
 
   return (
-    <Text t="body3" className={`${props.className} ${styles.quantity}`}>
+    <Text t="body3" className={`${styles.quantity} ${props.className} `}>
       <Trans>{formattedAmount} tonnes</Trans>
     </Text>
   );

@@ -74,6 +74,9 @@ export const contentFooter = css`
     max-width: none;
   }
 `;
+export const quantity = css`
+  background-color: var(--surface-01);
+`;
 
 export const bridgeContentFooter = css`
   display: flex;
