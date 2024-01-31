@@ -21,7 +21,7 @@ export const SocialLinks: FC<Props> = (props) => {
         <TweetButton title={props.twitterTitle} tags={props.twitterTags} />
         <FacebookButton />
         <LinkedInButton />
-        <CopyValueButton />
+        <CopyValueButton rounded={true} />
       </div>
     </div>
   );
