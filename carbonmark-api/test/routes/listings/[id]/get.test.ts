@@ -19,7 +19,7 @@ describe("GET /listings/:id", () => {
   test("Returns listing with token symbol", async () => {
     mockGraphResponses({
       listing: fixtures.marketplace.listing,
-      symbol: fixtures.tokens.token,
+      token: fixtures.tokens.token,
     });
     const response = await fastify.inject({
       method: "GET",
@@ -31,7 +31,7 @@ describe("GET /listings/:id", () => {
   });
 
   test("Returns 404 when listing is not found", async () => {
-    mockGraphResponses({ symbol: fixtures.tokens.token });
+    mockGraphResponses({ token: fixtures.tokens.token });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/listings/0x123`,

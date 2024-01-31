@@ -4,7 +4,7 @@ import { GRAPH_URLS } from "../../../../src/app.constants";
 
 export const mockGraphResponses = (props: {
   listing?: Listing;
-  symbol?: { symbol: string };
+  token?: { symbol: string };
 }) => {
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("")
@@ -14,6 +14,6 @@ export const mockGraphResponses = (props: {
   nock(GRAPH_URLS["polygon"].digitalCarbon)
     .post("")
     .reply(200, {
-      data: { token: props.symbol },
+      data: { token: props.token },
     });
 };
