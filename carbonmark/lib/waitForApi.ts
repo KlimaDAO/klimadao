@@ -10,7 +10,7 @@ export const waitForApi = async (): Promise<boolean> => {
       return true;
     } catch (e) {
       console.debug(
-        `Waiting for API to come online at $${urls.api.base} (${counter})`
+        `Waiting for API to come online at ${urls.api.base} (${counter})`
       );
     }
     await new Promise((resolve) => setTimeout(resolve, 5000));
