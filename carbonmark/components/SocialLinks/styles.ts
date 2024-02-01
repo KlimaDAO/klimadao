@@ -23,15 +23,15 @@ export const socialLinks = css`
     gap: 1.6rem;
 
     button {
-      background-color: var(--font-02) !important;
+      background-color: var(--font-02);
       width: 5rem;
       height: 5rem;
       font-size: 2rem;
       padding: 1.5rem;
       svg {
         color: white;
-        width: 2rem !important;
-        height: 2rem !important;
+        width: 2rem;
+        height: 2rem;
       }
     }
   }
