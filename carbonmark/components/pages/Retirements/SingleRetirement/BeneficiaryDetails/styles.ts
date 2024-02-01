@@ -58,7 +58,5 @@ export const profileLink = css`
 `;
 
 export const beneficiaryAddress = css`
-  display: block;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 `;

@@ -36,15 +36,12 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
         <Text t="button" color="lightest" uppercase>
           <Trans id="retirement.single.beneficiary.title">Beneficiary:</Trans>
         </Text>
-        <Text t="h4">
-          {props.beneficiary || (
-            <p className={styles.beneficiaryAddress}>
-              {t({
-                id: "retirement.single.beneficiary.placeholder",
-                message: "No beneficiary name provided",
-              })}
-            </p>
-          )}
+        <Text t="h4" className={styles.beneficiaryAddress}>
+          {props.beneficiary ||
+            t({
+              id: "retirement.single.beneficiary.placeholder",
+              message: "No beneficiary name provided",
+            })}
         </Text>
         <A
           className={styles.profileLink}
