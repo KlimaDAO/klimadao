@@ -136,7 +136,10 @@ export const ProvenanceTimeline = (props: ProvenanceComponentProps) => {
                 )}
                 {record.transactionType == "TRANSFER" && (
                   <div className={styles.contentFooter}>
-                    <Quantity quantity={record.originalAmount} />
+                    <Quantity
+                      quantity={record.originalAmount}
+                      className={styles.quantity}
+                    />
                     <Text t="responsiveBody1">
                       {concatAddress(record.sender)}
                     </Text>

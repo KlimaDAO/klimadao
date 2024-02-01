@@ -10,5 +10,4 @@ export const quantity = css`
   align-items: center;
   align-self: flex-start;
   border: 1px solid var(--font-03);
-  white-space: nowrap;
 `;

@@ -15,7 +15,6 @@ export const headerItem = css`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  white-space: nowrap;
 `;
 export const iconAndText = css`
   display: flex;

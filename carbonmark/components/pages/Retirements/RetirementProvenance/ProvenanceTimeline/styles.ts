@@ -1,8 +1,7 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const timeline = css`
-  max-width: 36rem;
+  max-width: 56rem;
   position: relative;
   left: -5rem;
   oveflow: visible;
@@ -41,12 +40,10 @@ export const contentHeader = css`
 
 export const contentFooter = css`
   display: flex;
+  flex-wrap: wrap;
   gap: 0.8rem;
   align-items: center;
-  max-width: 20rem;
-  ${breakpoints.medium} {
-    max-width: none;
-  }
+  max-width: calc(100vw - 10rem);
 `;
 export const quantity = css`
   background-color: var(--surface-01);
@@ -57,7 +54,6 @@ export const bridgeContentFooter = css`
   flex-direction: column;
   gap: 0.8rem;
   align-items: start;
-  max-width: calc(100vw - 20rem);
 `;
 
 export const inline = css`
