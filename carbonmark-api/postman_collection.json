@@ -605,48 +605,6 @@
       "response": []
     },
     {
-      "name": "loginUser",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "exec": [""],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
-              "  postman.setNextRequest(null);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"wallet\":\"{{wallet}}\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{url}}/users/login",
-          "host": ["{{url}}"],
-          "path": ["users", "login"]
-        }
-      },
-      "response": []
-    },
-    {
       "name": "getListingById",
       "request": {
         "method": "GET",
@@ -658,48 +616,6 @@
             "listings",
             "0xde5c717958a9a80f2dee8ebcc6f411a8d860ac7b0042e45487f4ad2afaf46d5a"
           ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "verifyUser",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "exec": [""],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
-              "  postman.setNextRequest(null);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"wallet\":\"{{wallet}}\",\n  \"signature\":\"{{signature}}\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{url}}/users/login/verify",
-          "host": ["{{url}}"],
-          "path": ["users", "login", "verify"]
         }
       },
       "response": []

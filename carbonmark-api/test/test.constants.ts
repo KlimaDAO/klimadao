@@ -59,7 +59,8 @@ export const MOCK_USER_PROFILE: UserProfile = {
   handle: "SomeHandle",
   updatedAt: new Date("2023-11-11T15:05:08Z").getTime(),
   username: "someusername",
-  profileImgUrl: null,
+  profileImgUrl: "https://example.com/image.jpg",
+  nonce: 1,
 };
 
 export const EXPECTED_USER_RESPONSE = {

@@ -96,9 +96,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     },
     {
       label: "VINTAGE: ",
-      value: new Date(Number(params.retirement.retire.credit.vintage) * 1000)
-        .getFullYear()
-        .toString(),
+      value: params.retirement.retire.credit.vintage,
     },
   ];
 

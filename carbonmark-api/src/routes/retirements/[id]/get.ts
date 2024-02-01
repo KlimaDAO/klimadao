@@ -29,8 +29,8 @@ const handler = (fastify: FastifyInstance) =>
     // Add retiree profile information
     retirement.retireeProfile =
       (await getProfileByAddress({
-        firebase: fastify.firebase,
         address: retirement.retiringAddress,
+        firebase: fastify.firebase,
       })) || undefined;
 
     return reply.send(JSON.stringify(retirement));

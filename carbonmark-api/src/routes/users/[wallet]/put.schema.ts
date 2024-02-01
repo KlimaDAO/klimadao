@@ -1,13 +1,23 @@
 import { Type } from "@sinclair/typebox";
+import { VALID_ADDRESS_REGEX } from "../../../app.constants";
 
-export const RequestBody = Type.Object({
-  wallet: Type.String({ minLength: 3 }),
-  username: Type.String({ minLength: 2 }),
-  description: Type.String({ minLength: 2, maxLength: 500 }),
-  profileImgUrl: Type.Optional(Type.String()),
-  handle: Type.Optional(Type.String({ minLength: 3, maxLength: 24 })),
+export const RequestBody = Type.Object(
+  {
+    username: Type.Optional(Type.String({ minLength: 2 })),
+    description: Type.Optional(Type.String({ maxLength: 500 })),
+    profileImgUrl: Type.Optional(Type.String()),
+  },
+  {
+    description: "One or more fields to update.",
+  }
+);
+
+export const ResponseBody = Type.Object({
+  address: Type.String({ pattern: VALID_ADDRESS_REGEX.source }),
+  nonce: Type.Number(),
 });
 
+/** /users/:wallet */
 export const Params = Type.Object(
   {
     wallet: Type.String({
@@ -19,16 +29,15 @@ export const Params = Type.Object(
 );
 
 export const schema = {
-  summary: "Update user profile",
+  summary: "Update an existing user profile",
   tags: ["Users"],
-  params: Params,
   body: RequestBody,
   response: {
     200: {
       description: "Successful response",
       content: {
         "application/json": {
-          schema: RequestBody,
+          schema: ResponseBody,
         },
       },
     },
