@@ -4,10 +4,7 @@ import {
 } from ".generated/carbonmark-api-sdk/types";
 import { Anchor as A } from "@klimadao/lib/components";
 import { verra } from "@klimadao/lib/constants";
-import {
-  concatAddress,
-  insertWhiteSpaces
-} from "@klimadao/lib/utils";
+import { concatAddress, insertWhiteSpaces } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import East from "@mui/icons-material/East";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";

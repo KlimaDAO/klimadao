@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 import { ProvenanceRecordType } from "./RetirementProvenance.types";
 
 export const PROVENANCE_RECORDS_INFO: Record<
-ProvenanceRecordType,
+  ProvenanceRecordType,
   { label: ReactNode; icon: ReactNode; iconBackgroundColor: string }
 > = {
   RETIREMENT: {
