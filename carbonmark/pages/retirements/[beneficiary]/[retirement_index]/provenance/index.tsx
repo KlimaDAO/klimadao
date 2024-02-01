@@ -13,6 +13,7 @@ import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
+import { isNumeric } from "lib/utils/string.utils";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 interface Params extends ParsedUrlQuery {
@@ -31,11 +32,6 @@ export interface RetirementProvenancePageProps {
   retirementIndex: string;
   beneficiaryAddress: string;
 }
-
-// second param should always be a number
-const isNumeric = (value: string) => {
-  return /^\d+$/.test(value);
-};
 
 export const getStaticProps: GetStaticProps<
   RetirementProvenancePageProps,
