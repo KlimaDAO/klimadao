@@ -1,12 +1,11 @@
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { addProjectsToAssets, AssetWithProject } from "lib/actions";
 import { notNil } from "lib/utils/functional.utils";
 import { isListableToken } from "lib/utils/listings.utils";
-import { isNil } from "lodash";
 import { FC, useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import * as styles from "./styles";
@@ -16,7 +15,8 @@ export type Props = {
 };
 
 export const RetireFromPortfolio: FC<Props> = (props) => {
-  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
+  const { networkLabel } = useWeb3();
+  const { data: carbonmarkUser } = useGetUsersWalletorhandle(
     props.address,
     {},
     { shouldFetch: notNil(props.address) }
@@ -26,25 +26,17 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
   const [assetsData, setAssetsData] = useState<AssetWithProject[] | null>(null);
 
   const listableAssets = carbonmarkUser?.assets?.filter(isListableToken) || [];
-  const emptyAssets =
-    !!carbonmarkUser && !isLoadingAssets && !assetsData?.length;
-  const hasAssets =
-    !!carbonmarkUser && !isLoadingAssets && !!listableAssets.length;
-  const isUnregistered = props.address && !isLoading && isNil(carbonmarkUser);
 
   useEffect(() => {
-    if (!hasAssets) return;
+    if (!listableAssets.length) return;
     const getAssetsData = async () => {
       try {
         setIsLoadingAssets(true);
-
-        if (listableAssets.length) {
-          const assetsWithProject = await addProjectsToAssets({
-            assets: listableAssets,
-          });
-
-          setAssetsData(assetsWithProject);
-        }
+        const assetsWithProject = await addProjectsToAssets({
+          assets: listableAssets,
+          network: networkLabel,
+        });
+        setAssetsData(assetsWithProject);
       } catch (e) {
         console.error(e);
       } finally {
@@ -67,34 +59,12 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
         </div>
       )}
 
-      {emptyAssets && (
-        <>
-          <Text>
-            <i>
-              <Trans>We couldn't find any assets in your portfolio.</Trans>
-            </i>
-          </Text>
-          <ButtonPrimary
-            href={"/projects"}
-            label={t`Purchase Carbon`}
-            className={styles.buttonEmptyState}
-          />
-        </>
-      )}
-
-      {isUnregistered && (
-        <>
-          <Text>
-            <i>
-              <Trans>We couldn't find any assets in your portfolio.</Trans>
-            </i>
-          </Text>
-          <ButtonPrimary
-            href={"/users/login"}
-            label={t`Create Carbonmark Profile`}
-            className={styles.buttonEmptyState}
-          />
-        </>
+      {!assetsData?.length && (
+        <Text className={styles.emptyText}>
+          <i>
+            <Trans>We couldn't find any assets in your portfolio.</Trans>
+          </i>
+        </Text>
       )}
     </>
   );

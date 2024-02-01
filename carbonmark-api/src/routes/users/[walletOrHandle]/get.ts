@@ -30,6 +30,7 @@ const handler = (fastify: FastifyInstance) =>
     try {
       const { query, params } = request;
 
+      const network = query.network ?? "polygon";
       const walletOrHandle = params.walletOrHandle.toLowerCase();
 
       // Fetch the firebase UserProfile first
@@ -53,12 +54,12 @@ const handler = (fastify: FastifyInstance) =>
       const [user, assets] = await Promise.all([
         getUserByWallet({
           address: profile.address,
-          network: query.network,
+          network: network,
           expiresAfter: query.expiresAfter,
         }),
         getHoldingsByWallet({
           address: profile.address,
-          network: query.network,
+          network: network,
         }),
       ]);
 
@@ -83,9 +84,13 @@ const handler = (fastify: FastifyInstance) =>
           };
           return {
             ...a,
-            amount: utils.formatUnits(a.amount || "0", 18),
+            amount: a.project.key.startsWith("ICR")
+              ? a.amount
+              : utils.formatUnits(a.amount || "0", 18),
             price: utils.formatUnits(a.price || "0", 6),
-            previousAmount: utils.formatUnits(a.previousAmount || "0", 18),
+            previousAmount: a.project.key.startsWith("ICR")
+              ? a.previousAmount
+              : utils.formatUnits(a.previousAmount || "0", 18),
             previousPrice: utils.formatUnits(a.previousPrice || "0", 6),
             buyer: buyer || null,
             seller: seller || null,
@@ -105,6 +110,7 @@ const handler = (fastify: FastifyInstance) =>
         updatedAt: profile?.updatedAt || 0,
         username: profile?.username || "",
         wallet: profile.address,
+        nonce: profile.nonce,
         listings,
         activities,
         assets,

@@ -10,9 +10,10 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     let response: Vintage[];
-    const sdk = gql_sdk(request.query.network);
+    const network = request.query.network ?? "polygon";
+    const sdk = gql_sdk(network);
     try {
-      response = await getAllVintages(sdk, fastify);
+      response = await getAllVintages(sdk, fastify, network);
     } catch (error) {
       //Return bad gateway and pass the error
       console.error(error);

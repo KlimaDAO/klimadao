@@ -1,7 +1,9 @@
 import { Anchor } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Text } from "components/Text";
+import { getPolygonScanBaseUrl } from "lib/createUrls";
 import type { AssetForRetirement } from "lib/types/carbonmark.types";
 import Image, { StaticImageData } from "next/image";
 import { FC } from "react";
@@ -15,6 +17,7 @@ interface Props {
 
 export const RetirementSidebar: FC<Props> = (props) => {
   const { tokenSymbol, credit } = props.retirementAsset;
+  const { networkLabel } = useWeb3();
   return (
     <div className={styles.assetWrapper}>
       <Text t="h4" className={styles.bold}>
@@ -40,7 +43,9 @@ export const RetirementSidebar: FC<Props> = (props) => {
       <div className={styles.linkWithIcon}>
         <Anchor
           className="link"
-          href={`https://polygonscan.com/address/${credit.id}`}
+          href={`${getPolygonScanBaseUrl(networkLabel)}/address/${
+            credit.tokenAddress
+          }`}
         >
           <span className="svg">
             <Text t="body2" color="lighter">

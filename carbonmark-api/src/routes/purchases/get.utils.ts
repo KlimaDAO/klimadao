@@ -17,7 +17,9 @@ export const composePurchaseModel = (
   const [, registryProjectId] = CreditId.splitProjectId(project.key);
   return {
     id: purchase.id,
-    amount: utils.formatUnits(purchase.amount, 18),
+    amount: purchase.listing.project.key.startsWith("ICR")
+      ? purchase.amount
+      : utils.formatUnits(purchase.amount, 18),
     price: utils.formatUnits(purchase.price, 6),
     listing: {
       id: purchase.listing.id,

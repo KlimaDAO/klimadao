@@ -180,7 +180,8 @@
               "id": { "type": "string" },
               "name": { "type": "string" },
               "symbol": { "type": "string" },
-              "decimals": { "type": "number" }
+              "decimals": { "type": "number" },
+              "tokenId": { "type": "string" }
             },
             "required": ["id", "name", "symbol", "decimals"]
           },
@@ -188,7 +189,8 @@
         },
         "required": ["id", "token", "amount"]
       }
-    }
+    },
+    "nonce": { "type": "number" }
   },
   "required": ["username", "updatedAt", "createdAt", "wallet"],
   "x-readme-ref-name": "User"

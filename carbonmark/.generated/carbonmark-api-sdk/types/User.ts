@@ -184,10 +184,18 @@ export type User = {
        * @type number
        */
       decimals: number;
+      /**
+       * @type string | undefined
+       */
+      tokenId?: string;
     };
     /**
      * @type string
      */
     amount: string;
   }[];
+  /**
+   * @type number | undefined
+   */
+  nonce?: number;
 };

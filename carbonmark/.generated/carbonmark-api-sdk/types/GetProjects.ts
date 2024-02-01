@@ -252,6 +252,10 @@ export type GetProjectsQueryResponse = {
    * @type boolean
    */
   hasSupply: boolean;
+  /**
+   * @type string | undefined
+   */
+  tokenId?: string;
 }[];
 
 export type GetProjectsQueryParams = {

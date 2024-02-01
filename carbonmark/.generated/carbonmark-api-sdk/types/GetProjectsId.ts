@@ -260,6 +260,10 @@ export type GetProjectsIdQueryResponse = {
    * @type boolean
    */
   hasSupply: boolean;
+  /**
+   * @type string | undefined
+   */
+  tokenId?: string;
 };
 
 export type GetProjectsIdQueryParams = {

@@ -24,7 +24,7 @@ export const RetirementStatusModal: FC<Props> = (props) => (
         <Trans>Retirement Successful!</Trans>
       </div>
     }
-    showModal={true}
+    showModal={props.showModal}
   >
     <div className={styles.modalContent}>
       {props.subgraphIndexStatus === "timeout" ? (

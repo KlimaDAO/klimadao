@@ -32,7 +32,9 @@ const views = {
 const Page: NextPage = () => {
   const router = useRouter();
   const { isMobile } = useResponsive();
+
   const { params, updateQueryParams } = useProjectsParams();
+
   const { data: projects = [], isLoading, isValidating } = useFetchProjects();
 
   const sortFn = get(PROJECT_SORT_FNS, params.sort) ?? identity;

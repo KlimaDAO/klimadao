@@ -16,7 +16,7 @@ import { certificateBackground } from "./images/certificateBackground";
 import { dateIcon } from "./images/dateIcon";
 import { launchIcon } from "./images/launchIcon";
 
-import { getOffsetCategories, getOffsetMainCategory } from "lib/offsetGetter";
+import { getOffsetCategories } from "lib/offsetGetter";
 import { DMSansRegular } from "./fonts/dmSansRegularbase64";
 import { PoppinsBold } from "./fonts/poppinsBoldbase64";
 import { PoppinsSemiBold } from "./fonts/poppinsSemiBoldbase64";
@@ -43,8 +43,17 @@ const spacing = {
   footer: 563,
 };
 
-type CategoryBannerMappingKey = keyof typeof catergoryBannerMap;
-const catergoryBannerMap = {
+type CategoryBannerKey =
+  | "Agriculture"
+  | "Energy Efficiency"
+  | "Forestry"
+  | "Industrial Processing"
+  | "Moss"
+  | "Other"
+  | "Other Nature Based"
+  | "Renewable Energy";
+
+const categoryBannerMap: { [key in CategoryBannerKey]: string } = {
   Agriculture: agricultureBanner,
   "Energy Efficiency": energyEfficiencyBanner,
   Forestry: forestryBanner,
@@ -53,6 +62,13 @@ const catergoryBannerMap = {
   Other: otherBanner,
   "Other Nature Based": otherNatureBasedBanner,
   "Renewable Energy": renewableEnergyBanner,
+};
+
+const getCategoryBanner = (category: string): CategoryBannerKey => {
+  if (!(category in categoryBannerMap)) {
+    return "Other";
+  }
+  return category as CategoryBannerKey;
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
@@ -80,9 +96,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     },
     {
       label: "VINTAGE: ",
-      value: new Date(Number(params.retirement.retire.credit.vintage) * 1000)
-        .getFullYear()
-        .toString(),
+      value: params.retirement.retire.credit.vintage,
     },
   ];
 
@@ -240,10 +254,8 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const printCategoryBanner = async (): Promise<void> => {
     const category = isMossRetirement
       ? "Moss"
-      : (getOffsetMainCategory(
-          params.retirement.retire
-        ) as CategoryBannerMappingKey);
-    const categoryBanner = catergoryBannerMap[category];
+      : getCategoryBanner(params.retirement.retire.credit.project.category);
+    const categoryBanner = categoryBannerMap[category];
     const categoryBannerBuffer = Buffer.from(categoryBanner, "base64");
 
     doc.image(categoryBannerBuffer, doc.page.width - 360, 68, {

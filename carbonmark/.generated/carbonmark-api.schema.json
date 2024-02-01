@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 5.2.1** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v5.2.1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 6.0.0** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v6.0.0.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "5.2.1"
+    "version": "6.0.0"
   },
   "components": {
     "schemas": {
@@ -488,6 +488,9 @@
           },
           "hasSupply": {
             "type": "boolean"
+          },
+          "tokenId": {
+            "type": "string"
           }
         },
         "required": [
@@ -1460,6 +1463,9 @@
                     },
                     "decimals": {
                       "type": "number"
+                    },
+                    "tokenId": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -1479,6 +1485,9 @@
                 "amount"
               ]
             }
+          },
+          "nonce": {
+            "type": "number"
           }
         },
         "required": [
@@ -1508,6 +1517,9 @@
               },
               "decimals": {
                 "type": "number"
+              },
+              "tokenId": {
+                "type": "string"
               }
             },
             "required": [
@@ -1613,6 +1625,205 @@
             ]
           }
         }
+      },
+      "ProvenanceRecord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "registrySerialNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "token": {
+            "type": "string"
+          },
+          "sender": {
+            "type": "string"
+          },
+          "receiver": {
+            "type": "string"
+          },
+          "originalAmount": {
+            "type": "number"
+          },
+          "remainingAmount": {
+            "type": "number"
+          },
+          "createdAt": {
+            "type": "number"
+          },
+          "updatedAt": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "transactionType",
+          "registrySerialNumbers",
+          "token",
+          "sender",
+          "receiver",
+          "originalAmount",
+          "remainingAmount",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "Retirement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bridgeId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "hasProvenanceDetails": {
+            "type": "boolean"
+          },
+          "beneficiaryAddress": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "retirementMessage": {
+            "type": "string"
+          },
+          "retiringAddress": {
+            "type": "string"
+          },
+          "retiringName": {
+            "type": "string"
+          },
+          "retireeProfile": {
+            "type": "object",
+            "properties": {
+              "handle": {
+                "minLength": 3,
+                "maxLength": 24,
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "number"
+              },
+              "updatedAt": {
+                "type": "number"
+              },
+              "address": {
+                "type": "string"
+              },
+              "username": {
+                "minLength": 2,
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "profileImgUrl": {
+                "type": "string"
+              },
+              "nonce": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "handle",
+              "createdAt",
+              "updatedAt",
+              "address",
+              "username"
+            ]
+          },
+          "timestamp": {
+            "type": "number"
+          },
+          "credit": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "bridgeProtocol": {
+                "type": "string"
+              },
+              "vintage": {
+                "type": "number"
+              },
+              "currentSupply": {
+                "type": "number"
+              },
+              "retired": {
+                "type": "number"
+              },
+              "crossChainSupply": {
+                "type": "number"
+              },
+              "projectId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "currentSupply",
+              "retired",
+              "crossChainSupply",
+              "projectId"
+            ]
+          }
+        },
+        "required": [
+          "amount",
+          "hash",
+          "hasProvenanceDetails",
+          "beneficiaryAddress",
+          "retiringAddress",
+          "timestamp"
+        ]
+      },
+      "CarbonCredit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bridgeProtocol": {
+            "type": "string"
+          },
+          "vintage": {
+            "type": "number"
+          },
+          "currentSupply": {
+            "type": "number"
+          },
+          "retired": {
+            "type": "number"
+          },
+          "crossChainSupply": {
+            "type": "number"
+          },
+          "projectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currentSupply",
+          "retired",
+          "crossChainSupply",
+          "projectId"
+        ]
       },
       "def-0": {
         "type": "object",
@@ -1984,55 +2195,6 @@
                     }
                   ]
                 ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/login": {
-      "post": {
-        "summary": "Get nonce",
-        "tags": [
-          "Auth"
-        ],
-        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "wallet"
-                ],
-                "type": "object",
-                "properties": {
-                  "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "nonce": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "nonce"
-                  ]
-                }
               }
             }
           }
@@ -2592,6 +2754,9 @@
                       },
                       "hasSupply": {
                         "type": "boolean"
+                      },
+                      "tokenId": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2761,6 +2926,174 @@
         }
       }
     },
+    "/retirements": {
+      "get": {
+        "summary": "Retirement",
+        "tags": [
+          "Retirements"
+        ],
+        "description": "Retrieve an array of retirement filtered by desired query parameters",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x087a7afb6975a2837453be685eb6272576c0bc",
+            "in": "query",
+            "name": "beneficiaryAddress",
+            "required": false,
+            "description": "Address of the retirement beneficiary"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "example": "5",
+            "in": "query",
+            "name": "retirementIndex",
+            "required": false,
+            "description": "Retirement index"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of retirement",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "bridgeId": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "hash": {
+                        "type": "string"
+                      },
+                      "hasProvenanceDetails": {
+                        "type": "boolean"
+                      },
+                      "beneficiaryAddress": {
+                        "type": "string"
+                      },
+                      "beneficiaryName": {
+                        "type": "string"
+                      },
+                      "retirementMessage": {
+                        "type": "string"
+                      },
+                      "retiringAddress": {
+                        "type": "string"
+                      },
+                      "retiringName": {
+                        "type": "string"
+                      },
+                      "retireeProfile": {
+                        "type": "object",
+                        "properties": {
+                          "handle": {
+                            "minLength": 3,
+                            "maxLength": 24,
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "type": "number"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "username": {
+                            "minLength": 2,
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "profileImgUrl": {
+                            "type": "string"
+                          },
+                          "nonce": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "handle",
+                          "createdAt",
+                          "updatedAt",
+                          "address",
+                          "username"
+                        ]
+                      },
+                      "timestamp": {
+                        "type": "number"
+                      },
+                      "credit": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "bridgeProtocol": {
+                            "type": "string"
+                          },
+                          "vintage": {
+                            "type": "number"
+                          },
+                          "currentSupply": {
+                            "type": "number"
+                          },
+                          "retired": {
+                            "type": "number"
+                          },
+                          "crossChainSupply": {
+                            "type": "number"
+                          },
+                          "projectId": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "currentSupply",
+                          "retired",
+                          "crossChainSupply",
+                          "projectId"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "hash",
+                      "hasProvenanceDetails",
+                      "beneficiaryAddress",
+                      "retiringAddress",
+                      "timestamp"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users": {
       "post": {
         "summary": "Create user profile",
@@ -2788,30 +3121,15 @@
                     "type": "string"
                   },
                   "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
+                    "pattern": "^0x[a-fA-F0-9]{40}$",
                     "type": "string"
                   },
                   "description": {
-                    "anyOf": [
-                      {
-                        "maxLength": 500,
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
+                    "maxLength": 500,
+                    "type": "string"
                   },
                   "profileImgUrl": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
+                    "type": "string"
                   }
                 }
               }
@@ -2825,49 +3143,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": [
-                    "handle",
-                    "username",
-                    "wallet"
-                  ],
                   "type": "object",
                   "properties": {
-                    "handle": {
-                      "minLength": 3,
-                      "maxLength": 24,
+                    "address": {
+                      "pattern": "^0x[a-fA-F0-9]{40}$",
                       "type": "string"
                     },
-                    "username": {
-                      "minLength": 2,
-                      "type": "string"
-                    },
-                    "wallet": {
-                      "minLength": 26,
-                      "maxLength": 64,
-                      "type": "string"
-                    },
-                    "description": {
-                      "anyOf": [
-                        {
-                          "maxLength": 500,
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "profileImgUrl": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
+                    "nonce": {
+                      "type": "number"
                     }
-                  }
+                  },
+                  "required": [
+                    "address",
+                    "nonce"
+                  ]
                 }
               }
             }
@@ -3173,59 +3462,6 @@
                     "expiration",
                     "minFillAmount",
                     "project"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/login/verify": {
-      "post": {
-        "summary": "Verify signed data",
-        "tags": [
-          "Auth"
-        ],
-        "description": "Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "wallet",
-                  "signature"
-                ],
-                "type": "object",
-                "properties": {
-                  "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
-                    "type": "string"
-                  },
-                  "signature": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "token"
                   ]
                 }
               }
@@ -3760,6 +3996,9 @@
                     },
                     "hasSupply": {
                       "type": "boolean"
+                    },
+                    "tokenId": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -3927,6 +4166,161 @@
                     "amount",
                     "listing",
                     "price"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/retirements/{id}": {
+      "get": {
+        "summary": "Retirement",
+        "tags": [
+          "Retirements"
+        ],
+        "description": "Retrieve a klima retirement by account and retirement index",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Retirement transaction hash"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement with account and index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "bridgeId": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "hash": {
+                      "type": "string"
+                    },
+                    "hasProvenanceDetails": {
+                      "type": "boolean"
+                    },
+                    "beneficiaryAddress": {
+                      "type": "string"
+                    },
+                    "beneficiaryName": {
+                      "type": "string"
+                    },
+                    "retirementMessage": {
+                      "type": "string"
+                    },
+                    "retiringAddress": {
+                      "type": "string"
+                    },
+                    "retiringName": {
+                      "type": "string"
+                    },
+                    "retireeProfile": {
+                      "type": "object",
+                      "properties": {
+                        "handle": {
+                          "minLength": 3,
+                          "maxLength": 24,
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "number"
+                        },
+                        "updatedAt": {
+                          "type": "number"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "minLength": 2,
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "profileImgUrl": {
+                          "type": "string"
+                        },
+                        "nonce": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "handle",
+                        "createdAt",
+                        "updatedAt",
+                        "address",
+                        "username"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "credit": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "bridgeProtocol": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "number"
+                        },
+                        "currentSupply": {
+                          "type": "number"
+                        },
+                        "retired": {
+                          "type": "number"
+                        },
+                        "crossChainSupply": {
+                          "type": "number"
+                        },
+                        "projectId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "currentSupply",
+                        "retired",
+                        "crossChainSupply",
+                        "projectId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "hash",
+                    "hasProvenanceDetails",
+                    "beneficiaryAddress",
+                    "retiringAddress",
+                    "timestamp"
                   ]
                 }
               }
@@ -4411,6 +4805,9 @@
                               },
                               "decimals": {
                                 "type": "number"
+                              },
+                              "tokenId": {
+                                "type": "string"
                               }
                             },
                             "required": [
@@ -4430,6 +4827,9 @@
                           "amount"
                         ]
                       }
+                    },
+                    "nonce": {
+                      "type": "number"
                     }
                   },
                   "required": [
@@ -4447,7 +4847,7 @@
     },
     "/users/{wallet}": {
       "put": {
-        "summary": "Update user profile",
+        "summary": "Update an existing user profile",
         "tags": [
           "Users"
         ],
@@ -4455,50 +4855,34 @@
           "content": {
             "application/json": {
               "schema": {
+                "description": "One or more fields to update.",
                 "type": "object",
                 "properties": {
-                  "wallet": {
-                    "minLength": 3,
-                    "type": "string"
-                  },
                   "username": {
                     "minLength": 2,
                     "type": "string"
                   },
                   "description": {
-                    "minLength": 2,
                     "maxLength": 500,
                     "type": "string"
                   },
                   "profileImgUrl": {
                     "type": "string"
-                  },
-                  "handle": {
-                    "minLength": 3,
-                    "maxLength": 24,
-                    "type": "string"
                   }
-                },
-                "required": [
-                  "wallet",
-                  "username",
-                  "description"
-                ]
+                }
               }
             }
           },
-          "required": true
+          "description": "One or more fields to update."
         },
         "parameters": [
           {
             "schema": {
               "type": "string"
             },
-            "example": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
             "in": "path",
             "name": "wallet",
-            "required": true,
-            "description": "The target wallet address"
+            "required": true
           }
         ],
         "responses": {
@@ -4509,32 +4893,17 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "wallet": {
-                      "minLength": 3,
+                    "address": {
+                      "pattern": "^0x[a-fA-F0-9]{40}$",
                       "type": "string"
                     },
-                    "username": {
-                      "minLength": 2,
-                      "type": "string"
-                    },
-                    "description": {
-                      "minLength": 2,
-                      "maxLength": 500,
-                      "type": "string"
-                    },
-                    "profileImgUrl": {
-                      "type": "string"
-                    },
-                    "handle": {
-                      "minLength": 3,
-                      "maxLength": 24,
-                      "type": "string"
+                    "nonce": {
+                      "type": "number"
                     }
                   },
                   "required": [
-                    "wallet",
-                    "username",
-                    "description"
+                    "address",
+                    "nonce"
                   ]
                 }
               }
@@ -4787,11 +5156,102 @@
           }
         }
       }
+    },
+    "/retirements/{id}/provenance": {
+      "get": {
+        "summary": "Retirement provenance records",
+        "tags": [
+          "Records"
+        ],
+        "description": "Retrieve a retirement provenance records",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Retirement transaction hash"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retirement provenance record with account id and retirement index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "transactionType": {
+                        "type": "string"
+                      },
+                      "registrySerialNumbers": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "token": {
+                        "type": "string"
+                      },
+                      "sender": {
+                        "type": "string"
+                      },
+                      "receiver": {
+                        "type": "string"
+                      },
+                      "originalAmount": {
+                        "type": "number"
+                      },
+                      "remainingAmount": {
+                        "type": "number"
+                      },
+                      "createdAt": {
+                        "type": "number"
+                      },
+                      "updatedAt": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "transactionType",
+                      "registrySerialNumbers",
+                      "token",
+                      "sender",
+                      "receiver",
+                      "originalAmount",
+                      "remainingAmount",
+                      "createdAt",
+                      "updatedAt"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "servers": [
     {
-      "url": "https://v5.2.1.api.carbonmark.com"
+      "url": "https://v6.0.0.api.carbonmark.com"
     }
   ],
   "externalDocs": {
