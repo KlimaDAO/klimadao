@@ -26,7 +26,6 @@ const getFormattedDate = (timestamp: number, locale = "en") => {
   }).format(dateObj);
 };
 
-/** Helper that formats retirement information */
 const RetirementCardItem = (props: {
   title: string;
   icon: ReactNode;
