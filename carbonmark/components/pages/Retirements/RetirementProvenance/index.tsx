@@ -1,4 +1,3 @@
-import { ProvenanceRecord } from ".generated/carbonmark-api-sdk/types";
 import { GridContainer, Section } from "@klimadao/lib/components";
 import { concatAddress, formatTonnes } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
@@ -12,87 +11,8 @@ import { useRouter } from "next/router";
 import { RetirementProvenancePageProps } from "pages/retirements/[beneficiary]/[retirement_index]/provenance";
 import { ProvenanceComponent } from "./ProvenanceComponent";
 import { RetirementCard } from "./RetirementCard";
+import { splitProvenance } from "./RetirementProvenance.utils";
 import * as styles from "./styles";
-
-/**
- * Provenance Elements indexed by the address of the last sender
- */
-type ProvenanceList = Record<string, ProvenanceRecord[]>;
-
-/**
- * Splits Provenance records in different streams
- * Each stream tracks the provenance of the credits received by the last sender
- * @param provenance
- * @returns
- */
-const splitProvenance = (records: ProvenanceRecord[]) => {
-  if (records.length <= 3) return [records];
-  // Sender of the last trasfer
-  const lastSender = records[1].sender;
-  // Stores the different carbon sources
-  const provenanceList: ProvenanceList = {};
-  records.forEach((record, index) => {
-    // Ignore ORIGINATION, RETIMENT and last transfer records for now
-    if (record.transactionType !== "TRANSFER" || index <= 1) return;
-
-    // The transfer concerns the last sender
-    if (record.receiver == lastSender) {
-      if (provenanceList[record.sender]) {
-        // Add  this transfer to an existing source
-        provenanceList[record.sender].push(record);
-      } else {
-        // Initialize a new source
-        provenanceList[record.sender] = [record];
-      }
-    } else {
-      // If everything goes according to plan, we already identified the receiver of this transfer as a sender in one of the source
-      const targetLastSender = Object.keys(provenanceList).find(
-        (lastSender) => {
-          return provenanceList[lastSender]
-            .map((record) => record.sender)
-            .includes(record.receiver);
-        }
-      );
-      if (targetLastSender) {
-        const targetProvenanceElement = provenanceList[targetLastSender];
-        targetProvenanceElement.push(record);
-      }
-      // If the plan failed. We create another provenance list and log the traceability issue
-      else {
-        provenanceList[record.sender] = [record];
-        console.error("Unable to trace carbon provenance properly", record);
-      }
-    }
-  });
-  // total carbon received from all sources
-  const totalQuantity = Object.values(provenanceList).reduce(
-    (acc, newRrecords) => newRrecords[0].originalAmount + acc,
-    0
-  );
-
-  // Add bridging and retirement events to each recordList
-  Object.values(provenanceList).forEach((newRrecords) => {
-    // Quantity received from this source
-    const quantity = newRrecords[0].originalAmount;
-    // Add the last transfer to each recordList
-    newRrecords.unshift(records[1]);
-    records.forEach((record) => {
-      if (record.transactionType === "RETIREMENT") {
-        // We say that the amount retired from this source is proportional to the amount acquired from this source
-        const retirement = { ...record };
-        retirement.originalAmount *= quantity / totalQuantity;
-        newRrecords.unshift(retirement);
-      }
-      if (record.transactionType === "ORIGINATION") {
-        newRrecords.push(record);
-      }
-    });
-  });
-  // Sort results by amount retired
-  return Object.values(provenanceList).sort((a, b) =>
-    a[0].originalAmount > b[0].originalAmount ? -1 : 1
-  );
-};
 
 /**
  * Renders the carbon provenance page
