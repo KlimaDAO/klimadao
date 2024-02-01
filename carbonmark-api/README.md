@@ -20,7 +20,7 @@ You will need to be member with access to the following in order to run the proj
 
 Secrets are managed via Doppler and exposed as environment variables during run time. Therefore we need to setup the Doppler CLI
 
-Install the doppler CLI
+[Install the doppler CLI](https://docs.doppler.com/docs/install-cli#installation)
 
 ```sh
 brew install doppler
