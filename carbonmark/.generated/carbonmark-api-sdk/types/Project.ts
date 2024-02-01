@@ -249,8 +249,4 @@ export type Project = {
    * @type string | undefined
    */
   tokenId?: string;
-  /**
-   * @type string | undefined
-   */
-  serialization?: string;
 };

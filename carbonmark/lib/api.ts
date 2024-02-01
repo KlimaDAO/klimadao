@@ -1,91 +1,53 @@
 import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
+import {
+  PostUsersMutationResponse,
+  PutUsersWalletMutationResponse,
+} from ".generated/carbonmark-api-sdk/types";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
 import { User } from "lib/types/carbonmark.types";
 import { createDownloadLink } from "./createDownloadLink";
 
-export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
-  const res = await fetch(`${urls.api.login}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      wallet,
-    }),
-  });
-
-  const data = await res.json();
-
-  if (!res.ok || !data.nonce) {
-    throw new Error(data.message);
-  }
-  return data;
-};
-
-export const verifyUser = async (params: {
-  address: string;
-  signature: string;
-}): Promise<{ token: string }> => {
-  const res = await fetch(`${urls.api.login}/verify`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      wallet: params.address,
-      signature: params.signature,
-    }),
-  });
-
-  const data = await res.json();
-
-  if (!res.ok || !data.token) {
-    throw new Error(data.message);
-  }
-  return data;
-};
-
 export const putUser = async (params: {
   user: User;
-  token: string;
-}): Promise<User> => {
+  signature: string;
+}): Promise<PutUsersWalletMutationResponse> => {
   const res = await fetch(`${urls.api.users}/${params.user.wallet}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${params.token}`,
+      Authorization: `Bearer ${params.signature}`,
     },
     body: JSON.stringify(params.user),
   });
 
-  const data = await res.json();
-
-  if (!res.ok || data.error) {
+  if (!res.ok) {
+    const data = await res.json();
     throw new Error(data.message);
   }
+  const data: PutUsersWalletMutationResponse = await res.json();
   return data;
 };
 
 export const postUser = async (params: {
   user: User;
-  token: string;
-}): Promise<User> => {
+  signature: string;
+}): Promise<PostUsersMutationResponse> => {
   const res = await fetch(urls.api.users, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${params.token}`,
+      Authorization: `Bearer ${params.signature}`,
     },
     body: JSON.stringify(params.user),
   });
 
-  const data = await res.json();
-
-  if (!res.ok || data.error) {
+  if (!res.ok) {
+    const data = await res.json();
     throw new Error(data.message);
   }
+  const data: PostUsersMutationResponse = await res.json();
   return data;
 };
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-26 14:52+0000\n"
+"POT-Creation-Date: 2024-02-01 15:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "0% listing fee"
 msgstr "0% листинговый сбор"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:200
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:193
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "Рекомендуется PNG размером 200x200. Загрузите изображение на хост, например, imgur.com или postimages.org, и вставьте полный URL. Прямая загрузка фотографий скоро появится!"
 
@@ -36,7 +36,7 @@ msgstr "500 - Произошла ошибка сервера"
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> Обязательное поле"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
 msgid "@Username (note: this can not be changed!)"
 msgstr "@Username (внимание: это нельзя изменить!)"
 
@@ -48,7 +48,7 @@ msgstr ""
 msgid "A-Z"
 msgstr "А-Я"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:211
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:204
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -388,16 +388,12 @@ msgstr "Не удалось рассчитать общую стоимость"
 msgid "Country"
 msgstr "Страна"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:97
-msgid "Create Carbonmark Profile"
-msgstr "Создать профиль Carbonmark"
-
-#: components/pages/Users/SellerConnected/index.tsx:148
-#: components/pages/Users/SellerConnected/index.tsx:172
+#: components/pages/Users/SellerConnected/index.tsx:140
+#: components/pages/Users/SellerConnected/index.tsx:164
 msgid "Create New Listing"
 msgstr "Создать новое объявление"
 
-#: components/pages/Users/SellerConnected/index.tsx:118
+#: components/pages/Users/SellerConnected/index.tsx:110
 msgid "Create Profile"
 msgstr "Создать профиль"
 
@@ -483,11 +479,11 @@ msgstr "Цифровой углерод"
 msgid "Digitize your carbon by using a supported bridge"
 msgstr "Оцифруйте свой углерод с помощью поддерживаемого моста"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:188
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
 msgid "Display name"
 msgstr "Отображаемое имя"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
 msgid "Display name is required"
 msgstr "Укажите отображаемое имя."
 
@@ -507,7 +503,7 @@ msgstr "Загрузка ..."
 msgid "Edit"
 msgstr "Редактировать"
 
-#: components/pages/Users/SellerConnected/index.tsx:118
+#: components/pages/Users/SellerConnected/index.tsx:110
 msgid "Edit Profile"
 msgstr "Редактировать профиль"
 
@@ -601,15 +597,15 @@ msgstr ""
 msgid "Go back"
 msgstr "Вернуться назад"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:152
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:145
 msgid "Handle is required"
 msgstr "Требуется никнейм"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
 msgid "Handle should not be an address"
 msgstr "Никнейм не должен быть адресом"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:156
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle should not contain any special characters"
 msgstr "Никнейм не должен содержать никаких специальных символов"
 
@@ -741,13 +737,13 @@ msgstr "Разместите свои проекты на продажу все�
 msgid "Listed tonnes:"
 msgstr "Опубликованные тонны:"
 
-#: components/pages/Users/SellerConnected/index.tsx:133
+#: components/pages/Users/SellerConnected/index.tsx:125
 #: components/pages/Users/SellerUnconnected/index.tsx:54
 msgid "Listings"
 msgstr "Объявления"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:60
-#: components/pages/Retire/FromPortfolio/index.tsx:63
+#: components/pages/Retire/FromPortfolio/index.tsx:52
 msgid "Loading your assets"
 msgstr "Загрузка ваших активов"
 
@@ -826,7 +822,7 @@ msgstr "Следующий"
 msgid "No Activity to show."
 msgstr "Нет активности для отображения."
 
-#: components/pages/Users/SellerConnected/index.tsx:196
+#: components/pages/Users/SellerConnected/index.tsx:188
 #: components/pages/Users/SellerUnconnected/index.tsx:90
 msgid "No active listings."
 msgstr "Нет активных объявлений."
@@ -946,8 +942,8 @@ msgid "Please complete the secure form on the next page and we'll provide you an
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:67
-#: components/pages/Users/SellerConnected/index.tsx:81
-#: components/pages/Users/SellerConnected/index.tsx:107
+#: components/pages/Users/SellerConnected/index.tsx:73
+#: components/pages/Users/SellerConnected/index.tsx:99
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Пожалуйста, обновите страницу. При обновлении данных произошла ошибка: {e}."
 
@@ -1014,7 +1010,7 @@ msgstr ""
 msgid "Profile"
 msgstr "Профиль"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:192
 msgid "Profile picture"
 msgstr "Изображение профиля"
 
@@ -1022,10 +1018,6 @@ msgstr "Изображение профиля"
 #: components/pages/Project/PayWithBank/index.tsx:357
 msgid "Project names of interest"
 msgstr ""
-
-#: components/pages/Retire/FromPortfolio/index.tsx:82
-msgid "Purchase Carbon"
-msgstr "Купить углерод"
 
 #: components/pages/Purchases/index.tsx:36
 #: components/pages/Purchases/index.tsx:37
@@ -1247,7 +1239,7 @@ msgstr "Выбивание успешно"
 msgid "Retiring Token"
 msgstr "Устаревший токен"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Несколько слов о себе. Это будет видно в вашем профиле продавца."
 
@@ -1293,7 +1285,7 @@ msgstr "Что-то пошло не так при загрузке пособи�
 msgid "Something went wrong. Please try again."
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:105
 msgid "Something went wrong. Please try again. {error}"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз. {error}"
 
@@ -1305,7 +1297,7 @@ msgstr "Извините, похоже, мы отправили вас не ту
 msgid "Sorry, something went wrong."
 msgstr "Извините, что-то пошло не так."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
 msgid "Sorry, this handle already exists"
 msgstr "Извините, этот никнейм уже существует"
 
@@ -1597,7 +1589,7 @@ msgstr "Обновить список"
 msgid "Updated:"
 msgstr "Обновлено:"
 
-#: components/pages/Users/SellerConnected/index.tsx:190
+#: components/pages/Users/SellerConnected/index.tsx:182
 msgid "Updating your data..."
 msgstr "Обновление данных..."
 
@@ -1692,8 +1684,7 @@ msgstr "Старейшие Винтаж"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "Мы все еще обрабатываем вашу успешную покупку. Пожалуйста, посетите эту страницу снова через несколько минут, чтобы увидеть вашу квитанцию"
 
-#: components/pages/Retire/FromPortfolio/index.tsx:77
-#: components/pages/Retire/FromPortfolio/index.tsx:92
+#: components/pages/Retire/FromPortfolio/index.tsx:65
 msgid "We couldn't find any assets in your portfolio."
 msgstr "Мы не смогли найти активы в вашем портфеле."
 
@@ -1746,7 +1737,7 @@ msgstr "Теперь вы можете просмотреть успешную �
 msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
 msgstr "Просмотреть успешную транзакцию можно уже сейчас на<0> PolygonScan.</0>"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:110
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:103
 msgid "You chose to reject the transaction."
 msgstr "Вы решили отклонить транзакцию."
 
@@ -1782,7 +1773,7 @@ msgstr "Ваш баланс должен быть как минимум на 1% 
 msgid "Your balance:"
 msgstr "Ваш баланс:"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:178
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
 msgid "Your display name"
 msgstr "Ваше отображаемое имя"
 
@@ -1791,7 +1782,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ваша покупка еще не завершена. Чтобы завершить покупку, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:214
+#: components/pages/Users/SellerConnected/index.tsx:206
 msgid "Your seller data"
 msgstr "Ваши данные продавца"
 
@@ -1799,7 +1790,7 @@ msgstr "Ваши данные продавца"
 msgid "Your transaction was successful, but the network is taking longer than expected to process the data. Your retirement details should appear here in just a few seconds!"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:137
 msgid "Your unique handle"
 msgstr "Ваша уникальный никнейм"
 
@@ -1963,11 +1954,11 @@ msgstr "Балансы"
 msgid "profile.addListing_modal.submit"
 msgstr "Создать объявление"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:223
 msgid "profile.edit_modal.submit"
 msgstr "Сохранить изменения"
 
-#: components/pages/Users/SellerConnected/index.tsx:220
+#: components/pages/Users/SellerConnected/index.tsx:212
 msgid "profile.edit_profile.title"
 msgstr "Ваш профиль"
 
