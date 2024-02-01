@@ -35,7 +35,7 @@ export const TopMenu: FC<TopMenuProps> = () => {
           label={t`Search Carbonmark`}
           placeholder={t`Search Carbonmark`}
           buttonStyle={styles.searchButton}
-          onSubmit={() => {}}
+          onSubmit={() => console.log("")}
         />
       )}
 
