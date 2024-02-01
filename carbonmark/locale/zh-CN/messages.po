@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-30 22:24+0000\n"
+"POT-Creation-Date: 2024-01-31 15:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -360,7 +360,7 @@ msgstr "确认退休"
 
 #: components/pages/Portfolio/ConnectedWallet/index.tsx:33
 msgid "Connected Wallet"
-msgstr ""
+msgstr "连接钱包"
 
 #: components/Footer/index.tsx:41
 #: components/pages/Home/index.tsx:553
@@ -647,11 +647,11 @@ msgstr "您想停用多少金额的碳？"
 
 #: lib/validateIcrAmount.ts:7
 msgid "ICR credits can only be listed in whole tonnes"
-msgstr ""
+msgstr "ICR 信用额只能以整吨为单位列出"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:146
 msgid "ICR credits can only be retired in whole tonnes"
-msgstr ""
+msgstr "ICR 信用额只能以整吨为单位停用碳"
 
 #: components/pages/Purchases/index.tsx:93
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -1370,7 +1370,7 @@ msgstr "通用碳市场"
 
 #: components/CreateListing/Transaction/Approve.tsx:50
 msgid "The allowance below reflects the sum of all your listings for this specific token. For ICR credit tokens, the allowance will reflect the sum of all your ICR token listings."
-msgstr ""
+msgstr "下面的限额反映了该特定代币的所有列表的总和。对于 ICR 信用代币，津贴将反映您所有 ICR 代币列表的总和。"
 
 #: components/CreateListing/Transaction/Approve.tsx:43
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
