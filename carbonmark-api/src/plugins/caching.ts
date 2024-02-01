@@ -13,12 +13,6 @@ export default fp(async function (fastify) {
   }
 });
 
-declare module "fastify" {
-  export interface FastifyInstance {
-    lcache: ILcacheStorage | null;
-  }
-}
-
 export type CachedResponse<T> =
   | {
       payload: T;

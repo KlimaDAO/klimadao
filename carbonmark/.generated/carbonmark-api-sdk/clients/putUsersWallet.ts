@@ -7,11 +7,11 @@ import type {
 } from "../types/PutUsersWallet";
 
 /**
- * @summary Update user profile
+ * @summary Update an existing user profile
  * @link /users/:wallet */
 export async function putUsersWallet(
   wallet: PutUsersWalletPathParams["wallet"],
-  data: PutUsersWalletMutationRequest,
+  data?: PutUsersWalletMutationRequest,
   options: Partial<Parameters<typeof client>[0]> = {}
 ): Promise<ResponseConfig<PutUsersWalletMutationResponse>["data"]> {
   const res = await client<

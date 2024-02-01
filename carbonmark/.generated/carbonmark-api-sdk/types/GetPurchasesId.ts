@@ -74,10 +74,6 @@ export type GetPurchasesIdQueryResponse = {
        * @type string
        */
       vintage: string;
-      /**
-       * @type string | undefined
-       */
-      serialization?: string;
     };
   };
   /**

@@ -189,7 +189,8 @@
         },
         "required": ["id", "token", "amount"]
       }
-    }
+    },
+    "nonce": { "type": "number" }
   },
   "required": ["username", "updatedAt", "createdAt", "wallet"],
   "x-readme-ref-name": "User"

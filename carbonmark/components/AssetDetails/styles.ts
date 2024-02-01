@@ -34,10 +34,6 @@ export const iconAndText = css`
   display: flex;
   gap: 0.8rem;
 
-  .icon {
-    flex-shrink: 0;
-  }
-
   .error {
     color: var(--warn);
   }

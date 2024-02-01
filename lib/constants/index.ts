@@ -32,7 +32,9 @@ const mainnet = {
   staking: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd",
+  // the next two are identical
   retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
+  klimaInfinity: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
   carbonmark: "0x7B51dBc2A8fD98Fe0924416E628D5755f57eB821",
@@ -73,6 +75,7 @@ const testnet: typeof mainnet = {
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "",
   retirementAggregatorV2: "0x62d3897089C93A0fa2B0746A6975Ec4693c13cb8",
+  klimaInfinity: "0x62d3897089C93A0fa2B0746A6975Ec4693c13cb8",
   liveOffsetWallet: "",
   liveOffsetContract: "",
   carbonmark: "0xD973F90a4C49607EABeFdb2C45d4F39436c7e7fA",
@@ -314,6 +317,7 @@ export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
 
+export const projectIDRegExp = /^(VCS|PURO|ICR|GS)-\d+-(19\d{2}|20\d{2})$/;
 export const ICR_CONFIG = {
   polygon: {
     url: "https://api.carbonregistry.com/v0",

@@ -48,6 +48,7 @@ export const TOKEN_ADDRESSES = {
     NBO_POOL: "0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48",
     NTC_POOL: "0xd838290e877e0188a4a44700463419ed96c16107",
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+    MOSS_POOL: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   },
   production: {
     LP_UBO_POOL: "0x5400a05b8b45eaf9105315b4f2e31f806ab706de",
@@ -58,6 +59,7 @@ export const TOKEN_ADDRESSES = {
     NBO_POOL: "0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48",
     NTC_POOL: "0xd838290e877e0188a4a44700463419ed96c16107",
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+    MOSS_POOL: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   },
 };
 
@@ -112,3 +114,9 @@ export const ICR_API = (
 
   return { ICR_API_URL: API_CONFIG.url, ICR_API_KEY: API_CONFIG.apiKey };
 };
+/** Message shared with frontend, to be combined with user's nonce and signed by private key. */
+export const SIGN_PROFILE_MESSAGE =
+  process.env.SIGN_PROFILE_MESSAGE || "VerifyCarbonmarkProfileEdit";
+
+/** Ethereum 0x address */
+export const VALID_ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;
