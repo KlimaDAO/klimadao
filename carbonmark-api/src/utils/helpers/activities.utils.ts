@@ -23,7 +23,9 @@ const mapUserToActivities = async (
     const registry = activity.project.key.split("-")[0];
 
     if (!IS_REGISTRY_ID(registry)) {
-      throw new Error(`Invalid registry id: ${registry}`);
+      throw new Error(
+        `Invalid registry id in mapUserToActivities: ${registry}`
+      );
     }
     return {
       ...activity,

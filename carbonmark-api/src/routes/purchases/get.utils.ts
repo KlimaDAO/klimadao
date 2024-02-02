@@ -19,7 +19,7 @@ export const composePurchaseModel = (
   const [registry, registryProjectId] = CreditId.splitProjectId(project.key);
 
   if (!IS_REGISTRY_ID(registry)) {
-    throw new Error(`Invalid registry id: ${registry}`);
+    throw new Error(`Invalid registry id in composePurchaseModel: ${registry}`);
   }
 
   return {

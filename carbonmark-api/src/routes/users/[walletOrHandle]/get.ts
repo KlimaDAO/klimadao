@@ -90,7 +90,9 @@ const handler = (fastify: FastifyInstance) =>
           const registry = a.project.key.split("-")[0];
 
           if (!IS_REGISTRY_ID(registry)) {
-            throw new Error(`Invalid registry id: ${registry}`);
+            throw new Error(
+              `Invalid registry id in getUserProfilesByIds: ${registry}`
+            );
           }
 
           return {

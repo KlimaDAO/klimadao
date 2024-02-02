@@ -60,7 +60,7 @@ export const formatListing = (listing: GetProjectListing): ListingModel => {
   const registry = listing.project.key.split("-")[0];
 
   if (!IS_REGISTRY_ID(registry)) {
-    throw new Error(`Invalid registry id: ${registry}`);
+    throw new Error(`Invalid registry id in formatListing: ${registry}`);
   }
 
   return {
