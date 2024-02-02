@@ -28,7 +28,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v6.0.0.api.carbonmark.com";
+export const API_PROD_URL = "https://v6.0.1.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
