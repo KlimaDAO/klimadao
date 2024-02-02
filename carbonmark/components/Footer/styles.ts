@@ -10,7 +10,7 @@ export const footer = (transparent = false) => css`
   padding: 4rem 1.6rem;
 
   ${breakpoints.desktop} {
-    padding: 4rem;
+    padding: 4rem 8rem;
     gap: 3rem;
   }
 
@@ -32,6 +32,9 @@ export const footerNav = css`
   flex-direction: column;
   flex-wrap: wrap;
   gap: 2rem;
+  a {
+    font-family: poppins;
+  }
 
   ${breakpoints.desktop} {
     flex-direction: row;
