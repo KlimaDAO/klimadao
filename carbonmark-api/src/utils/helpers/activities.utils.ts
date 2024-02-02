@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
 import { ActivityType } from "../../.generated/types/marketplace.types";
@@ -19,19 +19,19 @@ const mapUserToActivities = async (
 ): Promise<Activity[]> => {
   const formattedActivities = activities.map((activity) => ({
     ...activity,
-    price: activity.price ? utils.formatUnits(activity.price, 6) : null,
+    price: activity.price ? formatUnits(activity.price, 6) : null,
     previousPrice: activity.previousPrice
-      ? utils.formatUnits(activity.previousPrice, 6)
+      ? formatUnits(activity.previousPrice, 6)
       : null,
     amount: activity.amount
       ? activity.project.key.startsWith("ICR")
         ? activity.amount
-        : utils.formatUnits(activity.amount, 18)
+        : formatUnits(activity.amount, 18)
       : null,
     previousAmount: activity.previousAmount
       ? activity.project.key.startsWith("ICR")
         ? activity.amount
-        : utils.formatUnits(activity.previousAmount, 18)
+        : formatUnits(activity.previousAmount, 18)
       : null,
   }));
 

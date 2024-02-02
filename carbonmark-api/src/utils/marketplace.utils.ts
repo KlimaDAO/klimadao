@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { compact } from "lodash/fp";
 import {
   GetProjectsQuery,
@@ -43,16 +43,16 @@ export const formatListing = (listing: GetProjectListing): ListingModel => {
     leftToSell:
       registry === "ICR"
         ? listing.leftToSell
-        : utils.formatUnits(listing.leftToSell, 18),
-    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
+        : formatUnits(listing.leftToSell, 18),
+    singleUnitPrice: formatUnits(listing.singleUnitPrice, 6),
     minFillAmount:
       registry === "ICR"
         ? listing.minFillAmount
-        : utils.formatUnits(listing.minFillAmount, 18),
+        : formatUnits(listing.minFillAmount, 18),
     totalAmountToSell:
       registry === "ICR"
         ? listing.totalAmountToSell
-        : utils.formatUnits(listing.totalAmountToSell, 18),
+        : formatUnits(listing.totalAmountToSell, 18),
     expiration: Number(listing.expiration),
     project: {
       ...listing.project,

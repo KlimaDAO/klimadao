@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits, isHexString } from "ethers-v6";
 import { GetPurchaseByIdQuery } from "src/.generated/types/marketplace.types";
 import { Purchase } from "../../models/Purchase.model";
 import { CreditId } from "../../utils/CreditId";
@@ -6,7 +6,7 @@ import { CreditId } from "../../utils/CreditId";
 /** Purchase ids are a txn hash */
 export const isValidPurchaseId = (id?: string | null) => {
   if (!id) return false;
-  return id.length === 66 && utils.isHexString(id);
+  return id.length === 66 && isHexString(id);
 };
 
 export const composePurchaseModel = (
@@ -19,8 +19,8 @@ export const composePurchaseModel = (
     id: purchase.id,
     amount: purchase.listing.project.key.startsWith("ICR")
       ? purchase.amount
-      : utils.formatUnits(purchase.amount, 18),
-    price: utils.formatUnits(purchase.price, 6),
+      : formatUnits(purchase.amount, 18),
+    price: formatUnits(purchase.price, 6),
     listing: {
       id: purchase.listing.id,
       tokenAddress: purchase.listing.tokenAddress,

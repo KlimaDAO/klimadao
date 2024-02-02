@@ -1,4 +1,5 @@
-import { Contract, providers, utils } from "ethers";
+import { Contract, providers } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
 import { createICRProjectID } from "../../../../src/utils/ICR/icr.utils";
@@ -13,7 +14,7 @@ type MultipleTokenStandardType = Holding & { token: { tokenId?: string } };
 const formatHolding = (h: Holding): Holding => {
   return {
     ...h,
-    amount: utils.formatUnits(h.amount, h.token.decimals),
+    amount: formatUnits(h.amount, h.token.decimals),
   };
 };
 
