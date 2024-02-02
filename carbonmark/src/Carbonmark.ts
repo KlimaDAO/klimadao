@@ -9,6 +9,8 @@ import {
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { ERC20 } from '../generated/Carbonmark/ERC20'
+import { ERC1155 } from '../generated/Carbonmark/ERC1155'
+import { Bytes, log } from '@graphprotocol/graph-ts'
 
 export function handleListingCreated(event: ListingCreated): void {
   // Ensure the user entity exists
@@ -18,8 +20,21 @@ export function handleListingCreated(event: ListingCreated): void {
 
   let listing = loadOrCreateListing(event.params.id.toHexString())
 
-  let tokenContract = ERC20.bind(event.params.token)
-  let tokenSymbol = tokenContract.try_symbol()
+  let ERC20TokenContract = ERC20.bind(event.params.token)
+  let ERC1155TokenContract = ERC1155.bind(event.params.token)
+
+  let tokenSymbol = ERC20TokenContract.try_symbol()
+  let interfaceID = ERC1155TokenContract.try_supportsInterface(Bytes.fromHexString('0xd9b67a26'))
+
+  if (!tokenSymbol.reverted) {
+    listing.tokenStandard = 'ERC20'
+    listing.tokenSymbol = tokenSymbol.value
+  } else if (!interfaceID.reverted) {
+    listing.tokenStandard = 'ERC1155'
+    listing.tokenSymbol = project.id
+  } else {
+    log.error('Token does not implement ERC20 or ERC1155', [])
+  }
 
   listing.totalAmountToSell = event.params.amount
   listing.leftToSell = event.params.amount
@@ -34,9 +49,6 @@ export function handleListingCreated(event: ListingCreated): void {
   listing.seller = event.params.account
   listing.createdAt = event.block.timestamp
   listing.updatedAt = event.block.timestamp
-  if (!tokenSymbol.reverted) {
-    listing.tokenSymbol = tokenSymbol.value
-  }
 
   listing.save()
 

@@ -42,6 +42,11 @@ type Category @entity {
   id: String!
 }
 
+enum TokenStandard {
+  ERC20
+  ERC1155
+}
+
 type Listing @entity {
   id: ID!
   totalAmountToSell: BigInt!
@@ -62,6 +67,7 @@ type Listing @entity {
   activities: [Activity!] @derivedFrom(field: "listing")
   createdAt: BigInt
   updatedAt: BigInt
+  tokenStandard: TokenStandard!
 }
 
 type Activity @entity {
