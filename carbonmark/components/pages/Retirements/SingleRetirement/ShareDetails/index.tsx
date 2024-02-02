@@ -1,12 +1,10 @@
-import { Anchor as A, CopyValueButton } from "@klimadao/lib/components";
+import { Anchor as A } from "@klimadao/lib/components";
 import { Trans, t } from "@lingui/macro";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { FacebookButton } from "components/FacebookButton";
-import { LinkedInButton } from "components/LinkedInButton";
+import { SocialLinks } from "components/SocialLinks";
 import { Text } from "components/Text";
-import { TweetButton } from "components/TweetButton";
 import { Spinner } from "components/shared/Spinner";
 import { getRetirementCertificate } from "lib/api";
 import { urls } from "lib/constants";
@@ -51,17 +49,10 @@ export const ShareDetails: FC<Props> = (props) => {
             }}
           />
         )}
-        <div className={styles.socialLinks}>
-          <div className="buttons">
-            <TweetButton
-              title={`${props.retiree} retired ${props.formattedAmount} Tonnes of carbon`}
-              tags={["Carbonmark", "retirement"]}
-            />
-            <FacebookButton />
-            <LinkedInButton />
-            <CopyValueButton />
-          </div>
-        </div>
+        <SocialLinks
+          twitterTags={["Carbonmark", "retirement"]}
+          twitterTitle={`${props.retiree} retired ${props.formattedAmount} Tonnes of carbon`}
+        ></SocialLinks>
       </div>
       <A className={styles.profileLink} href={urls.projects}>
         {t`Create your own retirement`}
