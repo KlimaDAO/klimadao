@@ -9,6 +9,7 @@ export const waitForApi = async (): Promise<boolean> => {
       await getVintages();
       return true;
     } catch (e) {
+      console.debug(e.message);
       console.debug(
         `Waiting for API to come online at ${urls.api.base} (${counter})`
       );
