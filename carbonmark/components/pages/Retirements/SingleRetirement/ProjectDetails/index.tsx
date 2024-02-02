@@ -1,4 +1,4 @@
-import { Anchor as A, CopyValueButton } from "@klimadao/lib/components";
+import { Anchor as A } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { getImageSizes } from "@klimadao/lib/utils";
@@ -20,6 +20,8 @@ type Props = {
   category: CategoryName | null;
   description: Project["description"] | null;
   retirement: Partial<KlimaRetire & { category: CategoryName }>;
+  beneficiaryAddress: string;
+  retirementIndex: string;
 };
 
 export const ProjectDetails: FC<Props> = (props) => {
@@ -124,13 +126,6 @@ export const ProjectDetails: FC<Props> = (props) => {
         </Trans>
       </Text>
       <div className={styles.buttons}>
-        <CopyValueButton
-          shape="default"
-          label="Copy Link"
-          iconPos="prefix"
-          variant="transparent"
-          className="copyButton"
-        />
         {props.retirement?.retire?.hash && (
           <CarbonmarkButton
             icon={<LaunchIcon />}
@@ -142,6 +137,15 @@ export const ProjectDetails: FC<Props> = (props) => {
               message: "View on Polygonscan",
             })}
             href={`https://polygonscan.com/tx/${props.retirement?.retire.hash}`}
+          />
+        )}
+        {!props.isMossOffset && (
+          <CarbonmarkButton
+            icon={<LaunchIcon />}
+            target="_blank"
+            variant="transparent"
+            label={<Trans>Carbon provenance</Trans>}
+            href={`${carbonmarkUrls.retirements}/${props.beneficiaryAddress}/${props.retirementIndex}/provenance`}
           />
         )}
       </div>
