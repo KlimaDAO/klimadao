@@ -9,6 +9,7 @@ import * as styles from "./styles";
 
 type Props = {
   value?: string;
+  rounded?: boolean;
 } & ButtonBaseProps;
 
 export const CopyValueButton: FC<Props> = (props) => {
@@ -31,6 +32,7 @@ export const CopyValueButton: FC<Props> = (props) => {
       className={className}
       icon={copied ? <Check /> : <ContentCopy />}
       onClick={() => cachedValue && doCopy(cachedValue)}
+      shape={props.rounded ? "circle" : undefined}
       iconPos="suffix"
     />
   );
