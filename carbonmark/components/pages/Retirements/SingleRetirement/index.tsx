@@ -173,6 +173,8 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                 (retirement.retire.credit.project.category as CategoryName) ??
                 null
               }
+              beneficiaryAddress={props.beneficiaryAddress}
+              retirementIndex={props.retirementIndex}
             />
             <div className={cx(styles.visibleMobile)}>
               <TransactionDetails

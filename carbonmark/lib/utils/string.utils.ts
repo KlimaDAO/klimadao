@@ -15,3 +15,8 @@ export const joinArray =
  */
 export const emptyToUndefined = (value: string): string | undefined =>
   value === "" ? undefined : value;
+
+// Checks if a string represents a number
+export const isNumeric = (value: string) => {
+  return /^\d+$/.test(value);
+};
