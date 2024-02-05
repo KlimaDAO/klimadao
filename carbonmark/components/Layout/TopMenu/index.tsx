@@ -1,8 +1,8 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import LoginOutlined from "@mui/icons-material/LoginOutlined";
 import { BetaBadge } from "components/BetaBadge";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { NavDropdown } from "components/Layout/NavDropdown";
 import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
 import { CarbonmarkText } from "components/Logos/CarbonmarkText";
@@ -41,17 +41,19 @@ export const TopMenu: FC<TopMenuProps> = () => {
       )}
 
       <div className={styles.navButtons}>
-        {!address && !isConnected ? (
-          <ButtonPrimary
-            label={<Trans>Login or Sign Up</Trans>}
-            icon={<LoginOutlined />}
-            className={styles.loginButton}
-            disabled={initializing}
-            onClick={toggleModal}
-          />
-        ) : (
-          <UserProfile />
-        )}
+        <div className="user-profile" data-desktop-only>
+          {!address && !isConnected ? (
+            <ButtonPrimary
+              label={<Trans>Login or Sign Up</Trans>}
+              icon={<LoginOutlined />}
+              className={styles.loginButton}
+              disabled={initializing}
+              onClick={toggleModal}
+            />
+          ) : (
+            <UserProfile />
+          )}
+        </div>
         <NavDropdown />
       </div>
     </div>

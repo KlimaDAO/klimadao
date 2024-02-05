@@ -16,7 +16,7 @@ export const topMenu = css`
   }
 
   [data-tippy-root] {
-    z-index: 99 !important;
+    z-index: 999 !important;
   }
 `;
 
@@ -31,6 +31,10 @@ export const navButtons = css`
   gap: 1rem;
   display: flex;
   justify-content: flex-end;
+
+  .user-profile {
+    display: flex;
+  }
 `;
 
 export const betaBadge = css`

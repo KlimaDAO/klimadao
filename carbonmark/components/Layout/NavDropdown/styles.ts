@@ -11,7 +11,7 @@ export const navMenuButton = css`
   align-items: center;
   margin-right: 0;
   border-radius: 0.4rem;
-  z-index: 100;
+  z-index: 1000;
   &:hover {
     opacity: 0.7;
   }

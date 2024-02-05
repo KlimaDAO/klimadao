@@ -12,6 +12,7 @@ import StoreIcon from "@mui/icons-material/Store";
 import Tippy from "@tippyjs/react";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { UserProfile } from "components/UserProfile";
 import { useConnectedUser } from "hooks/useConnectedUser";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import { useRouter } from "next/router";
@@ -36,7 +37,7 @@ export const NavDropdown: FC = () => {
 
   const menuContent = (
     <>
-      <div className={styles.userProfile} />
+      <div className={styles.userProfile}>{isConnected && <UserProfile />}</div>
       <MenuButton
         href={"/projects"}
         icon={<StoreIcon />}
