@@ -50,7 +50,7 @@ export const Approve: FC<Props> = (props) => {
           <strong>
             <Trans>
               {props.isERC1155
-                ? "For ICR credit tokens, the allowance allows Carbonmark to transact any of your ICR credits."
+                ? "This allowance enables Carbonmark to transact with any of your ICR credits."
                 : "The allowance below reflects the sum of all your listings for this specific token."}
             </Trans>
           </strong>
