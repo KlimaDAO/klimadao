@@ -10,6 +10,7 @@ import { loadTranslation } from "lib/i18n";
 import { queryKlimaRetireByIndex } from "lib/retirementDataQueries/retirementDataViaPolygonDigitalCarbon";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
+import { isNumeric } from "lib/utils/string.utils";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 interface Params extends ParsedUrlQuery {
@@ -17,10 +18,6 @@ interface Params extends ParsedUrlQuery {
   beneficiary: string;
   retirement_index: string;
 }
-// second param should always be a number
-const isNumeric = (value: string) => {
-  return /^\d+$/.test(value);
-};
 
 export const getStaticProps: GetStaticProps<
   SingleRetirementPageProps,
