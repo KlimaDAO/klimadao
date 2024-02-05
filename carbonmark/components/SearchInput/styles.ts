@@ -18,7 +18,7 @@ export const main = css`
   border-radius: var(--border-radius);
 
   ${breakpoints.medium} {
-    max-width: 40rem;
+    max-width: 48rem;
   }
 
   // Not great but we need to force the div "container" element

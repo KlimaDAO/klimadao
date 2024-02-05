@@ -1,6 +1,7 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
+import LoginOutlined from "@mui/icons-material/LoginOutlined";
 import { BetaBadge } from "components/BetaBadge";
 import { NavDropdown } from "components/Layout/NavDropdown";
 import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
@@ -43,6 +44,7 @@ export const TopMenu: FC<TopMenuProps> = () => {
         {!address && !isConnected ? (
           <ButtonPrimary
             label={<Trans>Login or Sign Up</Trans>}
+            icon={<LoginOutlined />}
             className={styles.loginButton}
             disabled={initializing}
             onClick={toggleModal}

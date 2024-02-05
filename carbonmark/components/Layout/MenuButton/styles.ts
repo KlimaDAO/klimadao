@@ -6,11 +6,24 @@ export const menuButton = css`
   display: flex;
   align-items: center;
   gap: 1.6rem;
+  justify-content: space-between;
   padding: 0.1rem 0.5rem;
   width: 100%;
   padding: 0.8rem;
 
-  span {
+  .container {
+    gap: 1.6rem;
+    display: flex;
+    align-items: center;
+
+    span {
+      color: var(--font-03);
+    }
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
     color: var(--font-03);
   }
 

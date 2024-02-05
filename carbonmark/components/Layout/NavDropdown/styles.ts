@@ -47,7 +47,10 @@ export const bookDemoButton = css`
 `;
 
 export const menuWrapper = css`
+  gap: 1rem;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const tooltip = css`

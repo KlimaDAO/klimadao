@@ -1,8 +1,9 @@
 import { Anchor } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import { Domain } from "@klimadao/lib/types/domains";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
-import { Close, Menu } from "@mui/icons-material";
+import { Close, LoginOutlined, Menu } from "@mui/icons-material";
 import LanguageIcon from "@mui/icons-material/LanguageOutlined";
 import LogoutIcon from "@mui/icons-material/LogoutOutlined";
 import ParkIcon from "@mui/icons-material/Park";
@@ -10,16 +11,30 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboardOutlined";
 import StoreIcon from "@mui/icons-material/Store";
 import Tippy from "@tippyjs/react";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { useConnectedUser } from "hooks/useConnectedUser";
+import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import { useRouter } from "next/router";
 import { FC, useState } from "react";
 import { MenuButton } from "../MenuButton";
 import * as styles from "./styles";
 
-export const NavDropdown: FC = () => {
+interface Props {
+  userAddress?: string;
+  connectedAddress?: string;
+  connectedDomain?: Domain;
+}
+
+export const NavDropdown: FC<Props> = () => {
   const { pathname } = useRouter();
-  const { disconnect } = useWeb3();
+  const { address, disconnect } = useWeb3();
   const [showMenu, setShowMenu] = useState(false);
+  const { isConnectedUser, isUnconnectedUser } = useConnectedUser(address);
+
+  const connectedDomain = useGetDomainFromAddress(address);
+  const isConnected = !!address || !!connectedDomain;
+  const profileLink = isConnected ? `/users/${address}` : `/users/login`;
 
   const content = (
     <>
@@ -28,7 +43,9 @@ export const NavDropdown: FC = () => {
         href={"/projects"}
         icon={<StoreIcon />}
         isActive={
-          pathname.startsWith("/projects") || pathname.startsWith("/purchase")
+          pathname.startsWith("/projects") ||
+          pathname.startsWith("/purchase") ||
+          isUnconnectedUser
         }
       >
         <Trans>Marketplace</Trans>
@@ -41,9 +58,9 @@ export const NavDropdown: FC = () => {
         <Trans>Retire</Trans>
       </MenuButton>
       <MenuButton
-        href={"/profile"}
+        href={profileLink}
         icon={<PermIdentityIcon />}
-        isActive={pathname.startsWith("/profile")}
+        isActive={pathname.startsWith(`/users/login`) || isConnectedUser}
       >
         <Trans>Profile</Trans>
       </MenuButton>
@@ -55,21 +72,34 @@ export const NavDropdown: FC = () => {
         <Trans>Carbon Portfolio</Trans>
       </MenuButton>
       <MenuButton
+        hasSubMenu={true}
         href={"/language"}
         icon={<LanguageIcon />}
         isActive={pathname.startsWith("/language")}
       >
         <Trans>Language</Trans>
       </MenuButton>
-      <MenuButton
-        href={""}
-        onClick={disconnect}
-        icon={<LogoutIcon />}
-        isActive={false}
-      >
-        <Trans>Logout</Trans>
-      </MenuButton>
+
+      {address && isConnected && (
+        <MenuButton
+          href={""}
+          isActive={false}
+          onClick={disconnect}
+          icon={<LogoutIcon />}
+        >
+          <Trans>Logout</Trans>
+        </MenuButton>
+      )}
+
       <div className={styles.menuWrapper}>
+        {!address && !isConnected && (
+          <ButtonPrimary
+            label={<Trans>Login or Sign Up</Trans>}
+            icon={<LoginOutlined />}
+            // disabled={initializing}
+            // onClick={toggleModal}
+          />
+        )}
         <CarbonmarkButton
           label={<Trans>Book a demo</Trans>}
           href={urls.carbonmarkContactForm}
@@ -88,7 +118,7 @@ export const NavDropdown: FC = () => {
       placement="top-end"
       visible={showMenu}
       className={styles.tooltip}
-      onClickOutside={() => setShowMenu(false)}
+      onClickOutside={(_, e) => e.preventDefault()}
     >
       <button
         onClick={() => setShowMenu(!showMenu)}

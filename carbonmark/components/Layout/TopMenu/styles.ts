@@ -17,9 +17,10 @@ export const topMenu = css`
 `;
 
 export const loginButton = css`
-  background: white !important;
-  color: blue !important;
-  border: 1px solid var(--font-03);
+  width: 24rem;
+  background: white;
+  font-weight: 600 !important;
+  color: var(--bright-blue) !important;
 `;
 
 export const navButtons = css`

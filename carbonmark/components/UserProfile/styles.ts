@@ -19,6 +19,16 @@ export const userProfile = css`
     color: black;
     font-weight: 400;
     font-size: 16px;
+
+    & div {
+      width: 3rem;
+      height: 3rem;
+
+      & img {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
   }
 
   & .placeholder {
