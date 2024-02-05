@@ -11,7 +11,7 @@ export const navMenuButton = css`
   align-items: center;
   margin-right: 0;
   border-radius: 0.4rem;
-  z-index: 99999;
+  z-index: 100;
   &:hover {
     opacity: 0.7;
   }
@@ -59,7 +59,6 @@ export const tooltip = css`
   background: white;
   border-radius: 4px;
   padding: 0;
-  z-index: 999 !important;
   min-width: 29.8rem;
   box-shadow:
     0px 4px 4px rgba(0, 0, 0, 0.24),

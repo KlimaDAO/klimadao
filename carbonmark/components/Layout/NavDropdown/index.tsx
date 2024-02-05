@@ -1,6 +1,5 @@
 import { Anchor } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { Domain } from "@klimadao/lib/types/domains";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { Close, LoginOutlined, Menu } from "@mui/icons-material";
@@ -20,23 +19,22 @@ import { FC, useState } from "react";
 import { MenuButton } from "../MenuButton";
 import * as styles from "./styles";
 
-interface Props {
-  userAddress?: string;
-  connectedAddress?: string;
-  connectedDomain?: Domain;
-}
-
-export const NavDropdown: FC<Props> = () => {
+export const NavDropdown: FC = () => {
   const { pathname } = useRouter();
-  const { address, disconnect } = useWeb3();
   const [showMenu, setShowMenu] = useState(false);
+  const { address, toggleModal, initializing, disconnect } = useWeb3();
   const { isConnectedUser, isUnconnectedUser } = useConnectedUser(address);
 
   const connectedDomain = useGetDomainFromAddress(address);
   const isConnected = !!address || !!connectedDomain;
   const profileLink = isConnected ? `/users/${address}` : `/users/login`;
 
-  const content = (
+  const handleLogin = () => {
+    setShowMenu(false);
+    toggleModal?.();
+  };
+
+  const menuContent = (
     <>
       <div className={styles.userProfile} />
       <MenuButton
@@ -79,7 +77,6 @@ export const NavDropdown: FC<Props> = () => {
       >
         <Trans>Language</Trans>
       </MenuButton>
-
       {address && isConnected && (
         <MenuButton
           href={""}
@@ -94,10 +91,10 @@ export const NavDropdown: FC<Props> = () => {
       <div className={styles.menuWrapper}>
         {!address && !isConnected && (
           <ButtonPrimary
+            onClick={handleLogin}
             label={<Trans>Login or Sign Up</Trans>}
             icon={<LoginOutlined />}
-            // disabled={initializing}
-            // onClick={toggleModal}
+            disabled={initializing}
           />
         )}
         <CarbonmarkButton
@@ -113,7 +110,7 @@ export const NavDropdown: FC<Props> = () => {
   return (
     <Tippy
       offset={[0, -48]}
-      content={content}
+      content={menuContent}
       interactive={true}
       placement="top-end"
       visible={showMenu}

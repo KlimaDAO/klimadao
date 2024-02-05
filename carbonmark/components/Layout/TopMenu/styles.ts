@@ -14,6 +14,10 @@ export const topMenu = css`
   ${breakpoints.desktop} {
     flex-basis: 7.2rem;
   }
+
+  [data-tippy-root] {
+    z-index: 99 !important;
+  }
 `;
 
 export const loginButton = css`
