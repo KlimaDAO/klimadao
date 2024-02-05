@@ -6,7 +6,7 @@ import USDC from "public/icons/USDC.png";
 
 export type CarbonmarkPaymentMethodMap = {
   [key in CarbonmarkPaymentMethod]: {
-    id: string;
+    id: CarbonmarkPaymentMethod;
     icon: StaticImageData;
     label: Uppercase<CarbonmarkPaymentMethod> | "Credit Card" | "Bank Transfer";
     disabled: boolean;

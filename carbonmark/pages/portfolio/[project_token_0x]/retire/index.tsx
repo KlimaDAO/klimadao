@@ -51,7 +51,7 @@ export const getServerSideProps: GetServerSideProps<
       },
     };
   } catch (e) {
-    console.error("Failed to generate Retire Page", e);
+    console.error("Failed to generate Portfolio Retire Page", e);
     return {
       notFound: true,
       props: undefined,
