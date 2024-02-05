@@ -6,7 +6,7 @@ import {
   OffsetraLogo,
   SCBLogo,
   Section,
-  VlinderLogo
+  VlinderLogo,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
