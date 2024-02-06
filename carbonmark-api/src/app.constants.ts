@@ -97,6 +97,12 @@ export const REGISTRIES = {
     url: "https://www.carbonregistry.com",
     decimals: 0,
   },
+  Moss: {
+    id: "Moss",
+    title: "Moss",
+    url: "https://moss.earth",
+    decimals: 18,
+  },
 };
 
 export const ICR_API = (

@@ -26,7 +26,8 @@ const handler = () =>
     if (!retirementRecord.retires[0].provenance) {
       return reply.notFound();
     }
-    const registry = retirementRecord.retires[0].credit.project.registry;
+    const registry =
+      retirementRecord.retires[0].credit.project.id.split("-")[0];
 
     const lastRecord = { ...retirementRecord.retires[0].provenance };
 

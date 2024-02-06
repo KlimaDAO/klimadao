@@ -98,6 +98,7 @@ query getProvenanceRecordsByHash($hash: Bytes!) {
   retires(where: { provenance_: { transactionHash: $hash } }) {
     credit {
       project {
+        id
         registry
       }
     }

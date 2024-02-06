@@ -120,6 +120,7 @@ const retireWithProvenance = [
   {
     credit: {
       project: {
+        id: "VCS-191",
         registry: "VCS",
       },
     },

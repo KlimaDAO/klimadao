@@ -4389,7 +4389,7 @@ export type GetProvenanceRecordsByHashQueryVariables = Exact<{
 }>;
 
 
-export type GetProvenanceRecordsByHashQuery = { __typename?: 'Query', retires: Array<{ __typename?: 'Retire', credit: { __typename?: 'CarbonCredit', project: { __typename?: 'CarbonProject', registry: Registry } }, provenance: { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, transactionHash: any, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, transactionHash: any }> } | null }> };
+export type GetProvenanceRecordsByHashQuery = { __typename?: 'Query', retires: Array<{ __typename?: 'Retire', credit: { __typename?: 'CarbonCredit', project: { __typename?: 'CarbonProject', id: string, registry: Registry } }, provenance: { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, transactionHash: any, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, transactionHash: any }> } | null }> };
 
 export const ProvenanceRecordFragmentFragmentDoc = gql`
     fragment ProvenanceRecordFragment on ProvenanceRecord {
@@ -4578,6 +4578,7 @@ export const GetProvenanceRecordsByHashDocument = gql`
   retires(where: {provenance_: {transactionHash: $hash}}) {
     credit {
       project {
+        id
         registry
       }
     }
