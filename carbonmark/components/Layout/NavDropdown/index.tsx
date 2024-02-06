@@ -2,14 +2,13 @@ import { Anchor } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
-import Language from "@mui/icons-material/Language";
-
 import {
   Close,
   KeyboardArrowLeftOutlined,
   LoginOutlined,
   Menu,
 } from "@mui/icons-material";
+import Language from "@mui/icons-material/Language";
 import LanguageIcon from "@mui/icons-material/LanguageOutlined";
 import LogoutIcon from "@mui/icons-material/LogoutOutlined";
 import ParkIcon from "@mui/icons-material/Park";
@@ -173,6 +172,3 @@ export const NavDropdown: FC = () => {
     </Tippy>
   );
 };
-function useSelector(selectAppState: any): { locale: any } {
-  throw new Error("Function not implemented.");
-}
