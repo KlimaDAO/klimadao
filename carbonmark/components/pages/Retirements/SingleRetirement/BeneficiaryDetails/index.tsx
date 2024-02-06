@@ -37,7 +37,8 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
           <Trans id="retirement.single.beneficiary.title">Beneficiary:</Trans>
         </Text>
         <Text t="h4" className={styles.beneficiaryAddress}>
-          {props.beneficiary ||
+          {carbonmarkUser?.handle ||
+            props.beneficiary ||
             t({
               id: "retirement.single.beneficiary.placeholder",
               message: "No beneficiary name provided",
