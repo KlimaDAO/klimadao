@@ -47,14 +47,12 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
   return (
     <>
       <div className={cx(styles.controller, { [styles.absolute]: isMap })}>
-        {/* <div className={styles.projectsControls}> */}
         <div style={{ width: "100%" }}>
           <ProjectSearch onFiltersClick={toggleModal} />
         </div>
         {/* {!isEmpty(props.projects) && !isMap && (
         <Text t="h5">{props.projects.length} Results</Text>
       )} */}
-        {/* <LoginButton className="desktopLogin" /> */}
         <div className={styles.displayOptions}>
           {/* Hide the sort on MapView */}
           {!isMap && <ProjectSort />}

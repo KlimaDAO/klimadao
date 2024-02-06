@@ -6,7 +6,6 @@ import AddIcon from "@mui/icons-material/Add";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
-import { LoginButton } from "components/LoginButton";
 import { Modal } from "components/shared/Modal";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
@@ -110,7 +109,6 @@ export const SellerConnected: FC<Props> = (props) => {
           label={isRegistered ? t`Edit Profile` : t`Create Profile`}
           onClick={() => setShowEditProfileModal(true)}
         />
-        <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
         <ProfileHeader

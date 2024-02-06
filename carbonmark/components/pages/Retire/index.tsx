@@ -4,7 +4,6 @@ import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { ProjectCard } from "components/ProjectCard";
 import { Text } from "components/Text";
@@ -61,10 +60,6 @@ export const Retire: NextPage<PageProps> = (props) => {
               </div>
             )}
           </div>
-          <div className={styles.retireControls}>
-            <LoginButton />
-          </div>
-
           <RetireActivity />
         </div>
 
