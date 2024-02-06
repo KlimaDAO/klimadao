@@ -45,8 +45,6 @@ describe("GET /retirements/:id/provenance", () => {
       updatedAt: 1701095377,
       createdAt: 1701095377,
     };
-    console.log("cad", record);
-    console.log("cad2", transformedRecord);
     expect(response.statusCode).toEqual(200);
     expect(record).toEqual([transformedRecord, transformedRecord]);
   });
