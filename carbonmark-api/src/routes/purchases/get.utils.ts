@@ -1,5 +1,7 @@
 import { utils } from "ethers";
 import { GetPurchaseByIdQuery } from "src/.generated/types/marketplace.types";
+import { IS_REGISTRY_ID } from "../../../src/app.constants";
+import { formatAmountByRegistry } from "../../../src/utils/marketplace.utils";
 import { Purchase } from "../../models/Purchase.model";
 import { CreditId } from "../../utils/CreditId";
 
@@ -14,12 +16,15 @@ export const composePurchaseModel = (
 ): Purchase => {
   const project = purchase.listing.project;
   // The digits after the registry identifier. e.g 1234 in VCS-1234
-  const [, registryProjectId] = CreditId.splitProjectId(project.key);
+  const [registry, registryProjectId] = CreditId.splitProjectId(project.key);
+
+  if (!IS_REGISTRY_ID(registry)) {
+    throw new Error(`Invalid registry id in composePurchaseModel: ${registry}`);
+  }
+
   return {
     id: purchase.id,
-    amount: purchase.listing.project.key.startsWith("ICR")
-      ? purchase.amount
-      : utils.formatUnits(purchase.amount, 18),
+    amount: formatAmountByRegistry(registry, purchase.amount),
     price: utils.formatUnits(purchase.price, 6),
     listing: {
       id: purchase.listing.id,
