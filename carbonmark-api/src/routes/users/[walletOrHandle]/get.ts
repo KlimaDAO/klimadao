@@ -1,5 +1,6 @@
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { IS_REGISTRY_ID } from "../../../../src/app.constants";
 import { Activity } from "../../../models/Activity.model";
 import { User } from "../../../models/User.model";
 import { getActiveListings } from "../../../utils/helpers/listings.utils";
@@ -8,7 +9,10 @@ import {
   getProfileByHandle,
   getUserProfilesByIds,
 } from "../../../utils/helpers/users.utils";
-import { formatListing } from "../../../utils/marketplace.utils";
+import {
+  formatAmountByRegistry,
+  formatListing,
+} from "../../../utils/marketplace.utils";
 import { Params, Querystring, schema } from "./get.schema";
 import {
   getHoldingsByWallet,
@@ -82,15 +86,23 @@ const handler = (fastify: FastifyInstance) =>
             handle:
               UserProfilesMap.get(a.seller.id.toLowerCase())?.handle || null,
           };
+
+          const registry = a.project.key.split("-")[0];
+
+          if (!IS_REGISTRY_ID(registry)) {
+            throw new Error(
+              `Invalid registry id in getUserProfilesByIds: ${registry}`
+            );
+          }
+
           return {
             ...a,
-            amount: a.project.key.startsWith("ICR")
-              ? a.amount
-              : utils.formatUnits(a.amount || "0", 18),
+            amount: formatAmountByRegistry(registry, a.amount || "0"),
             price: utils.formatUnits(a.price || "0", 6),
-            previousAmount: a.project.key.startsWith("ICR")
-              ? a.previousAmount
-              : utils.formatUnits(a.previousAmount || "0", 18),
+            previousAmount: formatAmountByRegistry(
+              registry,
+              a.previousAmount || "0"
+            ),
             previousPrice: utils.formatUnits(a.previousPrice || "0", 6),
             buyer: buyer || null,
             seller: seller || null,
