@@ -17,14 +17,9 @@ export const menuButton = css`
     align-items: center;
 
     span {
-      color: var(--font-03);
+      ${typography.body4};
+      color: var(--font-02);
     }
-  }
-
-  svg {
-    width: 2rem;
-    height: 2rem;
-    color: var(--font-03);
   }
 
   .iconContainer {
@@ -36,12 +31,13 @@ export const menuButton = css`
     width: 3.2rem;
     background-color: var(--surface-02);
     border-radius: 0.6rem;
+  }
 
-    svg {
-      font-size: 2.4rem;
-      width: 2.4rem;
-      height: 2.4rem;
-    }
+  svg {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    color: var(--font-03);
   }
 
   &:hover,

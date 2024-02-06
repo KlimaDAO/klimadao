@@ -8,7 +8,7 @@ import LogoutIcon from "@mui/icons-material/LogoutOutlined";
 import ParkIcon from "@mui/icons-material/Park";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboardOutlined";
-import StoreIcon from "@mui/icons-material/Store";
+import StoreIcon from "@mui/icons-material/StoreOutlined";
 import Tippy from "@tippyjs/react";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
