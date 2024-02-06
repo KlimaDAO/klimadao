@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-06 13:18+0000\n"
+"POT-Creation-Date: 2024-02-06 13:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: hi\n"
 
-#: components/pages/Home/index.tsx:361
+#: components/pages/Home/index.tsx:358
 msgid "0% listing fee"
 msgstr "0% लिस्टिंग शुल्क"
 
@@ -66,7 +66,7 @@ msgstr "गतिविधि"
 msgid "Agriculture"
 msgstr "कृषि"
 
-#: components/pages/Home/index.tsx:365
+#: components/pages/Home/index.tsx:362
 msgid "All assets sourced from major registries"
 msgstr "सभी संपत्तियां प्रमुख रजिस्ट्रियों से प्राप्त की गईं है"
 
@@ -237,9 +237,9 @@ msgstr "एक डेमो बुक करें"
 msgid "Bridge"
 msgstr ""
 
-#: components/pages/Home/index.tsx:160
-#: components/pages/Home/index.tsx:191
-#: components/pages/Home/index.tsx:244
+#: components/pages/Home/index.tsx:157
+#: components/pages/Home/index.tsx:188
+#: components/pages/Home/index.tsx:241
 #: components/pages/Project/PayWithBank/index.tsx:370
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
@@ -255,7 +255,7 @@ msgstr "<0>क्लीमाडाओ</0> द्वारा 🌳 के सा
 msgid "Buy"
 msgstr "ख़रीदें"
 
-#: components/pages/Home/index.tsx:171
+#: components/pages/Home/index.tsx:168
 msgid "Buy or retire carbon"
 msgstr "कार्बन खरीदें या रिटायर करें"
 
@@ -295,7 +295,7 @@ msgstr ""
 msgid "Carbonmark Overview"
 msgstr "कार्बनमार्क का संक्षिप्त विवरण"
 
-#: components/pages/Home/index.tsx:177
+#: components/pages/Home/index.tsx:174
 msgid "Carbonmark doesn't charge an additional transaction fee and offers best-in-the-market pricing. Explore hundreds of verified carbon projects."
 msgstr "कार्बनमार्क कोई अतिरिक्त लेनदेन शुल्क नहीं लेता है और बाजार में सर्वोत्तम मूल्य निर्धारण प्रदान करता है। सैकड़ों सत्यापित कार्बन परियोजनाओं का अन्वेषण करें।"
 
@@ -309,12 +309,12 @@ msgstr "कार्बनमार्क शुल्क"
 msgid "Carbonmark now offers the ability to pay for retirement transactions via bank transfer. Simply fill out the form below and we'll reach out within 2 business days (upon receiving all required information) to collect some further information and send you an invoice."
 msgstr ""
 
-#: components/pages/Home/index.tsx:54
-#: components/pages/Home/index.tsx:55
+#: components/pages/Home/index.tsx:51
+#: components/pages/Home/index.tsx:52
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr "कार्बनमार्क | द यूनिवर्सल कार्बन मार्केटप्लेस"
 
-#: components/pages/Home/index.tsx:491
+#: components/pages/Home/index.tsx:488
 msgid "Carbonmark's role"
 msgstr "कार्बनमार्क की भूमिका"
 
@@ -327,7 +327,7 @@ msgstr "कैटेगरी"
 msgid "Change language"
 msgstr "भाषा बदलें"
 
-#: components/pages/Home/index.tsx:209
+#: components/pages/Home/index.tsx:206
 msgid "Choose a project and quantity"
 msgstr "एक प्रोजेक्ट और मात्रा चुनें"
 
@@ -361,7 +361,7 @@ msgstr ""
 msgid "Company name is required"
 msgstr ""
 
-#: components/pages/Home/index.tsx:348
+#: components/pages/Home/index.tsx:345
 msgid "Compare prices across all sellers and trading pools"
 msgstr "सभी विक्रेताओं और ट्रेडिंग पूल की कीमतों की तुलना करें"
 
@@ -384,7 +384,6 @@ msgid "Connected Wallet"
 msgstr ""
 
 #: components/Footer/index.tsx:41
-#: components/pages/Home/index.tsx:553
 msgid "Contact"
 msgstr "संपर्क करें"
 
@@ -424,11 +423,11 @@ msgstr "प्रोफ़ाइल बनाएँ"
 msgid "Create a listing"
 msgstr "सूची बनाएँ"
 
-#: components/pages/Home/index.tsx:222
+#: components/pages/Home/index.tsx:219
 msgid "Create a profile and get connected"
 msgstr "एक प्रोफ़ाइल बनाएं और जुड़ें"
 
-#: components/pages/Home/index.tsx:282
+#: components/pages/Home/index.tsx:279
 msgid "Create a seller profile"
 msgstr "एक विक्रेता प्रोफ़ाइल बनाएं"
 
@@ -436,7 +435,7 @@ msgstr "एक विक्रेता प्रोफ़ाइल बनाए
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "सूची बनाएँ और संपादित करें, और अपनी कार्बनमार्क प्रोफ़ाइल के माध्यम से अपनी गतिविधि को ट्रैक करें।"
 
-#: components/pages/Home/index.tsx:316
+#: components/pages/Home/index.tsx:313
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr "अपना खुद का कार्बन स्टोरफ्रंट बनाएं। संगठनों और व्यक्तियों को समान रूप से सीधा बेचें।"
 
@@ -506,7 +505,7 @@ msgstr "विवरण"
 msgid "Digital Carbon"
 msgstr "डिजिटल कार्बन"
 
-#: components/pages/Home/index.tsx:267
+#: components/pages/Home/index.tsx:264
 msgid "Digitize your carbon by using a supported bridge"
 msgstr "समर्थित ब्रिज का उपयोग करके अपने कार्बन को डिजिटाइज़ करें"
 
@@ -565,7 +564,7 @@ msgstr "समय सीमा समाप्ति"
 msgid "Expired"
 msgstr "समय सीमा समाप्त"
 
-#: components/pages/Home/index.tsx:464
+#: components/pages/Home/index.tsx:461
 msgid "FAQs"
 msgstr "अधिक्तर पूछे प्रश्न"
 
@@ -598,11 +597,11 @@ msgstr ""
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "सबसे पहले, अपनी ओर से इस संपत्ति को स्थानांतरित करने के लिए कार्बनमार्क प्रणाली को मंजूरी दें।"
 
-#: components/pages/Home/index.tsx:343
+#: components/pages/Home/index.tsx:340
 msgid "For carbon traders"
 msgstr "कार्बन व्यापारियों के लिए"
 
-#: components/pages/Home/index.tsx:388
+#: components/pages/Home/index.tsx:385
 msgid "For project developers"
 msgstr "प्रोजेक्ट डेवलपर्स के लिए"
 
@@ -614,11 +613,11 @@ msgstr "वानिकी"
 msgid "Form complete"
 msgstr ""
 
-#: components/pages/Home/index.tsx:79
+#: components/pages/Home/index.tsx:76
 msgid "Get Started"
 msgstr "शुरुआत करें"
 
-#: components/pages/Home/index.tsx:393
+#: components/pages/Home/index.tsx:390
 msgid "Get paid immediately: transactions are resolved in seconds"
 msgstr "तुरंत भुगतान प्राप्त करें: लेन-देन सेकंडों में हल हो जाते हैं"
 
@@ -643,7 +642,6 @@ msgid "Handle should not contain any special characters"
 msgstr "हैंडल में कोई विशेष वर्ण नहीं होना चाहिए"
 
 #: components/Footer/index.tsx:32
-#: components/pages/Home/index.tsx:544
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -702,11 +700,11 @@ msgstr ""
 msgid "Industrial Processing"
 msgstr "औद्योगिक उपचारण"
 
-#: components/pages/Home/index.tsx:369
+#: components/pages/Home/index.tsx:366
 msgid "Instant settlement of all trades"
 msgstr "सभी ट्रेडों का तुरंत निपटान"
 
-#: components/pages/Home/index.tsx:437
+#: components/pages/Home/index.tsx:434
 msgid "Introducing Carbonmark"
 msgstr "कार्बनमार्क का परिचय"
 
@@ -720,11 +718,10 @@ msgid "Job title"
 msgstr ""
 
 #: components/Footer/index.tsx:38
-#: components/pages/Home/index.tsx:550
 msgid "KlimaDAO"
 msgstr "क्लीमाडाओ"
 
-#: components/pages/Home/index.tsx:527
+#: components/pages/Home/index.tsx:524
 msgid "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
 msgstr "क्लीमाडाओ वैश्विक स्तर पर जलवायु वित्त में तेजी लाने के लिए आवश्यक पारदर्शी, तटस्थ और सार्वजनिक बुनियादी ढाँचा प्रदान करता है।"
 
@@ -750,11 +747,11 @@ msgstr "नवीनतम पहले"
 msgid "Learn More"
 msgstr "और जानें"
 
-#: components/pages/Home/index.tsx:420
+#: components/pages/Home/index.tsx:417
 msgid "Learn more"
 msgstr "और जानें"
 
-#: components/pages/Home/index.tsx:494
+#: components/pages/Home/index.tsx:491
 msgid "Learn more about Carbonmark's role in improving the Digital Carbon Market - and the Voluntary Carbon Market as a whole."
 msgstr "डिजिटल कार्बन बाज़ार और समग्र रूप से स्वैच्छिक कार्बन बाज़ार को बेहतर बनाने में कार्बनमार्क की भूमिका के बारे में और जानें।"
 
@@ -762,11 +759,11 @@ msgstr "डिजिटल कार्बन बाज़ार और सम�
 msgid "Let's Go!"
 msgstr ""
 
-#: components/pages/Home/index.tsx:399
+#: components/pages/Home/index.tsx:396
 msgid "List and sell for free"
 msgstr "मुफ़्त में सूचीबद्ध करें और बेचें"
 
-#: components/pages/Home/index.tsx:295
+#: components/pages/Home/index.tsx:292
 msgid "List your projects for sale in just a few clicks"
 msgstr "बस कुछ ही क्लिक में बिक्री के लिए अपनी परियोजनाओं की सूची बनाएं"
 
@@ -827,7 +824,7 @@ msgstr "मार्केटप्लेस"
 msgid "Marketplace | Carbonmark"
 msgstr "मार्केटप्लेस | कार्बनमार्क"
 
-#: components/pages/Home/index.tsx:174
+#: components/pages/Home/index.tsx:171
 msgid "Maximize your climate impact."
 msgstr "अपने जलवायु प्रभाव को अधिकतम करें."
 
@@ -868,7 +865,7 @@ msgstr "शून्य सक्रिय सूचियाँ"
 msgid "No activity to show"
 msgstr "शून्य गतिविधियाँ मौजूद"
 
-#: components/pages/Home/index.tsx:403
+#: components/pages/Home/index.tsx:400
 msgid "No barriers to entry for verified carbon projects"
 msgstr "सत्यापित कार्बन परियोजनाओं के लिए प्रवेश में कोई बाधा नहीं"
 
@@ -930,7 +927,7 @@ msgstr "अन्य"
 msgid "Other Nature-Based"
 msgstr "अन्य प्रकृति-अनुरूप"
 
-#: components/pages/Home/index.tsx:101
+#: components/pages/Home/index.tsx:98
 msgid "Our Partners"
 msgstr "हमारे सहयोगी"
 
@@ -938,7 +935,7 @@ msgstr "हमारे सहयोगी"
 msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
 msgstr "हमारा सिस्टम अपेक्षा से अधिक समय ले रहा है. सेवानिवृत्ति आपके <0>सेवानिवृत्ति इतिहास</0> में दिखाई देनी चाहिए जल्द ही।"
 
-#: components/pages/Home/index.tsx:121
+#: components/pages/Home/index.tsx:118
 msgid "Over 20 million verified digital carbon credits from hundreds of projects, with over $4 billion traded to date"
 msgstr "सैकड़ों परियोजनाओं से 20 मिलियन से अधिक सत्यापित डिजिटल कार्बन क्रेडिट, अब तक 4 बिलियन डॉलर से अधिक का कारोबार हुआ है"
 
@@ -997,7 +994,7 @@ msgstr "कृपया पृष्ट को रिफ़्रेश करे�
 msgid "Portfolio | Carbonmark"
 msgstr "पोर्टफ़ोलियो | कार्बनमार्क"
 
-#: components/pages/Home/index.tsx:521
+#: components/pages/Home/index.tsx:518
 msgid "Powered by"
 msgstr "संचालित द्वारा"
 
@@ -1028,10 +1025,6 @@ msgstr "कीमत प्रति टन"
 
 #: components/Footer/index.tsx:26
 msgid "Privacy Policy"
-msgstr "गोपनीयता नीति"
-
-#: components/pages/Home/index.tsx:538
-msgid "Privacy policy"
 msgstr "गोपनीयता नीति"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:387
@@ -1133,15 +1126,15 @@ msgstr "कम पढ़ें"
 msgid "Read More"
 msgstr "और पढ़ें"
 
-#: components/pages/Home/index.tsx:448
-#: components/pages/Home/index.tsx:475
-#: components/pages/Home/index.tsx:502
+#: components/pages/Home/index.tsx:445
+#: components/pages/Home/index.tsx:472
+#: components/pages/Home/index.tsx:499
 #: components/pages/Resources/BlogPostCard/index.tsx:38
 #: components/pages/Resources/FeaturedArticles/Article.tsx:45
 msgid "Read more"
 msgstr "और पढ़ें"
 
-#: components/pages/Home/index.tsx:354
+#: components/pages/Home/index.tsx:351
 msgid "Real-time price and transaction data powered by the blockchain"
 msgstr "ब्लॉकचेन द्वारा संचालित वास्तविक समय मूल्य और लेनदेन डेटा"
 
@@ -1157,8 +1150,8 @@ msgstr "शेष आपूर्त्ति"
 msgid "Renewable Energy"
 msgstr "नवीकरणीय ऊर्जा"
 
-#: components/pages/Home/index.tsx:304
-#: components/pages/Home/index.tsx:328
+#: components/pages/Home/index.tsx:301
+#: components/pages/Home/index.tsx:325
 msgid "Request Demo"
 msgstr "डेमो का अनुरोध करें"
 
@@ -1172,8 +1165,7 @@ msgid "Required when proceeding with Credit Card"
 msgstr "क्रेडिट कार्ड के साथ आगे बढ़ते समय आवश्यक"
 
 #: components/Footer/index.tsx:35
-#: components/pages/Home/index.tsx:511
-#: components/pages/Home/index.tsx:547
+#: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -1219,7 +1211,7 @@ msgstr "अपने पोर्टफोलियो से रिटायर
 msgid "Retire from {fullProjectid} | Carbonmark"
 msgstr "{fullProjectid} से रिटायर करें | कार्बनमार्क"
 
-#: components/pages/Home/index.tsx:235
+#: components/pages/Home/index.tsx:232
 msgid "Retire instantly, or purchase and hold digital carbon"
 msgstr "तुरंत रिटायर हो जाएं, या डिजिटल कार्बन खरीदकर रख लें"
 
@@ -1238,7 +1230,7 @@ msgstr "अधिक कार्बन रिटायर करें"
 msgid "Retire now"
 msgstr "अभी रिटायर करें"
 
-#: components/pages/Home/index.tsx:184
+#: components/pages/Home/index.tsx:181
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "अभी रिटायर हो जाएं, या बाद में रिटायर करने के लिए कार्बन प्राप्त करें - जब आप अपनी कार्बन परिसंपत्तियों का स्वामित्व लेते हैं तो आप तय करते हैं कि क्या करना है।"
 
@@ -1305,11 +1297,11 @@ msgstr "अपनी रिटायरमेंट रसीद देखें
 msgid "Sell"
 msgstr "बेचें"
 
-#: components/pages/Home/index.tsx:313
+#: components/pages/Home/index.tsx:310
 msgid "Sell carbon"
 msgstr "कार्बन बेचें"
 
-#: components/pages/Home/index.tsx:409
+#: components/pages/Home/index.tsx:406
 msgid "Sell your digital carbon directly to buyers"
 msgstr "अपना डिजिटल कार्बन सीधे खरीदारों को बेचें"
 
@@ -1362,18 +1354,18 @@ msgstr "क्षमा करें, यह हैंडल पहले से
 msgid "Stats"
 msgstr "आँकड़े"
 
-#: components/pages/Home/index.tsx:204
-#: components/pages/Home/index.tsx:262
+#: components/pages/Home/index.tsx:201
+#: components/pages/Home/index.tsx:259
 msgid "Step 1"
 msgstr "चरण 1"
 
-#: components/pages/Home/index.tsx:217
-#: components/pages/Home/index.tsx:277
+#: components/pages/Home/index.tsx:214
+#: components/pages/Home/index.tsx:274
 msgid "Step 2"
 msgstr "चरण 2"
 
-#: components/pages/Home/index.tsx:230
-#: components/pages/Home/index.tsx:290
+#: components/pages/Home/index.tsx:227
+#: components/pages/Home/index.tsx:287
 msgid "Step 3"
 msgstr "चरण 3"
 
@@ -1398,10 +1390,6 @@ msgstr "पॉलिगॉन पर स्विच करें"
 msgid "Terms of Use"
 msgstr "उपयोग की शर्तें"
 
-#: components/pages/Home/index.tsx:541
-msgid "Terms of use"
-msgstr "उपयोग की शर्तें"
-
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:66
 msgid "Thank you for supporting the planet!"
 msgstr "पृथ्वी का समर्थन करने के लिए धन्यवाद!"
@@ -1414,7 +1402,7 @@ msgstr "पृथ्वी का समर्थन करने के लि�
 msgid "Thank you for supporting the planet! We'll reach out soon to confirm some details and provide you with an with an invoice."
 msgstr ""
 
-#: components/pages/Home/index.tsx:68
+#: components/pages/Home/index.tsx:65
 msgid "The Universal Carbon Marketplace"
 msgstr "यूनिवर्सल कार्बन मार्केटप्लेस"
 
@@ -1438,8 +1426,8 @@ msgstr "पहला कदम इस संपत्ति को अपनी 
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "आपके पर्यावरणीय दावे को सत्यापित करने के लिए नीचे दी गई जानकारी सार्वजनिक रूप से प्रसारित की जाएगी। यह लेन-देन स्थायी है; आपके लेन-देन पूरे हो जाने के बाद जानकारी को बदला नहीं जा सकता।"
 
-#: components/pages/Home/index.tsx:56
-#: components/pages/Home/index.tsx:71
+#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:68
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr "दुनिया भर में डिजिटल कार्बन क्रेडिट का सबसे बड़ा संकलन। शून्य-कमीशन ट्रेडिंग के साथ तुरंत किसी भी प्रोजेक्ट से डिजिटल कार्बन ख़रीदें, बेचें और रिटायर करें।"
 
@@ -1640,7 +1628,7 @@ msgstr "यूनिट मूल्य आवश्यक है"
 msgid "Unlisted tonnes:"
 msgstr "असूचीबद्ध टन:"
 
-#: components/pages/Home/index.tsx:322
+#: components/pages/Home/index.tsx:319
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr "डिजिटल कार्बन बाज़ार में अभूतपूर्व पारदर्शिता।"
 
@@ -1676,7 +1664,7 @@ msgstr ""
 "\n"
 "आलोकन"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:52
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:53
 msgid "View Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल देखें"
 
@@ -1773,7 +1761,7 @@ msgstr "हमें आपके पोर्टफोलियो में �
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "हमने कीमत, सत्यता और वैश्विक पर्यावरणीय प्रभाव जैसे सख्त मानदंडों के आधार पर कुछ बेहतरीन परियोजनाओं को हाथ से तैयार किया है।"
 
-#: components/pages/Home/index.tsx:467
+#: components/pages/Home/index.tsx:464
 msgid "What is Carbonmark? Answers to common questions about the Digital Carbon Market interface that easily connects buyers and sellers of verified carbon credits."
 msgstr "कार्बनमार्क क्या है? डिजिटल कार्बन मार्केट इंटरफ़ेस के बारे में सामान्य प्रश्नों के उत्तर जो सत्यापित कार्बन क्रेडिट के खरीदारों और विक्रेताओं को आसानी से जोड़ते हैं।"
 
@@ -1879,7 +1867,7 @@ msgstr "आपका यूनिक हैंडल"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: components/pages/Home/index.tsx:440
+#: components/pages/Home/index.tsx:437
 msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 msgstr "शून्य-शुल्क कार्बन क्रेडिट ट्रेडिंग - तात्कालिक, पारदर्शी और हमेशा उपलब्ध। कार्बन क्रेडिट व्यापारी के रूप में कार्बनमार्क आपके लिए क्या कर सकता है, इसके बारे में और जानें।"
 
@@ -2219,7 +2207,7 @@ msgstr ""
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "कोई लाभार्थी का पता उपलब्ध नहीं है"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:41
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:42
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "कोई लाभार्थी-नाम प्रदान नहीं किया गया"
 
