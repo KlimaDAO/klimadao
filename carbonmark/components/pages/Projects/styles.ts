@@ -80,6 +80,10 @@ export const projectsList = css`
   justify-content: center;
   max-width: ${FIVE_CARD_WIDTH};
   margin-top: 3rem;
+
+  ${breakpoints.large} {
+    max-width: fit-content;
+  }
 `;
 
 export const viewContainer = css`

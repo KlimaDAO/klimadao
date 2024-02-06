@@ -15,18 +15,18 @@ export const userProfile = css`
     text-transform: initial;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    color: black;
-    font-weight: 400;
+    gap: 1.2rem;
+    color: #3b3b3d;
+    font-weight: 600;
     font-size: 16px;
 
     & div {
-      width: 3rem;
-      height: 3rem;
+      width: 3.2rem;
+      height: 3.2rem;
 
       & img {
-        width: 3rem;
-        height: 3rem;
+        width: 3.2rem;
+        height: 3.2rem;
       }
     }
   }
@@ -34,10 +34,16 @@ export const userProfile = css`
   & .placeholder {
     width: 3rem;
     height: 3rem;
-    background: #e8e8e8;
+    color: white;
+    background: var(--manatee);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    & .placeholderIcon {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
   }
 `;

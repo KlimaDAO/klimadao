@@ -22,7 +22,7 @@ export const topMenu = css`
 
 export const loginButton = css`
   width: 24rem;
-  background: white;
+  background: #fff !important;
   font-weight: 600 !important;
   color: var(--bright-blue) !important;
 `;

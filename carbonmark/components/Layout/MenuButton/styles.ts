@@ -12,7 +12,7 @@ export const menuButton = css`
   padding: 0.8rem;
 
   .container {
-    gap: 1.6rem;
+    gap: 1.2rem;
     display: flex;
     align-items: center;
 
@@ -32,8 +32,8 @@ export const menuButton = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3.8rem;
-    width: 3.8rem;
+    height: 3.2rem;
+    width: 3.2rem;
     background-color: var(--surface-02);
     border-radius: 0.6rem;
 

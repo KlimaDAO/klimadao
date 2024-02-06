@@ -33,8 +33,8 @@ export const TopMenu: FC<TopMenuProps> = () => {
       {router.pathname !== "/projects" && (
         <SearchInput
           id="search-input"
-          label={t`Search Carbonmark`}
-          placeholder={t`Search Carbonmark`}
+          label={t`Search for a project`}
+          placeholder={t`Search for a project`}
           buttonStyle={styles.searchButton}
           onSubmit={() => console.log("")}
         />
