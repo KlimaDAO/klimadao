@@ -124,6 +124,10 @@ export const ListingEditable: FC<Props> = (props) => {
     }
   };
 
+  const revokeApproval = () => {
+    setCurrentAllowance(null);
+  };
+
   const onUpdateListing = async () => {
     if (!provider || !inputValues || !listingToEdit) return; // typeguards
 
@@ -250,6 +254,7 @@ export const ListingEditable: FC<Props> = (props) => {
         {showTransactionView && !isLoading && (
           <Transaction
             hasApproval={hasApproval()}
+            revokeApproval={revokeApproval}
             allowance={getTotalAssetApproval(listingToEdit).toString()}
             quantity={newQuantity.toString()}
             price={{
