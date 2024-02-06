@@ -19,12 +19,14 @@ const handler = () =>
       await sdk.digital_carbon.getProvenanceRecordsByHash({
         hash: request.params.id,
       });
-
-    const registry = retirementRecord.retires[0].credit.project?.registry;
+    if (retirementRecord.retires.length === 0 || !retirementRecord.retires[0]) {
+      return reply.notFound();
+    }
 
     if (!retirementRecord.retires[0].provenance) {
       return reply.notFound();
     }
+    const registry = retirementRecord.retires[0].credit.project.registry;
 
     const lastRecord = { ...retirementRecord.retires[0].provenance };
 

@@ -5,7 +5,8 @@ import { build } from "../../../../helper";
 import { DEV_URL } from "../../../../test.constants";
 import { mockDigitalCarbonProvenanceRecords } from "./get.test.mocks";
 
-const mockProvenanceRecord = fixtures.digitalCarbon.provenanceRecord;
+const mockProvenanceRecord =
+  fixtures.digitalCarbon.retireWithProvenance[0].provenance;
 
 describe("GET /retirements/:id/provenance", () => {
   let fastify: FastifyInstance;
@@ -29,6 +30,7 @@ describe("GET /retirements/:id/provenance", () => {
       url: `${DEV_URL}/retirements/0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509/provenance`,
     });
     const record = await response.json();
+
     const transformedRecord = {
       ...pick(mockProvenanceRecord, [
         "id",
@@ -43,6 +45,8 @@ describe("GET /retirements/:id/provenance", () => {
       updatedAt: 1701095377,
       createdAt: 1701095377,
     };
+    console.log("cad", record);
+    console.log("cad2", transformedRecord);
     expect(response.statusCode).toEqual(200);
     expect(record).toEqual([transformedRecord, transformedRecord]);
   });
