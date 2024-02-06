@@ -49,7 +49,7 @@ export const TransactionDetails: FC<Props> = (props) => (
             Transaction ID
           </Trans>
         </Text>
-        <Text>
+        <Text className={styles.transactionId}>
           {props.retirement.retire?.hash ||
             t({
               id: "retirement.single.transaction_id.placeholder",
