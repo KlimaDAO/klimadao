@@ -11,7 +11,7 @@ import {
 import Language from "@mui/icons-material/Language";
 import LanguageIcon from "@mui/icons-material/LanguageOutlined";
 import LogoutIcon from "@mui/icons-material/LogoutOutlined";
-import ParkIcon from "@mui/icons-material/Park";
+import ParkIcon from "@mui/icons-material/ParkOutlined";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboardOutlined";
 import StoreIcon from "@mui/icons-material/StoreOutlined";
@@ -21,12 +21,11 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { UserProfile } from "components/UserProfile";
 import { useConnectedUser } from "hooks/useConnectedUser";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
+import { locales } from "lib/i18n";
 import { useRouter } from "next/router";
 import { FC, useState } from "react";
 import { MenuButton } from "../MenuButton";
 import * as styles from "./styles";
-
-import { locales } from "lib/i18n";
 
 export const NavDropdown: FC = () => {
   const router = useRouter();
