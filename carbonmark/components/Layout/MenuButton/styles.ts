@@ -11,6 +11,10 @@ export const menuButton = css`
   width: 100%;
   padding: 0.8rem;
 
+  button {
+    width: 100%;
+  }
+
   .container {
     gap: 1.2rem;
     display: flex;

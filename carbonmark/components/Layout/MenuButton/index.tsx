@@ -32,14 +32,16 @@ export const MenuButton: FC<MenuButtonProps> = (props) => {
 
   if (props.onClick) {
     return (
-      <button className={styles.menuButton} onClick={props.onClick}>
-        <div data-active={props.isActive}>
-          <div className="container">
-            <div className="iconContainer">{props.icon}</div>
-            <span>{props.children}</span>
-          </div>
-          {props.hasSubMenu && <KeyboardArrowRight />}
+      <button
+        onClick={props.onClick}
+        className={styles.menuButton}
+        data-active={props.isActive}
+      >
+        <div className="container">
+          <div className="iconContainer">{props.icon}</div>
+          <span>{props.children}</span>
         </div>
+        {props.hasSubMenu && <KeyboardArrowRight />}
       </button>
     );
   }

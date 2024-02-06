@@ -2,7 +2,14 @@ import { Anchor } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
-import { Close, LoginOutlined, Menu } from "@mui/icons-material";
+import Language from "@mui/icons-material/Language";
+
+import {
+  Close,
+  KeyboardArrowLeftOutlined,
+  LoginOutlined,
+  Menu,
+} from "@mui/icons-material";
 import LanguageIcon from "@mui/icons-material/LanguageOutlined";
 import LogoutIcon from "@mui/icons-material/LogoutOutlined";
 import ParkIcon from "@mui/icons-material/Park";
@@ -20,11 +27,16 @@ import { FC, useState } from "react";
 import { MenuButton } from "../MenuButton";
 import * as styles from "./styles";
 
+import { locales } from "lib/i18n";
+
 export const NavDropdown: FC = () => {
-  const { pathname } = useRouter();
-  const [showMenu, setShowMenu] = useState(false);
+  const router = useRouter();
+  const { pathname, asPath, query, locale } = router;
   const { address, toggleModal, initializing, disconnect } = useWeb3();
   const { isConnectedUser, isUnconnectedUser } = useConnectedUser(address);
+
+  const [showMenu, setShowMenu] = useState(false);
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   const connectedDomain = useGetDomainFromAddress(address);
   const isConnected = !!address || !!connectedDomain;
@@ -35,11 +47,43 @@ export const NavDropdown: FC = () => {
     toggleModal?.();
   };
 
+  const languageContent = (
+    <>
+      <div className={styles.userProfile}>{isConnected && <UserProfile />}</div>
+      <button
+        className={styles.selectLanguageButton}
+        onClick={() => setShowLanguageMenu(false)}
+      >
+        <div className="iconContainer">
+          <KeyboardArrowLeftOutlined />
+        </div>
+        <Trans>Select a language</Trans>
+      </button>
+      <div>
+        {Object.keys(locales).map((localeKey) => (
+          <MenuButton
+            href=""
+            key={localeKey}
+            data-active={locale == localeKey ? "true" : "false"}
+            onClick={() => {
+              router.push({ pathname, query }, asPath, { locale: localeKey });
+              setShowLanguageMenu(false);
+            }}
+            icon={<Language />}
+            isActive={false}
+          >
+            {locales[localeKey].label}
+          </MenuButton>
+        ))}
+      </div>
+    </>
+  );
+
   const menuContent = (
     <>
       <div className={styles.userProfile}>{isConnected && <UserProfile />}</div>
       <MenuButton
-        href={"/projects"}
+        href="/projects"
         icon={<StoreIcon />}
         isActive={
           pathname.startsWith("/projects") ||
@@ -50,7 +94,7 @@ export const NavDropdown: FC = () => {
         <Trans>Marketplace</Trans>
       </MenuButton>
       <MenuButton
-        href={"/retire"}
+        href="/retire"
         icon={<ParkIcon />}
         isActive={pathname.startsWith("/retire")}
       >
@@ -64,23 +108,24 @@ export const NavDropdown: FC = () => {
         <Trans>Profile</Trans>
       </MenuButton>
       <MenuButton
-        href={"/portfolio"}
+        href="/portfolio"
         icon={<SpaceDashboardIcon />}
         isActive={pathname.startsWith("/portfolio")}
       >
         <Trans>Carbon Portfolio</Trans>
       </MenuButton>
       <MenuButton
-        hasSubMenu={true}
-        href={"/language"}
+        href={""}
+        hasSubMenu
         icon={<LanguageIcon />}
+        onClick={() => setShowLanguageMenu(true)}
         isActive={pathname.startsWith("/language")}
       >
         <Trans>Language</Trans>
       </MenuButton>
       {address && isConnected && (
         <MenuButton
-          href={""}
+          href=""
           isActive={false}
           onClick={disconnect}
           icon={<LogoutIcon />}
@@ -111,7 +156,7 @@ export const NavDropdown: FC = () => {
   return (
     <Tippy
       offset={[0, -48]}
-      content={menuContent}
+      content={showLanguageMenu ? languageContent : menuContent}
       interactive={true}
       placement="top-end"
       visible={showMenu}
@@ -128,3 +173,6 @@ export const NavDropdown: FC = () => {
     </Tippy>
   );
 };
+function useSelector(selectAppState: any): { locale: any } {
+  throw new Error("Function not implemented.");
+}
