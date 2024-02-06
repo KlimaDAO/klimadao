@@ -36,7 +36,7 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
         <Text t="button" color="lightest" uppercase>
           <Trans id="retirement.single.beneficiary.title">Beneficiary:</Trans>
         </Text>
-        <Text t="h4">
+        <Text t="h4" className={styles.beneficiaryAddress}>
           {props.beneficiary ||
             t({
               id: "retirement.single.beneficiary.placeholder",

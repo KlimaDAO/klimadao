@@ -58,3 +58,7 @@ export const textGroup = css`
     align-items: center;
   }
 `;
+
+export const transactionId = css`
+  white-space: break-spaces;
+`;
