@@ -10,6 +10,7 @@ import { Value } from "./types";
 interface Props {
   /** If the seller has already approved the required allowance */
   hasApproval: boolean;
+  revokeApproval: () => void;
   /** Price per unit */
   price?: Value;
   onApproval: () => void;
@@ -56,6 +57,21 @@ export const Transaction: FC<Props> = (props) => {
           <Trans id="transaction_modal.view.submit.title">2. Submit</Trans>
         </button>
       </div>
+      <button
+        onClick={() => props.revokeApproval()}
+        style={{
+          backgroundColor: "red",
+          color: "white",
+          fontSize: "20px",
+          padding: "10px 20px",
+          border: "none",
+          cursor: "pointer",
+          display: "block",
+          margin: "auto",
+        }}
+      >
+        REVOKE APPROVAL
+      </button>
       {view === "approve" && (
         <Approve
           amount={t`${formatAllowanceDisplay(props.allowance)}`}

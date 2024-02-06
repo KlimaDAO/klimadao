@@ -169,7 +169,7 @@ export const approveTokenSpend = async (params: {
     } else {
       txn = await tokenContract.setApprovalForAll(
         getAddress(params.spender, network),
-        true
+        params.value === "0" ? false : true
       );
     }
 

@@ -133,6 +133,27 @@ export const CreateListing: FC<Props> = (props) => {
     }
   };
 
+  const revokeApproval = async () => {
+    LO.track("Listing: Approve Clicked");
+    if (!provider || !inputValues) return;
+
+    try {
+      const newAllowanceValue = getTotalAssetApproval(inputValues).toString();
+
+      await approveTokenSpend({
+        tokenAddress: inputValues.tokenAddress,
+        tokenId: inputValues?.tokenId,
+        spender: "carbonmark",
+        signer: provider.getSigner(),
+        value: "0",
+        onStatus: onUpdateStatus,
+      });
+      setCurrentAllowance(newAllowanceValue);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const onAddListing = async () => {
     if (!provider || !inputValues) return;
     try {
@@ -182,6 +203,7 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
+          revokeApproval={revokeApproval}
           allowance={getTotalAssetApproval(inputValues).toString()}
           quantity={Number(inputValues?.amount || 0).toString()}
           price={{
