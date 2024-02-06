@@ -1,5 +1,7 @@
 import { pick } from "lodash";
 import { ProvenanceRecord } from "src/models/ProvenanceRecord.model";
+
+import { RegistryId } from "src/app.constants";
 import { GetProvenanceRecordsByHashQuery } from "../../.generated/types/digitalCarbon.types";
 import { formatAmountByRegistry } from "../marketplace.utils";
 
@@ -9,14 +11,20 @@ import { formatAmountByRegistry } from "../marketplace.utils";
  * @returns
  */
 
-export function formatRecord(
-  record:
-    | GetProvenanceRecordsByHashQuery["provenanceRecords"][0]
-    | GetProvenanceRecordsByHashQuery["provenanceRecords"][0]["priorRecords"][0]
-): ProvenanceRecord {
-  let registry;
+type Provenance = NonNullable<
+  GetProvenanceRecordsByHashQuery["retires"][0]["provenance"]
+>;
+type PriorRecord = Provenance["priorRecords"][number];
 
-  record.tokenId !== null ? (registry = "ICR") : (registry = "VCS");
+type RecordType = Provenance | PriorRecord;
+
+export function formatRecord(
+  record: RecordType,
+  registry: RegistryId
+): ProvenanceRecord {
+  if (!record) {
+    throw new Error("Record is undefined or null");
+  }
 
   return {
     ...pick(record, [

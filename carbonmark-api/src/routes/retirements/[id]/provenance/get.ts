@@ -15,19 +15,25 @@ const handler = () =>
   ) {
     const sdk = gql_sdk(request.query.network);
 
-    // Finds the retirement using polygon-bridged-carbon. We can bypass this when we will have the trasaction hash in the Retire model of polygon-digital-carbon
-    const retirementRecord = (
+    const retirementRecord =
       await sdk.digital_carbon.getProvenanceRecordsByHash({
         hash: request.params.id,
-      })
-    ).provenanceRecords.at(0);
+      });
 
-    if (retirementRecord == null) {
+    const registry = retirementRecord.retires[0].credit.project?.registry;
+
+    if (!retirementRecord.retires[0].provenance) {
       return reply.notFound();
     }
+
+    const lastRecord = { ...retirementRecord.retires[0].provenance };
+
+    const priorRecords =
+      retirementRecord.retires[0].provenance?.priorRecords ?? [];
+
     const records = [
-      formatRecord(retirementRecord),
-      ...retirementRecord.priorRecords.map(formatRecord),
+      formatRecord(lastRecord, registry),
+      ...priorRecords.map((record) => formatRecord(record, registry)),
     ];
     return reply.send(JSON.stringify(records));
   };

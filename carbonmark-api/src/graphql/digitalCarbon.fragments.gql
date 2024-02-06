@@ -10,6 +10,7 @@ fragment ProvenanceRecordFragment on ProvenanceRecord {
   remainingAmount
   createdAt
   updatedAt
+  transactionHash
 }
 
 fragment RetireFragment on Retire {
