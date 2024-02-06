@@ -1,7 +1,7 @@
-import { utils } from "ethers";
 import { pick } from "lodash";
 import { ProvenanceRecord } from "src/models/ProvenanceRecord.model";
 import { GetProvenanceRecordsByHashQuery } from "../../.generated/types/digitalCarbon.types";
+import { formatAmountByRegistry } from "../marketplace.utils";
 
 /**
  * Format a Record coming from a GQL query into a standardized API response fragment
@@ -14,6 +14,10 @@ export function formatRecord(
     | GetProvenanceRecordsByHashQuery["provenanceRecords"][0]
     | GetProvenanceRecordsByHashQuery["provenanceRecords"][0]["priorRecords"][0]
 ): ProvenanceRecord {
+  let registry;
+
+  record.tokenId !== null ? (registry = "ICR") : (registry = "VCS");
+
   return {
     ...pick(record, [
       "id",
@@ -25,7 +29,11 @@ export function formatRecord(
     ]),
     createdAt: Number(record.createdAt),
     updatedAt: Number(record.updatedAt),
-    originalAmount: Number(utils.formatUnits(record.originalAmount, 18)),
-    remainingAmount: Number(utils.formatUnits(record.remainingAmount, 18)),
+    originalAmount: Number(
+      formatAmountByRegistry(registry, record.originalAmount)
+    ),
+    remainingAmount: Number(
+      formatAmountByRegistry(registry, record.remainingAmount)
+    ),
   };
 }

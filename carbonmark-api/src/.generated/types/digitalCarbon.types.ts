@@ -4318,7 +4318,7 @@ export enum _SubgraphErrorPolicy_ {
   deny = 'deny'
 }
 
-export type ProvenanceRecordFragmentFragment = { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string };
+export type ProvenanceRecordFragmentFragment = { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string };
 
 export type RetireFragmentFragment = { __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, pool: { __typename?: 'CarbonPool', id: any } | null, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } };
 
@@ -4389,7 +4389,7 @@ export type GetProvenanceRecordsByHashQueryVariables = Exact<{
 }>;
 
 
-export type GetProvenanceRecordsByHashQuery = { __typename?: 'Query', provenanceRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string }> }> };
+export type GetProvenanceRecordsByHashQuery = { __typename?: 'Query', provenanceRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string }> }> };
 
 export const ProvenanceRecordFragmentFragmentDoc = gql`
     fragment ProvenanceRecordFragment on ProvenanceRecord {
@@ -4397,6 +4397,7 @@ export const ProvenanceRecordFragmentFragmentDoc = gql`
   transactionType
   registrySerialNumbers
   token
+  tokenId
   sender
   receiver
   originalAmount

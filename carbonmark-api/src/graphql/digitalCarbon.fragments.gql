@@ -3,6 +3,7 @@ fragment ProvenanceRecordFragment on ProvenanceRecord {
   transactionType
   registrySerialNumbers
   token
+  tokenId
   sender
   receiver
   originalAmount
