@@ -46,9 +46,9 @@ jobs:
       - name: Get changed directories
         id: changed-dirs
         run: |
-          changed=$(git diff --name-only origin/${{ steps.base-branch.outputs.base_branch }} --diff-filter=dr | grep -v "node_modules" | cut -d/ -f1 | sort -u | tr "\n" " ")
+          changed=$(git diff --name-only origin/${{ steps.base-branch.outputs.base_branch }} --diff-filter=dr | grep -v "node_modules" | grep -vE "^\.husky" | cut -d/ -f1 | sort -u | tr "\n" " ")
           echo "changed_dirs=$changed" >> $GITHUB_OUTPUT
 
       - name: Run Prettier on changed directories
         if: ${{ steps.changed-dirs.outputs.changed_dirs != '' }}
-        run: npx prettier --check ${{ steps.changed-dirs.outputs.changed_dirs }}
+        run: npx prettier --check ${{ steps.changed-dirs.outputs.changed_dirs }} --ignore-unknown

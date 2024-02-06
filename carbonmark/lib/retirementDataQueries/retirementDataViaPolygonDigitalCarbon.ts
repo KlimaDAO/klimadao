@@ -103,7 +103,7 @@ export const queryKlimaRetiresByAddress = async (
     );
     return json.data.klimaRetires || [];
   } catch (e) {
-    throw new Error("Failed to query KlimaRetiresByAddress", e);
+    throw new Error("Failed to query KlimaRetiresByAddress", { cause: e });
   }
 };
 
