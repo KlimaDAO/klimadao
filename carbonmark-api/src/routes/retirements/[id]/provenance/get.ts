@@ -1,4 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { CreditId } from "../../../../../src/utils/CreditId";
 import { gql_sdk } from "../../../../utils/gqlSdk";
 import { formatRecord } from "../../../../utils/helpers/records.utils";
 import { Params, Querystring } from "../get.schema";
@@ -26,8 +27,10 @@ const handler = () =>
     if (!retirementRecord.retires[0].provenance) {
       return reply.notFound();
     }
-    const registry =
-      retirementRecord.retires[0].credit.project.id.split("-")[0];
+
+    const [registry] = CreditId.splitProjectId(
+      retirementRecord.retires[0].credit.project.id
+    );
 
     const lastRecord = { ...retirementRecord.retires[0].provenance };
 

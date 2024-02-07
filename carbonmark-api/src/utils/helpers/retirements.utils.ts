@@ -1,6 +1,7 @@
 import { pick } from "lodash";
 import { GetRetirementByHashQuery } from "../../.generated/types/digitalCarbon.types";
 import { Retirement } from "../../models/Retirement.model";
+import { CreditId } from "../CreditId";
 import { formatAmountByRegistry } from "../marketplace.utils";
 import { formatCarbonCredit } from "./carbonCredits.utils";
 import { MOSS_POOL } from "./utils.constants";
@@ -14,7 +15,7 @@ import { MOSS_POOL } from "./utils.constants";
 export function formatRetirement(
   retirement: GetRetirementByHashQuery["retires"][0]
 ): Retirement {
-  const registry = retirement.credit.project.id.split("-")[0];
+  const [registry] = CreditId.splitProjectId(retirement.credit.project.id);
   return {
     ...pick(retirement, [
       "id",
