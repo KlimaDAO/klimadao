@@ -5,7 +5,7 @@ import { waitForApi } from "lib/waitForApi";
 import { compact } from "lodash";
 import { GetStaticProps } from "next";
 
-const defaultProjectKeys = ["VCS-674-2014", "VCS-292-2020", "VCS-981-2017"];
+const defaultProjectKeys = ["VCS-1052-2012", "VCS-1764-2020", "VCS-1190-2018"];
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   // Wait for the preview environment API to come online
