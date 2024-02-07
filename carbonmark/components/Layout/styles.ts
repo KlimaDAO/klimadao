@@ -43,9 +43,12 @@ export const layoutChildrenContainer = css`
   flex-direction: column;
 
   ${breakpoints.desktop} {
+    padding: 2rem 2.4rem;
+  }
+
+  ${breakpoints.desktopLarge} {
     margin: 0 auto;
     max-width: 120rem;
-    padding: 2rem 2.4rem;
   }
 
   &.fullContentWidth {
