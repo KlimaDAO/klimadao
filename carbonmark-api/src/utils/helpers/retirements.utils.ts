@@ -15,7 +15,12 @@ import { MOSS_POOL } from "./utils.constants";
 export function formatRetirement(
   retirement: GetRetirementByHashQuery["retires"][0]
 ): Retirement {
-  const [registry] = CreditId.splitProjectId(retirement.credit.project.id);
+  let registry;
+
+  retirement.credit.project.id === "Moss"
+    ? (registry = "MOSS")
+    : ([registry] = CreditId.splitProjectId(retirement.credit.project.id));
+
   return {
     ...pick(retirement, [
       "id",

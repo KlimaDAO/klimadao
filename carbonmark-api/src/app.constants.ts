@@ -98,8 +98,8 @@ export const REGISTRIES = {
     decimals: 0,
   },
   Moss: {
-    id: "Moss",
-    title: "Moss",
+    id: "MOSS",
+    title: "MOSS",
     url: "https://moss.earth",
     decimals: 18,
   },
