@@ -22,6 +22,10 @@ export const TopMenu: FC<TopMenuProps> = () => {
   const router = useRouter();
   const { address, isConnected, toggleModal, initializing } = useWeb3();
 
+  const handleSearchSubmit = (search: string | null) => {
+    router.replace(`/projects?search=${search}`);
+  };
+
   return (
     <div className={styles.topMenu}>
       <Link href="/" className={styles.logo}>
@@ -36,7 +40,7 @@ export const TopMenu: FC<TopMenuProps> = () => {
           label={t`Search for a project`}
           placeholder={t`Search for a project`}
           buttonStyle={styles.searchButton}
-          onSubmit={() => console.log("")}
+          onSubmit={handleSearchSubmit}
         />
       )}
 
