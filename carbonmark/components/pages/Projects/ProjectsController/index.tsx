@@ -45,38 +45,40 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
     });
 
   return (
-    <>
-      <div className={cx(styles.controller, { [styles.absolute]: isMap })}>
-        <div style={{ width: "100%" }}>
-          <ProjectSearch onFiltersClick={toggleModal} />
-        </div>
-        {/* {!isEmpty(props.projects) && !isMap && (
+    <div>
+      <div>
+        <div className={cx(styles.controller)}>
+          <div>
+            <ProjectSearch onFiltersClick={toggleModal} />
+          </div>
+          {/* {!isEmpty(props.projects) && !isMap && (
         <Text t="h5">{props.projects.length} Results</Text>
       )} */}
-        <div className={styles.displayOptions}>
-          {/* Hide the sort on MapView */}
-          {!isMap && <ProjectSort />}
-          <Toggle
-            className={styles.toggle}
-            selected={params.layout}
-            onChange={(val) => {
-              updateQueryParams({
-                ...router.query,
-                layout: val as FilterValues["layout"],
-              });
-            }}
-            options={viewOptions}
+          <div className={styles.displayOptions}>
+            {/* Hide the sort on MapView */}
+            {!isMap && <ProjectSort />}
+            <Toggle
+              className={styles.toggle}
+              selected={params.layout}
+              onChange={(val) => {
+                updateQueryParams({
+                  ...router.query,
+                  layout: val as FilterValues["layout"],
+                });
+              }}
+              options={viewOptions}
+            />
+          </div>
+          <ProjectFilterModal
+            {...props}
+            showModal={showFilterModal}
+            onToggleModal={toggleModal}
+            closeOnBackgroundClick
           />
         </div>
-        <ProjectFilterModal
-          {...props}
-          showModal={showFilterModal}
-          onToggleModal={toggleModal}
-          closeOnBackgroundClick
-        />
+        <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
       </div>
-      <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
-    </>
+    </div>
   );
 };
 

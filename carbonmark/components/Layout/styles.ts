@@ -36,13 +36,15 @@ export const mobileLogo = css`
 `;
 
 export const layoutChildrenContainer = css`
-  grid-column: full;
   width: 100%;
-  grid-template-columns: inherit;
   gap: 1.2rem 0rem;
+  display: flex;
   padding: 1.6rem;
+  flex-direction: column;
 
   ${breakpoints.desktop} {
+    margin: 0 auto;
+    max-width: 120rem;
     padding: 2rem 2.4rem;
   }
 

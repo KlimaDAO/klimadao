@@ -19,10 +19,8 @@ export const absolute = css`
 
 export const controller = css`
   width: 100%;
-  grid-template-columns: inherit;
-  display: grid;
+  display: flex;
   gap: 0.8rem;
-  grid-column: full;
   margin-bottom: 0.5rem;
 `;
 

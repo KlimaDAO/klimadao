@@ -90,6 +90,13 @@ export const viewContainer = css`
   grid-column: full;
 `;
 
+export const marketplace = css`
+  display: flex;
+  width: 100% !important;
+  max-width: 100% !important;
+  flex-direction: column;
+`;
+
 export const featureBanner = css`
   &:has(.feature-banner):not(.initial-banner) {
     padding: 17rem 2.4rem;
