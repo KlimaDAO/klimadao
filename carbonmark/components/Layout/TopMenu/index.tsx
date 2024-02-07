@@ -8,6 +8,7 @@ import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
 import { CarbonmarkText } from "components/Logos/CarbonmarkText";
 import { SearchInput } from "components/SearchInput";
 import { UserProfile } from "components/UserProfile";
+import { isEmpty, isNil } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -23,6 +24,7 @@ export const TopMenu: FC<TopMenuProps> = () => {
   const { address, isConnected, toggleModal, initializing } = useWeb3();
 
   const handleSearchSubmit = (search: string | null) => {
+    if (isEmpty(search) || isNil(search)) return;
     router.replace(`/projects?search=${search}`);
   };
 
