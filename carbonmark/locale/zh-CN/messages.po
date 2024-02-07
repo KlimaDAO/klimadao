@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-06 15:33+0000\n"
+"POT-Creation-Date: 2024-02-07 11:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,7 +100,7 @@ msgstr "购买金额"
 msgid "Amount to retire"
 msgstr "停用金额"
 
-#: components/CreateListing/Transaction/Approve.tsx:82
+#: components/CreateListing/Transaction/Approve.tsx:83
 #: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "批准"
@@ -535,7 +535,7 @@ msgstr "编辑"
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:212
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:211
 msgid "Edit listing"
 msgstr "编辑挂牌"
 
@@ -589,7 +589,7 @@ msgstr "名字为必填项"
 msgid "First name should not contain numbers or special characters"
 msgstr "名字不可包含数字或特殊字符"
 
-#: components/CreateListing/Transaction/Approve.tsx:37
+#: components/CreateListing/Transaction/Approve.tsx:38
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "首先，批准Carbonmark系统，允许其代表您转让该资产。"
 
@@ -844,7 +844,7 @@ msgstr "新数量"
 msgid "New Unit Price (USDC)"
 msgstr "新单价（USDC）"
 
-#: components/CreateListing/Transaction/Approve.tsx:89
+#: components/CreateListing/Transaction/Approve.tsx:90
 msgid "Next"
 msgstr "下一步"
 
@@ -1409,11 +1409,7 @@ msgstr "感谢您对地球的支持！我们将尽快与您联系以确认一些
 msgid "The Universal Carbon Marketplace"
 msgstr "通用碳市场"
 
-#: components/CreateListing/Transaction/Approve.tsx:50
-msgid "The allowance below reflects the sum of all your listings for this specific token. For ICR credit tokens, the allowance will reflect the sum of all your ICR token listings."
-msgstr "下面的限额反映了该特定代币的所有列表的总和。对于 ICR 信用代币，津贴将反映您所有 ICR 代币列表的总和。"
-
-#: components/CreateListing/Transaction/Approve.tsx:43
+#: components/CreateListing/Transaction/Approve.tsx:44
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
 msgstr "资产只会在销售完成时从您的钱包中转出。您可以随时撤销此授权。"
 
@@ -1577,7 +1573,7 @@ msgstr "总价"
 msgid "Total Retirements:"
 msgstr "总碳停用"
 
-#: components/CreateListing/Transaction/Approve.tsx:60
+#: components/CreateListing/Transaction/Approve.tsx:61
 msgid "Total allowance"
 msgstr "总授权额"
 
@@ -2038,7 +2034,7 @@ msgstr "编辑您的个人资料以添加描述。"
 msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:227
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
@@ -2436,7 +2432,7 @@ msgstr "合约地址"
 msgid "transaction_modal.approve.price"
 msgstr "确认每吨价格"
 
-#: components/CreateListing/Transaction/index.tsx:81
+#: components/CreateListing/Transaction/index.tsx:83
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "返回"
@@ -2473,12 +2469,12 @@ msgstr "合约地址"
 msgid "transaction_modal.submit.price"
 msgstr "提交每吨价格："
 
-#: components/CreateListing/Transaction/index.tsx:46
+#: components/CreateListing/Transaction/index.tsx:47
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "1. 批准"
 
-#: components/CreateListing/Transaction/index.tsx:56
+#: components/CreateListing/Transaction/index.tsx:57
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. 提交"
@@ -2528,7 +2524,8 @@ msgstr "销售总额为必填项"
 msgid "user.login.description"
 msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键登录或创建帐户。"
 
-#: components/CreateListing/Transaction/index.tsx:61
+#: components/CreateListing/Transaction/Approve.tsx:51
+#: components/CreateListing/Transaction/index.tsx:62
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:205
 msgid "{0}"
 msgstr "{0}"

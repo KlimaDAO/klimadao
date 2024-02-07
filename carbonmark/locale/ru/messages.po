@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-06 15:33+0000\n"
+"POT-Creation-Date: 2024-02-07 11:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,7 +100,7 @@ msgstr "Сумма покупки"
 msgid "Amount to retire"
 msgstr "Сумма к выбиванию"
 
-#: components/CreateListing/Transaction/Approve.tsx:82
+#: components/CreateListing/Transaction/Approve.tsx:83
 #: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "Одобрить"
@@ -535,7 +535,7 @@ msgstr "Редактировать"
 msgid "Edit Profile"
 msgstr "Редактировать профиль"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:212
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:211
 msgid "Edit listing"
 msgstr "Редактировать объявление"
 
@@ -589,7 +589,7 @@ msgstr ""
 msgid "First name should not contain numbers or special characters"
 msgstr ""
 
-#: components/CreateListing/Transaction/Approve.tsx:37
+#: components/CreateListing/Transaction/Approve.tsx:38
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "Сначала одобрите Carbonmark для передачи этого актива от вашего имени."
 
@@ -844,7 +844,7 @@ msgstr "Новое количество"
 msgid "New Unit Price (USDC)"
 msgstr "Новая цена за единицу (USDC)"
 
-#: components/CreateListing/Transaction/Approve.tsx:89
+#: components/CreateListing/Transaction/Approve.tsx:90
 msgid "Next"
 msgstr "Следующий"
 
@@ -1402,11 +1402,7 @@ msgstr ""
 msgid "The Universal Carbon Marketplace"
 msgstr "Универсальный углеродный рынок"
 
-#: components/CreateListing/Transaction/Approve.tsx:50
-msgid "The allowance below reflects the sum of all your listings for this specific token. For ICR credit tokens, the allowance will reflect the sum of all your ICR token listings."
-msgstr ""
-
-#: components/CreateListing/Transaction/Approve.tsx:43
+#: components/CreateListing/Transaction/Approve.tsx:44
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
 msgstr "Активы будут выведены из Вашего кошелька только после завершения продажи. Вы можете в любой момент отменить это разрешение."
 
@@ -1570,7 +1566,7 @@ msgstr "Итоговая цена"
 msgid "Total Retirements:"
 msgstr "Итого выведено"
 
-#: components/CreateListing/Transaction/Approve.tsx:60
+#: components/CreateListing/Transaction/Approve.tsx:61
 msgid "Total allowance"
 msgstr "Общая сумма резерва"
 
@@ -2031,7 +2027,7 @@ msgstr "Отредактируйте свой профиль, чтобы доб�
 msgid "profile.listing.delete.error"
 msgstr "Не удалось удалить объявление. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:227
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "profile.listing.edit.delete_listing"
 msgstr "Удалить объявление"
 
@@ -2431,7 +2427,7 @@ msgstr "Адрес контракта"
 msgid "transaction_modal.approve.price"
 msgstr "Подтвердить цену за тонну"
 
-#: components/CreateListing/Transaction/index.tsx:81
+#: components/CreateListing/Transaction/index.tsx:83
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "Вернуться назад"
@@ -2468,12 +2464,12 @@ msgstr "Адрес контракта"
 msgid "transaction_modal.submit.price"
 msgstr "Укажите цену за тонну:"
 
-#: components/CreateListing/Transaction/index.tsx:46
+#: components/CreateListing/Transaction/index.tsx:47
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "1. Одобрить"
 
-#: components/CreateListing/Transaction/index.tsx:56
+#: components/CreateListing/Transaction/index.tsx:57
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Отправить"
@@ -2523,7 +2519,8 @@ msgstr "Требуется общая сумма для продажи"
 msgid "user.login.description"
 msgstr "Эта функция доступна только для пользователей, которые вошли в систему. Вы можете войти или создать учетную запись с помощью кнопки ниже."
 
-#: components/CreateListing/Transaction/index.tsx:61
+#: components/CreateListing/Transaction/Approve.tsx:51
+#: components/CreateListing/Transaction/index.tsx:62
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:205
 msgid "{0}"
 msgstr "{0}"
