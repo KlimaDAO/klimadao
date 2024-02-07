@@ -114,9 +114,9 @@ export const getUserByWallet = async (params: {
   expiresAfter?: string;
 }) => {
   const sdk = gql_sdk(params.network);
-  const expiresAfter = Math.floor(
-    (Date.now() - 90 * 24 * 60 * 60 * 1000) / 1000
-  ).toString();
+  const expiresAfter =
+    params.expiresAfter ||
+    Math.floor((Date.now() - 90 * 24 * 60 * 60 * 1000) / 1000).toString();
   const { listings, activities } = await sdk.marketplace.getUserByWallet({
     wallet: params.address.toLowerCase(),
     expiresAfter,
