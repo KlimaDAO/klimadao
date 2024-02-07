@@ -197,6 +197,7 @@ export const CreateListing: FC<Props> = (props) => {
             setStatus(null);
             setCurrentAllowance(null); // this will hide the Transaction View and re-checks the allowance again
           }}
+          isERC1155={!!inputValues?.tokenId}
         />
       )}
 

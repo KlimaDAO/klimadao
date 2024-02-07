@@ -207,7 +207,6 @@ export const ListingEditable: FC<Props> = (props) => {
           </Listing>
         </div>
       ))}
-
       <Modal
         title={t`Edit listing`}
         showModal={!!listingToEdit}
@@ -265,6 +264,8 @@ export const ListingEditable: FC<Props> = (props) => {
               setStatus(null);
               setCurrentAllowance(null); // this will hide the Transaction View and re-checks the allowance again
             }}
+            // @todo change to !!listingToEdit?.tokenStandard === "ERC1155" when marketplace subgraph with tokenStandard is merged
+            isERC1155={!!listingToEdit?.project.id.startsWith("ICR")}
           />
         )}
       </Modal>
