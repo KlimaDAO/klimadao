@@ -3,7 +3,7 @@ import { gql_sdk } from "../../../utils/gqlSdk";
 import { getListingById } from "../../../utils/helpers/listings.utils";
 import { Params, Querystring, schema } from "./get.schema";
 
-const handler = (fastify: FastifyInstance) =>
+const handler = () =>
   async function (
     request: FastifyRequest<{
       Params: Params;
@@ -29,6 +29,6 @@ export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "GET",
     url: "/listings/:id",
-    handler: handler(fastify),
+    handler: handler(),
     schema: schema,
   });

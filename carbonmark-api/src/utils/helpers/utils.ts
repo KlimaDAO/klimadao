@@ -301,3 +301,17 @@ export function asResponse<ReplyType>(
     .header("Content-Type", "application/json; charset=utf-8")
     .send(payload);
 }
+
+/**
+ * Creates a GQL query fragment from an object
+ * @param obj_from_json
+ * @returns
+ */
+export function gqlWhereFragment<T>(obj: T) {
+  // See https://stackoverflow.com/questions/11233498/json-stringify-without-quotes-on-properties
+  // JSON stringify
+  let json = JSON.stringify(obj);
+  // Remove double quotes around attribute names
+  json.replace(/\\"/g, "\uFFFF"); // U+ FFFF
+  return (json = json.replace(/"([^"]+)":/g, "$1:").replace(/\uFFFF/g, '\\"'));
+}

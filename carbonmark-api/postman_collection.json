@@ -389,6 +389,109 @@
       "response": []
     },
     {
+      "name": "getRetirements",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Retirements are filtered by account as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].beneficiaryAddress).to.eql('0x087a7afb6975a2837453be685eb6272576c0bc06');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/retirements?beneficiaryAddress=0x087a7afb6975a2837453be685eb6272576c0bc06",
+          "host": ["{{url}}"],
+          "path": ["retirements"],
+          "query": [
+            {
+              "key": "beneficiaryAddress",
+              "value": "0x087a7afb6975a2837453be685eb6272576c0bc06"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getRetirementByHash",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Retirement is fetched as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData.id).to.eql('0x087a7afb6975a2837453be685eb6272576c0bc0608000000');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/retirements/:id",
+          "host": ["{{url}}"],
+          "path": ["retirements", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getRetirementProvenanceByHash",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Retirement provenance is fetched as expected', function () {",
+              "        var jsonData = pm.response.json();",
+              "        pm.expect(jsonData[0].transactionType).to.eql('RETIREMENT');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/retirements/:id/provenance",
+          "host": ["{{url}}"],
+          "path": ["retirements", ":id", "provenance"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0xa049a8354af988a4285eadc5c540590d26d95bca1c6a85c873e32a5c280e7509"
+            },
+            {
+              "key": "retirement_index",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "getUserByWallet",
       "event": [
         {
@@ -502,48 +605,6 @@
       "response": []
     },
     {
-      "name": "loginUser",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "exec": [""],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
-              "  postman.setNextRequest(null);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"wallet\":\"{{wallet}}\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{url}}/users/login",
-          "host": ["{{url}}"],
-          "path": ["users", "login"]
-        }
-      },
-      "response": []
-    },
-    {
       "name": "getListingById",
       "request": {
         "method": "GET",
@@ -555,48 +616,6 @@
             "listings",
             "0xde5c717958a9a80f2dee8ebcc6f411a8d860ac7b0042e45487f4ad2afaf46d5a"
           ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "verifyUser",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "exec": [""],
-            "type": "text/javascript"
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
-              "  postman.setNextRequest(null);",
-              "}"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"wallet\":\"{{wallet}}\",\n  \"signature\":\"{{signature}}\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{url}}/users/login/verify",
-          "host": ["{{url}}"],
-          "path": ["users", "login", "verify"]
         }
       },
       "response": []

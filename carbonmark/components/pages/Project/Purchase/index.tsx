@@ -4,8 +4,12 @@ import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
-import { isPoolToken } from "lib/getPoolData";
-import { Listing, Project, TokenPrice } from "lib/types/carbonmark.types";
+import {
+  Listing,
+  Product,
+  Project,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { InactivePurchase } from "./InactivePurchase";
@@ -15,20 +19,12 @@ import { PoolPurchase } from "./Pool";
 import * as styles from "./styles";
 export interface ProjectPurchasePageProps {
   project: Project;
-  purchase: Listing | TokenPrice;
+  product: Product;
 }
 
-const getIsPoolPurchase = (purchase: TokenPrice): purchase is TokenPrice =>
-  purchase.poolName !== undefined && isPoolToken(purchase.poolName);
-
-const getIsListingPurchase = (purchase: Listing): purchase is Listing =>
-  purchase.id !== undefined;
-
 export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
-  const isPoolPurchase = getIsPoolPurchase(props.purchase as TokenPrice);
-  const isListingPurchase =
-    !isPoolPurchase && getIsListingPurchase(props.purchase as Listing);
-
+  const isPoolPurchase = props.product.type === "pool";
+  const isListingPurchase = props.product.type === "listing";
   const isNone = !isPoolPurchase && !isListingPurchase;
 
   return (
@@ -55,14 +51,14 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
           {isPoolPurchase && (
             <PoolPurchase
               project={props.project}
-              price={props.purchase as TokenPrice}
+              product={props.product as TokenPrice}
             />
           )}
 
           {isListingPurchase && (
             <ListingPurchase
               project={props.project}
-              listing={props.purchase as Listing}
+              listing={props.product as Listing}
             />
           )}
 

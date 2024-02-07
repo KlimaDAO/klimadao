@@ -12,7 +12,7 @@ const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
  * This is also the case for SANITY_URLS
  */
 const POLYGON_URLS = {
-  marketplace: `${GRAPH_API_ROOT_ID}/QmXrzcwG5b31hE1nDzT5NCAiHfM9stwMLqs8uk9enJiyPf`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmaHkN47zUB3b1xnfeqCwatG5DRtMuitEDf9FdFkq5V3Fr`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
@@ -48,6 +48,7 @@ export const TOKEN_ADDRESSES = {
     NBO_POOL: "0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48",
     NTC_POOL: "0xd838290e877e0188a4a44700463419ed96c16107",
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+    MOSS_POOL: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   },
   production: {
     LP_UBO_POOL: "0x5400a05b8b45eaf9105315b4f2e31f806ab706de",
@@ -58,11 +59,21 @@ export const TOKEN_ADDRESSES = {
     NBO_POOL: "0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48",
     NTC_POOL: "0xd838290e877e0188a4a44700463419ed96c16107",
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+    MOSS_POOL: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   },
 };
 
 export const RPC_URLS = {
   polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
+};
+
+export type RegistryKey = keyof typeof REGISTRIES;
+
+export type RegistryId = (typeof REGISTRIES)[keyof typeof REGISTRIES]["id"];
+
+export const IS_REGISTRY_ID = (id: string): id is RegistryId => {
+  const REGISTRY_IDS = Object.values(REGISTRIES).map((r) => r.id);
+  return REGISTRY_IDS.includes(id);
 };
 
 /** Definitions of available registries */
@@ -72,16 +83,19 @@ export const REGISTRIES = {
     title: "Verra",
     url: "https://registry.verra.org",
     api: "https://registry.verra.org/uiapi",
+    decimals: 18,
   },
   GoldStandard: {
     id: "GS",
     title: "Gold Standard",
     url: "https://registry.goldstandard.org",
+    decimals: 18,
   },
   ICR: {
     id: "ICR",
     title: "International Carbon Registry",
     url: "https://www.carbonregistry.com",
+    decimals: 0,
   },
 };
 
@@ -112,3 +126,9 @@ export const ICR_API = (
 
   return { ICR_API_URL: API_CONFIG.url, ICR_API_KEY: API_CONFIG.apiKey };
 };
+/** Message shared with frontend, to be combined with user's nonce and signed by private key. */
+export const SIGN_PROFILE_MESSAGE =
+  process.env.SIGN_PROFILE_MESSAGE || "VerifyCarbonmarkProfileEdit";
+
+/** Ethereum 0x address */
+export const VALID_ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;

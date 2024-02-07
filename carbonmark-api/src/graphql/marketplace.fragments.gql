@@ -16,6 +16,7 @@ fragment ListingFragment on Listing {
   }
   expiration
   minFillAmount
+  tokenId
 }
 
 fragment ProjectFragment on Project {

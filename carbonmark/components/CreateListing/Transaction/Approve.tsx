@@ -13,6 +13,7 @@ interface Props {
   amount: string;
   onApproval: () => void;
   onSuccess: () => void;
+  isERC1155: boolean;
   status: TransactionStatusMessage | null;
 }
 
@@ -48,9 +49,9 @@ export const Approve: FC<Props> = (props) => {
         <Text t="body1">
           <strong>
             <Trans>
-              The allowance below reflects the sum of all your listings for this
-              specific token. For ICR credit tokens, the allowance will reflect
-              the sum of all your ICR token listings.
+              {props.isERC1155
+                ? "This allowance enables Carbonmark to transact with any of your ICR credits."
+                : "The allowance below reflects the sum of all your listings for this specific token."}
             </Trans>
           </strong>
         </Text>

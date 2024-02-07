@@ -1,24 +1,19 @@
+/**
+ * @description One or more fields to update.
+ */
 export type PutUsersWalletMutationRequest = {
   /**
-   * @type string
+   * @type string | undefined
    */
-  wallet: string;
+  username?: string;
   /**
-   * @type string
+   * @type string | undefined
    */
-  username: string;
-  /**
-   * @type string
-   */
-  description: string;
+  description?: string;
   /**
    * @type string | undefined
    */
   profileImgUrl?: string;
-  /**
-   * @type string | undefined
-   */
-  handle?: string;
 };
 
 /**
@@ -28,28 +23,15 @@ export type PutUsersWalletMutationResponse = {
   /**
    * @type string
    */
-  wallet: string;
+  address: string;
   /**
-   * @type string
+   * @type number
    */
-  username: string;
-  /**
-   * @type string
-   */
-  description: string;
-  /**
-   * @type string | undefined
-   */
-  profileImgUrl?: string;
-  /**
-   * @type string | undefined
-   */
-  handle?: string;
+  nonce: number;
 };
 
 export type PutUsersWalletPathParams = {
   /**
-   * @description The target wallet address
    * @type string
    */
   wallet: string;
