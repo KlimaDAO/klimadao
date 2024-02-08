@@ -18,7 +18,7 @@ export const main = css`
   border-radius: var(--border-radius);
 
   ${breakpoints.medium} {
-    min-width: 36rem;
+    width: 40rem;
     max-width: 48rem;
   }
 

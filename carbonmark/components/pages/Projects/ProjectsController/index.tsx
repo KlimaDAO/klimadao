@@ -1,4 +1,3 @@
-import { cx } from "@emotion/css";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
@@ -47,8 +46,8 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
   return (
     <div>
       <div>
-        <div className={cx(styles.controller)}>
-          <div>
+        <div className={styles.controller}>
+          <div className={styles.searchWrapper}>
             <ProjectSearch onFiltersClick={toggleModal} />
           </div>
           {/* {!isEmpty(props.projects) && !isMap && (

@@ -29,6 +29,10 @@ export const controller = css`
   }
 `;
 
+export const searchWrapper = css`
+  width: 100%;
+`;
+
 export const projectsControls = css`
   grid-column: full;
   max-width: calc(${FIVE_CARD_WIDTH});
