@@ -10,13 +10,16 @@ export const absolute = css`
   grid-column: unset !important;
 
   ${breakpoints.desktop} {
-    grid-column: full;
-    padding: 4rem;
+    // grid-column: unset;
   }
   // We ned to make the controls visible over variable contrast of the map
   // Using a filter so that it works with children's rounded corners
   // Filters don't allow complex shadows so unable to use var(--shadow-01)
   filter: drop-shadow(0 0.2rem 0.2rem rgba(0, 0, 0, 0.24));
+
+  .mapboxgl-canvas {
+    width: 100% !important;
+  }
 `;
 
 export const controller = css`
