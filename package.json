@@ -21,6 +21,9 @@
       "prettier-plugin-organize-imports"
     ]
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --check"
+  },
   "scripts": {
     "build-all": "npm run build --workspaces",
     "dev-all": "npm run dev --workspaces",
@@ -48,6 +51,8 @@
   "devDependencies": {
     "@lingui/cli": "^4.4.0",
     "concurrently": "^7.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "prettier": "3.0.2",
     "prettier-plugin-organize-imports": "^3.2.3"
   }

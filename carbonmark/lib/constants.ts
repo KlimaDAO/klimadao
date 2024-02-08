@@ -152,6 +152,7 @@ export const urls = {
     "/blog/carbonmark-now-accepts-bank-transfer-as-a-payment-method",
   projects: "/projects",
   users: "/users",
+  retirements: "/retirements",
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",

@@ -94,3 +94,36 @@ export const button = css`
   font-weight: 600;
   letter-spacing: 0.042rem;
 `;
+
+export const responsiveBody1 = css`
+  font-family: var(--font-family);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.016rem;
+  ${breakpoints.large} {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+`;
+
+export const responsiveBody2 = css`
+  font-family: var(--font-family);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.014rem;
+  ${breakpoints.large} {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+`;
+
+export const responsiveBody3 = css`
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.4rem;
+  letter-spacing: 0.012rem;
+  ${breakpoints.large} {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+`;

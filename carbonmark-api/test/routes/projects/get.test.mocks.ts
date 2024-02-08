@@ -152,12 +152,6 @@ export const mockMarketplaceProjects = (override?: Project[]) => {
     .reply(200, {
       data: { projects: override ?? [fixtures.marketplace.projectWithListing] },
     });
-
-  nock(GRAPH_URLS["mumbai"].marketplace)
-    .post("")
-    .reply(200, {
-      data: { projects: [fixtures.marketplace.projectWithListing] },
-    });
 };
 //Mocks all categories, countries and vintages
 export const mockMarketplaceArgs = () => {
