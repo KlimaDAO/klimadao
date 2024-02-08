@@ -74,7 +74,3 @@ export const displayOptions = css`
     justify-content: flex-end;
   }
 `;
-
-export const toggle = css`
-  // margin-left: auto;
-`;

@@ -53,7 +53,6 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
             {/* Hide the sort on MapView */}
             {!isMap && <ProjectSort />}
             <Toggle
-              className={styles.toggle}
               selected={params.layout}
               onChange={(val) => {
                 updateQueryParams({
