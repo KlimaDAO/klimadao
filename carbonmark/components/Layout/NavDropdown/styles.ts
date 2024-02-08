@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "theme/typography";
 
-export const selectLanguageButton = css`
+export const languageList = css`
   gap: 1.2rem;
   width: 100%;
   height: 4rem;
@@ -29,6 +29,11 @@ export const selectLanguageButton = css`
       height: 2rem;
     }
   }
+`;
+
+export const languageText = css`
+  ${typography.body4};
+  color: var(--font-03);
 `;
 
 export const navMenuButton = css`

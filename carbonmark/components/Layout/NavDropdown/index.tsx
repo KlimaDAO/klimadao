@@ -8,7 +8,6 @@ import {
   LoginOutlined,
   Menu,
 } from "@mui/icons-material";
-import Language from "@mui/icons-material/Language";
 import LanguageIcon from "@mui/icons-material/LanguageOutlined";
 import LogoutIcon from "@mui/icons-material/LogoutOutlined";
 import ParkIcon from "@mui/icons-material/ParkOutlined";
@@ -18,6 +17,7 @@ import StoreIcon from "@mui/icons-material/StoreOutlined";
 import Tippy from "@tippyjs/react";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { Text } from "components/Text";
 import { UserProfile } from "components/UserProfile";
 import { useConnectedUser } from "hooks/useConnectedUser";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
@@ -49,7 +49,7 @@ export const NavDropdown: FC = () => {
     <>
       <div className={styles.userProfile}>{isConnected && <UserProfile />}</div>
       <button
-        className={styles.selectLanguageButton}
+        className={styles.languageList}
         onClick={() => setShowLanguageMenu(false)}
       >
         <div className="iconContainer">
@@ -67,7 +67,11 @@ export const NavDropdown: FC = () => {
               router.push({ pathname, query }, asPath, { locale: localeKey });
               setShowLanguageMenu(false);
             }}
-            icon={<Language />}
+            icon={
+              <Text className={styles.languageText}>
+                {locales[localeKey].label.substring(0, 2)}
+              </Text>
+            }
             isActive={false}
           >
             {locales[localeKey].label}

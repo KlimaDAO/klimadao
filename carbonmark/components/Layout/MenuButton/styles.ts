@@ -54,6 +54,10 @@ export const menuButton = css`
       svg {
         fill: var(--surface-01);
       }
+
+      p {
+        color: white !important;
+      }
     }
   }
 
