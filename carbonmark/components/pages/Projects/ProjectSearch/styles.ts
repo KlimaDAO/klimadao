@@ -19,8 +19,8 @@ export const filterButton = css`
   }
 
   ${breakpoints.medium} {
-    width: auto;
     height: auto;
+    min-width: 15rem;
     padding: 0 2rem;
     span {
       display: block;
@@ -31,6 +31,8 @@ export const filterButton = css`
 export const resetFilterButton = css`
   display: none;
   ${breakpoints.medium} {
+    min-width: 15rem;
     display: flex !important;
+    padding: 0 2rem;
   }
 `;

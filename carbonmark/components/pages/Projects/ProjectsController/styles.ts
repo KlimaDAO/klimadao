@@ -22,6 +22,11 @@ export const controller = css`
   display: flex;
   gap: 0.8rem;
   margin-bottom: 0.5rem;
+  flex-direction: column;
+
+  ${breakpoints.desktop} {
+    flex-direction: row;
+  }
 `;
 
 export const projectsControls = css`
@@ -49,10 +54,14 @@ export const displayOptions = css`
   display: flex;
   flex-wrap: wrap;
   grid-column: full;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   justify-self: center;
   margin-bottom: 0.8rem;
+
+  ${breakpoints.desktop} {
+    justify-content: flex-end;
+  }
 `;
 
 export const toggle = css`

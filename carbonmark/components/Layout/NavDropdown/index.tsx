@@ -159,7 +159,7 @@ export const NavDropdown: FC = () => {
       placement="top-end"
       visible={showMenu}
       className={styles.tooltip}
-      onClickOutside={(_, e) => e.preventDefault()}
+      onClickOutside={() => setShowMenu(false)}
     >
       <button
         onClick={() => setShowMenu(!showMenu)}

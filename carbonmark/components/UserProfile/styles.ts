@@ -6,7 +6,7 @@ export const userProfile = css`
   color: black;
   border-radius: 0.3rem;
   display: flex;
-  padding: 0 1rem;
+  padding: 0 0.9rem;
   justify-content: flex-start;
   align-items: center;
   z-index: 99999;
