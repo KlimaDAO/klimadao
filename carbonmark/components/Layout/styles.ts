@@ -22,7 +22,7 @@ export const container = css`
 
   ${breakpoints.desktop} {
     max-height: 100vh;
-    grid-template-rows: 6.4rem auto 14rem;
+    grid-template-rows: 6.4rem auto 10.4rem;
     grid-template-columns: auto 111.6rem auto;
   }
 `;

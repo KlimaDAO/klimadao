@@ -12,8 +12,6 @@ export const footer = (transparent = false) => css`
 
   ${breakpoints.desktop} {
     padding: 4rem 8rem;
-    max-height: 14rem;
-    padding-bottom: 10rem;
     gap: 3rem;
   }
 
