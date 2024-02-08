@@ -57,6 +57,7 @@ export const projectsControls = css`
 `;
 
 export const displayOptions = css`
+  flex: 1;
   gap: 2rem;
   width: 100%;
   display: flex;

@@ -3,10 +3,12 @@ import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
+import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
 import { ProjectsProps } from "hooks/useFetchProjects";
 import { FilterValues, useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
+import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useState } from "react";
 import { ProjectFilters } from "../ProjectFilters";
@@ -48,7 +50,10 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
     <>
       <div className={cx(styles.controller, { [styles.absolute]: isMap })}>
         <div className={styles.searchWrapper}>
-          <ProjectSearch onFiltersClick={toggleModal} />
+          <ProjectSearch
+            onFiltersClick={toggleModal}
+            totalProjects={!isMap ? props?.projects?.length : null}
+          />
           <div className={styles.displayOptions}>
             {/* Hide the sort on MapView */}
             {!isMap && <ProjectSort />}
@@ -71,11 +76,6 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
             onMoreTextClick={toggleModal}
           />
         )}
-        <div />
-        {/* {!isEmpty(props.projects) && !isMap && (
-        <Text t="h5">{props.projects.length} Results</Text>
-      )} */}
-
         <ProjectFilterModal
           {...props}
           showModal={showFilterModal}
@@ -85,6 +85,11 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
       </div>
       {!isMap && (
         <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
+      )}
+      {!isEmpty(props.projects) && (
+        <Text t="h5" data-mobile-only>
+          {props.projects.length} Results
+        </Text>
       )}
     </>
   );

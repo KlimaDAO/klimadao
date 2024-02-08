@@ -37,3 +37,8 @@ export const resetFilterButton = css`
     padding: 0 2rem;
   }
 `;
+
+export const totalProjectsText = css`
+  display: flex;
+  align-items: center;
+`;
