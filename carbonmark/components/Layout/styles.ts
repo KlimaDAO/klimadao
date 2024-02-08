@@ -10,6 +10,7 @@ export const container = css`
   background-color: var(--surface-02);
   min-height: 100vh;
   position: relative;
+  justify-content: space-between;
 
   &[data-scroll-lock="true"] {
     overflow-y: hidden;
@@ -37,6 +38,7 @@ export const mobileLogo = css`
 
 export const layoutChildrenContainer = css`
   width: 100%;
+  height: 100vh; // todo - fix footer missing for marketplace page
   gap: 1.2rem 0rem;
   display: flex;
   padding: 1.6rem;
