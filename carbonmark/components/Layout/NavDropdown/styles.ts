@@ -56,9 +56,9 @@ export const navMenuButton = css`
 `;
 
 export const userProfile = css`
-  height: 5rem;
+  height: 4.9rem;
   display: flex;
-  z-index: 9999;
+  z-index: 99;
   background: transparent;
   border-bottom: 0.1rem solid #626266;
 `;

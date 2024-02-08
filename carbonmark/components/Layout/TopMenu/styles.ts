@@ -17,7 +17,7 @@ export const topMenu = css`
   }
 
   [data-tippy-root] {
-    z-index: 999 !important;
+    z-index: 101 !important;
   }
 `;
 

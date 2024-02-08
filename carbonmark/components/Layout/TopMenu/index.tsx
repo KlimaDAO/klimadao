@@ -37,16 +37,27 @@ export const TopMenu: FC<TopMenuProps> = () => {
       </Link>
 
       {router.pathname !== "/projects" && (
-        <SearchInput
-          id="search-input"
-          label={t`Search for a project`}
-          placeholder={t`Search for a project`}
-          buttonStyle={styles.searchButton}
-          onSubmit={handleSearchSubmit}
-        />
+        <div data-desktop-only>
+          <SearchInput
+            id="search-input"
+            label={t`Search for a project`}
+            placeholder={t`Search for a project`}
+            buttonStyle={styles.searchButton}
+            onSubmit={handleSearchSubmit}
+          />
+        </div>
       )}
 
       <div className={styles.navButtons}>
+        <div data-mobile-only>
+          <SearchInput
+            id="search-input"
+            label={t`Search for a project`}
+            placeholder={t`Search for a project`}
+            buttonStyle={styles.searchButton}
+            onSubmit={handleSearchSubmit}
+          />
+        </div>
         <div className="user-profile" data-desktop-only>
           {!address && !isConnected ? (
             <ButtonPrimary
