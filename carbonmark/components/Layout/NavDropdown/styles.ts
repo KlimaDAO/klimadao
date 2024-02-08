@@ -75,6 +75,7 @@ export const navItem = css`
 `;
 
 export const bookDemoButton = css`
+  padding: 0 1rem;
   font-weight: 600;
   min-height: 4.8rem;
   color: var(--font-02) !important;
