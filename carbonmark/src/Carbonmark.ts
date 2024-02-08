@@ -102,10 +102,34 @@ export function handleListingUpdated(event: ListingUpdated): void {
     activity.previousPrice = event.params.oldUnitPrice
     activity.timeStamp = event.block.timestamp
     activity.seller = listing.seller
+    activity.save()
+  }
+  if (
+    event.params.oldAmount == event.params.newAmount &&
+    event.params.oldUnitPrice == event.params.newUnitPrice &&
+    event.params.oldDeadline != event.params.newDeadline
+  ) {
+    if (activity.seller != ZERO_ADDRESS) {
+      activity = loadOrCreateActivity(event.transaction.hash.toHexString().concat('ListingUpdated2'))
+    }
+
+    listing.singleUnitPrice = event.params.newUnitPrice
+    listing.updatedAt = event.block.timestamp
+    listing.expiration = event.params.newDeadline
+
+    activity.activityType = 'UpdatedExpiration'
+    activity.project = listing.project
+    activity.user = event.transaction.from
+    activity.price = event.params.newUnitPrice
+    activity.previousPrice = event.params.oldUnitPrice
+    activity.previousAmount = event.params.oldAmount
+    activity.amount = event.params.newAmount
+    activity.timeStamp = event.block.timestamp
+    activity.seller = listing.seller
+    activity.save()
   }
 
   listing.save()
-  activity.save()
 }
 
 export function handleListingFilled(event: ListingFilled): void {
