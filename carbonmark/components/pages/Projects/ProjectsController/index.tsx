@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
@@ -44,15 +45,10 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
     });
 
   return (
-    <div>
-      <div>
-        <div className={styles.controller}>
-          <div className={styles.searchWrapper}>
-            <ProjectSearch onFiltersClick={toggleModal} />
-          </div>
-          {/* {!isEmpty(props.projects) && !isMap && (
-        <Text t="h5">{props.projects.length} Results</Text>
-      )} */}
+    <>
+      <div className={cx(styles.controller, { [styles.absolute]: isMap })}>
+        <div className={styles.searchWrapper}>
+          <ProjectSearch onFiltersClick={toggleModal} />
           <div className={styles.displayOptions}>
             {/* Hide the sort on MapView */}
             {!isMap && <ProjectSort />}
@@ -68,16 +64,30 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
               options={viewOptions}
             />
           </div>
-          <ProjectFilterModal
-            {...props}
-            showModal={showFilterModal}
-            onToggleModal={toggleModal}
-            closeOnBackgroundClick
-          />
         </div>
-        <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
+
+        {isMap && (
+          <ProjectFilters
+            defaultValues={params}
+            onMoreTextClick={toggleModal}
+          />
+        )}
+        <div />
+        {/* {!isEmpty(props.projects) && !isMap && (
+        <Text t="h5">{props.projects.length} Results</Text>
+      )} */}
+
+        <ProjectFilterModal
+          {...props}
+          showModal={showFilterModal}
+          onToggleModal={toggleModal}
+          closeOnBackgroundClick
+        />
       </div>
-    </div>
+      {!isMap && (
+        <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
+      )}
+    </>
   );
 };
 

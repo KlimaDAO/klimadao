@@ -6,6 +6,7 @@ export const topMenu = css`
   flex: 0 0 6.4rem;
   min-height: 6.4rem;
   display: flex;
+  grid-area: nav;
   gap: 0.8rem;
   align-items: center;
   padding: 0 1.6rem;

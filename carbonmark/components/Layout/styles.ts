@@ -4,25 +4,26 @@ import breakpoints, {
 } from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   overflow-y: auto;
   background-color: var(--surface-02);
   min-height: 100vh;
   position: relative;
-  justify-content: space-between;
+  grid-template-areas:
+    "nav nav nav"
+    "main main main"
+    "footer footer footer";
+  grid-template-rows: 6.4rem auto minmax(1fr, 34rem);
 
   &[data-scroll-lock="true"] {
     overflow-y: hidden;
     max-height: 100vh;
   }
+
   ${breakpoints.desktop} {
     max-height: 100vh;
-    // overflow-y: hidden;
-  }
-  ${breakpoints.desktopLarge} {
-    max-height: 100vh;
-    // overflow-y: hidden;
+    grid-template-rows: 6.4rem auto 14rem;
+    grid-template-columns: auto 140rem auto;
   }
 `;
 
@@ -38,9 +39,9 @@ export const mobileLogo = css`
 
 export const layoutChildrenContainer = css`
   width: 100%;
-  height: 100vh; // todo - fix footer missing for marketplace page
   gap: 1.2rem 0rem;
   display: flex;
+  grid-area: main;
   padding: 1.6rem;
   flex-direction: column;
 

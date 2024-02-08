@@ -20,6 +20,7 @@ export const main = css`
   ${breakpoints.medium} {
     width: 40rem;
     max-width: 48rem;
+    height: fit-content;
   }
 
   // Not great but we need to force the div "container" element

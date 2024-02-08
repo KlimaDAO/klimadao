@@ -6,7 +6,9 @@ export const absolute = css`
   position: absolute;
   z-index: 1;
   padding: 1.6rem;
-  grid-column: unset;
+  gap: 0.8rem;
+  grid-column: unset !important;
+
   ${breakpoints.desktop} {
     grid-column: full;
     padding: 4rem;
@@ -18,19 +20,25 @@ export const absolute = css`
 `;
 
 export const controller = css`
-  width: 100%;
+  width: inherit;
   display: flex;
-  gap: 0.8rem;
-  margin-bottom: 0.5rem;
   flex-direction: column;
 
   ${breakpoints.desktop} {
-    flex-direction: row;
+    flex-direction: column;
   }
 `;
 
 export const searchWrapper = css`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+
+  ${breakpoints.desktop} {
+    flex-direction: row;
+  }
 `;
 
 export const projectsControls = css`
@@ -61,7 +69,6 @@ export const displayOptions = css`
   justify-content: space-between;
   align-items: center;
   justify-self: center;
-  margin-bottom: 0.8rem;
 
   ${breakpoints.desktop} {
     justify-content: flex-end;

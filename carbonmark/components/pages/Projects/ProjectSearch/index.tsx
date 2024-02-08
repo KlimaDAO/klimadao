@@ -42,7 +42,7 @@ export const ProjectSearch: FC<ProjectSearchProps> = (props) => {
         icon={<TuneIcon />}
         label={
           <span>
-            <Trans>Filters</Trans> {filterCount > 0 ? `(${filterCount})` : ""}
+            <Trans>Filters {filterCount > 0 ? `(${filterCount})` : ""}</Trans>
           </span>
         }
       />

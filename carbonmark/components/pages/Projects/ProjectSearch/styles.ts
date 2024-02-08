@@ -19,11 +19,12 @@ export const filterButton = css`
   }
 
   ${breakpoints.medium} {
-    height: auto;
-    min-width: 15rem;
+    height: fit-content;
+    width: fit-content;
     padding: 0 2rem;
     span {
       display: block;
+      width: max-content;
     }
   }
 `;
