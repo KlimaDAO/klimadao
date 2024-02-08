@@ -65,8 +65,8 @@ jobs:
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
           echo "DEPLOYED_URL=$url" >> $GITHUB_ENV
 
-      - name: Healthcheck deployment
-        run: npx newman run carbonmark-api/postman_collection.json --env-var "url=${{ env.DEPLOYED_URL }}"
-
       - name: Alias deployment
         run: vercel alias --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_TEAM_ID }} set "${{ env.DEPLOYED_URL }}" carbonmark-api-${{ env.SHORT_COMMIT_SHA }}-klimadao.vercel.app
+
+      - name: Healthcheck deployment
+        run: npx newman run carbonmark-api/postman_collection.json --env-var "url=${{ env.DEPLOYED_URL }}"
