@@ -1,6 +1,6 @@
 {
   "name": "@klimadao/carbonmark-api",
-  "version": "6.2.2",
+  "version": "6.2.1",
   "description": "An API for exploring Carbonmark project data, prices and activity.",
   "main": "app.ts",
   "scripts": {
