@@ -13,7 +13,7 @@ export const container = css`
     "nav nav nav"
     "main main main"
     "footer footer footer";
-  grid-template-rows: 6.4rem auto minmax(1fr, 34rem);
+  grid-template-rows: 6.4rem auto 34rem;
 
   &[data-scroll-lock="true"] {
     overflow-y: hidden;
@@ -23,7 +23,7 @@ export const container = css`
   ${breakpoints.desktop} {
     max-height: 100vh;
     grid-template-rows: 6.4rem auto 14rem;
-    grid-template-columns: auto 140rem auto;
+    grid-template-columns: auto 111.6rem auto;
   }
 `;
 
@@ -56,6 +56,7 @@ export const layoutChildrenContainer = css`
 
   &.fullContentWidth {
     padding: 0;
+    max-width: none;
   }
 `;
 

@@ -41,7 +41,7 @@ export const Retire: NextPage<PageProps> = (props) => {
       />
 
       <Layout fullContentWidth>
-        <div className={styles.container}>
+        <div className={cx(styles.container, "transparentBG")}>
           <div>
             <Text t="h2">
               <Trans>Carbon Retirements</Trans>
@@ -102,7 +102,7 @@ export const Retire: NextPage<PageProps> = (props) => {
         </div>
 
         {isConnectedUser && (
-          <div className={styles.content}>
+          <div className={cx(styles.content, "transparentBG")}>
             <div className={styles.sectionTitle}>
               <div className={styles.cardsHeader}>
                 <Text t="h4">
@@ -125,7 +125,7 @@ export const Retire: NextPage<PageProps> = (props) => {
         )}
 
         <div
-          className={cx(styles.fullWidth, {
+          className={cx(styles.fullWidth, "transparentBG", {
             whiteBG: isConnectedUser,
           })}
         >
