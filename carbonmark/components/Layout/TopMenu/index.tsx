@@ -14,12 +14,7 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
-export type TopMenuProps = {
-  showSearch?: boolean;
-  userAddress?: string;
-};
-
-export const TopMenu: FC<TopMenuProps> = () => {
+export const TopMenu: FC = () => {
   const router = useRouter();
   const { address, isConnected, toggleModal, initializing } = useWeb3();
 

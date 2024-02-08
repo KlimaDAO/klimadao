@@ -34,7 +34,7 @@ export const Layout: FC<Props> = (props: Props) => {
         className={cx(styles.container, styles.global)}
         data-scroll-lock={showMobileMenu}
       >
-        <TopMenu userAddress={props.userAddress} />
+        <TopMenu />
         <div
           className={cx(styles.layoutChildrenContainer, props.customCss, {
             fullContentWidth: props.fullContentWidth,
