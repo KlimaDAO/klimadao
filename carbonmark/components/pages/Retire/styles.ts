@@ -10,7 +10,7 @@ export const container = css`
   margin: 1.6rem;
 
   ${breakpoints.desktop} {
-    margin: 4rem;
+    margin: 2.4rem 4rem;
   }
 
   &.transparentBG {

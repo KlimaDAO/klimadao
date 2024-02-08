@@ -46,7 +46,7 @@ export const layoutChildrenContainer = css`
   flex-direction: column;
 
   ${breakpoints.desktop} {
-    padding: 2rem 2.4rem;
+    padding: 2.4rem 2.4rem;
   }
 
   ${breakpoints.desktopLarge} {
