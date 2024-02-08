@@ -22,6 +22,7 @@ interface Props {
   allowance: string;
   /** Quantity to list for */
   quantity: string;
+  isERC1155: boolean;
 }
 
 export const Transaction: FC<Props> = (props) => {
@@ -64,6 +65,7 @@ export const Transaction: FC<Props> = (props) => {
             props.onResetStatus();
             setView("submit");
           }}
+          isERC1155={props.isERC1155}
           status={props.status}
         />
       )}

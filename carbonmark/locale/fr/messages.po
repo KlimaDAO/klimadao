@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-06 15:33+0000\n"
+"POT-Creation-Date: 2024-02-07 16:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,7 +100,7 @@ msgstr "Montant de l'achat"
 msgid "Amount to retire"
 msgstr "Montant à retirer"
 
-#: components/CreateListing/Transaction/Approve.tsx:82
+#: components/CreateListing/Transaction/Approve.tsx:83
 #: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "Approuver"
@@ -537,7 +537,7 @@ msgstr "Modifier"
 msgid "Edit Profile"
 msgstr "Modifier votre profil"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:212
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:211
 msgid "Edit listing"
 msgstr "Modifier l'annonce"
 
@@ -591,7 +591,7 @@ msgstr "Le prénom est requis"
 msgid "First name should not contain numbers or special characters"
 msgstr "Le prénom ne doit pas contenir de chiffres ni de caractères spéciaux"
 
-#: components/CreateListing/Transaction/Approve.tsx:37
+#: components/CreateListing/Transaction/Approve.tsx:38
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "Tout d'abord, vous devez donner l'autorisation au système Carbonmark de transférer cet actif en votre nom."
 
@@ -846,7 +846,7 @@ msgstr "Nouvelle Quantité"
 msgid "New Unit Price (USDC)"
 msgstr "Nouveau Prix Unitaire (USDC)"
 
-#: components/CreateListing/Transaction/Approve.tsx:89
+#: components/CreateListing/Transaction/Approve.tsx:90
 msgid "Next"
 msgstr "Suivant"
 
@@ -1404,11 +1404,7 @@ msgstr "Merci de soutenir la planète ! Nous vous contacterons bientôt pour con
 msgid "The Universal Carbon Marketplace"
 msgstr "Le Marché Universel du Carbone"
 
-#: components/CreateListing/Transaction/Approve.tsx:50
-msgid "The allowance below reflects the sum of all your listings for this specific token. For ICR credit tokens, the allowance will reflect the sum of all your ICR token listings."
-msgstr "L'autorisation ci-dessous reflète la somme de toutes vos annonces pour ce jeton spécifique. Pour les jetons de crédit ICR, l'autorisation correspondra à la somme de toutes vos annonces de jetons ICR."
-
-#: components/CreateListing/Transaction/Approve.tsx:43
+#: components/CreateListing/Transaction/Approve.tsx:44
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
 msgstr "Les actifs ne seront transférés hors de votre portefeuille que lorsqu'une vente sera conclue. Vous pouvez révoquer cette autorisation de limite à tout moment."
 
@@ -1572,7 +1568,7 @@ msgstr "Prix Total"
 msgid "Total Retirements:"
 msgstr "Total des retraits du marché :"
 
-#: components/CreateListing/Transaction/Approve.tsx:60
+#: components/CreateListing/Transaction/Approve.tsx:61
 msgid "Total allowance"
 msgstr "Autorisation totale"
 
@@ -2033,7 +2029,7 @@ msgstr "Modifier votre profil pour ajouter une description."
 msgid "profile.listing.delete.error"
 msgstr "Impossible de supprimer l'annonce. Veuillez réessayer."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:227
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "profile.listing.edit.delete_listing"
 msgstr "Supprimer l'annonce"
 
@@ -2431,7 +2427,7 @@ msgstr "Adresse du contrat"
 msgid "transaction_modal.approve.price"
 msgstr "Confirmer le prix par tonne"
 
-#: components/CreateListing/Transaction/index.tsx:81
+#: components/CreateListing/Transaction/index.tsx:83
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "Retour"
@@ -2468,12 +2464,12 @@ msgstr "Adresse du contrat"
 msgid "transaction_modal.submit.price"
 msgstr "Indiquer le prix par tonne :"
 
-#: components/CreateListing/Transaction/index.tsx:46
+#: components/CreateListing/Transaction/index.tsx:47
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "1. Approuver"
 
-#: components/CreateListing/Transaction/index.tsx:56
+#: components/CreateListing/Transaction/index.tsx:57
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Envoyer"
@@ -2523,7 +2519,8 @@ msgstr "Le Montant Total à Vendre est requis"
 msgid "user.login.description"
 msgstr "Cette fonction n'est disponible que pour les utilisateurs qui sont connectés. Vous pouvez vous connecter ou créer un compte en cliquant sur le bouton ci-dessous."
 
-#: components/CreateListing/Transaction/index.tsx:61
+#: components/CreateListing/Transaction/Approve.tsx:51
+#: components/CreateListing/Transaction/index.tsx:62
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:205
 msgid "{0}"
 msgstr "{0}"

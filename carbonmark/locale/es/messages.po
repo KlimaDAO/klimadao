@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-06 15:33+0000\n"
+"POT-Creation-Date: 2024-02-07 16:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,7 +100,7 @@ msgstr "Importe de la compra"
 msgid "Amount to retire"
 msgstr "Importe a retirar"
 
-#: components/CreateListing/Transaction/Approve.tsx:82
+#: components/CreateListing/Transaction/Approve.tsx:83
 #: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "Aprobar"
@@ -535,7 +535,7 @@ msgstr "Editar"
 msgid "Edit Profile"
 msgstr "Editar perfil"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:212
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:211
 msgid "Edit listing"
 msgstr "Editar listado"
 
@@ -589,7 +589,7 @@ msgstr "Se requiere el primer nombre"
 msgid "First name should not contain numbers or special characters"
 msgstr "El nombre no debe contener números ni caracteres especiales"
 
-#: components/CreateListing/Transaction/Approve.tsx:37
+#: components/CreateListing/Transaction/Approve.tsx:38
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "Primeramente, apruebe que el sistema Carbonmark transfiera este activo en su nombre."
 
@@ -844,7 +844,7 @@ msgstr "Nueva cantidad"
 msgid "New Unit Price (USDC)"
 msgstr "Nuevo precio unitario (USDC)"
 
-#: components/CreateListing/Transaction/Approve.tsx:89
+#: components/CreateListing/Transaction/Approve.tsx:90
 msgid "Next"
 msgstr "Siguiente"
 
@@ -1402,11 +1402,7 @@ msgstr "Gracias por apoyar al planeta. En breve nos pondremos en contacto contig
 msgid "The Universal Carbon Marketplace"
 msgstr "El Mercado Universal del Carbono"
 
-#: components/CreateListing/Transaction/Approve.tsx:50
-msgid "The allowance below reflects the sum of all your listings for this specific token. For ICR credit tokens, the allowance will reflect the sum of all your ICR token listings."
-msgstr ""
-
-#: components/CreateListing/Transaction/Approve.tsx:43
+#: components/CreateListing/Transaction/Approve.tsx:44
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
 msgstr "Los activos sólo se transferirán fuera de su cartera cuando se complete una venta. Puedes revocar esta autorización en cualquier momento."
 
@@ -1570,7 +1566,7 @@ msgstr "Precio total"
 msgid "Total Retirements:"
 msgstr "Total de retiros"
 
-#: components/CreateListing/Transaction/Approve.tsx:60
+#: components/CreateListing/Transaction/Approve.tsx:61
 msgid "Total allowance"
 msgstr "Prestación total"
 
@@ -2033,7 +2029,7 @@ msgstr "Edita tu perfil para añadir una descripción."
 msgid "profile.listing.delete.error"
 msgstr "No se ha podido eliminar el anuncio. Por favor, inténtelo de nuevo."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:227
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "profile.listing.edit.delete_listing"
 msgstr "Eliminar listado"
 
@@ -2431,7 +2427,7 @@ msgstr "Dirección del contrato"
 msgid "transaction_modal.approve.price"
 msgstr "Confirmar precio por tonelada"
 
-#: components/CreateListing/Transaction/index.tsx:81
+#: components/CreateListing/Transaction/index.tsx:83
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "Volver"
@@ -2468,12 +2464,12 @@ msgstr "Dirección del contrato"
 msgid "transaction_modal.submit.price"
 msgstr "Presentar precio por tonelada:"
 
-#: components/CreateListing/Transaction/index.tsx:46
+#: components/CreateListing/Transaction/index.tsx:47
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "1. Aprobar"
 
-#: components/CreateListing/Transaction/index.tsx:56
+#: components/CreateListing/Transaction/index.tsx:57
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Enviar"
@@ -2523,7 +2519,8 @@ msgstr "Se requiere el importe total a vender"
 msgid "user.login.description"
 msgstr "Esta función sólo está disponible para usuarios que hayan iniciado sesión. Puede iniciar sesión o crear una cuenta a través del siguiente botón."
 
-#: components/CreateListing/Transaction/index.tsx:61
+#: components/CreateListing/Transaction/Approve.tsx:51
+#: components/CreateListing/Transaction/index.tsx:62
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:205
 msgid "{0}"
 msgstr "{0}"

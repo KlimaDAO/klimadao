@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-06 15:33+0000\n"
+"POT-Creation-Date: 2024-02-07 16:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +77,7 @@ msgstr "就快完成了！最后一步是创建列表并将其提交到系统。
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:61
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:80
 msgid "Amount"
-msgstr ""
+msgstr "数量"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
 msgid "Amount is required"
@@ -100,7 +100,7 @@ msgstr "购买金额"
 msgid "Amount to retire"
 msgstr "停用金额"
 
-#: components/CreateListing/Transaction/Approve.tsx:82
+#: components/CreateListing/Transaction/Approve.tsx:83
 #: components/Transaction/Approve.tsx:101
 msgid "Approve"
 msgstr "批准"
@@ -235,7 +235,7 @@ msgstr "预约演示"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:35
 msgid "Bridge"
-msgstr ""
+msgstr "桥接"
 
 #: components/pages/Home/index.tsx:157
 #: components/pages/Home/index.tsx:188
@@ -261,7 +261,7 @@ msgstr "购买或停用碳"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:84
 msgid "By"
-msgstr ""
+msgstr "通过"
 
 #: components/pages/Projects/Banners/BankTransfer.tsx:80
 msgid "Can we remind you about this new feature later?"
@@ -277,7 +277,7 @@ msgstr "碳池"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
 msgid "Carbon Provenance"
-msgstr ""
+msgstr "碳来源"
 
 #: components/pages/Retire/index.tsx:48
 msgid "Carbon Retirements"
@@ -289,7 +289,7 @@ msgstr "您购买的碳资产可随时从您的<0>投资组合</0>中挂牌，�
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:147
 msgid "Carbon provenance"
-msgstr ""
+msgstr "碳来源"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "Carbonmark Overview"
@@ -447,7 +447,7 @@ msgstr "已创建："
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:47
 msgid "Credit ID"
-msgstr ""
+msgstr "信用证号"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:113
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
@@ -535,7 +535,7 @@ msgstr "编辑"
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:212
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:211
 msgid "Edit listing"
 msgstr "编辑挂牌"
 
@@ -589,7 +589,7 @@ msgstr "名字为必填项"
 msgid "First name should not contain numbers or special characters"
 msgstr "名字不可包含数字或特殊字符"
 
-#: components/CreateListing/Transaction/Approve.tsx:37
+#: components/CreateListing/Transaction/Approve.tsx:38
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "首先，批准Carbonmark系统，允许其代表您转让该资产。"
 
@@ -649,7 +649,7 @@ msgstr "以下是现成的、打折的碳代币列表，可以快速、轻松地
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:48
 msgid "Hide {numberOfTransfers} transfers"
-msgstr ""
+msgstr "隐藏 {numberOfTransfers} 转账"
 
 #: components/CreateListing/Form/index.tsx:80
 msgid "How many tonnes do you want to list for sale?"
@@ -844,7 +844,7 @@ msgstr "新数量"
 msgid "New Unit Price (USDC)"
 msgstr "新单价（USDC）"
 
-#: components/CreateListing/Transaction/Approve.tsx:89
+#: components/CreateListing/Transaction/Approve.tsx:90
 msgid "Next"
 msgstr "下一步"
 
@@ -892,7 +892,7 @@ msgstr "未找到 props.project 描述"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:29
 msgid "No records found"
-msgstr ""
+msgstr "未找到记录"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
 msgid "No retirement message provided."
@@ -913,7 +913,7 @@ msgstr "最早优先"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:185
 msgid "On the Verra page, search for the specific serial number."
-msgstr ""
+msgstr "在 Verra 页面上，搜索特定的序列号。"
 
 #: lib/getCategoryInfo.ts:41
 msgid "Other"
@@ -1250,7 +1250,7 @@ msgstr "碳停用 | Carbonmark"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:13
 msgid "Retirement"
-msgstr ""
+msgstr "碳停用"
 
 #: components/pages/Retire/Activity/Quotes.tsx:32
 msgid "Retirement Activity"
@@ -1314,11 +1314,11 @@ msgstr "卖家挂牌信息"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:159
 msgid "Serial Number"
-msgstr ""
+msgstr "序列号"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:76
 msgid "Share this page"
-msgstr ""
+msgstr "分享此页面"
 
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:31
 #: components/pages/Project/Purchase/Pool/SubmitButton.tsx:31
@@ -1409,11 +1409,7 @@ msgstr "感谢您对地球的支持！我们将尽快与您联系以确认一些
 msgid "The Universal Carbon Marketplace"
 msgstr "通用碳市场"
 
-#: components/CreateListing/Transaction/Approve.tsx:50
-msgid "The allowance below reflects the sum of all your listings for this specific token. For ICR credit tokens, the allowance will reflect the sum of all your ICR token listings."
-msgstr "下面的限额反映了该特定代币的所有列表的总和。对于 ICR 信用代币，津贴将反映您所有 ICR 代币列表的总和。"
-
-#: components/CreateListing/Transaction/Approve.tsx:43
+#: components/CreateListing/Transaction/Approve.tsx:44
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
 msgstr "资产只会在销售完成时从您的钱包中转出。您可以随时撤销此授权。"
 
@@ -1577,7 +1573,7 @@ msgstr "总价"
 msgid "Total Retirements:"
 msgstr "总碳停用"
 
-#: components/CreateListing/Transaction/Approve.tsx:60
+#: components/CreateListing/Transaction/Approve.tsx:61
 msgid "Total allowance"
 msgstr "总授权额"
 
@@ -1615,7 +1611,7 @@ msgstr "总销售成本"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:24
 msgid "Transfer"
-msgstr ""
+msgstr "转账"
 
 #: components/CreateListing/Form/index.tsx:116
 msgid "USDC per tonne"
@@ -1710,7 +1706,7 @@ msgstr "查看和共享证书"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:180
 msgid "View issuance on Verra"
-msgstr ""
+msgstr "查看 Verra 上的发行情况"
 
 #: components/AssetDetails/index.tsx:69
 msgid "View on PolygonScan"
@@ -1722,11 +1718,11 @@ msgstr "在 PolygonScan <0/> 上查看"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:96
 msgid "View retirement"
-msgstr ""
+msgstr "查看碳停用情况"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:63
 msgid "View the entire transaction history – from bridging event until retirement – for each credit and partial credit included in the following retirement transaction:"
-msgstr ""
+msgstr "查看整个交易历史记录——从桥接事件到碳停用——以下碳停用交易中包含的每个积分和部分积分："
 
 #: components/pages/Purchases/index.tsx:30
 msgid "View the project details and other info for this purchase."
@@ -1734,7 +1730,7 @@ msgstr "查看此次购买的项目详情和其他信息。"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:50
 msgid "View {numberOfTransfers} transfers"
-msgstr ""
+msgstr "查看 {numberOfTransfers} 转账"
 
 #: components/ProjectFilterModal/index.tsx:141
 msgid "Vintage"
@@ -2038,7 +2034,7 @@ msgstr "编辑您的个人资料以添加描述。"
 msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:227
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
@@ -2200,7 +2196,7 @@ msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:42
 msgid "retirement.provenance.head.title"
-msgstr ""
+msgstr "Carbonmark | 停用碳来源"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "retirement.single.beneficiary.address.placeholder"
@@ -2436,7 +2432,7 @@ msgstr "合约地址"
 msgid "transaction_modal.approve.price"
 msgstr "确认每吨价格"
 
-#: components/CreateListing/Transaction/index.tsx:81
+#: components/CreateListing/Transaction/index.tsx:83
 #: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "返回"
@@ -2473,12 +2469,12 @@ msgstr "合约地址"
 msgid "transaction_modal.submit.price"
 msgstr "提交每吨价格："
 
-#: components/CreateListing/Transaction/index.tsx:46
+#: components/CreateListing/Transaction/index.tsx:47
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr "1. 批准"
 
-#: components/CreateListing/Transaction/index.tsx:56
+#: components/CreateListing/Transaction/index.tsx:57
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. 提交"
@@ -2528,7 +2524,8 @@ msgstr "销售总额为必填项"
 msgid "user.login.description"
 msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键登录或创建帐户。"
 
-#: components/CreateListing/Transaction/index.tsx:61
+#: components/CreateListing/Transaction/Approve.tsx:51
+#: components/CreateListing/Transaction/index.tsx:62
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:205
 msgid "{0}"
 msgstr "{0}"
@@ -2552,11 +2549,11 @@ msgstr "为项目 {0} 购买了 {amount} 吨"
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:64
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:82
 msgid "{formattedAmount} Tonnes"
-msgstr ""
+msgstr "{formattedAmount} 吨"
 
 #: components/Quantity/index.tsx:28
 msgid "{formattedAmount} tonnes"
-msgstr ""
+msgstr "{formattedAmount} 吨"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:32
 msgid "{tokenSymbol}"
