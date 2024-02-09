@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
 import { IS_REGISTRY_ID } from "../../../src/app.constants";
@@ -29,9 +29,9 @@ const mapUserToActivities = async (
     }
     return {
       ...activity,
-      price: activity.price ? utils.formatUnits(activity.price, 6) : null,
+      price: activity.price ? formatUnits(activity.price, 6) : null,
       previousPrice: activity.previousPrice
-        ? utils.formatUnits(activity.previousPrice, 6)
+        ? formatUnits(activity.previousPrice, 6)
         : null,
       amount: activity.amount
         ? formatAmountByRegistry(registry, activity.amount)
