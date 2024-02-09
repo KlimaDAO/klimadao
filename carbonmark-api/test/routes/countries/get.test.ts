@@ -88,7 +88,6 @@ describe("GET /countries", () => {
       .post("")
       .reply(200, { data: { carbonProjects: "invalid data" } });
 
-
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/countries`,
