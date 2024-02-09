@@ -106,7 +106,7 @@ export const featureBanner = css`
   ${breakpoints.desktop} {
     &:has(.feature-banner.initial-banner),
     &:has(.feature-banner):not(.initial-banner) {
-      padding: 16rem 2.4rem;
+      padding: 16rem 2.4rem 4rem;
     }
   }
 `;
