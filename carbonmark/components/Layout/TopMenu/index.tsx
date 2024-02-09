@@ -44,15 +44,17 @@ export const TopMenu: FC = () => {
       )}
 
       <div className={styles.navButtons}>
-        <div data-mobile-only>
-          <SearchInput
-            id="search-input"
-            label={t`Search for a project`}
-            placeholder={t`Search for a project`}
-            buttonStyle={styles.searchButton}
-            onSubmit={handleSearchSubmit}
-          />
-        </div>
+        {router.pathname !== "/projects" && (
+          <div data-mobile-only>
+            <SearchInput
+              id="search-input"
+              label={t`Search for a project`}
+              placeholder={t`Search for a project`}
+              buttonStyle={styles.searchButton}
+              onSubmit={handleSearchSubmit}
+            />
+          </div>
+        )}
         <div className="user-profile" data-desktop-only>
           {!address && !isConnected ? (
             <ButtonPrimary

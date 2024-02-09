@@ -86,7 +86,7 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
       {!isMap && (
         <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
       )}
-      {!isEmpty(props.projects) && (
+      {!isEmpty(props.projects) && !isMap && (
         <Text t="h5" data-mobile-only>
           {props.projects.length} Results
         </Text>
