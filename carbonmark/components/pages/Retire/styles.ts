@@ -66,6 +66,18 @@ export const fullWidth = css`
       }
     }
   }
+
+  &.transparentBG {
+    ${breakpoints.desktop} {
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        width: 104rem;
+        margin: 4rem auto;
+      }
+    }
+  }
 `;
 
 export const content = css`
