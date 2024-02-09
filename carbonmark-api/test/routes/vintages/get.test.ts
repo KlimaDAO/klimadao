@@ -1,20 +1,15 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { aProject } from "../../../src/.generated/mocks/marketplace.mocks";
-import { GRAPH_URLS, ICR_API } from "../../../src/app.constants";
-import { COUNTRY_CODES, VINTAGES } from "../../../test/fixtures/icr";
+import { GRAPH_URLS } from "../../../src/app.constants";
 import { build } from "../../helper";
 import { DEV_URL, ERROR } from "../../test.constants";
 
 describe("GET /vintages", () => {
   let fastify: FastifyInstance;
-  let ICR_API_URL: string;
 
   // Setup the server
   beforeEach(async () => {
-    const icrApiValues = ICR_API("polygon");
-    ICR_API_URL = icrApiValues.ICR_API_URL;
-
     fastify = await build();
   });
 
@@ -31,10 +26,6 @@ describe("GET /vintages", () => {
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [mock] } });
-    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
-      vintages: VINTAGES,
-      countryCodes: COUNTRY_CODES,
-    });
 
     const response = await fastify.inject({
       method: "GET",
@@ -55,11 +46,6 @@ describe("GET /vintages", () => {
         errors: [ERROR],
       });
 
-    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
-      vintages: VINTAGES,
-      countryCodes: COUNTRY_CODES,
-    });
-
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/vintages`,
@@ -73,11 +59,6 @@ describe("GET /vintages", () => {
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [] } });
-
-    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
-      vintages: [],
-      countryCodes: [],
-    });
 
     const response = await fastify.inject({
       method: "GET",
@@ -94,10 +75,6 @@ describe("GET /vintages", () => {
       .post("")
       .reply(200, { data: { projects: "invalid data" } });
 
-    nock(ICR_API_URL).get("/public/projects/filters").reply(200, {
-      vintages: "invalid data",
-      countryCodes: "invalid data",
-    });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/vintages`,
