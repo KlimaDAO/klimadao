@@ -13,7 +13,7 @@ const handler = (fastify: FastifyInstance) =>
     const network = request.query.network ?? "polygon";
     const sdk = gql_sdk(network);
     try {
-      response = await getAllVintages(sdk, fastify, network);
+      response = await getAllVintages(sdk, fastify);
     } catch (error) {
       //Return bad gateway and pass the error
       console.error(error);
