@@ -45,13 +45,12 @@ import { formatListings } from "../../utils/marketplace.utils";
 
 export const getDefaultQueryArgs = async (
   sdk: GQL_SDK,
-  fastify: FastifyInstance,
-  network: NetworkParam
+  fastify: FastifyInstance
 ) => {
   const [category, country, vintage] = await Promise.all([
     getAllCategories(sdk, fastify).then(map(extract("id"))),
-    getAllCountries(sdk, fastify, network).then(map(extract("id"))),
-    getAllVintages(sdk, fastify, network),
+    getAllCountries(sdk, fastify).then(map(extract("id"))),
+    getAllVintages(sdk, fastify),
   ]);
 
   return {
