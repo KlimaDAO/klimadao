@@ -41,10 +41,13 @@ export const SellerConnected: FC<Props> = (props) => {
     props.userAddress,
     {
       network,
-      expiresAfter: address === props.userAddress ? "0" : undefined,
+      expiresAfter:
+        address?.toLowerCase() === props.userAddress ? "0" : undefined,
     },
     { shouldFetch: notNil(props.userAddress) }
   );
+  console.log("carbonmarkUser", carbonmarkUser);
+
   const [isPending, setIsPending] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
