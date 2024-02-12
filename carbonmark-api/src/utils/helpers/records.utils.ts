@@ -3,7 +3,6 @@ import { ProvenanceRecord } from "src/models/ProvenanceRecord.model";
 
 import { RegistryId } from "src/app.constants";
 import { GetProvenanceRecordsByHashQuery } from "../../.generated/types/digitalCarbon.types";
-import { formatAmountByRegistry } from "../marketplace.utils";
 
 /**
  * Format a Record coming from a GQL query into a standardized API response fragment

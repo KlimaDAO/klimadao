@@ -1,5 +1,4 @@
-import { utils } from "ethers";
-import { formatUnits } from "ethers/lib/utils";
+import { formatUnits } from "ethers-v6";
 import { compact } from "lodash/fp";
 import {
   IS_REGISTRY_ID,
@@ -69,7 +68,7 @@ export const formatListing = (listing: GetProjectListing): ListingModel => {
     ...formatGraphTimestamps(listing),
 
     leftToSell: formatAmountByRegistry(registry, listing.leftToSell),
-    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
+    singleUnitPrice: formatUnits(listing.singleUnitPrice, 6),
     minFillAmount: formatAmountByRegistry(registry, listing.minFillAmount),
     totalAmountToSell: formatAmountByRegistry(
       registry,
