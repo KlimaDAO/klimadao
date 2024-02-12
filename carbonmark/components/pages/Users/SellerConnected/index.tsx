@@ -46,8 +46,9 @@ export const SellerConnected: FC<Props> = (props) => {
     },
     { shouldFetch: notNil(props.userAddress) }
   );
-  console.log("carbonmarkUser", carbonmarkUser);
-
+  console.log("****fix*****");
+  console.log("address", address);
+  console.log("props.userAddress", props.userAddress);
   const [isPending, setIsPending] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
