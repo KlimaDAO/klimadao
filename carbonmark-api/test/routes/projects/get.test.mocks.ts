@@ -5,7 +5,8 @@ import {
 } from "src/.generated/types/cms.types";
 import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
 import { Project } from "src/.generated/types/marketplace.types";
-import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
+import { GRAPH_URLS, ICR_API, SANITY_URLS } from "../../../src/app.constants";
+import { COUNTRY_CODES, VINTAGES } from "../../../test/fixtures/icr";
 import { fixtures } from "../../fixtures";
 
 /**
@@ -13,6 +14,8 @@ import { fixtures } from "../../fixtures";
  * @todo do this for all other nocks or in a more repeatable manner
  */
 let cmsInterceptor: Interceptor;
+
+const ICR_API_URL = ICR_API("polygon").ICR_API_URL;
 
 export const mockCms = (overrides?: {
   projects?: CMSProject[];
@@ -38,6 +41,12 @@ export const mockCms = (overrides?: {
     });
 };
 
+export const mockICRFilters = () =>
+  nock(ICR_API_URL).persist().get("/public/projects/filters").reply(200, {
+    vintages: VINTAGES,
+    countryCodes: COUNTRY_CODES,
+  });
+
 export const mockTokens = () =>
   nock(GRAPH_URLS["polygon"].tokens)
     .post("", (body) => body.query.includes("getPoolPrices"))
@@ -45,7 +54,7 @@ export const mockTokens = () =>
       data: { prices: fixtures.tokens.prices },
     });
 
-export const mockDigitalCarbonProjects = (override?: CarbonProject[]) =>
+export const mockDigitalCarbonProjects = (override?: CarbonProject[]) => {
   nock(GRAPH_URLS["polygon"].digitalCarbon)
     .post("", (body) => body.query.includes("findDigitalCarbonProjects"))
     .reply(200, {
@@ -55,6 +64,7 @@ export const mockDigitalCarbonProjects = (override?: CarbonProject[]) =>
         ],
       },
     });
+};
 
 export const mockDigitalCarbonArgs = () =>
   nock(GRAPH_URLS["polygon"].digitalCarbon)
@@ -136,15 +146,15 @@ export const mockDigitalCarbonArgs = () =>
       },
     });
 
-export const mockMarketplaceProjects = (override?: Project[]) =>
+export const mockMarketplaceProjects = (override?: Project[]) => {
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getProjects"))
     .reply(200, {
       data: { projects: override ?? [fixtures.marketplace.projectWithListing] },
     });
-
+};
 //Mocks all categories, countries and vintages
-export const mockMarketplaceArgs = () =>
+export const mockMarketplaceArgs = () => {
   nock(GRAPH_URLS["polygon"].marketplace)
     .post("", (body) => body.query.includes("getCategories"))
     .reply(200, {
@@ -245,3 +255,4 @@ export const mockMarketplaceArgs = () =>
         ],
       },
     });
+};

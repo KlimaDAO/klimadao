@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { get } from "lodash";
 import { POOL_INFO } from "../../routes/projects/get.constants";
 
@@ -28,15 +28,15 @@ type PoolInfoMap = {
  * Stats for all project tokens across both bridges
  */
 export type BigNumberStats = {
-  bridged: ethers.BigNumber;
-  retired: ethers.BigNumber;
-  totalSupply: ethers.BigNumber;
+  bridged: bigint;
+  retired: bigint;
+  totalSupply: bigint;
 };
 
 const initialStats: BigNumberStats = {
-  bridged: ethers.BigNumber.from(0),
-  retired: ethers.BigNumber.from(0),
-  totalSupply: ethers.BigNumber.from(0),
+  bridged: 0n,
+  retired: 0n,
+  totalSupply: 0n,
 };
 export type Stats = {
   totalBridged: number;
@@ -85,27 +85,19 @@ export const getProjectPoolInfo = (
   // Graph data is in 18 decimals. All operations are performed in BigNumber before converting to Number at the end
   const bigNumberStats: BigNumberStats = tokens.reduce(
     (stat, token) => ({
-      bridged: stat.bridged.add(ethers.BigNumber.from(token.bridged)),
-      retired: stat.retired.add(ethers.BigNumber.from(token.retired)),
-      totalSupply: stat.totalSupply.add(
-        ethers.BigNumber.from(token.currentSupply)
-      ),
+      bridged: stat.bridged + BigInt(token.bridged),
+      retired: stat.retired + BigInt(token.retired),
+      totalSupply: stat.totalSupply + BigInt(token.currentSupply),
     }),
     initialStats
   );
-
   // project bigNumber stats
   const stats: Stats = {
-    totalBridged: parseFloat(
-      ethers.utils.formatUnits(bigNumberStats.bridged, 18)
-    ),
-    totalRetired: parseFloat(
-      ethers.utils.formatUnits(bigNumberStats.retired, 18)
-    ),
-    totalSupply: parseFloat(
-      ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
-    ),
+    totalBridged: parseFloat(formatUnits(bigNumberStats.bridged, 18)),
+    totalRetired: parseFloat(formatUnits(bigNumberStats.retired, 18)),
+    totalSupply: parseFloat(formatUnits(bigNumberStats.totalSupply, 18)),
   };
+
   const poolInfoMap = Object.keys(POOL_INFO).reduce<Partial<PoolInfoMap>>(
     (prevMap, poolName) => {
       const poolAddress = POOL_INFO[poolName].poolAddress;
@@ -123,7 +115,7 @@ export const getProjectPoolInfo = (
           matchingTokenAddress = token.id;
           const decimals = potentialMatch.pool.decimals;
           const numberBalance = parseFloat(
-            ethers.utils.formatUnits(potentialMatch.balance, decimals)
+            formatUnits(potentialMatch.balance, decimals)
           );
           totalSupply += numberBalance;
         }

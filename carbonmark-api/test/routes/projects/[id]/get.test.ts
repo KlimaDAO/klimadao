@@ -22,6 +22,7 @@ describe("GET /projects/:id", () => {
       console.error("/projects/:id get.test.ts setup failed", e);
     }
   });
+
   test("Returns project from CMS without prices or listings", async () => {
     nock(SANITY_URLS.cms)
       .post("")
@@ -50,6 +51,7 @@ describe("GET /projects/:id", () => {
           activities: mockActivities,
         },
       });
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-191-2008`,
@@ -92,11 +94,13 @@ describe("GET /projects/:id", () => {
           activities: fixtures.marketplace.activities,
         },
       });
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-191-2008?network=polygon`,
     });
     const project = await response.json();
+
     expect(response.statusCode).toEqual(200);
     expect(project.prices).toHaveLength(1);
     expect(project.prices[0].singleUnitBuyPrice).toBe("0.358940");
@@ -133,6 +137,10 @@ describe("GET /projects/:id", () => {
           activities: fixtures.marketplace.activities,
         },
       });
+
+    nock(GRAPH_URLS["mumbai"].marketplace).post("").reply(200, {
+      data: {},
+    });
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects/VCS-981-2017`,

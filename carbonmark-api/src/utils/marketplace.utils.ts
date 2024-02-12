@@ -1,5 +1,10 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { compact } from "lodash/fp";
+import {
+  IS_REGISTRY_ID,
+  REGISTRIES,
+  RegistryId,
+} from "../../src/app.constants";
 import {
   GetProjectsQuery,
   Listing,
@@ -32,14 +37,41 @@ export type GetProjectListing = NonNullable<
   GetProjectsQuery["projects"][number]["listings"]
 >[number];
 
+/** Format amounts or quantities by registry decimals */
+/** Currently all registries use 18 decimals except ICR, which uses 0  */
+
+export const formatAmountByRegistry = (
+  registryId: RegistryId,
+  quantity: string
+) => {
+  const registry = Object.values(REGISTRIES).find((r) => r.id === registryId);
+
+  if (!registry) {
+    throw new Error(`Registry with id ${registryId} not found.`);
+  }
+
+  return formatUnits(quantity, registry.decimals);
+};
+
 /** Formats a gql.marketplace listing to match Listing.model, and formats integers */
+
 export const formatListing = (listing: GetProjectListing): ListingModel => {
+  const registry = listing.project.key.split("-")[0];
+
+  if (!IS_REGISTRY_ID(registry)) {
+    throw new Error(`Invalid registry id in formatListing: ${registry}`);
+  }
+
   return {
     ...formatGraphTimestamps(listing),
-    leftToSell: utils.formatUnits(listing.leftToSell, 18),
-    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
-    minFillAmount: utils.formatUnits(listing.minFillAmount, 18),
-    totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
+
+    leftToSell: formatAmountByRegistry(registry, listing.leftToSell),
+    singleUnitPrice: formatUnits(listing.singleUnitPrice, 6),
+    minFillAmount: formatAmountByRegistry(registry, listing.minFillAmount),
+    totalAmountToSell: formatAmountByRegistry(
+      registry,
+      listing.totalAmountToSell
+    ),
     expiration: Number(listing.expiration),
     project: {
       ...listing.project,

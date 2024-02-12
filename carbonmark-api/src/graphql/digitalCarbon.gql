@@ -1,6 +1,12 @@
 query getDigitalCarbonProjectsVintages {
   carbonProjects(first: 1000) {
-    carbonCredits(where: { currentSupply_not: "0", isExAnte: false }) {
+    carbonCredits(
+      where: {
+        currentSupply_not: "0"
+        isExAnte: false
+        poolBalances_: { balance_gte: "0" }
+      }
+    ) {
       vintage
     }
   }
@@ -66,6 +72,33 @@ query findDigitalCarbonProjects(
           ...PoolFragment
         }
       }
+    }
+  }
+}
+
+query getRetirementByHash($hash: Bytes!) {
+  retires(where: { hash: $hash }) {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
+    }
+  }
+}
+
+query allRetirements($account_id: String) {
+  retires {
+    ...RetireFragment
+    credit {
+      ...CarbonCreditFragment
+    }
+  }
+}
+
+query getProvenanceRecordsByHash($hash: Bytes!) {
+  provenanceRecords(where: { transactionHash: $hash }) {
+    ...ProvenanceRecordFragment
+    priorRecords(orderBy: createdAt, orderDirection: desc) {
+      ...ProvenanceRecordFragment
     }
   }
 }

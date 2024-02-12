@@ -15,7 +15,6 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { activityIsAdded, getUserUntil } from "lib/api";
 import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
-import { User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
 import { hasListableAssets } from "lib/utils/listings.utils";
 import { first, get, pipe } from "lodash/fp";
@@ -63,18 +62,11 @@ export const SellerConnected: FC<Props> = (props) => {
     scrollToRef.current &&
     scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  const onEditProfile = async (profileData: User) => {
+  const onEditProfile = async (handle: string) => {
     try {
-      // get fresh data again
-      const userFromApi = await getUsersWalletorhandle(props.userAddress, {
-        network,
-      });
-
-      // Merge with data from Updated Profile as backend might be slow!
-      const newUser = { ...userFromApi, ...profileData };
-
+      const newProfile = await getUsersWalletorhandle(handle.toLowerCase());
       // Update the cache only, do not revalidate
-      await mutate(newUser, false);
+      await mutate(newProfile, false);
       setShowEditProfileModal(false);
     } catch (e) {
       console.error(e);
@@ -227,7 +219,6 @@ export const SellerConnected: FC<Props> = (props) => {
           isCarbonmarkUser={isCarbonmarkUser}
         />
       </Modal>
-
       {!!carbonmarkUser?.assets?.length && (
         <CreateListing
           onModalClose={() => setShowCreateListingModal(false)}

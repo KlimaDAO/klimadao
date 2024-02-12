@@ -1,12 +1,14 @@
-import { utils } from "ethers";
+import { formatUnits, isHexString } from "ethers-v6";
 import { GetPurchaseByIdQuery } from "src/.generated/types/marketplace.types";
+import { IS_REGISTRY_ID } from "../../../src/app.constants";
+import { formatAmountByRegistry } from "../../../src/utils/marketplace.utils";
 import { Purchase } from "../../models/Purchase.model";
 import { CreditId } from "../../utils/CreditId";
 
 /** Purchase ids are a txn hash */
 export const isValidPurchaseId = (id?: string | null) => {
   if (!id) return false;
-  return id.length === 66 && utils.isHexString(id);
+  return id.length === 66 && isHexString(id);
 };
 
 export const composePurchaseModel = (
@@ -14,11 +16,16 @@ export const composePurchaseModel = (
 ): Purchase => {
   const project = purchase.listing.project;
   // The digits after the registry identifier. e.g 1234 in VCS-1234
-  const [, registryProjectId] = CreditId.splitProjectId(project.key);
+  const [registry, registryProjectId] = CreditId.splitProjectId(project.key);
+
+  if (!IS_REGISTRY_ID(registry)) {
+    throw new Error(`Invalid registry id in composePurchaseModel: ${registry}`);
+  }
+
   return {
     id: purchase.id,
-    amount: utils.formatUnits(purchase.amount, 18),
-    price: utils.formatUnits(purchase.price, 6),
+    amount: formatAmountByRegistry(registry, purchase.amount),
+    price: formatUnits(purchase.price, 6),
     listing: {
       id: purchase.listing.id,
       tokenAddress: purchase.listing.tokenAddress,

@@ -6,6 +6,7 @@ import { InputField } from "components/shared/Form/InputField";
 import { DEFAULT_EXPIRATION_DAYS, MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Listing } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
+import { validateIcrAmount } from "lib/validateIcrAmount";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -51,6 +52,7 @@ export const EditListing: FC<Props> = (props) => {
       newSingleUnitPrice: props.listing.singleUnitPrice,
       ...props.values,
     },
+    mode: "onChange",
   });
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
@@ -112,6 +114,10 @@ export const EditListing: FC<Props> = (props) => {
                 max: {
                   value: Number(totalAvailableQuantity),
                   message: t`Available balance exceeded`,
+                },
+                validate: {
+                  isWholeNumber: (value) =>
+                    validateIcrAmount(value, props.listing.project.id),
                 },
               }),
             }}

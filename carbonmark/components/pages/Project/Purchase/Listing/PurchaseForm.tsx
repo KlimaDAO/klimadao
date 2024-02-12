@@ -143,6 +143,7 @@ export const PurchaseForm: FC<Props> = (props) => {
 
     try {
       setIsProcessing(true);
+
       const result = await makePurchase({
         listingId: inputValues.listingId,
         quantity: inputValues.amount,
@@ -150,6 +151,7 @@ export const PurchaseForm: FC<Props> = (props) => {
         creditTokenAddress: props.listing.tokenAddress,
         sellerAddress: props.listing.seller.id,
         provider,
+        projectKey: props.listing.project.key,
         onStatus: onUpdateStatus,
       });
 

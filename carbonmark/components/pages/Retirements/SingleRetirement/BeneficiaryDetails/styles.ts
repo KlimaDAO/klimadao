@@ -56,3 +56,7 @@ export const profileLink = css`
   color: var(--bright-blue);
   font-family: var(--font-family-secondary);
 `;
+
+export const beneficiaryAddress = css`
+  overflow-wrap: anywhere;
+`;

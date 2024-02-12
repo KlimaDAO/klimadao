@@ -9,6 +9,7 @@ import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
 import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark.types";
+import { validateIcrAmount } from "lib/validateIcrAmount";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -75,6 +76,10 @@ export const PurchaseInputs: FC<Props> = (props) => {
                 max: {
                   value: Number(props.listing.leftToSell),
                   message: t`Available supply exceeded`,
+                },
+                validate: {
+                  isWholeNumber: (value) =>
+                    validateIcrAmount(value, props.listing.project.id),
                 },
               }),
             }}

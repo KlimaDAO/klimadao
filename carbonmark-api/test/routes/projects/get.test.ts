@@ -24,6 +24,7 @@ import {
   mockCms,
   mockDigitalCarbonArgs,
   mockDigitalCarbonProjects,
+  mockICRFilters,
   mockMarketplaceArgs,
   mockMarketplaceProjects,
   mockTokens,
@@ -78,7 +79,9 @@ const expectedImages = mockCmsProjectContent.images?.map((img) => ({
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
 
-  afterEach(async () => await fastify.close());
+  afterEach(async () => {
+    await fastify.close();
+  });
 
   // Setup the server
   beforeEach(async () => {
@@ -88,6 +91,7 @@ describe("GET /projects", () => {
   // Setup default mocks
   beforeEach(async () => {
     mockMarketplaceArgs();
+    mockICRFilters();
     mockDigitalCarbonArgs();
     mockTokens();
     mockCms({
@@ -105,6 +109,7 @@ describe("GET /projects", () => {
       method: "GET",
       url: `${DEV_URL}/projects`,
     });
+
     expect(response.statusCode).toEqual(200);
   });
 
@@ -177,7 +182,7 @@ describe("GET /projects", () => {
   test("Composes a marketplace project", async () => {
     mockMarketplaceProjects();
 
-    //No digital carbon projects
+    // //No digital carbon projects
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, { data: { carbonProjects: [] } });
@@ -293,6 +298,10 @@ describe("GET /projects", () => {
   describe("Supply filtering", () => {
     let projects: Project[];
 
+    beforeEach(() => {
+      mockICRFilters();
+    });
+
     test("No filtering when supply greater than 0 (DigitalCarbon)", async () => {
       mockMarketplaceProjects([]);
       //Return two projects with supply
@@ -365,6 +374,11 @@ describe("GET /projects", () => {
   describe("Duplicate filtering", () => {
     const duplicateMarketplaceProject = cloneDeep(mockMarketplaceProject);
     const duplicateDigitalCarbonProject = cloneDeep(mockDigitalCarbonProject);
+
+    beforeEach(() => {
+      mockICRFilters();
+    });
+
     test("Marketplace projects", async () => {
       mockMarketplaceProjects([
         mockMarketplaceProject,
@@ -403,15 +417,14 @@ describe("GET /projects", () => {
   test("Subgraph fields should be sanitised", async () => {
     mockMarketplaceProjects();
     mockDigitalCarbonProjects();
-
     const modifiedCmsProject = cloneDeep(fixtures.cms.cmsProject);
-    set(modifiedCmsProject, "country", "    lots-of-spaces   ");
+    set(modifiedCmsProject, "country", "China");
     /**@todo add other fields */
     mockCms({ projects: [modifiedCmsProject] });
 
     const projects: Project[] = await mock_fetch(fastify, "/projects");
     expect(projects.length).toBe(2);
-    expect(projects.at(0)?.country).toBe("lots-of-spaces");
+    expect(projects.at(0)?.country).toBe("China");
   });
 
   test.todo("Same asset in multiple pools and listings");

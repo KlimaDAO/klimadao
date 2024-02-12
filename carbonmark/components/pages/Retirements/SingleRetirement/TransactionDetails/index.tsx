@@ -4,7 +4,6 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t, Trans } from "@lingui/macro";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
-import { getOffsetMainCategory } from "lib/offsetGetter";
 import { StaticImageData } from "next/image";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -47,7 +46,7 @@ export const TransactionDetails: FC<Props> = (props) => (
             Transaction ID
           </Trans>
         </Text>
-        <Text>
+        <Text className={styles.transactionId}>
           {props.retirement.retire?.hash || t`No transaction id available`}
         </Text>
       </div>
@@ -66,7 +65,7 @@ export const TransactionDetails: FC<Props> = (props) => (
               <Text t="button" color="lightest" uppercase>
                 <Trans id="retirement.single.type.title">Type:</Trans>
               </Text>
-              <Text>{getOffsetMainCategory(props.retirement.retire)}</Text>
+              <Text>{props.retirement.retire.credit.project.category}</Text>
             </div>
           )}
           {props.retirement?.retire.credit?.project?.methodologies && (
