@@ -19,6 +19,7 @@ import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { CarbonMarketCard } from "components/CarbonMarketCard";
 import { Category } from "components/Category";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
@@ -527,6 +528,12 @@ export const Home: NextPage<Props> = (props) => {
               scale.
             </Trans>
           </Text>
+        </div>
+      </Section>
+
+      <Section className={cx(styles.section, styles.partnersSection)}>
+        <div className="stack">
+          <CarbonMarketCard />
         </div>
       </Section>
       <Footer />
