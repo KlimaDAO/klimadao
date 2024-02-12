@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { pick } from "lodash";
 import { GetRetirementByHashQuery } from "../../.generated/types/digitalCarbon.types";
 import { CarbonCredit } from "../../models/CarbonCredit.model";
@@ -13,11 +13,9 @@ export function formatCarbonCredit(
 ): CarbonCredit {
   return {
     ...pick(credit, ["id", "bridgeProtocol", "vintage"]),
-    currentSupply: Number(utils.formatUnits(credit.currentSupply || 0, 18)),
-    retired: Number(utils.formatUnits(credit.retired || 0, 18)),
-    crossChainSupply: Number(
-      utils.formatUnits(credit.crossChainSupply || 0, 18)
-    ),
+    currentSupply: Number(formatUnits(credit.currentSupply || 0, 18)),
+    retired: Number(formatUnits(credit.retired || 0, 18)),
+    crossChainSupply: Number(formatUnits(credit.crossChainSupply || 0, 18)),
     projectId: credit.project.id,
   };
 }

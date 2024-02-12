@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { pick } from "lodash";
 import { GetRetirementByHashQuery } from "../../.generated/types/digitalCarbon.types";
 import { Retirement } from "../../models/Retirement.model";
@@ -26,7 +26,7 @@ export function formatRetirement(
     beneficiaryAddress: retirement.beneficiaryAddress.id,
     retiringAddress: retirement.retiringAddress.id,
     timestamp: Number(retirement.timestamp),
-    amount: Number(utils.formatUnits(retirement.amount || 0, 18)),
+    amount: Number(formatUnits(retirement.amount || 0, 18)),
     hasProvenanceDetails: retirement.pool?.id == MOSS_POOL,
     credit: retirement.credit
       ? formatCarbonCredit(retirement.credit)

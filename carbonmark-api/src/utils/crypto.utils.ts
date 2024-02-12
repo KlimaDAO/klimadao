@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { verifyMessage } from "ethers-v6";
 import { isString } from "lodash";
 import { SIGN_PROFILE_MESSAGE } from "../app.constants";
 
@@ -33,10 +33,7 @@ export const verifyProfileSignature = (params: {
   if (!params.signature) return false;
   // Backwards-compat: nonce may be undefined, append empty string
   const expectedMessage = SIGN_PROFILE_MESSAGE + (params?.nonce || "");
-  const signerWalletAddress = ethers.utils.verifyMessage(
-    expectedMessage,
-    params.signature
-  );
+  const signerWalletAddress = verifyMessage(expectedMessage, params.signature);
   return (
     signerWalletAddress.toLowerCase() === params.expectedAddress.toLowerCase()
   );

@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { pick } from "lodash";
 import { ProvenanceRecord } from "src/models/ProvenanceRecord.model";
 import { GetProvenanceRecordsByHashQuery } from "../../.generated/types/digitalCarbon.types";
@@ -25,7 +25,7 @@ export function formatRecord(
     ]),
     createdAt: Number(record.createdAt),
     updatedAt: Number(record.updatedAt),
-    originalAmount: Number(utils.formatUnits(record.originalAmount, 18)),
-    remainingAmount: Number(utils.formatUnits(record.remainingAmount, 18)),
+    originalAmount: Number(formatUnits(record.originalAmount, 18)),
+    remainingAmount: Number(formatUnits(record.remainingAmount, 18)),
   };
 }
