@@ -12,7 +12,7 @@ const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
  * This is also the case for SANITY_URLS
  */
 const POLYGON_URLS = {
-  marketplace: `${GRAPH_API_ROOT_ID}/QmXrzcwG5b31hE1nDzT5NCAiHfM9stwMLqs8uk9enJiyPf`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmaHkN47zUB3b1xnfeqCwatG5DRtMuitEDf9FdFkq5V3Fr`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
@@ -67,6 +67,15 @@ export const RPC_URLS = {
   polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
 };
 
+export type RegistryKey = keyof typeof REGISTRIES;
+
+export type RegistryId = (typeof REGISTRIES)[keyof typeof REGISTRIES]["id"];
+
+export const IS_REGISTRY_ID = (id: string): id is RegistryId => {
+  const REGISTRY_IDS = Object.values(REGISTRIES).map((r) => r.id);
+  return REGISTRY_IDS.includes(id);
+};
+
 /** Definitions of available registries */
 export const REGISTRIES = {
   Verra: {
@@ -74,16 +83,19 @@ export const REGISTRIES = {
     title: "Verra",
     url: "https://registry.verra.org",
     api: "https://registry.verra.org/uiapi",
+    decimals: 18,
   },
   GoldStandard: {
     id: "GS",
     title: "Gold Standard",
     url: "https://registry.goldstandard.org",
+    decimals: 18,
   },
   ICR: {
     id: "ICR",
     title: "International Carbon Registry",
     url: "https://www.carbonregistry.com",
+    decimals: 0,
   },
 };
 

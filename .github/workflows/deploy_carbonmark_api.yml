@@ -47,6 +47,8 @@ jobs:
   deploy_preview:
     runs-on: ubuntu-latest
     environment: Preview – carbonmark-api
+    outputs:
+      deployed_url: ${{ env.DEPLOYED_URL }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -65,8 +67,15 @@ jobs:
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
           echo "DEPLOYED_URL=$url" >> $GITHUB_ENV
 
-      - name: Healthcheck deployment
-        run: npx newman run carbonmark-api/postman_collection.json --env-var "url=${{ env.DEPLOYED_URL }}"
-
       - name: Alias deployment
         run: vercel alias --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_TEAM_ID }} set "${{ env.DEPLOYED_URL }}" carbonmark-api-${{ env.SHORT_COMMIT_SHA }}-klimadao.vercel.app
+
+  healthcheck:
+    needs: deploy_preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Healthcheck deployment
+        run: npx newman run carbonmark-api/postman_collection.json --env-var "url=${{ needs.deploy_preview.outputs.deployed_url }}"

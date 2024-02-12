@@ -23,10 +23,6 @@ describe("GET /projects/:id", () => {
     }
   });
 
-  afterEach(async () => {
-    nock.cleanAll();
-  });
-
   test("Returns project from CMS without prices or listings", async () => {
     nock(SANITY_URLS.cms)
       .post("")
@@ -98,10 +94,6 @@ describe("GET /projects/:id", () => {
           activities: fixtures.marketplace.activities,
         },
       });
-
-    nock(GRAPH_URLS["mumbai"].marketplace).post("").reply(200, {
-      data: {},
-    });
 
     const response = await fastify.inject({
       method: "GET",
