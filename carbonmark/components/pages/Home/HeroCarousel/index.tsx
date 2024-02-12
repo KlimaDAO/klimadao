@@ -60,10 +60,10 @@ type Slide = {
 };
 
 type Props = {
-  slides: Array<Slide>;
+  slides?: Array<Slide>;
 };
 
-export const HeroCarousel: React.FC = () => {
+export const HeroCarousel: React.FC<Props> = () => {
   const [carouselRef, carouselApi] = useEmblaCarousel({});
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const [selectedSlide, setSelectedSlide] = useState(0);
