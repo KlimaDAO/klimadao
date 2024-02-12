@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-08 19:08+0000\n"
+"POT-Creation-Date: 2024-02-12 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,7 +75,7 @@ msgid "Almost finished! The last step is to create the listing and submit it to 
 msgstr "Bientôt terminé ! La dernière étape consiste à créer l'annonce et à la soumettre au système. Veuillez vérifier la quantité et le prix ci-dessous."
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:61
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:80
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:83
 msgid "Amount"
 msgstr "Montant"
 
@@ -261,7 +261,7 @@ msgstr "Acheter"
 msgid "Buy or retire carbon"
 msgstr "Acheter ou retirer du marché du carbone"
 
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:84
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:87
 msgid "By"
 msgstr "Par"
 
@@ -485,7 +485,7 @@ msgstr "Données pour ce projet et année"
 msgid "Data for this seller"
 msgstr "Données pour ce vendeur"
 
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:86
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:89
 msgid "Date"
 msgstr "Date"
 
@@ -1711,7 +1711,7 @@ msgstr "Voir sur PolygonScan"
 msgid "View on PolygonScan <0/>"
 msgstr "Voir sur PolygonScan <0/>"
 
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:96
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:99
 msgid "View retirement"
 msgstr "Voir le retrait"
 
@@ -2542,7 +2542,7 @@ msgid "{amount} tonnes were purchased for project {0}"
 msgstr "{amount} tonnes ont été achetées pour le projet {0}"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:64
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:82
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:85
 msgid "{formattedAmount} Tonnes"
 msgstr "{formattedAmount} Tonnes"
 

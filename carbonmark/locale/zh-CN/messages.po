@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-08 19:08+0000\n"
+"POT-Creation-Date: 2024-02-12 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,7 +75,7 @@ msgid "Almost finished! The last step is to create the listing and submit it to 
 msgstr "就快完成了！最后一步是创建列表并将其提交到系统。请确认以下数量和价格。"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:61
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:80
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:83
 msgid "Amount"
 msgstr "数量"
 
@@ -259,7 +259,7 @@ msgstr "购买"
 msgid "Buy or retire carbon"
 msgstr "购买或停用碳"
 
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:84
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:87
 msgid "By"
 msgstr "通过"
 
@@ -483,7 +483,7 @@ msgstr "该项目和历史减排效益的数据"
 msgid "Data for this seller"
 msgstr "该卖家的数据"
 
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:86
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:89
 msgid "Date"
 msgstr "日期"
 
@@ -1716,7 +1716,7 @@ msgstr "在 PolygonScan 上查看"
 msgid "View on PolygonScan <0/>"
 msgstr "在 PolygonScan <0/> 上查看"
 
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:96
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:99
 msgid "View retirement"
 msgstr "查看碳停用情况"
 
@@ -2547,7 +2547,7 @@ msgid "{amount} tonnes were purchased for project {0}"
 msgstr "为项目 {0} 购买了 {amount} 吨"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:64
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:82
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:85
 msgid "{formattedAmount} Tonnes"
 msgstr "{formattedAmount} 吨"
 

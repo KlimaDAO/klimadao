@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits, isAddress } from "ethers-v6";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { IS_REGISTRY_ID } from "../../../../src/app.constants";
 import { Activity } from "../../../models/Activity.model";
@@ -38,7 +38,7 @@ const handler = (fastify: FastifyInstance) =>
       const walletOrHandle = params.walletOrHandle.toLowerCase();
 
       // Fetch the firebase UserProfile first
-      const profile = !utils.isAddress(walletOrHandle)
+      const profile = !isAddress(walletOrHandle)
         ? await getProfileByHandle({
             firebase: fastify.firebase,
             handle: walletOrHandle,
@@ -98,12 +98,12 @@ const handler = (fastify: FastifyInstance) =>
           return {
             ...a,
             amount: formatAmountByRegistry(registry, a.amount || "0"),
-            price: utils.formatUnits(a.price || "0", 6),
+            price: formatUnits(a.price || "0", 6),
             previousAmount: formatAmountByRegistry(
               registry,
               a.previousAmount || "0"
             ),
-            previousPrice: utils.formatUnits(a.previousPrice || "0", 6),
+            previousPrice: formatUnits(a.previousPrice || "0", 6),
             buyer: buyer || null,
             seller: seller || null,
           };
