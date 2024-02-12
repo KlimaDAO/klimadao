@@ -5,7 +5,6 @@ import breakpoints, {
 
 export const container = css`
   display: grid;
-  overflow-y: auto;
   background-color: var(--surface-02);
   min-height: 100vh;
   position: relative;
