@@ -1,7 +1,6 @@
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import {
@@ -44,10 +43,6 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
             <ArrowBack className="arrow" />
             <Trans>Back to Project</Trans>
           </Link>
-          <div className={styles.loginButton}>
-            <LoginButton className="desktopLogin" />
-          </div>
-
           {isPoolPurchase && (
             <PoolPurchase
               project={props.project}

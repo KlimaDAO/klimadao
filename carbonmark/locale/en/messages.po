@@ -183,12 +183,12 @@ msgstr "Available: {0}"
 msgid "Available: {unlistedBalance}"
 msgstr "Available: {unlistedBalance}"
 
-#: components/BetaBadge/index.tsx:13
+#: components/BetaBadge/index.tsx:18
 msgid "BETA"
 msgstr "BETA"
 
-#: components/pages/Project/Purchase/index.tsx:45
-#: components/pages/Project/Retire/index.tsx:36
+#: components/pages/Project/Purchase/index.tsx:44
+#: components/pages/Project/Retire/index.tsx:35
 msgid "Back to Project"
 msgstr "Back to Project"
 
@@ -230,7 +230,7 @@ msgstr "Beneficiary wallet address (optional)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:67
-#: components/pages/Project/index.tsx:140
+#: components/pages/Project/index.tsx:136
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -238,7 +238,7 @@ msgstr "Best Price"
 msgid "Blue Carbon"
 msgstr "Blue Carbon"
 
-#: components/Layout/NavDrawer/index.tsx:94
+#: components/Layout/NavDropdown/index.tsx:149
 msgid "Book a demo"
 msgstr "Book a demo"
 
@@ -254,10 +254,6 @@ msgstr "Bridge"
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
 msgstr "Browse Projects"
-
-#: components/Layout/NavDrawer/index.tsx:102
-msgid "Built with 🌳 by <0>KlimaDAO</0>"
-msgstr "Built with 🌳 by <0>KlimaDAO</0>"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:45
 #: components/pages/Project/BuyOptions/SellerListing.tsx:98
@@ -284,11 +280,15 @@ msgstr "Cancel"
 msgid "Carbon Pool"
 msgstr "Carbon Pool"
 
+#: components/Layout/NavDropdown/index.tsx:117
+msgid "Carbon Portfolio"
+msgstr "Carbon Portfolio"
+
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
 msgid "Carbon Provenance"
 msgstr "Carbon Provenance"
 
-#: components/pages/Retire/index.tsx:48
+#: components/pages/Retire/index.tsx:47
 msgid "Carbon Retirements"
 msgstr "Carbon Retirements"
 
@@ -345,7 +345,7 @@ msgid "Choose from over 20 million verified digital carbon credits from hundreds
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 
 #: components/ProjectFilterModal/index.tsx:162
-#: components/pages/Projects/ProjectSearch/index.tsx:52
+#: components/pages/Projects/ProjectSearch/index.tsx:55
 msgid "Clear Filters"
 msgstr "Clear Filters"
 
@@ -417,12 +417,13 @@ msgstr "Could not calculate Total Cost"
 msgid "Country"
 msgstr "Country"
 
-#: components/pages/Users/SellerConnected/index.tsx:140
-#: components/pages/Users/SellerConnected/index.tsx:164
+#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:169
 msgid "Create New Listing"
 msgstr "Create New Listing"
 
 #: components/pages/Users/SellerConnected/index.tsx:110
+#: components/pages/Users/SellerConnected/index.tsx:135
 msgid "Create Profile"
 msgstr "Create Profile"
 
@@ -483,12 +484,12 @@ msgstr "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how t
 msgid "DATE"
 msgstr "DATE"
 
-#: components/pages/Project/index.tsx:237
+#: components/pages/Project/index.tsx:233
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
-#: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:96
+#: components/pages/Users/Login/index.tsx:43
+#: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
@@ -504,7 +505,7 @@ msgstr "Defaults to the connected wallet address"
 msgid "Describe the purpose of this retirement"
 msgstr "Describe the purpose of this retirement"
 
-#: components/pages/Project/index.tsx:188
+#: components/pages/Project/index.tsx:184
 msgid "Description"
 msgstr "Description"
 
@@ -541,6 +542,7 @@ msgid "Edit"
 msgstr "Edit"
 
 #: components/pages/Users/SellerConnected/index.tsx:110
+#: components/pages/Users/SellerConnected/index.tsx:135
 msgid "Edit Profile"
 msgstr "Edit Profile"
 
@@ -573,7 +575,7 @@ msgstr "Expired"
 msgid "FAQs"
 msgstr "FAQs"
 
-#: components/pages/Projects/ProjectSearch/index.tsx:45
+#: components/pages/Projects/ProjectSearch/index.tsx:48
 msgid "Filters"
 msgstr "Filters"
 
@@ -581,7 +583,7 @@ msgstr "Filters"
 msgid "Final price"
 msgstr "Final price"
 
-#: components/pages/Resources/index.tsx:21
+#: components/pages/Resources/index.tsx:22
 msgid "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
 msgstr "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
 
@@ -652,7 +654,7 @@ msgstr "Handle should not contain any special characters"
 msgid "Help"
 msgstr "Help"
 
-#: components/pages/Retire/index.tsx:146
+#: components/pages/Retire/index.tsx:141
 msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
 msgstr "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
 
@@ -730,6 +732,10 @@ msgstr "KlimaDAO"
 msgid "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
 msgstr "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
 
+#: components/Layout/NavDropdown/index.tsx:126
+msgid "Language"
+msgstr "Language"
+
 #: components/pages/Project/PayWithBank/index.tsx:206
 #: components/pages/Project/PayWithBank/index.tsx:337
 msgid "Last name"
@@ -776,8 +782,8 @@ msgstr "List your projects for sale in just a few clicks"
 msgid "Listed tonnes:"
 msgstr "Listed tonnes:"
 
-#: components/pages/Users/SellerConnected/index.tsx:125
-#: components/pages/Users/SellerUnconnected/index.tsx:54
+#: components/pages/Users/SellerConnected/index.tsx:123
+#: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr "Listings"
 
@@ -786,7 +792,6 @@ msgstr "Listings"
 msgid "Loading your assets"
 msgstr "Loading your assets"
 
-#: components/Layout/NavDrawer/index.tsx:53
 #: components/LoginButton/index.tsx:11
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:159
@@ -796,29 +801,37 @@ msgstr "Loading your assets"
 msgid "Loading..."
 msgstr "Loading..."
 
-#: components/Layout/NavDrawer/index.tsx:64
 #: components/LoginButton/index.tsx:13
 msgid "Log in"
 msgstr "Log in"
 
-#: components/pages/Users/Login/index.tsx:34
+#: components/pages/Users/Login/index.tsx:33
 msgid "Log in to create a Carbonmark profile"
 msgstr "Log in to create a Carbonmark profile"
 
-#: components/Layout/NavDrawer/index.tsx:74
 #: components/LoginButton/index.tsx:15
 msgid "Log out"
 msgstr "Log out"
 
-#: components/Layout/index.tsx:96
+#: components/Layout/index.tsx:60
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "Login"
+
+#: components/Layout/NavDropdown/index.tsx:143
+#: components/Layout/TopMenu/index.tsx:61
+msgid "Login or Sign Up"
+msgstr "Login or Sign Up"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:376
 msgid "Login to pay with USDC"
 msgstr "Login to pay with USDC"
 
+#: components/Layout/NavDropdown/index.tsx:135
+msgid "Logout"
+msgstr "Logout"
+
+#: components/Layout/NavDropdown/index.tsx:96
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
@@ -833,7 +846,7 @@ msgstr "Marketplace | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Maximize your climate impact."
 
-#: components/pages/Project/index.tsx:147
+#: components/pages/Project/index.tsx:143
 msgid "Methodology"
 msgstr "Methodology"
 
@@ -844,6 +857,10 @@ msgstr "Moss"
 #: components/FeatureBanner/index.tsx:33
 msgid "NEW FEATURE:"
 msgstr "NEW FEATURE:"
+
+#: components/Layout/NavDropdown/index.tsx:171
+msgid "Navigation Menu"
+msgstr "Navigation Menu"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:101
 msgid "New Quantity"
@@ -861,8 +878,8 @@ msgstr "Next"
 msgid "No Activity to show."
 msgstr "No Activity to show."
 
-#: components/pages/Users/SellerConnected/index.tsx:188
-#: components/pages/Users/SellerUnconnected/index.tsx:90
+#: components/pages/Users/SellerConnected/index.tsx:194
+#: components/pages/Users/SellerUnconnected/index.tsx:86
 msgid "No active listings."
 msgstr "No active listings."
 
@@ -882,7 +899,7 @@ msgstr "No data to show"
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:227
+#: components/pages/Project/index.tsx:223
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -988,14 +1005,14 @@ msgstr "Please Log In"
 msgid "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days (upon receiving all required information)."
 msgstr "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days (upon receiving all required information)."
 
-#: components/pages/Portfolio/index.tsx:67
-#: components/pages/Users/SellerConnected/index.tsx:73
-#: components/pages/Users/SellerConnected/index.tsx:99
+#: components/pages/Portfolio/index.tsx:66
+#: components/pages/Users/SellerConnected/index.tsx:72
+#: components/pages/Users/SellerConnected/index.tsx:98
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Please refresh the page. There was an error updating your data: {e}."
 
+#: components/pages/Portfolio/index.tsx:76
 #: components/pages/Portfolio/index.tsx:77
-#: components/pages/Portfolio/index.tsx:78
 msgid "Portfolio | Carbonmark"
 msgstr "Portfolio | Carbonmark"
 
@@ -1048,6 +1065,7 @@ msgstr "Processing Retirement"
 msgid "Processing retirement..."
 msgstr "Processing retirement..."
 
+#: components/Layout/NavDropdown/index.tsx:110
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
 msgid "Profile"
@@ -1084,8 +1102,8 @@ msgstr "Purchase retirements from any project on Carbonmark and pay via bank tra
 msgid "Purchase successful"
 msgstr "Purchase successful"
 
+#: components/pages/Project/Purchase/index.tsx:32
 #: components/pages/Project/Purchase/index.tsx:33
-#: components/pages/Project/Purchase/index.tsx:34
 msgid "Purchase {0} | Carbonmark"
 msgstr "Purchase {0} | Carbonmark"
 
@@ -1115,7 +1133,7 @@ msgstr "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
 
-#: components/pages/Retire/index.tsx:141
+#: components/pages/Retire/index.tsx:136
 msgid "Quick Retire"
 msgstr "Quick Retire"
 
@@ -1123,11 +1141,11 @@ msgstr "Quick Retire"
 msgid "RETIRE CARBON"
 msgstr "RETIRE CARBON"
 
-#: components/pages/Project/index.tsx:201
+#: components/pages/Project/index.tsx:197
 msgid "Read Less"
 msgstr "Read Less"
 
-#: components/pages/Project/index.tsx:201
+#: components/pages/Project/index.tsx:197
 msgid "Read More"
 msgstr "Read More"
 
@@ -1177,8 +1195,8 @@ msgstr "Required when proceeding with Credit Card"
 msgid "Resources"
 msgstr "Resources"
 
-#: components/pages/Resources/index.tsx:19
 #: components/pages/Resources/index.tsx:20
+#: components/pages/Resources/index.tsx:21
 msgid "Resources | Carbonmark"
 msgstr "Resources | Carbonmark"
 
@@ -1190,6 +1208,7 @@ msgstr "Result"
 msgid "Results"
 msgstr "Results"
 
+#: components/Layout/NavDropdown/index.tsx:103
 #: components/pages/Portfolio/AssetProject/index.tsx:90
 msgid "Retire"
 msgstr "Retire"
@@ -1203,16 +1222,16 @@ msgstr "Retire Carbon"
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retire carbon credits for yourself, or on behalf of another person or organization."
 
-#: components/pages/Retire/index.tsx:77
+#: components/pages/Retire/index.tsx:72
 msgid "Retire from a featured project"
 msgstr "Retire from a featured project"
 
-#: components/pages/Retire/index.tsx:114
+#: components/pages/Retire/index.tsx:109
 msgid "Retire from your portfolio"
 msgstr "Retire from your portfolio"
 
+#: components/pages/Project/Retire/index.tsx:23
 #: components/pages/Project/Retire/index.tsx:24
-#: components/pages/Project/Retire/index.tsx:25
 msgid "Retire from {fullProjectid} | Carbonmark"
 msgstr "Retire from {fullProjectid} | Carbonmark"
 
@@ -1243,10 +1262,10 @@ msgstr "Retire now, or acquire carbon to retire later - you decide what to do wh
 msgid "Retire your carbon via bank transfer."
 msgstr "Retire your carbon via bank transfer."
 
+#: components/pages/Portfolio/Retire/index.tsx:88
 #: components/pages/Portfolio/Retire/index.tsx:89
-#: components/pages/Portfolio/Retire/index.tsx:90
+#: components/pages/Retire/index.tsx:38
 #: components/pages/Retire/index.tsx:39
-#: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
 msgstr "Retire | Carbonmark"
 
@@ -1289,6 +1308,13 @@ msgstr "Retiring Token"
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Say a few words about yourself. This will be visible in your seller profile."
 
+#: components/Layout/TopMenu/index.tsx:38
+#: components/Layout/TopMenu/index.tsx:39
+#: components/Layout/TopMenu/index.tsx:51
+#: components/Layout/TopMenu/index.tsx:52
+msgid "Search for a project"
+msgstr "Search for a project"
+
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:99
 msgid "See your portfolio"
 msgstr "See your portfolio"
@@ -1296,6 +1322,10 @@ msgstr "See your portfolio"
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:104
 msgid "See your retirement receipt"
 msgstr "See your retirement receipt"
+
+#: components/Layout/NavDropdown/index.tsx:58
+msgid "Select a language"
+msgstr "Select a language"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:100
 #: components/pages/Portfolio/AssetProject/index.tsx:108
@@ -1390,6 +1420,10 @@ msgstr "Sure"
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
+
+#: components/BetaBadge/index.tsx:16
+msgid "TESTNET"
+msgstr "TESTNET"
 
 #: components/Footer/index.tsx:29
 msgid "Terms of Use"
@@ -1496,7 +1530,7 @@ msgstr "This listing is no longer valid and is hidden from the marketplace. Plea
 msgid "This offer no longer exists."
 msgstr "This offer no longer exists."
 
-#: components/BetaBadge/index.tsx:9
+#: components/BetaBadge/index.tsx:11
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "This product is still in Beta and audits have not been completed yet."
 
@@ -1639,7 +1673,7 @@ msgstr "Update listing"
 msgid "Updated:"
 msgstr "Updated:"
 
-#: components/pages/Users/SellerConnected/index.tsx:182
+#: components/pages/Users/SellerConnected/index.tsx:188
 msgid "Updating your data..."
 msgstr "Updating your data..."
 
@@ -1647,8 +1681,8 @@ msgstr "Updating your data..."
 msgid "User Guides"
 msgstr "User Guides"
 
+#: components/pages/Users/Login/index.tsx:31
 #: components/pages/Users/Login/index.tsx:32
-#: components/pages/Users/Login/index.tsx:33
 msgid "User Profile | Carbonmark"
 msgstr "User Profile | Carbonmark"
 
@@ -1665,7 +1699,7 @@ msgstr "View"
 msgid "View Carbonmark Profile"
 msgstr "View Carbonmark Profile"
 
-#: components/pages/Project/index.tsx:210
+#: components/pages/Project/index.tsx:206
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
@@ -1673,23 +1707,23 @@ msgstr "View Registry Details <0/>"
 msgid "View Results"
 msgstr "View Results"
 
-#: components/pages/Portfolio/index.tsx:79
+#: components/pages/Portfolio/index.tsx:78
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "View a complete overview of the digital carbon that you own in your Portfolio."
 
-#: components/pages/Portfolio/Retire/index.tsx:91
+#: components/pages/Portfolio/Retire/index.tsx:90
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
-#: components/pages/Retire/index.tsx:41
+#: components/pages/Retire/index.tsx:40
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr "View a complete overview of the digital carbon that you retired."
 
-#: components/pages/Retire/index.tsx:118
+#: components/pages/Retire/index.tsx:113
 msgid "View all Portfolio items"
 msgstr "View all Portfolio items"
 
-#: components/pages/Retire/index.tsx:83
+#: components/pages/Retire/index.tsx:78
 msgid "View all Projects"
 msgstr "View all Projects"
 
@@ -1698,7 +1732,7 @@ msgstr "View all Projects"
 msgid "View all Retirements"
 msgstr "View all Retirements"
 
-#: components/pages/Project/index.tsx:117
+#: components/pages/Project/index.tsx:116
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
@@ -1754,7 +1788,7 @@ msgstr "We are still processing your successful purchase. Please visit this page
 msgid "We couldn't find any assets in your portfolio."
 msgstr "We couldn't find any assets in your portfolio."
 
-#: components/pages/Retire/index.tsx:89
+#: components/pages/Retire/index.tsx:84
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 
@@ -1787,7 +1821,7 @@ msgstr "You are about to purchase a carbon asset."
 msgid "You are about to retire a carbon asset."
 msgstr "You are about to retire a carbon asset."
 
-#: components/pages/Retire/index.tsx:123
+#: components/pages/Retire/index.tsx:118
 msgid "You can also retire any carbon asset in your wallet."
 msgstr "You can also retire any carbon asset in your wallet."
 
@@ -1848,7 +1882,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:206
+#: components/pages/Users/SellerConnected/index.tsx:212
 msgid "Your seller data"
 msgstr "Your seller data"
 
@@ -1885,15 +1919,15 @@ msgstr "Disclaimer:"
 msgid "bought from"
 msgstr "bought from"
 
-#: components/Layout/index.tsx:87
+#: components/Layout/index.tsx:51
 msgid "connectModal.torus"
 msgstr "social or email"
 
-#: components/Layout/index.tsx:91
+#: components/Layout/index.tsx:55
 msgid "connectModal.wallet"
 msgstr "connect a wallet"
 
-#: components/Layout/index.tsx:97
+#: components/Layout/index.tsx:61
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -1909,7 +1943,7 @@ msgstr "User refused connection."
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
-#: components/Layout/index.tsx:101
+#: components/Layout/index.tsx:65
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -1943,7 +1977,7 @@ msgstr "You will be taken to KlimaDAO.finance to complete this transaction."
 msgid "for"
 msgstr "for"
 
-#: components/pages/Retire/index.tsx:53
+#: components/pages/Retire/index.tsx:52
 msgid "for beneficiary"
 msgstr "for beneficiary"
 
@@ -2024,7 +2058,7 @@ msgstr "Create Listing"
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
-#: components/pages/Users/SellerConnected/index.tsx:212
+#: components/pages/Users/SellerConnected/index.tsx:218
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 
@@ -2348,7 +2382,7 @@ msgstr "Total Carbon Tonnes Retired"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total Retirement Transactions"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:77
+#: components/pages/Users/SellerUnconnected/index.tsx:73
 msgid "seller.listing.buy"
 msgstr "Buy"
 
@@ -2356,7 +2390,7 @@ msgstr "Buy"
 msgid "seller.listing.quantity_available"
 msgstr "Quantity Available:"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:67
+#: components/pages/Users/SellerUnconnected/index.tsx:63
 msgid "shared.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
 
