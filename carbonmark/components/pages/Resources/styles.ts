@@ -1,6 +1,10 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const pageWrapper = css`
+  display: unset;
+`;
+
 export const sectionHead = css`
   padding: 12rem 0rem 6rem 0rem !important;
 

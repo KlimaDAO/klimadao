@@ -4,13 +4,16 @@ import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { SearchInput } from "components/SearchInput";
+import { Text } from "components/Text";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
+import { isNil } from "lodash";
 import { useRouter } from "next/router";
 import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
 
 type ProjectSearchProps = HTMLAttributes<HTMLDivElement> & {
   onFiltersClick: () => void;
+  totalProjects: number | null;
 };
 
 export const ProjectSearch: FC<ProjectSearchProps> = (props) => {
@@ -53,6 +56,11 @@ export const ProjectSearch: FC<ProjectSearchProps> = (props) => {
           onClick={resetQueryParams}
           className={styles.resetFilterButton}
         />
+      )}
+      {!isNil(props.totalProjects) && (
+        <Text t="h5" data-desktop-only className={styles.totalProjectsText}>
+          {props.totalProjects} Results
+        </Text>
       )}
     </div>
   );

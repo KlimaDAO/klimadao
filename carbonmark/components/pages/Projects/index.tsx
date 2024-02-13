@@ -75,7 +75,7 @@ const Page: NextPage = () => {
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout
-        customCss={styles.featureBanner}
+        customCss={cx(styles.featureBanner, styles.marketplace)}
         fullContentWidth={isMap}
         fullContentHeight={isMap}
       >
