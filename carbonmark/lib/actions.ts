@@ -274,6 +274,19 @@ export const updateListingTransaction = async (params: {
     const amount = params.projectId.startsWith("ICR")
       ? params.newAmount
       : parseUnits(params.newAmount, 18);
+
+    const minFillAmount = params.projectId.startsWith("ICR")
+      ? DEFAULT_MIN_FILL_AMOUNT.toString()
+      : parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18);
+    console.log("carbonmarkContract", carbonmarkContract.address);
+    console.log("params.listingId", params.listingId);
+    console.log("amount", amount);
+    console.log("singleUnitPrice", parseUnits(params.singleUnitPrice, 6));
+    console.log(
+      "minFillAmount",
+      parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18)
+    );
+    console.log("deadline", getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS));
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
       amount,
@@ -281,10 +294,10 @@ export const updateListingTransaction = async (params: {
         trimWithLocale(params.singleUnitPrice, 6),
         getTokenDecimals("usdc")
       ),
-      parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
+      minFillAmount,
       getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
     );
-
+    console.log("listingTxn", listingTxn);
     params.onStatus("networkConfirmation", "");
     await listingTxn.wait(1);
     params.onStatus("done", "Transaction confirmed");
