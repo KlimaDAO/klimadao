@@ -274,6 +274,9 @@ export const updateListingTransaction = async (params: {
     const amount = params.projectId.startsWith("ICR")
       ? params.newAmount
       : parseUnits(params.newAmount, 18);
+    const minFillAmount = params.projectId.startsWith("ICR")
+      ? DEFAULT_MIN_FILL_AMOUNT.toString()
+      : parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18);
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
       amount,
@@ -281,7 +284,7 @@ export const updateListingTransaction = async (params: {
         trimWithLocale(params.singleUnitPrice, 6),
         getTokenDecimals("usdc")
       ),
-      parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
+      minFillAmount, // minFillAmount
       getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
     );
 
