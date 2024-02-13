@@ -2,6 +2,7 @@ import { pick } from "lodash";
 import { GetRetirementByHashQuery } from "../../.generated/types/digitalCarbon.types";
 import { Retirement } from "../../models/Retirement.model";
 import { CreditId } from "../CreditId";
+import { formatAmountByRegistry } from "../marketplace.utils";
 import { formatCarbonCredit } from "./carbonCredits.utils";
 import { MOSS_POOL } from "./utils.constants";
 
