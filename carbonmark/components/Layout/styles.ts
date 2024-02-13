@@ -4,53 +4,24 @@ import breakpoints, {
 } from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
-  grid-column: full;
-  position: relative; /* new stacking context */
-  z-index: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background-color: var(--surface-02);
   display: grid;
-  align-content: flex-start;
+  background-color: var(--surface-02);
   min-height: 100vh;
-  grid-template-rows: 1fr;
+  position: relative;
+  grid-template-areas:
+    "nav nav nav"
+    "main main main"
+    "footer footer footer";
+  grid-template-rows: 6.4rem auto 34rem;
 
   &[data-scroll-lock="true"] {
     overflow-y: hidden;
     max-height: 100vh;
   }
-  ${breakpoints.desktop} {
-    max-height: 100vh;
-    overflow-y: hidden;
-    display: grid;
-    grid-template-columns:
-      [sidebar] 24.4rem
-      [full-start] minmax(0px, 1fr)
-      [full-end];
-  }
-  ${breakpoints.desktopLarge} {
-    max-height: 100vh;
-    overflow-y: hidden;
-    display: grid;
-    grid-template-columns:
-      [sidebar] 28.4rem
-      [full-start] minmax(0px, 1fr)
-      [full-end];
-  }
-`;
 
-export const mainContentGrid = css`
-  position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns:
-    [full-start] minmax(1.6rem, 1fr)
-    [main-start] minmax(0, 111.6rem)
-    [main-end] minmax(1.6rem, 1fr)
-    [full-end];
   ${breakpoints.desktop} {
-    grid-template-rows: 1fr auto;
-    overflow-y: auto;
+    grid-template-rows: 6.4rem auto 10.4rem;
+    grid-template-columns: auto 111.6rem auto;
   }
 `;
 
@@ -64,30 +35,26 @@ export const mobileLogo = css`
   }
 `;
 
-export const desktopNavMenu = css`
-  display: none;
-  // to properly allow modal overlay
-  z-index: 1;
-  ${breakpoints.desktop} {
-    display: flex;
-  }
-`;
-
 export const layoutChildrenContainer = css`
-  grid-column: full;
   width: 100%;
-  display: grid;
-  grid-template-columns: inherit;
   gap: 1.2rem 0rem;
+  display: flex;
+  grid-area: main;
   padding: 1.6rem;
-  align-content: flex-start;
+  flex-direction: column;
 
   ${breakpoints.desktop} {
-    padding: 4rem 2.4rem;
+    padding: 2.4rem 2.4rem;
+  }
+
+  ${breakpoints.desktopLarge} {
+    margin: 0 auto;
+    max-width: 120rem;
   }
 
   &.fullContentWidth {
     padding: 0;
+    max-width: none;
   }
 `;
 

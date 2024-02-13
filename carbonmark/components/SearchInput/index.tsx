@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import SearchIcon from "@mui/icons-material/Search";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField, InputFieldProps } from "components/shared/Form/InputField";
@@ -8,6 +9,7 @@ type SearchInputProps = Pick<InputFieldProps, "id" | "label"> & {
   placeholder: string;
   /** Useful for pre-filling to reflect URL query param */
   initialValue?: string;
+  buttonStyle?: string;
   onSubmit: (str: string | null) => void;
 };
 
@@ -52,7 +54,7 @@ export const SearchInput: FC<SearchInputProps> = (props) => {
         hideLabel
       />
       <ButtonPrimary
-        className={styles.button}
+        className={cx(styles.button, props.buttonStyle)}
         icon={<SearchIcon />}
         onClick={handleSubmit}
       />

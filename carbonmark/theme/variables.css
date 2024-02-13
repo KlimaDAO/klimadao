@@ -20,13 +20,15 @@
     0 0 0.2rem rgba(0, 0, 0, 0.12);
   --shadow-02: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.24),
     0 0 0.4rem rgba(0, 0, 0, 0.12);
+  --darkmode-surface-01: #3b3b3d;
+  --lightmode-font-01: #000;
 }
 
 body,
 body[data-theme="theme-light"] {
   --surface-inverse-01: #202020;
   --font-inverse-01: #fff;
-  --font-01: #000;
+  --font-01: var(--lightmode-font-01);
   --font-02: #3b3b3d;
   --font-03: #626266;
   --surface-01: #fff;
@@ -40,7 +42,7 @@ body[data-theme="theme-dark"] {
   --font-01: #fff;
   --font-02: #eeeff5;
   --font-03: #b0b1b8;
-  --surface-01: #3b3b3d;
+  --surface-01: var(--darkmode-surface-01);
   --surface-02: #58585c;
   --blue-yellow: var(--yellow);
 }

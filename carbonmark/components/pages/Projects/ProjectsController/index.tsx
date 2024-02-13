@@ -2,7 +2,6 @@ import { cx } from "@emotion/css";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
@@ -48,38 +47,51 @@ const ProjectsController: FC<ProjectsProps> = (props) => {
     });
 
   return (
-    <div className={cx(styles.controller, { [styles.absolute]: isMap })}>
-      <div className={styles.projectsControls}>
-        <ProjectSearch onFiltersClick={toggleModal} />
-        <LoginButton className="desktopLogin" />
-      </div>
-      <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
-      <div className={styles.displayOptions}>
-        {/* Hide the sort on MapView */}
-        {!isMap && <ProjectSort />}
+    <>
+      <div className={cx(styles.controller, { [styles.absolute]: isMap })}>
+        <div className={styles.searchWrapper}>
+          <ProjectSearch
+            onFiltersClick={toggleModal}
+            totalProjects={!isMap ? props?.projects?.length : null}
+          />
+          <div className={styles.displayOptions}>
+            {/* Hide the sort on MapView */}
+            {!isMap && <ProjectSort />}
+            <Toggle
+              selected={params.layout}
+              onChange={(val) => {
+                updateQueryParams({
+                  ...router.query,
+                  layout: val as FilterValues["layout"],
+                });
+              }}
+              options={viewOptions}
+            />
+          </div>
+        </div>
 
-        {!isEmpty(props.projects) && !isMap && (
-          <Text t="h5">{props.projects.length} Results</Text>
+        {isMap && (
+          <ProjectFilters
+            defaultValues={params}
+            onMoreTextClick={toggleModal}
+          />
         )}
-        <Toggle
-          className={styles.toggle}
-          selected={params.layout}
-          onChange={(val) => {
-            updateQueryParams({
-              ...router.query,
-              layout: val as FilterValues["layout"],
-            });
-          }}
-          options={viewOptions}
+        <ProjectFilterModal
+          {...props}
+          showModal={showFilterModal}
+          onToggleModal={toggleModal}
+          closeOnBackgroundClick
         />
       </div>
-      <ProjectFilterModal
-        {...props}
-        showModal={showFilterModal}
-        onToggleModal={toggleModal}
-        closeOnBackgroundClick
-      />
-    </div>
+      {!isMap && (
+        <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
+      )}
+      {!isEmpty(props.projects) && !isMap && (
+        <Text t="h5" data-mobile-only>
+          {props.projects.length} Results
+        </Text>
+      )}
+    </>
   );
 };
 
