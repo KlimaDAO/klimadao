@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-14 15:33+0000\n"
+"POT-Creation-Date: 2024-02-14 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +77,7 @@ msgstr "Fast fertig! Im letzten Schritt erstellen Sie den Eintrag und übertrage
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:61
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:83
 msgid "Amount"
-msgstr ""
+msgstr "Menge"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
 msgid "Amount is required"
@@ -257,7 +257,7 @@ msgstr "CO2 kaufen oder für CO2-Ausgleich nutzen"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:87
 msgid "By"
-msgstr ""
+msgstr "Von"
 
 #: components/pages/Projects/Banners/BankTransfer.tsx:80
 msgid "Can we remind you about this new feature later?"
@@ -273,7 +273,7 @@ msgstr "CO2-Pool"
 
 #: components/Layout/NavDropdown/index.tsx:117
 msgid "Carbon Portfolio"
-msgstr ""
+msgstr "CO2-Portfolio"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
 msgid "Carbon Provenance"
@@ -408,13 +408,13 @@ msgstr "Gesamtkosten konnten nicht berechnet werden"
 msgid "Country"
 msgstr "Land"
 
-#: components/pages/Users/SellerConnected/index.tsx:145
-#: components/pages/Users/SellerConnected/index.tsx:169
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
 msgid "Create New Listing"
 msgstr "Neuen Eintrag erstellen"
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Create Profile"
 msgstr "Profil erstellen"
 
@@ -448,7 +448,7 @@ msgstr "Erstellt:"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:47
 msgid "Credit ID"
-msgstr ""
+msgstr "Zertifikats-ID"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:113
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
@@ -532,8 +532,8 @@ msgstr "Wird heruntergeladen ..."
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Edit Profile"
 msgstr "Profil bearbeiten"
 
@@ -651,7 +651,7 @@ msgstr "Dies ist eine Liste aus reichhaltig verfügbaren, vergünstigten CO2-Tok
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:48
 msgid "Hide {numberOfTransfers} transfers"
-msgstr ""
+msgstr "{numberOfTransfers} Überweisungen ausblenden"
 
 #: components/CreateListing/Form/index.tsx:80
 msgid "How many tonnes do you want to list for sale?"
@@ -680,11 +680,11 @@ msgstr "Wie viel CO2 möchten Sie ausgleichen?"
 
 #: lib/validateIcrAmount.ts:7
 msgid "ICR credits can only be listed in whole tonnes"
-msgstr ""
+msgstr "ICR-Zertifikate können nur in ganzen Tonnen gelistet werden"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:146
 msgid "ICR credits can only be retired in whole tonnes"
-msgstr ""
+msgstr "ICR-Zertifikate können nur in ganzen Tonnen ausgeglichen werden"
 
 #: components/pages/Purchases/index.tsx:93
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -725,7 +725,7 @@ msgstr "KlimaDAO bietet eine transparente, neutrale und öffentliche Infrastrukt
 
 #: components/Layout/NavDropdown/index.tsx:126
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 #: components/pages/Project/PayWithBank/index.tsx:206
 #: components/pages/Project/PayWithBank/index.tsx:337
@@ -773,7 +773,7 @@ msgstr "Bieten Sie Ihre Projekte mit wenigen Klicks zum Verkauf an"
 msgid "Listed tonnes:"
 msgstr "Gelistete Tonnen:"
 
-#: components/pages/Users/SellerConnected/index.tsx:123
+#: components/pages/Users/SellerConnected/index.tsx:126
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr "Einträge"
@@ -812,7 +812,7 @@ msgstr "Anmelden"
 #: components/Layout/NavDropdown/index.tsx:143
 #: components/Layout/TopMenu/index.tsx:61
 msgid "Login or Sign Up"
-msgstr ""
+msgstr "Anmelden"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:376
 msgid "Login to pay with USDC"
@@ -820,7 +820,7 @@ msgstr "Melden Sie sich an, um mit USDC zu bezahlen"
 
 #: components/Layout/NavDropdown/index.tsx:135
 msgid "Logout"
-msgstr ""
+msgstr "Abmelden"
 
 #: components/Layout/NavDropdown/index.tsx:96
 #: components/shared/Navigation/index.tsx:63
@@ -851,7 +851,7 @@ msgstr "NEUES FEATURE:"
 
 #: components/Layout/NavDropdown/index.tsx:171
 msgid "Navigation Menu"
-msgstr ""
+msgstr "Navigationsmenü"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:101
 msgid "New Quantity"
@@ -869,7 +869,7 @@ msgstr "Weiter"
 msgid "No Activity to show."
 msgstr "Keine Aktivitäten zum Anzeigen."
 
-#: components/pages/Users/SellerConnected/index.tsx:194
+#: components/pages/Users/SellerConnected/index.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:86
 msgid "No active listings."
 msgstr "Keine aktiven Einträge."
@@ -930,7 +930,7 @@ msgstr "Älteste Einträge zuerst"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:185
 msgid "On the Verra page, search for the specific serial number."
-msgstr ""
+msgstr "Suchen Sie nach einer spezifischen Seriennummer auf der Verra-Seite."
 
 #: lib/getCategoryInfo.ts:41
 msgid "Other"
@@ -997,8 +997,8 @@ msgid "Please complete the secure form on the next page and we'll provide you an
 msgstr "Bitte füllen Sie das Formular auf der nächsten Seite aus. Wir werden Ihnen innerhalb von zwei Tagen eine Rechnung zukommen lassen."
 
 #: components/pages/Portfolio/index.tsx:66
-#: components/pages/Users/SellerConnected/index.tsx:72
-#: components/pages/Users/SellerConnected/index.tsx:98
+#: components/pages/Users/SellerConnected/index.tsx:75
+#: components/pages/Users/SellerConnected/index.tsx:101
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Bitte aktualisieren Sie die Seite. Beim Aktualisieren Ihrer Daten ist ein Fehler aufgetreten: {e}."
 
@@ -1304,7 +1304,7 @@ msgstr "Erzählen Sie etwas über sich. Dies wird in Ihrem Verkäuferprofil sich
 #: components/Layout/TopMenu/index.tsx:51
 #: components/Layout/TopMenu/index.tsx:52
 msgid "Search for a project"
-msgstr ""
+msgstr "Nach Projekt suchen"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:99
 msgid "See your portfolio"
@@ -1316,7 +1316,7 @@ msgstr "Ihr Ausgleichszertifikat ansehen"
 
 #: components/Layout/NavDropdown/index.tsx:58
 msgid "Select a language"
-msgstr ""
+msgstr "Sprache wählen"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:100
 #: components/pages/Portfolio/AssetProject/index.tsx:108
@@ -1337,11 +1337,11 @@ msgstr "Verkäufereintrag"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:159
 msgid "Serial Number"
-msgstr ""
+msgstr "Seriennummer"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:76
 msgid "Share this page"
-msgstr ""
+msgstr "Diese Seite teilen"
 
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:31
 #: components/pages/Project/Purchase/Pool/SubmitButton.tsx:31
@@ -1414,7 +1414,7 @@ msgstr "Zu Polygon wechseln"
 
 #: components/BetaBadge/index.tsx:16
 msgid "TESTNET"
-msgstr ""
+msgstr "TESTNET"
 
 #: components/Footer/index.tsx:29
 msgid "Terms of Use"
@@ -1638,7 +1638,7 @@ msgstr "Gesamtverkaufskosten"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:24
 msgid "Transfer"
-msgstr ""
+msgstr "Überweisen"
 
 #: components/CreateListing/Form/index.tsx:116
 msgid "USDC per tonne"
@@ -1664,7 +1664,7 @@ msgstr "Angebot aktualisieren"
 msgid "Updated:"
 msgstr "Aktualisiert:"
 
-#: components/pages/Users/SellerConnected/index.tsx:188
+#: components/pages/Users/SellerConnected/index.tsx:191
 msgid "Updating your data..."
 msgstr "Ihre Daten werden aktualisiert..."
 
@@ -1873,7 +1873,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ihr Kauf ist noch nicht abgeschlossen. Stellen Sie die Korrektheit der Informationen sicher und klicken Sie unten auf \"Absenden\", um den Kauf abzuschließen."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:212
+#: components/pages/Users/SellerConnected/index.tsx:215
 msgid "Your seller data"
 msgstr "Ihre Verkäuferdaten"
 
@@ -2049,7 +2049,7 @@ msgstr "Eintrag erstellen"
 msgid "profile.edit_modal.submit"
 msgstr "Änderungen speichern"
 
-#: components/pages/Users/SellerConnected/index.tsx:218
+#: components/pages/Users/SellerConnected/index.tsx:221
 msgid "profile.edit_profile.title"
 msgstr "Ihr Profil"
 
@@ -2576,11 +2576,11 @@ msgstr "{amount} Tonnen wurden für Projekt {0} gekauft"
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:64
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:85
 msgid "{formattedAmount} Tonnes"
-msgstr ""
+msgstr "{formattedAmount} Tonnen"
 
 #: components/Quantity/index.tsx:28
 msgid "{formattedAmount} tonnes"
-msgstr ""
+msgstr "{formattedAmount} Tonnen"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:32
 msgid "{tokenSymbol}"
