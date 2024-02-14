@@ -9,15 +9,16 @@ export const pillContainer = css`
   overflow-x: auto;
   grid-column: full;
   align-items: center;
-  max-width: 168rem;
   align-items: center;
   justify-self: center;
+  width: calc(100vw - 4rem);
 
   &::-webkit-scrollbar {
     display: none;
   }
 
   ${breakpoints.desktop} {
+    width: calc(100vw - 6rem);
     overflow-x: hidden;
   }
 

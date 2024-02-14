@@ -3,7 +3,6 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { createCompositeAsset } from "lib/actions";
@@ -92,9 +91,6 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
       />
       <Layout>
         <div className={styles.container}>
-          <div className={styles.portfolioControls}>
-            <LoginButton />
-          </div>
           {!isConnectedUser && (
             <LoginCard isLoading={isLoading} onLogin={toggleModal} />
           )}
