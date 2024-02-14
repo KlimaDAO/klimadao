@@ -36,6 +36,8 @@ export const Activity = (props: Props) => {
   const isSaleActivity = props.activity.activityType === "Sold";
   const isUpdateQuantity = props.activity.activityType === "UpdatedQuantity";
   const isUpdatePrice = props.activity.activityType === "UpdatedPrice";
+  const isUpdateExpiration =
+    props.activity.activityType === "UpdatedExpiration";
 
   const seller = props.activity.seller;
   const buyer = props.activity.buyer;
@@ -84,12 +86,36 @@ export const Activity = (props: Props) => {
       props.activity.amount && `${formatToTonnes(props.activity.amount)}t`;
   }
 
+  /** Expiration Labels */
+  if (isUpdateExpiration) {
+    if (
+      props.activity.timeStamp !== null &&
+      props.activity.timeStamp !== undefined
+    ) {
+      // The expiration is on the listing entity, but not activity. In order to avoid more extensive refactoring, 90 days is added the expiration here.
+      const timeStampValue = new Date(
+        parseInt(props.activity.timeStamp, 10) * 1000
+      ).getTime();
+
+      amountA = new Date(timeStampValue).toLocaleDateString();
+
+      const ninetyDaysInMs = 90 * 24 * 60 * 60 * 1000;
+      amountB = new Date(timeStampValue + ninetyDaysInMs).toLocaleDateString();
+    } else {
+      console.error("props.activity.timeStamp is null or undefined");
+    }
+  }
+
   /** Determine the conjunction between the labels */
   if (isPurchaseActivity || isSaleActivity) {
     transactionString = t`for`;
   }
   if (isUpdatePrice || isUpdateQuantity) {
     transactionString = <EastIcon />;
+  }
+
+  if (isUpdateExpiration) {
+    transactionString = t`to`;
   }
 
   const shouldDisplayActivity = amountA !== amountB;
@@ -144,6 +170,7 @@ export const Activity = (props: Props) => {
           )
         )}
       </Text>
+
       {!!amountA &&
         !!amountB &&
         props.activity.activityType != "DeletedListing" && (

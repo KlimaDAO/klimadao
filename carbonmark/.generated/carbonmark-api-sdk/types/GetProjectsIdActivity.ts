@@ -65,6 +65,7 @@ export type GetProjectsIdActivityQueryParams = {
     | "DeletedListing"
     | "Purchase"
     | "Sold"
+    | "UpdatedExpiration"
     | "UpdatedPrice"
     | "UpdatedQuantity"
   )[];
