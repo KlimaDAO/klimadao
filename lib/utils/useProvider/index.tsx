@@ -150,7 +150,7 @@ export const useProvider = (
       const newState: ConnectedWeb3State = {
         provider,
         signer,
-        address: address.toLowerCase(),
+        address,
         network,
         networkLabel: isTestnetChainId(network.chainId) ? "mumbai" : "polygon",
         isConnected: true,
