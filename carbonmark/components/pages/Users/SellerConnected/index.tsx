@@ -42,7 +42,9 @@ export const SellerConnected: FC<Props> = (props) => {
     {
       network,
       expiresAfter:
-        address?.toLowerCase() === props.userAddress ? "0" : undefined,
+        address?.toLowerCase() === props.userAddress.toLowerCase()
+          ? "0"
+          : undefined,
     },
     { shouldFetch: notNil(props.userAddress) }
   );
