@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-14 15:33+0000\n"
+"POT-Creation-Date: 2024-02-15 09:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -273,7 +273,7 @@ msgstr "碳池"
 
 #: components/Layout/NavDropdown/index.tsx:117
 msgid "Carbon Portfolio"
-msgstr ""
+msgstr "碳投资组合"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
 msgid "Carbon Provenance"
@@ -408,13 +408,13 @@ msgstr "无法计算总成本"
 msgid "Country"
 msgstr "国家"
 
-#: components/pages/Users/SellerConnected/index.tsx:145
-#: components/pages/Users/SellerConnected/index.tsx:169
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
 msgid "Create New Listing"
 msgstr "创建新挂牌"
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Create Profile"
 msgstr "创建个人资料"
 
@@ -532,8 +532,8 @@ msgstr "正在下载..."
 msgid "Edit"
 msgstr "编辑"
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
@@ -725,7 +725,7 @@ msgstr "为加速气候融资，KlimaDAO 提供了一个在全球范围内所需
 
 #: components/Layout/NavDropdown/index.tsx:126
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 #: components/pages/Project/PayWithBank/index.tsx:206
 #: components/pages/Project/PayWithBank/index.tsx:337
@@ -773,7 +773,7 @@ msgstr "只需点击几下，即可列出您的待售项目"
 msgid "Listed tonnes:"
 msgstr "已列出的吨数："
 
-#: components/pages/Users/SellerConnected/index.tsx:123
+#: components/pages/Users/SellerConnected/index.tsx:126
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr "挂牌信息"
@@ -812,7 +812,7 @@ msgstr "登录"
 #: components/Layout/NavDropdown/index.tsx:143
 #: components/Layout/TopMenu/index.tsx:61
 msgid "Login or Sign Up"
-msgstr ""
+msgstr "登录或注册"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:376
 msgid "Login to pay with USDC"
@@ -820,7 +820,7 @@ msgstr "登录并使用 USDC 付款"
 
 #: components/Layout/NavDropdown/index.tsx:135
 msgid "Logout"
-msgstr ""
+msgstr "登出"
 
 #: components/Layout/NavDropdown/index.tsx:96
 #: components/shared/Navigation/index.tsx:63
@@ -851,7 +851,7 @@ msgstr "新功能："
 
 #: components/Layout/NavDropdown/index.tsx:171
 msgid "Navigation Menu"
-msgstr ""
+msgstr "导航菜单"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:101
 msgid "New Quantity"
@@ -869,7 +869,7 @@ msgstr "下一步"
 msgid "No Activity to show."
 msgstr "无可显示活动"
 
-#: components/pages/Users/SellerConnected/index.tsx:194
+#: components/pages/Users/SellerConnected/index.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:86
 msgid "No active listings."
 msgstr "无活动列表。"
@@ -999,8 +999,8 @@ msgid "Please complete the secure form on the next page and we'll provide you an
 msgstr "请填写下一页的安全表格，我们将在 2 个工作日内（收到所有必需信息后）向您提供发票。"
 
 #: components/pages/Portfolio/index.tsx:66
-#: components/pages/Users/SellerConnected/index.tsx:72
-#: components/pages/Users/SellerConnected/index.tsx:98
+#: components/pages/Users/SellerConnected/index.tsx:75
+#: components/pages/Users/SellerConnected/index.tsx:101
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "请刷新页面。更新您的数据时出错：{e}。"
 
@@ -1311,7 +1311,7 @@ msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 #: components/Layout/TopMenu/index.tsx:51
 #: components/Layout/TopMenu/index.tsx:52
 msgid "Search for a project"
-msgstr ""
+msgstr "搜索项目"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:99
 msgid "See your portfolio"
@@ -1323,7 +1323,7 @@ msgstr "查看您的停用收据"
 
 #: components/Layout/NavDropdown/index.tsx:58
 msgid "Select a language"
-msgstr ""
+msgstr "选择语言"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:100
 #: components/pages/Portfolio/AssetProject/index.tsx:108
@@ -1421,7 +1421,7 @@ msgstr "切换到 Polygon"
 
 #: components/BetaBadge/index.tsx:16
 msgid "TESTNET"
-msgstr ""
+msgstr "测试网"
 
 #: components/Footer/index.tsx:29
 msgid "Terms of Use"
@@ -1671,7 +1671,7 @@ msgstr "更新挂牌信息"
 msgid "Updated:"
 msgstr "已更新："
 
-#: components/pages/Users/SellerConnected/index.tsx:188
+#: components/pages/Users/SellerConnected/index.tsx:191
 msgid "Updating your data..."
 msgstr "正在更新您的数据..."
 
@@ -1880,7 +1880,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:212
+#: components/pages/Users/SellerConnected/index.tsx:215
 msgid "Your seller data"
 msgstr "您的卖家数据"
 
@@ -2056,7 +2056,7 @@ msgstr "创建挂牌"
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
-#: components/pages/Users/SellerConnected/index.tsx:218
+#: components/pages/Users/SellerConnected/index.tsx:221
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 
