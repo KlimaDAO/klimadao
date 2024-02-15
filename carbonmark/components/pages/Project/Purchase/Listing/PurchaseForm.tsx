@@ -1,5 +1,6 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { AssetDetails } from "components/AssetDetails";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
@@ -204,6 +205,14 @@ export const PurchaseForm: FC<Props> = (props) => {
             <TotalValues
               singleUnitPrice={props.listing.singleUnitPrice}
               balance={balance}
+            />
+          </Card>
+          <Card>
+            <AssetDetails
+              product={{ ...props.listing, type: "listing" }}
+              project={props.project}
+              actionLabel={t`Token you will receive`}
+              availableLabel={t`Available to purchase`}
             />
           </Card>
           <SubmitButton
