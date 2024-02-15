@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-14 19:27+0000\n"
+"POT-Creation-Date: 2024-02-15 09:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -235,7 +235,7 @@ msgstr "Demo anfordern"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:35
 msgid "Bridge"
-msgstr ""
+msgstr "Bridge"
 
 #: components/pages/Home/index.tsx:157
 #: components/pages/Home/index.tsx:188
@@ -277,7 +277,7 @@ msgstr "CO2-Portfolio"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
 msgid "Carbon Provenance"
-msgstr ""
+msgstr "CO2-Zertifikatshistorie"
 
 #: components/pages/Retire/index.tsx:47
 msgid "Carbon Retirements"
@@ -289,7 +289,7 @@ msgstr "Sie können die von Ihnen gekauften CO2-Assets jederzeit aus Ihrem <0>Po
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:147
 msgid "Carbon provenance"
-msgstr ""
+msgstr "CO2-Zertifikatshistorie"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "Carbonmark Overview"
@@ -909,7 +909,7 @@ msgstr "Keine props.project-Beschreibung gefunden"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:29
 msgid "No records found"
-msgstr ""
+msgstr "Keine Aufzeichnungen gefunden"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
 msgid "No retirement message provided."
@@ -1262,7 +1262,7 @@ msgstr "Ausgleichen | Carbonmark"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:13
 msgid "Retirement"
-msgstr ""
+msgstr "CO2-Ausgleich"
 
 #: components/pages/Retire/Activity/Quotes.tsx:32
 msgid "Retirement Activity"
@@ -1733,7 +1733,7 @@ msgstr "Zertifikat ansehen und teilen"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:180
 msgid "View issuance on Verra"
-msgstr ""
+msgstr "Bereitstellung auf der Webseite von Verra ansehen"
 
 #: components/AssetDetails/index.tsx:69
 msgid "View on PolygonScan"
@@ -1745,11 +1745,11 @@ msgstr "Auf PolygonScan ansehen <0/>"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:99
 msgid "View retirement"
-msgstr ""
+msgstr "CO2-Ausgleich ansehen"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:63
 msgid "View the entire transaction history – from bridging event until retirement – for each credit and partial credit included in the following retirement transaction:"
-msgstr ""
+msgstr "Verfolgen Sie den gesamten Transaktionsverlauf - vom Bridging-Event bis zum CO2-Ausgleich - für jedes (partielle) CO2-Zertifikat, das in der folgenden Transaktion enthalten ist:"
 
 #: components/pages/Purchases/index.tsx:30
 msgid "View the project details and other info for this purchase."
@@ -1757,7 +1757,7 @@ msgstr "Projektdetails und weitere Informationen über diesen Kauf ansehen."
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:50
 msgid "View {numberOfTransfers} transfers"
-msgstr ""
+msgstr "{numberOfTransfers} Überweisungen anzeigen"
 
 #: components/ProjectFilterModal/index.tsx:141
 msgid "Vintage"
@@ -2223,7 +2223,7 @@ msgstr "{retiree} hat {formattedAmount} Tonnen CO2 ausgeglichen"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:42
 msgid "retirement.provenance.head.title"
-msgstr ""
+msgstr "Carbonmark | Verlauf des CO2-Ausgleichs"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "retirement.single.beneficiary.address.placeholder"

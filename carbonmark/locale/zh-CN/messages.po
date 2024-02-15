@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-14 19:27+0000\n"
+"POT-Creation-Date: 2024-02-15 09:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -273,7 +273,7 @@ msgstr "碳池"
 
 #: components/Layout/NavDropdown/index.tsx:117
 msgid "Carbon Portfolio"
-msgstr ""
+msgstr "碳投资组合"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
 msgid "Carbon Provenance"
@@ -725,7 +725,7 @@ msgstr "为加速气候融资，KlimaDAO 提供了一个在全球范围内所需
 
 #: components/Layout/NavDropdown/index.tsx:126
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 #: components/pages/Project/PayWithBank/index.tsx:206
 #: components/pages/Project/PayWithBank/index.tsx:337
@@ -812,7 +812,7 @@ msgstr "登录"
 #: components/Layout/NavDropdown/index.tsx:143
 #: components/Layout/TopMenu/index.tsx:61
 msgid "Login or Sign Up"
-msgstr ""
+msgstr "登录或注册"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:376
 msgid "Login to pay with USDC"
@@ -820,7 +820,7 @@ msgstr "登录并使用 USDC 付款"
 
 #: components/Layout/NavDropdown/index.tsx:135
 msgid "Logout"
-msgstr ""
+msgstr "登出"
 
 #: components/Layout/NavDropdown/index.tsx:96
 #: components/shared/Navigation/index.tsx:63
@@ -851,7 +851,7 @@ msgstr "新功能："
 
 #: components/Layout/NavDropdown/index.tsx:171
 msgid "Navigation Menu"
-msgstr ""
+msgstr "导航菜单"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:101
 msgid "New Quantity"
@@ -1311,7 +1311,7 @@ msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 #: components/Layout/TopMenu/index.tsx:51
 #: components/Layout/TopMenu/index.tsx:52
 msgid "Search for a project"
-msgstr ""
+msgstr "搜索项目"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:99
 msgid "See your portfolio"
@@ -1323,7 +1323,7 @@ msgstr "查看您的停用收据"
 
 #: components/Layout/NavDropdown/index.tsx:58
 msgid "Select a language"
-msgstr ""
+msgstr "选择语言"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:100
 #: components/pages/Portfolio/AssetProject/index.tsx:108
@@ -1421,7 +1421,7 @@ msgstr "切换到 Polygon"
 
 #: components/BetaBadge/index.tsx:16
 msgid "TESTNET"
-msgstr ""
+msgstr "测试网"
 
 #: components/Footer/index.tsx:29
 msgid "Terms of Use"
