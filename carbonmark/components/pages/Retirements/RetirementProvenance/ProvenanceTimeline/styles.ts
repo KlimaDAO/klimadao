@@ -6,6 +6,12 @@ export const timeline = css`
   position: relative;
   left: -5rem;
   oveflow: visible;
+
+  li {
+    &:before {
+      flex: unset;
+    }
+  }
 `;
 
 export const timelineItem = css`
@@ -34,7 +40,7 @@ export const content = css`
   flex-direction: column;
   gap: 1.2rem;
   white-space: nowrap;
-  min-width: max-content;
+  max-width: 48rem;
 
   ${breakpoints.desktop} {
     min-width: 48rem;
