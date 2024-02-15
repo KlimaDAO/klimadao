@@ -161,6 +161,7 @@ msgstr "Available supply exceeded"
 msgid "Available to list: {0}"
 msgstr "Available to list: {0}"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:215
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:210
 msgid "Available to purchase"
 msgstr "Available to purchase"
@@ -1575,6 +1576,7 @@ msgstr "Toggle payment method"
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:214
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:209
 msgid "Token you will receive"
 msgstr "Token you will receive"
@@ -2122,7 +2124,7 @@ msgstr "You exceeded your available amount of tokens"
 msgid "purchase.input.price.required"
 msgstr "Price is required"
 
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:106
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 
