@@ -8,11 +8,12 @@ export const footer = (transparent = false) => css`
   gap: 4rem;
   grid-area: footer;
   padding: 4rem 1.6rem;
-  max-height: 34rem;
+  max-height: 35rem;
 
   ${breakpoints.desktop} {
     padding: 4rem 8rem;
     gap: 3rem;
+    max-height: 10.4rem;
   }
 
   ${breakpoints.desktopLarge} {
