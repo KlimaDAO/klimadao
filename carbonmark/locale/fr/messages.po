@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-15 12:22+0000\n"
+"POT-Creation-Date: 2024-02-15 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -154,6 +154,7 @@ msgstr "Dépassement de l'offre disponible"
 msgid "Available to list: {0}"
 msgstr "Disponible pour la vente : {0}"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:215
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:210
 msgid "Available to purchase"
 msgstr "Disponible à l'achat"
@@ -350,6 +351,10 @@ msgstr "Cliquez sur le bouton \"créer un profil\" pour personnaliser cette page
 msgid "Close"
 msgstr "Fermer"
 
+#: components/Footer/index.tsx:32
+msgid "Code of Ethics"
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "Prochainement"
@@ -385,7 +390,7 @@ msgstr "Confirmer le Retrait"
 msgid "Connected Wallet"
 msgstr "Portefeuille Connecté"
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:44
 msgid "Contact"
 msgstr "Nous contacter"
 
@@ -641,7 +646,7 @@ msgstr "Le pseudonyme ne peut pas être une adresse"
 msgid "Handle should not contain any special characters"
 msgstr "Le pseudonyme ne doit pas contenir de caractères spéciaux"
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:35
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -717,7 +722,7 @@ msgstr "Invalide"
 msgid "Job title"
 msgstr "Fonction"
 
-#: components/Footer/index.tsx:38
+#: components/Footer/index.tsx:41
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -1180,7 +1185,7 @@ msgstr "Champs requis"
 msgid "Required when proceeding with Credit Card"
 msgstr "Requis lors de paiement par carte de crédit"
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
@@ -1564,6 +1569,7 @@ msgstr "Basculer de mode de paiement"
 msgid "Toggle sort menu"
 msgstr "Afficher le menu de tri"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:214
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:209
 msgid "Token you will receive"
 msgstr "Jeton que vous recevrez"
@@ -2111,7 +2117,7 @@ msgstr "Vous avez dépassé votre nombre de jetons disponibles"
 msgid "purchase.input.price.required"
 msgstr "Le prix est requis"
 
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:106
 msgid "purchase.loading.allowance.error"
 msgstr "quelque chose s'est mal passé lors du chargement de l'autorisation"
 

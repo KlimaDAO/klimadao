@@ -161,6 +161,7 @@ msgstr "Available supply exceeded"
 msgid "Available to list: {0}"
 msgstr "Available to list: {0}"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:215
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:210
 msgid "Available to purchase"
 msgstr "Available to purchase"
@@ -357,6 +358,10 @@ msgstr "Click the 'create profile' button to customize this page and get started
 msgid "Close"
 msgstr "Close"
 
+#: components/Footer/index.tsx:32
+msgid "Code of Ethics"
+msgstr "Code of Ethics"
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "Coming soon"
@@ -392,7 +397,7 @@ msgstr "Confirm Retirement"
 msgid "Connected Wallet"
 msgstr "Connected Wallet"
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:44
 msgid "Contact"
 msgstr "Contact"
 
@@ -648,7 +653,7 @@ msgstr "Handle should not be an address"
 msgid "Handle should not contain any special characters"
 msgstr "Handle should not contain any special characters"
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:35
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -724,7 +729,7 @@ msgstr "Invalid"
 msgid "Job title"
 msgstr "Job title"
 
-#: components/Footer/index.tsx:38
+#: components/Footer/index.tsx:41
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -1187,7 +1192,7 @@ msgstr "Required Field"
 msgid "Required when proceeding with Credit Card"
 msgstr "Required when proceeding with Credit Card"
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
@@ -1571,6 +1576,7 @@ msgstr "Toggle payment method"
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:214
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:209
 msgid "Token you will receive"
 msgstr "Token you will receive"
@@ -2118,7 +2124,7 @@ msgstr "You exceeded your available amount of tokens"
 msgid "purchase.input.price.required"
 msgstr "Price is required"
 
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:106
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 

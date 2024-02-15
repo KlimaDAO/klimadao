@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-15 12:22+0000\n"
+"POT-Creation-Date: 2024-02-15 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -152,6 +152,7 @@ msgstr "Suministro disponible excedido"
 msgid "Available to list: {0}"
 msgstr "Disponible para listar: {0}"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:215
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:210
 msgid "Available to purchase"
 msgstr "Disponible para comprar"
@@ -348,6 +349,10 @@ msgstr "Haga clic en el botón \"crear perfil\" para personalizar esta página y
 msgid "Close"
 msgstr "Cerrar"
 
+#: components/Footer/index.tsx:32
+msgid "Code of Ethics"
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "Muy pronto"
@@ -383,7 +388,7 @@ msgstr "Confirmar Retiro"
 msgid "Connected Wallet"
 msgstr ""
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:44
 msgid "Contact"
 msgstr "Contacto"
 
@@ -639,7 +644,7 @@ msgstr "Nombre no puede ser una direccion"
 msgid "Handle should not contain any special characters"
 msgstr "El nombre no puede contener caracteres especiales"
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:35
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -715,7 +720,7 @@ msgstr "Inválido"
 msgid "Job title"
 msgstr "Título profesional"
 
-#: components/Footer/index.tsx:38
+#: components/Footer/index.tsx:41
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -1178,7 +1183,7 @@ msgstr "Campo requerido"
 msgid "Required when proceeding with Credit Card"
 msgstr "Requerido al proceder con Tarjeta de Crédito"
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
@@ -1562,6 +1567,7 @@ msgstr "Alternar método de pago"
 msgid "Toggle sort menu"
 msgstr "Alternar menú de clasificación"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:214
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:209
 msgid "Token you will receive"
 msgstr "Token que recibirás"
@@ -2111,7 +2117,7 @@ msgstr "Has excedido tu cantidad disponible de tokens"
 msgid "purchase.input.price.required"
 msgstr "Se requiere precio"
 
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:106
 msgid "purchase.loading.allowance.error"
 msgstr "algo ha ido mal al cargar el subsidio"
 
