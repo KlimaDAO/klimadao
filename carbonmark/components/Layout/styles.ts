@@ -12,7 +12,7 @@ export const container = css`
     "nav nav nav"
     "main main main"
     "footer footer footer";
-  grid-template-rows: 6.4rem auto 34rem;
+  grid-template-rows: 6.4rem auto 35rem;
 
   &[data-scroll-lock="true"] {
     overflow-y: hidden;
