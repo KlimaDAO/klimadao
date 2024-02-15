@@ -28,6 +28,9 @@ export const Footer: FC<Props> = (props) => {
         <Link href="/blog/terms-of-use">
           <Trans>Terms of Use</Trans>
         </Link>
+        <Link href="/blog/code-of-ethics">
+          <Trans>Code of Ethics</Trans>
+        </Link>
         <Link href={carbonmarkUrls.docs}>
           <Trans>Help</Trans>
         </Link>

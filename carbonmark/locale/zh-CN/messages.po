@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-15 12:22+0000\n"
+"POT-Creation-Date: 2024-02-15 14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -348,6 +348,10 @@ msgstr "单击“创建个人资料”按钮自定义此页面并开始。"
 msgid "Close"
 msgstr "关闭"
 
+#: components/Footer/index.tsx:32
+msgid "Code of Ethics"
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "即将推出"
@@ -383,7 +387,7 @@ msgstr "确认退休"
 msgid "Connected Wallet"
 msgstr "连接钱包"
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:44
 msgid "Contact"
 msgstr "联系方式"
 
@@ -639,7 +643,7 @@ msgstr "用户名不应是地址"
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:35
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -715,7 +719,7 @@ msgstr "无效的"
 msgid "Job title"
 msgstr "职务"
 
-#: components/Footer/index.tsx:38
+#: components/Footer/index.tsx:41
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -1185,7 +1189,7 @@ msgstr "必填项目"
 msgid "Required when proceeding with Credit Card"
 msgstr "使用信用卡时需要"
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
