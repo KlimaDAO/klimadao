@@ -37,7 +37,7 @@ export const RetirementProvenancePage: NextPage<
   const provenanceList = splitProvenance(props.provenance);
 
   return (
-    <GridContainer>
+    <GridContainer className={styles.pageWrapper}>
       <PageHead
         title={t({
           id: "retirement.provenance.head.title",

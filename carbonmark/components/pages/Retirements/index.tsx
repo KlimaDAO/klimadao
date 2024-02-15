@@ -34,7 +34,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
   const concattedAddress = concatAddress(beneficiaryAddress);
 
   return (
-    <GridContainer>
+    <GridContainer className={styles.pageWrapper}>
       <PageHead
         title={t({
           id: "retirement.totals.head.title",
