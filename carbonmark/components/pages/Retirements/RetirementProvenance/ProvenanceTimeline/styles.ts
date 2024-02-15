@@ -1,17 +1,28 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const timeline = css`
   max-width: 56rem;
   position: relative;
   left: -5rem;
   oveflow: visible;
+
+  li {
+    &:before {
+      flex: unset;
+    }
+  }
 `;
 
 export const timelineItem = css`
   overflow: hidden;
   min-height: auto;
-  min-width: 56rem;
   transition: max-height 0.2s;
+  min-width: max-content;
+
+  ${breakpoints.desktop} {
+    min-width: 56rem;
+  }
 `;
 
 export const timelineItemVisible = css`
@@ -29,7 +40,11 @@ export const content = css`
   flex-direction: column;
   gap: 1.2rem;
   white-space: nowrap;
-  min-width: 48rem;
+  max-width: 48rem;
+
+  ${breakpoints.desktop} {
+    min-width: 48rem;
+  }
 `;
 
 export const contentHeader = css`

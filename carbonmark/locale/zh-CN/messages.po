@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-15 14:28+0000\n"
+"POT-Creation-Date: 2024-02-15 19:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -152,6 +152,7 @@ msgstr "超出可用供应"
 msgid "Available to list: {0}"
 msgstr "可供列出：{0}"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:215
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:210
 msgid "Available to purchase"
 msgstr "可供购买"
@@ -1573,6 +1574,7 @@ msgstr "切换付款方式"
 msgid "Toggle sort menu"
 msgstr "切换排序菜单"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:214
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:209
 msgid "Token you will receive"
 msgstr "您将收到的代币"
@@ -2120,7 +2122,7 @@ msgstr "您超出了可用的代币数量"
 msgid "purchase.input.price.required"
 msgstr "价格为必填项"
 
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:106
 msgid "purchase.loading.allowance.error"
 msgstr "加载津贴时出了点问题"
 

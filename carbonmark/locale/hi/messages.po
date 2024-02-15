@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-15 14:28+0000\n"
+"POT-Creation-Date: 2024-02-15 19:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -152,6 +152,7 @@ msgstr "उपलब्ध आपूर्तिराशि पार हो �
 msgid "Available to list: {0}"
 msgstr "उपलब्ध: {0}"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:215
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:210
 msgid "Available to purchase"
 msgstr "खरीदने के लिए उपलब्ध है"
@@ -1572,6 +1573,7 @@ msgstr "भुगतान विधि टॉगल करें"
 msgid "Toggle sort menu"
 msgstr "सॉर्ट मेनू टॉगल करें"
 
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:214
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:209
 msgid "Token you will receive"
 msgstr "टोकन आपको प्राप्त होगा"
@@ -2121,7 +2123,7 @@ msgstr "आपने टोकन की अपनी उपलब्ध रा�
 msgid "purchase.input.price.required"
 msgstr "मूल्य आवश्यक है"
 
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:106
 msgid "purchase.loading.allowance.error"
 msgstr "कुछ गड़बड़ हो गई जानकारी लोड हो रही है"
 
