@@ -216,17 +216,24 @@ export const retireCarbonTransaction = async (params: {
 
     let txn;
     if (params.product.type === "listing") {
+      const isICR = params.product.project.id.startsWith("ICR");
+      const leftToSell = isICR
+        ? params.product.leftToSell
+        : parseUnits(params.product.leftToSell, 18);
+      const quantity = isICR
+        ? params.quantity
+        : parseUnits(params.quantity, 18);
+
       txn = await retireContract.retireCarbonmarkListing(
         [
           params.product.id,
           params.product.seller.id,
           params.product.tokenAddress,
-          parseUnits(params.product.leftToSell, 18),
+          leftToSell,
           parseUnits(params.product.singleUnitPrice, getTokenDecimals("usdc")),
         ],
         parsedMaxAmountIn,
-        // TODO: ICR tokens have zero decimal places
-        parseUnits(params.quantity, 18),
+        quantity,
         "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
