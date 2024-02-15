@@ -10,7 +10,14 @@ export const container = css`
   margin: 1.6rem;
 
   ${breakpoints.desktop} {
-    margin: 4rem;
+    margin: 2.4rem 4rem;
+  }
+
+  &.transparentBG {
+    ${breakpoints.desktop} {
+      width: 104rem;
+      margin: 4rem auto;
+    }
   }
 `;
 
@@ -44,12 +51,32 @@ export const beneficiary = css`
 
 export const fullWidth = css`
   grid-column: full;
-
   display: grid;
   grid-template-columns: inherit;
 
   &.whiteBG {
     background-color: var(--white);
+    ${breakpoints.desktop} {
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        width: 104rem;
+        margin: 4rem auto;
+      }
+    }
+  }
+
+  &.transparentBG {
+    ${breakpoints.desktop} {
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        width: 104rem;
+        margin: 4rem auto;
+      }
+    }
   }
 `;
 
@@ -66,6 +93,13 @@ export const content = css`
 
   ${breakpoints.desktop} {
     margin: 4rem;
+  }
+
+  &.transparentBG {
+    ${breakpoints.desktop} {
+      width: 104rem;
+      margin: 4rem auto;
+    }
   }
 `;
 

@@ -1,11 +1,10 @@
-import { FC, ReactNode, useState } from "react";
-import * as styles from "./styles";
-
 import { useScrollLock } from "@klimadao/lib/utils";
-import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
+import { CarbonmarkLogoBlue } from "components/Logos/CarbonmarkLogoBlue";
 import Link from "next/link";
+import { FC, ReactNode, useState } from "react";
 import { NavMobile } from "../Navigation/NavMobile";
 import { ToggleNavButton } from "../Navigation/ToggleNavButton";
+import * as styles from "./styles";
 
 interface Props {
   buttons?: JSX.Element[];
@@ -32,7 +31,7 @@ export const HeaderMobile: FC<Props> = (props) => {
       >
         <div className={styles.mainLogoMobile}>
           <Link href={"/"}>
-            <CarbonmarkLogo />
+            <CarbonmarkLogoBlue />
           </Link>
         </div>
         {props.buttons && (

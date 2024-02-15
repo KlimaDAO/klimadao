@@ -18,3 +18,7 @@ a:visited {
 [aria-modal="true"] ::-webkit-scrollbar {
   width: 1.6rem;
 }
+
+.mapboxgl-canvas {
+  width: 100% !important;
+}

@@ -1,3 +1,4 @@
+import { KeyboardArrowRight } from "@mui/icons-material";
 import Link from "next/link";
 import { FC, ReactElement, ReactNode } from "react";
 import * as styles from "./styles";
@@ -7,7 +8,9 @@ interface MenuButtonProps {
   href: string;
   isActive: boolean;
   disabled?: boolean;
+  hasSubMenu?: boolean;
   children: ReactNode;
+  onClick?: () => void;
 }
 
 export const MenuButton: FC<MenuButtonProps> = (props) => {
@@ -18,17 +21,39 @@ export const MenuButton: FC<MenuButtonProps> = (props) => {
         data-active={props.isActive}
         data-disabled={true}
       >
-        <div className="iconContainer">{props.icon}</div>
-        <span>{props.children}</span>
+        <div className="container">
+          <div className="iconContainer">{props.icon}</div>
+          <span>{props.children}</span>
+        </div>
+        {props.hasSubMenu && <KeyboardArrowRight />}
       </div>
+    );
+  }
+
+  if (props.onClick) {
+    return (
+      <button
+        onClick={props.onClick}
+        className={styles.menuButton}
+        data-active={props.isActive}
+      >
+        <div className="container">
+          <div className="iconContainer">{props.icon}</div>
+          <span>{props.children}</span>
+        </div>
+        {props.hasSubMenu && <KeyboardArrowRight />}
+      </button>
     );
   }
 
   return (
     <Link href={props.href} passHref>
-      <div className={styles.menuButton} data-active={props.isActive}>
-        <div className="iconContainer">{props.icon}</div>
-        <span>{props.children}</span>
+      <div data-active={props.isActive} className={styles.menuButton}>
+        <div className="container">
+          <div className="iconContainer">{props.icon}</div>
+          <span>{props.children}</span>
+        </div>
+        {props.hasSubMenu && <KeyboardArrowRight />}
       </div>
     </Link>
   );

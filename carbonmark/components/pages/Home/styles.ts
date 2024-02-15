@@ -14,6 +14,14 @@ export const global = css`
       display: none;
     }
   }
+
+  display: block;
+  grid-template-columns:
+    [full-start] minmax(1.6rem, 1fr) [main-start] minmax(0, 10.2rem) [main-end] minmax(
+      1.6rem,
+      1fr
+    )
+    [full-end];
 `;
 
 export const hero = css`
