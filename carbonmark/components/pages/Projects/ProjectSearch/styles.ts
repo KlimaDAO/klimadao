@@ -19,11 +19,12 @@ export const filterButton = css`
   }
 
   ${breakpoints.medium} {
-    width: auto;
-    height: auto;
+    height: fit-content;
+    width: fit-content;
     padding: 0 2rem;
     span {
       display: block;
+      width: max-content;
     }
   }
 `;
@@ -31,6 +32,13 @@ export const filterButton = css`
 export const resetFilterButton = css`
   display: none;
   ${breakpoints.medium} {
+    min-width: 15rem;
     display: flex !important;
+    padding: 0 2rem;
   }
+`;
+
+export const totalProjectsText = css`
+  display: flex;
+  align-items: center;
 `;

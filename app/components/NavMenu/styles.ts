@@ -129,8 +129,8 @@ export const sidebarButton = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3.8rem;
-    width: 3.8rem;
+    height: 3.2rem;
+    width: 3.2rem;
     background-color: var(--surface-01);
     border-radius: 0.6rem;
   }

@@ -6,7 +6,6 @@ import AddIcon from "@mui/icons-material/Add";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
-import { LoginButton } from "components/LoginButton";
 import { Modal } from "components/shared/Modal";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
@@ -42,7 +41,10 @@ export const SellerConnected: FC<Props> = (props) => {
     props.userAddress,
     {
       network,
-      expiresAfter: address === props.userAddress ? "0" : undefined,
+      expiresAfter:
+        address?.toLowerCase() === props.userAddress.toLowerCase()
+          ? "0"
+          : undefined,
     },
     { shouldFetch: notNil(props.userAddress) }
   );
@@ -105,14 +107,13 @@ export const SellerConnected: FC<Props> = (props) => {
 
   return (
     <div ref={scrollToRef} className={styles.container}>
-      <div className={styles.userControlsRow}>
-        <ProfileButton
-          label={isRegistered ? t`Edit Profile` : t`Create Profile`}
-          onClick={() => setShowEditProfileModal(true)}
-        />
-        <LoginButton className="loginButton" />
-      </div>
       <div className={styles.fullWidth}>
+        <div className={styles.userControlsRow} data-mobile-only>
+          <ProfileButton
+            label={isRegistered ? t`Edit Profile` : t`Create Profile`}
+            onClick={() => setShowEditProfileModal(true)}
+          />
+        </div>
         <ProfileHeader
           carbonmarkUser={carbonmarkUser}
           userName={props.userName}
@@ -131,48 +132,56 @@ export const SellerConnected: FC<Props> = (props) => {
             </Text>
           )}
         </div>
-        {isCarbonmarkUser &&
-          (getFeatureFlag("createListing") ? (
-            <CarbonmarkButton
-              label={
-                <>
-                  <span className={styles.addListingButtonText}>
-                    <Trans>Create New Listing</Trans>
-                  </span>
-                  <span className={styles.addListingButtonIcon}>
-                    <AddIcon />
-                  </span>
-                </>
-              }
-              onClick={() => {
-                setShowCreateListingModal(true);
-              }}
-              disabled={
-                !hasListableAssets(
-                  carbonmarkUser.assets || [],
-                  carbonmarkUser.listings || []
-                )
-              }
+        <div className={styles.userControlsRow}>
+          <div data-desktop-only>
+            <ProfileButton
+              label={isRegistered ? t`Edit Profile` : t`Create Profile`}
+              onClick={() => setShowEditProfileModal(true)}
             />
-          ) : (
-            <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
-              <div>
-                <CarbonmarkButton
-                  label={
-                    <>
-                      <span className={styles.addListingButtonText}>
-                        <Trans>Create New Listing</Trans>
-                      </span>
-                      <span className={styles.addListingButtonIcon}>
-                        <AddIcon />
-                      </span>
-                    </>
-                  }
-                  disabled={true} // disabled until carbonmark V2
-                />
-              </div>
-            </TextInfoTooltip>
-          ))}
+          </div>
+          {isCarbonmarkUser &&
+            (getFeatureFlag("createListing") ? (
+              <CarbonmarkButton
+                label={
+                  <>
+                    <span className={styles.addListingButtonText}>
+                      <Trans>Create New Listing</Trans>
+                    </span>
+                    <span className={styles.addListingButtonIcon}>
+                      <AddIcon />
+                    </span>
+                  </>
+                }
+                onClick={() => {
+                  setShowCreateListingModal(true);
+                }}
+                disabled={
+                  !hasListableAssets(
+                    carbonmarkUser.assets || [],
+                    carbonmarkUser.listings || []
+                  )
+                }
+              />
+            ) : (
+              <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
+                <div>
+                  <CarbonmarkButton
+                    label={
+                      <>
+                        <span className={styles.addListingButtonText}>
+                          <Trans>Create New Listing</Trans>
+                        </span>
+                        <span className={styles.addListingButtonIcon}>
+                          <AddIcon />
+                        </span>
+                      </>
+                    }
+                    disabled={true} // disabled until carbonmark V2
+                  />
+                </div>
+              </TextInfoTooltip>
+            ))}
+        </div>
       </div>
 
       <TwoColLayout>

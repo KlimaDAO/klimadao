@@ -91,7 +91,12 @@ Updates generated types and mocks from the relevant subgraphs used by the API
 
 ### Creating a Release
 
-To release a new version of the API increment the version number in `carbonmark-api/package.json` and create a pull request with that change. (Note that the format of the version should follow [SemVer](https://semver.org/) conventions)
+To release a new version of the API increment the version number in `carbonmark-api/package.json` and `package-lock.json` by running one of these commands in the carbonmark-api folder:
+- `npm version major`: Major version update (breaking changes)
+- `npm version minor`: Minor version update (new functionality without breaking changes):
+- `npm version patch`: Patch (backward compatible bug fix)
+
+Then create a pull request with that change. (Note that the format of the version should follow [SemVer](https://semver.org/) conventions)
 
 Once the pull request is merged with staging the `release_carbonmark_api` github action will: 
 1. Build and deploy that version of the API under the `vX.X.X.api.carbonmark.com` domain.

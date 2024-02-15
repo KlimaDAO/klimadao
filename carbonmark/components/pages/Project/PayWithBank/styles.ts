@@ -16,7 +16,6 @@ export const container = css`
 
 export const fullWidth = css`
   grid-column: full;
-
   display: grid;
   grid-template-columns: inherit;
 

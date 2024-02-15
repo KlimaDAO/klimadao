@@ -21,7 +21,7 @@ export const inputsContainer = css`
   grid-column: main;
   display: flex;
   flex-direction: row;
-  gap: 2.4rem;
+  gap: 1.2rem;
   justify-content: space-between;
 `;
 
@@ -82,6 +82,7 @@ export const sortbyContainer = css`
 `;
 
 export const toggleMobileModalButton = css`
+  padding: 0 1.4rem !important;
   background-color: var(--surface-01);
 
   ${showOnSmallScreens}

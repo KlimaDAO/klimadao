@@ -18,12 +18,12 @@ export const banner = css`
   transform: translateY(-18rem);
 
   &.feature-banner {
-    transform: translateY(6.6rem);
+    transform: translateY(6.4rem);
   }
 
   ${breakpoints.desktop} {
     &.feature-banner {
-      transform: translateY(0);
+      transform: translateY(7.2rem);
     }
   }
 
@@ -44,7 +44,7 @@ export const banner = css`
   .contents {
     gap: 1rem;
     display: grid;
-    grid-column: full;
+    grid-column: auto;
     padding: 1.6rem 2.4rem;
 
     ${breakpoints.desktop} {
