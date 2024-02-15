@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-14 15:33+0000\n"
+"POT-Creation-Date: 2024-02-15 14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -348,6 +348,10 @@ msgstr "इस पृष्ठ को अनुकूलित करने औ�
 msgid "Close"
 msgstr "बंद करें"
 
+#: components/Footer/index.tsx:32
+msgid "Code of Ethics"
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "जल्द आ रहा है"
@@ -383,7 +387,7 @@ msgstr "रिटायरमेंट की पुष्टि करें"
 msgid "Connected Wallet"
 msgstr ""
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:44
 msgid "Contact"
 msgstr "संपर्क करें"
 
@@ -410,13 +414,13 @@ msgstr "कुल लागत की गणना नहीं सकी"
 msgid "Country"
 msgstr "देश"
 
-#: components/pages/Users/SellerConnected/index.tsx:145
-#: components/pages/Users/SellerConnected/index.tsx:169
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
 msgid "Create New Listing"
 msgstr "नयी सूची बनाएँ"
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Create Profile"
 msgstr "प्रोफ़ाइल बनाएँ"
 
@@ -534,8 +538,8 @@ msgstr "डाउनलोड हो रहा है..."
 msgid "Edit"
 msgstr "संपादित करें"
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Edit Profile"
 msgstr "प्रोफ़ाइल संपादित करें"
 
@@ -643,7 +647,7 @@ msgstr "हैंडल को कोई ऐड्रेस नहीं हो�
 msgid "Handle should not contain any special characters"
 msgstr "हैंडल में कोई विशेष वर्ण नहीं होना चाहिए"
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:35
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -719,7 +723,7 @@ msgstr "अमान्य"
 msgid "Job title"
 msgstr ""
 
-#: components/Footer/index.tsx:38
+#: components/Footer/index.tsx:41
 msgid "KlimaDAO"
 msgstr "क्लीमाडाओ"
 
@@ -777,7 +781,7 @@ msgstr "बस कुछ ही क्लिक में बिक्री क
 msgid "Listed tonnes:"
 msgstr "सूचीबद्ध टन:"
 
-#: components/pages/Users/SellerConnected/index.tsx:123
+#: components/pages/Users/SellerConnected/index.tsx:126
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr "सूचियाँ"
@@ -873,7 +877,7 @@ msgstr "इसके बाद"
 msgid "No Activity to show."
 msgstr "दिखाने के लिए कोई गतिविधि नहीं।"
 
-#: components/pages/Users/SellerConnected/index.tsx:194
+#: components/pages/Users/SellerConnected/index.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:86
 msgid "No active listings."
 msgstr "शून्य सक्रिय सूचियाँ"
@@ -1001,8 +1005,8 @@ msgid "Please complete the secure form on the next page and we'll provide you an
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:66
-#: components/pages/Users/SellerConnected/index.tsx:72
-#: components/pages/Users/SellerConnected/index.tsx:98
+#: components/pages/Users/SellerConnected/index.tsx:75
+#: components/pages/Users/SellerConnected/index.tsx:101
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "कृपया पृष्ट को रिफ़्रेश करें। आपका डेटा अपडेट करने में गलती हुई: {e}।"
 
@@ -1182,7 +1186,7 @@ msgstr "आवश्यक क्षेत्र"
 msgid "Required when proceeding with Credit Card"
 msgstr "क्रेडिट कार्ड के साथ आगे बढ़ते समय आवश्यक"
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
@@ -1670,7 +1674,7 @@ msgstr "सूची अपडेट करें"
 msgid "Updated:"
 msgstr "अपडेटेड:"
 
-#: components/pages/Users/SellerConnected/index.tsx:188
+#: components/pages/Users/SellerConnected/index.tsx:191
 msgid "Updating your data..."
 msgstr "आपका डेटा अपडेट हो रहा है..."
 
@@ -1881,7 +1885,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "आपकी ख़रीदारी अभी पूर्ण नहीं हुई है। अपनी ख़रीदारी को अंतिम रूप देने के लिए, सत्यापित करें कि सब जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:212
+#: components/pages/Users/SellerConnected/index.tsx:215
 msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
 
@@ -2057,7 +2061,7 @@ msgstr "सूची बनाएँ"
 msgid "profile.edit_modal.submit"
 msgstr "बदलाव सेव करें"
 
-#: components/pages/Users/SellerConnected/index.tsx:218
+#: components/pages/Users/SellerConnected/index.tsx:221
 msgid "profile.edit_profile.title"
 msgstr "आपकी प्रोफ़ाइल"
 

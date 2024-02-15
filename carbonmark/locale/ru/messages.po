@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-14 15:33+0000\n"
+"POT-Creation-Date: 2024-02-15 14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -348,6 +348,10 @@ msgstr "Нажмите кнопку «Создать профиль», чтоб�
 msgid "Close"
 msgstr "Закрыть"
 
+#: components/Footer/index.tsx:32
+msgid "Code of Ethics"
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "Скоро"
@@ -383,7 +387,7 @@ msgstr "Подтвердить выбивание"
 msgid "Connected Wallet"
 msgstr ""
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:44
 msgid "Contact"
 msgstr "Связаться"
 
@@ -408,13 +412,13 @@ msgstr "Не удалось рассчитать общую стоимость"
 msgid "Country"
 msgstr "Страна"
 
-#: components/pages/Users/SellerConnected/index.tsx:145
-#: components/pages/Users/SellerConnected/index.tsx:169
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
 msgid "Create New Listing"
 msgstr "Создать новое объявление"
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Create Profile"
 msgstr "Создать профиль"
 
@@ -532,8 +536,8 @@ msgstr "Загрузка ..."
 msgid "Edit"
 msgstr "Редактировать"
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Edit Profile"
 msgstr "Редактировать профиль"
 
@@ -639,7 +643,7 @@ msgstr "Никнейм не должен быть адресом"
 msgid "Handle should not contain any special characters"
 msgstr "Никнейм не должен содержать никаких специальных символов"
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:35
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -715,7 +719,7 @@ msgstr "Неверный"
 msgid "Job title"
 msgstr ""
 
-#: components/Footer/index.tsx:38
+#: components/Footer/index.tsx:41
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -773,7 +777,7 @@ msgstr "Разместите свои проекты на продажу все�
 msgid "Listed tonnes:"
 msgstr "Опубликованные тонны:"
 
-#: components/pages/Users/SellerConnected/index.tsx:123
+#: components/pages/Users/SellerConnected/index.tsx:126
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr "Объявления"
@@ -869,7 +873,7 @@ msgstr "Следующий"
 msgid "No Activity to show."
 msgstr "Нет активности для отображения."
 
-#: components/pages/Users/SellerConnected/index.tsx:194
+#: components/pages/Users/SellerConnected/index.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:86
 msgid "No active listings."
 msgstr "Нет активных объявлений."
@@ -997,8 +1001,8 @@ msgid "Please complete the secure form on the next page and we'll provide you an
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:66
-#: components/pages/Users/SellerConnected/index.tsx:72
-#: components/pages/Users/SellerConnected/index.tsx:98
+#: components/pages/Users/SellerConnected/index.tsx:75
+#: components/pages/Users/SellerConnected/index.tsx:101
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Пожалуйста, обновите страницу. При обновлении данных произошла ошибка: {e}."
 
@@ -1178,7 +1182,7 @@ msgstr "Обязательное поле"
 msgid "Required when proceeding with Credit Card"
 msgstr "Требуется при оплате кредитной картой"
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
@@ -1664,7 +1668,7 @@ msgstr "Обновить список"
 msgid "Updated:"
 msgstr "Обновлено:"
 
-#: components/pages/Users/SellerConnected/index.tsx:188
+#: components/pages/Users/SellerConnected/index.tsx:191
 msgid "Updating your data..."
 msgstr "Обновление данных..."
 
@@ -1873,7 +1877,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ваша покупка еще не завершена. Чтобы завершить покупку, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:212
+#: components/pages/Users/SellerConnected/index.tsx:215
 msgid "Your seller data"
 msgstr "Ваши данные продавца"
 
@@ -2049,7 +2053,7 @@ msgstr "Создать объявление"
 msgid "profile.edit_modal.submit"
 msgstr "Сохранить изменения"
 
-#: components/pages/Users/SellerConnected/index.tsx:218
+#: components/pages/Users/SellerConnected/index.tsx:221
 msgid "profile.edit_profile.title"
 msgstr "Ваш профиль"
 

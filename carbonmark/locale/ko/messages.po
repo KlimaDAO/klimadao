@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-14 15:33+0000\n"
+"POT-Creation-Date: 2024-02-15 14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -348,6 +348,10 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: components/Footer/index.tsx:32
+msgid "Code of Ethics"
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr ""
@@ -383,7 +387,7 @@ msgstr ""
 msgid "Connected Wallet"
 msgstr ""
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:44
 msgid "Contact"
 msgstr ""
 
@@ -408,13 +412,13 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:145
-#: components/pages/Users/SellerConnected/index.tsx:169
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
 msgid "Create New Listing"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Create Profile"
 msgstr ""
 
@@ -532,8 +536,8 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:110
-#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
 msgid "Edit Profile"
 msgstr ""
 
@@ -639,7 +643,7 @@ msgstr ""
 msgid "Handle should not contain any special characters"
 msgstr ""
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:35
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -715,7 +719,7 @@ msgstr ""
 msgid "Job title"
 msgstr ""
 
-#: components/Footer/index.tsx:38
+#: components/Footer/index.tsx:41
 msgid "KlimaDAO"
 msgstr ""
 
@@ -773,7 +777,7 @@ msgstr ""
 msgid "Listed tonnes:"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:123
+#: components/pages/Users/SellerConnected/index.tsx:126
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr ""
@@ -869,7 +873,7 @@ msgstr ""
 msgid "No Activity to show."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:194
+#: components/pages/Users/SellerConnected/index.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:86
 msgid "No active listings."
 msgstr ""
@@ -997,8 +1001,8 @@ msgid "Please complete the secure form on the next page and we'll provide you an
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:66
-#: components/pages/Users/SellerConnected/index.tsx:72
-#: components/pages/Users/SellerConnected/index.tsx:98
+#: components/pages/Users/SellerConnected/index.tsx:75
+#: components/pages/Users/SellerConnected/index.tsx:101
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr ""
 
@@ -1178,7 +1182,7 @@ msgstr ""
 msgid "Required when proceeding with Credit Card"
 msgstr ""
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
@@ -1664,7 +1668,7 @@ msgstr ""
 msgid "Updated:"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:188
+#: components/pages/Users/SellerConnected/index.tsx:191
 msgid "Updating your data..."
 msgstr ""
 
@@ -1873,7 +1877,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr ""
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
-#: components/pages/Users/SellerConnected/index.tsx:212
+#: components/pages/Users/SellerConnected/index.tsx:215
 msgid "Your seller data"
 msgstr ""
 
@@ -2049,7 +2053,7 @@ msgstr ""
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:218
+#: components/pages/Users/SellerConnected/index.tsx:221
 msgid "profile.edit_profile.title"
 msgstr ""
 
