@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-15 12:22+0000\n"
+"POT-Creation-Date: 2024-02-15 14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -348,6 +348,10 @@ msgstr "इस पृष्ठ को अनुकूलित करने औ�
 msgid "Close"
 msgstr "बंद करें"
 
+#: components/Footer/index.tsx:32
+msgid "Code of Ethics"
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "जल्द आ रहा है"
@@ -383,7 +387,7 @@ msgstr "रिटायरमेंट की पुष्टि करें"
 msgid "Connected Wallet"
 msgstr ""
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:44
 msgid "Contact"
 msgstr "संपर्क करें"
 
@@ -643,7 +647,7 @@ msgstr "हैंडल को कोई ऐड्रेस नहीं हो�
 msgid "Handle should not contain any special characters"
 msgstr "हैंडल में कोई विशेष वर्ण नहीं होना चाहिए"
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:35
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -719,7 +723,7 @@ msgstr "अमान्य"
 msgid "Job title"
 msgstr ""
 
-#: components/Footer/index.tsx:38
+#: components/Footer/index.tsx:41
 msgid "KlimaDAO"
 msgstr "क्लीमाडाओ"
 
@@ -1182,7 +1186,7 @@ msgstr "आवश्यक क्षेत्र"
 msgid "Required when proceeding with Credit Card"
 msgstr "क्रेडिट कार्ड के साथ आगे बढ़ते समय आवश्यक"
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:508
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
