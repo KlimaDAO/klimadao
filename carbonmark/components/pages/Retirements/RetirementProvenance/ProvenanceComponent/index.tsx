@@ -60,7 +60,7 @@ export const ProvenanceComponent = (props: ProvenanceComponentProps) => {
             <BalanceOutlined fontSize="large" />
             <Trans>Amount</Trans>
           </Text>
-          <Text t="h5">
+          <Text t="h5" align="end">
             <Trans>{formattedAmount} Tonnes</Trans>
           </Text>
         </div>

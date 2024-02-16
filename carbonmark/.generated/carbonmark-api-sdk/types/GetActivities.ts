@@ -57,6 +57,7 @@ export type GetActivitiesQueryParams = {
     | "DeletedListing"
     | "Purchase"
     | "Sold"
+    | "UpdatedExpiration"
     | "UpdatedPrice"
     | "UpdatedQuantity"
   )[];

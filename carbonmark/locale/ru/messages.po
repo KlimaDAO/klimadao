@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-15 15:33+0000\n"
+"POT-Creation-Date: 2024-02-16 00:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -222,7 +222,7 @@ msgstr "Адрес кошелька получателя (необязатель
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:67
-#: components/pages/Project/index.tsx:136
+#: components/pages/Project/index.tsx:137
 msgid "Best Price"
 msgstr "Лучшая цена"
 
@@ -480,7 +480,7 @@ msgstr "В настоящее время Carbonmark принимает толь�
 msgid "DATE"
 msgstr "ДАТА"
 
-#: components/pages/Project/index.tsx:233
+#: components/pages/Project/index.tsx:234
 msgid "Data for this project and vintage"
 msgstr "Данные для этого проекта и урожая"
 
@@ -501,7 +501,7 @@ msgstr "По умолчанию используется адрес подклю
 msgid "Describe the purpose of this retirement"
 msgstr "Опишите цель этого вывода"
 
-#: components/pages/Project/index.tsx:184
+#: components/pages/Project/index.tsx:185
 msgid "Description"
 msgstr "Описание"
 
@@ -842,7 +842,7 @@ msgstr "Торговая площадка | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Максимизируйте свое воздействие на климат."
 
-#: components/pages/Project/index.tsx:143
+#: components/pages/Project/index.tsx:144
 msgid "Methodology"
 msgstr "Методология"
 
@@ -895,7 +895,7 @@ msgstr "Нет данных для отображения"
 msgid "No listable assets found."
 msgstr "Список объектов не найден."
 
-#: components/pages/Project/index.tsx:223
+#: components/pages/Project/index.tsx:224
 msgid "No listings found for this project."
 msgstr "Не найдено объявлений для этого проекта."
 
@@ -1137,11 +1137,11 @@ msgstr "Быстрый вывод"
 msgid "RETIRE CARBON"
 msgstr "ВЫВЕДЕНО УГЛЕРОДА"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:198
 msgid "Read Less"
 msgstr "Читать меньше"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:198
 msgid "Read More"
 msgstr "Подробнее"
 
@@ -1696,7 +1696,7 @@ msgstr "Просмотр"
 msgid "View Carbonmark Profile"
 msgstr "Посмотреть профиль Carbonmark"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:207
 msgid "View Registry Details <0/>"
 msgstr "Просмотр сведений о реестре <0/>"
 
@@ -1729,7 +1729,7 @@ msgstr "Посмотреть все проекты"
 msgid "View all Retirements"
 msgstr "Просмотреть всего выведено"
 
-#: components/pages/Project/index.tsx:116
+#: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Посмотреть и приобрести этот проект компенсации выбросов углерода на Carbonmark"
 
@@ -1899,7 +1899,7 @@ msgstr "Я-А"
 msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 msgstr "Торговля квотами на выбросы углерода с нулевой комиссией — мгновенная, прозрачная и всегда доступная. Узнайте больше о том, что Carbonmark может сделать для вас как продавца углеродных кредитов."
 
-#: components/Activities/Activity.tsx:33
+#: components/Activities/Activity.tsx:34
 msgid "at"
 msgstr "на"
 
@@ -1970,7 +1970,7 @@ msgstr "Углеродные кредиты, которые вы приобре�
 msgid "exitmodal.you_will_be_taken"
 msgstr "Вы будете перенаправлены на KlimaDAO.finance для завершения этой транзакции."
 
-#: components/Activities/Activity.tsx:89
+#: components/Activities/Activity.tsx:112
 msgid "for"
 msgstr "для"
 
@@ -2419,6 +2419,10 @@ msgstr "что-то пошло не так при загрузке пособи�
 msgid "t"
 msgstr "т"
 
+#: components/Activities/Activity.tsx:119
+msgid "to"
+msgstr ""
+
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:40
 msgid "tonnes"
 msgstr "тонны"
@@ -2513,6 +2517,10 @@ msgstr "1. Одобрить"
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Отправить"
+
+#: components/Activities/Activities.constants.ts:10
+msgid "updated expiration"
+msgstr ""
 
 #: components/Activities/Activities.constants.ts:8
 msgid "updated price"
