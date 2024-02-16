@@ -2,6 +2,10 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
 
+export const pageWrapper = css`
+  display: unset;
+`;
+
 export const section = css`
   padding-bottom: 0;
   ${breakpoints.medium} {

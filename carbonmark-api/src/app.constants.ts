@@ -12,7 +12,7 @@ const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
  * This is also the case for SANITY_URLS
  */
 const POLYGON_URLS = {
-  marketplace: `${GRAPH_API_ROOT_ID}/QmaHkN47zUB3b1xnfeqCwatG5DRtMuitEDf9FdFkq5V3Fr`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmT2YkGwTqvek54VsGkfurGLrGGKgkwcK6TLotvkjpF4Mz`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
@@ -22,7 +22,7 @@ const POLYGON_URLS = {
 const MUMBAI_URLS = {
   ...POLYGON_URLS,
   digitalCarbon: `${GRAPH_API_ROOT}/psparacino/digital-carbon`,
-  marketplace: `${GRAPH_API_ROOT_ID}/QmUUnZTeRnfsJsQaTwLeiHmAQ5xvtk2jBW7VeP3AEW5bnv`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmfHDvcgSLfgQVKbWnHEZw8ZCdxuvk3si1KQa66rBzexZp`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 

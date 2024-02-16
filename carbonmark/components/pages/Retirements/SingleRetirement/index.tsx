@@ -70,7 +70,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
 
   if (!retirement) {
     return (
-      <GridContainer>
+      <GridContainer className={styles.pageWrapper}>
         <Navigation activePage="Home" />
         <Section className={styles.section}>
           <div className={styles.pending}>
@@ -115,7 +115,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   const tokenData = carbonTokenInfoMap[carbonTokenName];
 
   return (
-    <GridContainer>
+    <GridContainer className={styles.pageWrapper}>
       <PageHead
         title={t({
           id: "retirement.head.title",
