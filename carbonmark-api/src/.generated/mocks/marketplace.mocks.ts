@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Activity, Activity_Filter, BlockChangedFilter, Block_Height, Category, Category_Filter, Country, Country_Filter, Listing, Listing_Filter, Project, Project_Filter, Purchase, Purchase_Filter, Query, Subscription, User, User_Filter, _Block_, _Meta_, ActivityType, Activity_OrderBy, Category_OrderBy, Country_OrderBy, Listing_OrderBy, OrderDirection, Project_OrderBy, Purchase_OrderBy, TokenStandard, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types';
+import { Activity, Activity_Filter, BlockChangedFilter, Block_Height, Category, Category_Filter, Country, Country_Filter, Listing, Listing_Filter, Project, Project_Filter, Purchase, Purchase_Filter, Query, Subscription, User, User_Filter, _Block_, _Meta_, ActivityType, Activity_OrderBy, Aggregation_Interval, Category_OrderBy, Country_OrderBy, Listing_OrderBy, OrderDirection, Project_OrderBy, Purchase_OrderBy, TokenStandard, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types';
 
 export const anActivity = (overrides?: Partial<Activity>, _relationshipsToOmit: Set<string> = new Set()): Activity => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
