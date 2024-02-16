@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-15 19:36+0000\n"
+"POT-Creation-Date: 2024-02-16 00:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -224,7 +224,7 @@ msgstr "Adresse du portefeuille du bénéficiaire (facultatif)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:67
-#: components/pages/Project/index.tsx:136
+#: components/pages/Project/index.tsx:137
 msgid "Best Price"
 msgstr "Meilleur prix"
 
@@ -482,7 +482,7 @@ msgstr "Actuellement, Carbonmark n'accepte que les paiements en USDC sur Polygon
 msgid "DATE"
 msgstr "DATE"
 
-#: components/pages/Project/index.tsx:233
+#: components/pages/Project/index.tsx:234
 msgid "Data for this project and vintage"
 msgstr "Données pour ce projet et année"
 
@@ -503,7 +503,7 @@ msgstr "Par défaut, l'adresse du portefeuille connecté"
 msgid "Describe the purpose of this retirement"
 msgstr "Décrivez le but de ce retrait du marché"
 
-#: components/pages/Project/index.tsx:184
+#: components/pages/Project/index.tsx:185
 msgid "Description"
 msgstr "Description"
 
@@ -844,7 +844,7 @@ msgstr "Place de Marché | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Maximisez votre impact climatique."
 
-#: components/pages/Project/index.tsx:143
+#: components/pages/Project/index.tsx:144
 msgid "Methodology"
 msgstr "Méthodologie"
 
@@ -897,7 +897,7 @@ msgstr "Aucune donnée à afficher"
 msgid "No listable assets found."
 msgstr "Aucun actif à vendre n'a été trouvé."
 
-#: components/pages/Project/index.tsx:223
+#: components/pages/Project/index.tsx:224
 msgid "No listings found for this project."
 msgstr "Aucune annonce trouvée pour ce projet."
 
@@ -1139,11 +1139,11 @@ msgstr "Retrait Rapide"
 msgid "RETIRE CARBON"
 msgstr "RETIRER DU CARBONE"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:198
 msgid "Read Less"
 msgstr "En lire moins"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:198
 msgid "Read More"
 msgstr "En savoir plus"
 
@@ -1698,7 +1698,7 @@ msgstr "Voir"
 msgid "View Carbonmark Profile"
 msgstr "Voir le profil Carbonmark"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:207
 msgid "View Registry Details <0/>"
 msgstr "Voir les détails du registre <0/>"
 
@@ -1731,7 +1731,7 @@ msgstr "Voir tous les Projets"
 msgid "View all Retirements"
 msgstr "Voir tous les Retraits"
 
-#: components/pages/Project/index.tsx:116
+#: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Voir et acheter ce projet de compensation carbone sur Carbonmark"
 
@@ -1901,7 +1901,7 @@ msgstr "Z-A"
 msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 msgstr "Échange de crédits carbone sans frais - instantané, transparent et toujours disponible. En savoir plus sur ce que Carbonmark peut faire pour vous en tant que négociant de crédits carbone."
 
-#: components/Activities/Activity.tsx:33
+#: components/Activities/Activity.tsx:34
 msgid "at"
 msgstr "à"
 
@@ -1972,7 +1972,7 @@ msgstr "Les crédits carbone que vous achetez ou les retraits du marché que vou
 msgid "exitmodal.you_will_be_taken"
 msgstr "Vous serez redirigé vers KlimaDAO.finance pour compléter cette transaction."
 
-#: components/Activities/Activity.tsx:89
+#: components/Activities/Activity.tsx:112
 msgid "for"
 msgstr "pour"
 
@@ -2419,6 +2419,10 @@ msgstr "quelque chose s'est mal passé lors du chargement de l'autorisation"
 msgid "t"
 msgstr "t"
 
+#: components/Activities/Activity.tsx:119
+msgid "to"
+msgstr ""
+
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:40
 msgid "tonnes"
 msgstr "tonnes"
@@ -2513,6 +2517,10 @@ msgstr "1. Approuver"
 #: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Envoyer"
+
+#: components/Activities/Activities.constants.ts:10
+msgid "updated expiration"
+msgstr ""
 
 #: components/Activities/Activities.constants.ts:8
 msgid "updated price"
