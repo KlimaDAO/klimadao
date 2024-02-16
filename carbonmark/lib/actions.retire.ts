@@ -217,9 +217,6 @@ export const retireCarbonTransaction = async (params: {
     let txn;
     if (params.product.type === "listing") {
       const isICR = params.product.project.id.startsWith("ICR");
-      const leftToSell = isICR
-        ? params.product.leftToSell
-        : parseUnits(params.product.leftToSell, 18);
       const quantity = isICR
         ? params.quantity
         : parseUnits(params.quantity, 18);
@@ -229,7 +226,7 @@ export const retireCarbonTransaction = async (params: {
           params.product.id,
           params.product.seller.id,
           params.product.tokenAddress,
-          leftToSell,
+          parseUnits(params.product.leftToSell, 18),
           parseUnits(params.product.singleUnitPrice, getTokenDecimals("usdc")),
         ],
         parsedMaxAmountIn,
