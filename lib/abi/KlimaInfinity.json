@@ -934,6 +934,11 @@
             },
             {
               "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
               "name": "remainingAmount",
               "type": "uint256"
             },
