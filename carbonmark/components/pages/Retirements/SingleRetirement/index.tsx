@@ -70,7 +70,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
 
   if (!retirement) {
     return (
-      <GridContainer>
+      <GridContainer className={styles.pageWrapper}>
         <Navigation activePage="Home" />
         <Section className={styles.section}>
           <div className={styles.pending}>
@@ -115,7 +115,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   const tokenData = carbonTokenInfoMap[carbonTokenName];
 
   return (
-    <GridContainer>
+    <GridContainer className={styles.pageWrapper}>
       <PageHead
         title={t({
           id: "retirement.head.title",
@@ -125,10 +125,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           id: "retirement.head.metaTitle",
           message: `${retiree} retired ${formattedAmount} Tonnes of carbon`,
         })}
-        metaDescription={t({
-          id: "retirement.head.metaDescription",
-          message: "Transparent, on-chain offsets powered by Carbonmark.",
-        })}
+        metaDescription={t`Transparent, on-chain offsets powered by Carbonmark.`}
         canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />

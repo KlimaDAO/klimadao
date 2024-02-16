@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Account, Account_Filter, BlockChangedFilter, Block_Height, Holding, Holding_Filter, Query, Subscription, Token, Token_Filter, _Block_, _Meta_, Account_OrderBy, Holding_OrderBy, OrderDirection, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/assets.types';
+import { Account, Account_Filter, BlockChangedFilter, Block_Height, Holding, Holding_Filter, Query, Subscription, Token, Token_Filter, _Block_, _Meta_, Account_OrderBy, Aggregation_Interval, Holding_OrderBy, OrderDirection, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/assets.types';
 
 export const anAccount = (overrides?: Partial<Account>, _relationshipsToOmit: Set<string> = new Set()): Account => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);

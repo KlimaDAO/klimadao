@@ -162,12 +162,7 @@ export const ListingEditable: FC<Props> = (props) => {
       props.onFinishEditing();
     } catch (e) {
       console.error("Error in onDeleteListing", e);
-      setErrorMessage(
-        t({
-          id: "profile.listing.delete.error",
-          message: "Could not delete listing. Please try again.",
-        })
-      );
+      setErrorMessage(t`Could not delete listing. Please try again.`);
     } finally {
       setIsLoading(false);
     }

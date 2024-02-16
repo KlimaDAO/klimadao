@@ -54,6 +54,7 @@ export interface DigitalCarbonCredit {
 export type ActivityActionT =
   | "UpdatedQuantity"
   | "UpdatedPrice"
+  | "UpdatedExpiration"
   | "CreatedListing"
   | "DeletedListing"
   | "Purchase"

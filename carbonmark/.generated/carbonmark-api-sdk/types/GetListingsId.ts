@@ -103,6 +103,11 @@ export type GetListingsIdQueryResponse = {
    * @type string | undefined
    */
   symbol?: string;
+  /**
+   * @description ID of the token
+   * @type string
+   */
+  tokenId: string;
 };
 
 export type GetListingsIdQueryParams = {
