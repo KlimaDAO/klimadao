@@ -50,6 +50,7 @@ export const VISIBLE_ACTIVITIES: ActivityActionT[] = [
   "Purchase",
   "UpdatedPrice",
   "UpdatedQuantity",
+  "UpdatedExpiration",
 ];
 
 const Page: NextPage<PageProps> = (props) => {
