@@ -261,6 +261,11 @@ export enum Activity_OrderBy {
   user__id = 'user__id'
 }
 
+export enum Aggregation_Interval {
+  day = 'day',
+  hour = 'hour'
+}
+
 export type BlockChangedFilter = {
   number_gte: Scalars['Int'];
 };
