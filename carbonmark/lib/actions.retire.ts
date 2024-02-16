@@ -226,6 +226,7 @@ export const retireCarbonTransaction = async (params: {
           params.product.id,
           params.product.seller.id,
           params.product.tokenAddress,
+          params.product.tokenId,
           parseUnits(params.product.leftToSell, 18),
           parseUnits(params.product.singleUnitPrice, getTokenDecimals("usdc")),
         ],
