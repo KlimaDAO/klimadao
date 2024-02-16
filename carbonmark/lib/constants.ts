@@ -77,19 +77,9 @@ export const DEFAULT_MIN_FILL_AMOUNT = 1;
 export const DEFAULT_MIN_LISTING_QUANTITY = 1;
 
 export const getConnectErrorStrings = () => ({
-  default: t({
-    message: "We had some trouble connecting. Please try again.",
-    id: "connect_modal.error_message_default",
-  }),
-  rejected: t({
-    message: "User refused connection.",
-    id: "connect_modal.error_message_refused",
-  }),
-  alreadyProcessing: t({
-    message:
-      "Request already processing. Please open your wallet and complete the request.",
-    id: "connect_modal.error_processing",
-  }),
+  default: t`We had some trouble connecting. Please try again.`,
+  rejected: t`User refused connection.`,
+  alreadyProcessing: t`Request already processing. Please open your wallet and complete the request.`,
 });
 
 export const config = {

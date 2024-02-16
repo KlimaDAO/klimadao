@@ -48,24 +48,12 @@ export const Layout: FC<Props> = (props: Props) => {
       {renderModal &&
         renderModal({
           errors: getConnectErrorStrings(),
-          torusText: t({
-            message: "social or email",
-            id: "connectModal.torus",
-          }),
-          walletText: t({
-            message: "connect a wallet",
-            id: "connectModal.wallet",
-          }),
+          torusText: t`social or email`,
+          walletText: t`connect a wallet`,
           titles: {
             connect: t`Login`,
-            loading: t({
-              id: "connect_modal.connecting",
-              message: "Connecting...",
-            }),
-            error: t({
-              id: "connect_modal.error_title",
-              message: "Connection Error",
-            }),
+            loading: t`Connecting...`,
+            error: t`Connection Error`,
           },
         })}
     </>
