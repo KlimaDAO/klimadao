@@ -95,10 +95,18 @@ query allRetirements($account_id: String) {
 }
 
 query getProvenanceRecordsByHash($hash: Bytes!) {
-  provenanceRecords(where: { transactionHash: $hash }) {
-    ...ProvenanceRecordFragment
-    priorRecords(orderBy: createdAt, orderDirection: desc) {
+  retires(where: { provenance_: { transactionHash: $hash } }) {
+    credit {
+      project {
+        id
+        registry
+      }
+    }
+    provenance {
       ...ProvenanceRecordFragment
+      priorRecords(orderBy: createdAt, orderDirection: desc) {
+        ...ProvenanceRecordFragment
+      }
     }
   }
 }

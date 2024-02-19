@@ -140,6 +140,11 @@ export enum Account_OrderBy {
   totalRetirements = 'totalRetirements'
 }
 
+export enum Aggregation_Interval {
+  day = 'day',
+  hour = 'hour'
+}
+
 export type BlockChangedFilter = {
   number_gte: Scalars['Int'];
 };
@@ -4318,7 +4323,7 @@ export enum _SubgraphErrorPolicy_ {
   deny = 'deny'
 }
 
-export type ProvenanceRecordFragmentFragment = { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string };
+export type ProvenanceRecordFragmentFragment = { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, transactionHash: any };
 
 export type RetireFragmentFragment = { __typename?: 'Retire', id: any, bridgeID: string | null, hash: any, amount: string, beneficiaryName: string, retirementMessage: string, retiringName: string, timestamp: string, pool: { __typename?: 'CarbonPool', id: any } | null, beneficiaryAddress: { __typename?: 'Account', id: any }, retiringAddress: { __typename?: 'Account', id: any } };
 
@@ -4389,7 +4394,7 @@ export type GetProvenanceRecordsByHashQueryVariables = Exact<{
 }>;
 
 
-export type GetProvenanceRecordsByHashQuery = { __typename?: 'Query', provenanceRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string }> }> };
+export type GetProvenanceRecordsByHashQuery = { __typename?: 'Query', retires: Array<{ __typename?: 'Retire', credit: { __typename?: 'CarbonCredit', project: { __typename?: 'CarbonProject', id: string, registry: Registry } }, provenance: { __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, transactionHash: any, priorRecords: Array<{ __typename?: 'ProvenanceRecord', id: any, transactionType: ProvenanceType, registrySerialNumbers: Array<string>, token: any, tokenId: string | null, sender: any, receiver: any, originalAmount: string, remainingAmount: string, createdAt: string, updatedAt: string, transactionHash: any }> } | null }> };
 
 export const ProvenanceRecordFragmentFragmentDoc = gql`
     fragment ProvenanceRecordFragment on ProvenanceRecord {
@@ -4397,12 +4402,14 @@ export const ProvenanceRecordFragmentFragmentDoc = gql`
   transactionType
   registrySerialNumbers
   token
+  tokenId
   sender
   receiver
   originalAmount
   remainingAmount
   createdAt
   updatedAt
+  transactionHash
 }
     `;
 export const RetireFragmentFragmentDoc = gql`
@@ -4573,10 +4580,18 @@ export const AllRetirementsDocument = gql`
 ${CarbonCreditFragmentFragmentDoc}`;
 export const GetProvenanceRecordsByHashDocument = gql`
     query getProvenanceRecordsByHash($hash: Bytes!) {
-  provenanceRecords(where: {transactionHash: $hash}) {
-    ...ProvenanceRecordFragment
-    priorRecords(orderBy: createdAt, orderDirection: desc) {
+  retires(where: {provenance_: {transactionHash: $hash}}) {
+    credit {
+      project {
+        id
+        registry
+      }
+    }
+    provenance {
       ...ProvenanceRecordFragment
+      priorRecords(orderBy: createdAt, orderDirection: desc) {
+        ...ProvenanceRecordFragment
+      }
     }
   }
 }

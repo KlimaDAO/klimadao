@@ -95,6 +95,12 @@ export const REGISTRIES = {
     url: "https://www.carbonregistry.com",
     decimals: 0,
   },
+  Moss: {
+    id: "MOSS",
+    title: "MOSS",
+    url: "https://moss.earth",
+    decimals: 18,
+  },
 };
 
 /** Message shared with frontend, to be combined with user's nonce and signed by private key. */

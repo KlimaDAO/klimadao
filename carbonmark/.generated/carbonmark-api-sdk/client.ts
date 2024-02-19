@@ -46,14 +46,21 @@ export const fetchClient = async <
 ): Promise<ResponseConfig<TData>> => {
   const params = request.params as ParamsObject;
   const url = `${urls.api.base}${request.url}${serializeParams(params)}`;
-  const response = await fetch(url, {
-    method: request.method,
-    body: JSON.stringify(request.data),
-    headers: {
-      "Content-Type": "application/json",
-      ...request.headers,
-    },
-  });
+  let response;
+  try {
+    response = await fetch(url, {
+      method: request.method,
+      body: JSON.stringify(request.data),
+      headers: {
+        "Content-Type": "application/json",
+        ...request.headers,
+      },
+    });
+  } catch (e) {
+    console.error(`Fetch error: ${url}`);
+    throw e;
+  }
+
   if (!response.ok) {
     const errorData = await response.json();
     throw {

@@ -18,7 +18,7 @@ interface Props {
 
 const getSelectedSortyByLabel = (sortBy: string) =>
   (!!sortBy && getSortedByQueries().find((q) => q.value === sortBy)?.label) ||
-  t({ id: "resources.form.input.sort_by.select", message: "Select" });
+  t`Select`;
 
 export const SortyByDropDown: FC<Props> = (props) => {
   const sortedBy = useWatch({ name: "sortedBy", control: props.control });

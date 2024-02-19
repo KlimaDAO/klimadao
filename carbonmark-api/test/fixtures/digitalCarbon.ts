@@ -111,10 +111,24 @@ const provenanceRecordWithoutPriorRecords = aProvenanceRecord({
   updatedAt: "1701095377",
   priorRecords: [],
 });
-const provenanceRecord = aProvenanceRecord({
+const fullProvenanceRecord = aProvenanceRecord({
   ...provenanceRecordWithoutPriorRecords,
   priorRecords: [provenanceRecordWithoutPriorRecords],
 });
+
+const retireWithProvenance = [
+  {
+    credit: {
+      project: {
+        id: "VCS-191",
+        registry: "VCS",
+      },
+    },
+    provenance: {
+      ...fullProvenanceRecord,
+    },
+  },
+];
 
 const empty_countries = {
   data: {
@@ -128,7 +142,7 @@ const fixtures = {
   poolBalance,
   digitalCarbonProject,
   retirement,
-  provenanceRecord,
+  retireWithProvenance,
 };
 
 export default fixtures;

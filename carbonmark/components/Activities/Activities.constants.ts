@@ -7,4 +7,5 @@ export const ActivityActions: Record<string, string> = {
   Sold: t`sold to`,
   UpdatedPrice: t`updated price`,
   UpdatedQuantity: t`updated quantity`,
+  UpdatedExpiration: t`updated expiration`,
 };

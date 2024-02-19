@@ -218,10 +218,7 @@ export const SellerConnected: FC<Props> = (props) => {
       </TwoColLayout>
 
       <Modal
-        title={t({
-          id: "profile.edit_profile.title",
-          message: "Your Profile",
-        })}
+        title={t`Your Profile`}
         showModal={showEditProfileModal}
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >

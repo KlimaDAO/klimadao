@@ -3,12 +3,14 @@ fragment ProvenanceRecordFragment on ProvenanceRecord {
   transactionType
   registrySerialNumbers
   token
+  tokenId
   sender
   receiver
   originalAmount
   remainingAmount
   createdAt
   updatedAt
+  transactionHash
 }
 
 fragment RetireFragment on Retire {
