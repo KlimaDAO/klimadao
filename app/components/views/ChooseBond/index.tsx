@@ -77,7 +77,7 @@ export const useBond = (bond: Bond) => {
       nbo: "NBO",
       mco2: "MCO2",
       bct: "BCT",
-      klima_usdc_lp: "KLIMA/USDC LP",
+      klima_usdc_lp: "KLIMA/USDC.e LP",
       klima_bct_lp: "KLIMA/BCT LP",
       klima_mco2_lp: "KLIMA/MCO2 LP",
       inverse_usdc: "KLIMA (inverse)",
@@ -102,7 +102,7 @@ export const useBond = (bond: Bond) => {
       }),
       klima_usdc_lp: t({
         id: "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity",
-        message: "KLIMA/USDC Sushiswap Liquidity",
+        message: "KLIMA/USDC.e Sushiswap Liquidity",
       }),
       klima_bct_lp: t({
         id: "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity",
@@ -114,7 +114,7 @@ export const useBond = (bond: Bond) => {
       }),
       inverse_usdc: t({
         id: "choose_bond.inverse_usdc",
-        message: "Provide KLIMA, receive USDC",
+        message: "Provide KLIMA, receive USDC.e",
       }),
       // future bond descriptions go here
     }[bond],
@@ -144,7 +144,7 @@ export const useBond = (bond: Bond) => {
       nbo: "NBO",
       mco2: "MCO2",
       bct: "BCT",
-      klima_usdc_lp: "USDC",
+      klima_usdc_lp: "USDC.e",
       klima_bct_lp: "BCT",
       klima_mco2_lp: "MCO2",
       inverse_usdc: "KLIMA",

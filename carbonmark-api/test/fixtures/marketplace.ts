@@ -43,7 +43,7 @@ const projectWithListing = aProject({
 const purchase: GetPurchaseByIdQuery["purchase"] = {
   amount: "1000000000000000000", // 1 tonne
   id: "0xfe2949e3644b88d2e00e5f84f6266c191dbb0379a18e00a18192116de7c5c779",
-  price: "5000000", // 5 USDC
+  price: "5000000", // 5 USDC.e
   listing: {
     id: "0x01",
     tokenAddress: "0x5555553cd6ff9a46c36661750fabcbb9ae2ab555",

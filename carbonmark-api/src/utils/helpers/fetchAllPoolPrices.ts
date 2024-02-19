@@ -6,9 +6,9 @@ import { GQL_SDK } from "../gqlSdk";
  */
 export type PoolPrice = {
   poolName: string; // 0x address of the liquidity pool
-  defaultPrice: string; // formatted number string e.g. "1.23456" for USDC price of 1 token
-  selectiveRedeemPrice: string; // formatted number string e.g. "1.23456" for USDC price of 1 token inc. redeeming fee calculation
-  selectiveRetirePrice: string; // formatted number string e.g. "1.23456" for USDC price of 1 token inc. retirement fee calculation
+  defaultPrice: string; // formatted number string e.g. "1.23456" for USDC.e price of 1 token
+  selectiveRedeemPrice: string; // formatted number string e.g. "1.23456" for USDC.e price of 1 token inc. redeeming fee calculation
+  selectiveRetirePrice: string; // formatted number string e.g. "1.23456" for USDC.e price of 1 token inc. retirement fee calculation
 };
 
 const calculateSelectivePrice = (

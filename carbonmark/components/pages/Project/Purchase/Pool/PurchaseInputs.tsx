@@ -168,11 +168,11 @@ export const PurchaseInputs: FC<Props> = (props) => {
           <div className={styles.paymentText}>
             <Text t="body3">
               <Trans>
-                Currently, Carbonmark only accepts Polygon USDC payments.{" "}
+                Currently, Carbonmark only accepts Polygon USDC.e payments.{" "}
                 <Anchor
                   href={`${urls.docs}/get-started/how-to-get-usdc-or-matic`}
                 >
-                  Learn how to acquire USDC on Polygon.
+                  Learn how to acquire USDC.e on Polygon.
                 </Anchor>
               </Trans>
             </Text>

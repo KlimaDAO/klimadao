@@ -46,7 +46,7 @@ export const PurchaseModel = Type.Object({
     }),
   }),
   price: Type.String({
-    description: "Total purchase price (USDC)",
+    description: "Total purchase price (USDC.e)",
     examples: ["5.0"],
   }),
 });

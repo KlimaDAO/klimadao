@@ -34,7 +34,7 @@ const getSignerNetwork = (
     : "polygon";
 };
 
-/** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
+/** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC or USDC.e */
 export const getCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;

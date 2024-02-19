@@ -33,7 +33,7 @@ export const BalancesCard: FC<Props> = (props) => {
       t({ id: "wsklima.unwrapped.label", message: "unwrapped" }) +
       ")",
     mco2: "MCO2",
-    usdc: "USDC",
+    usdc: "USDC.e",
     nct: "NCT",
     ubo: "UBO",
     nbo: "NBO",

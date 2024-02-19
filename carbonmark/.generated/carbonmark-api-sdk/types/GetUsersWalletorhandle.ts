@@ -51,7 +51,7 @@ export type GetUsersWalletorhandleQueryResponse = {
      */
     tokenAddress: string;
     /**
-     * @description USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000
+     * @description USDC.e price per tonne. Unformatted 6 decimal string. e.g. 1000000
      * @type string
      */
     singleUnitPrice: string;

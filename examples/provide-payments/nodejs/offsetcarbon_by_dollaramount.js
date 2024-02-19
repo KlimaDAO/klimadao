@@ -59,7 +59,7 @@ RETIREMENT_REQUEST_PARAMS.beneficiary_address = ECO_WALLET_ADDRESS;
 RETIREMENT_REQUEST_PARAMS.beneficiary_name = "Provide ECO Test User";
 RETIREMENT_REQUEST_PARAMS.retirement_message =
   "Provide ECO API - Node.js batch script example";
-RETIREMENT_REQUEST_PARAMS.retire_by = "source"; //dictates to the API to retire by amount in source token (e.g. USDC)
+RETIREMENT_REQUEST_PARAMS.retire_by = "source"; //dictates to the API to retire by amount in source token (e.g. USDC.e)
 
 var bearertoken = "Bearer " + ACCESS_TOKEN.accessToken;
 const RETIREMENT_REQUEST = await fetch(

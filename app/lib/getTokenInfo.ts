@@ -28,7 +28,7 @@ export const tokenInfo: TokenInfoMap = {
   bct: { key: "bct", icon: BCTIcon, label: "BCT" },
   nct: { key: "nct", icon: NCTIcon, label: "NCT" },
   mco2: { key: "mco2", icon: MCO2Icon, label: "MCO2" },
-  usdc: { key: "usdc", icon: USDCIcon, label: "USDC" },
+  usdc: { key: "usdc", icon: USDCIcon, label: "USDC.e" },
   klima: { key: "klima", icon: KLIMAIcon, label: "KLIMA" },
   sklima: { key: "sklima", icon: KLIMAIcon, label: "sKLIMA" },
   wsklima: { key: "wsklima", icon: KLIMAIcon, label: "wsKLIMA" },
@@ -36,7 +36,7 @@ export const tokenInfo: TokenInfoMap = {
   klimaUsdcLp: {
     key: "klimaUsdcLp",
     icon: KLIMAUSDCLPIcon,
-    label: "KLIMA/USDC LP",
+    label: "KLIMA/USDC.e LP",
   },
   klimaBctLp: {
     key: "klimaBctLp",

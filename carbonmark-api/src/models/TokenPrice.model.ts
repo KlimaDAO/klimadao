@@ -30,7 +30,7 @@ export const TokenPriceModel = Type.Object({
   }),
   // Pool price including any selection fees (for non-default projects), excluding 1% aggregator fee and sushiswap fees
   singleUnitPrice: Type.String({
-    description: "formatted USDC price for 1 tonne e.g. '0.123456'",
+    description: "formatted USDC.e price for 1 tonne e.g. '0.123456'",
   }),
 });
 

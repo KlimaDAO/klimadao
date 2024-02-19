@@ -111,7 +111,7 @@ export type Project = {
      */
     isPoolDefault: boolean;
     /**
-     * @description formatted USDC price for 1 tonne e.g. '0.123456'
+     * @description formatted USDC.e price for 1 tonne e.g. '0.123456'
      * @type string
      */
     singleUnitPrice: string;
@@ -151,7 +151,7 @@ export type Project = {
          */
         tokenAddress: string;
         /**
-         * @description USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000
+         * @description USDC.e price per tonne. Unformatted 6 decimal string. e.g. 1000000
          * @type string
          */
         singleUnitPrice: string;

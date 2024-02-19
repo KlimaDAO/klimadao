@@ -113,7 +113,7 @@ export const CreateListingForm: FC<Props> = (props) => {
           <InputField
             id="singleUnitPrice"
             inputProps={{
-              placeholder: t`USDC per tonne`,
+              placeholder: t`USDC.e per tonne`,
               type: "number",
               ...register("unitPrice", {
                 required: {

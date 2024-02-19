@@ -77,7 +77,7 @@ export type GetPurchasesIdQueryResponse = {
     };
   };
   /**
-   * @description Total purchase price (USDC)
+   * @description Total purchase price (USDC.e)
    * @type string
    */
   price: string;

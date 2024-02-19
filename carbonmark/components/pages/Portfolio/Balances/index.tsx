@@ -25,7 +25,7 @@ export const Balances: FC = () => {
     });
   };
 
-  // load USDC
+  // load USDC.e
   useEffect(() => {
     if (!address) return;
 

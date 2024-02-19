@@ -169,7 +169,7 @@ export const CarbonBalancesCard = (props: {
             </Text>
             <Text t="caption" color="lightest">
               <Trans>
-                You need to load your wallet with USDC, KLIMA or a carbon pool
+                You need to load your wallet with USDC.e, KLIMA or a carbon pool
                 token. Credit card support is coming soon.
               </Trans>
             </Text>

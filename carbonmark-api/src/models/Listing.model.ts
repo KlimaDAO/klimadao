@@ -22,7 +22,7 @@ export const ListingModel = Type.Object(
     }),
     singleUnitPrice: Type.String({
       description:
-        "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
+        "USDC.e price per tonne. Unformatted 6 decimal string. e.g. 1000000",
     }),
     //These attributes were taken from the ListingFragmentType
     totalAmountToSell: Type.String(),

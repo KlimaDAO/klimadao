@@ -373,7 +373,7 @@ export const RetireInputs: FC<Props> = (props) => {
                           {isConnected && address ? (
                             value.label
                           ) : (
-                            <Trans>Login to pay with USDC</Trans>
+                            <Trans>Login to pay with USDC.e</Trans>
                           )}
                         </>
                       )}
@@ -429,12 +429,12 @@ export const RetireInputs: FC<Props> = (props) => {
           <div className={styles.paymentText}>
             <Text t="body3">
               <Trans>
-                Currently, Carbonmark only accepts Polygon USDC or Credit Card
+                Currently, Carbonmark only accepts Polygon USDC.e or Credit Card
                 Payments.{" "}
                 <Anchor
                   href={`${carbonmarkUrls.docs}/get-started/how-to-get-usdc-or-matic`}
                 >
-                  Learn how to acquire USDC on Polygon.
+                  Learn how to acquire USDC.e on Polygon.
                 </Anchor>
               </Trans>
             </Text>

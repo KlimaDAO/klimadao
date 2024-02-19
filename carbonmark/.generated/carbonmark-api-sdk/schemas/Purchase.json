@@ -60,7 +60,7 @@
       "required": ["id", "tokenAddress", "seller", "project"]
     },
     "price": {
-      "description": "Total purchase price (USDC)",
+      "description": "Total purchase price (USDC.e)",
       "examples": ["5.0"],
       "type": "string"
     }

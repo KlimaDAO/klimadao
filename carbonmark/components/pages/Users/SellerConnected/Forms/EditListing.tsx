@@ -137,7 +137,7 @@ export const EditListing: FC<Props> = (props) => {
           </Text>
           <InputField
             id="price"
-            label={t`New Unit Price (USDC)`}
+            label={t`New Unit Price (USDC.e)`}
             inputProps={{
               placeholder: t({
                 id: "user.edit.form.edit.price.placeholder",
