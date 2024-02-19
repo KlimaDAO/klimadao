@@ -1,5 +1,3 @@
-import { NetworkParam } from "./models/NetworkParam.model";
-
 /** Adhere to JSONSchema spec by using a URI */
 export const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
 
@@ -97,35 +95,14 @@ export const REGISTRIES = {
     url: "https://www.carbonregistry.com",
     decimals: 0,
   },
+  Moss: {
+    id: "MOSS",
+    title: "MOSS",
+    url: "https://moss.earth",
+    decimals: 18,
+  },
 };
 
-export const ICR_API = (
-  network?: NetworkParam
-): { ICR_API_URL: string; ICR_API_KEY: string } => {
-  const ICR_CONFIG = {
-    polygon: {
-      url: "https://api.carbonregistry.com/v0",
-      apiKey: process.env.ICR_MAINNET_API_KEY,
-    },
-    mumbai: {
-      url: "https://gaia-api-dev.mojoflower.io/v0",
-      apiKey: process.env.ICR_MUMBAI_API_KEY,
-    },
-  };
-
-  const VALIDATED_NETWORK: NetworkParam =
-    network === "polygon" || network === "mumbai" ? network : "polygon";
-
-  const API_CONFIG = ICR_CONFIG["polygon"];
-
-  if (!API_CONFIG.apiKey) {
-    throw new Error(
-      `ICR api key is undefined for network: ${VALIDATED_NETWORK}`
-    );
-  }
-
-  return { ICR_API_URL: API_CONFIG.url, ICR_API_KEY: API_CONFIG.apiKey };
-};
 /** Message shared with frontend, to be combined with user's nonce and signed by private key. */
 export const SIGN_PROFILE_MESSAGE =
   process.env.SIGN_PROFILE_MESSAGE || "VerifyCarbonmarkProfileEdit";
