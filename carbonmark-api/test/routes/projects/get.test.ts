@@ -24,7 +24,6 @@ import {
   mockCms,
   mockDigitalCarbonArgs,
   mockDigitalCarbonProjects,
-  mockICRFilters,
   mockMarketplaceArgs,
   mockMarketplaceProjects,
   mockTokens,
@@ -91,7 +90,7 @@ describe("GET /projects", () => {
   // Setup default mocks
   beforeEach(async () => {
     mockMarketplaceArgs();
-    mockICRFilters();
+
     mockDigitalCarbonArgs();
     mockTokens();
     mockCms({
@@ -298,10 +297,6 @@ describe("GET /projects", () => {
   describe("Supply filtering", () => {
     let projects: Project[];
 
-    beforeEach(() => {
-      mockICRFilters();
-    });
-
     test("No filtering when supply greater than 0 (DigitalCarbon)", async () => {
       mockMarketplaceProjects([]);
       //Return two projects with supply
@@ -374,10 +369,6 @@ describe("GET /projects", () => {
   describe("Duplicate filtering", () => {
     const duplicateMarketplaceProject = cloneDeep(mockMarketplaceProject);
     const duplicateDigitalCarbonProject = cloneDeep(mockDigitalCarbonProject);
-
-    beforeEach(() => {
-      mockICRFilters();
-    });
 
     test("Marketplace projects", async () => {
       mockMarketplaceProjects([

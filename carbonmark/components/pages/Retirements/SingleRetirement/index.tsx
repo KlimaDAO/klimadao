@@ -125,10 +125,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           id: "retirement.head.metaTitle",
           message: `${retiree} retired ${formattedAmount} Tonnes of carbon`,
         })}
-        metaDescription={t({
-          id: "retirement.head.metaDescription",
-          message: "Transparent, on-chain offsets powered by Carbonmark.",
-        })}
+        metaDescription={t`Transparent, on-chain offsets powered by Carbonmark.`}
         canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />

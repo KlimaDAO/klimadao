@@ -102,12 +102,7 @@ export const PurchaseForm: FC<Props> = (props) => {
       setInputValues(values);
     } catch (e) {
       console.error(e);
-      setErrorMessage(
-        t({
-          id: "purchase.loading.allowance.error",
-          message: "something went wrong loading the allowance",
-        })
-      );
+      setErrorMessage(t`something went wrong loading the allowance`);
     } finally {
       setIsLoadingAllowance(false);
     }

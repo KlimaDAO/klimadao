@@ -39,10 +39,7 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
         <Text t="h4" className={styles.beneficiaryAddress}>
           {carbonmarkUser?.handle ||
             props.beneficiary ||
-            t({
-              id: "retirement.single.beneficiary.placeholder",
-              message: "No beneficiary name provided",
-            })}
+            t`No beneficiary name provided`}
         </Text>
         <A
           className={styles.profileLink}

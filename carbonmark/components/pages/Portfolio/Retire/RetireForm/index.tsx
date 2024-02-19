@@ -275,10 +275,7 @@ export const RetireForm = (props: RetireFormProps) => {
                       max: retirement.maxQuantity.toString(),
                       onChange: (event) =>
                         handleRetirementChange("quantity", event),
-                      placeholder: t({
-                        id: "offset.offset_quantity",
-                        message: "Enter quantity to offset",
-                      }),
+                      placeholder: t`Enter quantity to offset`,
                       value: retirement.quantity,
                     }}
                     label={"quantity"}
@@ -306,10 +303,7 @@ export const RetireForm = (props: RetireFormProps) => {
                         type: "text",
                         onChange: (event) =>
                           handleRetirementChange("beneficiaryName", event),
-                        placeholder: t({
-                          id: "offset.retirement_beneficiary_name",
-                          message: "Beneficiary Name",
-                        }),
+                        placeholder: t`Beneficiary Name`,
                         value: retirement.beneficiaryName,
                       }}
                       label={"beneficiaryName"}
@@ -323,9 +317,7 @@ export const RetireForm = (props: RetireFormProps) => {
                         type: "text",
                         onChange: (event) =>
                           handleRetirementChange("beneficiaryAddress", event),
-                        placeholder: t({
-                          message: "Beneficiary wallet address (optional)",
-                        }),
+                        placeholder: t`Beneficiary wallet address (optional)`,
                         value: retirement.beneficiaryAddress,
                       }}
                       label={"beneficiaryAddress"}
@@ -363,10 +355,7 @@ export const RetireForm = (props: RetireFormProps) => {
                     rows: 6,
                     onChange: (event) =>
                       handleRetirementChange("retirementMessage", event),
-                    placeholder: t({
-                      id: "offset.retirement_retirement_message",
-                      message: "Retirement Message",
-                    }),
+                    placeholder: t`Retirement Message`,
                     value: retirement.retirementMessage,
                   }}
                   label={""}
@@ -396,10 +385,7 @@ export const RetireForm = (props: RetireFormProps) => {
               <div className={styles.buttonRow}>
                 <div className={styles.buttonContainer}>
                   <CarbonmarkButton
-                    label={t({
-                      id: "retire.submit_button",
-                      message: "Retire Carbon",
-                    })}
+                    label={t`Retire Carbon`}
                     onClick={() => setRetireModalOpen(true)}
                     className={styles.submitButton}
                     disabled={!readyForRetireModal}
