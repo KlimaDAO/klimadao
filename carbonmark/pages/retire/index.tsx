@@ -30,11 +30,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         defaultProjects,
         fixedThemeName: "theme-light",
       },
+      revalidate: 10,
     };
   } catch (e) {
     console.error("Failed to generate Retire Page", e);
     return {
       notFound: true,
+      revalidate: 10,
     };
   }
 };
