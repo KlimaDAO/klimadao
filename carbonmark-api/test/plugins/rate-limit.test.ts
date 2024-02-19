@@ -3,10 +3,7 @@ import nock from "nock";
 import { GRAPH_URLS } from "../../src/app.constants";
 import { LIMIT } from "../../src/plugins/rate-limit";
 import { build } from "../helper";
-import {
-  mockICRFilters,
-  mockMarketplaceArgs,
-} from "../routes/projects/get.test.mocks";
+import { mockMarketplaceArgs } from "../routes/projects/get.test.mocks";
 import { mock_fetch } from "../test.utils";
 
 describe("Rate Limiter", () => {
@@ -26,7 +23,6 @@ describe("Rate Limiter", () => {
         .persist(true);
 
       mockMarketplaceArgs();
-      mockICRFilters();
 
       //Because we are throwing errors in mock fetch we need to catch
       try {

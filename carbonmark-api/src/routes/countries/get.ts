@@ -12,7 +12,7 @@ const handler = (
     const network = request.query.network ?? "polygon";
     const sdk = gql_sdk(network);
     try {
-      response = await getAllCountries(sdk, fastify, network);
+      response = await getAllCountries(sdk, fastify);
     } catch (error) {
       //Return bad gateway and pass the error
       console.error(error);
