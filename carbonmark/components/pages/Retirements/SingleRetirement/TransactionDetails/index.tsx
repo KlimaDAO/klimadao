@@ -57,7 +57,7 @@ export const TransactionDetails: FC<Props> = (props) => (
               <Text t="button" color="lightest" uppercase>
                 <Trans id="retirement.single.project.title">Project:</Trans>
               </Text>
-              <Text>{props.retirement.retire.credit.project.id}</Text>
+              <Text>{props.retirement.retire.credit.project.projectID}</Text>
             </div>
           )}
           {props.retirement?.retire?.credit?.project && (

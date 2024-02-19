@@ -97,7 +97,7 @@ export const ProjectDetails: FC<Props> = (props) => {
             href={
               isMossOffset
                 ? "https://mco2token.moss.earth/"
-                : `${carbonmarkUrls.projects}/${props.retirement.retire?.credit.project.id}-${props.retirement.retire?.credit.vintage}`
+                : `${carbonmarkUrls.projects}/${props.retirement.retire?.credit.project.projectID}-${props.retirement.retire?.credit.vintage}`
             }
           >
             {t`Learn More`}
