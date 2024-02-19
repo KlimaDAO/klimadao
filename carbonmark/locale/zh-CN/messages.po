@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-16 17:54+0000\n"
+"POT-Creation-Date: 2024-02-19 06:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -356,7 +356,7 @@ msgstr "关闭"
 
 #: components/Footer/index.tsx:32
 msgid "Code of Ethics"
-msgstr ""
+msgstr "道德准则"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
@@ -2438,7 +2438,7 @@ msgstr "t"
 
 #: components/Activities/Activity.tsx:119
 msgid "to"
-msgstr ""
+msgstr "到/去"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:40
 msgid "tonnes"
@@ -2517,7 +2517,7 @@ msgstr "2. 提交"
 
 #: components/Activities/Activities.constants.ts:10
 msgid "updated expiration"
-msgstr ""
+msgstr "更新已到期"
 
 #: components/Activities/Activities.constants.ts:8
 msgid "updated price"
