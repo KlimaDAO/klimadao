@@ -1,6 +1,7 @@
 export * from "./getActivities";
 export * from "./getCategories";
 export * from "./getCountries";
+export * from "./getListingsId";
 export * from "./getProjects";
 export * from "./getProjectsId";
 export * from "./getProjectsIdActivity";

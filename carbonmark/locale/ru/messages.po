@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-17 15:37+0000\n"
+"POT-Creation-Date: 2024-01-22 09:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -249,6 +249,10 @@ msgstr "Купить"
 msgid "Buy or retire carbon"
 msgstr "Купить или вывести углерод"
 
+#: components/pages/Projects/Banners/BankTransfer.tsx:80
+msgid "Can we remind you about this new feature later?"
+msgstr ""
+
 #: components/ExitModal/index.tsx:44
 msgid "Cancel"
 msgstr "Отмена"
@@ -305,7 +309,7 @@ msgstr "измененить язык"
 msgid "Choose a project and quantity"
 msgstr "Выберите проект и количество"
 
-#: components/pages/Projects/index.tsx:72
+#: components/pages/Projects/index.tsx:73
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Выбирайте из более чем 20 миллионов проверенных цифровых углеродных кредитов от сотен проектов - покупайте, продавайте или выводите углерод на пенсию прямо сейчас"
 
@@ -481,6 +485,10 @@ msgstr "Отображаемое имя"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
 msgid "Display name is required"
 msgstr "Укажите отображаемое имя."
+
+#: components/pages/Projects/Banners/BankTransfer.tsx:100
+msgid "Don't Remind Me"
+msgstr "Больше не напоминать"
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
 msgid "Download PDF"
@@ -691,6 +699,7 @@ msgstr ""
 msgid "Latest First"
 msgstr "Последние Первые"
 
+#: components/pages/Projects/Banners/BankTransfer.tsx:92
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:101
 msgid "Learn More"
 msgstr "Узнать больше"
@@ -702,6 +711,10 @@ msgstr "Подробнее"
 #: components/pages/Home/index.tsx:494
 msgid "Learn more about Carbonmark's role in improving the Digital Carbon Market - and the Voluntary Carbon Market as a whole."
 msgstr "Узнайте больше о роли Carbonmark в совершенствовании цифрового углеродного рынка - и добровольного углеродного рынка в целом."
+
+#: components/pages/Projects/Banners/BankTransfer.tsx:87
+msgid "Let's Go!"
+msgstr ""
 
 #: components/pages/Home/index.tsx:399
 msgid "List and sell for free"
@@ -749,7 +762,7 @@ msgstr "Войдите, чтобы создать профиль Carbonmark"
 msgid "Log out"
 msgstr "Выйти"
 
-#: components/Layout/index.tsx:95
+#: components/Layout/index.tsx:96
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "Авторизоваться"
@@ -763,8 +776,8 @@ msgstr "Войдите для оплаты USDC"
 msgid "Marketplace"
 msgstr "Торговая площадка"
 
-#: components/pages/Projects/index.tsx:70
 #: components/pages/Projects/index.tsx:71
+#: components/pages/Projects/index.tsx:72
 msgid "Marketplace | Carbonmark"
 msgstr "Торговая площадка | Carbonmark"
 
@@ -779,6 +792,10 @@ msgstr "Методология"
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:52
 msgid "Moss"
 msgstr "Moss "
+
+#: components/FeatureBanner/index.tsx:33
+msgid "NEW FEATURE:"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "New Quantity"
@@ -826,7 +843,7 @@ msgstr "Не найдено объявлений для этого проект�
 msgid "No project description found"
 msgstr "Описание проекта не найдено"
 
-#: components/pages/Projects/index.tsx:86
+#: components/pages/Projects/index.tsx:92
 msgid "No projects found with current filters"
 msgstr "С текущими фильтрами проектов не найдено"
 
@@ -874,6 +891,10 @@ msgstr "Более 20 млн. верифицированных цифровых 
 #: components/pages/Retire/Activity/Table.tsx:46
 msgid "PROJECT"
 msgstr "ПРОЕКТ"
+
+#: components/pages/Projects/Banners/BankTransfer.tsx:74
+msgid "Pay via Bank Transfer / Wire"
+msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:89
 #: components/pages/Project/PayWithBank/index.tsx:90
@@ -1006,6 +1027,10 @@ msgstr "Сумма закупки (тонн):"
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
 msgid "Purchase more Carbon"
 msgstr "Купите больше углерода"
+
+#: components/pages/Projects/Banners/BankTransfer.tsx:79
+msgid "Purchase retirements from any project on Carbonmark and pay via bank transfer."
+msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:84
 msgid "Purchase successful"
@@ -1297,6 +1322,10 @@ msgstr "Отправить"
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:85
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr "Успех! Ваше новое объявление появится через несколько секунд на странице вашего <0>профиля.</0> ."
+
+#: components/pages/Projects/Banners/BankTransfer.tsx:98
+msgid "Sure"
+msgstr ""
 
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"
@@ -1789,15 +1818,15 @@ msgstr "купил у"
 msgid "buy"
 msgstr "Купить"
 
-#: components/Layout/index.tsx:86
+#: components/Layout/index.tsx:87
 msgid "connectModal.torus"
 msgstr "соцсети или электронная почта"
 
-#: components/Layout/index.tsx:90
+#: components/Layout/index.tsx:91
 msgid "connectModal.wallet"
 msgstr "подключите кошелек"
 
-#: components/Layout/index.tsx:96
+#: components/Layout/index.tsx:97
 msgid "connect_modal.connecting"
 msgstr "Подключение..."
 
@@ -1813,7 +1842,7 @@ msgstr "Пользователь отказался от подключения.
 msgid "connect_modal.error_processing"
 msgstr "Запрос уже обрабатывается. Пожалуйста, откройте кошелек и завершите запрос."
 
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:101
 msgid "connect_modal.error_title"
 msgstr "Ошибка подключения"
 

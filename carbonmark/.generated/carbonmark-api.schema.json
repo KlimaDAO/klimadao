@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 5.0.2** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v5.0.2.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 5.2.1** of the Carbonmark REST API.\n\nUse this API to view assets, prices, supply, activity and more.\n\nLooking for the latest version? Visit our [GitHub Releases page](https://github.com/KlimaDAO/klimadao/releases).\n\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v5.2.1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "5.0.2"
+    "version": "5.2.1"
   },
   "components": {
     "schemas": {
@@ -444,6 +444,10 @@
                         "country",
                         "methodology"
                       ]
+                    },
+                    "symbol": {
+                      "description": "Symbol of the token",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -850,6 +854,10 @@
               "country",
               "methodology"
             ]
+          },
+          "symbol": {
+            "description": "Symbol of the token",
+            "type": "string"
           }
         },
         "required": [
@@ -1265,6 +1273,10 @@
                     "country",
                     "methodology"
                   ]
+                },
+                "symbol": {
+                  "description": "Symbol of the token",
+                  "type": "string"
                 }
               },
               "required": [
@@ -2536,6 +2548,10 @@
                                     "country",
                                     "methodology"
                                   ]
+                                },
+                                "symbol": {
+                                  "description": "Symbol of the token",
+                                  "type": "string"
                                 }
                               },
                               "required": [
@@ -2921,6 +2937,244 @@
                     "2020"
                   ]
                 ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/listings/{id}": {
+      "get": {
+        "summary": "Listing",
+        "tags": [
+          "Listing"
+        ],
+        "description": "Get a listing by its identifier",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xde5c717958a9a80f2dee8ebcc6f411a8d860ac7b0042e45487f4ad2afaf46d5a",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "The listing id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Marketplace listing with per-tonne price and project info.",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "Unique listing identifier",
+                      "type": "string"
+                    },
+                    "leftToSell": {
+                      "description": "Remaining supply. Unformatted 18 decimal string",
+                      "type": "string"
+                    },
+                    "tokenAddress": {
+                      "description": "Address of the asset being sold",
+                      "type": "string"
+                    },
+                    "singleUnitPrice": {
+                      "description": "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
+                      "type": "string"
+                    },
+                    "totalAmountToSell": {
+                      "type": "string"
+                    },
+                    "active": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "deleted": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "batches": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "batchPrices": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "createdAt": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "updatedAt": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "seller": {
+                      "type": "object",
+                      "properties": {
+                        "handle": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "username": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "description": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "profileImgUrl": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "expiration": {
+                      "description": "Unix Timestamp (seconds) when the listing expires.",
+                      "type": "number"
+                    },
+                    "minFillAmount": {
+                      "description": "Minimum quantity for purchase transaction to succeed.",
+                      "type": "string"
+                    },
+                    "project": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "methodology": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "key",
+                        "vintage",
+                        "name",
+                        "category",
+                        "country",
+                        "methodology"
+                      ]
+                    },
+                    "symbol": {
+                      "description": "Symbol of the token",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "leftToSell",
+                    "tokenAddress",
+                    "singleUnitPrice",
+                    "totalAmountToSell",
+                    "seller",
+                    "expiration",
+                    "minFillAmount",
+                    "project"
+                  ]
+                }
               }
             }
           }
@@ -3462,6 +3716,10 @@
                                   "country",
                                   "methodology"
                                 ]
+                              },
+                              "symbol": {
+                                "description": "Symbol of the token",
+                                "type": "string"
                               }
                             },
                             "required": [
@@ -3966,6 +4224,10 @@
                               "country",
                               "methodology"
                             ]
+                          },
+                          "symbol": {
+                            "description": "Symbol of the token",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -4529,7 +4791,7 @@
   },
   "servers": [
     {
-      "url": "https://v5.0.2.api.carbonmark.com"
+      "url": "https://v5.2.1.api.carbonmark.com"
     }
   ],
   "externalDocs": {

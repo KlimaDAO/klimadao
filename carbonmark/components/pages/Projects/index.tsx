@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect } from "react";
 import { SWRConfig } from "swr";
+import { BankTransferBanner } from "./Banners/BankTransfer";
 import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
 import LazyLoadingMapView from "./MapView/LazyLoadingMapView";
@@ -71,7 +72,12 @@ const Page: NextPage = () => {
         mediaTitle={t`Marketplace | Carbonmark`}
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
-      <Layout fullContentWidth={isMap} fullContentHeight={isMap}>
+      <Layout
+        customCss={styles.featureBanner}
+        fullContentWidth={isMap}
+        fullContentHeight={isMap}
+      >
+        {!isMap && <BankTransferBanner />}
         <ProjectsController
           projects={projects}
           isLoading={isLoading}
