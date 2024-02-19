@@ -1,4 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { CreditId } from "../../../../../src/utils/CreditId";
 import { gql_sdk } from "../../../../utils/gqlSdk";
 import { formatRecord } from "../../../../utils/helpers/records.utils";
 import { Params, Querystring } from "../get.schema";
@@ -15,19 +16,30 @@ const handler = () =>
   ) {
     const sdk = gql_sdk(request.query.network);
 
-    // Finds the retirement using polygon-bridged-carbon. We can bypass this when we will have the trasaction hash in the Retire model of polygon-digital-carbon
-    const retirementRecord = (
+    const retirementRecord =
       await sdk.digital_carbon.getProvenanceRecordsByHash({
         hash: request.params.id,
-      })
-    ).provenanceRecords.at(0);
-
-    if (retirementRecord == null) {
+      });
+    if (retirementRecord.retires.length === 0 || !retirementRecord.retires[0]) {
       return reply.notFound();
     }
+
+    if (!retirementRecord.retires[0].provenance) {
+      return reply.notFound();
+    }
+
+    const [registry] = CreditId.splitProjectId(
+      retirementRecord.retires[0].credit.project.id
+    );
+
+    const lastRecord = { ...retirementRecord.retires[0].provenance };
+
+    const priorRecords =
+      retirementRecord.retires[0].provenance?.priorRecords ?? [];
+
     const records = [
-      formatRecord(retirementRecord),
-      ...retirementRecord.priorRecords.map(formatRecord),
+      formatRecord(lastRecord, registry),
+      ...priorRecords.map((record) => formatRecord(record, registry)),
     ];
     return reply.send(JSON.stringify(records));
   };
