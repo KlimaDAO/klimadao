@@ -72,17 +72,23 @@ export const cardContent = css`
 `;
 
 export const projectsList = css`
-  grid-column: full;
   justify-self: center;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: ${FIVE_CARD_WIDTH};
+  margin-top: 1rem;
 `;
 
 export const viewContainer = css`
   grid-column: full;
+`;
+
+export const marketplace = css`
+  display: flex;
+  width: 100% !important;
+  max-width: 100% !important;
+  flex-direction: column;
 `;
 
 export const featureBanner = css`
@@ -100,7 +106,7 @@ export const featureBanner = css`
   ${breakpoints.desktop} {
     &:has(.feature-banner.initial-banner),
     &:has(.feature-banner):not(.initial-banner) {
-      padding: 16rem 2.4rem;
+      padding: 16rem 2.4rem 4rem;
     }
   }
 `;

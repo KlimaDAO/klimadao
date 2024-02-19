@@ -8,7 +8,7 @@ export const cardsList = css`
   justify-content: center;
 
   ${breakpoints.large} {
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 `;
 

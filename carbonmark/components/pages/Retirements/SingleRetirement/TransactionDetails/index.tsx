@@ -37,10 +37,7 @@ export const TransactionDetails: FC<Props> = (props) => (
         </Text>
         <Text>
           {props.retirement.retire.beneficiaryAddress.id ||
-            t({
-              id: "retirement.single.beneficiary.address.placeholder",
-              message: "No beneficiary address available",
-            })}
+            t`No beneficiary address available`}
         </Text>
       </div>
       <div className={styles.textGroup}>
@@ -50,11 +47,7 @@ export const TransactionDetails: FC<Props> = (props) => (
           </Trans>
         </Text>
         <Text className={styles.transactionId}>
-          {props.retirement.retire?.hash ||
-            t({
-              id: "retirement.single.transaction_id.placeholder",
-              message: "No transaction id available",
-            })}
+          {props.retirement.retire?.hash || t`No transaction id available`}
         </Text>
       </div>
       <div className={styles.gridLayout}>

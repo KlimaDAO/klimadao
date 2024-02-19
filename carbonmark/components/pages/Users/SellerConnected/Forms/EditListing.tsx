@@ -105,17 +105,11 @@ export const EditListing: FC<Props> = (props) => {
               ...register("newQuantity", {
                 required: {
                   value: true,
-                  message: t({
-                    id: "user.listing.edit.input.quantity.required",
-                    message: "Quantity is required",
-                  }),
+                  message: t`Quantity is required`,
                 },
                 min: {
                   value: 1,
-                  message: t({
-                    id: "user.listing.edit.input.quantity.minimum",
-                    message: "The minimum quantity to sell is 1 tonne",
-                  }),
+                  message: t`The minimum quantity to sell is 1 tonne`,
                 },
                 max: {
                   value: Number(totalAvailableQuantity),
@@ -139,27 +133,18 @@ export const EditListing: FC<Props> = (props) => {
             id="price"
             label={t`New Unit Price (USDC)`}
             inputProps={{
-              placeholder: t({
-                id: "user.edit.form.edit.price.placeholder",
-                message: "USDC per ton",
-              }),
+              placeholder: t`USDC per ton`,
               type: "number",
               ...register("newSingleUnitPrice", {
                 required: {
                   value: true,
-                  message: t({
-                    id: "user.listing.form.input.singleUnitPrice.required",
-                    message: "Single Price is required",
-                  }),
+                  message: t`Single Price is required`,
                 },
                 min: {
                   value: MINIMUM_TONNE_PRICE,
-                  message: t({
-                    id: "user.listing.form.input.singleUnitPrice.minimum",
-                    message: `The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
-                      locale
-                    )}`,
-                  }),
+                  message: t`The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
+                    locale
+                  )}`,
                 },
                 pattern: {
                   value: /^\d+(\.\d{1,6})?$/,

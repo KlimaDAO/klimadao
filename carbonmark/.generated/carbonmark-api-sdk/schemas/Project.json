@@ -211,7 +211,8 @@
               "symbol": {
                 "description": "Symbol of the token",
                 "type": "string"
-              }
+              },
+              "tokenId": { "description": "ID of the token", "type": "string" }
             },
             "required": [
               "id",
@@ -222,7 +223,8 @@
               "seller",
               "expiration",
               "minFillAmount",
-              "project"
+              "project",
+              "tokenId"
             ]
           }
         },

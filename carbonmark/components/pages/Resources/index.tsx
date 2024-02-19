@@ -6,6 +6,7 @@ import { Navigation } from "components/shared/Navigation";
 import { Document, FeaturedPost } from "lib/cms/queries";
 import { NextPage } from "next";
 import { ResourcesList } from "./ResourcesList";
+import * as styles from "./styles";
 
 export interface Props {
   documents: Document[];
@@ -14,15 +15,13 @@ export interface Props {
 
 export const Resources: NextPage<Props> = (props) => {
   return (
-    <GridContainer>
+    <GridContainer className={styles.pageWrapper}>
       <PageHead
         title={t`Resources | Carbonmark`}
         mediaTitle={t`Resources | Carbonmark`}
         metaDescription={t`Find the latest updates, guides, and resources to help you leverage the Carbonmark platform.`}
       />
-
       <Navigation activePage="Resources" showThemeToggle={false} />
-
       {/* hide featured articles for now */}
       {/* {!!props.featuredArticles?.length && (
         <Section variant="gray" className={styles.sectionHead}>

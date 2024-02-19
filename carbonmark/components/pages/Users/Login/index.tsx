@@ -2,7 +2,6 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Activities } from "components/Activities";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { Stats } from "components/Stats";
@@ -35,9 +34,6 @@ export const Login: NextPage = () => {
       />
 
       <Layout>
-        <div className={styles.loginControls}>
-          <LoginButton />
-        </div>
         <div className={styles.loginContent}>
           <Col>
             <LoginCard isLoading={isRedirecting} onLogin={toggleModal} />
