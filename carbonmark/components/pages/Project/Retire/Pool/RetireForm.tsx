@@ -76,8 +76,7 @@ export const RetireForm: FC<Props> = (props) => {
   const [costs, setCosts] = useState("");
 
   const { product } = props;
-  const defaultPaymentMethod: CarbonmarkPaymentMethod =
-    props.project.registry.startsWith("ICR") ? "usdc" : "fiat";
+  const defaultPaymentMethod: CarbonmarkPaymentMethod = "fiat";
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -339,11 +338,6 @@ export const RetireForm: FC<Props> = (props) => {
     }
   }, [retirementBlockNumber]);
 
-  const permittedPaymentMethods: Array<CarbonmarkPaymentMethod> =
-    props.project.registry.startsWith("ICR")
-      ? CarbonmarkPaymentMethods.filter((method) => method !== "fiat")
-      : Array.from(CarbonmarkPaymentMethods);
-
   return (
     <FormProvider {...methods}>
       <TwoColLayout>
@@ -362,7 +356,7 @@ export const RetireForm: FC<Props> = (props) => {
                 address={address}
                 fiatAmountError={fiatAmountError}
                 approvalValue={getApprovalValue()}
-                enabledPaymentMethods={permittedPaymentMethods}
+                enabledPaymentMethods={Array.from(CarbonmarkPaymentMethods)}
               />
               <SubmitButton
                 onSubmit={onContinue}
