@@ -4,6 +4,7 @@ import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Asset } from "lib/types/carbonmark.types";
+import { validateIcrAmount } from "lib/validateIcrAmount";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -14,6 +15,7 @@ export type FormValues = {
   amount: string;
   unitPrice: string;
   tokenAddress: string;
+  tokenId?: string;
 };
 
 type Props = {
@@ -24,6 +26,7 @@ type Props = {
 
 const defaultValues: FormValues = {
   tokenAddress: "",
+  tokenId: "",
   amount: "",
   unitPrice: "",
 };
@@ -39,7 +42,9 @@ export const CreateListingForm: FC<Props> = (props) => {
         tokenAddress:
           props.values?.tokenAddress.toLowerCase() ||
           props.assets[0].token.id.toLowerCase(),
+        tokenId: props.values?.tokenId || props.assets[0].token.tokenId,
       },
+      mode: "onChange",
     });
 
   const selectedAddress = watch("tokenAddress");
@@ -61,6 +66,7 @@ export const CreateListingForm: FC<Props> = (props) => {
         <ProjectTokenDropDown
           onTokenSelect={(asset) => {
             setValue("tokenAddress", asset.token.id.toLowerCase());
+            setValue("tokenId", asset.token.tokenId);
           }}
           assets={props.assets}
           selectedAsset={selectedAsset}
@@ -76,21 +82,19 @@ export const CreateListingForm: FC<Props> = (props) => {
               ...register("amount", {
                 required: {
                   value: true,
-                  message: t({
-                    id: "user.listing.form.input.totalAmountToSell.required",
-                    message: "Total Amount to Sell is required",
-                  }),
+                  message: t`Total Amount to Sell is required`,
                 },
                 min: {
                   value: 1,
-                  message: t({
-                    id: "user.listing.form.input.totalAmountToSell.minimum",
-                    message: "The minimum amount to sell is 1 Tonne",
-                  }),
+                  message: t`The minimum amount to sell is 1 Tonne`,
                 },
                 max: {
                   value: Number(selectedAsset.amount),
                   message: t`Balance exceeded`,
+                },
+                validate: {
+                  isWholeNumber: (value) =>
+                    validateIcrAmount(value, selectedAsset.id),
                 },
               }),
             }}
@@ -117,12 +121,9 @@ export const CreateListingForm: FC<Props> = (props) => {
                 },
                 min: {
                   value: 0.1,
-                  message: t({
-                    id: "user.listing.form.input.singleUnitPrice.minimum",
-                    message: `The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
-                      locale
-                    )}`,
-                  }),
+                  message: t`The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
+                    locale
+                  )}`,
                 },
               }),
             }}

@@ -28,7 +28,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v5.2.1.api.carbonmark.com";
+export const API_PROD_URL = "https://v6.2.0.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
@@ -77,19 +77,9 @@ export const DEFAULT_MIN_FILL_AMOUNT = 1;
 export const DEFAULT_MIN_LISTING_QUANTITY = 1;
 
 export const getConnectErrorStrings = () => ({
-  default: t({
-    message: "We had some trouble connecting. Please try again.",
-    id: "connect_modal.error_message_default",
-  }),
-  rejected: t({
-    message: "User refused connection.",
-    id: "connect_modal.error_message_refused",
-  }),
-  alreadyProcessing: t({
-    message:
-      "Request already processing. Please open your wallet and complete the request.",
-    id: "connect_modal.error_processing",
-  }),
+  default: t`We had some trouble connecting. Please try again.`,
+  rejected: t`User refused connection.`,
+  alreadyProcessing: t`Request already processing. Please open your wallet and complete the request.`,
 });
 
 export const config = {
@@ -152,6 +142,7 @@ export const urls = {
     "/blog/carbonmark-now-accepts-bank-transfer-as-a-payment-method",
   projects: "/projects",
   users: "/users",
+  retirements: "/retirements",
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",
@@ -164,3 +155,7 @@ export const urls = {
 export const DEFAULT_NETWORK = config.networks[ENVIRONMENT] as
   | "mainnet"
   | "testnet";
+
+/** Message shared with backend, to be combined with user's nonce and signed by private key. */
+export const SIGN_PROFILE_MESSAGE =
+  process.env.SIGN_PROFILE_MESSAGE || "VerifyCarbonmarkProfileEdit";

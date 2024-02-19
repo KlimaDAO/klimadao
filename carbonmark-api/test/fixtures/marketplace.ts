@@ -15,6 +15,20 @@ const listing = aListing({
   leftToSell: "100000000000000000000",
   updatedAt: "1234",
   createdAt: "1234",
+  project: {
+    id: "VCS-191-2008",
+    key: "VCS-191",
+    vintage: "2008",
+    category: { id: "Renewable Energy" },
+    country: { id: "United States" },
+    methodology: "VM0006",
+    name: "Hydroelectric Fixture",
+    activities: [],
+    listings: [],
+    registry: "VCS",
+    updatedAt: "1234",
+    projectAddress: "0x1234",
+  },
 });
 
 const projectWithListing = aProject({

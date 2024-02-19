@@ -4,7 +4,6 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t, Trans } from "@lingui/macro";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
-import { getOffsetMainCategory } from "lib/offsetGetter";
 import { StaticImageData } from "next/image";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -38,10 +37,7 @@ export const TransactionDetails: FC<Props> = (props) => (
         </Text>
         <Text>
           {props.retirement.retire.beneficiaryAddress.id ||
-            t({
-              id: "retirement.single.beneficiary.address.placeholder",
-              message: "No beneficiary address available",
-            })}
+            t`No beneficiary address available`}
         </Text>
       </div>
       <div className={styles.textGroup}>
@@ -50,12 +46,8 @@ export const TransactionDetails: FC<Props> = (props) => (
             Transaction ID
           </Trans>
         </Text>
-        <Text>
-          {props.retirement.retire?.hash ||
-            t({
-              id: "retirement.single.transaction_id.placeholder",
-              message: "No transaction id available",
-            })}
+        <Text className={styles.transactionId}>
+          {props.retirement.retire?.hash || t`No transaction id available`}
         </Text>
       </div>
       <div className={styles.gridLayout}>
@@ -73,7 +65,7 @@ export const TransactionDetails: FC<Props> = (props) => (
               <Text t="button" color="lightest" uppercase>
                 <Trans id="retirement.single.type.title">Type:</Trans>
               </Text>
-              <Text>{getOffsetMainCategory(props.retirement.retire)}</Text>
+              <Text>{props.retirement.retire.credit.project.category}</Text>
             </div>
           )}
           {props.retirement?.retire.credit?.project?.methodologies && (

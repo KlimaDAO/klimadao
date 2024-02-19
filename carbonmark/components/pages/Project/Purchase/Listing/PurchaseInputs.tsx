@@ -9,6 +9,7 @@ import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
 import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark.types";
+import { validateIcrAmount } from "lib/validateIcrAmount";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -58,10 +59,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
           <InputField
             id="amount"
             inputProps={{
-              placeholder: t({
-                id: "purchase.input.amount.placeholder",
-                message: "Tonnes",
-              }),
+              placeholder: t`Tonnes`,
               type: "number",
               min: 1,
               max: Number(props.listing.leftToSell),
@@ -69,21 +67,19 @@ export const PurchaseInputs: FC<Props> = (props) => {
                 onChange: () => clearErrors("price"),
                 required: {
                   value: true,
-                  message: t({
-                    id: "purchase.input.amount.required",
-                    message: "Amount is required",
-                  }),
+                  message: t`Amount is required`,
                 },
                 min: {
                   value: 1,
-                  message: t({
-                    id: "purchase.input.amount.minimum",
-                    message: "The minimum amount to buy is 1 Tonne",
-                  }),
+                  message: t`The minimum amount to buy is 1 Tonne`,
                 },
                 max: {
                   value: Number(props.listing.leftToSell),
                   message: t`Available supply exceeded`,
+                },
+                validate: {
+                  isWholeNumber: (value) =>
+                    validateIcrAmount(value, props.listing.project.id),
                 },
               }),
             }}
@@ -161,17 +157,11 @@ export const PurchaseInputs: FC<Props> = (props) => {
           ...register("price", {
             required: {
               value: true,
-              message: t({
-                id: "purchase.input.price.required",
-                message: "Price is required",
-              }),
+              message: t`Price is required`,
             },
             max: {
               value: Number(props.balance || "0"),
-              message: t({
-                id: "purchase.input.price.maxAmount",
-                message: "You exceeded your available amount of tokens",
-              }),
+              message: t`You exceeded your available amount of tokens`,
             },
           }),
         }}

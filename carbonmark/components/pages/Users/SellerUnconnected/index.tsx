@@ -2,7 +2,6 @@ import { User } from ".generated/carbonmark-api-sdk/types";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { LoginButton } from "components/LoginButton";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { createProjectPurchaseLink } from "lib/createUrls";
@@ -38,9 +37,6 @@ export const SellerUnconnected: FC<Props> = (props) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.userControlsRow}>
-        <LoginButton className="loginButton" />
-      </div>
       <div className={styles.fullWidth}>
         <ProfileHeader
           carbonmarkUser={props.user}
@@ -64,10 +60,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
                 {!address && !isConnected && (
                   <ButtonPrimary
                     className={styles.buyButton}
-                    label={t({
-                      id: "shared.connect_to_buy",
-                      message: "Sign In / Connect To Buy",
-                    })}
+                    label={t`Sign In / Connect To Buy`}
                     onClick={toggleModal}
                   />
                 )}

@@ -32,7 +32,9 @@ const views = {
 const Page: NextPage = () => {
   const router = useRouter();
   const { isMobile } = useResponsive();
+
   const { params, updateQueryParams } = useProjectsParams();
+
   const { data: projects = [], isLoading, isValidating } = useFetchProjects();
 
   const sortFn = get(PROJECT_SORT_FNS, params.sort) ?? identity;
@@ -73,7 +75,7 @@ const Page: NextPage = () => {
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout
-        customCss={styles.featureBanner}
+        customCss={cx(styles.featureBanner, styles.marketplace)}
         fullContentWidth={isMap}
         fullContentHeight={isMap}
       >

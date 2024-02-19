@@ -58,6 +58,11 @@ export enum Account_OrderBy {
   id = 'id'
 }
 
+export enum Aggregation_Interval {
+  day = 'day',
+  hour = 'hour'
+}
+
 export type BlockChangedFilter = {
   number_gte: Scalars['Int'];
 };

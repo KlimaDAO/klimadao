@@ -11,14 +11,6 @@ export const container = css`
   }
 `;
 
-export const loginButton = css`
-  display: none;
-  ${breakpoints.desktop} {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-`;
-
 export const backToProject = css`
   white-space: nowrap;
   display: flex;

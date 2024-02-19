@@ -1,5 +1,3 @@
-import { NetworkParam } from "./models/NetworkParam.model";
-
 /** Adhere to JSONSchema spec by using a URI */
 export const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
 
@@ -12,7 +10,7 @@ const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
  * This is also the case for SANITY_URLS
  */
 const POLYGON_URLS = {
-  marketplace: `${GRAPH_API_ROOT_ID}/QmXrzcwG5b31hE1nDzT5NCAiHfM9stwMLqs8uk9enJiyPf`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmT2YkGwTqvek54VsGkfurGLrGGKgkwcK6TLotvkjpF4Mz`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
@@ -22,7 +20,7 @@ const POLYGON_URLS = {
 const MUMBAI_URLS = {
   ...POLYGON_URLS,
   digitalCarbon: `${GRAPH_API_ROOT}/psparacino/digital-carbon`,
-  marketplace: `${GRAPH_API_ROOT_ID}/QmUUnZTeRnfsJsQaTwLeiHmAQ5xvtk2jBW7VeP3AEW5bnv`,
+  marketplace: `${GRAPH_API_ROOT_ID}/QmfHDvcgSLfgQVKbWnHEZw8ZCdxuvk3si1KQa66rBzexZp`,
   icr: `${GRAPH_API_ROOT}/skjaldbaka17/carbon-registry-test`,
 };
 
@@ -48,6 +46,7 @@ export const TOKEN_ADDRESSES = {
     NBO_POOL: "0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48",
     NTC_POOL: "0xd838290e877e0188a4a44700463419ed96c16107",
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+    MOSS_POOL: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   },
   production: {
     LP_UBO_POOL: "0x5400a05b8b45eaf9105315b4f2e31f806ab706de",
@@ -58,11 +57,21 @@ export const TOKEN_ADDRESSES = {
     NBO_POOL: "0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48",
     NTC_POOL: "0xd838290e877e0188a4a44700463419ed96c16107",
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+    MOSS_POOL: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   },
 };
 
 export const RPC_URLS = {
   polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
+};
+
+export type RegistryKey = keyof typeof REGISTRIES;
+
+export type RegistryId = (typeof REGISTRIES)[keyof typeof REGISTRIES]["id"];
+
+export const IS_REGISTRY_ID = (id: string): id is RegistryId => {
+  const REGISTRY_IDS = Object.values(REGISTRIES).map((r) => r.id);
+  return REGISTRY_IDS.includes(id);
 };
 
 /** Definitions of available registries */
@@ -72,43 +81,31 @@ export const REGISTRIES = {
     title: "Verra",
     url: "https://registry.verra.org",
     api: "https://registry.verra.org/uiapi",
+    decimals: 18,
   },
   GoldStandard: {
     id: "GS",
     title: "Gold Standard",
     url: "https://registry.goldstandard.org",
+    decimals: 18,
   },
   ICR: {
     id: "ICR",
     title: "International Carbon Registry",
     url: "https://www.carbonregistry.com",
+    decimals: 0,
+  },
+  Moss: {
+    id: "MOSS",
+    title: "MOSS",
+    url: "https://moss.earth",
+    decimals: 18,
   },
 };
 
-export const ICR_API = (
-  network?: NetworkParam
-): { ICR_API_URL: string; ICR_API_KEY: string } => {
-  const ICR_CONFIG = {
-    polygon: {
-      url: "https://api.carbonregistry.com/v0",
-      apiKey: process.env.ICR_MAINNET_API_KEY,
-    },
-    mumbai: {
-      url: "https://gaia-api-dev.mojoflower.io/v0",
-      apiKey: process.env.ICR_MUMBAI_API_KEY,
-    },
-  };
+/** Message shared with frontend, to be combined with user's nonce and signed by private key. */
+export const SIGN_PROFILE_MESSAGE =
+  process.env.SIGN_PROFILE_MESSAGE || "VerifyCarbonmarkProfileEdit";
 
-  const VALIDATED_NETWORK: NetworkParam =
-    network === "polygon" || network === "mumbai" ? network : "polygon";
-
-  const API_CONFIG = ICR_CONFIG["polygon"];
-
-  if (!API_CONFIG.apiKey) {
-    throw new Error(
-      `ICR api key is undefined for network: ${VALIDATED_NETWORK}`
-    );
-  }
-
-  return { ICR_API_URL: API_CONFIG.url, ICR_API_KEY: API_CONFIG.apiKey };
-};
+/** Ethereum 0x address */
+export const VALID_ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;

@@ -1,5 +1,6 @@
 import { Text } from "@klimadao/lib/components";
 import { PoolToken, poolTokens, urls } from "@klimadao/lib/constants";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -10,14 +11,15 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { InputField, TextareaField } from "components/shared/Form";
 import { ethers, providers } from "ethers";
+import { getPolygonScanBaseUrl } from "lib/createUrls";
 import { formatToDecimals } from "lib/formatNumbers";
-import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type {
   AssetForRetirement,
   CarbonmarkToken,
+  DigitalCarbonCredit,
 } from "lib/types/carbonmark.types";
 import { CategoryName, User } from "lib/types/carbonmark.types";
 import { getUnlistedBalance } from "lib/utils/listings.utils";
@@ -44,8 +46,8 @@ interface RetireFormProps {
 export const RetireForm = (props: RetireFormProps) => {
   const router = useRouter();
   const { address, asset, provider } = props;
+  const { networkLabel } = useWeb3();
   const { tokenName, tokenSymbol, credit } = asset;
-
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [isApproved, setIsApproved] = useState<boolean>(false);
@@ -59,6 +61,9 @@ export const RetireForm = (props: RetireFormProps) => {
   const [readyForRetireModal, setReadyForRetireModal] =
     useState<boolean>(false);
   const [processingRetirement, setProcessingRetirement] = useState(false);
+  const [quantityError, setQuantityError] = useState<string | undefined>(
+    undefined
+  );
 
   const unlistedBalance = formatToDecimals(
     getUnlistedBalance(props.asset, props.user?.listings || [])
@@ -94,6 +99,8 @@ export const RetireForm = (props: RetireFormProps) => {
 
     if (parts[0].toUpperCase() === "C3T") {
       return "c3";
+    } else if (parts[0].toUpperCase() === "ICR") {
+      return "icr";
     }
     return parts[0].toLowerCase();
   };
@@ -101,18 +108,29 @@ export const RetireForm = (props: RetireFormProps) => {
   const carbonTokenInfo =
     carbonmarkTokenInfoMap[getTokenPrefix(tokenSymbol) as CarbonmarkToken];
 
+  // temporary until digital-carbon subgraph credit ids for ICR projects follow registry-vintage format
+  const constructProjectId = (credit: DigitalCarbonCredit): string => {
+    if (credit.project.registry.startsWith("ICR")) {
+      return credit.project.registry + "-" + credit.vintage;
+    } else {
+      return credit.project.projectID;
+    }
+  };
+
   const updateStatus = (status: TxnStatus, message?: string) => {
     setStatus({ statusType: status, message: message });
   };
 
   useEffect(() => {
     async function getApproval() {
-      if (provider && credit.id) {
+      if (provider && credit.tokenAddress) {
         await hasApproval({
+          tokenStandard: credit.tokenStandard,
           quantity: retirement.quantity,
           address,
           provider,
-          tokenAddress: credit.id,
+          tokenAddress: credit.tokenAddress,
+          network: networkLabel,
         }).then((isApproved) => {
           setIsApproved(isApproved);
         });
@@ -121,6 +139,16 @@ export const RetireForm = (props: RetireFormProps) => {
     getApproval();
   }, [retirement.quantity, provider]);
 
+  const validateQuantity = (value: string) => {
+    if (props.asset.credit.project.registry.startsWith("ICR")) {
+      return (
+        Number.isInteger(parseFloat(value)) ||
+        t`ICR credits can only be retired in whole tonnes`
+      );
+    }
+    return true;
+  };
+
   const handleRetirementChange = (
     field: string,
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -128,6 +156,10 @@ export const RetireForm = (props: RetireFormProps) => {
     const newValue = event.target.value;
 
     if (field === "quantity") {
+      const validationResponse = validateQuantity(newValue);
+      setQuantityError(
+        typeof validationResponse === "string" ? validationResponse : undefined
+      );
       if (newValue === "") {
         setRetirement((prevState) => ({ ...prevState, quantity: newValue }));
       } else {
@@ -176,11 +208,7 @@ export const RetireForm = (props: RetireFormProps) => {
           <div className={styles.offsetCard}>
             <div className={styles.projectHeader}>
               <ProjectImage
-                category={
-                  getCategoryFromMethodology(
-                    credit.project.methodologies as CategoryName
-                  ) || "Other"
-                }
+                category={credit.project.category as CategoryName}
               />
               <div className={styles.imageGradient} />
               <Text t="h3" className={styles.projectHeaderText}>
@@ -188,14 +216,12 @@ export const RetireForm = (props: RetireFormProps) => {
               </Text>
               <div className={styles.tags}>
                 <Text t="h5" className={styles.projectIDText}>
-                  {credit.project.projectID}
+                  {constructProjectId(credit)}
                 </Text>
                 <Vintage vintage={credit.vintage.toString()} />
                 <Category
                   category={
-                    getCategoryFromMethodology(
-                      credit.project.methodologies as CategoryName
-                    ) || "Other"
+                    (credit.project.category as CategoryName) || "Other"
                   }
                 />
                 <Registry registry={credit.project.registry} />
@@ -249,15 +275,13 @@ export const RetireForm = (props: RetireFormProps) => {
                       max: retirement.maxQuantity.toString(),
                       onChange: (event) =>
                         handleRetirementChange("quantity", event),
-                      placeholder: t({
-                        id: "offset.offset_quantity",
-                        message: "Enter quantity to offset",
-                      }),
+                      placeholder: t`Enter quantity to offset`,
                       value: retirement.quantity,
                     }}
                     label={"quantity"}
                     hideLabel
                     required
+                    errorMessage={quantityError}
                   />
                 </div>
               </div>
@@ -279,10 +303,7 @@ export const RetireForm = (props: RetireFormProps) => {
                         type: "text",
                         onChange: (event) =>
                           handleRetirementChange("beneficiaryName", event),
-                        placeholder: t({
-                          id: "offset.retirement_beneficiary_name",
-                          message: "Beneficiary Name",
-                        }),
+                        placeholder: t`Beneficiary Name`,
                         value: retirement.beneficiaryName,
                       }}
                       label={"beneficiaryName"}
@@ -296,9 +317,7 @@ export const RetireForm = (props: RetireFormProps) => {
                         type: "text",
                         onChange: (event) =>
                           handleRetirementChange("beneficiaryAddress", event),
-                        placeholder: t({
-                          message: "Beneficiary wallet address (optional)",
-                        }),
+                        placeholder: t`Beneficiary wallet address (optional)`,
                         value: retirement.beneficiaryAddress,
                       }}
                       label={"beneficiaryAddress"}
@@ -336,10 +355,7 @@ export const RetireForm = (props: RetireFormProps) => {
                     rows: 6,
                     onChange: (event) =>
                       handleRetirementChange("retirementMessage", event),
-                    placeholder: t({
-                      id: "offset.retirement_retirement_message",
-                      message: "Retirement Message",
-                    }),
+                    placeholder: t`Retirement Message`,
                     value: retirement.retirementMessage,
                   }}
                   label={""}
@@ -369,10 +385,7 @@ export const RetireForm = (props: RetireFormProps) => {
               <div className={styles.buttonRow}>
                 <div className={styles.buttonContainer}>
                   <CarbonmarkButton
-                    label={t({
-                      id: "retire.submit_button",
-                      message: "Retire Carbon",
-                    })}
+                    label={t`Retire Carbon`}
                     onClick={() => setRetireModalOpen(true)}
                     className={styles.submitButton}
                     disabled={!readyForRetireModal}
@@ -414,7 +427,9 @@ export const RetireForm = (props: RetireFormProps) => {
             provider,
             retirementQuantity: retirement.quantity,
             updateStatus: updateStatus,
-            tokenAddress: credit.id,
+            tokenAddress: credit.tokenAddress,
+            tokenStandard: credit.tokenStandard,
+            network: networkLabel,
           })
         }
         onSubmit={() =>
@@ -428,7 +443,10 @@ export const RetireForm = (props: RetireFormProps) => {
             onStatus: updateStatus,
             retirementToken: tokenName,
             tokenSymbol: tokenSymbol,
-            tokenAddress: credit.id,
+            tokenAddress: credit.tokenAddress,
+            tokenId: credit.tokenId || "",
+            tokenStandard: credit.tokenStandard,
+            network: networkLabel,
             setRetireModalOpen,
             setRetirementTransactionHash,
             setRetirementTotals,
@@ -451,7 +469,9 @@ export const RetireForm = (props: RetireFormProps) => {
             retirementUrl={`${urls.retirements_carbonmark}/${
               retirement.beneficiaryAddress || props.address
             }/${retirementTotals}`}
-            polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
+            polygonScanUrl={`${getPolygonScanBaseUrl(
+              networkLabel
+            )}/tx/${retirementTransactionHash}`}
             showModal={!!retirementTransactionHash}
             user={props.address}
             retirementIndex={retirementTotals}

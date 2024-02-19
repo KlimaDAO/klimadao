@@ -8,10 +8,17 @@ export const cardsList = css`
   justify-content: center;
 
   ${breakpoints.large} {
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 `;
 
 export const buttonEmptyState = css`
   align-self: flex-start;
+`;
+
+export const emptyText = css`
+  text-align: center;
+  ${breakpoints.desktop} {
+    text-align: inherit;
+  }
 `;

@@ -3,7 +3,6 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { createCompositeAsset } from "lib/actions";
@@ -60,14 +59,11 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   useEffect(() => {
     if (isConnected && !isLoading && carbonmarkUser) {
       function createRetirementAsset() {
-        // unlikely, but this allows for duplicate projects
-        const targetCredit = Array.isArray(props.project)
-          ? props.project[0]
-          : undefined;
+        const targetCredit = props.project;
 
         if (targetCredit && carbonmarkUser?.assets) {
           const asset = carbonmarkUser?.assets.filter((asset) => {
-            return asset.token.id == targetCredit.id;
+            return asset.token.id == targetCredit.tokenAddress;
           })[0];
 
           if (!asset) {
@@ -95,9 +91,6 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
       />
       <Layout>
         <div className={styles.container}>
-          <div className={styles.portfolioControls}>
-            <LoginButton />
-          </div>
           {!isConnectedUser && (
             <LoginCard isLoading={isLoading} onLogin={toggleModal} />
           )}

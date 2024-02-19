@@ -15,7 +15,7 @@ export default function RetirementsByChainListCard(props: CardProps) {
   return (
     <ChartCard
       {...props}
-      title={t`Detailed list of KlimaDAO retirements`}
+      title={t`Detailed list of retirements`}
       isColumnCard={true}
       chart={chart}
     />

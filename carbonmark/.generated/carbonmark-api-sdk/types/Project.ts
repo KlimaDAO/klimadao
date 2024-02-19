@@ -226,6 +226,11 @@ export type Project = {
          * @type string | undefined
          */
         symbol?: string;
+        /**
+         * @description ID of the token
+         * @type string
+         */
+        tokenId: string;
       }[]
     | null;
   /**
@@ -245,4 +250,8 @@ export type Project = {
    * @type boolean
    */
   hasSupply: boolean;
+  /**
+   * @type string | undefined
+   */
+  tokenId?: string;
 };

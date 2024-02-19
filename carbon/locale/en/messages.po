@@ -230,11 +230,14 @@ msgid "Date"
 msgstr "Date"
 
 #: components/cards/retirementTrends/RetirementsByBeneficiaryListCard/index.tsx:18
-#: components/cards/retirementTrends/RetirementsByChainListCard/index.tsx:18
 #: components/cards/retirementTrends/RetirementsByPoolListCard/index.tsx:18
 #: components/cards/retirementTrends/RetirementsByTokenListCard/index.tsx:18
 msgid "Detailed list of KlimaDAO retirements"
 msgstr "Detailed list of KlimaDAO retirements"
+
+#: components/cards/retirementTrends/RetirementsByChainListCard/index.tsx:18
+msgid "Detailed list of retirements"
+msgstr "Detailed list of retirements"
 
 #: components/cards/overview/TokensPriceCard/index.tsx:33
 msgid "Digital carbon pricing"
@@ -351,10 +354,6 @@ msgstr ""
 #: app/[locale]/layout.tsx:44
 msgid "Klima Data"
 msgstr "Klima Data"
-
-#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:37
-msgid "KlimaDAO retirements by chain"
-msgstr "KlimaDAO retirements by chain"
 
 #: components/cards/retirementTrends/RetirementsByPoolBarCard/index.tsx:20
 #: components/cards/retirementTrends/RetirementsByPoolSummaryCard/index.tsx:19
@@ -633,6 +632,7 @@ msgid "Retirement trends"
 msgstr "Retirement trends"
 
 #: app/[locale]/retirement-trends/retirement-trends-by-chain/page.tsx:9
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:37
 msgid "Retirements by chain"
 msgstr "Retirements by chain"
 

@@ -2,7 +2,6 @@ import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
@@ -27,6 +26,7 @@ export const Portfolio: NextPage = () => {
     initializing,
     networkLabel,
   } = useWeb3();
+
   const {
     data: carbonmarkUser,
     isLoading,
@@ -80,9 +80,6 @@ export const Portfolio: NextPage = () => {
 
       <Layout>
         <div className={styles.container}>
-          <div className={styles.portfolioControls}>
-            <LoginButton />
-          </div>
           <TwoColLayout>
             <Col>
               {!isConnectedUser && !initializing && (
@@ -110,7 +107,11 @@ export const Portfolio: NextPage = () => {
             </Col>
 
             <Col>
-              <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />
+              <PortfolioSidebar
+                address={address}
+                user={carbonmarkUser}
+                isPending={isPending}
+              />
             </Col>
           </TwoColLayout>
         </div>

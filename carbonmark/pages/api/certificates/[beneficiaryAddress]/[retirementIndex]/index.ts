@@ -48,9 +48,15 @@ export default async function handler(
 
     // convert amount to human readable format
     retirement.retire.amount = formatUnits(retirement.retire.amount, 18);
+    // temporary fix until ICR digital-carbon id matches registry-registryProjectId format
+    if (retirement.retire.credit.project.registry === "ICR") {
+      retirement.retire.credit.project.projectID =
+        retirement.retire.credit.project.id;
+    }
 
     const certificateParams = {
       retirement,
+      beneficiaryAddress,
       retirementIndex,
       retirementUrl: `${urls.retirements_carbonmark}/${retirement.retire.beneficiaryAddress}/${retirementIndex}`,
       retiredToken: getRetirementTokenByAddress(

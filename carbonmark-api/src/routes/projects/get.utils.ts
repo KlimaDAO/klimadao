@@ -45,13 +45,12 @@ import { formatListings } from "../../utils/marketplace.utils";
 
 export const getDefaultQueryArgs = async (
   sdk: GQL_SDK,
-  fastify: FastifyInstance,
-  network: NetworkParam
+  fastify: FastifyInstance
 ) => {
   const [category, country, vintage] = await Promise.all([
     getAllCategories(sdk, fastify).then(map(extract("id"))),
-    getAllCountries(sdk, fastify, network).then(map(extract("id"))),
-    getAllVintages(sdk, fastify, network),
+    getAllCountries(sdk, fastify).then(map(extract("id"))),
+    getAllVintages(sdk, fastify),
   ]);
 
   return {
@@ -96,6 +95,28 @@ export type CMSDataMap = Map<ProjectIdentifier, CarbonProject>;
 
 const getActivePoolPrices = (prices: TokenPriceT[], minSupply?: number) => {
   return prices.filter((price) => Number(price.supply) > (minSupply || 0));
+};
+
+// Filter out video links as CM currently does not support
+
+type CarbonProjectImage = {
+  caption: string;
+  url: string;
+};
+
+type CarbonProjectExternalMedia = {
+  caption: string;
+  url: string;
+};
+
+type MediaItem = CarbonProjectImage | CarbonProjectExternalMedia;
+
+const filterVideo = (media: MediaItem) => {
+  return (
+    !media.url.includes("youtube") &&
+    !media.url.includes("youtu.be") &&
+    !media.url.includes("vimeo")
+  );
 };
 
 /**
@@ -194,10 +215,19 @@ export const buildProjectEntry = (props: {
     long_description: c?.longDescription,
     url: c?.url,
     images:
-      c?.images?.map((image) => ({
-        caption: image?.asset?.altText || "",
-        url: image?.asset?.url || "",
-      })) ?? [],
+      c?.images
+        ?.map((image) => ({
+          caption: image?.asset?.altText || "",
+          url: image?.asset?.url || "",
+        }))
+        .filter(filterVideo) ||
+      c?.externalMedia
+        ?.map((image) => ({
+          caption: image?.description || "",
+          url: image?.uri || "",
+        }))
+        .filter(filterVideo) ||
+      [],
     location: toGeoJSON(c?.geolocation),
     // Pool specific data
     prices: activePoolPrices,

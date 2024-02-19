@@ -1,5 +1,5 @@
 import { omit } from "lodash";
-import { UserProfile } from "../src/utils/helpers/users.utils";
+import { UserProfile } from "../src/models/UserProfile.model";
 
 export const DEV_URL = "http://localhost:3003";
 export const MOCK_ADDRESS = "0x0123456789012345678901234567890123456789";
@@ -59,7 +59,8 @@ export const MOCK_USER_PROFILE: UserProfile = {
   handle: "SomeHandle",
   updatedAt: new Date("2023-11-11T15:05:08Z").getTime(),
   username: "someusername",
-  profileImgUrl: null,
+  profileImgUrl: "https://example.com/image.jpg",
+  nonce: 1,
 };
 
 export const EXPECTED_USER_RESPONSE = {

@@ -40,6 +40,7 @@ export enum ActivityType {
   DeletedListing = 'DeletedListing',
   Purchase = 'Purchase',
   Sold = 'Sold',
+  UpdatedExpiration = 'UpdatedExpiration',
   UpdatedPrice = 'UpdatedPrice',
   UpdatedQuantity = 'UpdatedQuantity'
 }
@@ -236,6 +237,8 @@ export enum Activity_OrderBy {
   listing__minFillAmount = 'listing__minFillAmount',
   listing__singleUnitPrice = 'listing__singleUnitPrice',
   listing__tokenAddress = 'listing__tokenAddress',
+  listing__tokenId = 'listing__tokenId',
+  listing__tokenStandard = 'listing__tokenStandard',
   listing__tokenSymbol = 'listing__tokenSymbol',
   listing__totalAmountToSell = 'listing__totalAmountToSell',
   listing__updatedAt = 'listing__updatedAt',
@@ -256,6 +259,11 @@ export enum Activity_OrderBy {
   timeStamp = 'timeStamp',
   user = 'user',
   user__id = 'user__id'
+}
+
+export enum Aggregation_Interval {
+  day = 'day',
+  hour = 'hour'
 }
 
 export type BlockChangedFilter = {
@@ -356,6 +364,8 @@ export type Listing = {
   seller: User;
   singleUnitPrice: Scalars['BigInt'];
   tokenAddress: Scalars['Bytes'];
+  tokenId: Scalars['BigInt'];
+  tokenStandard: TokenStandard;
   tokenSymbol: Scalars['String'];
   totalAmountToSell: Scalars['BigInt'];
   updatedAt: Maybe<Scalars['BigInt']>;
@@ -496,6 +506,18 @@ export type Listing_Filter = {
   tokenAddress_not: InputMaybe<Scalars['Bytes']>;
   tokenAddress_not_contains: InputMaybe<Scalars['Bytes']>;
   tokenAddress_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  tokenId: InputMaybe<Scalars['BigInt']>;
+  tokenId_gt: InputMaybe<Scalars['BigInt']>;
+  tokenId_gte: InputMaybe<Scalars['BigInt']>;
+  tokenId_in: InputMaybe<Array<Scalars['BigInt']>>;
+  tokenId_lt: InputMaybe<Scalars['BigInt']>;
+  tokenId_lte: InputMaybe<Scalars['BigInt']>;
+  tokenId_not: InputMaybe<Scalars['BigInt']>;
+  tokenId_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  tokenStandard: InputMaybe<TokenStandard>;
+  tokenStandard_in: InputMaybe<Array<TokenStandard>>;
+  tokenStandard_not: InputMaybe<TokenStandard>;
+  tokenStandard_not_in: InputMaybe<Array<TokenStandard>>;
   tokenSymbol: InputMaybe<Scalars['String']>;
   tokenSymbol_contains: InputMaybe<Scalars['String']>;
   tokenSymbol_contains_nocase: InputMaybe<Scalars['String']>;
@@ -558,6 +580,8 @@ export enum Listing_OrderBy {
   seller__id = 'seller__id',
   singleUnitPrice = 'singleUnitPrice',
   tokenAddress = 'tokenAddress',
+  tokenId = 'tokenId',
+  tokenStandard = 'tokenStandard',
   tokenSymbol = 'tokenSymbol',
   totalAmountToSell = 'totalAmountToSell',
   updatedAt = 'updatedAt'
@@ -891,6 +915,8 @@ export enum Purchase_OrderBy {
   listing__minFillAmount = 'listing__minFillAmount',
   listing__singleUnitPrice = 'listing__singleUnitPrice',
   listing__tokenAddress = 'listing__tokenAddress',
+  listing__tokenId = 'listing__tokenId',
+  listing__tokenStandard = 'listing__tokenStandard',
   listing__tokenSymbol = 'listing__tokenSymbol',
   listing__totalAmountToSell = 'listing__totalAmountToSell',
   listing__updatedAt = 'listing__updatedAt',
@@ -1202,6 +1228,11 @@ export type SubscriptionUsersArgs = {
   where: InputMaybe<User_Filter>;
 };
 
+export enum TokenStandard {
+  ERC20 = 'ERC20',
+  ERC1155 = 'ERC1155'
+}
+
 export type User = {
   __typename?: 'User';
   activities: Maybe<Array<Activity>>;
@@ -1298,7 +1329,7 @@ export enum _SubgraphErrorPolicy_ {
   deny = 'deny'
 }
 
-export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } };
+export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, tokenId: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } };
 
 export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } };
 
@@ -1338,7 +1369,7 @@ export type GetListingByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetListingByIdQuery = { __typename?: 'Query', listing: { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } | null };
+export type GetListingByIdQuery = { __typename?: 'Query', listing: { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, tokenId: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } | null };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['String']>;
@@ -1346,7 +1377,7 @@ export type GetUserByWalletQueryVariables = Exact<{
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }>, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> };
+export type GetUserByWalletQuery = { __typename?: 'Query', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, tokenId: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }>, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> };
 
 export type GetProjectsQueryVariables = Exact<{
   search: InputMaybe<Scalars['String']>;
@@ -1357,7 +1388,7 @@ export type GetProjectsQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }> };
+export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, tokenId: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }> };
 
 export type GetProjectByIdQueryVariables = Exact<{
   projectId: Scalars['ID'];
@@ -1365,7 +1396,7 @@ export type GetProjectByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } | null };
+export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, tokenId: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } | null };
 
 export type GetActivitiesByProjectIdQueryVariables = Exact<{
   projectId: InputMaybe<Array<Scalars['ID']> | Scalars['ID']>;
@@ -1416,6 +1447,7 @@ export const ListingFragmentFragmentDoc = gql`
   }
   expiration
   minFillAmount
+  tokenId
 }
     ${ProjectFragmentFragmentDoc}`;
 export const ActivityFragmentFragmentDoc = gql`

@@ -9,9 +9,7 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
-import type { NetworkParam } from "../../../src/models/NetworkParam.model";
 import { TOKEN_ADDRESSES } from "../../app.constants";
-import { fetchIcrFilters } from "../ICR/icr.utils";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
 import { CarbonProject } from "./cms.utils";
@@ -25,8 +23,7 @@ const ENV = (process.env.VERCEL_ENV ?? "development") as
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
 export async function getAllVintages(
   sdk: GQL_SDK,
-  fastify: FastifyInstance,
-  network: NetworkParam
+  fastify: FastifyInstance
 ): Promise<string[]> {
   const uniqueValues = new Set<string>();
   const cacheKey = `vintages`;
@@ -36,22 +33,14 @@ export async function getAllVintages(
     return cachedResult;
   }
 
-  const [
-    { projects },
-    { carbonProjects: digitalCarbonProjects },
-    { IcrVintages },
-  ] = await Promise.all([
-    sdk.marketplace.getVintages(),
-    sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
-    fetchIcrFilters(network),
-  ]);
+  const [{ projects }, { carbonProjects: digitalCarbonProjects }] =
+    await Promise.all([
+      sdk.marketplace.getVintages(),
+      sdk.digital_carbon.getDigitalCarbonProjectsVintages(),
+    ]);
 
   /** Handle invalid responses */
-  if (
-    !isArray(projects) ||
-    !isArray(digitalCarbonProjects) ||
-    !isArray(IcrVintages)
-  ) {
+  if (!isArray(projects) || !isArray(digitalCarbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
 
@@ -62,7 +51,6 @@ export async function getAllVintages(
         uniqueValues.add(credit.vintage.toString());
       }
     });
-    IcrVintages.forEach((item: string) => uniqueValues.add(item));
   });
 
   const result = Array.from(uniqueValues).sort().filter(notEmptyOrNil);
@@ -129,11 +117,7 @@ export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
   return result;
 }
 
-export async function getAllCountries(
-  sdk: GQL_SDK,
-  fastify: FastifyInstance,
-  network: NetworkParam
-) {
+export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   const cacheKey = `countries`;
 
   const cachedResult = await fastify.lcache?.get<Country[]>(cacheKey)?.payload;
@@ -145,19 +129,13 @@ export async function getAllCountries(
   const [
     { countries: marketplaceCountries },
     { carbonProjects: digitalCarbonProjects },
-    { countryNames: icrCountries },
   ] = await Promise.all([
     sdk.marketplace.getCountries(),
     sdk.digital_carbon.getDigitalCarbonProjectsCountries(),
-    fetchIcrFilters(network),
   ]);
 
   /** Handle invalid responses */
-  if (
-    !isArray(marketplaceCountries) ||
-    !isArray(digitalCarbonProjects) ||
-    !isArray(icrCountries)
-  ) {
+  if (!isArray(marketplaceCountries) || !isArray(digitalCarbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
 
@@ -172,7 +150,6 @@ export async function getAllCountries(
   const result: Country[] = fn([
     marketplaceCountries?.map(extract("id")),
     digitalCarbonProjects.map(extract("country")),
-    icrCountries,
   ]);
 
   await fastify.lcache?.set(cacheKey, { payload: result });
@@ -300,4 +277,18 @@ export function asResponse<ReplyType>(
     .status(200)
     .header("Content-Type", "application/json; charset=utf-8")
     .send(payload);
+}
+
+/**
+ * Creates a GQL query fragment from an object
+ * @param obj_from_json
+ * @returns
+ */
+export function gqlWhereFragment<T>(obj: T) {
+  // See https://stackoverflow.com/questions/11233498/json-stringify-without-quotes-on-properties
+  // JSON stringify
+  let json = JSON.stringify(obj);
+  // Remove double quotes around attribute names
+  json.replace(/\\"/g, "\uFFFF"); // U+ FFFF
+  return (json = json.replace(/"([^"]+)":/g, "$1:").replace(/\uFFFF/g, '\\"'));
 }

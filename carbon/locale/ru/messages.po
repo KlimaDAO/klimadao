@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-01-22 09:34+0000\n"
+"POT-Creation-Date: 2024-02-19 15:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -224,10 +224,13 @@ msgid "Date"
 msgstr ""
 
 #: components/cards/retirementTrends/RetirementsByBeneficiaryListCard/index.tsx:18
-#: components/cards/retirementTrends/RetirementsByChainListCard/index.tsx:18
 #: components/cards/retirementTrends/RetirementsByPoolListCard/index.tsx:18
 #: components/cards/retirementTrends/RetirementsByTokenListCard/index.tsx:18
 msgid "Detailed list of KlimaDAO retirements"
+msgstr ""
+
+#: components/cards/retirementTrends/RetirementsByChainListCard/index.tsx:18
+msgid "Detailed list of retirements"
 msgstr ""
 
 #: components/cards/overview/TokensPriceCard/index.tsx:33
@@ -336,10 +339,6 @@ msgstr ""
 
 #: app/[locale]/layout.tsx:44
 msgid "Klima Data"
-msgstr ""
-
-#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:37
-msgid "KlimaDAO retirements by chain"
 msgstr ""
 
 #: components/cards/retirementTrends/RetirementsByPoolBarCard/index.tsx:20
@@ -619,6 +618,7 @@ msgid "Retirement trends"
 msgstr ""
 
 #: app/[locale]/retirement-trends/retirement-trends-by-chain/page.tsx:9
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:37
 msgid "Retirements by chain"
 msgstr ""
 

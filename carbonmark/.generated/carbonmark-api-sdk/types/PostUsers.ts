@@ -21,8 +21,14 @@ export type PostUsersMutationRequest = {
    * @type string
    */
   wallet: string;
-  description?: string | null;
-  profileImgUrl?: string | null;
+  /**
+   * @type string | undefined
+   */
+  description?: string;
+  /**
+   * @type string | undefined
+   */
+  profileImgUrl?: string;
 };
 
 /**
@@ -32,17 +38,11 @@ export type PostUsersMutationResponse = {
   /**
    * @type string
    */
-  handle: string;
+  address: string;
   /**
-   * @type string
+   * @type number
    */
-  username: string;
-  /**
-   * @type string
-   */
-  wallet: string;
-  description?: string | null;
-  profileImgUrl?: string | null;
+  nonce: number;
 };
 export namespace PostUsersMutation {
   export type Response = PostUsersMutationResponse;

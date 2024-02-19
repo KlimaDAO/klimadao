@@ -34,7 +34,7 @@ export default function RetirementsByChainOffchainChartCard(props: CardProps) {
     <ChartCard
       {...props}
       isColumnCard={true}
-      title={t`KlimaDAO retirements by chain`}
+      title={t`Retirements by chain`}
       detailUrl={`${PageLinks.RetirementTrends}/retirement-trends-by-chain`}
       chart={chart}
     />

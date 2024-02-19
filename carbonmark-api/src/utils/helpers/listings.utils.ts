@@ -44,7 +44,14 @@ export const getListingById = async (sdk: GQL_SDK, id: string) => {
     return null;
   }
 
-  const symbol = (await getTokenById(sdk, listing.tokenAddress)).symbol;
+  let symbol;
+
+  if (listing.project.id.startsWith("ICR")) {
+    symbol = listing.project.id;
+  } else {
+    symbol = (await getTokenById(sdk, listing.tokenAddress)).symbol;
+  }
+
   const formattedListing = formatListing(listing);
   return { ...formattedListing, symbol };
 };

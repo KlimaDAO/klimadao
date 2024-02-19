@@ -2,6 +2,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import EastIcon from "@mui/icons-material/East";
 import { Text } from "components/Text";
+import { DEFAULT_EXPIRATION_DAYS } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { formatHandle, formatWalletAddress } from "lib/formatWalletAddress";
@@ -36,6 +37,8 @@ export const Activity = (props: Props) => {
   const isSaleActivity = props.activity.activityType === "Sold";
   const isUpdateQuantity = props.activity.activityType === "UpdatedQuantity";
   const isUpdatePrice = props.activity.activityType === "UpdatedPrice";
+  const isUpdateExpiration =
+    props.activity.activityType === "UpdatedExpiration";
 
   const seller = props.activity.seller;
   const buyer = props.activity.buyer;
@@ -84,6 +87,26 @@ export const Activity = (props: Props) => {
       props.activity.amount && `${formatToTonnes(props.activity.amount)}t`;
   }
 
+  /** Expiration Labels */
+  if (isUpdateExpiration) {
+    if (
+      props.activity.timeStamp !== null &&
+      props.activity.timeStamp !== undefined
+    ) {
+      // The expiration is on the listing entity, but not activity. In order to avoid more extensive refactoring, the DEFAULT_EXPIRATION_DAYS  is passed as the expiration here.
+      const timeStampValue = new Date(
+        parseInt(props.activity.timeStamp, 10) * 1000
+      ).getTime();
+
+      amountA = new Date(timeStampValue).toLocaleDateString();
+
+      const ninetyDaysInMs = DEFAULT_EXPIRATION_DAYS * 24 * 60 * 60 * 1000;
+      amountB = new Date(timeStampValue + ninetyDaysInMs).toLocaleDateString();
+    } else {
+      console.error("props.activity.timeStamp is null or undefined");
+    }
+  }
+
   /** Determine the conjunction between the labels */
   if (isPurchaseActivity || isSaleActivity) {
     transactionString = t`for`;
@@ -92,6 +115,14 @@ export const Activity = (props: Props) => {
     transactionString = <EastIcon />;
   }
 
+  if (isUpdateExpiration) {
+    transactionString = t`to`;
+  }
+
+  const shouldDisplayActivity = amountA !== amountB;
+  if (!shouldDisplayActivity) {
+    return null;
+  }
   return (
     <div key={props.activity.id} className={styles.activity}>
       {project && (
@@ -140,6 +171,7 @@ export const Activity = (props: Props) => {
           )
         )}
       </Text>
+
       {!!amountA &&
         !!amountB &&
         props.activity.activityType != "DeletedListing" && (

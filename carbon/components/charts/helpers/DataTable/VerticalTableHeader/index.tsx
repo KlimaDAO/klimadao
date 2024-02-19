@@ -52,7 +52,14 @@ export default function VerticalTableHeader<P>(props: {
       Element =
         props.sortParams.sort_order == "asc" ? ExpandLessIcon : ExpandMoreIcon;
     }
-    return <Element onClick={() => setSortParamsWrapper(key)} />;
+
+    return (
+      <Element
+        role="button"
+        className={styles.sortIcon}
+        onClick={() => setSortParamsWrapper(key)}
+      />
+    );
   }
 
   return (
@@ -61,7 +68,7 @@ export default function VerticalTableHeader<P>(props: {
         {columnKeys.map((key) => (
           <th key={key} className={columns[key].cellStyle}>
             <span className={styles.cell}>
-              {columns[key].header}
+              <span>{columns[key].header}</span>
               {(columns[key].sortable === undefined || columns[key].sortable) &&
                 sortButtonComponent(key)}
             </span>

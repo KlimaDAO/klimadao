@@ -1,10 +1,12 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
+import { IS_REGISTRY_ID } from "../../../src/app.constants";
 import { ActivityType } from "../../.generated/types/marketplace.types";
 import { Activity } from "../../models/Activity.model";
 import { CreditId } from "../CreditId";
 import { GQL_SDK } from "../gqlSdk";
+import { formatAmountByRegistry } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
 
 type ActivitiesParams = {
@@ -17,23 +19,28 @@ const mapUserToActivities = async (
   activities: Activity[],
   fastify: FastifyInstance
 ): Promise<Activity[]> => {
-  const formattedActivities = activities.map((activity) => ({
-    ...activity,
-    price: activity.price ? utils.formatUnits(activity.price, 6) : null,
-    previousPrice: activity.previousPrice
-      ? utils.formatUnits(activity.previousPrice, 6)
-      : null,
-    amount: activity.amount
-      ? activity.project.key.startsWith("ICR")
-        ? activity.amount
-        : utils.formatUnits(activity.amount, 18)
-      : null,
-    previousAmount: activity.previousAmount
-      ? activity.project.key.startsWith("ICR")
-        ? activity.amount
-        : utils.formatUnits(activity.previousAmount, 18)
-      : null,
-  }));
+  const formattedActivities = activities.map((activity) => {
+    const registry = activity.project.key.split("-")[0];
+
+    if (!IS_REGISTRY_ID(registry)) {
+      throw new Error(
+        `Invalid registry id in mapUserToActivities: ${registry}`
+      );
+    }
+    return {
+      ...activity,
+      price: activity.price ? formatUnits(activity.price, 6) : null,
+      previousPrice: activity.previousPrice
+        ? formatUnits(activity.previousPrice, 6)
+        : null,
+      amount: activity.amount
+        ? formatAmountByRegistry(registry, activity.amount)
+        : null,
+      previousAmount: activity.previousAmount
+        ? formatAmountByRegistry(registry, activity.previousAmount)
+        : null,
+    };
+  });
 
   const userIds = new Set<string>();
   formattedActivities.forEach((activity) => {

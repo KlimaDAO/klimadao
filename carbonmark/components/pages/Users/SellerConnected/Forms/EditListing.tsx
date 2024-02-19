@@ -6,6 +6,7 @@ import { InputField } from "components/shared/Form/InputField";
 import { DEFAULT_EXPIRATION_DAYS, MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Listing } from "lib/types/carbonmark.types";
 import { getExpirationTimestamp } from "lib/utils/listings.utils";
+import { validateIcrAmount } from "lib/validateIcrAmount";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -51,6 +52,7 @@ export const EditListing: FC<Props> = (props) => {
       newSingleUnitPrice: props.listing.singleUnitPrice,
       ...props.values,
     },
+    mode: "onChange",
   });
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
@@ -103,21 +105,19 @@ export const EditListing: FC<Props> = (props) => {
               ...register("newQuantity", {
                 required: {
                   value: true,
-                  message: t({
-                    id: "user.listing.edit.input.quantity.required",
-                    message: "Quantity is required",
-                  }),
+                  message: t`Quantity is required`,
                 },
                 min: {
                   value: 1,
-                  message: t({
-                    id: "user.listing.edit.input.quantity.minimum",
-                    message: "The minimum quantity to sell is 1 tonne",
-                  }),
+                  message: t`The minimum quantity to sell is 1 tonne`,
                 },
                 max: {
                   value: Number(totalAvailableQuantity),
                   message: t`Available balance exceeded`,
+                },
+                validate: {
+                  isWholeNumber: (value) =>
+                    validateIcrAmount(value, props.listing.project.id),
                 },
               }),
             }}
@@ -133,27 +133,18 @@ export const EditListing: FC<Props> = (props) => {
             id="price"
             label={t`New Unit Price (USDC)`}
             inputProps={{
-              placeholder: t({
-                id: "user.edit.form.edit.price.placeholder",
-                message: "USDC per ton",
-              }),
+              placeholder: t`USDC per ton`,
               type: "number",
               ...register("newSingleUnitPrice", {
                 required: {
                   value: true,
-                  message: t({
-                    id: "user.listing.form.input.singleUnitPrice.required",
-                    message: "Single Price is required",
-                  }),
+                  message: t`Single Price is required`,
                 },
                 min: {
                   value: MINIMUM_TONNE_PRICE,
-                  message: t({
-                    id: "user.listing.form.input.singleUnitPrice.minimum",
-                    message: `The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
-                      locale
-                    )}`,
-                  }),
+                  message: t`The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
+                    locale
+                  )}`,
                 },
                 pattern: {
                   value: /^\d+(\.\d{1,6})?$/,

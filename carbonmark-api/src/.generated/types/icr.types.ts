@@ -19,6 +19,11 @@ export type Scalars = {
   Int8: any;
 };
 
+export enum Aggregation_Interval {
+  day = 'day',
+  hour = 'hour'
+}
+
 export type BlockChangedFilter = {
   number_gte: Scalars['Int'];
 };
@@ -1656,13 +1661,6 @@ export type ExPostAmountsFragmentFragment = { __typename?: 'ExPostHolder', id: a
 
 export type ExPostFragmentFragment = { __typename?: 'ExPost', tokenId: string, vintage: string, serialization: string, project: { __typename?: 'Project', id: any, projectName: string } };
 
-export type GetExPostInfoViaSerializationQueryVariables = Exact<{
-  serialization: Scalars['String'];
-}>;
-
-
-export type GetExPostInfoViaSerializationQuery = { __typename?: 'Query', exPosts: Array<{ __typename?: 'ExPost', serialization: string, supply: string, retiredAmount: string, estimatedAmount: string, cancelledAmount: string, id: any, lastVerificationTimestamp: string, tokenId: string, verificationPeriodEnd: string, verificationPeriodStart: string, vintage: string, project: { __typename?: 'Project', id: any, projectAddress: any, projectName: string, transactionHash: any } }> };
-
 export type GetHoldingsByAddressQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
@@ -1700,26 +1698,6 @@ export const ExPostAmountsFragmentFragmentDoc = gql`
   }
 }
     ${ExPostFragmentFragmentDoc}`;
-export const GetExPostInfoViaSerializationDocument = gql`
-    query getExPostInfoViaSerialization($serialization: String!) {
-  exPosts(where: {serialization: $serialization}) {
-    serialization
-    supply
-    retiredAmount
-    estimatedAmount
-    cancelledAmount
-    id
-    lastVerificationTimestamp
-    project {
-      ...ICRProjectFragment
-    }
-    tokenId
-    verificationPeriodEnd
-    verificationPeriodStart
-    vintage
-  }
-}
-    ${IcrProjectFragmentFragmentDoc}`;
 export const GetHoldingsByAddressDocument = gql`
     query getHoldingsByAddress($id: ID!) {
   holder(id: $id) {
@@ -1738,9 +1716,6 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getExPostInfoViaSerialization(variables: GetExPostInfoViaSerializationQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetExPostInfoViaSerializationQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetExPostInfoViaSerializationQuery>(GetExPostInfoViaSerializationDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getExPostInfoViaSerialization', 'query');
-    },
     getHoldingsByAddress(variables: GetHoldingsByAddressQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHoldingsByAddressQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetHoldingsByAddressQuery>(GetHoldingsByAddressDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByAddress', 'query');
     }

@@ -3,13 +3,16 @@ import fp from "fastify-plugin";
 import packageJson from "../../package.json";
 import { ActivityModel } from "../models/Activity.model";
 import { AssetModel } from "../models/Asset.model";
+import { CarbonCreditModel } from "../models/CarbonCredit.model";
 import { CategoryModel } from "../models/Category.model";
 import { CountryModel } from "../models/Country.model";
 import { ListingModel } from "../models/Listing.model";
 import { MethodologyModel } from "../models/Methodology.model";
 import { NetworkParamModel } from "../models/NetworkParam.model";
 import { ProjectModel } from "../models/Project.model";
+import { ProvenanceRecordModel } from "../models/ProvenanceRecord.model";
 import { PurchaseModel } from "../models/Purchase.model";
+import { RetirementModel } from "../models/Retirement.model";
 import { TokenPriceModel } from "../models/TokenPrice.model";
 import { UserModel } from "../models/User.model";
 import { ImageModel } from "../models/Utility.model";
@@ -64,6 +67,9 @@ For a developer guides and example implementations, or to learn more about Carbo
       Asset: AssetModel,
       TokenPrice: TokenPriceModel,
       Image: ImageModel,
+      ProvenanceRecord: ProvenanceRecordModel,
+      Retirement: RetirementModel,
+      CarbonCredit: CarbonCreditModel,
     },
   },
   externalDocs: {

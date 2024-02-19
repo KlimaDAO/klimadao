@@ -1,4 +1,6 @@
 import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
+import { NetworkParam } from ".generated/carbonmark-api-sdk/types";
+import IERC1155 from "@klimadao/lib/abi/IERC1155.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
@@ -7,7 +9,7 @@ import {
   isTestnetChainId,
   trimWithLocale,
 } from "@klimadao/lib/utils";
-import { Contract, Transaction, providers } from "ethers";
+import { Contract, Transaction, constants, providers } from "ethers";
 import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getContract } from "lib/networkAware/getContract";
@@ -36,24 +38,45 @@ const getSignerNetwork = (
 export const getCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
-  network?: "mumbai" | "polygon";
+  tokenId?: string;
+  network?: NetworkParam;
 }): Promise<string> => {
-  const tokenContract = new Contract(
-    params.tokenAddress,
-    IERC20.abi,
-    getStaticProvider({
-      chain: params.network,
-    })
-  );
+  // If there is a tokenID, handle as ERC1155
+  if (!!params.tokenId) {
+    const tokenContract = new Contract(
+      params.tokenAddress,
+      IERC1155.abi,
+      getStaticProvider({
+        chain: params.network,
+      })
+    );
 
-  const allowance = await tokenContract.allowance(
-    params.userAddress,
-    getAddress("carbonmark", params.network)
-  );
+    const allowance = await tokenContract.isApprovedForAll(
+      params.userAddress,
+      getAddress("carbonmark", params.network)
+    );
 
-  return formatUnits(allowance);
+    // isApprovedForAll returns a bool. Convert to max string to mimic an allowance
+    return allowance ? constants.MaxUint256.toString() : "0";
+  }
+  // handle ERC20 allowances
+  else {
+    const tokenContract = new Contract(
+      params.tokenAddress,
+      IERC20.abi,
+      getStaticProvider({
+        chain: params.network,
+      })
+    );
+
+    const allowance = await tokenContract.allowance(
+      params.userAddress,
+      getAddress("carbonmark", params.network)
+    );
+
+    return formatUnits(allowance);
+  }
 };
-
 export const getAggregatorV2Allowance = async (params: {
   userAddress: string;
   tokenAddress: string;
@@ -72,11 +95,33 @@ export const getAggregatorV2Allowance = async (params: {
   return ethersFormatUnits(BigInt(allowance), 18);
 };
 
+export const getAggregatorIsApprovedForAll = async (params: {
+  userAddress: string;
+  tokenAddress: string;
+  network: "mumbai" | "polygon";
+}): Promise<boolean> => {
+  const tokenContract = new Contract(
+    params.tokenAddress,
+    IERC1155.abi,
+    getStaticProvider({
+      chain: params.network,
+    })
+  );
+
+  const isApproved = await tokenContract.isApprovedForAll(
+    params.userAddress,
+    getAddress("retirementAggregatorV2", params.network)
+  );
+
+  return isApproved;
+};
+
 /** Approve a known `tokenName`, or `tokenAddress` to be spent by the `spender` contract */
 export const approveTokenSpend = async (params: {
   /** Name of a known token like "usdc" */
   tokenName?: AllowancesToken;
   /** Alternative to tokenName: address for an 18-decimal ERC20 token */
+  tokenId?: string;
   tokenAddress?: string;
   spender: keyof typeof addresses.mainnet;
   value: string;
@@ -85,19 +130,29 @@ export const approveTokenSpend = async (params: {
 }): Promise<string> => {
   try {
     const network = getSignerNetwork(params.signer);
+    let tokenType = "ERC20";
     let tokenContract: Contract;
-    if (params.tokenName) {
+    if (params.tokenName && !params.tokenId) {
       tokenContract = getContract({
         contractName: params.tokenName,
         provider: params.signer,
         network: network === "mumbai" ? "testnet" : "mainnet",
       });
-    } else if (params.tokenAddress) {
+    } else if (params.tokenAddress && !params.tokenId) {
       tokenContract = new Contract(
         params.tokenAddress,
         IERC20.abi,
         params.signer
       );
+    } // handle ERC1155 calls
+    else if (params.tokenAddress && !!params.tokenId) {
+      tokenContract = new Contract(
+        params.tokenAddress,
+        IERC1155.abi,
+        params.signer
+      );
+
+      tokenType = "ERC1155";
     } else {
       throw new Error("Must provide either tokenName or tokenAddress");
     }
@@ -105,10 +160,18 @@ export const approveTokenSpend = async (params: {
     const parsedValue = parseUnits(params.value, decimals);
 
     params.onStatus("userConfirmation");
-    const txn = await tokenContract.approve(
-      getAddress(params.spender, network),
-      parsedValue.toString()
-    );
+    let txn;
+    if (tokenType === "ERC20") {
+      txn = await tokenContract.approve(
+        getAddress(params.spender, network),
+        parsedValue.toString()
+      );
+    } else {
+      txn = await tokenContract.setApprovalForAll(
+        getAddress(params.spender, network),
+        true
+      );
+    }
 
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
@@ -145,7 +208,6 @@ export const createListingTransaction = async (params: {
       provider: signer,
       network: getSignerNetwork(signer) === "mumbai" ? "testnet" : "mainnet",
     });
-
     params.onStatus("userConfirmation", "");
 
     /** Handle overloaded method definition */
@@ -154,23 +216,32 @@ export const createListingTransaction = async (params: {
       : // tokenId is second argument
         "createListing(address,uint256,uint256,uint256,uint256,uint256)";
 
-    const args = [
-      params.tokenAddress,
-      parseUnits(params.amount, 18),
-      parseUnits(params.unitPrice, getTokenDecimals("usdc")),
-      parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
-      getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS), // deadline (aka expiration)
-    ];
+    let args;
 
     if (!isNil(params.tokenId)) {
-      // insert tokenId as second argument to match fnSignature
-      args.splice(1, 0, params.tokenId);
+      args = [
+        params.tokenAddress,
+        params.tokenId,
+        params.amount,
+        parseUnits(params.unitPrice, getTokenDecimals("usdc")),
+        DEFAULT_MIN_FILL_AMOUNT.toString(),
+        getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS),
+      ];
+    } else {
+      args = [
+        params.tokenAddress,
+        parseUnits(params.amount, 18),
+        parseUnits(params.unitPrice, getTokenDecimals("usdc")),
+        parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18),
+        getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS),
+      ];
     }
 
     const listingTxn = await carbonmarkContract[fnSignature](...args);
 
     params.onStatus("networkConfirmation", "");
     await listingTxn.wait(1);
+
     params.onStatus("done", "Transaction confirmed");
     return;
   } catch (error: any) {
@@ -185,6 +256,7 @@ export const createListingTransaction = async (params: {
 
 export const updateListingTransaction = async (params: {
   listingId: string;
+  projectId: string;
   newAmount: string;
   singleUnitPrice: string;
   provider: providers.JsonRpcProvider;
@@ -199,15 +271,20 @@ export const updateListingTransaction = async (params: {
     });
 
     params.onStatus("userConfirmation", "");
-
+    const amount = params.projectId.startsWith("ICR")
+      ? params.newAmount
+      : parseUnits(params.newAmount, 18);
+    const minFillAmount = params.projectId.startsWith("ICR")
+      ? DEFAULT_MIN_FILL_AMOUNT.toString()
+      : parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18);
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
-      parseUnits(params.newAmount, 18),
+      amount,
       parseUnits(
         trimWithLocale(params.singleUnitPrice, 6),
         getTokenDecimals("usdc")
       ),
-      parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
+      minFillAmount, // minFillAmount
       getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
     );
 
@@ -232,6 +309,7 @@ export const makePurchase = async (params: {
   singleUnitPrice: string;
   quantity: string;
   provider: providers.JsonRpcProvider;
+  projectKey: string;
   onStatus: OnStatusHandler;
 }): Promise<Transaction> => {
   try {
@@ -258,7 +336,9 @@ export const makePurchase = async (params: {
         trimWithLocale(params.singleUnitPrice, 6),
         getTokenDecimals("usdc")
       ),
-      parseUnits(params.quantity, 18),
+      params.projectKey.startsWith("ICR")
+        ? params.quantity
+        : parseUnits(params.quantity, 18),
       parseUnits(maxCost, getTokenDecimals("usdc"))
     );
 
@@ -312,14 +392,19 @@ export type AssetWithProject = Asset & {
 };
 
 const idFromSymbol = (symbol: string) => {
-  const [_bridge, registry, registryProjectId, vintage] = symbol
-    .toUpperCase()
-    .split("-");
-  return `${registry}-${registryProjectId}-${vintage}`;
+  if (symbol.startsWith("ICR")) {
+    return symbol;
+  } else {
+    const [_bridge, registry, registryProjectId, vintage] = symbol
+      .toUpperCase()
+      .split("-");
+    return `${registry}-${registryProjectId}-${vintage}`;
+  }
 };
 
 export const addProjectsToAssets = async (params: {
   assets: Asset[];
+  network: NetworkParam;
 }): Promise<AssetWithProject[]> => {
   try {
     const projectIdSet = new Set<string>();
@@ -328,7 +413,7 @@ export const addProjectsToAssets = async (params: {
     });
     const projectIds = Array.from(projectIdSet);
     const projects = await Promise.all(
-      projectIds.map((id) => getProjectsId(id))
+      projectIds.map((id) => getProjectsId(id, { network: params.network }))
     );
 
     const ProjectMap = projects.reduce((PMap, p) => {
@@ -357,7 +442,6 @@ export const createCompositeAsset = (
   if (!credit) {
     throw new Error("credit field is not defined in the asset");
   }
-
   const compositeAsset: AssetForRetirement = {
     id: asset.id,
     amount: asset.amount,
@@ -366,6 +450,7 @@ export const createCompositeAsset = (
     balance: asset.amount,
     tokenSymbol: asset.token.symbol,
     credit,
+    registry: credit.project.registry,
   };
 
   return compositeAsset;
@@ -373,7 +458,7 @@ export const createCompositeAsset = (
 
 export const getUSDCBalance = async (params: {
   userAddress: string;
-  network?: "polygon" | "mumbai";
+  network?: NetworkParam;
 }) => {
   const tokenContract = getContract({
     contractName: "usdc",

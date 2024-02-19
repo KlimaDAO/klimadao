@@ -113,6 +113,11 @@ export type User = {
      * @type string | undefined
      */
     symbol?: string;
+    /**
+     * @description ID of the token
+     * @type string
+     */
+    tokenId: string;
   }[];
   /**
    * @type array | undefined
@@ -184,10 +189,18 @@ export type User = {
        * @type number
        */
       decimals: number;
+      /**
+       * @type string | undefined
+       */
+      tokenId?: string;
     };
     /**
      * @type string
      */
     amount: string;
   }[];
+  /**
+   * @type number | undefined
+   */
+  nonce?: number;
 };

@@ -5,6 +5,7 @@ import DistributorContractv4 from "../../abi/DistributorContractv4.json";
 import ExercisePKlima from "../../abi/ExercisepKLIMA.json";
 import IERC20 from "../../abi/IERC20.json";
 import Depository from "../../abi/KlimaBondDepository_Regular.json";
+import KlimaInfinity from "../../abi/KlimaInfinity.json";
 import KlimaProV2 from "../../abi/KlimaProV2.json";
 import KlimaRetirementAggregatorV2 from "../../abi/KlimaRetirementAggregatorV2.json";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
@@ -69,6 +70,7 @@ const contractMap = {
   staking: KlimaStakingv2.abi, // unstake
   retirementStorage: KlimaRetirementStorage.abi,
   carbonmark: Carbonmark.abi,
+  klimaInfinity: KlimaInfinity.abi,
 } as const;
 type ContractName = keyof typeof contractMap;
 

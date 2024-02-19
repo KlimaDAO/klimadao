@@ -1,12 +1,12 @@
 import { Trans, t } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { formatAllowanceDisplay } from "lib/formatAllowanceDisplay";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { FC, useState } from "react";
 import { Approve } from "./Approve";
 import { Submit } from "./Submit";
 import * as styles from "./styles";
 import { Value } from "./types";
-
 interface Props {
   /** If the seller has already approved the required allowance */
   hasApproval: boolean;
@@ -22,6 +22,7 @@ interface Props {
   allowance: string;
   /** Quantity to list for */
   quantity: string;
+  isERC1155: boolean;
 }
 
 export const Transaction: FC<Props> = (props) => {
@@ -58,12 +59,13 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          amount={t`${props.allowance} tonnes`}
+          amount={t`${formatAllowanceDisplay(props.allowance)}`}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
             setView("submit");
           }}
+          isERC1155={props.isERC1155}
           status={props.status}
         />
       )}

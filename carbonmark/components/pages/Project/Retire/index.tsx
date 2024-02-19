@@ -1,11 +1,10 @@
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import { getFullProjectId } from "lib/projectGetter";
-import { Project, TokenPrice } from "lib/types/carbonmark.types";
+import { Product, Project } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { RetireForm } from "./Pool/RetireForm";
@@ -13,7 +12,7 @@ import * as styles from "./styles";
 
 export interface ProjectRetirePageProps {
   project: Project;
-  poolPrice: TokenPrice;
+  product: Product;
 }
 
 export const ProjectRetire: NextPage<ProjectRetirePageProps> = (props) => {
@@ -35,13 +34,7 @@ export const ProjectRetire: NextPage<ProjectRetirePageProps> = (props) => {
             <ArrowBack className="arrow" />
             <Trans>Back to Project</Trans>
           </Link>
-          <div className={styles.loginButton}>
-            <LoginButton className="desktopLogin" />
-          </div>
-
-          {props.poolPrice && (
-            <RetireForm project={props.project} price={props.poolPrice} />
-          )}
+          <RetireForm project={props.project} product={props.product} />
         </div>
       </Layout>
     </>
