@@ -8,13 +8,13 @@ export type CarbonmarkPaymentMethodMap = {
   [key in CarbonmarkPaymentMethod]: {
     id: CarbonmarkPaymentMethod;
     icon: StaticImageData;
-    label: Uppercase<CarbonmarkPaymentMethod> | "Credit Card" | "Bank Transfer";
+    label: Uppercase<CarbonmarkPaymentMethod> | "Credit Card" | "Bank Transfer"| "USDC.e";
     disabled: boolean;
   };
 };
 
 export const carbonmarkPaymentMethodMap: CarbonmarkPaymentMethodMap = {
-  usdc: { id: "usdc", icon: USDC, label: "USDC", disabled: false },
+  usdc: { id: "usdc", icon: USDC, label: "USDC.e", disabled: false },
   fiat: { id: "fiat", icon: FIAT, label: "Credit Card", disabled: true },
   "bank-transfer": {
     id: "bank-transfer",
@@ -26,7 +26,7 @@ export const carbonmarkPaymentMethodMap: CarbonmarkPaymentMethodMap = {
 
 export const carbonmarkRetirePaymentMethodMap: CarbonmarkPaymentMethodMap = {
   fiat: { id: "fiat", icon: FIAT, label: "Credit Card", disabled: false },
-  usdc: { id: "usdc", icon: USDC, label: "USDC", disabled: false },
+  usdc: { id: "usdc", icon: USDC, label: "USDC.e", disabled: false },
   "bank-transfer": {
     id: "bank-transfer",
     icon: BANK,

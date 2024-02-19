@@ -141,7 +141,7 @@ export const EditListing: FC<Props> = (props) => {
             inputProps={{
               placeholder: t({
                 id: "user.edit.form.edit.price.placeholder",
-                message: "USDC per ton",
+                message: "USDC.e per ton",
               }),
               type: "number",
               ...register("newSingleUnitPrice", {
