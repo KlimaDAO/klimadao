@@ -1,5 +1,9 @@
 .cell {
   display: flex;
   align-items: center;
-  width: fit-content;
+  gap: 0.8rem;
+}
+
+.sortIcon {
+  cursor: pointer;
 }
