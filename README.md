@@ -9,8 +9,6 @@ This repo contains 6 packages.
 `@klimadao/carbonmark` -> The NextJS project that powers the carbonmark web application at carbonmark.com.
 The backend Node.js web-service and smart contracts are located in separate repositories.
 
-`@klimadao/carbonmark-api` -> A [Fastify](https://www.fastify.io/) API acting as a Backend-for-Frontend for Carbonmark
-
 `@klimadao/carbon` -> data.klimadao.finance site (formerly carbon.klimadao.finance)
 
 `@klimadao/cms` -> A Sanity CMS that powers our blog, deployed to [klimadao.sanity.studio](https://klimadao.sanity.studio). NOTE: Unlike the other packages, this one is **not** included as an NPM workspace from the root package.json. To work with the CMS you need to run `sanity install` from inside the `cms` folder.
@@ -41,7 +39,6 @@ A set of NPM Workspace commands are provided, and can be run from the root folde
 - `npm run dev-all`: run all workspaces with hot reloading enabled.
 - `npm run dev-app`: [http://localhost:3001](http://localhost:3001)
 - `npm run dev-carbonmark`: [http://localhost:3002](http://localhost:3002)
-- `npm run dev-carbonmark-api`: [http://localhost:3003](http://localhost:3003)
 - `npm run dev-site`: [http://localhost:3000](http://localhost:3000)
 - `npm run dev-lib`: enable hot-reload for changes to components or utils.
 
@@ -74,7 +71,7 @@ We follow these rules:
 
 #### Targetting a local api instance
 
-If you would like carbonmark to target a local running instance of the `carbonmark-api`, you can set the url value via the `NEXT_PUBLIC_CARBONMARK_API_URL` environment variable:
+If you would like carbonmark to target a differe instance of the `carbonmark-api`, you can set the url value via the `NEXT_PUBLIC_CARBONMARK_API_URL` environment variable:
 
 ```bash
 NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003/api npm run dev-carbonmark
