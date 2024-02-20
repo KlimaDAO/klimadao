@@ -11,6 +11,7 @@ import { NextApiRequest, NextApiResponse } from "next/types";
 type Query = {
   beneficiaryAddress: string;
   retirementIndex: string;
+  beneficiaryImage: string | null;
 };
 
 export default async function handler(
@@ -18,7 +19,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const { beneficiaryAddress, retirementIndex } = req.query as Query;
+    const { beneficiaryAddress, retirementIndex, beneficiaryImage } =
+      req.query as Query;
 
     /** Validate address params */
     if (
@@ -57,6 +59,7 @@ export default async function handler(
     const certificateParams = {
       retirement,
       beneficiaryAddress,
+      beneficiaryImage,
       retirementIndex,
       retirementUrl: `${urls.retirements_carbonmark}/${retirement.retire.beneficiaryAddress}/${retirementIndex}`,
       retiredToken: getRetirementTokenByAddress(
@@ -67,7 +70,7 @@ export default async function handler(
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Cache-Control", "s-maxage=86400");
-    const certificate = generateCertificate(certificateParams);
+    const certificate = await generateCertificate(certificateParams);
     certificate.pipe(res);
     certificate.end();
   } catch (err) {

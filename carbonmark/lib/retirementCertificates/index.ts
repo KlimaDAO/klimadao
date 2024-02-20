@@ -14,7 +14,6 @@ import { renewableEnergyBanner } from "./images/bannerRenewableEnergy";
 import { carbonmarkLogo } from "./images/carbonmarkLogo";
 import { certificateBackground } from "./images/certificateBackground";
 import { dateIcon } from "./images/dateIcon";
-import { launchIcon } from "./images/launchIcon";
 
 import { getOffsetCategories } from "lib/offsetGetter";
 import { DMSansRegular } from "./fonts/dmSansRegularbase64";
@@ -24,6 +23,7 @@ import { PoppinsSemiBold } from "./fonts/poppinsSemiBoldbase64";
 type Params = {
   retirement: KlimaRetire;
   beneficiaryAddress: string;
+  beneficiaryImage: string | null;
   retirementIndex: string;
   retirementUrl: string;
   retiredToken: RetirementToken | null;
@@ -72,7 +72,9 @@ const getCategoryBanner = (category: string): CategoryBannerKey => {
   return category as CategoryBannerKey;
 };
 
-export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
+export const generateCertificate = async (
+  params: Params
+): Promise<PDFKit.PDFDocument> => {
   const isMossRetirement =
     params.retirement.retire.credit.bridgeProtocol === "MOSS";
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.retire.beneficiaryAddress}`;
@@ -145,22 +147,14 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       height: 40,
     });
 
-    const text =
-      "Official Certificate for Digital Carbon Retirement Provided by ";
+    const text = "Certificate for Carbon Retirement";
     doc.font("DMSans");
     doc.fontSize(12);
     doc.fillColor(GRAY);
     doc.text(text, spacing.margin + 50, spacing.footer);
-    doc.fillColor(BLUE);
-    doc.text(
-      "Carbonmark.com",
-      spacing.margin + 50 + doc.widthOfString(text),
-      spacing.footer,
-      { link: urls.carbonmark }
-    );
   };
 
-  const printRetirementDetails = (): void => {
+  const printRetirementDetails = async () => {
     const retirementAmount =
       Number(params.retirement.retire.amount) < 0.01
         ? "< 0.01"
@@ -186,7 +180,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Poppins-Semibold");
     doc.fontSize(14);
     doc.fillColor(GRAY);
-    doc.text(formattedDate, spacing.margin + 25, 92, {
+    doc.text(formattedDate, spacing.margin + 25, 94, {
       characterSpacing: 0.3,
     });
 
@@ -205,16 +199,35 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     });
 
     const beneficary = params.retirement.retire.beneficiaryName;
-    if (beneficary) {
-      doc.text("BENEFICIARY:", spacing.margin, 220, {
-        characterSpacing: 0.3,
-      });
 
-      doc.font("Poppins-Bold");
-      doc.fontSize(20);
-      doc.fillColor(BLACK);
-      doc.text(beneficary, spacing.margin, 245, { width: 360 });
+    doc.text("BENEFICIARY:", spacing.margin, 220, {
+      characterSpacing: 0.3,
+    });
+
+    let avatarWidthIncludingMargin = 0;
+
+    if (params.beneficiaryImage) {
+      const response = await fetch(params.beneficiaryImage);
+      const buffer = await response.arrayBuffer();
+      const avatarSize = 40;
+      avatarWidthIncludingMargin = avatarSize + 10;
+      doc
+        .circle(spacing.margin + avatarSize / 2.0, 245 + avatarSize / 2.0, 20)
+        .save()
+        .clip()
+        .image(Buffer.from(buffer), spacing.margin, 245, {
+          width: 40,
+          height: 40,
+        })
+        .restore();
     }
+
+    doc.font("Poppins-Bold");
+    doc.fontSize(20);
+    doc.fillColor(BLACK);
+    doc.text(beneficary, spacing.margin + avatarWidthIncludingMargin, 250, {
+      width: 360,
+    });
 
     const beneficiaryNameBlockHeight = beneficary
       ? doc.heightOfString(beneficary, {
@@ -304,7 +317,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Poppins-Semibold");
     doc.fontSize(12);
     doc.fillColor(GRAY);
-    doc.text("PROJECT NAME", doc.page.width - 360, 200, {
+    doc.text("PROJECT RETIRED", doc.page.width - 360, 200, {
       characterSpacing: 0.3,
     });
 
@@ -327,33 +340,8 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
         characterSpacing: 0.3,
       }
     );
-    const projectDetailsLink = `${urls.carbonmark}/projects/${params.retirement.retire.credit.project.projectID}-${params.retirement.retire.credit.vintage}`;
-    doc.font("Poppins-Semibold");
-    doc.fontSize(12);
-    doc.fillColor(GRAY);
-    doc.text(
-      "LEARN MORE",
-      doc.page.width - 360,
-      200 + projectNameBlockHeight + 21,
-      {
-        underline: true,
-        link: projectDetailsLink,
-      }
-    );
 
-    const launchIconBuffer = Buffer.from(launchIcon, "base64");
-    doc.image(
-      launchIconBuffer,
-      doc.page.width - 360 + doc.widthOfString("LEARN MORE") + 5,
-      200 + projectNameBlockHeight + 21,
-      {
-        width: 18,
-        height: 18,
-        link: projectDetailsLink as PDFKit.Mixins.AnnotationOption, // error in types provided by library
-      }
-    );
-
-    let startPosition = 200 + projectNameBlockHeight + 50;
+    let startPosition = 200 + projectNameBlockHeight + 35;
     projectDetails.forEach((detail) => {
       doc.font("Poppins-Semibold");
       doc.fontSize(10);
@@ -411,16 +399,11 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       { width: 320 }
     );
 
-    doc.text("View on PolygonScan", doc.page.width - 360, startPosition + 100, {
-      underline: true,
-      link: `https://polygonscan.com/tx/${params.retirement.retire.hash}`,
-    });
-
     if (!isMossRetirement) {
       doc.text(
         "View carbon provenance",
         doc.page.width - 360,
-        startPosition + 124,
+        startPosition + 100,
         {
           underline: true,
           link: `${urls.carbonmark}/retirements/${params.beneficiaryAddress}/${params.retirementIndex}/provenance`,
@@ -448,7 +431,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Poppins-Semibold");
     doc.fontSize(12);
     doc.fillColor(GRAY);
-    doc.text("PROJECT NAME", doc.page.width - 360, 200, {
+    doc.text("PROJECT RETIRED", doc.page.width - 360, 200, {
       characterSpacing: 0.3,
     });
 
@@ -458,26 +441,6 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.text("MOSS Earth MCO2", doc.page.width - 360, 218, {
       width: 320,
     });
-
-    doc.font("Poppins-Semibold");
-    doc.fontSize(12);
-    doc.fillColor(GRAY);
-    doc.text("LEARN MORE", doc.page.width - 360, 200 + 20 + 20, {
-      underline: true,
-      link: "https://mco2token.moss.earth/",
-    });
-
-    const launchIconBuffer = Buffer.from(launchIcon, "base64");
-    doc.image(
-      launchIconBuffer,
-      doc.page.width - 360 + doc.widthOfString("LEARN MORE") + 5,
-      200 + 20 + 20,
-      {
-        width: 18,
-        height: 18,
-        link: "https://mco2token.moss.earth/" as PDFKit.Mixins.AnnotationOption, // error in types provided by library
-      }
-    );
 
     doc.font("Poppins-Semibold");
     doc.fontSize(8);
@@ -519,7 +482,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   setupFonts();
   printBackground();
   printHeader();
-  printRetirementDetails();
+  await printRetirementDetails();
 
   if (isMossRetirement) {
     printMossProjectDetails();

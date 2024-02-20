@@ -69,12 +69,19 @@ export const getRetirements = async (params: {
 export const getRetirementCertificate = async (params: {
   beneficiaryName: string;
   beneficiaryAddress: string;
+  beneficiaryProfileImageUrl: string | null;
   retirementIndex: string;
 }) => {
   const filename = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
+  const profileImageUrlQueryParameter =
+    (params.beneficiaryProfileImageUrl &&
+      `?beneficiaryImage=${encodeURIComponent(
+        params.beneficiaryProfileImageUrl
+      )}`) ??
+    "";
   try {
     const result = await fetch(
-      `/api/certificates/${params.beneficiaryAddress}/${params.retirementIndex}`
+      `/api/certificates/${params.beneficiaryAddress}/${params.retirementIndex}${profileImageUrlQueryParameter}`
     );
     if (!result.ok) {
       throw new Error(await result.text());

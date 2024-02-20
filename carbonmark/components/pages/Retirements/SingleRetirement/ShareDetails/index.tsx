@@ -1,4 +1,6 @@
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { Anchor as A } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -8,6 +10,7 @@ import { Text } from "components/Text";
 import { Spinner } from "components/shared/Spinner";
 import { getRetirementCertificate } from "lib/api";
 import { urls } from "lib/constants";
+import { notNil } from "lib/utils/functional.utils";
 import { FC, useState } from "react";
 import * as styles from "./styles";
 
@@ -21,6 +24,14 @@ type Props = {
 
 export const ShareDetails: FC<Props> = (props) => {
   const [downloading, setDownloading] = useState(false);
+
+  const { networkLabel } = useWeb3();
+  const user = useGetUsersWalletorhandle(
+    props.beneficiaryAddress,
+    { network: networkLabel },
+    { shouldFetch: notNil(props.beneficiaryAddress) }
+  );
+
   return (
     <div className={styles.shareCard}>
       <Text t="button" color="lightest">
@@ -31,7 +42,7 @@ export const ShareDetails: FC<Props> = (props) => {
       <div className={styles.content}>
         {props.beneficiaryAddress && (
           <ButtonPrimary
-            label={downloading ? t`Downloading ...` : t`Download PDF`}
+            label={downloading ? t`Downloading…` : t`Download PDF`}
             icon={
               downloading ? (
                 <div className={styles.spinner}>
@@ -44,7 +55,10 @@ export const ShareDetails: FC<Props> = (props) => {
             className={styles.downloadButton}
             onClick={async () => {
               setDownloading(true);
-              await getRetirementCertificate(props);
+              await getRetirementCertificate({
+                ...props,
+                beneficiaryProfileImageUrl: user.data?.profileImgUrl ?? null,
+              });
               setDownloading(false);
             }}
           />

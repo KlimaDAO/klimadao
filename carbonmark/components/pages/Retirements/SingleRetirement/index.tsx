@@ -21,7 +21,6 @@ import { CategoryName, Project } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { RetirementFooter } from "../Footer";
 import { BeneficiaryDetails } from "./BeneficiaryDetails";
 import { ProjectDetails } from "./ProjectDetails";
 import { RetirementDate } from "./RetirementDate";
@@ -181,9 +180,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
             </div>
           </Col>
         </div>
-      </Section>
-      <Section className={styles.section} style={{ paddingTop: 0 }}>
-        <RetirementFooter />
       </Section>
       <Footer />
     </GridContainer>
