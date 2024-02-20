@@ -23,7 +23,7 @@ type CarbonTokenInfoMap = {
   [key in CarbonToken]: {
     key: string;
     icon: StaticImageData;
-    label: Uppercase<CarbonToken> | "USDC.e";
+    label: Uppercase<CarbonToken>;
   };
 };
 
