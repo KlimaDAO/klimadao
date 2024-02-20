@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-19 06:49+0000\n"
+"POT-Creation-Date: 2024-02-20 15:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -145,7 +145,7 @@ msgstr "超出可用余额"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:78
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:241
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:245
 msgid "Available supply exceeded"
 msgstr "超出可用供应"
 
@@ -163,7 +163,7 @@ msgstr "可供购买"
 msgid "Available to retire"
 msgstr "可停用"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:215
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:219
 msgid "Available:"
 msgstr "可用的："
 
@@ -185,7 +185,7 @@ msgstr "测试版"
 msgid "Back to Project"
 msgstr "返回项目"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:393
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:397
 msgid "Balance"
 msgstr "余额"
 
@@ -195,15 +195,15 @@ msgstr "余额超出"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:97
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:115
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:323
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:327
 msgid "Balance: {0}"
 msgstr "余额：{0}"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:446
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:450
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "请注意不要在您的碳停用姓名或消息中包含任何敏感的个人信息（例如电子邮件地址）。您在此处输入的信息一旦提交将无法更改，并将永久存在于公共区块链上。"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:288
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:292
 msgid "Beneficiary Address"
 msgstr "受益人地址"
 
@@ -211,7 +211,7 @@ msgstr "受益人地址"
 msgid "Beneficiary Name"
 msgstr "受益人姓名"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:259
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:263
 msgid "Beneficiary name"
 msgstr "受益人姓名"
 
@@ -221,7 +221,7 @@ msgid "Beneficiary wallet address"
 msgstr "受益人钱包地址"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:274
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:278
 msgid "Beneficiary wallet address (optional)"
 msgstr "收益人钱包地址（可选）"
 
@@ -419,7 +419,7 @@ msgid "Copy"
 msgstr "复制"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:59
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:462
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:466
 msgid "Could not calculate Total Cost"
 msgstr "无法计算总成本"
 
@@ -485,7 +485,7 @@ msgstr "信用卡最低购买金额为 {0}"
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 msgstr "信用卡付款需支付额外的手续费。<0>请参阅文档以了解更多信息</0>"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:431
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:435
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
 msgstr "目前，Carbonmark 仅接受 Polygon USDC 或信用卡付款。 <0> 了解如何在 Polygon 上获取 USDC </0>"
 
@@ -511,11 +511,11 @@ msgstr "该卖家的数据"
 msgid "Date"
 msgstr "日期"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:292
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:296
 msgid "Defaults to the connected wallet address"
 msgstr "默认的已连接钱包地址"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:303
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:307
 msgid "Describe the purpose of this retirement"
 msgstr "描述本次碳停用的目的"
 
@@ -693,11 +693,11 @@ msgstr "您想要挂牌出售多少吨？"
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "您想购买多少吨碳？"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:245
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:249
 msgid "How many tonnes of carbon do you want to retire?"
 msgstr "您想停用多少吨碳？"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:211
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:215
 msgid "How many tonnes of carbon would you like to retire?"
 msgstr "您想停用多少吨碳？"
 
@@ -845,7 +845,7 @@ msgstr "登录"
 msgid "Login or Sign Up"
 msgstr "登录或注册"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:376
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:380
 msgid "Login to pay with USDC"
 msgstr "登录并使用 USDC 付款"
 
@@ -963,7 +963,7 @@ msgid "Not Connected"
 msgstr "未连接"
 
 #: components/pages/Project/PayWithBank/index.tsx:240
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:284
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:288
 msgid "Not a valid polygon address"
 msgstr "不是polygon的有效地址"
 
@@ -1016,7 +1016,7 @@ msgstr "通过银行转账支付"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:94
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:112
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:319
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:323
 msgid "Pay with:"
 msgstr "使用...支付"
 
@@ -1095,7 +1095,7 @@ msgstr ""
 "隐私政策\n"
 ""
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:387
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:391
 msgid "Processing Fee:"
 msgstr "处理费："
 
@@ -1168,7 +1168,7 @@ msgstr "数量"
 msgid "Quantity Available:"
 msgstr "可用数量："
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:236
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:108
 msgid "Quantity is required"
 msgstr "数量为必填项"
@@ -1233,12 +1233,12 @@ msgstr "请求演示"
 msgid "Request already processing. Please open your wallet and complete the request."
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:206
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:210
 msgid "Required Field"
 msgstr "必填项目"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:263
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:307
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:267
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:311
 msgid "Required when proceeding with Credit Card"
 msgstr "使用信用卡时需要"
 
@@ -1334,8 +1334,8 @@ msgid "Retirement Activity"
 msgstr "碳停用活动"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:358
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:297
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:311
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:301
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:315
 msgid "Retirement Message"
 msgstr "停用消息"
 
@@ -1682,7 +1682,7 @@ msgstr "收到的代币："
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:51
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:84
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:88
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:220
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:224
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:170
 msgid "Tonnes"
 msgstr "吨"
@@ -1699,7 +1699,7 @@ msgstr "售出吨数："
 msgid "Total Amount to Sell is required"
 msgstr "销售总额为必填项"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:465
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:469
 msgid "Total Cost is required"
 msgstr "总成本为必填项"
 
@@ -1928,8 +1928,8 @@ msgstr "什么是Carbonmark？解答有关数字碳市场界面的常见问题�
 
 #: components/pages/Project/PayWithBank/index.tsx:224
 #: components/pages/Project/PayWithBank/index.tsx:343
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:253
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:267
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:257
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
 msgid "Who will this retirement be credited to?"
 msgstr "本次碳停用将归功于谁？"
 
@@ -1975,7 +1975,7 @@ msgstr "您已选择拒绝交易"
 msgid "You chose to reject the transaction."
 msgstr "您已选择拒绝交易."
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:278
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:282
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
 msgstr "您需要提供收款人地址或使用浏览器钱包登录。"
 
@@ -2002,7 +2002,7 @@ msgid "Your Wallet Address:"
 msgstr "您的钱包地址："
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:408
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:412
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
 msgstr "您的余额必须至少多出交易成本的1%。"
 
@@ -2541,7 +2541,7 @@ msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键
 msgid "{0}"
 msgstr "{0}"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:327
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:331
 msgid "{0} maximum for credit cards"
 msgstr "{0} 信用卡最高限额"
 

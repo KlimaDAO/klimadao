@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-19 06:49+0000\n"
+"POT-Creation-Date: 2024-02-20 15:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -145,7 +145,7 @@ msgstr "Verfügbares Guthaben überschritten"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:78
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:241
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:245
 msgid "Available supply exceeded"
 msgstr "Verfügbarer Vorrat überschritten"
 
@@ -163,7 +163,7 @@ msgstr "Zum Kauf verfügbar"
 msgid "Available to retire"
 msgstr "Für CO2-Ausgleich verfügbar"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:215
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:219
 msgid "Available:"
 msgstr "Verfügbar:"
 
@@ -185,7 +185,7 @@ msgstr "BETA"
 msgid "Back to Project"
 msgstr "Zurück zum Projekt"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:393
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:397
 msgid "Balance"
 msgstr "Guthaben"
 
@@ -195,15 +195,15 @@ msgstr "Guthaben überschritten"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:97
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:115
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:323
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:327
 msgid "Balance: {0}"
 msgstr "Guthaben: {0}"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:446
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:450
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "Achten Sie darauf, keine persönlichen Daten (wie E-Mail-Adressen) im Ausgleichsnamen oder der -nachricht anzugeben. Die hier eingegebenen Informationen werden auf einer öffentlichen Blockchain für immer einsehbar sein und können nicht bearbeitet werden."
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:288
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:292
 msgid "Beneficiary Address"
 msgstr "Empfängeradresse"
 
@@ -211,7 +211,7 @@ msgstr "Empfängeradresse"
 msgid "Beneficiary Name"
 msgstr "Name des Begünstigten"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:259
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:263
 msgid "Beneficiary name"
 msgstr "Name des Begünstigten"
 
@@ -221,7 +221,7 @@ msgid "Beneficiary wallet address"
 msgstr "Wallet-Adresse des Begünstigten"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:274
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:278
 msgid "Beneficiary wallet address (optional)"
 msgstr "Wallet-Adresse des Begünstigten (optional)"
 
@@ -419,7 +419,7 @@ msgid "Copy"
 msgstr "Kopieren"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:59
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:462
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:466
 msgid "Could not calculate Total Cost"
 msgstr "Gesamtkosten konnten nicht berechnet werden"
 
@@ -485,7 +485,7 @@ msgstr "Mindestpreis für Kreditkartenzahlungen ist {0}"
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 msgstr "Kreditkartenzahlungen verursachen eine zusätzliche Bearbeitungsgebühr. <0>Mehr erfahren.</0>"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:431
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:435
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
 msgstr "Derzeit akzeptiert Carbonmark nur Zahlungen via USDC (Polygon-Netzwerk) oder Kreditkarte. <0>Klicken Sie hier, um mehr über USDC zu erfahren.</0>"
 
@@ -511,11 +511,11 @@ msgstr "Informationen über diesen Verkäufer"
 msgid "Date"
 msgstr "Datum"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:292
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:296
 msgid "Defaults to the connected wallet address"
 msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:303
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:307
 msgid "Describe the purpose of this retirement"
 msgstr "Beschreibe den Zweck dieses Ausgleichs"
 
@@ -693,11 +693,11 @@ msgstr "Wie viele Tonnen möchten Sie zum Verkauf anbieten?"
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "Wie viele Tonnen CO2 möchten Sie kaufen?"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:245
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:249
 msgid "How many tonnes of carbon do you want to retire?"
 msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen?"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:211
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:215
 msgid "How many tonnes of carbon would you like to retire?"
 msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen?"
 
@@ -845,7 +845,7 @@ msgstr "Anmelden"
 msgid "Login or Sign Up"
 msgstr "Anmelden"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:376
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:380
 msgid "Login to pay with USDC"
 msgstr "Melden Sie sich an, um mit USDC zu bezahlen"
 
@@ -963,7 +963,7 @@ msgid "Not Connected"
 msgstr "Nicht verbunden"
 
 #: components/pages/Project/PayWithBank/index.tsx:240
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:284
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:288
 msgid "Not a valid polygon address"
 msgstr "Keine gültige Polygonadresse"
 
@@ -1014,7 +1014,7 @@ msgstr "Bezahlen Sie per Banküberweisung"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:94
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:112
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:319
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:323
 msgid "Pay with:"
 msgstr "Bezahlen mit:"
 
@@ -1091,7 +1091,7 @@ msgstr "Preis pro Tonne"
 msgid "Privacy Policy"
 msgstr "Datenschutzbestimmungen"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:387
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:391
 msgid "Processing Fee:"
 msgstr "Bearbeitungsgebühr:"
 
@@ -1164,7 +1164,7 @@ msgstr "Menge"
 msgid "Quantity Available:"
 msgstr "Verfügbare Menge:"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:236
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:108
 msgid "Quantity is required"
 msgstr "Menge ist erforderlich"
@@ -1226,12 +1226,12 @@ msgstr "Demo anfordern"
 msgid "Request already processing. Please open your wallet and complete the request."
 msgstr "Anfrage ist bereits in Bearbeitung. Bitte öffnen Sie Ihre Wallet und schließen Sie die Anfrage ab."
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:206
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:210
 msgid "Required Field"
 msgstr "Pflichtfeld"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:263
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:307
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:267
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:311
 msgid "Required when proceeding with Credit Card"
 msgstr "Erforderlich, wenn Sie mit Kreditkarte fortfahren"
 
@@ -1327,8 +1327,8 @@ msgid "Retirement Activity"
 msgstr "Ausgleichsaktivität"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:358
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:297
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:311
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:301
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:315
 msgid "Retirement Message"
 msgstr "Ausgleichsnachricht"
 
@@ -1675,7 +1675,7 @@ msgstr "Erhaltene Tokens:"
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:51
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:84
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:88
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:220
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:224
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:170
 msgid "Tonnes"
 msgstr "Tonnen"
@@ -1692,7 +1692,7 @@ msgstr "Verkaufte Tonnen:"
 msgid "Total Amount to Sell is required"
 msgstr "Der zu verkaufende Gesamtbetrag ist erforderlich"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:465
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:469
 msgid "Total Cost is required"
 msgstr "Gesamtkosten sind erforderlich"
 
@@ -1921,8 +1921,8 @@ msgstr "Was ist Carbonmark? Antworten auf häufig gestellte Fragen über das Int
 
 #: components/pages/Project/PayWithBank/index.tsx:224
 #: components/pages/Project/PayWithBank/index.tsx:343
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:253
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:267
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:257
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
 msgid "Who will this retirement be credited to?"
 msgstr "Wem soll dieser CO2-Ausgleich gewidmet werden?"
 
@@ -1968,7 +1968,7 @@ msgstr "Sie haben die Transaktion abgelehnt"
 msgid "You chose to reject the transaction."
 msgstr "Sie haben die Transaktion abgelehnt"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:278
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:282
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
 msgstr "Sie müssen entweder eine Empfängeradresse angeben oder sich mit Ihrer Browserwallet anmelden."
 
@@ -1995,7 +1995,7 @@ msgid "Your Wallet Address:"
 msgstr "Ihre Walletadresse"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:408
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:412
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
 msgstr "Ihr Guthaben muss die Kosten der Transaktion um mindestens 1 % übersteigen."
 
@@ -2534,7 +2534,7 @@ msgstr "Diese Funktion steht nur für eingeloggte Nutzer zur Verfügung. Loggen 
 msgid "{0}"
 msgstr "{0}"
 
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:327
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:331
 msgid "{0} maximum for credit cards"
 msgstr "Maximal {0} für Kreditkarten"
 

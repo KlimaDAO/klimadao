@@ -2809,149 +2809,6 @@
         }
       }
     },
-    "/purchases": {
-      "get": {
-        "summary": "Recent purchases",
-        "description": "Retrieve a list of recent purchases",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A ordered list of recent purchases and their projects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "ID (transaction hash) of the purchase",
-                        "examples": [
-                          "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                        ],
-                        "type": "string"
-                      },
-                      "amount": {
-                        "description": "Quantity of credits purchased",
-                        "examples": [
-                          "1.0"
-                        ],
-                        "type": "string"
-                      },
-                      "listing": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "description": "ID of the listing that was purchased",
-                            "examples": [
-                              "0x1"
-                            ],
-                            "type": "string"
-                          },
-                          "tokenAddress": {
-                            "description": "Address of the asset that was purchased",
-                            "type": "string"
-                          },
-                          "seller": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Address of the seller",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ]
-                          },
-                          "project": {
-                            "type": "object",
-                            "properties": {
-                              "country": {
-                                "examples": [
-                                  "China"
-                                ],
-                                "type": "string"
-                              },
-                              "key": {
-                                "examples": [
-                                  "VCS-191"
-                                ],
-                                "type": "string"
-                              },
-                              "methodology": {
-                                "examples": [
-                                  "ACM0002"
-                                ],
-                                "type": "string"
-                              },
-                              "name": {
-                                "examples": [
-                                  "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                                ],
-                                "type": "string"
-                              },
-                              "projectID": {
-                                "examples": [
-                                  "191"
-                                ],
-                                "type": "string"
-                              },
-                              "vintage": {
-                                "examples": [
-                                  "2008"
-                                ],
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "country",
-                              "key",
-                              "methodology",
-                              "name",
-                              "projectID",
-                              "vintage"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "tokenAddress",
-                          "seller",
-                          "project"
-                        ]
-                      },
-                      "price": {
-                        "description": "Total purchase price (USDC)",
-                        "examples": [
-                          "5.0"
-                        ],
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "amount",
-                      "listing",
-                      "price"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/retirements": {
       "get": {
         "summary": "Retirement",
@@ -3111,6 +2968,149 @@
                       "beneficiaryAddress",
                       "retiringAddress",
                       "timestamp"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases": {
+      "get": {
+        "summary": "Recent purchases",
+        "description": "Retrieve a list of recent purchases",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A ordered list of recent purchases and their projects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "ID (transaction hash) of the purchase",
+                        "examples": [
+                          "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                        ],
+                        "type": "string"
+                      },
+                      "amount": {
+                        "description": "Quantity of credits purchased",
+                        "examples": [
+                          "1.0"
+                        ],
+                        "type": "string"
+                      },
+                      "listing": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "ID of the listing that was purchased",
+                            "examples": [
+                              "0x1"
+                            ],
+                            "type": "string"
+                          },
+                          "tokenAddress": {
+                            "description": "Address of the asset that was purchased",
+                            "type": "string"
+                          },
+                          "seller": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Address of the seller",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          "project": {
+                            "type": "object",
+                            "properties": {
+                              "country": {
+                                "examples": [
+                                  "China"
+                                ],
+                                "type": "string"
+                              },
+                              "key": {
+                                "examples": [
+                                  "VCS-191"
+                                ],
+                                "type": "string"
+                              },
+                              "methodology": {
+                                "examples": [
+                                  "ACM0002"
+                                ],
+                                "type": "string"
+                              },
+                              "name": {
+                                "examples": [
+                                  "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                                ],
+                                "type": "string"
+                              },
+                              "projectID": {
+                                "examples": [
+                                  "191"
+                                ],
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "examples": [
+                                  "2008"
+                                ],
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "country",
+                              "key",
+                              "methodology",
+                              "name",
+                              "projectID",
+                              "vintage"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "tokenAddress",
+                          "seller",
+                          "project"
+                        ]
+                      },
+                      "price": {
+                        "description": "Total purchase price (USDC)",
+                        "examples": [
+                          "5.0"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "amount",
+                      "listing",
+                      "price"
                     ]
                   }
                 }
@@ -4060,156 +4060,6 @@
         }
       }
     },
-    "/purchases/{id}": {
-      "get": {
-        "summary": "Purchase details",
-        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "ID (transaction hash) of the purchase to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response with listing details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "ID (transaction hash) of the purchase",
-                      "examples": [
-                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                      ],
-                      "type": "string"
-                    },
-                    "amount": {
-                      "description": "Quantity of credits purchased",
-                      "examples": [
-                        "1.0"
-                      ],
-                      "type": "string"
-                    },
-                    "listing": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
-                          "type": "string"
-                        },
-                        "tokenAddress": {
-                          "description": "Address of the asset that was purchased",
-                          "type": "string"
-                        },
-                        "seller": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Address of the seller",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        "project": {
-                          "type": "object",
-                          "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
-                              "type": "string"
-                            },
-                            "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "country",
-                            "key",
-                            "methodology",
-                            "name",
-                            "projectID",
-                            "vintage"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "tokenAddress",
-                        "seller",
-                        "project"
-                      ]
-                    },
-                    "price": {
-                      "description": "Total purchase price (USDC)",
-                      "examples": [
-                        "5.0"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "amount",
-                    "listing",
-                    "price"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/retirements/{id}": {
       "get": {
         "summary": "Retirement",
@@ -4357,6 +4207,156 @@
                     "beneficiaryAddress",
                     "retiringAddress",
                     "timestamp"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Quantity of credits purchased",
+                      "examples": [
+                        "1.0"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "tokenAddress": {
+                          "description": "Address of the asset that was purchased",
+                          "type": "string"
+                        },
+                        "seller": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "Address of the seller",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "tokenAddress",
+                        "seller",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Total purchase price (USDC)",
+                      "examples": [
+                        "5.0"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
                   ]
                 }
               }
