@@ -8,7 +8,11 @@ export type CarbonmarkPaymentMethodMap = {
   [key in CarbonmarkPaymentMethod]: {
     id: CarbonmarkPaymentMethod;
     icon: StaticImageData;
-    label: Uppercase<CarbonmarkPaymentMethod> | "Credit Card" | "Bank Transfer"| "USDC.e";
+    label:
+      | Uppercase<CarbonmarkPaymentMethod>
+      | "Credit Card"
+      | "Bank Transfer"
+      | "USDC.e";
     disabled: boolean;
   };
 };

@@ -15,7 +15,7 @@ export type CarbonmarkTokenMap = {
   [key in CarbonmarkToken]: {
     key: string;
     icon: StaticImageData;
-    label: Uppercase<CarbonmarkToken>;
+    label: Uppercase<CarbonmarkToken> | "USDC.e";
   };
 };
 
@@ -23,12 +23,12 @@ type CarbonTokenInfoMap = {
   [key in CarbonToken]: {
     key: string;
     icon: StaticImageData;
-    label: Uppercase<CarbonToken>;
+    label: Uppercase<CarbonToken> | "USDC.e";
   };
 };
 
 export const carbonmarkTokenInfoMap: CarbonmarkTokenMap = {
-  usdc: { key: "usdc", icon: USDC, label: "USDC" },
+  usdc: { key: "usdc", icon: USDC, label: "USDC.e" },
   c3: { key: "c3", icon: C3T, label: "C3" },
   tco2: { key: "tco2", icon: TCO2, label: "TCO2" },
   icr: { key: "icr", icon: ICR, label: "ICR" },
