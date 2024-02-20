@@ -15,7 +15,7 @@ interface Props {
   token: {
     key: string;
     icon: StaticImageData;
-    label: Uppercase<CarbonmarkToken>;
+    label: Uppercase<CarbonmarkToken> | "USDC.e";
   };
   spenderAddress: string;
   onCloseModal: () => void;
