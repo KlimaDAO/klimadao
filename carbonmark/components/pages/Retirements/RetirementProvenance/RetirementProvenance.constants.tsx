@@ -32,7 +32,7 @@ export const PROVENANCE_RECORDS_INFO: Record<
     iconBackgroundColor: "#EBEDFF",
   },
   ORIGINATION: {
-    label: <Trans>Bridge</Trans>,
+    label: <Trans>Transfer</Trans>,
     icon: (
       <DeviceHub
         sx={{
