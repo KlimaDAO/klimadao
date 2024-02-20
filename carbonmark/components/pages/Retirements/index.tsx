@@ -14,7 +14,6 @@ import { PageHead } from "components/PageHead";
 import { Navigation } from "components/shared/Navigation";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { RetirementFooter } from "./Footer";
 import { AllRetirements } from "./List";
 import * as styles from "./styles";
 
@@ -126,9 +125,6 @@ export const RetirementPage: NextPage<Props> = (props) => {
         <div className={styles.sectionButtonsWrap}>
           <CopyValueButton label="Copy Link" variant="lightGray" />
         </div>
-      </Section>
-      <Section variant="gray" className={styles.section}>
-        <RetirementFooter />
       </Section>
       <Section variant="gray" className={styles.section} />
       <Footer />
