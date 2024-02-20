@@ -84,7 +84,8 @@ export default defineType({
     },
     {
       name: "registry",
-      description: "Verra, Gold Standard, or EcoRegistry",
+      description:
+        "One of a limited number of approved registries (typically signalted via KlimaDAO governance)",
       group: "info",
       placeholder: "VCS",
       type: "string",
@@ -94,6 +95,7 @@ export default defineType({
           { title: "Gold Standard", value: "GS" },
           { title: "EcoRegistry", value: "ECO" },
           { title: "International Carbon Registry", value: "ICR" },
+          { title: "Puro", value: "PURO" },
         ],
       },
       validation: (r) => r.required(),
@@ -184,6 +186,14 @@ export default defineType({
       options: {
         list: countries.map((c) => ({ title: c.name, value: c.name })),
       },
+    },
+    {
+      name: "countryDetails",
+      description:
+        "Programmatically linked via ISO-3166 country code with a detail document on the country where the project was implemented",
+      type: "reference",
+      group: "location",
+      to: [{ type: "country" }],
     },
     {
       name: "state",
