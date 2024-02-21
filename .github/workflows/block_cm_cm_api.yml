@@ -3,6 +3,7 @@ name: Block PRs for specific folders
 on:
   pull_request:
     paths:
+      - "cms/**"
       - "carbonmark/**"
       - "carbonmark-api/**"
 
@@ -12,5 +13,5 @@ jobs:
     steps:
       - name: Block PR
         run: |
-          echo "Carbonmark and Carbonmark API have been migrated to https://github.com/Carbonmark/monorepo, please raise your pull request there"
+          echo "Carbonmark, Carbonmark API & the CMS have been migrated to https://github.com/Carbonmark/monorepo, please raise your pull request there"
           exit 1
