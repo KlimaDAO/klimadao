@@ -47,80 +47,78 @@ const validations = (
   fiatBalance: string | null,
   fiatMinimum: string | null,
   minFillAmount?: string | null
-) => ({
-  usdc: {
-    quantity: {
-      min: {
-        value: minFillAmount || MINIMUM_TONNE_QUANTITY,
-        message: t`The minimum amount to retire is ${
-          minFillAmount || MINIMUM_TONNE_QUANTITY
-        } Tonnes`,
+) => {
+  const minUsdcValue = Math.max(
+    Number(minFillAmount || 0),
+    MINIMUM_TONNE_QUANTITY
+  );
+  const minBankTransferValue = Math.max(
+    Number(minFillAmount || 0),
+    MINIMUM_TONNE_QUANTITY_BANK_TRANSFER
+  );
+  return {
+    usdc: {
+      quantity: {
+        min: {
+          value: minUsdcValue,
+          message: t`The minimum amount to retire is ${minUsdcValue} Tonnes`,
+        },
+      },
+      totalPrice: {
+        min: {
+          value: minUsdcValue,
+          message: t`The minimum amount to retire is ${minUsdcValue} Tonnes`,
+        },
+        max: {
+          value: Number(userBalance || "0"),
+          message: t`You exceeded your available amount of tokens`,
+        },
       },
     },
-    totalPrice: {
-      min: {
-        value: minFillAmount || MINIMUM_TONNE_QUANTITY,
-        message: t`The minimum amount to retire is ${
-          minFillAmount || MINIMUM_TONNE_QUANTITY
-        } Tonnes`,
+    fiat: {
+      quantity: {
+        min: {
+          value: 1,
+          message: t`The minimum amount to retire is 1 Tonne`,
+        },
       },
-      max: {
-        value: Number(userBalance || "0"),
-        message: t`You exceeded your available amount of tokens`,
-      },
-    },
-  },
-  fiat: {
-    quantity: {
-      min: {
-        value: 1,
-        message: t`The minimum amount to retire is 1 Tonne`,
-      },
-    },
-    totalPrice: {
-      min: {
-        value: Number(fiatMinimum || "0"),
-        message: t`Credit card minimum purchase is ${formatToPrice(
-          fiatMinimum || 0
-        )}`,
-      },
-      max: {
-        value: Number(fiatBalance || "2000"),
-        message: t`
-            At this time, Carbonmark cannot process credit card payments
-            exceeding ${formatToPrice(fiatBalance || 0)}. Please adjust the
-            quantity and try again later.
-          `,
+      totalPrice: {
+        min: {
+          value: Number(fiatMinimum || "0"),
+          message: t`Credit card minimum purchase is ${formatToPrice(
+            fiatMinimum || 0
+          )}`,
+        },
+        max: {
+          value: Number(fiatBalance || "2000"),
+          message: t`
+                At this time, Carbonmark cannot process credit card payments
+                exceeding ${formatToPrice(fiatBalance || 0)}. Please adjust the
+                quantity and try again later.
+              `,
+        },
       },
     },
-  },
-  "bank-transfer": {
-    quantity: {
-      min: {
-        value:
-          minFillAmount &&
-          Number(minFillAmount) > MINIMUM_TONNE_QUANTITY_BANK_TRANSFER
-            ? minFillAmount
-            : MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
-        message: t`The minimum amount to retire via bank transfer is 100 Tonnes`,
+    "bank-transfer": {
+      quantity: {
+        min: {
+          value: minBankTransferValue,
+          message: t`The minimum amount to retire via bank transfer is ${minBankTransferValue} Tonnes`,
+        },
+      },
+      totalPrice: {
+        min: {
+          value: minBankTransferValue,
+          message: t`The minimum amount to retire via bank transfer is ${minBankTransferValue} Tonnes`,
+        },
+        max: {
+          value: Infinity,
+          message: "",
+        },
       },
     },
-    totalPrice: {
-      min: {
-        value:
-          minFillAmount &&
-          Number(minFillAmount) > MINIMUM_TONNE_QUANTITY_BANK_TRANSFER
-            ? minFillAmount
-            : MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
-        message: t`The minimum amount to retire via bank transfer is 100 Tonnes`,
-      },
-      max: {
-        value: Infinity,
-        message: "",
-      },
-    },
-  },
-});
+  };
+};
 
 export const RetireInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
@@ -240,7 +238,6 @@ export const RetireInputs: FC<Props> = (props) => {
               inputProps={{
                 placeholder: t`Tonnes`,
                 type: "number",
-                // min: isICR ? 1 : getValidations().quantity.min.value,
                 min: getValidations().quantity.min.value,
                 max: Number(supply),
                 ...register("quantity", {
