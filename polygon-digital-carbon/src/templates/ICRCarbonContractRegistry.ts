@@ -18,6 +18,7 @@ export function handleNewICC(event: ProjectCreated): void {
   for (let i = 0; i < ICR_PROJECT_INFO.length; i++) {
     if (event.params.projectAddress.toHexString().toLowerCase() == ICR_PROJECT_INFO[i][0]) {
       project.id = ICR_PROJECT_INFO[i][1]
+      project.projectID = ICR_PROJECT_INFO[i][1]
       project.name = ICR_PROJECT_INFO[i][2]
       project.methodologies = ICR_PROJECT_INFO[i][3]
       project.category = ICR_PROJECT_INFO[i][4]
