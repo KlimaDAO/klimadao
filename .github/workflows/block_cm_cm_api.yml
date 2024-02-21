@@ -1,0 +1,16 @@
+name: Block PRs for specific folders
+
+on:
+  pull_request:
+    paths:
+      - "carbonmark/**"
+      - "carbonmark-api/**"
+
+jobs:
+  block:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block PR
+        run: |
+          echo "Carbonmark and Carbonmark API have been migrated to https://github.com/Carbonmark/monorepo, please raise your pull request there"
+          exit 1
