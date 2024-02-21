@@ -62,7 +62,7 @@ export const Home: NextPage<Props> = (props) => {
         description={
           <>
             <Trans>Enabling next generation carbon markets.</Trans>{" "}
-            <Link href="https://hub.carbonmark.com/2024-report" target="_blank">
+            <Link href={`${carbonmarkUrls.hub}/2024-report`} target="_blank">
               <Trans>Download our 2024 report now.</Trans>
             </Link>
           </>

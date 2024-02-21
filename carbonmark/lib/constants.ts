@@ -133,6 +133,7 @@ export const urls = {
   },
   blockExplorer: `${config.urls.blockExplorer[ENVIRONMENT]}`,
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
+  hub: "https://hub.carbonmark.com",
   docs: "https://docs.carbonmark.com",
   docsResourcesFees:
     "https://docs.carbonmark.com/get-started/understanding-fees-on-carbonmark",
