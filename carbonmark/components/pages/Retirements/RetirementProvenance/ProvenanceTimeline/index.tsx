@@ -97,9 +97,9 @@ export const ProvenanceTimeline = (props: ProvenanceComponentProps) => {
                   boxShadow: "unset",
                 }}
               >
-                <span className={styles.timelineIcon}>
+                <div className={styles.timelineIcon}>
                   {recordInfo(record)?.icon}
-                </span>
+                </div>
               </TimelineDot>
               {record.transactionType == "TRANSFER" && <TimelineConnector />}
             </TimelineSeparator>

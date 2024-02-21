@@ -102,6 +102,8 @@ export const divider = css`
 `;
 
 export const timelineIcon = css`
+  display: grid;
+  place-content: center;
   svg {
     width: 2rem;
     height: 2rem;
