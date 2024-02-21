@@ -455,10 +455,10 @@ export const RetireForm: FC<Props> = (props) => {
   );
 };
 
-function isPool(product: Product): product is PoolProduct {
+export function isPool(product: Product): product is PoolProduct {
   return product.type === "pool";
 }
 
-function isListing(product: Product): product is ListingProduct {
+export function isListing(product: Product): product is ListingProduct {
   return product.type === "listing";
 }

@@ -25,6 +25,7 @@ import {
   useFormContext,
   useWatch,
 } from "react-hook-form";
+import { isListing } from "./RetireForm";
 import * as styles from "./styles";
 import { FormValues } from "./types";
 
@@ -44,19 +45,24 @@ type Props = {
 const validations = (
   userBalance: string | null,
   fiatBalance: string | null,
-  fiatMinimum: string | null
+  fiatMinimum: string | null,
+  minFillAmount?: string | null
 ) => ({
   usdc: {
     quantity: {
       min: {
-        value: MINIMUM_TONNE_QUANTITY,
-        message: t`The minimum amount to retire is 0.001 Tonnes`,
+        value: minFillAmount || MINIMUM_TONNE_QUANTITY,
+        message: t`The minimum amount to retire is ${
+          minFillAmount || MINIMUM_TONNE_QUANTITY
+        } Tonnes`,
       },
     },
     totalPrice: {
       min: {
-        value: MINIMUM_TONNE_QUANTITY,
-        message: t`The minimum amount to retire is 0.001 Tonnes`,
+        value: minFillAmount || MINIMUM_TONNE_QUANTITY,
+        message: t`The minimum amount to retire is ${
+          minFillAmount || MINIMUM_TONNE_QUANTITY
+        } Tonnes`,
       },
       max: {
         value: Number(userBalance || "0"),
@@ -91,13 +97,21 @@ const validations = (
   "bank-transfer": {
     quantity: {
       min: {
-        value: MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+        value:
+          minFillAmount &&
+          Number(minFillAmount) > MINIMUM_TONNE_QUANTITY_BANK_TRANSFER
+            ? minFillAmount
+            : MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
         message: t`The minimum amount to retire via bank transfer is 100 Tonnes`,
       },
     },
     totalPrice: {
       min: {
-        value: MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
+        value:
+          minFillAmount &&
+          Number(minFillAmount) > MINIMUM_TONNE_QUANTITY_BANK_TRANSFER
+            ? minFillAmount
+            : MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
         message: t`The minimum amount to retire via bank transfer is 100 Tonnes`,
       },
       max: {
@@ -123,9 +137,12 @@ export const RetireInputs: FC<Props> = (props) => {
   const totalPrice = useWatch({ name: "totalPrice", control });
 
   const getValidations = () =>
-    validations(props.userBalance, props.fiatBalance, props.fiatMinimum)[
-      paymentMethod
-    ];
+    validations(
+      props.userBalance,
+      props.fiatBalance,
+      props.fiatMinimum,
+      isListing(props.product) ? props.product.minFillAmount : ""
+    )[paymentMethod];
 
   const belowFiatMinimum =
     paymentMethod === "fiat" &&
@@ -223,7 +240,8 @@ export const RetireInputs: FC<Props> = (props) => {
               inputProps={{
                 placeholder: t`Tonnes`,
                 type: "number",
-                min: isICR ? 1 : getValidations().quantity.min.value,
+                // min: isICR ? 1 : getValidations().quantity.min.value,
+                min: getValidations().quantity.min.value,
                 max: Number(supply),
                 ...register("quantity", {
                   onChange: (e) => {
