@@ -4,7 +4,6 @@ import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
-import { urls } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
@@ -139,9 +138,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
               <Text t="body3">
                 <Trans>
                   Currently, Carbonmark only accepts Polygon USDC payments.{" "}
-                  <Anchor
-                    href={`${urls.docs}/get-started/how-to-get-usdc-or-matic`}
-                  >
+                  <Anchor href="/blog/how-to-get-usdc-or-matic">
                     Learn how to acquire USDC on Polygon.
                   </Anchor>
                 </Trans>

@@ -11,7 +11,6 @@ import { isAddress } from "ethers-v6";
 import {
   MINIMUM_TONNE_QUANTITY,
   MINIMUM_TONNE_QUANTITY_BANK_TRANSFER,
-  urls as carbonmarkUrls,
 } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
@@ -435,9 +434,7 @@ export const RetireInputs: FC<Props> = (props) => {
               <Trans>
                 Currently, Carbonmark only accepts Polygon USDC or Credit Card
                 Payments.{" "}
-                <Anchor
-                  href={`${carbonmarkUrls.docs}/get-started/how-to-get-usdc-or-matic`}
-                >
+                <Anchor href="/blog/how-to-get-usdc-or-matic">
                   Learn how to acquire USDC on Polygon.
                 </Anchor>
               </Trans>
