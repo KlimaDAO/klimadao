@@ -55,7 +55,6 @@ export const PurchaseInputs: FC<Props> = (props) => {
               <Trans>Available: {Number(props.listing.leftToSell)}</Trans>
             </Text>
           </div>
-
           <InputField
             id="amount"
             inputProps={{
@@ -70,8 +69,8 @@ export const PurchaseInputs: FC<Props> = (props) => {
                   message: t`Amount is required`,
                 },
                 min: {
-                  value: 1,
-                  message: t`The minimum amount to buy is 1 Tonne`,
+                  value: Number(props.listing.minFillAmount),
+                  message: t`The minimum amount to buy is ${props.listing.minFillAmount} Tonne`,
                 },
                 max: {
                   value: Number(props.listing.leftToSell),
