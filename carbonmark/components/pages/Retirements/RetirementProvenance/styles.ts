@@ -51,3 +51,17 @@ export const social = css`
   padding-bottom: 2rem;
   align-items: center;
 `;
+
+export const labelWithInfo = css`
+  font-family: var(--font-family-secondary);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  svg {
+    color: var(--font-03);
+    width: 2rem;
+    height: 2rem;
+  }
+`;

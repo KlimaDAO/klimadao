@@ -45,9 +45,9 @@ export const ProvenanceTimeline = (props: ProvenanceComponentProps) => {
     (record) => record.transactionType == "TRANSFER"
   ).length;
   const dividerText = showTransfers ? (
-    <Trans>Hide {numberOfTransfers} transfers</Trans>
+    <Trans>Hide {numberOfTransfers} transactions</Trans>
   ) : (
-    <Trans>View {numberOfTransfers} transfers</Trans>
+    <Trans>View {numberOfTransfers} transactions</Trans>
   );
   const dividerIcon = showTransfers ? (
     <KeyboardArrowUp fontSize="large" />
@@ -97,7 +97,9 @@ export const ProvenanceTimeline = (props: ProvenanceComponentProps) => {
                   boxShadow: "unset",
                 }}
               >
-                {recordInfo(record)?.icon}
+                <span className={styles.timelineIcon}>
+                  {recordInfo(record)?.icon}
+                </span>
               </TimelineDot>
               {record.transactionType == "TRANSFER" && <TimelineConnector />}
             </TimelineSeparator>
@@ -176,6 +178,7 @@ export const ProvenanceTimeline = (props: ProvenanceComponentProps) => {
                         <Text t="responsiveBody2">
                           <A
                             href={`${verra.appSearch}?programType=ISSUANCE&exactResId=${projectId}`}
+                            className={styles.verraLink}
                           >
                             <Trans>View issuance on Verra</Trans>
                           </A>

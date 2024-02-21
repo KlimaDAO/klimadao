@@ -82,6 +82,8 @@ export const verraLinkAndTooltip = css`
   align-items: center;
   svg {
     color: var(--font-03);
+    width: 2rem;
+    height: 2rem;
   }
 `;
 
@@ -97,4 +99,15 @@ export const divider = css`
   align-items: center;
   font-size: 1.4rem;
   cursor: pointer;
+`;
+
+export const timelineIcon = css`
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+`;
+
+export const verraLink = css`
+  text-decoration: underline;
 `;
