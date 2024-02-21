@@ -188,6 +188,10 @@ export const RetireInputs: FC<Props> = (props) => {
       : props.product.leftToSell
   );
 
+  const isICR =
+    props.product.type === "listing" &&
+    props.product.project.id.startsWith("ICR");
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputsContainer}>
@@ -219,13 +223,13 @@ export const RetireInputs: FC<Props> = (props) => {
               inputProps={{
                 placeholder: t`Tonnes`,
                 type: "number",
-                min: getValidations().quantity.min.value,
+                min: isICR ? 1 : getValidations().quantity.min.value,
                 max: Number(supply),
                 ...register("quantity", {
                   onChange: (e) => {
                     clearErrors("totalPrice");
                     // Enforce whole numbers for Fiat, API throws otherwise
-                    isFiat &&
+                    (isFiat || isICR) &&
                       setValue(
                         "quantity",
                         Math.ceil(Number(e.target.value)).toString()

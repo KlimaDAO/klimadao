@@ -113,6 +113,11 @@ export type User = {
      * @type string | undefined
      */
     symbol?: string;
+    /**
+     * @description ID of the token
+     * @type string
+     */
+    tokenId: string;
   }[];
   /**
    * @type array | undefined

@@ -59,10 +59,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
           <InputField
             id="amount"
             inputProps={{
-              placeholder: t({
-                id: "purchase.input.amount.placeholder",
-                message: "Tonnes",
-              }),
+              placeholder: t`Tonnes`,
               type: "number",
               min: 1,
               max: Number(props.listing.leftToSell),
@@ -70,17 +67,11 @@ export const PurchaseInputs: FC<Props> = (props) => {
                 onChange: () => clearErrors("price"),
                 required: {
                   value: true,
-                  message: t({
-                    id: "purchase.input.amount.required",
-                    message: "Amount is required",
-                  }),
+                  message: t`Amount is required`,
                 },
                 min: {
                   value: 1,
-                  message: t({
-                    id: "purchase.input.amount.minimum",
-                    message: "The minimum amount to buy is 1 Tonne",
-                  }),
+                  message: t`The minimum amount to buy is 1 Tonne`,
                 },
                 max: {
                   value: Number(props.listing.leftToSell),
@@ -166,17 +157,11 @@ export const PurchaseInputs: FC<Props> = (props) => {
           ...register("price", {
             required: {
               value: true,
-              message: t({
-                id: "purchase.input.price.required",
-                message: "Price is required",
-              }),
+              message: t`Price is required`,
             },
             max: {
               value: Number(props.balance || "0"),
-              message: t({
-                id: "purchase.input.price.maxAmount",
-                message: "You exceeded your available amount of tokens",
-              }),
+              message: t`You exceeded your available amount of tokens`,
             },
           }),
         }}
