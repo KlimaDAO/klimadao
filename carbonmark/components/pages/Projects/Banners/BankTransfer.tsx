@@ -73,7 +73,7 @@ export const BankTransferBanner: FC = () => {
       onClose={onClose}
       title={t`Pay via Bank Transfer / Wire`}
       showClose={isInitialBanner}
-      showNewFeatureLabel={isInitialBanner}
+      featureLabel={isInitialBanner ? t`NEW FEATURE:` : ""}
       description={
         isInitialBanner
           ? t`Purchase retirements from any project on Carbonmark and pay via bank transfer.`

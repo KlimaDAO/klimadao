@@ -51,12 +51,14 @@ export const hero = css`
     justify-content: end;
     max-width: 100%;
     grid-column: main;
-    margin-top: 8rem;
+    // revert to margin-top: 8rem when no announcement banner
+    margin-top: 14rem;
     margin-bottom: 4rem;
 
     ${breakpoints.desktop} {
       max-width: 70%;
-      margin-bottom: 8.4rem;
+      // revert to margin-top: 8.4rem when no announcement banner
+      margin-bottom: 14.4rem;
     }
 
     & h1 {
@@ -902,5 +904,35 @@ export const footerIcons = css`
 
   & svg path {
     fill: #fff;
+  }
+`;
+
+export const announcementBanner = css`
+  position: absolute;
+
+  ${breakpoints.desktop} {
+    position: relative;
+    &.feature-banner {
+      transform: translateY(0);
+    }
+  }
+
+  .contents {
+    gap: 0.75rem;
+    display: grid;
+    padding: 2rem 0;
+    grid-column: main;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .title {
+    svg {
+      ${breakpoints.desktop} {
+        margin-left: 0;
+      }
+    }
   }
 `;

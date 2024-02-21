@@ -20,6 +20,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Category } from "components/Category";
+import FeatureBanner from "components/FeatureBanner";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
@@ -51,6 +52,21 @@ export const Home: NextPage<Props> = (props) => {
         title={t`Carbonmark | The Universal Carbon Marketplace`}
         mediaTitle={t`Carbonmark | The Universal Carbon Marketplace`}
         metaDescription={t`The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading.`}
+      />
+      <FeatureBanner
+        isVisible
+        isInitialBanner
+        showClose={false}
+        featureLabel={t`JUST RELEASED`}
+        customCss={styles.announcementBanner}
+        description={
+          <>
+            <Trans>Enabling next generation carbon markets.</Trans>{" "}
+            <Link href="https://hub.carbonmark.com/2024-report" target="_blank">
+              <Trans>Download our 2024 report now.</Trans>
+            </Link>
+          </>
+        }
       />
       <Section className={styles.hero}>
         <Image

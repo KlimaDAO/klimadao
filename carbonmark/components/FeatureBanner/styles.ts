@@ -21,12 +21,6 @@ export const banner = css`
     transform: translateY(6.4rem);
   }
 
-  ${breakpoints.desktop} {
-    &.feature-banner {
-      transform: translateY(7.2rem);
-    }
-  }
-
   .close {
     top: 1.6rem;
     right: 1.6rem;
@@ -51,53 +45,53 @@ export const banner = css`
       padding: 2rem 5.2rem;
     }
   }
-`;
 
-export const title = css`
-  gap: 1rem;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-
-  ${breakpoints.desktop} {
-    align-items: center;
-    flex-direction: row;
-  }
-
-  div {
+  .title {
+    gap: 1rem;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
 
     ${breakpoints.desktop} {
+      align-items: center;
       flex-direction: row;
     }
-  }
 
-  svg {
-    width: 2rem;
-    height: 2rem;
+    div {
+      display: flex;
+      flex-direction: column;
 
-    ${breakpoints.desktop} {
-      margin-left: -3.2rem;
+      ${breakpoints.desktop} {
+        flex-direction: row;
+      }
     }
-  }
 
-  p,
-  svg {
-    font-weight: 700;
-    color: var(--bright-blue);
-  }
+    svg {
+      width: 2rem;
+      height: 2rem;
 
-  .new-feature {
-    gap: 1.2rem;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
+      ${breakpoints.desktop} {
+        margin-left: -3.2rem;
+      }
+    }
 
-    p {
-      color: var(--black);
-      font-family: var(--font-family-secondary);
+    p,
+    svg {
+      font-weight: 700;
+      color: var(--bright-blue);
+    }
+
+    .new-feature {
+      gap: 1.2rem;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+
+      p {
+        color: var(--black);
+        font-family: var(--font-family-secondary);
+      }
     }
   }
 `;
