@@ -96,6 +96,11 @@ export const config = {
       preview: true,
       development: true,
     },
+    heroCarousel: {
+      production: false,
+      preview: true,
+      development: true,
+    },
   },
   urls: {
     baseUrl: {

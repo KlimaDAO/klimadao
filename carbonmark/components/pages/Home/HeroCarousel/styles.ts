@@ -8,6 +8,7 @@ export const carousel = css`
 `;
 
 export const viewport = css`
+  height: 100%;
   overflow: hidden;
 `;
 
@@ -16,10 +17,14 @@ export const dots = css`
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 4rem;
+  bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${breakpoints.large} {
+    bottom: 4rem;
+  }
 
   & .dot {
     width: 1.2rem;
@@ -30,7 +35,6 @@ export const dots = css`
     border-radius: 50%;
     margin-right: 0.75rem;
     margin-left: 0.75rem;
-
     &.selected {
       background: white;
     }
@@ -38,13 +42,12 @@ export const dots = css`
 `;
 
 export const container = css`
-  height: auto;
+  height: 100%;
   display: flex;
   touch-action: pan-y;
   flex-direction: row;
   margin-left: calc(1rem * -1);
   backface-visibility: hidden;
-
   & .backdrop {
     z-index: 1;
     top: 0;
@@ -62,6 +65,7 @@ export const container = css`
 
 export const slide = css`
   min-width: 0;
+  height: 100%;
   overflow: hidden;
   flex: 0 0 100%;
   position: relative;
@@ -69,12 +73,11 @@ export const slide = css`
 
 export const slideImg = css`
   display: block;
-  height: auto;
+  height: 100%;
   width: 100%;
   object-fit: cover;
-  // object-position: 0 -25rem;
 
-  ${breakpoints.large} {
+  ${breakpoints.medium} {
     height: 80vh;
   }
 `;
@@ -82,12 +85,22 @@ export const slideImg = css`
 export const content = css`
   z-index: 10;
   gap: 2rem;
-  left: 8rem;
+  right: 3.2rem;
+  left: 3.2rem;
   bottom: 5rem;
   color: white;
   display: flex;
   position: absolute;
   flex-direction: column;
+
+  ${breakpoints.large} {
+    left: 8rem;
+    bottom: 5rem;
+  }
+
+  ${breakpoints.desktopLarge} {
+    max-width: 50%;
+  }
 
   & .title {
     font-size: 48px;
@@ -95,15 +108,22 @@ export const content = css`
     font-weight: 700;
     font-family: Poppins;
   }
-
   & .description {
     font-size: 16px;
-    max-width: 40%;
+    max-width: 100%;
     line-height: 20px;
-  }
 
+    ${breakpoints.medium} {
+      max-width: 40%;
+    }
+  }
   & .buttons {
     gap: 1rem;
     display: flex;
+    flex-direction: column;
+
+    ${breakpoints.medium} {
+      flex-direction: row;
+    }
   }
 `;

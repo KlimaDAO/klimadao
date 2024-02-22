@@ -30,12 +30,14 @@ import { useResponsive } from "hooks/useResponsive";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
+import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { Project } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { HeroCarousel } from "./HeroCarousel";
 import * as styles from "./styles";
 
 export interface Props {
@@ -52,6 +54,7 @@ export const Home: NextPage<Props> = (props) => {
         mediaTitle={t`Carbonmark | The Universal Carbon Marketplace`}
         metaDescription={t`The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading.`}
       />
+      {getFeatureFlag("heroCarousel") && <HeroCarousel />}
       <Section className={styles.hero}>
         <Image
           fill
