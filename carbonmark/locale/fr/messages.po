@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-19 19:03+0000\n"
+"POT-Creation-Date: 2024-02-22 11:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -919,10 +919,6 @@ msgstr "Aucune barrière à l'entrée pour les projets carbone vérifiés"
 msgid "No beneficiary address available"
 msgstr "Aucune adresse de bénéficiaire disponible"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:42
-msgid "No beneficiary name provided"
-msgstr "Aucun bénéficiaire associé"
-
 #: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "Aucune donnée à afficher"
@@ -1812,7 +1808,7 @@ msgstr "Vérifiez que toutes les informations sont correctes et cliquez sur \"ap
 msgid "View"
 msgstr "Voir"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:50
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:54
 msgid "View Carbonmark Profile"
 msgstr "Voir le profil Carbonmark"
 
@@ -2264,7 +2260,11 @@ msgstr "{retiree} a retiré du marché {formattedAmount} Tonnes de carbone"
 msgid "retirement.provenance.head.title"
 msgstr "Carbonmark | Provenance des Retraits du marché de Carbone"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:43
+msgid "retirement.single.beneficiary.placeholder"
+msgstr "Aucun bénéficiaire associé"
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:39
 msgid "retirement.single.beneficiary.title"
 msgstr "Bénéficiaire :"
 

@@ -13,6 +13,7 @@ import * as styles from "./styles";
 type Props = {
   beneficiary: string;
   beneficiaryAddress: string;
+  beneficiaryName: string;
 };
 
 export const BeneficiaryDetails: FC<Props> = (props) => {
@@ -22,6 +23,7 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
     { network: networkLabel },
     { shouldFetch: notNil(props.beneficiaryAddress) }
   );
+
   return (
     <div className={styles.beneficiaryCard}>
       {!!carbonmarkUser && !!carbonmarkUser.profileImgUrl && (
@@ -37,9 +39,11 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
           <Trans id="retirement.single.beneficiary.title">Beneficiary:</Trans>
         </Text>
         <Text t="h4" className={styles.beneficiaryAddress}>
-          {carbonmarkUser?.handle ||
-            props.beneficiary ||
-            t`No beneficiary name provided`}
+          {props.beneficiaryName ||
+            t({
+              id: "retirement.single.beneficiary.placeholder",
+              message: "No beneficiary name provided",
+            })}
         </Text>
         <A
           className={styles.profileLink}

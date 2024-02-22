@@ -137,6 +137,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               <BeneficiaryDetails
                 beneficiary={retirement.retire.beneficiaryAddress.id}
                 beneficiaryAddress={props.beneficiaryAddress}
+                beneficiaryName={retirement.retire.beneficiaryName}
               />
             )}
             {retirement.retire.retirementMessage && (
