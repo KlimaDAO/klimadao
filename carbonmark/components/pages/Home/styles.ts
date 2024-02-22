@@ -909,6 +909,7 @@ export const footerIcons = css`
 
 export const announcementBanner = css`
   position: absolute;
+  background: var(--white);
 
   ${breakpoints.desktop} {
     position: relative;
