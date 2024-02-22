@@ -80,17 +80,7 @@ export const PurchaseModal: FC<Props> = (props) => {
   const { networkLabel } = useWeb3();
   return (
     <Modal
-      title={
-        !props.isProcessing
-          ? t({
-              id: "purchase.transaction.modal.title.confirm",
-              message: "Confirm Purchase",
-            })
-          : t({
-              id: "purchase.transaction.modal.title.processing",
-              message: "Processing Purchase",
-            })
-      }
+      title={!props.isProcessing ? t`Confirm Purchase` : t`Processing Purchase`}
       showModal={props.showModal}
       onToggleModal={props.onModalClose}
     >

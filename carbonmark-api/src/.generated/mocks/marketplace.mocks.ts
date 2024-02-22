@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Activity, Activity_Filter, BlockChangedFilter, Block_Height, Category, Category_Filter, Country, Country_Filter, Listing, Listing_Filter, Project, Project_Filter, Purchase, Purchase_Filter, Query, Subscription, User, User_Filter, _Block_, _Meta_, ActivityType, Activity_OrderBy, Category_OrderBy, Country_OrderBy, Listing_OrderBy, OrderDirection, Project_OrderBy, Purchase_OrderBy, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types';
+import { Activity, Activity_Filter, BlockChangedFilter, Block_Height, Category, Category_Filter, Country, Country_Filter, Listing, Listing_Filter, Project, Project_Filter, Purchase, Purchase_Filter, Query, Subscription, User, User_Filter, _Block_, _Meta_, ActivityType, Activity_OrderBy, Aggregation_Interval, Category_OrderBy, Country_OrderBy, Listing_OrderBy, OrderDirection, Project_OrderBy, Purchase_OrderBy, TokenStandard, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types';
 
 export const anActivity = (overrides?: Partial<Activity>, _relationshipsToOmit: Set<string> = new Set()): Activity => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
@@ -312,6 +312,7 @@ export const aListing = (overrides?: Partial<Listing>, _relationshipsToOmit: Set
         singleUnitPrice: overrides && overrides.hasOwnProperty('singleUnitPrice') ? overrides.singleUnitPrice! : '100000000000000000000',
         tokenAddress: overrides && overrides.hasOwnProperty('tokenAddress') ? overrides.tokenAddress! : 'at',
         tokenId: overrides && overrides.hasOwnProperty('tokenId') ? overrides.tokenId! : '100000000000000000000',
+        tokenStandard: overrides && overrides.hasOwnProperty('tokenStandard') ? overrides.tokenStandard! : TokenStandard.Erc20,
         tokenSymbol: overrides && overrides.hasOwnProperty('tokenSymbol') ? overrides.tokenSymbol! : 'assumenda',
         totalAmountToSell: overrides && overrides.hasOwnProperty('totalAmountToSell') ? overrides.totalAmountToSell! : '100000000000000000000',
         updatedAt: overrides && overrides.hasOwnProperty('updatedAt') ? overrides.updatedAt! : '100000000000000000000',
@@ -454,6 +455,10 @@ export const aListing_Filter = (overrides?: Partial<Listing_Filter>, _relationsh
         tokenId_lte: overrides && overrides.hasOwnProperty('tokenId_lte') ? overrides.tokenId_lte! : '100000000000000000000',
         tokenId_not: overrides && overrides.hasOwnProperty('tokenId_not') ? overrides.tokenId_not! : '100000000000000000000',
         tokenId_not_in: overrides && overrides.hasOwnProperty('tokenId_not_in') ? overrides.tokenId_not_in! : ['100000000000000000000'],
+        tokenStandard: overrides && overrides.hasOwnProperty('tokenStandard') ? overrides.tokenStandard! : TokenStandard.Erc20,
+        tokenStandard_in: overrides && overrides.hasOwnProperty('tokenStandard_in') ? overrides.tokenStandard_in! : [TokenStandard.Erc20],
+        tokenStandard_not: overrides && overrides.hasOwnProperty('tokenStandard_not') ? overrides.tokenStandard_not! : TokenStandard.Erc20,
+        tokenStandard_not_in: overrides && overrides.hasOwnProperty('tokenStandard_not_in') ? overrides.tokenStandard_not_in! : [TokenStandard.Erc20],
         tokenSymbol: overrides && overrides.hasOwnProperty('tokenSymbol') ? overrides.tokenSymbol! : 'sed',
         tokenSymbol_contains: overrides && overrides.hasOwnProperty('tokenSymbol_contains') ? overrides.tokenSymbol_contains! : 'quo',
         tokenSymbol_contains_nocase: overrides && overrides.hasOwnProperty('tokenSymbol_contains_nocase') ? overrides.tokenSymbol_contains_nocase! : 'quo',

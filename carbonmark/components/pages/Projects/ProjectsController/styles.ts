@@ -6,11 +6,9 @@ export const absolute = css`
   position: absolute;
   z-index: 1;
   padding: 1.6rem;
-  grid-column: unset;
-  ${breakpoints.desktop} {
-    grid-column: full;
-    padding: 4rem;
-  }
+  gap: 0.8rem;
+  grid-column: unset !important;
+
   // We ned to make the controls visible over variable contrast of the map
   // Using a filter so that it works with children's rounded corners
   // Filters don't allow complex shadows so unable to use var(--shadow-01)
@@ -18,11 +16,25 @@ export const absolute = css`
 `;
 
 export const controller = css`
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+
+  ${breakpoints.desktop} {
+    flex-direction: column;
+  }
+`;
+
+export const searchWrapper = css`
   width: 100%;
-  grid-template-columns: inherit;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: 0.8rem;
-  grid-column: full;
+
+  ${breakpoints.desktop} {
+    flex-direction: row;
+  }
 `;
 
 export const projectsControls = css`
@@ -45,17 +57,17 @@ export const projectsControls = css`
 `;
 
 export const displayOptions = css`
+  flex: 1;
   gap: 2rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   grid-column: full;
-  max-width: 168rem;
+  justify-content: space-between;
   align-items: center;
   justify-self: center;
-  margin-bottom: 0.8rem;
-`;
 
-export const toggle = css`
-  margin-left: auto;
+  ${breakpoints.desktop} {
+    justify-content: flex-end;
+  }
 `;

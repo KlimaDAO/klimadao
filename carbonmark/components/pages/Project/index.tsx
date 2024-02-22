@@ -12,7 +12,6 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
 import Carousel from "components/Carousel/Carousel";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
@@ -51,6 +50,7 @@ export const VISIBLE_ACTIVITIES: ActivityActionT[] = [
   "Purchase",
   "UpdatedPrice",
   "UpdatedQuantity",
+  "UpdatedExpiration",
 ];
 
 const Page: NextPage<PageProps> = (props) => {
@@ -118,9 +118,6 @@ const Page: NextPage<PageProps> = (props) => {
       />
 
       <Layout>
-        <div className={styles.projectControls}>
-          <LoginButton className="desktopLogin" />
-        </div>
         <div className={styles.projectHeader}>
           <ProjectImage category={category} />
           <div className={styles.imageGradient} />

@@ -3,15 +3,17 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footer = (transparent = false) => css`
   background: ${transparent ? "none" : "var(--manatee)"};
-  grid-column: full;
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  grid-area: footer;
   padding: 4rem 1.6rem;
+  max-height: 35rem;
 
   ${breakpoints.desktop} {
     padding: 4rem 8rem;
     gap: 3rem;
+    max-height: 10.4rem;
   }
 
   ${breakpoints.desktopLarge} {

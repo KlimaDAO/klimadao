@@ -44,6 +44,8 @@ export const formatAmountByRegistry = (
   registryId: RegistryId,
   quantity: string
 ) => {
+  registryId ?? (registryId = "MOSS");
+
   const registry = Object.values(REGISTRIES).find((r) => r.id === registryId);
 
   if (!registry) {

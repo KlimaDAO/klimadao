@@ -6,13 +6,24 @@ export const menuButton = css`
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  padding: 0.1rem;
-  border-radius: 0.8rem;
+  justify-content: space-between;
+  padding: 0.1rem 0.5rem;
   width: 100%;
   padding: 0.8rem;
 
-  span {
-    color: var(--font-03);
+  button {
+    width: 100%;
+  }
+
+  .container {
+    gap: 1.2rem;
+    display: flex;
+    align-items: center;
+
+    span {
+      ${typography.body4};
+      color: var(--font-02);
+    }
   }
 
   .iconContainer {
@@ -20,16 +31,17 @@ export const menuButton = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3.8rem;
-    width: 3.8rem;
+    height: 3.2rem;
+    width: 3.2rem;
     background-color: var(--surface-02);
     border-radius: 0.6rem;
+  }
 
-    svg {
-      font-size: 2.4rem;
-      width: 2.4rem;
-      height: 2.4rem;
-    }
+  svg {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    color: var(--font-03);
   }
 
   &:hover,
@@ -41,6 +53,10 @@ export const menuButton = css`
 
       svg {
         fill: var(--surface-01);
+      }
+
+      p {
+        color: white !important;
       }
     }
   }

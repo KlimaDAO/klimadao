@@ -48,7 +48,7 @@ export const PostPage = (props: PostProps) => {
 
   return (
     <>
-      <GridContainer>
+      <GridContainer className={styles.pageWrapper}>
         <PageHead
           title={props.post.title}
           mediaTitle={props.post.title}

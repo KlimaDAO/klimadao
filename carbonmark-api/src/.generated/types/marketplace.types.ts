@@ -40,6 +40,7 @@ export enum ActivityType {
   DeletedListing = 'DeletedListing',
   Purchase = 'Purchase',
   Sold = 'Sold',
+  UpdatedExpiration = 'UpdatedExpiration',
   UpdatedPrice = 'UpdatedPrice',
   UpdatedQuantity = 'UpdatedQuantity'
 }
@@ -237,6 +238,7 @@ export enum Activity_OrderBy {
   listing__singleUnitPrice = 'listing__singleUnitPrice',
   listing__tokenAddress = 'listing__tokenAddress',
   listing__tokenId = 'listing__tokenId',
+  listing__tokenStandard = 'listing__tokenStandard',
   listing__tokenSymbol = 'listing__tokenSymbol',
   listing__totalAmountToSell = 'listing__totalAmountToSell',
   listing__updatedAt = 'listing__updatedAt',
@@ -257,6 +259,11 @@ export enum Activity_OrderBy {
   timeStamp = 'timeStamp',
   user = 'user',
   user__id = 'user__id'
+}
+
+export enum Aggregation_Interval {
+  day = 'day',
+  hour = 'hour'
 }
 
 export type BlockChangedFilter = {
@@ -358,6 +365,7 @@ export type Listing = {
   singleUnitPrice: Scalars['BigInt'];
   tokenAddress: Scalars['Bytes'];
   tokenId: Scalars['BigInt'];
+  tokenStandard: TokenStandard;
   tokenSymbol: Scalars['String'];
   totalAmountToSell: Scalars['BigInt'];
   updatedAt: Maybe<Scalars['BigInt']>;
@@ -506,6 +514,10 @@ export type Listing_Filter = {
   tokenId_lte: InputMaybe<Scalars['BigInt']>;
   tokenId_not: InputMaybe<Scalars['BigInt']>;
   tokenId_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  tokenStandard: InputMaybe<TokenStandard>;
+  tokenStandard_in: InputMaybe<Array<TokenStandard>>;
+  tokenStandard_not: InputMaybe<TokenStandard>;
+  tokenStandard_not_in: InputMaybe<Array<TokenStandard>>;
   tokenSymbol: InputMaybe<Scalars['String']>;
   tokenSymbol_contains: InputMaybe<Scalars['String']>;
   tokenSymbol_contains_nocase: InputMaybe<Scalars['String']>;
@@ -569,6 +581,7 @@ export enum Listing_OrderBy {
   singleUnitPrice = 'singleUnitPrice',
   tokenAddress = 'tokenAddress',
   tokenId = 'tokenId',
+  tokenStandard = 'tokenStandard',
   tokenSymbol = 'tokenSymbol',
   totalAmountToSell = 'totalAmountToSell',
   updatedAt = 'updatedAt'
@@ -903,6 +916,7 @@ export enum Purchase_OrderBy {
   listing__singleUnitPrice = 'listing__singleUnitPrice',
   listing__tokenAddress = 'listing__tokenAddress',
   listing__tokenId = 'listing__tokenId',
+  listing__tokenStandard = 'listing__tokenStandard',
   listing__tokenSymbol = 'listing__tokenSymbol',
   listing__totalAmountToSell = 'listing__totalAmountToSell',
   listing__updatedAt = 'listing__updatedAt',
@@ -1213,6 +1227,11 @@ export type SubscriptionUsersArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
   where: InputMaybe<User_Filter>;
 };
+
+export enum TokenStandard {
+  ERC20 = 'ERC20',
+  ERC1155 = 'ERC1155'
+}
 
 export type User = {
   __typename?: 'User';

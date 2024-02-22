@@ -5,8 +5,7 @@ import {
 } from "src/.generated/types/cms.types";
 import { CarbonProject } from "src/.generated/types/digitalCarbon.types";
 import { Project } from "src/.generated/types/marketplace.types";
-import { GRAPH_URLS, ICR_API, SANITY_URLS } from "../../../src/app.constants";
-import { COUNTRY_CODES, VINTAGES } from "../../../test/fixtures/icr";
+import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
 import { fixtures } from "../../fixtures";
 
 /**
@@ -14,8 +13,6 @@ import { fixtures } from "../../fixtures";
  * @todo do this for all other nocks or in a more repeatable manner
  */
 let cmsInterceptor: Interceptor;
-
-const ICR_API_URL = ICR_API("polygon").ICR_API_URL;
 
 export const mockCms = (overrides?: {
   projects?: CMSProject[];
@@ -40,12 +37,6 @@ export const mockCms = (overrides?: {
       },
     });
 };
-
-export const mockICRFilters = () =>
-  nock(ICR_API_URL).persist().get("/public/projects/filters").reply(200, {
-    vintages: VINTAGES,
-    countryCodes: COUNTRY_CODES,
-  });
 
 export const mockTokens = () =>
   nock(GRAPH_URLS["polygon"].tokens)

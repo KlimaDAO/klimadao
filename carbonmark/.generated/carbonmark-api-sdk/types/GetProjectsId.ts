@@ -241,6 +241,11 @@ export type GetProjectsIdQueryResponse = {
          * @type string | undefined
          */
         symbol?: string;
+        /**
+         * @description ID of the token
+         * @type string
+         */
+        tokenId: string;
       }[]
     | null;
   /**
