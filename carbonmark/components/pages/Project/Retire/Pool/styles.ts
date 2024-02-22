@@ -267,8 +267,12 @@ export const disclaimer = css`
 export const stickyContentWrapper = css`
   display: grid;
   gap: 2.4rem;
-  position: sticky;
+  position: initial;
   top: 1rem;
+
+  ${breakpoints.large} {
+    position: sticky;
+  }
 `;
 
 export const buttonWrapper = css`
