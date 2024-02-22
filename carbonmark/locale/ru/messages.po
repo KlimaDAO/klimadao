@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ru\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:358
 msgid "0% listing fee"
@@ -486,13 +492,13 @@ msgid "Credit card payments incur an additional processing fee. <0>See docs to l
 msgstr "При оплате кредитной картой взимается дополнительная плата за обработку. <0>Подробнее см. в документации.</0>"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:435
-msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
-msgstr "В настоящее время Carbonmark принимает только платежи Polygon USDC или кредитные карты. <0>Узнайте, как приобрести USDC на Polygon.</0>"
+msgid "Currently, Carbonmark only accepts Polygon USDC.e or Credit Card Payments. <0>Learn how to acquire USDC.e on Polygon.</0>"
+msgstr ""
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:140
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:170
-msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to acquire USDC on Polygon.</0>"
-msgstr "В настоящее время Carbonmark принимает только платежи Polygon USDC. <0>Узнайте, как приобрести USDC на Polygon.</0>"
+msgid "Currently, Carbonmark only accepts Polygon USDC.e payments. <0>Learn how to acquire USDC.e on Polygon.</0>"
+msgstr ""
 
 #: components/pages/Retire/Activity/Table.tsx:48
 msgid "DATE"
@@ -846,8 +852,8 @@ msgid "Login or Sign Up"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:380
-msgid "Login to pay with USDC"
-msgstr "Войдите для оплаты USDC"
+msgid "Login to pay with USDC.e"
+msgstr ""
 
 #: components/Layout/NavDropdown/index.tsx:135
 msgid "Logout"
@@ -889,8 +895,8 @@ msgid "New Quantity"
 msgstr "Новое количество"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:134
-msgid "New Unit Price (USDC)"
-msgstr "Новая цена за единицу (USDC)"
+msgid "New Unit Price (USDC.e)"
+msgstr ""
 
 #: components/CreateListing/Transaction/Approve.tsx:90
 msgid "Next"
@@ -1757,12 +1763,12 @@ msgid "Transparent, on-chain offsets powered by Carbonmark."
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:136
-msgid "USDC per ton"
-msgstr "USDC за тонну"
+msgid "USDC.e per ton"
+msgstr ""
 
 #: components/CreateListing/Form/index.tsx:110
-msgid "USDC per tonne"
-msgstr "USDC за тонну"
+msgid "USDC.e per tonne"
+msgstr ""
 
 #: components/CreateListing/Form/index.tsx:115
 msgid "Unit price is required"

@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: hi\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/DisclaimerModal/index.tsx:84
 msgid "Acknowledge and Accept"
@@ -137,8 +143,8 @@ msgid "Wrong Network"
 msgstr "ग़लत नेटवर्क"
 
 #: components/CarbonBalancesCard/index.tsx:171
-msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
-msgstr "आपको अपने वॉलेट को USDC, KLIMA या कार्बन पूल टोकन से लोड करना होगा। क्रेडिट कार्ड समर्थन जल्द ही आ रहा है।"
+msgid "You need to load your wallet with USDC.e, KLIMA or a carbon pool token. Credit card support is coming soon."
+msgstr ""
 
 #. Long sentence
 #: components/views/Bond/index.tsx:1023
