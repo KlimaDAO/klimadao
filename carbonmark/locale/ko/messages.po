@@ -6,9 +6,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ko\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: components/CreateListing/Transaction/Approve.tsx:51
+#: components/CreateListing/Transaction/index.tsx:62
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:205
+msgid "{0}"
+msgstr ""
+
+#: components/pages/Users/index.tsx:30
+msgid "{0} | Profile | Carbonmark"
+msgstr ""
+
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:331
+msgid "{0} maximum for credit cards"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:29
+msgid "{amount} tonnes were purchased for project {0}"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:164
+msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
+msgstr ""
+
+#: components/Quantity/index.tsx:28
+msgid "{formattedAmount} tonnes"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:64
+#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:85
+msgid "{formattedAmount} Tonnes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/RetirementProvenance/index.tsx:46
+msgid "retirement.provenance.head.metaTitle"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/index.tsx:124
+msgid "retirement.head.metaTitle"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:32
+msgid "{tokenSymbol}"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
+msgid "@Username (note: this can not be changed!)"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
+msgid "<0>* </0> Required Field"
+msgstr ""
+
+#: lib/statusMessage.ts:23
+msgid "❌ Error: something went wrong..."
+msgstr ""
 
 #: components/pages/Home/index.tsx:358
 msgid "0% listing fee"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:47
+#: components/Transaction/index.tsx:45
+msgid "transaction_modal.view.approve.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:57
+#: components/Transaction/index.tsx:55
+msgid "transaction_modal.view.submit.title"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:193
@@ -32,14 +107,6 @@ msgstr ""
 msgid "500 - Server error occurred"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
-msgid "<0>* </0> Required Field"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
-msgid "@Username (note: this can not be changed!)"
-msgstr ""
-
 #: components/pages/Project/PayWithBank/index.tsx:153
 msgid "A valid email address is required"
 msgstr ""
@@ -54,6 +121,11 @@ msgstr ""
 msgid "About"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/Footer/index.tsx:11
+msgid "retirement.footer.about_carbonmark.title"
+msgstr ""
+
 #: components/Stats/StatsListings.tsx:49
 msgid "Active listings:"
 msgstr ""
@@ -62,12 +134,22 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/ExitModal/index.tsx:22
+msgid "exitmodal.after_you_click"
+msgstr ""
+
 #: lib/getCategoryInfo.ts:53
 msgid "Agriculture"
 msgstr ""
 
 #: components/pages/Home/index.tsx:362
 msgid "All assets sourced from major registries"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/List/index.tsx:24
+msgid "retirement.totals.all_retirements_list.headline"
 msgstr ""
 
 #: components/CreateListing/Transaction/Submit.tsx:41
@@ -111,6 +193,10 @@ msgstr ""
 msgid "Asset"
 msgstr ""
 
+#: components/AssetDetails/index.tsx:53
+msgid "Asset details"
+msgstr ""
+
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:24
 msgid "Asset Details"
 msgstr ""
@@ -119,8 +205,12 @@ msgstr ""
 msgid "Asset ID"
 msgstr ""
 
-#: components/AssetDetails/index.tsx:53
-msgid "Asset details"
+#: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:32
+msgid "Asset moved from one account to another, either via sale or inter-account transfer."
+msgstr ""
+
+#: components/Activities/Activity.tsx:34
+msgid "at"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:131
@@ -132,11 +222,6 @@ msgid ""
 "At this time, Carbonmark cannot process credit card payments\n"
 "exceeding {0}. Please adjust the\n"
 "quantity and try again later."
-msgstr ""
-
-#: components/ProjectCard/index.tsx:47
-#: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
-msgid "Available Tonnes:"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:116
@@ -163,6 +248,11 @@ msgstr ""
 msgid "Available to retire"
 msgstr ""
 
+#: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
+#: components/ProjectCard/index.tsx:47
+msgid "Available Tonnes:"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:219
 msgid "Available:"
 msgstr ""
@@ -176,13 +266,19 @@ msgstr ""
 msgid "Available: {unlistedBalance}"
 msgstr ""
 
-#: components/BetaBadge/index.tsx:18
-msgid "BETA"
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
+msgid "retire.back_button"
 msgstr ""
 
 #: components/pages/Project/Purchase/index.tsx:44
 #: components/pages/Project/Retire/index.tsx:35
 msgid "Back to Project"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Purchases/index.tsx:49
+msgid "project.single.button.back_to_project_details"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:397
@@ -199,6 +295,16 @@ msgstr ""
 msgid "Balance: {0}"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Balances/index.tsx:49
+msgid "portfolio.balances.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
+msgid "offset_disclaimer"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:450
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr ""
@@ -207,12 +313,17 @@ msgstr ""
 msgid "Beneficiary Address"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:306
-msgid "Beneficiary Name"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
+msgid "retirement.single.beneficiary_address.title"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:263
 msgid "Beneficiary name"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:306
+msgid "Beneficiary Name"
 msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:232
@@ -225,10 +336,19 @@ msgstr ""
 msgid "Beneficiary wallet address (optional)"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:39
+msgid "retirement.single.beneficiary.title"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:67
 #: components/pages/Project/index.tsx:137
 msgid "Best Price"
+msgstr ""
+
+#: components/BetaBadge/index.tsx:18
+msgid "BETA"
 msgstr ""
 
 #: lib/getCategoryInfo.ts:65
@@ -239,8 +359,8 @@ msgstr ""
 msgid "Book a demo"
 msgstr ""
 
-#: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:35
-msgid "Bridge"
+#: components/Activities/Activities.constants.ts:6
+msgid "bought from"
 msgstr ""
 
 #: components/pages/Home/index.tsx:157
@@ -255,6 +375,11 @@ msgstr ""
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:45
 #: components/pages/Project/BuyOptions/SellerListing.tsx:98
 msgid "Buy"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerUnconnected/index.tsx:70
+msgid "seller.listing.buy"
 msgstr ""
 
 #: components/pages/Home/index.tsx:168
@@ -273,12 +398,35 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:42
+msgid "purchase.approval_3"
+msgstr ""
+
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:42
+msgid "Carbon assets you purchase can be listed for sale on Carbonmark at any time from your <0>portfolio</0>."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
+msgid "retirement.single.carbon_credit_retirement.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/ExitModal/index.tsx:31
+msgid "exitmodal.carbon_credits_you_purchase"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:30
 msgid "Carbon Pool"
 msgstr ""
 
 #: components/Layout/NavDropdown/index.tsx:117
 msgid "Carbon Portfolio"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:144
+msgid "Carbon provenance"
 msgstr ""
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
@@ -289,16 +437,34 @@ msgstr ""
 msgid "Carbon Retirements"
 msgstr ""
 
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:42
-msgid "Carbon assets you purchase can be listed for sale on Carbonmark at any time from your <0>portfolio</0>."
+#. js-lingui-explicit-id
+#: components/pages/Retirements/index.tsx:60
+msgid "retirement.totals.page_headline"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:144
-msgid "Carbon provenance"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/index.tsx:39
+msgid "retirement.totals.head.title"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:46
-msgid "Carbonmark Overview"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/index.tsx:45
+msgid "retirement.totals.head.metaTitle"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/RetirementProvenance/index.tsx:42
+msgid "retirement.provenance.head.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/index.tsx:120
+msgid "retirement.head.title"
+msgstr ""
+
+#: components/pages/Home/index.tsx:51
+#: components/pages/Home/index.tsx:52
+msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr ""
 
 #: components/pages/Home/index.tsx:174
@@ -315,13 +481,17 @@ msgstr ""
 msgid "Carbonmark now offers the ability to pay for retirement transactions via bank transfer. Simply fill out the form below and we'll reach out within 2 business days (upon receiving all required information) to collect some further information and send you an invoice."
 msgstr ""
 
-#: components/pages/Home/index.tsx:51
-#: components/pages/Home/index.tsx:52
-msgid "Carbonmark | The Universal Carbon Marketplace"
+#: components/pages/Resources/lib/cmsDataMap.ts:46
+msgid "Carbonmark Overview"
 msgstr ""
 
 #: components/pages/Home/index.tsx:488
 msgid "Carbonmark's role"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesFilters/index.tsx:22
+msgid "resources.form.categories.header"
 msgstr ""
 
 #: components/ProjectFilterModal/index.tsx:130
@@ -333,6 +503,11 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesList/index.tsx:236
+msgid "resources.page.list.search_submit.no_search_results"
+msgstr ""
+
 #: components/pages/Home/index.tsx:206
 msgid "Choose a project and quantity"
 msgstr ""
@@ -341,8 +516,13 @@ msgstr ""
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:162
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesFilters/index.tsx:39
+msgid "resources.form.filters.clear_all"
+msgstr ""
+
 #: components/pages/Projects/ProjectSearch/index.tsx:55
+#: components/ProjectFilterModal/index.tsx:162
 msgid "Clear Filters"
 msgstr ""
 
@@ -352,6 +532,11 @@ msgstr ""
 
 #: components/CreateListing/Transaction/Submit.tsx:98
 msgid "Close"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Transaction/Submit.tsx:108
+msgid "transaction_modal.close"
 msgstr ""
 
 #: components/Footer/index.tsx:32
@@ -379,6 +564,16 @@ msgstr ""
 msgid "Compiling Results ..."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/Transaction/Approve.tsx:57
+msgid "transaction_modal.approve.amount"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Transaction/Approve.tsx:71
+msgid "transaction_modal.approve.price"
+msgstr ""
+
 #: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:83
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:85
 #: components/pages/Project/Retire/Pool/BankTransferModal.tsx:18
@@ -386,8 +581,17 @@ msgstr ""
 msgid "Confirm Purchase"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:416
+msgid "offset.retire_carbon"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:75
 msgid "Confirm Retirement"
+msgstr ""
+
+#: components/Layout/index.tsx:52
+msgid "connect a wallet"
 msgstr ""
 
 #: components/pages/Portfolio/ConnectedWallet/index.tsx:33
@@ -414,6 +618,16 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/Transaction/Approve.tsx:47
+msgid "transaction_modal.approve.contract_address"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Transaction/Submit.tsx:48
+msgid "transaction_modal.submit.contract_address"
+msgstr ""
+
 #: components/CopyAddressButton/index.tsx:37
 msgid "Copy"
 msgstr ""
@@ -431,14 +645,9 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:148
-#: components/pages/Users/SellerConnected/index.tsx:172
-msgid "Create New Listing"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/index.tsx:113
-#: components/pages/Users/SellerConnected/index.tsx:138
-msgid "Create Profile"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:88
+msgid "retirement.single.country_region.title"
 msgstr ""
 
 #: components/CreateListing/index.tsx:165
@@ -457,6 +666,21 @@ msgstr ""
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:136
+msgid "profile.addListing_modal.submit"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:172
+msgid "Create New Listing"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:138
+msgid "Create Profile"
+msgstr ""
+
 #: components/pages/Home/index.tsx:313
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr ""
@@ -465,24 +689,28 @@ msgstr ""
 msgid "Create your own retirement"
 msgstr ""
 
+#: components/Activities/Activities.constants.ts:4
+msgid "created listing"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/SellerListing.tsx:87
 msgid "Created:"
-msgstr ""
-
-#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:47
-msgid "Credit ID"
-msgstr ""
-
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:113
-msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:77
 msgid "Credit card minimum purchase is {0}"
 msgstr ""
 
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:113
+msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:247
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:47
+msgid "Credit ID"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:435
@@ -492,10 +720,6 @@ msgstr ""
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:140
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:170
 msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to acquire USDC on Polygon.</0>"
-msgstr ""
-
-#: components/pages/Retire/Activity/Table.tsx:48
-msgid "DATE"
 msgstr ""
 
 #: components/pages/Project/index.tsx:234
@@ -511,8 +735,26 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+#: components/pages/Retire/Activity/Table.tsx:48
+msgid "DATE"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:338
+msgid "offset.default_retirement_address"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:296
 msgid "Defaults to the connected wallet address"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:221
+msgid "profile.listing.edit.delete_listing"
+msgstr ""
+
+#: components/Activities/Activities.constants.ts:5
+msgid "deleted listing"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:307
@@ -523,12 +765,22 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
+msgid "retirement.single.project_description.title"
+msgstr ""
+
 #: components/pages/Resources/lib/cmsDataMap.ts:51
 msgid "Digital Carbon"
 msgstr ""
 
 #: components/pages/Home/index.tsx:264
 msgid "Digitize your carbon by using a supported bridge"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Blog/Post/index.tsx:97
+msgid "blog.disclaimer.title"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
@@ -555,8 +807,18 @@ msgstr ""
 msgid "Drive climate action and earn rewards with a carbon-backed digital currency."
 msgstr ""
 
+#: components/pages/Project/Purchase/Listing/Price.tsx:18
+#: components/pages/Project/Purchase/Pool/Price.tsx:17
+#: components/pages/Project/Retire/Pool/Price.tsx:17
+msgid "each"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:195
 msgid "Edit"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:206
+msgid "Edit listing"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:113
@@ -564,8 +826,9 @@ msgstr ""
 msgid "Edit Profile"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:206
-msgid "Edit listing"
+#. js-lingui-explicit-id
+#: components/pages/Users/ProfileHeader/index.tsx:54
+msgid "profile.edit_your_profile"
 msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:143
@@ -626,6 +889,19 @@ msgstr ""
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr ""
 
+#: components/Activities/Activity.tsx:112
+msgid "for"
+msgstr ""
+
+#: components/pages/Retire/index.tsx:52
+msgid "for beneficiary"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/index.tsx:66
+msgid "retirement.totals.page_subline"
+msgstr ""
+
 #: components/pages/Home/index.tsx:340
 msgid "For carbon traders"
 msgstr ""
@@ -642,20 +918,26 @@ msgstr ""
 msgid "Form complete"
 msgstr ""
 
-#: components/pages/Home/index.tsx:76
-msgid "Get Started"
-msgstr ""
-
 #: components/pages/Home/index.tsx:390
 msgid "Get paid immediately: transactions are resolved in seconds"
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/BankTransferModal.tsx:42
-msgid "Go Back"
+#: components/pages/Home/index.tsx:76
+msgid "Get Started"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/index.tsx:83
+#: components/Transaction/index.tsx:84
+msgid "transaction_modal.button.go_back"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:35
 msgid "Go back"
+msgstr ""
+
+#: components/pages/Project/Retire/Pool/BankTransferModal.tsx:42
+msgid "Go Back"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:145
@@ -681,7 +963,7 @@ msgid "Here’s a list of readily available, discounted carbon tokens to retire 
 msgstr ""
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:48
-msgid "Hide {numberOfTransfers} transfers"
+msgid "Hide {numberOfTransfers} transactions"
 msgstr ""
 
 #: components/CreateListing/Form/index.tsx:80
@@ -695,6 +977,11 @@ msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:249
 msgid "How many tonnes of carbon do you want to retire?"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:255
+msgid "offset.amount_in_tonnes"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:215
@@ -719,6 +1006,11 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:93
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
+msgid "retirement.single.transaction_record.title"
 msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:116
@@ -775,13 +1067,13 @@ msgstr ""
 msgid "Latest First"
 msgstr ""
 
+#: components/pages/Home/index.tsx:417
+msgid "Learn more"
+msgstr ""
+
 #: components/pages/Projects/Banners/BankTransfer.tsx:92
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:103
 msgid "Learn More"
-msgstr ""
-
-#: components/pages/Home/index.tsx:417
-msgid "Learn more"
 msgstr ""
 
 #: components/pages/Home/index.tsx:491
@@ -815,11 +1107,11 @@ msgid "Loading your assets"
 msgstr ""
 
 #: components/LoginButton/index.tsx:11
-#: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:159
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:295
 #: components/pages/Retire/Activity/Overview.tsx:73
 #: components/pages/Retire/Activity/Overview.tsx:84
+#: components/SpinnerWithLabel/index.tsx:15
 msgid "Loading..."
 msgstr ""
 
@@ -859,6 +1151,11 @@ msgstr ""
 msgid "Marketplace"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/Layout/NavMenu/index.tsx:35
+msgid "menu.marketplace"
+msgstr ""
+
 #: components/pages/Projects/index.tsx:73
 #: components/pages/Projects/index.tsx:74
 msgid "Marketplace | Carbonmark"
@@ -868,20 +1165,35 @@ msgstr ""
 msgid "Maximize your climate impact."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+msgid "retirement.single.moss_offset.description"
+msgstr ""
+
 #: components/pages/Project/index.tsx:144
 msgid "Methodology"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:74
+msgid "retirement.single.methodology.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:54
 msgid "Moss"
 msgstr ""
 
-#: components/FeatureBanner/index.tsx:33
-msgid "NEW FEATURE:"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:73
+msgid "retirement.single.moss_offset.name"
 msgstr ""
 
 #: components/Layout/NavDropdown/index.tsx:171
 msgid "Navigation Menu"
+msgstr ""
+
+#: components/FeatureBanner/index.tsx:33
+msgid "NEW FEATURE:"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:101
@@ -896,8 +1208,9 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: components/pages/Retire/Activity/Table.tsx:93
-msgid "No Activity to show."
+#. js-lingui-explicit-id
+#: components/Transaction/Approve.tsx:108
+msgid "transaction_modal.next"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:197
@@ -905,8 +1218,17 @@ msgstr ""
 msgid "No active listings."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/Activities/index.tsx:29
+msgid "user.activities.empty_state"
+msgstr ""
+
 #: components/pages/Retire/Activity/Quotes.tsx:38
 msgid "No activity to show"
+msgstr ""
+
+#: components/pages/Retire/Activity/Table.tsx:93
+msgid "No Activity to show."
 msgstr ""
 
 #: components/pages/Home/index.tsx:400
@@ -915,6 +1237,11 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "No beneficiary address available"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:43
+msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
 #: components/pages/Retire/Activity/Overview.tsx:62
@@ -950,12 +1277,18 @@ msgstr ""
 msgid "No retirement message provided."
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:50
-msgid "No transaction id available"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:28
+msgid "retirement.single.timestamp.placeholder"
 msgstr ""
 
-#: components/Layout/AddressSection/index.tsx:30
-msgid "Not Connected"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/List/index.tsx:40
+msgid "retirement.totals.all_retirements_list.empty"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:50
+msgid "No transaction id available"
 msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:240
@@ -963,11 +1296,20 @@ msgstr ""
 msgid "Not a valid polygon address"
 msgstr ""
 
+#: components/Layout/AddressSection/index.tsx:30
+msgid "Not Connected"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:116
+msgid "retirement.single.official_certificate.title"
+msgstr ""
+
 #: components/pages/Resources/lib/cmsDataMap.ts:72
 msgid "Oldest First"
 msgstr ""
 
-#: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:185
+#: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:188
 msgid "On the Verra page, search for the specific serial number."
 msgstr ""
 
@@ -991,21 +1333,17 @@ msgstr ""
 msgid "Over 20 million verified digital carbon credits from hundreds of projects, with over $4 billion traded to date"
 msgstr ""
 
-#: components/pages/Retire/Activity/Table.tsx:46
-msgid "PROJECT"
-msgstr ""
-
 #: components/pages/Projects/Banners/BankTransfer.tsx:74
 msgid "Pay via Bank Transfer / Wire"
+msgstr ""
+
+#: components/pages/Project/PayWithBank/index.tsx:98
+msgid "Pay with bank transfer"
 msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:89
 #: components/pages/Project/PayWithBank/index.tsx:90
 msgid "Pay with Bank Transfer | Carbonmark"
-msgstr ""
-
-#: components/pages/Project/PayWithBank/index.tsx:98
-msgid "Pay with bank transfer"
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:94
@@ -1014,21 +1352,17 @@ msgstr ""
 msgid "Pay with:"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:62
-msgid "Payment Successful"
-msgstr ""
-
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:243
 msgid "Payment processing fee"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:62
+msgid "Payment Successful"
 msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:161
 #: components/pages/Project/PayWithBank/index.tsx:313
 msgid "Phone number"
-msgstr ""
-
-#: components/LoginCard/index.tsx:21
-msgid "Please Log In"
 msgstr ""
 
 #: lib/statusMessage.ts:27
@@ -1039,10 +1373,24 @@ msgstr ""
 msgid "Please complete the secure form on the next page and we'll provide you an invoice within 2 business days (upon receiving all required information)."
 msgstr ""
 
+#: components/LoginCard/index.tsx:21
+msgid "Please Log In"
+msgstr ""
+
 #: components/pages/Portfolio/index.tsx:66
 #: components/pages/Users/SellerConnected/index.tsx:75
 #: components/pages/Users/SellerConnected/index.tsx:101
 msgid "Please refresh the page. There was an error updating your data: {e}."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesList/index.tsx:243
+msgid "resources.page.list.search_submit.no_filter_results"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Layout/NavMenu/index.tsx:56
+msgid "menu.portfolio"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:76
@@ -1062,10 +1410,6 @@ msgstr ""
 msgid "Price Highest"
 msgstr ""
 
-#: components/ProjectFilterModal/constants.tsx:12
-msgid "Price Lowest"
-msgstr ""
-
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:98
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:180
@@ -1074,6 +1418,10 @@ msgstr ""
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:160
 msgid "Price is required"
+msgstr ""
+
+#: components/ProjectFilterModal/constants.tsx:12
+msgid "Price Lowest"
 msgstr ""
 
 #: components/CreateListing/Transaction/Submit.tsx:62
@@ -1110,8 +1458,27 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/Layout/NavMenu/index.tsx:49
+msgid "menu.profile"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:192
 msgid "Profile picture"
+msgstr ""
+
+#: components/pages/Retire/Activity/Table.tsx:46
+msgid "PROJECT"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:44
+msgid "retirement.single.project_details.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:67
+msgid "retirement.single.project_name.title"
 msgstr ""
 
 #: components/pages/Project/PayWithBank/index.tsx:253
@@ -1119,9 +1486,19 @@ msgstr ""
 msgid "Project names of interest"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:36
-#: components/pages/Purchases/index.tsx:37
-msgid "Purchase Receipt | Carbonmark"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:58
+msgid "retirement.single.project.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
+msgid "retirement.single.proof_of.title"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:32
+#: components/pages/Project/Purchase/index.tsx:33
+msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:53
@@ -1133,17 +1510,17 @@ msgstr ""
 msgid "Purchase more Carbon"
 msgstr ""
 
+#: components/pages/Purchases/index.tsx:36
+#: components/pages/Purchases/index.tsx:37
+msgid "Purchase Receipt | Carbonmark"
+msgstr ""
+
 #: components/pages/Projects/Banners/BankTransfer.tsx:79
 msgid "Purchase retirements from any project on Carbonmark and pay via bank transfer."
 msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:84
 msgid "Purchase successful"
-msgstr ""
-
-#: components/pages/Project/Purchase/index.tsx:32
-#: components/pages/Project/Purchase/index.tsx:33
-msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
 #: components/pages/Retire/Activity/Table.tsx:47
@@ -1160,6 +1537,11 @@ msgstr ""
 msgid "Quantity Available:"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Users/Listing/index.tsx:59
+msgid "seller.listing.quantity_available"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:108
 msgid "Quantity is required"
@@ -1173,20 +1555,17 @@ msgstr ""
 msgid "Quantity purchased:"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
+msgid "retirement.single.quantity.title"
+msgstr ""
+
 #: components/pages/Retire/index.tsx:136
 msgid "Quick Retire"
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/SubmitButton.tsx:57
-msgid "RETIRE CARBON"
-msgstr ""
-
 #: components/pages/Project/index.tsx:198
 msgid "Read Less"
-msgstr ""
-
-#: components/pages/Project/index.tsx:198
-msgid "Read More"
 msgstr ""
 
 #: components/pages/Home/index.tsx:445
@@ -1195,6 +1574,10 @@ msgstr ""
 #: components/pages/Resources/BlogPostCard/index.tsx:38
 #: components/pages/Resources/FeaturedArticles/Article.tsx:45
 msgid "Read more"
+msgstr ""
+
+#: components/pages/Project/index.tsx:198
+msgid "Read More"
 msgstr ""
 
 #: components/pages/Home/index.tsx:351
@@ -1213,13 +1596,13 @@ msgstr ""
 msgid "Renewable Energy"
 msgstr ""
 
+#: lib/constants.ts:82
+msgid "Request already processing. Please open your wallet and complete the request."
+msgstr ""
+
 #: components/pages/Home/index.tsx:301
 #: components/pages/Home/index.tsx:325
 msgid "Request Demo"
-msgstr ""
-
-#: lib/constants.ts:82
-msgid "Request already processing. Please open your wallet and complete the request."
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:210
@@ -1229,6 +1612,11 @@ msgstr ""
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:267
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:311
 msgid "Required when proceeding with Credit Card"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Blog/Post/index.tsx:83
+msgid "shared.resourcecenter"
 msgstr ""
 
 #: components/Footer/index.tsx:38
@@ -1257,14 +1645,35 @@ msgstr ""
 msgid "Retire"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/Layout/NavMenu/index.tsx:42
+msgid "menu.retire"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/index.tsx:88
+#: components/pages/Portfolio/Retire/index.tsx:89
+#: components/pages/Retire/index.tsx:38
+#: components/pages/Retire/index.tsx:39
+msgid "Retire | Carbonmark"
+msgstr ""
+
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:388
 #: components/pages/Project/Retire/Pool/SubmitButton.tsx:32
 #: components/pages/Project/Retire/Pool/SubmitButton.tsx:43
 msgid "Retire Carbon"
 msgstr ""
 
+#: components/pages/Project/Retire/Pool/SubmitButton.tsx:57
+msgid "RETIRE CARBON"
+msgstr ""
+
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:233
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
+msgstr ""
+
+#: components/pages/Project/Retire/index.tsx:23
+#: components/pages/Project/Retire/index.tsx:24
+msgid "Retire from {fullProjectid} | Carbonmark"
 msgstr ""
 
 #: components/pages/Retire/index.tsx:72
@@ -1275,23 +1684,18 @@ msgstr ""
 msgid "Retire from your portfolio"
 msgstr ""
 
-#: components/pages/Project/Retire/index.tsx:23
-#: components/pages/Project/Retire/index.tsx:24
-msgid "Retire from {fullProjectid} | Carbonmark"
-msgstr ""
-
 #: components/pages/Home/index.tsx:232
 msgid "Retire instantly, or purchase and hold digital carbon"
-msgstr ""
-
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:110
-msgid "Retire more Carbon"
 msgstr ""
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:81
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:59
 msgid "Retire more carbon"
+msgstr ""
+
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:110
+msgid "Retire more Carbon"
 msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:56
@@ -1307,19 +1711,31 @@ msgstr ""
 msgid "Retire your carbon via bank transfer."
 msgstr ""
 
-#: components/pages/Portfolio/Retire/index.tsx:88
-#: components/pages/Portfolio/Retire/index.tsx:89
-#: components/pages/Retire/index.tsx:38
-#: components/pages/Retire/index.tsx:39
-msgid "Retire | Carbonmark"
+#: components/pages/Retire/Activity/Quotes.tsx:73
+msgid "retired"
 msgstr ""
 
-#: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:13
+#. js-lingui-explicit-id
+#: components/pages/Retirements/index.tsx:90
+msgid "retirement.totals.retired_assets"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:16
 msgid "Retirement"
 msgstr ""
 
 #: components/pages/Retire/Activity/Quotes.tsx:32
 msgid "Retirement Activity"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:347
+msgid "offset.retirement_message"
+msgstr ""
+
+#: components/pages/Project/PayWithBank/index.tsx:264
+#: components/pages/Project/PayWithBank/index.tsx:363
+msgid "Retirement message"
 msgstr ""
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:358
@@ -1328,26 +1744,36 @@ msgstr ""
 msgid "Retirement Message"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:13
+msgid "retirement.single.message.title"
+msgstr ""
+
 #: components/pages/Retire/Activity/Overview.tsx:60
 #: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Retirement Overview"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:24
-msgid "Retirement Successful!"
-msgstr ""
-
-#: components/pages/Project/PayWithBank/index.tsx:264
-#: components/pages/Project/PayWithBank/index.tsx:363
-msgid "Retirement message"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:74
 msgid "Retirement successful"
 msgstr ""
 
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:24
+msgid "Retirement Successful!"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/index.tsx:106
+msgid "retirement.totals.retirements"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:384
 msgid "Retiring Token"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:223
+msgid "profile.edit_modal.submit"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
@@ -1385,6 +1811,11 @@ msgstr ""
 msgid "Select a language"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesFilters/index.tsx:25
+msgid "resources.form.categories.subheader"
+msgstr ""
+
 #: components/pages/Portfolio/AssetProject/index.tsx:100
 #: components/pages/Portfolio/AssetProject/index.tsx:108
 msgid "Sell"
@@ -1402,12 +1833,26 @@ msgstr ""
 msgid "Seller Listing"
 msgstr ""
 
-#: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:159
+#: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:29
+msgid "Send"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:161
 msgid "Serial Number"
 msgstr ""
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:76
 msgid "Share this page"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:27
+msgid "retirement.single.share_retirement.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesList/index.tsx:289
+msgid "resources.mobile_modal.button.show_results"
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:31
@@ -1422,6 +1867,19 @@ msgstr ""
 
 #: components/CreateListing/Form/index.tsx:130
 msgid "Single unit price"
+msgstr ""
+
+#: components/Layout/index.tsx:51
+msgid "social or email"
+msgstr ""
+
+#: components/Activities/Activities.constants.ts:7
+msgid "sold to"
+msgstr ""
+
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:261
+msgid "something went wrong loading the allowance"
 msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:108
@@ -1448,12 +1906,27 @@ msgstr ""
 msgid "Sorry, this handle already exists"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:265
-msgid "Sort By"
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesList/index.tsx:222
+msgid "resources.page.list.on_fetch_error"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesList/index.tsx:230
+msgid "resources.page.list.no_search_results.title"
 msgstr ""
 
 #: components/pages/Resources/ResourcesList/index.tsx:194
 msgid "Sort by"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:265
+msgid "Sort By"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Resources/ResourcesList/index.tsx:197
+msgid "shared.resources.sort_by.header"
 msgstr ""
 
 #: components/Stats/index.tsx:23
@@ -1480,6 +1953,21 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/Transaction/Submit.tsx:100
+msgid "transaction_modal.submit.button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Transaction/Submit.tsx:59
+msgid "transaction_modal.submit.amount"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Transaction/Submit.tsx:70
+msgid "transaction_modal.submit.price"
+msgstr ""
+
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:88
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr ""
@@ -1492,12 +1980,24 @@ msgstr ""
 msgid "Switch to Polygon"
 msgstr ""
 
-#: components/BetaBadge/index.tsx:16
-msgid "TESTNET"
+#: components/pages/Retire/Activity/Overview.tsx:77
+#: components/pages/Retire/Activity/Quotes.tsx:76
+#: components/pages/Retire/Activity/Table.tsx:65
+msgid "t"
 msgstr ""
 
 #: components/Footer/index.tsx:29
 msgid "Terms of Use"
+msgstr ""
+
+#: components/BetaBadge/index.tsx:16
+msgid "TESTNET"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:30
+msgid "offset.successModal.body2"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:66
@@ -1508,20 +2008,31 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Project/PayWithBank/index.tsx:292
-msgid "Thank you for supporting the planet! We'll reach out soon to confirm some details and provide you with an with an invoice."
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:63
+msgid "offset.successModal.body1"
 msgstr ""
 
-#: components/pages/Home/index.tsx:65
-msgid "The Universal Carbon Marketplace"
+#: components/pages/Project/PayWithBank/index.tsx:292
+msgid "Thank you for supporting the planet! We'll reach out soon to confirm some details and provide you with an with an invoice."
 msgstr ""
 
 #: components/CreateListing/Transaction/Approve.tsx:44
 msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireModal/index.tsx:57
+msgid "transaction_modal.approve.allow_amount_2"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:34
 msgid "The first step is to grant the approval to transfer your carbon asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your retirement."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:35
+msgid "purchase.approval_2"
 msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:35
@@ -1530,6 +2041,12 @@ msgstr ""
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:239
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
+msgstr ""
+
+#. Long sentence
+#. js-lingui-explicit-id
+#: components/pages/Blog/Post/index.tsx:100
+msgid "blog.disclaimer.description"
 msgstr ""
 
 #: components/pages/Home/index.tsx:53
@@ -1570,12 +2087,26 @@ msgstr ""
 msgid "The minimum quantity to sell is 1 tonne"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireModal/index.tsx:76
+msgid "transaction_modal.submit.confirm_transaction_1"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:53
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:64
+msgid "purchase.submit_1"
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:64
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
+msgstr ""
+
+#: components/pages/Home/index.tsx:65
+msgid "The Universal Carbon Marketplace"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:208
@@ -1599,6 +2130,11 @@ msgstr ""
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/LoginCard/index.tsx:24
+msgid "user.login.description"
+msgstr ""
+
 #: components/pages/Portfolio/Retire/UnregisteredMessage/index.tsx:12
 msgid "This is your portfolio. Here you will find supported carbon assets you own. Assets shown here can be retired or listed for sale in the marketplace once you have a profile."
 msgstr ""
@@ -1619,12 +2155,26 @@ msgstr ""
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:123
+msgid "retirement.single.immutable_public_records.title"
+msgstr ""
+
 #: components/pages/Users/ProfileHeader/index.tsx:46
 msgid "This user has not yet created a carbonmark profile."
 msgstr ""
 
+#: components/Activities/Activity.tsx:119
+msgid "to"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireModal/index.tsx:83
+msgid "transaction_modal.submit.confirm_transaction_2"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:60
@@ -1639,21 +2189,21 @@ msgstr ""
 msgid "To pay via bank transfer, we'll need to gather some information from you."
 msgstr ""
 
-#: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:70
-msgid "Toggle Select Project"
-msgstr ""
-
-#: components/pages/Resources/SortyByDropDown/index.tsx:63
-msgid "Toggle Sorted by menu"
-msgstr ""
-
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:106
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:126
 msgid "Toggle payment method"
 msgstr ""
 
+#: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:70
+msgid "Toggle Select Project"
+msgstr ""
+
 #: components/pages/Projects/ProjectSort/index.tsx:29
 msgid "Toggle sort menu"
+msgstr ""
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:63
+msgid "Toggle Sorted by menu"
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:209
@@ -1663,6 +2213,10 @@ msgstr ""
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:59
 msgid "Tokens received:"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:40
+msgid "tonnes"
 msgstr ""
 
 #: components/AssetDetails/index.tsx:63
@@ -1684,22 +2238,6 @@ msgstr ""
 msgid "Tonnes sold:"
 msgstr ""
 
-#: components/CreateListing/Form/index.tsx:85
-msgid "Total Amount to Sell is required"
-msgstr ""
-
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:469
-msgid "Total Cost is required"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:46
-msgid "Total Price"
-msgstr ""
-
-#: components/Stats/StatsBar.tsx:35
-msgid "Total Retirements:"
-msgstr ""
-
 #: components/CreateListing/Transaction/Approve.tsx:61
 msgid "Total allowance"
 msgstr ""
@@ -1708,8 +2246,17 @@ msgstr ""
 msgid "Total amount of tonnes to retire is required"
 msgstr ""
 
+#: components/CreateListing/Form/index.tsx:85
+msgid "Total Amount to Sell is required"
+msgstr ""
+
 #: components/pages/Retire/Activity/Overview.tsx:72
 msgid "Total carbon tonnes retired"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/index.tsx:98
+msgid "retirement.totals.total_carbon_tonnes"
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:103
@@ -1718,9 +2265,17 @@ msgstr ""
 msgid "Total cost"
 msgstr ""
 
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:469
+msgid "Total Cost is required"
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:84
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:166
 msgid "Total price"
+msgstr ""
+
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:46
+msgid "Total Price"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:103
@@ -1729,6 +2284,15 @@ msgstr ""
 
 #: components/pages/Retire/Activity/Overview.tsx:83
 msgid "Total retirement transactions"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/index.tsx:112
+msgid "retirement.totals.total_retirement_transactions"
+msgstr ""
+
+#: components/Stats/StatsBar.tsx:35
+msgid "Total Retirements:"
 msgstr ""
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:78
@@ -1740,24 +2304,31 @@ msgstr ""
 msgid "Transaction complete."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:45
+msgid "retirement.single.transaction_id.title"
+msgstr ""
+
 #: lib/statusMessage.ts:29
 msgid "Transaction initiated. Waiting for network confirmation."
 msgstr ""
 
-#: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:24
+#: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:48
 msgid "Transfer"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/RetirementProvenance/index.tsx:50
+msgid "retirement.provenance.head.metaDescription"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:128
 msgid "Transparent, on-chain offsets powered by Carbonmark."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:136
-msgid "USDC per ton"
-msgstr ""
-
-#: components/CreateListing/Form/index.tsx:110
-msgid "USDC per tonne"
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:66
+msgid "retirement.single.type.title"
 msgstr ""
 
 #: components/CreateListing/Form/index.tsx:115
@@ -1776,12 +2347,32 @@ msgstr ""
 msgid "Update listing"
 msgstr ""
 
+#: components/Activities/Activities.constants.ts:10
+msgid "updated expiration"
+msgstr ""
+
+#: components/Activities/Activities.constants.ts:8
+msgid "updated price"
+msgstr ""
+
+#: components/Activities/Activities.constants.ts:9
+msgid "updated quantity"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/SellerListing.tsx:91
 msgid "Updated:"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:191
 msgid "Updating your data..."
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:136
+msgid "USDC per ton"
+msgstr ""
+
+#: components/CreateListing/Form/index.tsx:110
+msgid "USDC per tonne"
 msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:61
@@ -1797,6 +2388,21 @@ msgstr ""
 msgid "User refused connection."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
+msgid "retirement.single.verified_tonnes.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireModal/index.tsx:64
+msgid "transaction_modal.approve.allow_amount_3"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:52
+msgid "purchase.approval_4"
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:52
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:41
 msgid "Verify all information is correct and click 'approve' to continue."
@@ -1806,16 +2412,8 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:54
-msgid "View Carbonmark Profile"
-msgstr ""
-
-#: components/pages/Project/index.tsx:207
-msgid "View Registry Details <0/>"
-msgstr ""
-
-#: components/ProjectFilterModal/index.tsx:154
-msgid "View Results"
+#: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:50
+msgid "View {numberOfTransfers} transactions"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:78
@@ -1851,8 +2449,16 @@ msgstr ""
 msgid "View and share certificate"
 msgstr ""
 
-#: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:180
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:54
+msgid "View Carbonmark Profile"
+msgstr ""
+
+#: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:183
 msgid "View issuance on Verra"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:135
+msgid "View on Polygonscan"
 msgstr ""
 
 #: components/AssetDetails/index.tsx:69
@@ -1863,8 +2469,12 @@ msgstr ""
 msgid "View on PolygonScan <0/>"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:135
-msgid "View on Polygonscan"
+#: components/pages/Project/index.tsx:207
+msgid "View Registry Details <0/>"
+msgstr ""
+
+#: components/ProjectFilterModal/index.tsx:154
+msgid "View Results"
 msgstr ""
 
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:99
@@ -1879,8 +2489,9 @@ msgstr ""
 msgid "View the project details and other info for this purchase."
 msgstr ""
 
-#: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:50
-msgid "View {numberOfTransfers} transfers"
+#. js-lingui-explicit-id
+#: components/pages/Purchases/index.tsx:145
+msgid "purchase.button.view_assets"
 msgstr ""
 
 #: components/ProjectFilterModal/index.tsx:141
@@ -1893,6 +2504,11 @@ msgstr ""
 
 #: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Oldest"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:101
+msgid "retirement.single.vintage.title"
 msgstr ""
 
 #: components/pages/Purchases/index.tsx:66
@@ -1915,11 +2531,21 @@ msgstr ""
 msgid "What is Carbonmark? Answers to common questions about the Digital Carbon Market interface that easily connects buyers and sellers of verified carbon credits."
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
+msgid "offset.retirement_credit"
+msgstr ""
+
 #: components/pages/Project/PayWithBank/index.tsx:224
 #: components/pages/Project/PayWithBank/index.tsx:343
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:257
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
 msgid "Who will this retirement be credited to?"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retirements/Footer/index.tsx:17
+msgid "retirement.footer.about_carbonmark.content"
 msgstr ""
 
 #: components/shared/InvalidNetworkModal/index.tsx:64
@@ -1932,8 +2558,18 @@ msgstr ""
 msgid "You"
 msgstr ""
 
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:30
+msgid "purchase.approval_1"
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:32
 msgid "You are about to purchase a carbon asset."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetireModal/index.tsx:52
+msgid "transaction_modal.approve.allow_amount_1"
 msgstr ""
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:31
@@ -1982,12 +2618,9 @@ msgstr ""
 msgid "You successfully acquired carbon!"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:221
-msgid "Your Profile"
-msgstr ""
-
-#: components/Layout/AddressSection/index.tsx:26
-msgid "Your Wallet Address:"
+#. js-lingui-explicit-id
+#: components/ExitModal/index.tsx:16
+msgid "exitmodal.you_will_be_taken"
 msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:159
@@ -2005,6 +2638,15 @@ msgstr ""
 msgid "Your display name"
 msgstr ""
 
+#: components/pages/Users/SellerConnected/index.tsx:221
+msgid "Your Profile"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:70
+msgid "purchase.submit_2"
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:70
 msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 msgstr ""
@@ -2012,6 +2654,11 @@ msgstr ""
 #: components/pages/Portfolio/PortfolioSidebar.tsx:29
 #: components/pages/Users/SellerConnected/index.tsx:215
 msgid "Your seller data"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
+msgid "offset.successModal.body3"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:84
@@ -2022,547 +2669,14 @@ msgstr ""
 msgid "Your unique handle"
 msgstr ""
 
+#: components/Layout/AddressSection/index.tsx:26
+msgid "Your Wallet Address:"
+msgstr ""
+
 #: components/pages/Resources/lib/cmsDataMap.ts:82
 msgid "Z-A"
 msgstr ""
 
 #: components/pages/Home/index.tsx:437
 msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
-msgstr ""
-
-#: components/Activities/Activity.tsx:34
-msgid "at"
-msgstr ""
-
-#. Long sentence
-#: components/pages/Blog/Post/index.tsx:100
-msgid "blog.disclaimer.description"
-msgstr ""
-
-#: components/pages/Blog/Post/index.tsx:97
-msgid "blog.disclaimer.title"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:6
-msgid "bought from"
-msgstr ""
-
-#: components/Layout/index.tsx:52
-msgid "connect a wallet"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:4
-msgid "created listing"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:5
-msgid "deleted listing"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/Price.tsx:18
-#: components/pages/Project/Purchase/Pool/Price.tsx:17
-#: components/pages/Project/Retire/Pool/Price.tsx:17
-msgid "each"
-msgstr ""
-
-#: components/ExitModal/index.tsx:22
-msgid "exitmodal.after_you_click"
-msgstr ""
-
-#: components/ExitModal/index.tsx:31
-msgid "exitmodal.carbon_credits_you_purchase"
-msgstr ""
-
-#: components/ExitModal/index.tsx:16
-msgid "exitmodal.you_will_be_taken"
-msgstr ""
-
-#: components/Activities/Activity.tsx:112
-msgid "for"
-msgstr ""
-
-#: components/pages/Retire/index.tsx:52
-msgid "for beneficiary"
-msgstr ""
-
-#: components/Layout/NavMenu/index.tsx:35
-msgid "menu.marketplace"
-msgstr ""
-
-#: components/Layout/NavMenu/index.tsx:56
-msgid "menu.portfolio"
-msgstr ""
-
-#: components/Layout/NavMenu/index.tsx:49
-msgid "menu.profile"
-msgstr ""
-
-#: components/Layout/NavMenu/index.tsx:42
-msgid "menu.retire"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:255
-msgid "offset.amount_in_tonnes"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:338
-msgid "offset.default_retirement_address"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:416
-msgid "offset.retire_carbon"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:294
-msgid "offset.retirement_credit"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:347
-msgid "offset.retirement_message"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:63
-msgid "offset.successModal.body1"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:30
-msgid "offset.successModal.body2"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
-msgid "offset.successModal.body3"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:376
-msgid "offset_disclaimer"
-msgstr ""
-
-#: components/pages/Portfolio/Balances/index.tsx:49
-msgid "portfolio.balances.title"
-msgstr ""
-
-#: components/CreateListing/Form/index.tsx:136
-msgid "profile.addListing_modal.submit"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:223
-msgid "profile.edit_modal.submit"
-msgstr ""
-
-#: components/pages/Users/ProfileHeader/index.tsx:54
-msgid "profile.edit_your_profile"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:221
-msgid "profile.listing.edit.delete_listing"
-msgstr ""
-
-#: components/pages/Purchases/index.tsx:49
-msgid "project.single.button.back_to_project_details"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:30
-msgid "purchase.approval_1"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:35
-msgid "purchase.approval_2"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:42
-msgid "purchase.approval_3"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:52
-msgid "purchase.approval_4"
-msgstr ""
-
-#: components/pages/Purchases/index.tsx:145
-msgid "purchase.button.view_assets"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:64
-msgid "purchase.submit_1"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:70
-msgid "purchase.submit_2"
-msgstr ""
-
-#: components/pages/Resources/ResourcesFilters/index.tsx:22
-msgid "resources.form.categories.header"
-msgstr ""
-
-#: components/pages/Resources/ResourcesFilters/index.tsx:25
-msgid "resources.form.categories.subheader"
-msgstr ""
-
-#: components/pages/Resources/ResourcesFilters/index.tsx:39
-msgid "resources.form.filters.clear_all"
-msgstr ""
-
-#: components/pages/Resources/ResourcesList/index.tsx:289
-msgid "resources.mobile_modal.button.show_results"
-msgstr ""
-
-#: components/pages/Resources/ResourcesList/index.tsx:230
-msgid "resources.page.list.no_search_results.title"
-msgstr ""
-
-#: components/pages/Resources/ResourcesList/index.tsx:222
-msgid "resources.page.list.on_fetch_error"
-msgstr ""
-
-#: components/pages/Resources/ResourcesList/index.tsx:243
-msgid "resources.page.list.search_submit.no_filter_results"
-msgstr ""
-
-#: components/pages/Resources/ResourcesList/index.tsx:236
-msgid "resources.page.list.search_submit.no_search_results"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:394
-msgid "retire.back_button"
-msgstr ""
-
-#: components/pages/Retire/Activity/Quotes.tsx:73
-msgid "retired"
-msgstr ""
-
-#: components/pages/Retirements/Footer/index.tsx:17
-msgid "retirement.footer.about_carbonmark.content"
-msgstr ""
-
-#: components/pages/Retirements/Footer/index.tsx:11
-msgid "retirement.footer.about_carbonmark.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:124
-msgid "retirement.head.metaTitle"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:120
-msgid "retirement.head.title"
-msgstr ""
-
-#: components/pages/Retirements/RetirementProvenance/index.tsx:50
-msgid "retirement.provenance.head.metaDescription"
-msgstr ""
-
-#: components/pages/Retirements/RetirementProvenance/index.tsx:46
-msgid "retirement.provenance.head.metaTitle"
-msgstr ""
-
-#: components/pages/Retirements/RetirementProvenance/index.tsx:42
-msgid "retirement.provenance.head.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:43
-msgid "retirement.single.beneficiary.placeholder"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:39
-msgid "retirement.single.beneficiary.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
-msgid "retirement.single.beneficiary_address.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
-msgid "retirement.single.carbon_credit_retirement.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:88
-msgid "retirement.single.country_region.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:123
-msgid "retirement.single.immutable_public_records.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:13
-msgid "retirement.single.message.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:74
-msgid "retirement.single.methodology.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
-msgid "retirement.single.moss_offset.description"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:73
-msgid "retirement.single.moss_offset.name"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:116
-msgid "retirement.single.official_certificate.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:58
-msgid "retirement.single.project.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
-msgid "retirement.single.project_description.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:44
-msgid "retirement.single.project_details.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:67
-msgid "retirement.single.project_name.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
-msgid "retirement.single.proof_of.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
-msgid "retirement.single.quantity.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:27
-msgid "retirement.single.share_retirement.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:28
-msgid "retirement.single.timestamp.placeholder"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:45
-msgid "retirement.single.transaction_id.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
-msgid "retirement.single.transaction_record.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:66
-msgid "retirement.single.type.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
-msgid "retirement.single.verified_tonnes.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:101
-msgid "retirement.single.vintage.title"
-msgstr ""
-
-#: components/pages/Retirements/List/index.tsx:40
-msgid "retirement.totals.all_retirements_list.empty"
-msgstr ""
-
-#: components/pages/Retirements/List/index.tsx:24
-msgid "retirement.totals.all_retirements_list.headline"
-msgstr ""
-
-#: components/pages/Retirements/index.tsx:45
-msgid "retirement.totals.head.metaTitle"
-msgstr ""
-
-#: components/pages/Retirements/index.tsx:39
-msgid "retirement.totals.head.title"
-msgstr ""
-
-#: components/pages/Retirements/index.tsx:60
-msgid "retirement.totals.page_headline"
-msgstr ""
-
-#: components/pages/Retirements/index.tsx:66
-msgid "retirement.totals.page_subline"
-msgstr ""
-
-#: components/pages/Retirements/index.tsx:90
-msgid "retirement.totals.retired_assets"
-msgstr ""
-
-#: components/pages/Retirements/index.tsx:106
-msgid "retirement.totals.retirements"
-msgstr ""
-
-#: components/pages/Retirements/index.tsx:98
-msgid "retirement.totals.total_carbon_tonnes"
-msgstr ""
-
-#: components/pages/Retirements/index.tsx:112
-msgid "retirement.totals.total_retirement_transactions"
-msgstr ""
-
-#: components/pages/Users/SellerUnconnected/index.tsx:70
-msgid "seller.listing.buy"
-msgstr ""
-
-#: components/pages/Users/Listing/index.tsx:59
-msgid "seller.listing.quantity_available"
-msgstr ""
-
-#: components/pages/Blog/Post/index.tsx:83
-msgid "shared.resourcecenter"
-msgstr ""
-
-#: components/pages/Resources/ResourcesList/index.tsx:197
-msgid "shared.resources.sort_by.header"
-msgstr ""
-
-#: components/Layout/index.tsx:51
-msgid "social or email"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:7
-msgid "sold to"
-msgstr ""
-
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:261
-msgid "something went wrong loading the allowance"
-msgstr ""
-
-#: components/pages/Retire/Activity/Overview.tsx:77
-#: components/pages/Retire/Activity/Quotes.tsx:76
-#: components/pages/Retire/Activity/Table.tsx:65
-msgid "t"
-msgstr ""
-
-#: components/Activities/Activity.tsx:119
-msgid "to"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:40
-msgid "tonnes"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireModal/index.tsx:52
-msgid "transaction_modal.approve.allow_amount_1"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireModal/index.tsx:57
-msgid "transaction_modal.approve.allow_amount_2"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireModal/index.tsx:64
-msgid "transaction_modal.approve.allow_amount_3"
-msgstr ""
-
-#: components/Transaction/Approve.tsx:57
-msgid "transaction_modal.approve.amount"
-msgstr ""
-
-#: components/Transaction/Approve.tsx:47
-msgid "transaction_modal.approve.contract_address"
-msgstr ""
-
-#: components/Transaction/Approve.tsx:71
-msgid "transaction_modal.approve.price"
-msgstr ""
-
-#: components/CreateListing/Transaction/index.tsx:83
-#: components/Transaction/index.tsx:84
-msgid "transaction_modal.button.go_back"
-msgstr ""
-
-#: components/Transaction/Submit.tsx:108
-msgid "transaction_modal.close"
-msgstr ""
-
-#: components/Transaction/Approve.tsx:108
-msgid "transaction_modal.next"
-msgstr ""
-
-#: components/Transaction/Submit.tsx:59
-msgid "transaction_modal.submit.amount"
-msgstr ""
-
-#: components/Transaction/Submit.tsx:100
-msgid "transaction_modal.submit.button"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireModal/index.tsx:76
-msgid "transaction_modal.submit.confirm_transaction_1"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetireModal/index.tsx:83
-msgid "transaction_modal.submit.confirm_transaction_2"
-msgstr ""
-
-#: components/Transaction/Submit.tsx:48
-msgid "transaction_modal.submit.contract_address"
-msgstr ""
-
-#: components/Transaction/Submit.tsx:70
-msgid "transaction_modal.submit.price"
-msgstr ""
-
-#: components/CreateListing/Transaction/index.tsx:47
-#: components/Transaction/index.tsx:45
-msgid "transaction_modal.view.approve.title"
-msgstr ""
-
-#: components/CreateListing/Transaction/index.tsx:57
-#: components/Transaction/index.tsx:55
-msgid "transaction_modal.view.submit.title"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:10
-msgid "updated expiration"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:8
-msgid "updated price"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:9
-msgid "updated quantity"
-msgstr ""
-
-#: components/Activities/index.tsx:29
-msgid "user.activities.empty_state"
-msgstr ""
-
-#: components/LoginCard/index.tsx:24
-msgid "user.login.description"
-msgstr ""
-
-#: components/CreateListing/Transaction/Approve.tsx:51
-#: components/CreateListing/Transaction/index.tsx:62
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:205
-msgid "{0}"
-msgstr ""
-
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:331
-msgid "{0} maximum for credit cards"
-msgstr ""
-
-#: components/pages/Users/index.tsx:30
-msgid "{0} | Profile | Carbonmark"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:164
-msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
-
-#: components/pages/Purchases/index.tsx:29
-msgid "{amount} tonnes were purchased for project {0}"
-msgstr ""
-
-#: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:64
-#: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:85
-msgid "{formattedAmount} Tonnes"
-msgstr ""
-
-#: components/Quantity/index.tsx:28
-msgid "{formattedAmount} tonnes"
-msgstr ""
-
-#: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:32
-msgid "{tokenSymbol}"
-msgstr ""
-
-#: lib/statusMessage.ts:23
-msgid "❌ Error: something went wrong..."
 msgstr ""

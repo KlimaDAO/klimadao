@@ -6,6 +6,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:105
+msgid "{0} Bridged"
+msgstr ""
+
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:100
+msgid "{0} outstanding"
+msgstr ""
+
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:94
+msgid "{0} retired"
+msgstr ""
+
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:111
+msgid "{0} Tonnes"
+msgstr ""
+
+#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:10
+msgid "{bridgeLabel} distribution of methodologies"
+msgstr ""
+
+#: app/[locale]/token-details/token-by-projects/[bridge]/page.tsx:10
+msgid "{bridgeLabel} distribution of projects"
+msgstr ""
+
+#: app/[locale]/token-details/token-by-vintage-date/[bridge]/page.tsx:11
+msgid "{bridgeLabel} Distribution of vintage start dates"
+msgstr ""
+
+#: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:10
+msgid "{bridgeLabel} volume over time"
+msgstr ""
+
+#: components/cards/overview/TokensPriceCard/index.tsx:76
+msgid "{formattedCurrentSupply} tonnes available"
+msgstr ""
+
+#: app/[locale]/token-details/pool-volume-deposited-over-time/[bridge]/page.tsx:10
+msgid "{poolLabel} volume deposited over time"
+msgstr ""
+
+#: app/[locale]/token-details/pool-volume-redeemed-over-time/[bridge]/page.tsx:10
+msgid "{poolLabel} volume redeemed over time"
+msgstr ""
+
+#: app/[locale]/token-details/pool-volume-retired-over-time/[bridge]/page.tsx:10
+msgid "{poolLabel} volume retired over time"
+msgstr ""
 
 #: app/[locale]/off-chain-vs-on-chain/verra-credits-tokenized-by-bridge/page.tsx:12
 #: app/[locale]/overview/verra-credits-tokenized-by-bridge/page.tsx:12
@@ -41,10 +95,6 @@ msgstr ""
 msgid "All Tokens"
 msgstr "Alle Tokens"
 
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:36
-msgid "Amount Retired"
-msgstr ""
-
 #: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:48
 msgid "Amount bridged"
 msgstr ""
@@ -54,12 +104,24 @@ msgstr ""
 msgid "Amount retired"
 msgstr ""
 
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:36
+msgid "Amount Retired"
+msgstr ""
+
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:51
 msgid "Avg tonnes per transaction"
 msgstr ""
 
-#: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:59
+#: app/[locale]/overview/digital-carbon/page.tsx:36
+msgid "Banner image"
+msgstr ""
+
+#: lib/tokens.tsx:15
+msgid "Base Carbon Tonne (BCT)"
+msgstr ""
+
 #: components/cards/tokenDetails/helpers.ts:57
+#: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:59
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:60
 #: lib/charts/options.ts:92
 msgid "BCT"
@@ -71,14 +133,6 @@ msgstr ""
 
 #: components/charts/DistributionOfProjectsChart/index.tsx:126
 msgid "BCT retired VCUs"
-msgstr ""
-
-#: app/[locale]/overview/digital-carbon/page.tsx:36
-msgid "Banner image"
-msgstr ""
-
-#: lib/tokens.tsx:15
-msgid "Base Carbon Tonne (BCT)"
 msgstr ""
 
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:48
@@ -122,13 +176,13 @@ msgstr ""
 msgid "C3"
 msgstr ""
 
-#: lib/protocols.tsx:10
-msgid "C3 Carbon Credit (C3T)"
-msgstr ""
-
 #: components/charts/DistributionOfProjectsChart/index.tsx:86
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:58
 msgid "C3 bridged VCUs"
+msgstr ""
+
+#: lib/protocols.tsx:10
+msgid "C3 Carbon Credit (C3T)"
 msgstr ""
 
 #: components/charts/DistributionOfProjectsChart/index.tsx:87
@@ -245,12 +299,12 @@ msgstr ""
 msgid "Digital carbon retirements snapshot"
 msgstr ""
 
-#: app/[locale]/supply/digital-carbon-supply-quick-facts/page.tsx:9
-msgid "Digital carbon supply - quick facts"
-msgstr ""
-
 #: app/[locale]/supply/digital-carbon-supply/[chain]/page.tsx:13
 msgid "Digital carbon supply - {chainLabel}"
+msgstr ""
+
+#: app/[locale]/supply/digital-carbon-supply-quick-facts/page.tsx:9
+msgid "Digital carbon supply - quick facts"
 msgstr ""
 
 #: app/[locale]/supply/digital-carbon-supply-by-blockchain/page.tsx:9
@@ -261,12 +315,12 @@ msgstr ""
 msgid "Digital carbon supply snapshot"
 msgstr ""
 
-#: components/cards/tokenDetails/TokenDistributionOfProjectsCard/index.tsx:27
-msgid "Distribution of Projects"
-msgstr ""
-
 #: components/cards/tokenDetails/TokenDistributionOfMethodologiesCard/index.tsx:28
 msgid "Distribution of methodologies"
+msgstr ""
+
+#: components/cards/tokenDetails/TokenDistributionOfProjectsCard/index.tsx:27
+msgid "Distribution of Projects"
 msgstr ""
 
 #: components/cards/tokenDetails/TokenDistributionOfVintageCard/index.tsx:28
@@ -291,20 +345,20 @@ msgstr ""
 msgid "Ethereum supply"
 msgstr ""
 
-#: components/ExploreMarketplaceButton/index.tsx:14
-msgid "Explore Marketplace"
-msgstr ""
-
-#: app/[locale]/off-chain-vs-on-chain/page.tsx:18
-msgid "Explore Off and On-chain digital carbon trends using the Klima Data Carbon Dashboard."
-msgstr ""
-
 #: app/[locale]/retirement-trends/page.tsx:14
 msgid "Explore digital carbon retirement trends by public blockhchain, digtial carbon token, and retirement beneficiary using the Klima Data Carbon Dashboard."
 msgstr ""
 
 #: app/[locale]/supply/page.tsx:18
 msgid "Explore digital carbon supply on Polygon, Ethereum, Celo and more using the Klima Data Carbon Dashboard."
+msgstr ""
+
+#: components/ExploreMarketplaceButton/index.tsx:14
+msgid "Explore Marketplace"
+msgstr ""
+
+#: app/[locale]/off-chain-vs-on-chain/page.tsx:18
+msgid "Explore Off and On-chain digital carbon trends using the Klima Data Carbon Dashboard."
 msgstr ""
 
 #: components/Skeleton/index.tsx:4
@@ -319,8 +373,8 @@ msgstr ""
 msgid "Insights"
 msgstr ""
 
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedVsTokenizedCreditsChart.tsx:39
 #: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:55
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedVsTokenizedCreditsChart.tsx:39
 #: lib/charts/options.ts:32
 msgid "Issued"
 msgstr ""
@@ -382,14 +436,14 @@ msgstr ""
 msgid "Moss"
 msgstr ""
 
-#: lib/protocols.tsx:12
-#: lib/tokens.tsx:17
-msgid "Moss Carbon Credit (MCO2)"
-msgstr ""
-
 #: components/charts/DistributionOfProjectsChart/index.tsx:145
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:50
 msgid "Moss bridged VCUs"
+msgstr ""
+
+#: lib/protocols.tsx:12
+#: lib/tokens.tsx:17
+msgid "Moss Carbon Credit (MCO2)"
 msgstr ""
 
 #: components/charts/DistributionOfProjectsChart/index.tsx:146
@@ -402,8 +456,16 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:114
+#: lib/tokens.tsx:19
+msgid "Nature Based Offset (NBO)"
+msgstr ""
+
+#: lib/tokens.tsx:16
+msgid "Nature Carbon Tonne (NCT)"
+msgstr ""
+
 #: components/cards/tokenDetails/helpers.ts:46
+#: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:114
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:52
 #: lib/charts/options.ts:78
 msgid "NBO"
@@ -417,8 +479,8 @@ msgstr ""
 msgid "NBO retired VCUs"
 msgstr ""
 
-#: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:65
 #: components/cards/tokenDetails/helpers.ts:68
+#: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:65
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:68
 #: lib/charts/options.ts:96
 msgid "NCT"
@@ -432,21 +494,13 @@ msgstr ""
 msgid "NCT retired VCUs"
 msgstr ""
 
-#: lib/tokens.tsx:19
-msgid "Nature Based Offset (NBO)"
-msgstr ""
-
-#: lib/tokens.tsx:16
-msgid "Nature Carbon Tonne (NCT)"
-msgstr ""
-
 #: components/charts/helpers/NoDataWrapper/index.tsx:14
 msgid "No data availble"
 msgstr ""
 
+#: components/cards/tokenDetails/helpers.ts:79
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:71
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:120
-#: components/cards/tokenDetails/helpers.ts:79
 msgid "Not pooled"
 msgstr ""
 
@@ -456,6 +510,10 @@ msgstr ""
 
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:44
 msgid "Number of transactions"
+msgstr ""
+
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:111
+msgid "of retired credits"
 msgstr ""
 
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:92
@@ -470,8 +528,8 @@ msgstr ""
 msgid "Off vs On-chain carbon"
 msgstr ""
 
-#: components/cards/offVsOnChain/DailyVerraCreditsCard/index.tsx:54
-msgid "Off-Chain Verra credits retired over time"
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:20
+msgid "off-chain"
 msgstr ""
 
 #: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:27
@@ -486,8 +544,12 @@ msgstr ""
 msgid "Off-chain Verra credits retired over time"
 msgstr ""
 
-#: components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard/index.tsx:88
-msgid "On-Chain Verra credits retired over time"
+#: components/cards/offVsOnChain/DailyVerraCreditsCard/index.tsx:54
+msgid "Off-Chain Verra credits retired over time"
+msgstr ""
+
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:39
+msgid "on-chain"
 msgstr ""
 
 #: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:28
@@ -498,12 +560,16 @@ msgstr ""
 msgid "On-chain"
 msgstr ""
 
+#: components/cards/overview/DailyCarbonRetirementsCard/index.tsx:22
+msgid "On-chain retirements"
+msgstr ""
+
 #: app/[locale]/off-chain-vs-on-chain/verra-credits-retired-on-chain-over-time/page.tsx:9
 msgid "On-chain Verra credits retired over time"
 msgstr ""
 
-#: components/cards/overview/DailyCarbonRetirementsCard/index.tsx:22
-msgid "On-chain retirements"
+#: components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard/index.tsx:88
+msgid "On-Chain Verra credits retired over time"
 msgstr ""
 
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:25
@@ -524,12 +590,12 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
-#: components/charts/DistributionOfProjectsChart/index.tsx:76
-msgid "Percentage of VCUs retired offchain"
-msgstr ""
-
 #: components/charts/DistributionOfProjectsChart/index.tsx:64
 msgid "Percentage of tokenized VCUs"
+msgstr ""
+
+#: components/charts/DistributionOfProjectsChart/index.tsx:76
+msgid "Percentage of VCUs retired offchain"
 msgstr ""
 
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:85
@@ -596,25 +662,25 @@ msgstr ""
 msgid "Retired outside of KlimaDAO"
 msgstr ""
 
+#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:72
+msgid "Retired via klimaDAO"
+msgstr ""
+
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:114
 #: components/charts/DailyCarbonRetirementsChart/index.tsx:13
 msgid "Retired via KlimaDAO"
-msgstr ""
-
-#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:72
-msgid "Retired via klimaDAO"
 msgstr ""
 
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:53
 msgid "Retirement Details"
 msgstr ""
 
-#: components/Layout/NavItems/index.tsx:37
-msgid "Retirement Trends"
-msgstr ""
-
 #: app/[locale]/retirement-trends/page.tsx:11
 msgid "Retirement trends"
+msgstr ""
+
+#: components/Layout/NavItems/index.tsx:37
+msgid "Retirement Trends"
 msgstr ""
 
 #: app/[locale]/retirement-trends/retirement-trends-by-chain/page.tsx:9
@@ -634,10 +700,6 @@ msgstr ""
 msgid "Selective cost"
 msgstr ""
 
-#: app/[locale]/overview/page.tsx:15
-msgid "State of the Digital Carbon Market"
-msgstr ""
-
 #: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:29
 msgid "State of {0} digital carbon"
 msgstr ""
@@ -646,18 +708,22 @@ msgstr ""
 msgid "State of {bridgeLabel} digital carbon"
 msgstr ""
 
-#: app/[locale]/supply/page.tsx:15
-#: components/Layout/NavItems/index.tsx:31
-#: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:24
-msgid "Supply"
+#: app/[locale]/overview/page.tsx:15
+msgid "State of the Digital Carbon Market"
 msgstr ""
 
-#: app/[locale]/overview/page.tsx:18
-msgid "The Klima Data Carbon Dashboard provides a complete overview of digital carbon pricing, volumes, and retirement trends for the Digital Carbon Market. It is made available to anyone by KlimaDAO as a public good, creating transparency for the DCM."
+#: app/[locale]/supply/page.tsx:15
+#: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:24
+#: components/Layout/NavItems/index.tsx:31
+msgid "Supply"
 msgstr ""
 
 #: app/[locale]/supply/digital-carbon-supply/[chain]/page.tsx:18
 msgid "The current supply of digital carbon on the {chainLabel} blockchain broken down by digital carbon pool."
+msgstr ""
+
+#: app/[locale]/overview/page.tsx:18
+msgid "The Klima Data Carbon Dashboard provides a complete overview of digital carbon pricing, volumes, and retirement trends for the Digital Carbon Market. It is made available to anyone by KlimaDAO as a public good, creating transparency for the DCM."
 msgstr ""
 
 #: app/[locale]/retirement-trends/retirement-trends-by-chain/page.tsx:12
@@ -777,16 +843,12 @@ msgstr ""
 msgid "Token"
 msgstr ""
 
-#: components/Layout/NavItems/index.tsx:43
-msgid "Token Details"
-msgstr ""
-
 #: app/[locale]/token-details/page.tsx:15
 msgid "Token details"
 msgstr ""
 
-#: components/charts/DistributionOfProjectsChart/index.tsx:62
-msgid "Tokenized VCUs"
+#: components/Layout/NavItems/index.tsx:43
+msgid "Token Details"
 msgstr ""
 
 #: app/[locale]/off-chain-vs-on-chain/verra-credits-tokenized-by-bridge/page.tsx:9
@@ -795,16 +857,20 @@ msgstr ""
 msgid "Tokenized credits by bridge"
 msgstr ""
 
+#: components/charts/DistributionOfProjectsChart/index.tsx:62
+msgid "Tokenized VCUs"
+msgstr ""
+
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:92
 msgid "Tonnes"
 msgstr ""
 
-#: components/charts/DistributionOfProjectsChart/index.tsx:61
-msgid "Total Issued VCUs"
-msgstr ""
-
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:75
 msgid "Total issued VCUs"
+msgstr ""
+
+#: components/charts/DistributionOfProjectsChart/index.tsx:61
+msgid "Total Issued VCUs"
 msgstr ""
 
 #: components/charts/DistributionOfProjectsChart/index.tsx:70
@@ -846,13 +912,13 @@ msgstr ""
 msgid "Toucan"
 msgstr ""
 
-#: lib/protocols.tsx:11
-msgid "Toucan Carbon Credit (TCO2)"
-msgstr ""
-
 #: components/charts/DistributionOfProjectsChart/index.tsx:116
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:41
 msgid "Toucan bridged VCUs"
+msgstr ""
+
+#: lib/protocols.tsx:11
+msgid "Toucan Carbon Credit (TCO2)"
 msgstr ""
 
 #: components/charts/DistributionOfProjectsChart/index.tsx:117
@@ -860,8 +926,8 @@ msgstr ""
 msgid "Toucan retired VCUs"
 msgstr ""
 
-#: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:108
 #: components/cards/tokenDetails/helpers.ts:38
+#: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:108
 #: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:44
 #: lib/charts/options.ts:74
 msgid "UBO"
@@ -933,64 +999,4 @@ msgstr ""
 #: app/[locale]/overview/digital-carbon/page.tsx:42
 #: app/[locale]/overview/page.tsx:37
 msgid "What is digital carbon?"
-msgstr ""
-
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:111
-msgid "of retired credits"
-msgstr ""
-
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:20
-msgid "off-chain"
-msgstr ""
-
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:39
-msgid "on-chain"
-msgstr ""
-
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:105
-msgid "{0} Bridged"
-msgstr ""
-
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:111
-msgid "{0} Tonnes"
-msgstr ""
-
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:100
-msgid "{0} outstanding"
-msgstr ""
-
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:94
-msgid "{0} retired"
-msgstr ""
-
-#: app/[locale]/token-details/token-by-vintage-date/[bridge]/page.tsx:11
-msgid "{bridgeLabel} Distribution of vintage start dates"
-msgstr ""
-
-#: app/[locale]/token-details/token-by-methodologies/[bridge]/page.tsx:10
-msgid "{bridgeLabel} distribution of methodologies"
-msgstr ""
-
-#: app/[locale]/token-details/token-by-projects/[bridge]/page.tsx:10
-msgid "{bridgeLabel} distribution of projects"
-msgstr ""
-
-#: app/[locale]/token-details/token-volume-over-time/[bridge]/page.tsx:10
-msgid "{bridgeLabel} volume over time"
-msgstr ""
-
-#: components/cards/overview/TokensPriceCard/index.tsx:76
-msgid "{formattedCurrentSupply} tonnes available"
-msgstr ""
-
-#: app/[locale]/token-details/pool-volume-deposited-over-time/[bridge]/page.tsx:10
-msgid "{poolLabel} volume deposited over time"
-msgstr ""
-
-#: app/[locale]/token-details/pool-volume-redeemed-over-time/[bridge]/page.tsx:10
-msgid "{poolLabel} volume redeemed over time"
-msgstr ""
-
-#: app/[locale]/token-details/pool-volume-retired-over-time/[bridge]/page.tsx:10
-msgid "{poolLabel} volume retired over time"
 msgstr ""
