@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-21 15:32+0000\n"
+"POT-Creation-Date: 2024-02-22 10:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -921,10 +921,6 @@ msgstr "सत्यापित कार्बन परियोजनाओ�
 msgid "No beneficiary address available"
 msgstr "कोई लाभार्थी का पता उपलब्ध नहीं है"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:42
-msgid "No beneficiary name provided"
-msgstr "कोई लाभार्थी-नाम प्रदान नहीं किया गया"
-
 #: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "दिखाने के लिए कोई डेटा नहीं"
@@ -1818,7 +1814,7 @@ msgstr ""
 "\n"
 "आलोकन"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:50
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:54
 msgid "View Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल देखें"
 
@@ -2270,7 +2266,11 @@ msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्
 msgid "retirement.provenance.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:43
+msgid "retirement.single.beneficiary.placeholder"
+msgstr "कोई लाभार्थी-नाम प्रदान नहीं किया गया"
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:39
 msgid "retirement.single.beneficiary.title"
 msgstr "लाभार्थी:"
 
