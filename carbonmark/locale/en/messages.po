@@ -926,10 +926,6 @@ msgstr "No barriers to entry for verified carbon projects"
 msgid "No beneficiary address available"
 msgstr "No beneficiary address available"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:42
-msgid "No beneficiary name provided"
-msgstr "No beneficiary name provided"
-
 #: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "No data to show"
@@ -1819,7 +1815,7 @@ msgstr "Verify all information is correct and click 'approve' to continue."
 msgid "View"
 msgstr "View"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:50
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:54
 msgid "View Carbonmark Profile"
 msgstr "View Carbonmark Profile"
 
@@ -2271,7 +2267,11 @@ msgstr "{retiree} retired {formattedAmount} Tonnes of carbon"
 msgid "retirement.provenance.head.title"
 msgstr "Carbonmark | Carbon Retirement provenance"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:43
+msgid "retirement.single.beneficiary.placeholder"
+msgstr "No beneficiary name provided"
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:39
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary:"
 

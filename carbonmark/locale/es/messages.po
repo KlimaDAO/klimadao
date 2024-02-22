@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-20 15:32+0000\n"
+"POT-Creation-Date: 2024-02-22 11:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +77,7 @@ msgstr "¡Ya casi está! El último paso es crear el anuncio y enviarlo al siste
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:61
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:83
 msgid "Amount"
-msgstr ""
+msgstr "Cantidad"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:70
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
@@ -241,7 +241,7 @@ msgstr "Reservar una demostración"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementProvenance.constants.tsx:35
 msgid "Bridge"
-msgstr ""
+msgstr "Bridge"
 
 #: components/pages/Home/index.tsx:157
 #: components/pages/Home/index.tsx:188
@@ -263,11 +263,11 @@ msgstr "Comprar o retirar carbono"
 
 #: components/pages/Retirements/RetirementProvenance/RetirementCard/index.tsx:87
 msgid "By"
-msgstr ""
+msgstr "Por"
 
 #: components/pages/Projects/Banners/BankTransfer.tsx:80
 msgid "Can we remind you about this new feature later?"
-msgstr ""
+msgstr "¿Podemos recordarle más adelante acerca de esta nueva función?"
 
 #: components/ExitModal/index.tsx:44
 msgid "Cancel"
@@ -279,11 +279,11 @@ msgstr "Fondo de carbono"
 
 #: components/Layout/NavDropdown/index.tsx:117
 msgid "Carbon Portfolio"
-msgstr ""
+msgstr "Portafolio de Carbono"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
 msgid "Carbon Provenance"
-msgstr ""
+msgstr "Procedencia del Carbono"
 
 #: components/pages/Retire/index.tsx:47
 msgid "Carbon Retirements"
@@ -295,7 +295,7 @@ msgstr "Los activos de carbono que adquiera pueden ponerse a la venta en Carbonm
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:144
 msgid "Carbon provenance"
-msgstr ""
+msgstr "Procedencia del carbono"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "Carbonmark Overview"
@@ -356,7 +356,7 @@ msgstr "Cerrar"
 
 #: components/Footer/index.tsx:32
 msgid "Code of Ethics"
-msgstr ""
+msgstr "Código ético"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
@@ -392,7 +392,7 @@ msgstr "Confirmar Retiro"
 
 #: components/pages/Portfolio/ConnectedWallet/index.tsx:33
 msgid "Connected Wallet"
-msgstr ""
+msgstr "Cartera conectada"
 
 #: components/Layout/index.tsx:55
 msgid "Connecting..."
@@ -471,7 +471,7 @@ msgstr "Creado:"
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceComponent/index.tsx:47
 msgid "Credit ID"
-msgstr ""
+msgstr "ID de crédito"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:113
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
@@ -682,7 +682,7 @@ msgstr "He aquí una lista de tokens de carbono fácilmente disponibles y con de
 
 #: components/pages/Retirements/RetirementProvenance/ProvenanceTimeline/index.tsx:48
 msgid "Hide {numberOfTransfers} transfers"
-msgstr ""
+msgstr "Ocultar {numberOfTransfers} transferencias"
 
 #: components/CreateListing/Form/index.tsx:80
 msgid "How many tonnes do you want to list for sale?"
@@ -916,10 +916,6 @@ msgstr "No hay barreras de entrada para los proyectos de carbono verificado"
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "No beneficiary address available"
 msgstr "No se dispone de la dirección del beneficiario"
-
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:42
-msgid "No beneficiary name provided"
-msgstr "No se ha facilitado el nombre del beneficiario"
 
 #: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
@@ -1810,7 +1806,7 @@ msgstr "Compruebe que toda la información es correcta y haga clic en \"aprobar\
 msgid "View"
 msgstr "Vista"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:50
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:54
 msgid "View Carbonmark Profile"
 msgstr "Ver el perfil de Carbonmark"
 
@@ -2262,9 +2258,13 @@ msgstr "{retiree} ha retirado {formattedAmount} Toneladas de carbono"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:42
 msgid "retirement.provenance.head.title"
-msgstr ""
+msgstr "Carbonmark | Procedencia de la retirada de carbono"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:43
+msgid "retirement.single.beneficiary.placeholder"
+msgstr "No se ha facilitado el nombre del beneficiario"
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:39
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiario:"
 

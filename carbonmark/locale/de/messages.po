@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-20 15:32+0000\n"
+"POT-Creation-Date: 2024-02-22 11:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -917,10 +917,6 @@ msgstr "Keine Barrieren für verifizierte CO2-Projekte"
 msgid "No beneficiary address available"
 msgstr "Keine Empfängeradresse verfügbar"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:42
-msgid "No beneficiary name provided"
-msgstr "Keinen Empfängername angegeben"
-
 #: components/pages/Retire/Activity/Overview.tsx:62
 msgid "No data to show"
 msgstr "Keine Daten zum Anzeigen"
@@ -1810,7 +1806,7 @@ msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmi
 msgid "View"
 msgstr "Ansehen"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:50
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:54
 msgid "View Carbonmark Profile"
 msgstr "Carbonmark-Profil anzeigen"
 
@@ -2262,7 +2258,11 @@ msgstr "{retiree} hat {formattedAmount} Tonnen CO2 ausgeglichen"
 msgid "retirement.provenance.head.title"
 msgstr "Carbonmark | Verlauf des CO2-Ausgleichs"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:43
+msgid "retirement.single.beneficiary.placeholder"
+msgstr "Keinen Empfängername angegeben"
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:39
 msgid "retirement.single.beneficiary.title"
 msgstr "Begünstigter:"
 
