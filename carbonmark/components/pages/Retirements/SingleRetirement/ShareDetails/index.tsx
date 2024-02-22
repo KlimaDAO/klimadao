@@ -26,7 +26,7 @@ export const ShareDetails: FC<Props> = (props) => {
   const [downloading, setDownloading] = useState(false);
 
   const { networkLabel } = useWeb3();
-  const user = useGetUsersWalletorhandle(
+  const { data: user, isLoading } = useGetUsersWalletorhandle(
     props.beneficiaryAddress,
     { network: networkLabel },
     { shouldFetch: notNil(props.beneficiaryAddress) }
@@ -42,6 +42,7 @@ export const ShareDetails: FC<Props> = (props) => {
       <div className={styles.content}>
         {props.beneficiaryAddress && (
           <ButtonPrimary
+            disabled={isLoading}
             label={downloading ? t`Downloading…` : t`Download PDF`}
             icon={
               downloading ? (
@@ -57,7 +58,7 @@ export const ShareDetails: FC<Props> = (props) => {
               setDownloading(true);
               await getRetirementCertificate({
                 ...props,
-                beneficiaryProfileImageUrl: user.data?.profileImgUrl ?? null,
+                beneficiaryProfileImageUrl: user?.profileImgUrl ?? null,
               });
               setDownloading(false);
             }}
