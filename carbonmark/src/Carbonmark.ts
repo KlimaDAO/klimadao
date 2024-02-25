@@ -70,6 +70,9 @@ export function handleListingUpdated(event: ListingUpdated): void {
   let listing = loadOrCreateListing(event.params.id.toHexString())
   let activity = loadOrCreateActivity(event.transaction.hash.toHexString().concat('ListingUpdated'))
 
+    // always ensure the minFillAmount is updated
+    listing.minFillAmount = event.params.newMinFillAmount
+
   if (event.params.oldAmount != event.params.newAmount) {
     listing.totalAmountToSell = event.params.newAmount
     listing.leftToSell = event.params.newAmount
