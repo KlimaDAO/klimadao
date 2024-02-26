@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-22 15:33+0000\n"
+"POT-Creation-Date: 2024-02-26 13:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -354,7 +354,7 @@ msgstr ""
 msgid "Last 30 days"
 msgstr ""
 
-#: components/cards/overview/TokensPriceCard/index.tsx:94
+#: components/cards/overview/TokensPriceCard/index.tsx:92
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:106
 #: lib/charts/options.ts:128
 msgid "Last 7 days"
@@ -562,7 +562,7 @@ msgstr ""
 msgid "Price of digital carbon"
 msgstr ""
 
-#: components/cards/overview/TokensPriceCard/index.tsx:80
+#: components/cards/overview/TokensPriceCard/index.tsx:78
 msgid "Price per tonne"
 msgstr ""
 
@@ -630,7 +630,7 @@ msgstr ""
 msgid "Retirements by token"
 msgstr ""
 
-#: components/cards/overview/TokensPriceCard/index.tsx:86
+#: components/cards/overview/TokensPriceCard/index.tsx:84
 msgid "Selective cost"
 msgstr ""
 
@@ -979,7 +979,7 @@ msgstr "{bridgeLabel} परियोजनाओं का वितरण"
 msgid "{bridgeLabel} volume over time"
 msgstr ""
 
-#: components/cards/overview/TokensPriceCard/index.tsx:76
+#: components/cards/overview/TokensPriceCard/index.tsx:74
 msgid "{formattedCurrentSupply} tonnes available"
 msgstr "{formattedCurrentSupply} टन उपलब्ध है"
 

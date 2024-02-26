@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-02-22 15:33+0000\n"
+"POT-Creation-Date: 2024-02-26 13:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -281,7 +281,7 @@ msgstr "Réserve de Carbone"
 
 #: components/Layout/NavDropdown/index.tsx:117
 msgid "Carbon Portfolio"
-msgstr ""
+msgstr "Portefeuille Carbone"
 
 #: components/pages/Retirements/RetirementProvenance/index.tsx:60
 msgid "Carbon Provenance"
@@ -358,7 +358,7 @@ msgstr "Fermer"
 
 #: components/Footer/index.tsx:32
 msgid "Code of Ethics"
-msgstr ""
+msgstr "Code d'éthique"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
@@ -758,7 +758,7 @@ msgstr "KlimaDAO fournit l'infrastructure transparente, neutre et publique néce
 
 #: components/Layout/NavDropdown/index.tsx:126
 msgid "Language"
-msgstr ""
+msgstr "Langue"
 
 #: components/pages/Project/PayWithBank/index.tsx:206
 #: components/pages/Project/PayWithBank/index.tsx:337
@@ -845,7 +845,7 @@ msgstr "Se connecter"
 #: components/Layout/NavDropdown/index.tsx:143
 #: components/Layout/TopMenu/index.tsx:61
 msgid "Login or Sign Up"
-msgstr ""
+msgstr "Se connecter ou S'inscrire"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:380
 msgid "Login to pay with USDC"
@@ -853,7 +853,7 @@ msgstr "Se connecter pour payer en USDC"
 
 #: components/Layout/NavDropdown/index.tsx:135
 msgid "Logout"
-msgstr ""
+msgstr "Se déconnecter"
 
 #: components/Layout/NavDropdown/index.tsx:96
 #: components/shared/Navigation/index.tsx:63
@@ -884,7 +884,7 @@ msgstr "NOUVELLE FONCTIONNALITÉ:"
 
 #: components/Layout/NavDropdown/index.tsx:171
 msgid "Navigation Menu"
-msgstr ""
+msgstr "Menu de Navigation"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:101
 msgid "New Quantity"
@@ -1365,7 +1365,7 @@ msgstr "Recherche"
 #: components/Layout/TopMenu/index.tsx:51
 #: components/Layout/TopMenu/index.tsx:52
 msgid "Search for a project"
-msgstr ""
+msgstr "Rechercher un projet"
 
 #: components/pages/Resources/ResourcesList/index.tsx:162
 msgid "Search..."
@@ -1385,7 +1385,7 @@ msgstr "Sélectionner"
 
 #: components/Layout/NavDropdown/index.tsx:58
 msgid "Select a language"
-msgstr ""
+msgstr "Sélectionner une langue"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:100
 #: components/pages/Portfolio/AssetProject/index.tsx:108
@@ -1496,7 +1496,7 @@ msgstr "Passer sur le réseau Polygon"
 
 #: components/BetaBadge/index.tsx:16
 msgid "TESTNET"
-msgstr ""
+msgstr "RÉSEAU DE TEST"
 
 #: components/Footer/index.tsx:29
 msgid "Terms of Use"
@@ -2433,7 +2433,7 @@ msgstr "t"
 
 #: components/Activities/Activity.tsx:119
 msgid "to"
-msgstr ""
+msgstr "à"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:40
 msgid "tonnes"
@@ -2512,7 +2512,7 @@ msgstr "2. Envoyer"
 
 #: components/Activities/Activities.constants.ts:10
 msgid "updated expiration"
-msgstr ""
+msgstr "expiration mise à jour"
 
 #: components/Activities/Activities.constants.ts:8
 msgid "updated price"

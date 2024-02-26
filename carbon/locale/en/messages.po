@@ -368,7 +368,7 @@ msgstr "KlimaDAO retirements by token"
 msgid "Last 30 days"
 msgstr "Last 30 days"
 
-#: components/cards/overview/TokensPriceCard/index.tsx:94
+#: components/cards/overview/TokensPriceCard/index.tsx:92
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:106
 #: lib/charts/options.ts:128
 msgid "Last 7 days"
@@ -576,7 +576,7 @@ msgstr "Pool"
 msgid "Price of digital carbon"
 msgstr "Price of digital carbon"
 
-#: components/cards/overview/TokensPriceCard/index.tsx:80
+#: components/cards/overview/TokensPriceCard/index.tsx:78
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
@@ -644,7 +644,7 @@ msgstr "Retirements by pool"
 msgid "Retirements by token"
 msgstr "Retirements by token"
 
-#: components/cards/overview/TokensPriceCard/index.tsx:86
+#: components/cards/overview/TokensPriceCard/index.tsx:84
 msgid "Selective cost"
 msgstr "Selective cost"
 
@@ -998,7 +998,7 @@ msgstr "{bridgeLabel} distribution of projects"
 msgid "{bridgeLabel} volume over time"
 msgstr "{bridgeLabel} volume over time"
 
-#: components/cards/overview/TokensPriceCard/index.tsx:76
+#: components/cards/overview/TokensPriceCard/index.tsx:74
 msgid "{formattedCurrentSupply} tonnes available"
 msgstr "{formattedCurrentSupply} tonnes available"
 
