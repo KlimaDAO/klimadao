@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/DisclaimerModal/index.tsx:84
 msgid "Acknowledge and Accept"
@@ -365,7 +371,7 @@ msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr ""
 
 #: components/views/ChooseBond/index.tsx:99
-msgid "choose_bond.bct.toucan_base_carbon_tonne"
+msgid "choose_bond.bct.base_carbon_tonne"
 msgstr ""
 
 #: components/views/ChooseBond/index.tsx:209
