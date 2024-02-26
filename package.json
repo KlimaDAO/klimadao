@@ -43,9 +43,9 @@
     "dev-carbonmark-api": "npm run remove-dist && concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark-api\"",
     "dev-carbon": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbon\"",
     "deploy-cms": "npm run deploy -w=cms",
-    "extract-strings": "npm run -w app lingui:extract && npm run -w carbonmark lingui:extract && npm run -w carbon lingui:extract",
-    "compile-strings": "npm run extract-strings && npm run -w app lingui:compile && npm run -w carbonmark lingui:compile && npm run -w carbon lingui:compile",
-    "extract-strings:dev": "npm run -w app lingui:extract:dev && npm run -w carbonmark lingui:extract:dev && npm run -w carbon lingui:extract:dev",
+    "extract-strings": "npm run -w app lingui:extract && npm run -w carbon lingui:extract",
+    "compile-strings": "npm run extract-strings && npm run -w app lingui:compile && npm run -w carbon lingui:compile",
+    "extract-strings:dev": "npm run -w app lingui:extract:dev && npm run -w carbon lingui:extract:dev",
     "export-app": "npm run build-lib && IS_STATIC_EXPORT=true npm run build-app && IS_STATIC_EXPORT=true npm run export -w=app"
   },
   "devDependencies": {

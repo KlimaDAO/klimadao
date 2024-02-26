@@ -15,10 +15,6 @@ on:
         required: true
       TRANSLATIONIO_KEY_APP:
         required: true
-      TRANSLATIONIO_KEY_SITE:
-        required: true
-      TRANSLATIONIO_KEY_CARBONMARK:
-        required: true
       TRANSLATIONIO_KEY_CARBON_DATA:
         required: true
 
@@ -61,8 +57,6 @@ jobs:
         run: npm run extract-strings
         env:
           TRANSLATIONIO_KEY_APP: ${{ secrets.TRANSLATIONIO_KEY_APP }}
-          TRANSLATIONIO_KEY_SITE: ${{ secrets.TRANSLATIONIO_KEY_SITE }}
-          TRANSLATIONIO_KEY_CARBONMARK: ${{ secrets.TRANSLATIONIO_KEY_CARBONMARK }}
           TRANSLATIONIO_KEY_CARBON_DATA: ${{ secrets.TRANSLATIONIO_KEY_CARBON_DATA }}
 
       - name: Check for modified files in all locale folders
