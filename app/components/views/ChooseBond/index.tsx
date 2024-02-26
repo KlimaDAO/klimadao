@@ -97,8 +97,8 @@ export const useBond = (bond: Bond) => {
         message: "MOSS Carbon Credit Token",
       }),
       bct: t({
-        id: "choose_bond.bct.toucan_base_carbon_tonne",
-        message: "Toucan Base Carbon Tonne",
+        id: "choose_bond.bct.base_carbon_tonne",
+        message: "Base Carbon Tonne",
       }),
       klima_usdc_lp: t({
         id: "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity",
