@@ -1,6 +1,6 @@
 // Tokens definition
 
-import { Address, BigInt } from '@graphprotocol/graph-ts'
+import { Address, BigInt, BigDecimal } from '@graphprotocol/graph-ts'
 
 // ERC20
 export const BCT_TOKEN: string = 'BCT'
@@ -8,6 +8,7 @@ export const MCO2_TOKEN: string = 'MCO2'
 export const UBO_TOKEN: string = 'UBO'
 export const NBO_TOKEN: string = 'NBO'
 export const NCT_TOKEN: string = 'NCT'
+export const CCO2_TOKEN: string = 'CCO2'
 export const KLIMA_TOKEN: string = 'KLIMA'
 export const SKLIMA_TOKEN: string = 'sKLIMA'
 export const WSKLIMA_TOKEN: string = 'wsKLIMA'
@@ -45,6 +46,8 @@ export const KLIMA_NBO_PAIR = Address.fromString('0x251cA6A70cbd93Ccd7039B6b708D
 export const KLIMA_NBO_PAIR_BLOCK = BigInt.fromString('26470990')
 export const KLIMA_NCT_PAIR = Address.fromString('0xb2D0D5C86d933b0aceFE9B95bEC160d514d152E1')
 export const KLIMA_NCT_PAIR_BLOCK = BigInt.fromString('32607148')
+export const KLIMA_CCO2_PAIR = Address.fromString('0x4D2263FF85e334C1f1d04C6262F6c2580335a93C')
+export const KLIMA_CCO2_PAIR_BLOCK = BigInt.fromString('51938524')
 export const MCO2_USDC_PAIR = Address.fromString('0x68aB4656736d48bb1DE8661b9A323713104e24cF')
 export const TREASURY_ADDRESS = Address.fromString('0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7')
 
@@ -78,12 +81,15 @@ export const PRO_KLIMA_V2_BLOCK = BigInt.fromString('28719259')
 export const BOND_VERSION_V1 = 'BOND_V1'
 export const BOND_VERSION_V2 = 'BOND_V2'
 
+export const CCO2_TRANSFER_BLOCK = BigInt.fromString('48389143')
+
 // Token Addresses
 export const KLIMA_ERC20_V1_CONTRACT = Address.fromString('0x4e78011ce80ee02d2c3e649fb657e45898257815')
 export const SKLIMA_ERC20_V1_CONTRACT = Address.fromString('0xb0C22d8D350C67420f06F48936654f567C73E8C8')
 export const BCT_ERC20_CONTRACT = Address.fromString('0x2f800db0fdb5223b3c3f354886d907a671414a7f')
 export const NCT_ERC20_CONTRACT = Address.fromString('0xD838290e877E0188a4A44700463419ED96c16107')
 export const MCO2_ERC20_CONTRACT = Address.fromString('0xaa7dbd1598251f856c12f63557a4c4397c253cea')
+export const CCO2_ERC20_CONTRACT = Address.fromString('0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2')
 export const UBO_ERC20_CONTRACT = Address.fromString('0x2B3eCb0991AF0498ECE9135bcD04013d7993110c')
 export const NBO_ERC20_CONTRACT = Address.fromString('0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48')
 export const USDC_ERC20_CONTRACT = Address.fromString('0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174')
@@ -111,3 +117,6 @@ export const KLIMA_INFINITY_DIAMOND = Address.fromString('0x8cE54d9625371fb2a068
 // Other ecosystem addresses
 export const TOUCAN_REGEN_BRIDGE = Address.fromString('0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC')
 export const TOUCAN_CROSS_CHAIN_MESSENGER = Address.fromString('0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf')
+
+// Global constants
+export const KGS_PER_TONNE = BigDecimal.fromString('1000')

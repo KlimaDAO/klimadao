@@ -26,6 +26,9 @@ import {
   KLIMA_MCO2_BOND_V1_2,
   KLIMA_MCO2_PAIR,
   KLIMA_MCO2_PAIR_BLOCK,
+  KLIMA_CCO2_PAIR,
+  KLIMA_CCO2_PAIR_BLOCK,
+  CCO2_ERC20_CONTRACT,
   KLIMA_USDC_PAIR,
   KLIMA_USDC_PAIR_BLOCK,
   MCO2BOND_V1,
@@ -50,11 +53,14 @@ import {
   KLIMA_NCT_PAIR,
   KLIMA_NCT_PAIR_BLOCK,
   USDC_ERC20_CONTRACT,
+  CCO2_TRANSFER_BLOCK,
+  KGS_PER_TONNE,
 } from '../../../lib/utils/Constants'
 import { EpochUtil } from './Epoch'
 import { BCT } from '../../../lib/tokens/impl/BCT'
 import { NCT } from '../../../lib/tokens/impl/NCT'
 import { MCO2 } from '../../../lib/tokens/impl/MCO2'
+import { CCO2 } from '../../../lib/tokens/impl/CCO2'
 import { UBO } from '../../../lib/tokens/impl/UBO'
 import { NBO } from '../../../lib/tokens/impl/NBO'
 import { KLIMA } from '../../../lib/tokens/impl/KLIMA'
@@ -180,6 +186,10 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
   let mco2ERC20 = ERC20.bind(MCO2_ERC20_CONTRACT)
   let treasuryMCO2 = loadOrCreateTreasuryAsset(transaction.timestamp, MCO2_ERC20_CONTRACT.toHexString())
 
+  // CCO2
+  let cco2ERC20 = ERC20.bind(CCO2_ERC20_CONTRACT)
+  let treasuryCCO2 = loadOrCreateTreasuryAsset(transaction.timestamp, CCO2_ERC20_CONTRACT.toHexString())
+
   // UBO
   let uboERC20 = ERC20.bind(UBO_ERC20_CONTRACT)
   let treasuryUBO = loadOrCreateTreasuryAsset(transaction.timestamp, UBO_ERC20_CONTRACT.toHexString())
@@ -206,6 +216,9 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
   if (transaction.blockNumber.gt(NBOBOND_V1_BLOCK)) {
     treasuryNBO.tokenBalance = toDecimal(nboERC20.balanceOf(TREASURY_ADDRESS))
   }
+  if (transaction.blockNumber.gt(CCO2_TRANSFER_BLOCK)) {
+    treasuryCCO2.tokenBalance = toDecimal(cco2ERC20.balanceOf(TREASURY_ADDRESS))
+  }
 
   // Reserve asset so carbon and CC = token balance
   treasuryUSDC.carbonBalance = BigDecimal.zero()
@@ -226,11 +239,16 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
   treasuryNBO.carbonBalance = treasuryNBO.tokenBalance
   treasuryNBO.carbonCustodied = treasuryNBO.tokenBalance
 
+  // divide by 1000 since CCO2 is kgs not tonnes
+  treasuryCCO2.carbonBalance = treasuryCCO2.tokenBalance / KGS_PER_TONNE
+  treasuryCCO2.carbonCustodied = treasuryCCO2.tokenBalance / KGS_PER_TONNE
+
   const bctUsdPrice = new BCT().getUSDPrice(transaction.blockNumber)
   const nctUsdPrice = new NCT().getUSDPrice(transaction.blockNumber)
   const mco2UsdPrice = new MCO2().getUSDPrice(transaction.blockNumber)
   const uboUsdPrice = new UBO().getUSDPrice(transaction.blockNumber)
   const nboUsdPrice = new NBO().getUSDPrice(transaction.blockNumber)
+  const cco2UsdPrice = new CCO2().getUSDPrice(transaction.blockNumber)
   const klimaUsdPrice = new KLIMA().getUSDPrice(transaction.blockNumber)
 
   // Get market value if pools are deployed
@@ -257,6 +275,10 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     treasuryNBO.marketValue = treasuryNBO.tokenBalance.times(nboUsdPrice)
   }
 
+  if (transaction.blockNumber.gt(KLIMA_CCO2_PAIR_BLOCK)) {
+    treasuryCCO2.marketValue = treasuryCCO2.tokenBalance.times(cco2UsdPrice)
+  }
+
   treasuryUSDC.save()
   treasuryKLIMA.save()
   treasuryBCT.save()
@@ -264,6 +286,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
   treasuryMCO2.save()
   treasuryUBO.save()
   treasuryNBO.save()
+  treasuryCCO2.save()
 
   // KLIMA-BCT
   let treasuryKLIMABCT = loadOrCreateTreasuryAsset(transaction.timestamp, KLIMA_BCT_PAIR.toHexString())
@@ -456,6 +479,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     treasuryBCTUSDC.id,
     treasuryKLIMAUSDC.id,
     treasuryNCT.id,
+    treasuryCCO2.id,
   ]
 }
 
@@ -479,6 +503,9 @@ function getKlimaAmountFromLP(transaction: Transaction): BigDecimal {
   }
   if (transaction.blockNumber.gt(KLIMA_NCT_PAIR_BLOCK)) {
     totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NCT_PAIR, klimaToken, true))
+  }
+  if (transaction.blockNumber.gt(KLIMA_CCO2_PAIR_BLOCK)) {
+    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_CCO2_PAIR, klimaToken, true))
   }
 
   return totalKlimaInLP

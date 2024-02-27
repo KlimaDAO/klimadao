@@ -107,6 +107,32 @@ dataSources:
           handler: handleSwap
       file: ./src/Pair.ts
   - kind: ethereum/contract
+    name: KLIMA_CCO2
+    network: matic
+    source:
+      address: '0x4D2263FF85e334C1f1d04C6262F6c2580335a93C'
+      abi: Pair
+      startBlock: 51938524
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Pair
+        - Token
+        - Swap
+      abis:
+        - name: Pair
+          file: ../lib/abis/Pair.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: UniswapV2Pair
+          file: ../lib/abis/UniswapV2Pair.json
+      eventHandlers:
+        - event: Swap(indexed address,uint256,uint256,uint256,uint256,indexed address)
+          handler: handleSwap
+      file: ./src/Pair.ts
+  - kind: ethereum/contract
     name: KLIMA_MCO2
     network: matic
     source:

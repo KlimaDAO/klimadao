@@ -7,10 +7,12 @@ import {
   KLIMA_NBO_PAIR,
   KLIMA_UBO_PAIR,
   KLIMA_MCO2_PAIR,
+  KLIMA_CCO2_PAIR,
   KLIMA_NBO_PAIR_BLOCK,
   KLIMA_UBO_PAIR_BLOCK,
   KLIMA_BCT_PAIR_BLOCK,
   KLIMA_MCO2_PAIR_BLOCK,
+  KLIMA_CCO2_PAIR_BLOCK,
 } from '../../lib/utils/Constants'
 import { BigInt, BigDecimal, log } from '@graphprotocol/graph-ts'
 import { Pair, Token, Swap } from '../generated/schema'
@@ -75,6 +77,10 @@ export function updatePairPrice(address: Address, klima_usdc_rate: BigDecimal, h
   if (address == KLIMA_BCT_PAIR) {
     log.debug('Klima BCT rate {}', [PriceUtil.getKLIMA_BCTRate().toString()])
     price = klima_usdc_rate.div(PriceUtil.getKLIMA_BCTRate())
+  }
+  if (address == KLIMA_CCO2_PAIR) {
+    log.debug('Klima CCO2 rate {}', [PriceUtil.getKLIMA_CCO2Rate().toString()])
+    price = klima_usdc_rate.div(PriceUtil.getKLIMA_CCO2Rate())
   }
 
   let hourly_id = address.toHexString() + hour_timestamp
@@ -231,9 +237,12 @@ export function handleSwap(event: SwapEvent): void {
     if (event.block.number.ge(KLIMA_MCO2_PAIR_BLOCK)) {
       updatePairPrice(KLIMA_MCO2_PAIR, price, hour_timestamp)
     }
+    if (event.block.number.ge(KLIMA_CCO2_PAIR_BLOCK)) {
+      updatePairPrice(KLIMA_CCO2_PAIR, price, hour_timestamp)
+    }
   }
 
-  if (event.address == KLIMA_BCT_PAIR) {
+  if (event.address == KLIMA_BCT_PAIR || event.address == KLIMA_CCO2_PAIR) {
     let swap = Swap.load(hourlyId)
     if (price != BigDecimalZero) {
       usdprice = PriceUtil.getKLIMA_USDRate().div(price)

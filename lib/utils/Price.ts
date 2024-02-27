@@ -7,6 +7,7 @@ import {
   KLIMA_NBO_PAIR,
   MCO2_USDC_PAIR,
   NCT_USDC_PAIR,
+  KLIMA_CCO2_PAIR,
 } from './Constants'
 import { Address, BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
 import { UniswapV2Pair } from '../generated/UniswapV2Pair'
@@ -19,6 +20,7 @@ import { MCO2 } from '../tokens/impl/MCO2'
 import { UBO } from '../tokens/impl/UBO'
 import { NBO } from '../tokens/impl/NBO'
 import { NCT } from '../tokens/impl/NCT'
+import { CCO2 } from '../tokens/impl/CCO2'
 
 enum RATE_FOR_TOKEN {
   FIRST,
@@ -29,6 +31,7 @@ export class PriceUtil {
   private static bctToken: BCT = new BCT()
   private static nctToken: NCT = new NCT()
   private static mco2Token: MCO2 = new MCO2()
+  private static cco2Token: CCO2 = new CCO2()
   private static uboToken: UBO = new UBO()
   private static nboToken: NBO = new NBO()
   private static klimaToken: KLIMA = new KLIMA()
@@ -66,6 +69,15 @@ export class PriceUtil {
       KLIMA_MCO2_PAIR,
       this.klimaToken.getDecimals(),
       this.mco2Token.getDecimals(),
+      RATE_FOR_TOKEN.FIRST
+    )
+  }
+
+  static getKLIMA_CCO2Rate(): BigDecimal {
+    return this.getUniV2Rate(
+      KLIMA_CCO2_PAIR,
+      this.klimaToken.getDecimals(),
+      this.cco2Token.getDecimals(),
       RATE_FOR_TOKEN.FIRST
     )
   }
