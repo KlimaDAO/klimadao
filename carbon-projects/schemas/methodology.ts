@@ -61,5 +61,11 @@ export default defineType({
         "https://cdm.unfccc.int/methodologies/DB/5SI1IXDIZBL6OAKIB3JFUFAQ86MBEE",
       validation: (r) => r.required(),
     }),
+    defineField({
+      name: "isRemoval",
+      description: "Is this methodology for carbon removal/sequestration?",
+      type: "boolean",
+      initialValue: false,
+    }),
   ],
 });
