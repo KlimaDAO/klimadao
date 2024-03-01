@@ -19,13 +19,23 @@ import {
 import { loadOrCreateHolding } from './utils/Holding'
 import { BIG_INT_1E18, ZERO_BI } from '../../lib/utils/Decimals'
 import { loadOrCreateAccount } from './utils/Account'
-import { saveICRRetirement, saveToucanRetirement, saveToucanRetirement_1_4_0 } from './RetirementHandler'
+import {
+  saveICRRetirement,
+  saveToucanPuroRetirementRequest,
+  saveToucanRetirement,
+  saveToucanRetirement_1_4_0,
+} from './RetirementHandler'
 import { saveBridge } from './utils/Bridge'
 import { CarbonCredit, CarbonProject, CrossChainBridge } from '../generated/schema'
 import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool } from './utils/CarbonPool'
 import { checkForCarbonPoolCreditSnapshot } from './utils/CarbonPoolCreditBalance'
 import { loadOrCreateEcosystem } from './utils/Ecosystem'
 import { recordProvenance } from './utils/Provenance'
+import {
+  RetirementFinalized,
+  RetirementRequested,
+} from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
+import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
 
 export function handleCreditTransfer(event: Transfer): void {
   recordTransfer(
@@ -80,6 +90,39 @@ export function handleToucanRetired_1_4_0(event: Retired_1_4_0): void {
 
   saveToucanRetirement_1_4_0(event)
 }
+
+export function handleToucanPuroRetirementRequested(event: RetirementRequested): void {
+  // Ignore retirements of zero value
+  if (event.params.params.amount == ZERO_BI) return
+
+  saveToucanPuroRetirementRequest(event)
+}
+
+export function handleToucanPuroRetirementFinalized(event: RetirementFinalized): void {
+  let request = loadOrCreateToucanBridgeRequest(event.params.requestId)
+  request.status = 'FINALIZED'
+  request.save()
+
+  // if (request.provenance == null) {
+  //   return
+  // }
+
+  // let provenance = ProvenanceRecord.load(request.provenance)
+  // if (provenance !== null) {
+  //   provenance.receiver = ZERO_ADDRESS
+  //   provenance.save()
+  // }
+}
+
+// TODO:
+
+export function handleToucanPuroRetirementReverted(): void {}
+
+export function handleToucanPuroDetokenizationRequested(): void {}
+
+export function handleToucanPuroDetokenizationFinalized(): void {}
+
+export function handleToucanPuroDetokenizationReverted(): void {}
 
 export function handle1155CreditTransfer(event: TransferSingle): void {
   if (ICR_MIGRATION_HASHES.indexOf(event.transaction.hash.toHexString()) > 0) return

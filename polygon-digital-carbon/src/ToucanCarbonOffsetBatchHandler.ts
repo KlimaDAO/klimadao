@@ -1,6 +1,6 @@
 import { BatchMinted, BatchUpdated, Transfer } from '../generated/ToucanCarbonOffsetBatch/ToucanCarbonOffsetBatches'
 import { CarbonCredit } from '../generated/schema'
-import { loadOrCreateToucanBatch } from './utils/ToucanBatch'
+import { loadOrCreateToucanBatch } from './utils/Toucan'
 
 export function handleBatchMinted(event: BatchMinted): void {
   let batch = loadOrCreateToucanBatch(event.params.tokenId)
