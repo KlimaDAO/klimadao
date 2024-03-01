@@ -1,6 +1,7 @@
 import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { Retire } from '../../generated/schema'
 import { updateProvenanceForRetirement } from './Provenance'
+import { ZERO_BI } from '../../../lib/utils/Decimals'
 
 export function saveRetire(
   id: Bytes,
@@ -24,6 +25,10 @@ export function saveRetire(
   retire.amount = amount
   retire.beneficiaryAddress = beneficiary
   retire.beneficiaryName = beneficiaryName
+  retire.beneficiaryLocation = ''
+  retire.consumptionCountryCode = ''
+  retire.consumptionPeriodStart = ZERO_BI
+  retire.consumptionPeriodEnd = ZERO_BI
   retire.retirementMessage = message
   retire.retiringAddress = retiringAddress
   retire.retiringName = retiringName
