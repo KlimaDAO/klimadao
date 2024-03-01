@@ -29,6 +29,13 @@ enum ProvenanceType {
   ORIGINATION
   TRANSFER
   RETIREMENT
+  DETOKENIZED
+}
+
+enum BridgeStatus {
+  FINALIZED
+  REQUESTED
+  REVERTED
 }
 
 type ProvenanceRecord @entity {
@@ -320,6 +327,18 @@ type Retire @entity {
   "Beneficiary description"
   beneficiaryName: String!
 
+  "Beneficiary location"
+  beneficiaryLocation: String!
+
+  "Country code where consumed"
+  consumptionCountryCode: String!
+
+  "Consumption starting timestamp"
+  consumptionPeriodStart: BigInt!
+
+  "Consumption ending timestamp"
+  consumptionPeriodEnd: BigInt!
+
   "Specific retirement message"
   retirementMessage: String!
 
@@ -373,6 +392,14 @@ type ToucanBatch @entity {
 
   "Creation Transaction hash"
   creationTransactionHash: Bytes!
+}
+
+type ToucanBridgeRequest @entity {
+  "Request ID"
+  id: ID!
+  status: BridgeStatus!
+  retire: Retire
+  provenance: ProvenanceRecord
 }
 
 ##############################
