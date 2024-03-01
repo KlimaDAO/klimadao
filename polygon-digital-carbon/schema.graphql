@@ -30,6 +30,13 @@ enum ProvenanceType {
   ORIGINATION
   TRANSFER
   RETIREMENT
+  DETOKENIZED
+}
+
+enum BridgeStatus {
+  FINALIZED
+  REQUESTED
+  REVERTED
 }
 
 enum BridgeStatus {
@@ -328,6 +335,18 @@ type Retire @entity {
   "Beneficiary description"
   beneficiaryName: String!
 
+  "Beneficiary location"
+  beneficiaryLocation: String!
+
+  "Country code where consumed"
+  consumptionCountryCode: String!
+
+  "Consumption starting timestamp"
+  consumptionPeriodStart: BigInt!
+
+  "Consumption ending timestamp"
+  consumptionPeriodEnd: BigInt!
+
   "Specific retirement message"
   retirementMessage: String!
 
@@ -401,6 +420,14 @@ type TokenURISafeguard @entity {
   "Token URI"
   id: ID!
   requestsWithoutURI: [C3RetireRequest!]!
+}
+
+type ToucanBridgeRequest @entity {
+  "Request ID"
+  id: ID!
+  status: BridgeStatus!
+  retire: Retire
+  provenance: ProvenanceRecord
 }
 
 ##############################
