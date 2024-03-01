@@ -10,6 +10,7 @@ import { CarbonOffset } from '../generated/MossCarbonOffset/CarbonChain'
 import { StartAsyncToken, EndAsyncToken } from '../generated/C3ProjectTokenFactory/C3ProjectTokenFactory'
 import { RetiredVintage } from '../generated/templates/ICRProjectToken/ICRProjectToken'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
+import { RetirementRequested } from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
 import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Account'
 import { loadCarbonCredit, loadOrCreateCarbonCredit } from './utils/CarbonCredit'
 import { loadOrCreateCarbonProject } from './utils/CarbonProject'
@@ -19,6 +20,7 @@ import { loadOrCreateC3RetireRequest, loadC3RetireRequest } from './utils/C3'
 import { Token, TokenURISafeguard } from '../generated/schema'
 import { getC3RetireRequestId } from '../utils/getRetirementsContractAddress'
 import { BridgeStatus } from '../utils/enums'
+import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
 
 export function saveToucanRetirement(event: Retired): void {
   // Disregard events with zero amount
@@ -84,6 +86,49 @@ export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
     event.params.eventId.toString()
   )
 
+  incrementAccountRetirements(senderAddress)
+}
+
+export function saveToucanPuroRetirementRequest(event: RetirementRequested): void {
+  // Disregard events with zero amount
+  if (event.params.params.amount == ZERO_BI) {
+    return
+  }
+
+  let credit = loadCarbonCredit(event.address)
+
+  credit.retired = credit.retired.plus(event.params.params.amount)
+  credit.save()
+
+  // Ensure account entities are created for all addresses
+  let sender = loadOrCreateAccount(event.transaction.from)
+  let senderAddress = event.transaction.from
+  loadOrCreateAccount(event.params.params.beneficiary) // Beneficiary address
+  let retireId = sender.id.concatI32(sender.totalRetirements)
+
+  saveRetire(
+    retireId,
+    credit.id,
+    ZERO_ADDRESS,
+    'OTHER',
+    event.params.params.amount,
+    event.params.params.beneficiary,
+    event.params.params.beneficiaryString,
+    senderAddress,
+    event.params.params.retiringEntityString,
+    event.block.timestamp,
+    event.transaction.hash
+  )
+
+  let retire = loadRetire(retireId)
+
+  let request = loadOrCreateToucanBridgeRequest(event.params.requestId)
+  request.retire = retireId
+  if (retire != null) {
+    request.provenance = retire.provenance
+  }
+
+  request.save()
   incrementAccountRetirements(senderAddress)
 }
 
