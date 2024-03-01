@@ -3,7 +3,7 @@ import { ProvenanceRecord } from '../../generated/schema'
 import { loadCarbonCredit } from './CarbonCredit'
 import { loadOrCreateHolding } from './Holding'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
-import { loadOrCreateToucanBatch } from './ToucanBatch'
+import { loadOrCreateToucanBatch } from './Toucan'
 import { ZERO_ADDRESS } from '../../../lib/utils/Constants'
 
 export function recordProvenance(
