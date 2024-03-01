@@ -42,19 +42,19 @@ export function loadCarbonCredit(id: Bytes): CarbonCredit {
   return CarbonCredit.load(id) as CarbonCredit
 }
 
-export function updateCarbonCreditWithCall(tokenAddress: Address): CarbonCredit {
+export function updateCarbonCreditWithCall(tokenAddress: Address, registry: string): CarbonCredit {
   let credit = loadCarbonCredit(tokenAddress)
-  if (credit.bridgeProtocol == 'TOUCAN') credit = updateToucanCall(tokenAddress, credit)
+  if (credit.bridgeProtocol == 'TOUCAN') credit = updateToucanCall(tokenAddress, credit, registry)
   else if (credit.bridgeProtocol == 'C3') credit = updateC3Call(tokenAddress, credit)
 
   return credit
 }
 
-function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit): CarbonCredit {
+function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, registry: string): CarbonCredit {
   let carbonCreditERC20 = ToucanCarbonOffsets.bind(tokenAddress)
 
   let attributes = carbonCreditERC20.getAttributes()
-  let project = loadOrCreateCarbonProject('VERRA', attributes.value0.projectId)
+  let project = loadOrCreateCarbonProject(registry, attributes.value0.projectId)
 
   carbonCredit.project = project.id
   carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.startTime)
