@@ -15,6 +15,7 @@ import { ZERO_BI, BIG_INT_1E18 } from '../../lib/utils/Decimals'
 import { loadOrCreateAccount } from './utils/Account'
 import {
   saveICRRetirement,
+  saveToucanPuroRetirementRequest,
   saveToucanRetirement,
   saveToucanRetirement_1_4_0,
 } from './RetirementHandler'
@@ -79,6 +80,39 @@ export function handleToucanRetired_1_4_0(event: Retired_1_4_0): void {
 
   saveToucanRetirement_1_4_0(event)
 }
+
+export function handleToucanPuroRetirementRequested(event: RetirementRequested): void {
+  // Ignore retirements of zero value
+  if (event.params.params.amount == ZERO_BI) return
+
+  saveToucanPuroRetirementRequest(event)
+}
+
+export function handleToucanPuroRetirementFinalized(event: RetirementFinalized): void {
+  let request = loadOrCreateToucanBridgeRequest(event.params.requestId)
+  request.status = 'FINALIZED'
+  request.save()
+
+  // if (request.provenance == null) {
+  //   return
+  // }
+
+  // let provenance = ProvenanceRecord.load(request.provenance)
+  // if (provenance !== null) {
+  //   provenance.receiver = ZERO_ADDRESS
+  //   provenance.save()
+  // }
+}
+
+// TODO:
+
+export function handleToucanPuroRetirementReverted(): void {}
+
+export function handleToucanPuroDetokenizationRequested(): void {}
+
+export function handleToucanPuroDetokenizationFinalized(): void {}
+
+export function handleToucanPuroDetokenizationReverted(): void {}
 
 export function handle1155CreditTransfer(event: TransferSingle): void {
   if (ICR_MIGRATION_HASHES.indexOf(event.transaction.hash.toHexString()) > 0) return
