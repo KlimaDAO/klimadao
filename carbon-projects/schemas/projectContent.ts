@@ -58,6 +58,22 @@ export default defineType({
       ],
     }),
     defineField({
+      name: "satelliteImage",
+      description:
+        "Mapbox satellite image based on registry lat/long to be shown on project page",
+      group: "media",
+      type: "image",
+      fields: [
+        {
+          name: "caption",
+          description:
+            "English language caption to show below the image. Can include image attribution if needed.",
+          type: "string",
+          placeholder: "Satellite image of the project location",
+        },
+      ],
+    }),
+    defineField({
       name: "images",
       description: "Other images associated with this project",
       group: "media",
