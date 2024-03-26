@@ -647,7 +647,7 @@ export const Bond: FC<Props> = (props) => {
                       id: "bond.bond_price.tooltip.inverse",
                       message: "Current trading price of KLIMA on the market",
                     })}
-                    unit="USDC"
+                    unit="USDC.e"
                     value={trimWithPlaceholder(
                       1 / Number(bondState?.marketPrice),
                       2,
@@ -664,9 +664,9 @@ export const Bond: FC<Props> = (props) => {
                     tooltip={t({
                       id: "bond.payout_per_klima.description_inverse",
                       message:
-                        "If you bond 1 KLIMA, you will receive this amount in USDC.",
+                        "If you bond 1 KLIMA, you will receive this amount in USDC.e.",
                     })}
-                    unit={"USDC"}
+                    unit={"USDC.e"}
                     value={trimWithPlaceholder(
                       1 / Number(bondState?.bondPrice),
                       3,
@@ -700,9 +700,9 @@ export const Bond: FC<Props> = (props) => {
                     tooltip={t({
                       id: "capacity.description_inverse",
                       message:
-                        "This is the amount of USDC in the contract available for bonds.",
+                        "This is the amount of USDC.e in the contract available for bonds.",
                     })}
-                    unit={"USDC"}
+                    unit={"USDC.e"}
                     value={trimWithPlaceholder(
                       Number(bondState?.capacity),
                       3,
@@ -739,7 +739,7 @@ export const Bond: FC<Props> = (props) => {
                             locale
                           )
                     }
-                    unit="USDC"
+                    unit="USDC.e"
                   />
                   <DataRow
                     singleton={singleton}
@@ -752,7 +752,7 @@ export const Bond: FC<Props> = (props) => {
                       message:
                         "Amount you will get, at the provided input quantity",
                     })}
-                    unit="USDC"
+                    unit="USDC.e"
                     value={
                       !props.isConnected
                         ? 0

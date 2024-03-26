@@ -34,7 +34,7 @@ export interface UserState {
     nct: string;
     ubo: string;
     nbo: string;
-    usdc: string;
+    usdc: string; // USDC.e
   };
   projectTokens: {
     [address: string]: ProjectTokenBalance;

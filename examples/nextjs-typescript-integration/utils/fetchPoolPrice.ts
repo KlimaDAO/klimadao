@@ -5,7 +5,7 @@ import { getTokenInfo } from "./getTokenInfo";
 
 /**
  * Uses the KlimaDAO retirement aggregator to get a price quote for the given carbon pool.
- * Returns formatted price in USDC.
+ * Returns formatted price in USDC.e.
  * Price includes all relevant fees.
  */
 export async function fetchPoolPrice(params: {
@@ -30,10 +30,10 @@ export async function fetchPoolPrice(params: {
       : "getSourceAmountSpecificRetirement";
 
   const BigInt: BigNumberish = await RetirementAggregator[method](
-    getTokenInfo("usdc").address,
+    getTokenInfo("usdc").address, // USDC.e
     getTokenInfo(params.pool).address,
     parsed
   );
 
-  return formatUnits(BigInt, getTokenInfo("usdc").decimals);
+  return formatUnits(BigInt, getTokenInfo("usdc").decimals); // USDC.e
 }

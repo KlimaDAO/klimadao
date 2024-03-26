@@ -20,7 +20,7 @@ const assets = [
   "mco2",
   "ubo",
   "nbo",
-  "usdc",
+  "usdc", // USDC.e
   "klima",
   "sklima",
   "wsklima",

@@ -23,7 +23,7 @@ const API_DEMO_WALLET_PHRASE = process.env.API_DEMO_WALLET_PHRASE;
  * Don't want to deal with wallets, gas and blockchain transactions? See our Provide Services example integration instead.
  *
  * The application instantiates a wallet using a seed phrase, and then dispatches transactions to the Retirement Aggregator smart contract.
- * The wallet is pre-funded with a balance of USDC tokens, which is used to pay for the carbon.
+ * The wallet is pre-funded with a balance of USDC.e tokens, which is used to pay for the carbon.
  * The wallet also holds MATIC tokens, which are used to pay for the Polygon network fees (a few cents per txn).
  */
 export async function POST(req: Request) {
@@ -43,13 +43,13 @@ export async function POST(req: Request) {
     // 👇 To avoid having to do a spend-approval transaction for every retirement, uncomment this to do a single approval for the maximum quantity 👇
     // await approveMaxUsdc(ServerWallet);
 
-    const paymentTokenAddress = getTokenInfo("usdc").address;
+    const paymentTokenAddress = getTokenInfo("usdc").address; // USDC.e
     const poolTokenAddress = getTokenInfo(body.pool).address;
 
-    // slippage prevention - specify the max amount of USDC that can be spent. 3 cent max for demo purposes
+    // slippage prevention - specify the max amount of USDC.e that can be spent. 3 cent max for demo purposes
     // It's up to the developer how they want to determine the max.
     // e.g. the tonne price shown to the customer, or the most recent quoted price, plus a small buffer
-    const maxAmountIn = parseUnits("0.03", getTokenInfo("usdc").decimals);
+    const maxAmountIn = parseUnits("0.03", getTokenInfo("usdc").decimals); // USDC.e
 
     const amountToRetire = parseUnits(
       body.quantity.toString(),

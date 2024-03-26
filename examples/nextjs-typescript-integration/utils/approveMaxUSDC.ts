@@ -7,7 +7,7 @@ import { getTokenInfo } from "./getTokenInfo";
 /** This only needs to be invoked one time, for new wallets */
 export const approveMaxUsdc = async (wallet: HDNodeWallet) => {
   const UsdcContract = new Contract(
-    getTokenInfo("usdc").address,
+    getTokenInfo("usdc").address, // USDC.e
     ERC20.abi,
     wallet
   );

@@ -10,11 +10,11 @@ export const redeemablePoolTokens: RedeemablePoolToken[] = [
   "nbo",
 ];
 
-export type RedeemPaymentMethod = RedeemablePoolToken | "klima" | "usdc";
+export type RedeemPaymentMethod = RedeemablePoolToken | "klima" | "usdc"; // USDC.e
 export const redeemPaymentMethods: RedeemPaymentMethod[] = [
   ...redeemablePoolTokens,
   "klima",
-  "usdc",
+  "usdc", // USDC.e
 ];
 
 type CompatMap = { [token in RedeemPaymentMethod]: RedeemablePoolToken[] };
@@ -23,7 +23,7 @@ export const redeemCompatibility: CompatMap = {
   nbo: ["bct", "nct", "ubo", "nbo"],
   bct: ["bct", "nct", "ubo", "nbo"],
   nct: ["bct", "nct", "ubo", "nbo"],
-  usdc: ["bct", "nct", "ubo", "nbo"],
+  usdc: ["bct", "nct", "ubo", "nbo"], // USDC.e
   klima: ["bct", "nct", "ubo", "nbo"],
 };
 

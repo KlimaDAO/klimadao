@@ -10,7 +10,7 @@ export type Price = {
   projectTokenAddress: string;
   /** True if default project for pool and no selective redemption fee applies */
   isPoolDefault: boolean;
-  /** formatted USDC price for 1 tonne e.g. "0.123456" */
+  /** formatted USDC.e price for 1 tonne e.g. "0.123456" */
   singleUnitPrice: string;
 };
 
