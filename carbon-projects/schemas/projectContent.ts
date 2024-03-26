@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { sdgs } from "../lib/sdgs";
 
 export default defineType({
   name: "projectContent",
@@ -42,6 +43,17 @@ export default defineType({
       description: "Longer description",
       group: "info",
       type: "text",
+    }),
+    defineField({
+      name: "extraSdgs",
+      description:
+        "List of additional Sustainable Development Goals for this project (not authoritative from the registry).",
+      group: "info",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: sdgs,
+      },
     }),
     defineField({
       name: "coverImage",

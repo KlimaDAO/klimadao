@@ -1,25 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { countries } from "../lib/iso-3166";
-
-const sdgs = [
-  { value: "1", title: "1. No Poverty" },
-  { value: "2", title: "2. Zero Hunger" },
-  { value: "3", title: "3. Good Health and Well-being" },
-  { value: "4", title: "4. Quality Education" },
-  { value: "5", title: "5. Gender Equality" },
-  { value: "6", title: "6. Clean Water and Sanitation" },
-  { value: "7", title: "7. Affordable and Clean Energy" },
-  { value: "8", title: "8. Decent Work and Economic Growth" },
-  { value: "9", title: "9. Industry, Innovation and Infrastructure" },
-  { value: "10", title: "10. Reduced Inequality" },
-  { value: "11", title: "11. Sustainable Cities and Communities" },
-  { value: "12", title: "12. Responsible Consumption and Production" },
-  { value: "13", title: "13. Climate Action" },
-  { value: "14", title: "14. Life Below Water" },
-  { value: "15", title: "15. Life on Land" },
-  { value: "16", title: "16. Peace and Justice Strong Institutions" },
-  { value: "17", title: "17. Partnerships to achieve the Goal" },
-];
+import { sdgs } from "../lib/sdgs";
 
 const ccbs = [
   { title: "Social Carbon", value: "Social Carbon" },
