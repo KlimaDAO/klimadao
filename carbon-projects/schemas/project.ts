@@ -96,6 +96,7 @@ export default defineType({
           { title: "EcoRegistry", value: "ECO" },
           { title: "International Carbon Registry", value: "ICR" },
           { title: "Puro", value: "PURO" },
+          { title: "J-Credit", value: "JCS" },
         ],
       },
       validation: (r) => r.required(),
