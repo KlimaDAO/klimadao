@@ -5,14 +5,16 @@ import {
   loadOrCreateProject,
   loadOrCreatePurchase,
   loadOrCreateUser,
+  loadProject,
 } from './Entities'
-import { ZERO_BI } from '../../lib/utils/Decimals'
+import { ZERO_BI, handleMigrationDecimals } from '../../lib/utils/Decimals'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { ERC20 } from '../generated/Carbonmark/ERC20'
 import { ERC1155 } from '../generated/Carbonmark/ERC1155'
 import { Bytes, log } from '@graphprotocol/graph-ts'
 
 export function handleListingCreated(event: ListingCreated): void {
+  let blockNumber = event.block.number
   // Ensure the user entity exists
   loadOrCreateUser(event.params.account)
   loadOrCreateUser(event.transaction.from)
@@ -53,7 +55,7 @@ export function handleListingCreated(event: ListingCreated): void {
   listing.save()
 
   let activity = loadOrCreateActivity(event.transaction.hash.toHexString().concat('ListingCreated'))
-  activity.amount = event.params.amount
+  activity.amount = handleMigrationDecimals(project.registry, blockNumber, event.params.amount)
   activity.price = event.params.price
   activity.timeStamp = event.block.timestamp
   activity.activityType = 'CreatedListing'
@@ -65,13 +67,19 @@ export function handleListingCreated(event: ListingCreated): void {
 }
 
 export function handleListingUpdated(event: ListingUpdated): void {
+  let blockNumber = event.block.number
   // User should already exist from creating the listing.
 
   let listing = loadOrCreateListing(event.params.id.toHexString())
   let activity = loadOrCreateActivity(event.transaction.hash.toHexString().concat('ListingUpdated'))
 
-    // always ensure the minFillAmount is updated
-    listing.minFillAmount = event.params.newMinFillAmount
+  let project = loadProject(listing.project)
+
+  // always ensure the minFillAmount is updated
+  listing.minFillAmount = event.params.newMinFillAmount
+
+  // only handling historical activity amounts for ICR migration
+  activity.amount = handleMigrationDecimals(project.registry, blockNumber, event.params.newAmount)
 
   if (event.params.oldAmount != event.params.newAmount) {
     listing.totalAmountToSell = event.params.newAmount
@@ -82,7 +90,7 @@ export function handleListingUpdated(event: ListingUpdated): void {
     activity.activityType = 'UpdatedQuantity'
     activity.project = listing.project
     activity.user = event.transaction.from
-    activity.previousAmount = event.params.oldAmount
+    activity.previousAmount = handleMigrationDecimals(project.registry, blockNumber, event.params.oldAmount)
     activity.amount = event.params.newAmount
     activity.timeStamp = event.block.timestamp
     activity.seller = listing.seller
@@ -136,6 +144,7 @@ export function handleListingUpdated(event: ListingUpdated): void {
 }
 
 export function handleListingFilled(event: ListingFilled): void {
+  let blockNumber = event.block.number
   // Ensure the buyer user entity exists
   loadOrCreateUser(event.transaction.from)
 
@@ -143,14 +152,16 @@ export function handleListingFilled(event: ListingFilled): void {
   let buyerActivty = loadOrCreateActivity(event.transaction.hash.toHexString().concat('Purchase'))
   let sellerActivity = loadOrCreateActivity(event.transaction.hash.toHexString().concat('Sold'))
 
-  listing.leftToSell = listing.leftToSell.minus(event.params.amount)
+  let amount = handleMigrationDecimals(loadProject(listing.project).registry, blockNumber, event.params.amount)
+
+  listing.leftToSell = listing.leftToSell.minus(amount)
   if (listing.leftToSell == ZERO_BI) {
     listing.active = false
   }
   listing.updatedAt = event.block.timestamp
   listing.save()
 
-  buyerActivty.amount = event.params.amount
+  buyerActivty.amount = amount
   buyerActivty.price = listing.singleUnitPrice
   buyerActivty.timeStamp = event.block.timestamp
   buyerActivty.activityType = 'Purchase'
@@ -161,7 +172,7 @@ export function handleListingFilled(event: ListingFilled): void {
   buyerActivty.buyer = event.transaction.from
   buyerActivty.save()
 
-  sellerActivity.amount = event.params.amount
+  sellerActivity.amount = amount
   sellerActivity.price = listing.singleUnitPrice
   sellerActivity.timeStamp = event.block.timestamp
   sellerActivity.activityType = 'Sold'
@@ -174,7 +185,7 @@ export function handleListingFilled(event: ListingFilled): void {
 
   let purchase = loadOrCreatePurchase(event.transaction.hash)
   purchase.price = listing.singleUnitPrice
-  purchase.amount = event.params.amount
+  purchase.amount = amount
   purchase.timeStamp = event.block.timestamp
   purchase.user = event.transaction.from
   purchase.listing = listing.id

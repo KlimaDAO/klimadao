@@ -101,6 +101,14 @@ export function loadOrCreatePurchase(id: Bytes): Purchase {
   return purchase
 }
 
+export function loadProject(projectId: string): Project {
+  let project = Project.load(projectId)
+  if (project == null) {
+    throw new Error('Project does not exist')
+  }
+  return project
+}
+
 function createCountry(id: string): void {
   let country = Country.load(id)
   if (country == null) {

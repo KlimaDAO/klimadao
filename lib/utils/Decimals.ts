@@ -1,4 +1,5 @@
-import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
+import { BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
+import { ICR_MIGRATION_BLOCK } from './Constants'
 
 export const DEFAULT_DECIMALS = 18
 
@@ -29,4 +30,20 @@ export function toDecimal(value: BigInt, decimals: number = DEFAULT_DECIMALS): B
     .toBigDecimal()
 
   return value.divDecimal(precision)
+}
+
+export function toWei(value: BigInt): BigInt {
+  let weiDecimals: BigInt = BigInt.fromI32(10).pow(DEFAULT_DECIMALS as u8)
+  return value.times(weiDecimals)
+}
+
+export function handleMigrationDecimals(registry: string, blockNumber: BigInt, amount: BigInt): BigInt {
+  log.info('qwe1: {} qwe2: {} qwe3: {}', [blockNumber.toString(), BigInt.fromI32(ICR_MIGRATION_BLOCK).toString(), registry])
+
+  if (registry == 'ICR' && blockNumber.lt(BigInt.fromI32(ICR_MIGRATION_BLOCK))) {
+    log.info('qwe4: {}', [toWei(amount).toString()])
+    return toWei(amount)
+  } else {
+    return amount
+  }
 }
