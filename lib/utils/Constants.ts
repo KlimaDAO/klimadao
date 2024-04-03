@@ -111,6 +111,8 @@ export const NFT_CO2COMPOUND_INIT_TIMESTAMP = BigInt.fromString('1638486000') //
 
 export const ZERO_ADDRESS = Address.fromString('0x0000000000000000000000000000000000000000')
 
+export const ICR_MIGRATION_BLOCK = 55190341;
+
 // Klima Infinity Addresses
 export const KLIMA_CARBON_RETIREMENTS_CONTRACT = Address.fromString('0xac298cd34559b9acfaedea8344a977eceff1c0fd')
 export const KLIMA_INFINITY_DIAMOND = Address.fromString('0x8cE54d9625371fb2a068986d32C85De8E6e995f8')
