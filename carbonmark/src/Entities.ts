@@ -1,17 +1,17 @@
 import { Activity, Category, Country, Listing, Project, Purchase, User } from '../generated/schema'
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
-import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
+import { Address, BigInt, Bytes, log } from '@graphprotocol/graph-ts'
 import { PROJECT_INFO } from './Projects'
 
-export function loadOrCreateProject(token: Address): Project {
+export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
   // Find the project + vintage ID from token address
   let tokenAddress = token.toHexString()
   let id = ''
   let registry = ''
   let projectIndex = 0
   for (let i = 0; i < PROJECT_INFO.length; i++) {
-    if (tokenAddress == PROJECT_INFO[i][0]) {
+    if (tokenAddress.toLowerCase() == PROJECT_INFO[i][0] && tokenId.toString() == PROJECT_INFO[i][7]) {
       id = PROJECT_INFO[i][1] + '-' + PROJECT_INFO[i][2]
       registry = PROJECT_INFO[i][1].split('-')[0]
       projectIndex = i
@@ -31,6 +31,7 @@ export function loadOrCreateProject(token: Address): Project {
     project.registry = registry
     project.category = PROJECT_INFO[projectIndex][5]
     project.country = PROJECT_INFO[projectIndex][6]
+    project.tokenId = tokenId
     project.save()
 
     createCountry(project.country)

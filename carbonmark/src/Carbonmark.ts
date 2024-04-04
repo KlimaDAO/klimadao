@@ -18,7 +18,7 @@ export function handleListingCreated(event: ListingCreated): void {
   // Ensure the user entity exists
   loadOrCreateUser(event.params.account)
   loadOrCreateUser(event.transaction.from)
-  let project = loadOrCreateProject(event.params.token)
+  let project = loadOrCreateProject(event.params.token, event.params.tokenId)
 
   let listing = loadOrCreateListing(event.params.id.toHexString())
 

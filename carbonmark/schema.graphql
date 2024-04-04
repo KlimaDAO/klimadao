@@ -26,6 +26,7 @@ type Project @entity {
   methodology: String!
   vintage: BigInt!
   projectAddress: Bytes!
+  tokenId: BigInt!
   registry: String!
   #   #relationships
   activities: [Activity!] @derivedFrom(field: "project")
