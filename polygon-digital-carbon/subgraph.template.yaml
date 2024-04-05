@@ -1,0 +1,520 @@
+specVersion: 0.0.4
+description: Polygon Carbon
+repository: https://github.com/KlimaDAO/klima-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ToucanFactory
+    network: {{network}}
+    source:
+      address: '{{ToucanCarbonOffsetsFactory.address}}'
+      abi: ToucanCarbonOffsetsFactory
+      startBlock: {{ToucanCarbonOffsetsFactory.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/templates/ToucanFactory.ts
+      entities:
+        - ToucanCarbonOffsetsFactory
+      abis:
+        - name: ToucanCarbonOffsetsFactory
+          file: ../lib/abis/ToucanCarbonOffsetsFactory.json
+        - name: ToucanCarbonOffsets
+          file: ../lib/abis/ToucanCarbonOffsets.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: TokenCreated(uint256,address)
+          handler: handleNewTCO2
+  - kind: ethereum/contract
+    name: ToucanCarbonOffsetBatch
+    network: {{network}}
+    source:
+      address: '{{ToucanCarbonOffsetBatch.address}}'
+      abi: ToucanCarbonOffsetBatches
+      startBlock: {{ToucanCarbonOffsetBatch.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ToucanCarbonOffsetBatchHandler.ts
+      entities:
+        - ToucanCarbonOffsetBatch
+      abis:
+        - name: ToucanCarbonOffsetBatches
+          file: ../lib/abis/ToucanCarbonOffsetBatches.json
+      eventHandlers:
+        - event: BatchMinted(address,uint256)
+          handler: handleBatchMinted
+        - event: BatchUpdated(uint256,string,uint256)
+          handler: handleBatchUpdated
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleBatchTransfer
+  - kind: ethereum/contract
+    name: BCT
+    network: {{network}}
+    source:
+      address: '{{BCT.address}}'
+      abi: ToucanCarbonPool
+      startBlock: {{BCT.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ToucanCarbonPoolHandler.ts
+      entities:
+        - BCT
+      abis:
+        - name: ToucanCarbonPool
+          file: ../lib/abis/ToucanCarbonPool.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Deposited(address,uint256)
+          handler: handleDeposited
+        - event: Redeemed(address,address,uint256)
+          handler: handleRedeemed
+        - event: TCO2Bridged(indexed uint32,indexed address,uint256)
+          handler: handleToucanTCO2Bridged
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: NCT
+    network: {{network}}
+    source:
+      address: '{{NCT.address}}'
+      abi: ToucanCarbonPool
+      startBlock: {{NCT.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ToucanCarbonPoolHandler.ts
+      entities:
+        - NCT
+      abis:
+        - name: ToucanCarbonPool
+          file: ../lib/abis/ToucanCarbonPool.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Deposited(address,uint256)
+          handler: handleDeposited
+        - event: Redeemed(address,address,uint256)
+          handler: handleRedeemed
+        - event: TCO2Bridged(indexed uint32,indexed address,uint256)
+          handler: handleToucanTCO2Bridged
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  # Toucan cross chain bridges
+  - kind: ethereum/contract
+    name: ToucanCrossChainMessenger
+    network: {{network}}
+    source:
+      address: '{{ToucanCrossChainMessenger.address}}'
+      abi: ToucanCrossChainMessenger
+      startBlock: {{ToucanCrossChainMessenger.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ToucanCrossChainMessengerHandler.ts
+      entities:
+        - ToucanCrossChainMessenger
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: ToucanCrossChainMessenger
+          file: ../lib/abis/ToucanCrosschainMessenger_Combined.json
+      eventHandlers:
+        # v1.0.0
+        - event: BridgeRequestReceived(indexed uint32,uint32,indexed address,indexed address,uint256,bytes32)
+          handler: handleBridgeRequestReceived_1_0_0
+        - event: BridgeRequestSent(uint32,indexed uint32,indexed address,indexed address,uint256,uint256,bytes32)
+          handler: handleBridgeRequestSent_1_0_0
+        # v1.1.0
+        - event: BridgeRequestReceived(indexed uint32,uint32,indexed address,address,indexed address,uint256,bytes32)
+          handler: handleBridgeRequestReceived_1_1_0
+        - event: BridgeRequestSent(uint32,indexed uint32,indexed address,address,indexed address,uint256,uint256,bytes32)
+          handler: handleBridgeRequestSent_1_1_0
+  - kind: ethereum/contract
+    name: ToucanRegenBridge
+    network: {{network}}
+    source:
+      address: '{{ToucanRegenBridge.address}}'
+      abi: ToucanRegenBridge
+      startBlock: {{ToucanRegenBridge.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ToucanCrossChainMessengerHandler.ts
+      entities:
+        - ToucanCrossChainMessenger
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: ToucanRegenBridge
+          file: ../lib/abis/ToucanRegenBridge.json
+      eventHandlers:
+        - event: Bridge(address,string,address,uint256)
+          handler: handleToucanRegenBridge
+        - event: Issue(string,address,address,uint256,string)
+          handler: handleToucanRegenIssue
+  - kind: ethereum/contract
+    name: MossCarbon
+    network: {{network}}
+    source:
+      address: '{{MossCarbon.address}}'
+      abi: ERC20
+      startBlock: {{MossCarbon.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/TransferHandler.ts
+      entities:
+        - MossCarbon
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleCreditTransfer
+  - kind: ethereum/contract
+    name: MossCarbonOffset
+    network: {{network}}
+    source:
+      address: '{{MossCarbonOffset.address}}'
+      abi: CarbonChain
+      startBlock: {{MossCarbonOffset.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/RetirementHandler.ts
+      entities:
+        - MossCarbonOffset
+      abis:
+        - name: CarbonChain
+          file: ../lib/abis/MossOffsetCarbon.json
+      eventHandlers:
+        - event: CarbonOffset(uint256,string,string,address,bytes32,indexed uint256,indexed uint256)
+          handler: handleMossRetirement
+        # - event: CarbonOffsetBatch((uint256,bytes32,uint256,uint256),uint256,bytes32,uint256)
+        #   handler: handleMossRetirementToMainnet
+  - kind: ethereum/contract
+    name: C3ProjectTokenFactory
+    network: {{network}}
+    source:
+      address: '{{C3ProjectTokenFactory.address}}'
+      abi: C3ProjectTokenFactory
+      startBlock: {{C3ProjectTokenFactory.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/templates/C3ProjectTokenFactory.ts
+      entities:
+        - C3ProjectTokenFactory
+      abis:
+        - name: C3ProjectTokenFactory
+          file: ../lib/abis/C3ProjectTokenFactory.json
+        - name: C3ProjectToken
+          file: ../lib/abis/C3ProjectToken.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: NewTokenProject(string,address)
+          handler: handleNewC3T
+  - kind: ethereum/contract
+    name: UBO
+    network: {{network}}
+    source:
+      address: '{{UBO.address}}'
+      abi: C3CarbonPool
+      startBlock: {{UBO.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/C3CarbonPoolHandler.ts
+      entities:
+        - UBO
+      abis:
+        - name: C3CarbonPool
+          file: ../lib/abis/C3CarbonPool.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Deposited(address,uint256)
+          handler: handleDeposited
+        - event: Redeemed(address,address,uint256)
+          handler: handleRedeemed
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: NBO
+    network: {{network}}
+    source:
+      address: '{{NBO.address}}'
+      abi: C3CarbonPool
+      startBlock: {{NBO.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/C3CarbonPoolHandler.ts
+      entities:
+        - NBO
+      abis:
+        - name: C3CarbonPool
+          file: ../lib/abis/C3CarbonPool.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Deposited(address,uint256)
+          handler: handleDeposited
+        - event: Redeemed(address,address,uint256)
+          handler: handleRedeemed
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: C3-Offset
+    network: {{network}}
+    source:
+      address: '{{C3-Offset.address}}'
+      abi: C3OffsetNFT
+      startBlock: {{C3-Offset.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/RetirementHandler.ts
+      entities:
+        - C3-VCUO
+      abis:
+        - name: C3OffsetNFT
+          file: ../lib/abis/C3OffsetNFT.json
+      eventHandlers:
+        - event: VCUOMinted(address,uint256)
+          handler: handleVCUOMinted
+  - kind: ethereum/contract
+    name: ICRCarbonContractRegistry
+    network: {{network}}
+    source:
+      address: '{{ICRCarbonContractRegistry.address}}'
+      abi: ICRCarbonContractRegistry
+      startBlock: {{ICRCarbonContractRegistry.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/templates/ICRCarbonContractRegistry.ts
+      entities:
+        - ICRCarbonContractRegistry
+      abis:
+        - name: ICRCarbonContractRegistry
+          file: ../lib/abis/ICRCarbonContractRegistry.json
+        - name: ICRProjectToken
+          file: ../lib/abis/ICRProjectToken.json
+        - name: ERC1155
+          file: ../lib/abis/ERC1155.json
+      eventHandlers:
+        - event: ProjectCreated(indexed uint256,indexed address,string)
+          handler: handleNewICC
+  # Retirement aggregator
+  - kind: ethereum/contract
+    name: RetireToucanCarbon
+    network: {{network}}
+    source:
+      address: '{{RetireToucanCarbon.address}}'
+      abi: RetireToucanCarbon
+      startBlock: {{RetireToucanCarbon.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: RetireToucanCarbon
+          file: ../lib/abis/RetireToucanCarbon.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: ToucanRetired(indexed address,indexed address,string,string,indexed address,address,uint256)
+          handler: handleToucanRetired
+  - kind: ethereum/contract
+    name: RetireMossCarbon
+    network: {{network}}
+    source:
+      address: '{{RetireMossCarbon.address}}'
+      abi: RetireMossCarbon
+      startBlock: {{RetireMossCarbon.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: RetireMossCarbon
+          file: ../lib/abis/RetireMossCarbon.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: MossRetired(indexed address,indexed address,string,string,indexed address,uint256)
+          handler: handleMossRetired
+  - kind: ethereum/contract
+    name: RetireC3Carbon
+    network: {{network}}
+    source:
+      address: '{{RetireC3Carbon.address}}'
+      abi: RetireC3Carbon
+      startBlock: {{RetireC3Carbon.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: RetireC3Carbon
+          file: ../lib/abis/RetireC3Carbon.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: C3Retired(indexed address,indexed address,string,string,indexed address,address,uint256)
+          handler: handleC3Retired
+  - kind: ethereum/contract
+    name: KlimaInfinity
+    network: {{network}}
+    source:
+      address: '{{KlimaInfinity.address}}'
+      abi: KlimaInfinity
+      startBlock: {{KlimaInfinity.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: KlimaInfinity
+          file: ../lib/abis/KlimaInfinity.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: CarbonRetired(uint8,indexed address,string,indexed address,string,string,indexed address,address,uint256)
+          handler: handleCarbonRetired
+        - event: CarbonRetired(uint8,indexed address,string,indexed address,string,string,indexed address,address,uint256,uint256)
+          handler: handleCarbonRetiredWithTokenId
+  # Track KLIMA rebases for creating supply snapshot
+  - kind: ethereum/contract
+    name: sKlimaERC20V1
+    network: {{network}}
+    source:
+      address: '{{sKlimaERC20V1.address}}'
+      abi: sKlimaERC20V1
+      startBlock: {{sKlimaERC20V1.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - sKlima
+      abis:
+        - name: sKlimaERC20V1
+          file: ../lib/abis/sKlimaERC20V1.json
+      eventHandlers:
+        - event: LogRebase(indexed uint256,uint256,uint256)
+          handler: handleRebase
+      file: ./src/sKlimaV1.ts
+templates:
+  - name: ToucanCarbonOffsets
+    kind: ethereum/contract
+    network: {{network}}
+    source:
+      abi: ToucanCarbonOffsets
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ToucanCarbonOffsets
+      abis:
+        - name: ToucanCarbonOffsets
+          file: ../lib/abis/ToucanCarbonOffsets.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Retired(address,uint256)
+          handler: handleToucanRetired
+        - event: Retired(address,uint256,uint256)
+          handler: handleToucanRetired_1_4_0
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleCreditTransfer
+      file: ./src/TransferHandler.ts
+  - name: C3ProjectToken
+    kind: ethereum/contract
+    network: {{network}}
+    source:
+      abi: C3ProjectToken
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - C3ProjectToken
+      abis:
+        - name: C3ProjectToken
+          file: ../lib/abis/C3ProjectToken.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleCreditTransfer
+      file: ./src/TransferHandler.ts
+  - name: ICRProjectToken
+    kind: ethereum/contract
+    network: {{network}}
+    source:
+      abi: ICRProjectToken
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ICRProjectToken
+      abis:
+        - name: ICRProjectToken
+          file: ../lib/abis/ICRProjectToken.json
+        - name: ERC1155
+          file: ../lib/abis/ERC1155.json
+      eventHandlers:
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handle1155CreditTransfer
+        - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
+          handler: handle1155CreditTransferBatch
+        - event: RetiredVintage(indexed address,indexed uint256,uint256,uint256,bytes)
+          handler: handleICRRetired
+        - event: ExPostCreated(indexed uint256,uint256,uint256,uint256,string)
+          handler: handleExPostCreated
+        - event: ExAnteMinted(indexed uint256,indexed uint256,indexed address,uint256)
+          handler: handleExAnteMinted
+      file: ./src/TransferHandler.ts
