@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { sdgs } from "../lib/sdgs";
 
 export default defineType({
   name: "projectContent",
@@ -44,6 +45,17 @@ export default defineType({
       type: "text",
     }),
     defineField({
+      name: "extraSdgs",
+      description:
+        "List of additional Sustainable Development Goals for this project (not authoritative from the registry).",
+      group: "info",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: sdgs,
+      },
+    }),
+    defineField({
       name: "coverImage",
       description: "Primary cover image to be shown on project page",
       group: "media",
@@ -54,6 +66,22 @@ export default defineType({
           description:
             "English language caption to show below the image. Can include image attribution if needed.",
           type: "string",
+        },
+      ],
+    }),
+    defineField({
+      name: "satelliteImage",
+      description:
+        "Mapbox satellite image based on registry lat/long to be shown on project page",
+      group: "media",
+      type: "image",
+      fields: [
+        {
+          name: "caption",
+          description:
+            "English language caption to show below the image. Can include image attribution if needed.",
+          type: "string",
+          placeholder: "Satellite image of the project location",
         },
       ],
     }),

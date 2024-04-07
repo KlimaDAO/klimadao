@@ -7,6 +7,8 @@ const categories = [
   { title: "Renewable Energy", value: "Renewable Energy" },
   { title: "Blue Carbon", value: "Blue Carbon" },
   { title: "Agriculture", value: "Agriculture" },
+  { title: "Construction", value: "Construction" },
+  { title: "Biochar", value: "Biochar" },
   { title: "Other", value: "Other" },
 ];
 
@@ -60,6 +62,12 @@ export default defineType({
       placeholder:
         "https://cdm.unfccc.int/methodologies/DB/5SI1IXDIZBL6OAKIB3JFUFAQ86MBEE",
       validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "isRemoval",
+      description: "Is this methodology for carbon removal/sequestration?",
+      type: "boolean",
+      initialValue: false,
     }),
   ],
 });
