@@ -15,14 +15,21 @@
     "deploy-args": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node carbonmark",
     "deploy-version": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node --version-label $npm_config_label carbonmark",
     "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ carbonmark",
-    "deploy-hosted": "graph deploy --product hosted-service $npm_config_path"
+    "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
+    "deploy-tufnel": "yarn codegen && yarn build && graph deploy --product hosted-service psparacino/carbonmark--testing-only"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
     "@graphprotocol/graph-ts": "0.31.0",
+    "@types/node": "20.12.7",
     "dotenv": "16.3.1",
+    "node-fetch": "3.3.2",
     "prettier": "2.7.1",
-    "ts-node": "10.9.2"
+    "ts-node": "10.9.2",
+    "typescript": "5.4.5"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "axios": "1.6.8"
+  }
 }

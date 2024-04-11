@@ -2,17 +2,6 @@ import axios from 'axios'
 import fs from 'fs'
 import { PROJECT_INFO } from '../Projects'
 
-type Project = [
-  address: string,
-  projectID: string,
-  vintage: string,
-  name: string,
-  methodology: string,
-  category: string,
-  country: string,
-  tokenId: string
-]
-
 type ExPost = {
   tokenId: string
   vintage: string
@@ -62,6 +51,7 @@ async function updateProjectsTokenIds() {
   const { exPosts, exAntes } = await fetchTokenIds()
 
   const updatedProjects = PROJECT_INFO.map((project) => {
+
     const [projectAddress, , projectVintage, ...rest] = project
     const lowerCaseAddress = projectAddress.toLowerCase()
 
@@ -71,7 +61,7 @@ async function updateProjectsTokenIds() {
     )
 
     if (foundExPost) {
-      return [...project.slice(0, -1), foundExPost.tokenId]
+      return [...project.slice(0, -2), foundExPost.tokenId, false]
     } else {
       const foundExAnte = exAntes.find((exAnte: ExAnte) => {
         const anteVintage = exAnte.serialization.split('-').pop()
@@ -79,15 +69,20 @@ async function updateProjectsTokenIds() {
       })
 
       if (foundExAnte) {
-        return [...project.slice(0, -1), foundExAnte.tokenId]
+        console.log(foundExAnte.tokenId, projectAddress, projectVintage)
+        return [...project.slice(0, -2), foundExAnte.tokenId, true]
       }
     }
 
     // console.log(`no match: ${projectAddress} ${projectVintage}`);
-    return [...project.slice(0, -1), '0']
+    return [...project.slice(0, -2), '0', false]
   })
 
-  const newFileContents = `export const PROJECT_INFO = ${JSON.stringify(updatedProjects, null, 2)};`
+  const newFileContents = `import type { Project } from "./scripts/updateICRProjects" \nexport const PROJECT_INFO: Project[] = ${JSON.stringify(
+    updatedProjects,
+    null,
+    2
+  )};`
 
   fs.writeFileSync('../Projects.ts', newFileContents, 'utf8')
 }

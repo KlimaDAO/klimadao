@@ -32,6 +32,7 @@ export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
     project.category = PROJECT_INFO[projectIndex][5]
     project.country = PROJECT_INFO[projectIndex][6]
     project.tokenId = tokenId
+    project.isExAnte = PROJECT_INFO[projectIndex][8]
     project.save()
 
     createCountry(project.country)
