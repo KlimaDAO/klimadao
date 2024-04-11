@@ -17,8 +17,8 @@
     "deploy-hosted": "graph deploy --product hosted-service $npm_config_path"
   },
   "devDependencies": {
-    "@graphprotocol/graph-cli": "0.56.0",
-    "@graphprotocol/graph-ts": "0.31.0",
+    "@graphprotocol/graph-cli": "0.69.1",
+    "@graphprotocol/graph-ts": "0.34.0",
     "prettier": "2.7.1"
   },
   "private": true

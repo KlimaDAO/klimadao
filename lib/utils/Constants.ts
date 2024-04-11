@@ -110,8 +110,6 @@ export const NFT_CO2COMPOUND_INIT_TIMESTAMP = BigInt.fromString('1638486000') //
 
 export const ZERO_ADDRESS = Address.fromString('0x0000000000000000000000000000000000000000')
 
-export const ICR_MIGRATION_BLOCK = 55190341;
-
 // Klima Infinity Addresses
 export const KLIMA_CARBON_RETIREMENTS_CONTRACT = Address.fromString('0xac298cd34559b9acfaedea8344a977eceff1c0fd')
 export const KLIMA_INFINITY_DIAMOND = Address.fromString('0x8cE54d9625371fb2a068986d32C85De8E6e995f8')
@@ -119,6 +117,18 @@ export const KLIMA_INFINITY_DIAMOND = Address.fromString('0x8cE54d9625371fb2a068
 // Other ecosystem addresses
 export const TOUCAN_REGEN_BRIDGE = Address.fromString('0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC')
 export const TOUCAN_CROSS_CHAIN_MESSENGER = Address.fromString('0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf')
+export const ICR_MIGRATION_BLOCK = BigInt.fromI32(55149940)
+export const ICR_MIGRATION_HASHES = [
+  '0x96b7391245efd9522b0b15ea31bd435ce835bc475212445bddabff66f19f78e7',
+  '0x1477310f45932c35a305b0627ee5c11987554c5d1c994856a8fc12968b6bf6c4',
+  '0x5830c576555b4c199d4a5a8f49371a9164b28bb989f1533a33cef88e0533227a',
+  '0xb846f9dccc9d7e72eb6f28b5cd795bcd1eb5b623477e1381e38b767884d2ea80',
+  '0x57ac96e048a97831f7e069861636cf797a8c8b9cde086a6ec1807aa73ae10f9c',
+  '0x025fbd3fbd372bb91c3080dfabd5f022d8abcbeabea5b44d0fb52175fb8326e8',
+  '0x9f342e9d1580de379ef68b09e6b15fbb8f8bf554e3885ba6e68c94e1f9d6ae55',
+  '0xb1555aa1feca65e23e43ecc23f35b87e702cc2eb21c59d0c8c2c6610d6c3c5ec',
+  '0x3e01b071ce912359b6605c87f4e80d297f2dc7dba53562aff6e11b955e024cf2',
+]
 
 // Global constants
 export const KGS_PER_TONNE = BigDecimal.fromString('1000')
