@@ -1,5 +1,0 @@
-src/.generated
-dist/
-coverage/
-.nyc_output/
-node_modules/

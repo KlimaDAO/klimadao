@@ -4,9 +4,6 @@
   "workspaces": [
     "./app",
     "./carbon-projects",
-    "./carbonmark",
-    "./carbonmark-api",
-    "./cms",
     "./carbon",
     "./cross-chain",
     "./lib"
@@ -33,8 +30,6 @@
     "format-all": "prettier --write ./",
     "build-lib": "npm run build -w=lib",
     "build-app": "npm run build-lib && npm run build -w=app",
-    "build-carbonmark": "npm run build-lib && npm run build -w=carbonmark",
-    "build-carbonmark-api": "npm run build-lib && npm run build -w=carbonmark-api",
     "build-carbon": "npm run build-lib && npm run build -w=carbon",
     "build-cross-chain": "npm run build-lib && npm run build -w=cross-chain",
     "dev-lib": "npm run dev -w=lib",
@@ -43,9 +38,7 @@
     "dev-cross-chain": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=cross-chain\"",
     "dev-carbonmark": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark\"",
     "remove-dist": "cd carbonmark-api && rm -rf dist && npm run build",
-    "dev-carbonmark-api": "npm run remove-dist && concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark-api\"",
     "dev-carbon": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbon\"",
-    "deploy-cms": "npm run deploy -w=cms",
     "extract-strings": "npm run -w app lingui:extract && npm run -w carbon lingui:extract",
     "compile-strings": "npm run extract-strings && npm run -w app lingui:compile && npm run -w carbon lingui:compile",
     "extract-strings:dev": "npm run -w app lingui:extract:dev && npm run -w carbon lingui:extract:dev",
