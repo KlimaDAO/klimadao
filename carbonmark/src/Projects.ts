@@ -10204,7 +10204,7 @@ export const PROJECT_INFO = [
   ],
   [
     '0xae63fbd056512fc4b1d15b58a98f9aaea44b18a9',
-    'ICR-354',
+    'ICR-57',
     '2071',
     'Skógálfar, Álfabrekka',
     'FCC',
