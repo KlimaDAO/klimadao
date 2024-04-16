@@ -54,6 +54,12 @@ async function fetchTokenIds() {
 //   )
 // }
 
+function convertToProjectInfo(data: any[]): ProjectInfo[] {
+  return data.map(
+    (item) => new ProjectInfo(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8])
+  )
+}
+
 async function updateProjectsTokenIds() {
   const { exPosts, exAntes } = await fetchTokenIds()
   // const projectInfoArray = convertToProjectInfo(PROJECT_INFO);
