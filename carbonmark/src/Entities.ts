@@ -2,7 +2,8 @@ import { Activity, Category, Country, Listing, Project, Purchase, User } from '.
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { Address, BigInt, Bytes, log } from '@graphprotocol/graph-ts'
-import { PROJECT_INFO } from './Projects'
+// import { PROJECT_INFO } from './Projects'
+import { PROJECT_INFO_TEST } from './ProjectsTest'
 
 export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
   // Find the project + vintage ID from token address
@@ -10,10 +11,10 @@ export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
   let id = ''
   let registry = ''
   let projectIndex = 0
-  for (let i = 0; i < PROJECT_INFO.length; i++) {
-    if (tokenAddress.toLowerCase() == PROJECT_INFO[i][0] && tokenId.toString() == PROJECT_INFO[i][7]) {
-      id = PROJECT_INFO[i][1] + '-' + PROJECT_INFO[i][2]
-      registry = PROJECT_INFO[i][1].split('-')[0]
+  for (let i = 0; i < PROJECT_INFO_TEST.length; i++) {
+    if (tokenAddress.toLowerCase() == PROJECT_INFO_TEST[i].address && tokenId.toString() == PROJECT_INFO_TEST[i].tokenId) {
+      id = PROJECT_INFO_TEST[i].projectId + '-' + PROJECT_INFO_TEST[i].vintage
+      registry = PROJECT_INFO_TEST[i].projectId.split('-')[0]
       projectIndex = i
       break
     }
@@ -23,16 +24,16 @@ export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
 
   if (project == null) {
     project = new Project(id)
-    project.key = PROJECT_INFO[projectIndex][1]
-    project.name = PROJECT_INFO[projectIndex][3]
-    project.methodology = PROJECT_INFO[projectIndex][4]
-    project.vintage = BigInt.fromString(PROJECT_INFO[projectIndex][2])
+    project.key = PROJECT_INFO_TEST[projectIndex].projectId
+    project.name = PROJECT_INFO_TEST[projectIndex].name
+    project.methodology = PROJECT_INFO_TEST[projectIndex].methodology
+    project.vintage = BigInt.fromString(PROJECT_INFO_TEST[projectIndex].vintage)
     project.projectAddress = token
     project.registry = registry
-    project.category = PROJECT_INFO[projectIndex][5]
-    project.country = PROJECT_INFO[projectIndex][6]
+    project.category = PROJECT_INFO_TEST[projectIndex].category
+    project.country = PROJECT_INFO_TEST[projectIndex].country
     project.tokenId = tokenId
-    project.isExAnte = PROJECT_INFO[projectIndex][8]
+    project.isExAnte = PROJECT_INFO_TEST[projectIndex].isExAnte
     project.save()
 
     createCountry(project.country)

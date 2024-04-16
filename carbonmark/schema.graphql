@@ -34,7 +34,7 @@ type Project @entity {
   category: Category!
   country: Country!
   updatedAt: BigInt
-  isExAnte: String!
+  isExAnte: Boolean!
 }
 
 type Country @entity {
@@ -98,3 +98,4 @@ type Purchase @entity {
   user: User!
   listing: Listing!
 }
+

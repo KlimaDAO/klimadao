@@ -1,6 +1,7 @@
 import axios from 'axios'
 import fs from 'fs'
 import { PROJECT_INFO } from '../Projects'
+import { ProjectInfo } from './types'
 
 type ExPost = {
   tokenId: string
@@ -47,44 +48,72 @@ async function fetchTokenIds() {
   }
 }
 
+function convertToProjectInfo(data: any[]): ProjectInfo[] {
+  return data.map(
+    (item) => new ProjectInfo(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8])
+  )
+}
+
 async function updateProjectsTokenIds() {
-  const { exPosts, exAntes } = await fetchTokenIds()
+  const { exPosts, exAntes } = await fetchTokenIds();
+  const projectInfoArray = convertToProjectInfo(PROJECT_INFO);
 
-  const updatedProjects = PROJECT_INFO.map((project) => {
+  const updatedProjects = projectInfoArray.map((project) => {
+      const lowerCaseAddress = project.address.toLowerCase();
+      const foundExPost = exPosts.find(exPost =>
+          exPost.project.projectAddress.toLowerCase() === lowerCaseAddress && exPost.vintage === project.vintage
+      );
 
-    const [projectAddress, , projectVintage, ...rest] = project
-    const lowerCaseAddress = projectAddress.toLowerCase()
+      if (foundExPost) {
+          return new ProjectInfo(
+              project.address,
+              project.projectId,
+              project.vintage,
+              project.name,
+              project.methodology,
+              project.category,
+              project.country,
+              foundExPost.tokenId,
+              false
+          );
+      }
 
-    const foundExPost = exPosts.find(
-      (exPost: ExPost) =>
-        exPost.project.projectAddress.toLowerCase() === lowerCaseAddress && exPost.vintage === projectVintage
-    )
-
-    if (foundExPost) {
-      return [...project.slice(0, -2), foundExPost.tokenId, false]
-    } else {
-      const foundExAnte = exAntes.find((exAnte: ExAnte) => {
-        const anteVintage = exAnte.serialization.split('-').pop()
-        return exAnte.project.projectAddress.toLowerCase() === lowerCaseAddress && anteVintage === projectVintage
-      })
+      const foundExAnte = exAntes.find(exAnte => {
+          const anteVintage = exAnte.serialization.split('-').pop();
+          return exAnte.project.projectAddress.toLowerCase() === lowerCaseAddress && anteVintage === project.vintage;
+      });
 
       if (foundExAnte) {
-        console.log(foundExAnte.tokenId, projectAddress, projectVintage)
-        return [...project.slice(0, -2), foundExAnte.tokenId, true]
+          return new ProjectInfo(
+              project.address,
+              project.projectId,
+              project.vintage,
+              project.name,
+              project.methodology,
+              project.category,
+              project.country,
+              foundExAnte.tokenId,
+              true
+          );
       }
-    }
 
-    // console.log(`no match: ${projectAddress} ${projectVintage}`);
-    return [...project.slice(0, -2), '0', false]
-  })
+      return project; 
+  });
 
-  const newFileContents = `import type { Project } from "./scripts/updateICRProjects" \nexport const PROJECT_INFO: Project[] = ${JSON.stringify(
-    updatedProjects,
-    null,
-    2
-  )};`
 
-  fs.writeFileSync('../Projects.ts', newFileContents, 'utf8')
+  const importStatement = 'import { ProjectInfo } from "./scripts/types";\n';
+  const arrayDeclaration = 'export const PROJECT_INFO_TEST: ProjectInfo[] = [\n';
+  const projectInstances = updatedProjects.map(project =>
+      `    new ProjectInfo('${project.address}', '${project.projectId}', '${project.vintage}', '${project.name}', '${project.methodology}', '${project.category}', '${project.country}', '${project.tokenId}', ${project.isExAnte})`
+  ).join(',\n');
+  const closingBracket = '\n];';
+
+  const finalContent = importStatement + arrayDeclaration + projectInstances + closingBracket;
+
+  fs.writeFile('../ProjectsTEST.ts', finalContent, 'utf8', err => {
+      if (err) return console.error('Failed to write file:', err);
+      console.log('Project info updated and saved successfully!');
+  });
 }
 
 updateProjectsTokenIds()
