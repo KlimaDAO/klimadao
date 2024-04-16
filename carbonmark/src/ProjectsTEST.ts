@@ -10264,4 +10264,15 @@ export const PROJECT_INFO_TEST: ProjectInfo[] = [
     '50',
     false
   ),
+  new ProjectInfo(
+    '0xae63fbd056512fc4b1d15b58a98f9aaea44b18a9',
+    'ICR-57',
+    '2071',
+    'Skógálfar, Álfabrekka',
+    'FCC',
+    'Forestry',
+    'Iceland',
+    '52',
+    true
+  ),
 ]
