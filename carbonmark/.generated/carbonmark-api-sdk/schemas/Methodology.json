@@ -1,9 +1,0 @@
-{
-  "type": "object",
-  "properties": {
-    "id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-    "category": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-    "name": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-  },
-  "x-readme-ref-name": "Methodology"
-}
