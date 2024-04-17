@@ -1,5 +1,5 @@
 import { ProjectInfo } from './scripts/types'
-export const PROJECT_INFO_TEST: ProjectInfo[] = [
+export const PROJECT_INFO_LIST: ProjectInfo[] = [
   new ProjectInfo(
     '0x004090eef602e024b2a6cb7f0c1edda992382994',
     'VCS-725',
