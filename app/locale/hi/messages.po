@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-04-17 10:18+0000\n"
+"POT-Creation-Date: 2024-04-17 10:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -256,7 +256,7 @@ msgstr "भुगतान प्रति KLIMA"
 
 #: components/views/Bond/index.tsx:664
 msgid "bond.payout_per_klima.description_inverse"
-msgstr "यदि आप 1 KLIMA को बॉन्ड करते हैं, तो आपको यह राशि USDC (यूएसडीसी) में प्राप्त होगी।"
+msgstr ""
 
 #: components/views/Bond/index.tsx:468
 #: components/views/Bond/index.tsx:580
@@ -345,7 +345,7 @@ msgstr "कृपया लॉग इन करें या वॉलेट क
 
 #: components/views/Bond/index.tsx:700
 msgid "capacity.description_inverse"
-msgstr "यह बॉन्ड के लिए उपलब्ध अनुबंध में USDC (यूएसडीसी) की राशि है।"
+msgstr ""
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -365,8 +365,8 @@ msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "️ ⚠️ URL (यूआरएल) सत्यापित करें और इस पृष्ठ को बुकमार्क कर लें!"
 
 #: components/views/ChooseBond/index.tsx:99
-msgid "choose_bond.bct.toucan_base_carbon_tonne"
-msgstr "Toucan (टूकन) Base Carbon Tonne (बेस कार्बन टन)"
+msgid "choose_bond.bct.base_carbon_tonne"
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:209
 msgid "choose_bond.bond_carbon"
@@ -383,7 +383,7 @@ msgstr "एक बॉन्ड चुनें"
 
 #: components/views/ChooseBond/index.tsx:115
 msgid "choose_bond.inverse_usdc"
-msgstr "KLIMA प्रदान करें, USDC (यूएसडीसी) प्राप्त करें"
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:107
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
@@ -391,7 +391,7 @@ msgstr "KLIMA/BCT (बीसीटी) Sushiswap (सुशीस्वैप) �
 
 #: components/views/ChooseBond/index.tsx:103
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
-msgstr "KLIMA/USDC (यूएसडीसी) Sushiswap (सुशीस्वैप) लिक्विडिटी"
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:95
 msgid "choose_bond.mco2.moss_carbon_credit_token"
