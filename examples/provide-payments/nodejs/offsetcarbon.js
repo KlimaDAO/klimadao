@@ -40,8 +40,8 @@ const ECO_WALLET_ADDRESS = ECO_WALLET[0].address;
 // RETIRE CARBON     //
 //*******************//
 
-var SOURCE_TOKEN = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; //Polygon USDC
-var POOL_TOKEN = "0x2f800db0fdb5223b3c3f354886d907a671414a7f"; //Toucan Protocol BCT - Polygon
+var SOURCE_TOKEN = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; //Polygon USDC.e
+var POOL_TOKEN = "0x2f800db0fdb5223b3c3f354886d907a671414a7f"; // BCT - Polygon
 
 // specific retirements
 //var PROJECT_TOKEN = "0x04943c19896c776c78770429ec02c5384ee78292";
