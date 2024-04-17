@@ -102,7 +102,7 @@ async function updateProjectsTokenIds() {
 
 
   const importStatement = 'import { ProjectInfo } from "./scripts/types";\n';
-  const arrayDeclaration = 'export const PROJECT_INFO_TEST: ProjectInfo[] = [\n';
+  const arrayDeclaration = 'export const PROJECT_INFO_LIST: ProjectInfo[] = [\n';
   const projectInstances = updatedProjects.map(project =>
       `    new ProjectInfo('${project.address}', '${project.projectId}', '${project.vintage}', '${project.name}', '${project.methodology}', '${project.category}', '${project.country}', '${project.tokenId}', ${project.isExAnte})`
   ).join(',\n');
@@ -110,7 +110,7 @@ async function updateProjectsTokenIds() {
 
   const finalContent = importStatement + arrayDeclaration + projectInstances + closingBracket;
 
-  fs.writeFile('../ProjectsTEST.ts', finalContent, 'utf8', err => {
+  fs.writeFile('../ProjectsList.ts', finalContent, 'utf8', err => {
       if (err) return console.error('Failed to write file:', err);
       console.log('Project info updated and saved successfully!');
   });
