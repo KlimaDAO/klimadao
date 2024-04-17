@@ -3,7 +3,7 @@ import { ZERO_BI } from '../../lib/utils/Decimals'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { Address, BigInt, Bytes, log } from '@graphprotocol/graph-ts'
 // import { PROJECT_INFO } from './Projects'
-import { PROJECT_INFO_TEST } from './ProjectsTest'
+import { PROJECT_INFO_LIST } from './ProjectsList'
 
 export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
   // Find the project + vintage ID from token address
