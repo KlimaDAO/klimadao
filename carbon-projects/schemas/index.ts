@@ -1,4 +1,5 @@
 import country from "./country";
+import indexContent from "./indexContent";
 import methodology from "./methodology";
 import externalFile from "./objects/externalFile";
 import project from "./project";
@@ -9,4 +10,5 @@ export const schemaTypes = [
   projectContent,
   externalFile,
   country,
+  indexContent,
 ];

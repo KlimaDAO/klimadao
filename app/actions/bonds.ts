@@ -128,7 +128,7 @@ const getNBOMarketPrice = async (params: {
   return reserves[1] / (reserves[0] * Math.pow(10, 9));
 };
 
-// for Klima/USDC LP
+// for Klima/USDC.e LP
 const getKlimaUSDCMarketPrice = async (params: {
   provider: providers.BaseProvider;
 }) => {
@@ -137,8 +137,8 @@ const getKlimaUSDCMarketPrice = async (params: {
     provider: params.provider,
   });
   const reserves = await pairContract.getReserves();
-  // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
-  // divide usdc/klima to get klima usdc price
+  // [USDC.e, KLIMA] - USDC.e has 6 decimals KLIMA has 9 decimals
+  // divide usdc.e/klima to get klima usdc.e price
   return (reserves[0] * Math.pow(10, 12)) / (reserves[1] * Math.pow(10, 9));
 };
 
@@ -150,12 +150,12 @@ const getInverseKlimaUSDCPrice = async (params: {
     provider: params.provider,
   });
   const reserves = await pairContract.getReserves();
-  // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
+  // [USDC.e, KLIMA] - USDC.e has 6 decimals KLIMA has 9 decimals
   // returns klimas per dollar
   return (reserves[1] * Math.pow(10, 9)) / (reserves[0] * Math.pow(10, 12));
 };
 
-// [usdc, klima] 200/2 = 100
+// [usdc.e, klima] 200/2 = 100
 const getMCO2MarketPrice = async (params: {
   provider: providers.BaseProvider;
 }) => {
@@ -169,7 +169,7 @@ const getMCO2MarketPrice = async (params: {
   return MCO2KLIMAPrice;
 };
 
-// v2 bonds have multiple markets within them, we know that inverse USDC bonds is this one:
+// v2 bonds have multiple markets within them, we know that inverse USDC.e bonds is this one:
 // in a later version we could clean this up by querying for "live markets"
 const INVERSE_USDC_MARKET_ID = 13;
 
@@ -262,7 +262,7 @@ export const calcBondDetails = (params: {
 
     const decimalAdjustedBondPrice =
       params.bond === "klima_usdc_lp" || getIsInverse(params.bond)
-        ? bondPrice * Math.pow(10, 12) // need to add decimals because this bond returns USDC (6 dec).
+        ? bondPrice * Math.pow(10, 12) // need to add decimals because this bond returns USDC.e (6 dec).
         : bondPrice;
 
     let bondDiscount: number;
@@ -394,7 +394,7 @@ export const bondTransaction = async (params: {
         provider: signer,
       });
       const bondPrice = await contract.marketPrice(INVERSE_USDC_MARKET_ID);
-      // minimum amount to be paid out in usdc. need bondPrice in usdc
+      // minimum amount to be paid out in usdc.e. need bondPrice in usdc.e
       const minAmountOut =
         (1 / Number(formatUnits(bondPrice, 6))) * Number(params.value) -
         (1 / Number(formatUnits(bondPrice, 6))) *

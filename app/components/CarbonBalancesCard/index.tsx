@@ -61,7 +61,7 @@ interface Asset {
 }
 
 type SupportedToken =
-  | "usdc"
+  | "usdc" // USDC.e
   | "klima"
   | "bct"
   | "nct"
@@ -72,7 +72,7 @@ type SupportedToken =
   | "wsklima";
 
 const allTokens: SupportedToken[] = [
-  "usdc",
+  "usdc", // USDC.e
   "klima",
   "sklima",
   "wsklima",

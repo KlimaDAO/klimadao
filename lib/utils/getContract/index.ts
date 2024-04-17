@@ -37,7 +37,7 @@ const contractMap = {
   pklima: IERC20.abi,
   wsklima: WSKLIMA.abi,
 
-  // USDC
+  // USDC.e
   usdc: IERC20.abi,
 
   // Main Contracts

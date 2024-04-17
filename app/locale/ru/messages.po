@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-04-10 15:50+0000\n"
+"POT-Creation-Date: 2024-04-17 10:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -256,7 +256,7 @@ msgstr "Выплата за KLIMA"
 
 #: components/views/Bond/index.tsx:664
 msgid "bond.payout_per_klima.description_inverse"
-msgstr "Если вы связываете 1 KLIMA, вы получите эту сумму в USDC."
+msgstr ""
 
 #: components/views/Bond/index.tsx:468
 #: components/views/Bond/index.tsx:580
@@ -347,7 +347,7 @@ msgstr "Пожалуйста, войдите или подключите кош�
 
 #: components/views/Bond/index.tsx:700
 msgid "capacity.description_inverse"
-msgstr "Это сумма USDC в контракте, доступная для бондирования."
+msgstr ""
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -367,8 +367,8 @@ msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ Проверьте URL и добавьте эту страницу в закладки!"
 
 #: components/views/ChooseBond/index.tsx:99
-msgid "choose_bond.bct.toucan_base_carbon_tonne"
-msgstr "Toucan Базовая тонна углерода"
+msgid "choose_bond.bct.base_carbon_tonne"
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:209
 msgid "choose_bond.bond_carbon"
@@ -385,7 +385,7 @@ msgstr "Выберите бонд"
 
 #: components/views/ChooseBond/index.tsx:115
 msgid "choose_bond.inverse_usdc"
-msgstr "Предоставьте KLIMA, получите USDC"
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:107
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
@@ -393,7 +393,7 @@ msgstr "KLIMA/BCT Sushiswap ликвидность"
 
 #: components/views/ChooseBond/index.tsx:103
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
-msgstr "KLIMA/BCT Sushiswap ликвидность"
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:95
 msgid "choose_bond.mco2.moss_carbon_credit_token"

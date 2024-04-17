@@ -40,8 +40,8 @@ const ECO_WALLET_ADDRESS = ECO_WALLET[0].address;
 // RETIRE CARBON     //
 //*******************//
 
-var SOURCE_TOKEN = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; //Polygon USDC
-var POOL_TOKEN = "0x2f800db0fdb5223b3c3f354886d907a671414a7f"; //Toucan Protocol BCT - Polygon
+var SOURCE_TOKEN = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; //Polygon USDC.e
+var POOL_TOKEN = "0x2f800db0fdb5223b3c3f354886d907a671414a7f"; // BCT - Polygon
 
 // specific retirements - see matching projects https://data.klimadao.finance/token-details?tab=moss
 //var PROJECT_TOKEN = "0x0327d60e458421cc25926195cf705922de42593c";
@@ -59,7 +59,7 @@ RETIREMENT_REQUEST_PARAMS.beneficiary_address = ECO_WALLET_ADDRESS;
 RETIREMENT_REQUEST_PARAMS.beneficiary_name = "Provide ECO Test User";
 RETIREMENT_REQUEST_PARAMS.retirement_message =
   "Provide ECO API - Node.js batch script example";
-RETIREMENT_REQUEST_PARAMS.retire_by = "source"; //dictates to the API to retire by amount in source token (e.g. USDC)
+RETIREMENT_REQUEST_PARAMS.retire_by = "source"; //dictates to the API to retire by amount in source token (e.g. USDC.e)
 
 var bearertoken = "Bearer " + ACCESS_TOKEN.accessToken;
 const RETIREMENT_REQUEST = await fetch(
