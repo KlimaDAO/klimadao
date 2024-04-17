@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-04-10 15:50+0000\n"
+"POT-Creation-Date: 2024-04-17 10:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -365,7 +365,7 @@ msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr ""
 
 #: components/views/ChooseBond/index.tsx:99
-msgid "choose_bond.bct.toucan_base_carbon_tonne"
+msgid "choose_bond.bct.base_carbon_tonne"
 msgstr ""
 
 #: components/views/ChooseBond/index.tsx:209

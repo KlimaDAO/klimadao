@@ -38,7 +38,7 @@ const ECO_WALLET_ADDRESS = ECO_WALLET[0].address;
 // RETIRE CARBON     //
 //*******************//
 
-var SOURCE_TOKEN = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; //Polygon USDC
+var SOURCE_TOKEN = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; //Polygon USDC.e
 var POOL_TOKEN = "0xd838290e877e0188a4a44700463419ed96c16107"; //Toucan Protocol NCT - Polygon
 
 // specific retirements
@@ -54,7 +54,7 @@ RETIREMENT_REQUEST_PARAMS.network_id = "2fd61fde-5031-41f1-86b8-8a72e2945ead"; /
 RETIREMENT_REQUEST_PARAMS.description =
   "Provide ECO - retirement via NodeJs script";
 RETIREMENT_REQUEST_PARAMS.value = 0.01234; //Amount of carbon you wish to retire
-RETIREMENT_REQUEST_PARAMS.max_source_bid = 0.15; //Defines a maximum amount in USDC to spend on this retirement.
+RETIREMENT_REQUEST_PARAMS.max_source_bid = 0.15; //Defines a maximum amount in USDC.e to spend on this retirement.
 RETIREMENT_REQUEST_PARAMS.source_token_contract_address = SOURCE_TOKEN;
 RETIREMENT_REQUEST_PARAMS.pool_token_contract_address = POOL_TOKEN;
 RETIREMENT_REQUEST_PARAMS.project_token_contract_address = PROJECT_TOKEN;

@@ -262,7 +262,7 @@ msgstr "Payout per KLIMA"
 
 #: components/views/Bond/index.tsx:664
 msgid "bond.payout_per_klima.description_inverse"
-msgstr "If you bond 1 KLIMA, you will receive this amount in USDC."
+msgstr "If you bond 1 KLIMA, you will receive this amount in USDC.e."
 
 #: components/views/Bond/index.tsx:468
 #: components/views/Bond/index.tsx:580
@@ -351,7 +351,7 @@ msgstr "Please Log In Or Connect A Wallet"
 
 #: components/views/Bond/index.tsx:700
 msgid "capacity.description_inverse"
-msgstr "This is the amount of USDC in the contract available for bonds."
+msgstr "This is the amount of USDC.e in the contract available for bonds."
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -371,8 +371,8 @@ msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ Verify the URL and bookmark this page!"
 
 #: components/views/ChooseBond/index.tsx:99
-msgid "choose_bond.bct.toucan_base_carbon_tonne"
-msgstr "Toucan Base Carbon Tonne"
+msgid "choose_bond.bct.base_carbon_tonne"
+msgstr "Base Carbon Tonne"
 
 #: components/views/ChooseBond/index.tsx:209
 msgid "choose_bond.bond_carbon"
@@ -389,7 +389,7 @@ msgstr "Choose a bond"
 
 #: components/views/ChooseBond/index.tsx:115
 msgid "choose_bond.inverse_usdc"
-msgstr "Provide KLIMA, receive USDC"
+msgstr "Provide KLIMA, receive USDC.e"
 
 #: components/views/ChooseBond/index.tsx:107
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
@@ -397,7 +397,7 @@ msgstr "KLIMA/BCT Sushiswap Liquidity"
 
 #: components/views/ChooseBond/index.tsx:103
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
-msgstr "KLIMA/USDC Sushiswap Liquidity"
+msgstr "KLIMA/USDC.e Sushiswap Liquidity"
 
 #: components/views/ChooseBond/index.tsx:95
 msgid "choose_bond.mco2.moss_carbon_credit_token"
