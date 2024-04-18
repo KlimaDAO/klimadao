@@ -17,6 +17,7 @@
 
 html,
 body {
+  font-size: 10px;
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -24,6 +25,7 @@ body {
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  font-family: "Inter", sans-serif;
 }
 
 a {

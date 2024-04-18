@@ -1,6 +1,6 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { ButtonPrimary } from "../Buttons/ButtonPrimary";
 import * as styles from "./styles";
 
 /* example from https://www.rainbowkit.com/docs/custom-connect-button */
@@ -35,18 +35,23 @@ export const Connect = () => (
                 <ButtonPrimary
                   label="Login / Connect"
                   onClick={openConnectModal}
+                  className={styles.connectButton}
                 />
               );
             }
             if (chain.unsupported) {
               return (
-                <ButtonPrimary label="Wrong network" onClick={openChainModal} />
+                <ButtonPrimary
+                  label="Wrong network"
+                  onClick={openChainModal}
+                  className={styles.connectButton}
+                />
               );
             }
             return (
               <div className={styles.buttons}>
                 <ButtonPrimary
-                  variant="lightGray"
+                  className={styles.networkSwitchButton}
                   onClick={openChainModal}
                   label={chain.name}
                   icon={
@@ -66,6 +71,7 @@ export const Connect = () => (
                 <ButtonPrimary
                   label={account.displayName}
                   onClick={openAccountModal}
+                  className={styles.connectButton}
                 />
               </div>
             );

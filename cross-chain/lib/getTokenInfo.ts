@@ -1,4 +1,4 @@
-import BCT from "../../public/icons/BCT.png";
+import BCT from "../public/icons/BCT.png";
 
 export type RedeemablePoolToken = "bct" | "nct" | "ubo" | "nbo";
 

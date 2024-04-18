@@ -1,9 +1,10 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
 import Image from "next/image";
 import { useState } from "react";
-import { Connect } from "src/components/Connect";
-import { DropdownWithModal } from "./../../../components/DropdownWithModal";
+import { ButtonPrimary } from "../../Buttons/ButtonPrimary";
+import { Connect } from "../../Connect";
+import { DropdownWithModal } from "../../DropdownWithModal";
+import { Text } from "../../Text";
 import { RedeemablePoolToken, tokenInfoMap } from "./../../../lib/getTokenInfo";
 import * as styles from "./styles";
 
@@ -35,11 +36,19 @@ export const Home = () => {
                 <label>
                   How many tonnes of carbon would you like to retire?
                 </label>
-                <input value={1000} type="number" min="0" onChange={() => {}} />
+                <input
+                  value={1000}
+                  type="number"
+                  min="0"
+                  onChange={() => console.log("onChange")}
+                />
               </div>
               <div className={styles.formGroup}>
                 <label>Who will this retirement be credited to?</label>
-                <input placeholder={"The planet"} onChange={() => {}} />
+                <input
+                  placeholder={"The planet"}
+                  onChange={() => console.log("onChange")}
+                />
               </div>
               <div className={styles.formGroup}>
                 <label>Retirement message</label>
@@ -64,7 +73,7 @@ export const Home = () => {
               </div>
               <div className={styles.disclaimer}>
                 <GppMaybeOutlinedIcon />
-                <Text>
+                <Text t="caption">
                   Be careful not to expose any sensitive personal information.
                   Your message can not be edited and will permanently exist on a
                   public blockchain.

@@ -1,9 +1,9 @@
 import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Image, { StaticImageData } from "next/image";
 import { FC, ReactNode } from "react";
 import { Modal } from "../Modal";
+import { Text } from "../Text";
 import * as styles from "./styles";
 
 interface Item {
@@ -30,9 +30,7 @@ export const DropdownWithModal: FC<Props> = (props) => {
     props.items.find(({ key }) => props.currentItem === key) ?? props.items[0];
   return (
     <div className={styles.container}>
-      <Text t="caption" color="lighter" className="label">
-        <>{props.label}</>
-      </Text>
+      <label>{props.label}</label>
       <button
         className={cx(styles.listItem, {
           [styles.warn]: !!props.warn,
@@ -46,14 +44,10 @@ export const DropdownWithModal: FC<Props> = (props) => {
             width={42}
             height={42}
           />
-          <Text t="body1">{currentItem.label}</Text>
+          <Text>{currentItem.label}</Text>
         </div>
         <div className="end_content">
-          {currentItem.description && (
-            <Text t="caption" color="lightest">
-              <>{currentItem.description}</>
-            </Text>
-          )}
+          {currentItem.description && <Text>{currentItem.description}</Text>}
           <KeyboardArrowDown />
         </div>
       </button>
@@ -95,13 +89,9 @@ const DropdownModal = (props: DropdownModalProps) => {
         >
           <div className="start_content">
             <Image alt={item.label} src={item.icon} width={48} height={48} />
-            <Text t="body2">{item.label}</Text>
+            <Text>{item.label}</Text>
           </div>
-          {item.description && (
-            <Text t="caption" color="lightest">
-              <>{item.description}</>
-            </Text>
-          )}
+          {item.description && <Text>{item.description}</Text>}
         </button>
       ))}
     </Modal>
