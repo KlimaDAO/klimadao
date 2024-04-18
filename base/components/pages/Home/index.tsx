@@ -1,16 +1,26 @@
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
+import { formatTonnes } from "lib/formatTonnes";
 import Image from "next/image";
 import { useState } from "react";
+import { RedeemablePoolToken, tokenInfoMap } from "../../../lib/getTokenInfo";
 import { ButtonPrimary } from "../../Buttons/ButtonPrimary";
 import { Connect } from "../../Connect";
 import { DropdownWithModal } from "../../DropdownWithModal";
 import { Text } from "../../Text";
-import { RedeemablePoolToken, tokenInfoMap } from "./../../../lib/getTokenInfo";
 import * as styles from "./styles";
 
 export const Home = () => {
-  const [isPoolTokenModalOpen, setPoolTokenModalOpen] = useState(false);
+  const [quantity, setQuantity] = useState(0);
+  const [retirementMessage, setRetirementMessage] = useState(
+    "Doing my part to support climate action"
+  );
   const [pool, setPool] = useState<RedeemablePoolToken>("bct"); // only support bct initially...
+  const [isPoolTokenModalOpen, setPoolTokenModalOpen] = useState(false);
+
+  const handleQuantityChange = (value: number) => {
+    const valueToWholeNumber = Math.ceil(Number(value)).toString();
+    setQuantity(valueToWholeNumber);
+  };
 
   return (
     <div className={styles.container}>
@@ -37,10 +47,11 @@ export const Home = () => {
                   How many tonnes of carbon would you like to retire?
                 </label>
                 <input
-                  value={1000}
-                  type="number"
                   min="0"
-                  onChange={() => console.log("onChange")}
+                  step="1"
+                  value={quantity}
+                  type="number"
+                  onChange={(e) => handleQuantityChange(e.target.value)}
                 />
               </div>
               <div className={styles.formGroup}>
@@ -53,9 +64,9 @@ export const Home = () => {
               <div className={styles.formGroup}>
                 <label>Retirement message</label>
                 <textarea
-                  readOnly
-                  value={"Doing my part to support climate action"}
-                  placeholder={"The planet"}
+                  value={retirementMessage}
+                  placeholder="The planet"
+                  onChange={(e) => setRetirementMessage(e.target.value)}
                 />
               </div>
               <div className={styles.formGroup}>
@@ -68,7 +79,9 @@ export const Home = () => {
                     src={tokenInfoMap.bct.icon}
                     alt={tokenInfoMap.bct.label || ""}
                   />
-                  <p>0</p>
+                  <Text>
+                    {formatTonnes({ amount: quantity, locale: "en" })}
+                  </Text>
                 </div>
               </div>
               <div className={styles.disclaimer}>

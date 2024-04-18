@@ -4,12 +4,11 @@ import {
   connectorsForWallets,
   getDefaultWallets,
 } from "@rainbow-me/rainbowkit";
+import "@rainbow-me/rainbowkit/styles.css";
+import { supportedChains } from "lib/constants";
 import { AppProps } from "next/app";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
-import { baseSepolia } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
-
-import "@rainbow-me/rainbowkit/styles.css";
 // organize-imports-ignore
 import "../styles/normalize.css";
 // organize-imports-ignore
@@ -18,13 +17,13 @@ import "../styles/variables.css";
 import "../styles/globals.css";
 
 const { chains, publicClient } = configureChains(
-  [baseSepolia],
-  [publicProvider(), publicProvider()]
+  [...supportedChains],
+  [publicProvider()]
 );
 
 const { wallets } = getDefaultWallets({
-  appName: "Cross-Chain Klima",
-  projectId: "d70d1ad9ea2bed68ed81737f44a75ef0",
+  appName: "KlimaDAO Base",
+  projectId: "d70d1ad9ea2bed68ed81737f44a75ef0", // change this...
   chains,
 });
 

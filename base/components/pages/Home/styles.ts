@@ -189,15 +189,15 @@ export const formGroup = css`
 `;
 
 export const disclaimer = css`
+  gap: 1.2rem;
   display: flex;
-  gap: 12px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
   svg {
     color: yellow;
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 3.2rem !important; // todo - remove !important..
+    height: 3.2rem !important; // todo - remove !important..
   }
 `;
 

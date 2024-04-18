@@ -5,7 +5,7 @@
     "./app",
     "./carbon-projects",
     "./carbon",
-    "./cross-chain",
+    "./base",
     "./lib"
   ],
   "engines": {
@@ -31,10 +31,10 @@
     "build-lib": "npm run build -w=lib",
     "build-app": "npm run build-lib && npm run build -w=app",
     "build-carbon": "npm run build-lib && npm run build -w=carbon",
-    "build-cross-chain": "npm run build-lib && npm run build -w=cross-chain",
+    "build-base": "npm run build-lib && npm run build -w=base",
     "dev-lib": "npm run dev -w=lib",
     "dev-app": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=app\"",
-    "dev-cross-chain": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=cross-chain\"",
+    "dev-base": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=base\"",
     "remove-dist": "cd carbonmark-api && rm -rf dist && npm run build",
     "dev-carbon": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbon\"",
     "extract-strings": "npm run -w app lingui:extract && npm run -w carbon lingui:extract",

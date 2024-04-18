@@ -70,7 +70,9 @@ export const title = css`
 `;
 
 export const closeButton = css`
+  cursor: pointer;
   display: flex;
+  border: none;
   justify-content: center;
   align-items: center;
   width: 4.8rem;

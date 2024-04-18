@@ -1,5 +1,5 @@
 {
-  "name": "@klimadao/cross-chain",
+  "name": "@klimadao/base",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3004",
