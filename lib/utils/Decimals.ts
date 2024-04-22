@@ -9,6 +9,7 @@ export const BIG_DECIMAL_1E18 = BigDecimal.fromString('1e18')
 
 export const ZERO_BI = BigInt.fromString('0')
 export const ZERO_BD = BigDecimal.fromString('0')
+export const BIG_INT_1E18 = BigInt.fromString('1000000000000000000')
 
 export function pow(base: BigDecimal, exponent: number): BigDecimal {
   let result = base
@@ -38,9 +39,9 @@ export function toWei(value: BigInt): BigInt {
 }
 
 export function handleMigrationDecimals(registry: string, blockNumber: BigInt, amount: BigInt): BigInt {
-  log.info('qwe1: {} qwe2: {} qwe3: {}', [blockNumber.toString(), BigInt.fromI32(ICR_MIGRATION_BLOCK).toString(), registry])
+  log.info('qwe1: {} qwe2: {} qwe3: {}', [blockNumber.toString(), ICR_MIGRATION_BLOCK.toString(), registry])
 
-  if (registry == 'ICR' && blockNumber.lt(BigInt.fromI32(ICR_MIGRATION_BLOCK))) {
+  if (registry == 'ICR' && blockNumber.lt(ICR_MIGRATION_BLOCK)) {
     log.info('qwe4: {}', [toWei(amount).toString()])
     return toWei(amount)
   } else {

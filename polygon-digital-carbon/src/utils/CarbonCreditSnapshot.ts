@@ -1,4 +1,4 @@
-import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
+import { BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { loadCarbonCredit } from './CarbonCredit'
 import { CarbonCreditSnapshot, Epoch } from '../../generated/schema'
 import { MCO2_ERC20_CONTRACT } from '../../../lib/utils/Constants'
