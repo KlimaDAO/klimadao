@@ -39,7 +39,7 @@ export function createICRTokenWithCall(tokenAddress: Address): void {
     }
 
     const serialization = tokenContract.exPostVintageMapping(tokenId)
-    const symbol = serialization.value0 + '-' + serialization.value3 + '-' + serialization.value4
+    const symbol = serialization.value0 + '-' + serialization.value3.toString() + '-' + serialization.value4.toString()
 
     token.name = tokenContract.projectName()
     token.symbol = symbol
