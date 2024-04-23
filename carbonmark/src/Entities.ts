@@ -2,7 +2,7 @@ import { Activity, Category, Country, Listing, Project, Purchase, User } from '.
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { Address, BigInt, Bytes, log } from '@graphprotocol/graph-ts'
-import { PROJECT_INFO } from './Projects.ts'
+import { PROJECT_INFO } from './Projects'
 
 export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
   // Find the project + vintage ID from token address
