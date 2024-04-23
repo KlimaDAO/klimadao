@@ -33,6 +33,6 @@ export function handleNewICC(event: ProjectCreated): void {
 
   log.info('Created new ICR Project Datasource', [])
   credit.save()
-  //  add placeholder tokenId
+  //  creates all token associated with this project
   createICRTokenWithCall(event.params.projectAddress)
 }
