@@ -17,8 +17,7 @@
     "deploy-args": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node carbonmark",
     "deploy-version": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node --version-label $npm_config_label carbonmark",
     "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ carbonmark",
-    "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
-    "deploy-tufnel": "yarn codegen && yarn build && graph deploy --product hosted-service psparacino/carbonmark--testing-only"
+    "deploy-hosted": "graph deploy --product hosted-service $npm_config_path"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
