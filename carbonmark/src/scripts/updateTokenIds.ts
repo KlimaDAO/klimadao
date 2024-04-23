@@ -47,73 +47,75 @@ async function fetchTokenIds() {
     exAntes: data.data.exAntes,
   }
 }
-
-function convertToProjectInfo(data: any[]): ProjectInfo[] {
-  return data.map(
-    (item) => new ProjectInfo(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8])
-  )
-}
+// only needed for original Project_Info array that are not instances of ProjectInfo
+// function convertToProjectInfo(data: any[]): ProjectInfo[] {
+//   return data.map(
+//     (item) => new ProjectInfo(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8])
+//   )
+// }
 
 async function updateProjectsTokenIds() {
-  const { exPosts, exAntes } = await fetchTokenIds();
-  const projectInfoArray = convertToProjectInfo(PROJECT_INFO);
+  const { exPosts, exAntes } = await fetchTokenIds()
+  // const projectInfoArray = convertToProjectInfo(PROJECT_INFO);
 
-  const updatedProjects = projectInfoArray.map((project) => {
-      const lowerCaseAddress = project.address.toLowerCase();
-      const foundExPost = exPosts.find(exPost =>
-          exPost.project.projectAddress.toLowerCase() === lowerCaseAddress && exPost.vintage === project.vintage
-      );
+  const updatedProjects = PROJECT_INFO.map((project) => {
+    const lowerCaseAddress = project.address.toLowerCase()
+    const foundExPost = exPosts.find(
+      (exPost) => exPost.project.projectAddress.toLowerCase() === lowerCaseAddress && exPost.vintage === project.vintage
+    )
 
-      if (foundExPost) {
-          return new ProjectInfo(
-              project.address,
-              project.projectId,
-              project.vintage,
-              project.name,
-              project.methodology,
-              project.category,
-              project.country,
-              foundExPost.tokenId,
-              false
-          );
-      }
+    if (foundExPost) {
+      return new ProjectInfo(
+        project.address,
+        project.projectId,
+        project.vintage,
+        project.name,
+        project.methodology,
+        project.category,
+        project.country,
+        foundExPost.tokenId,
+        false
+      )
+    }
 
-      const foundExAnte = exAntes.find(exAnte => {
-          const anteVintage = exAnte.serialization.split('-').pop();
-          return exAnte.project.projectAddress.toLowerCase() === lowerCaseAddress && anteVintage === project.vintage;
-      });
+    const foundExAnte = exAntes.find((exAnte) => {
+      const anteVintage = exAnte.serialization.split('-').pop()
+      return exAnte.project.projectAddress.toLowerCase() === lowerCaseAddress && anteVintage === project.vintage
+    })
 
-      if (foundExAnte) {
-          return new ProjectInfo(
-              project.address,
-              project.projectId,
-              project.vintage,
-              project.name,
-              project.methodology,
-              project.category,
-              project.country,
-              foundExAnte.tokenId,
-              true
-          );
-      }
+    if (foundExAnte) {
+      return new ProjectInfo(
+        project.address,
+        project.projectId,
+        project.vintage,
+        project.name,
+        project.methodology,
+        project.category,
+        project.country,
+        foundExAnte.tokenId,
+        true
+      )
+    }
 
-      return project; 
-  });
+    return project
+  })
 
+  const importStatement = 'import { ProjectInfo } from "./scripts/types";\n'
+  const arrayDeclaration = 'export const PROJECT_INFO: ProjectInfo[] = [\n'
+  const projectInstances = updatedProjects
+    .map(
+      (project) =>
+        `    new ProjectInfo('${project.address}', '${project.projectId}', '${project.vintage}', '${project.name}', '${project.methodology}', '${project.category}', '${project.country}', '${project.tokenId}', ${project.isExAnte})`
+    )
+    .join(',\n')
+  const closingBracket = '\n];'
 
-  const importStatement = 'import { ProjectInfo } from "./scripts/types";\n';
-  const arrayDeclaration = 'export const PROJECT_INFO_LIST: ProjectInfo[] = [\n';
-  const projectInstances = updatedProjects.map(project =>
-      `    new ProjectInfo('${project.address}', '${project.projectId}', '${project.vintage}', '${project.name}', '${project.methodology}', '${project.category}', '${project.country}', '${project.tokenId}', ${project.isExAnte})`
-  ).join(',\n');
-  const closingBracket = '\n];';
+  const finalContent = importStatement + arrayDeclaration + projectInstances + closingBracket
 
-  const finalContent = importStatement + arrayDeclaration + projectInstances + closingBracket;
-
-  fs.writeFile('../ProjectsList.ts', finalContent, 'utf8', err => {
-      if (err) return console.error('Failed to write file:', err);
-      console.log('Project info updated and saved successfully!');
-  });
+  fs.writeFile('../Projects.ts', finalContent, 'utf8', (err) => {
+    if (err) return console.error('Failed to write file:', err)
+    console.log('Project info updated and saved successfully!')
+  })
 }
 
 updateProjectsTokenIds()
