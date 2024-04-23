@@ -84,6 +84,9 @@ type Token @entity {
   "Decimals of the token"
   decimals: Int!
 
+  "Token Id"
+  tokenId: BigInt
+
   "Latest price in USD"
   latestPriceUSD: BigDecimal
 

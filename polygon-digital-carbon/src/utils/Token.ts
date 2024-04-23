@@ -16,21 +16,36 @@ export function createTokenWithCall(tokenAddress: Address): void {
   token.save()
 }
 
-// this doesn't really matter at this stage as holdings are being fetched from the ICR subgraph
-export function createICRTokenWithCall(tokenAddress: Address, tokenId: BigInt): void {
+export function createICRTokenWithCall(tokenAddress: Address): void {
   let token = Token.load(tokenAddress)
   if (token) return
 
   token = new Token(tokenAddress)
 
   let tokenContract = ICRProjectToken.bind(tokenAddress)
-  const serialization = tokenContract.exPostVintageMapping(tokenId)
-  const symbol = serialization.value0 + "-" + serialization.value3 + "-" + serialization.value4;
+  const topTokenId = tokenContract.topTokenId()
 
-  token.name = tokenContract.projectName()
-  token.symbol = symbol
-  token.decimals = 18;
+  for (let i = 1; i < topTokenId.toI32(); i++) {
+    let tokenId: BigInt
 
+    const isExPost = tokenContract.isExPostToken(BigInt.fromI32(i))
 
-  token.save()
+    // if it's not exPost it's an exAnte. Get the equivalent exPost for the corresponding exAnte info
+    if (!isExPost) {
+      const exPostTokenId = tokenContract.exAnteToExPostTokenId(BigInt.fromI32(i))
+      tokenId = exPostTokenId
+    } else {
+      tokenId = BigInt.fromI32(i)
+    }
+
+    const serialization = tokenContract.exPostVintageMapping(tokenId)
+    const symbol = serialization.value0 + '-' + serialization.value3 + '-' + serialization.value4
+
+    token.name = tokenContract.projectName()
+    token.symbol = symbol
+    token.decimals = 18
+    token.tokenId = BigInt.fromI32(i)
+
+    token.save()
+  }
 }
