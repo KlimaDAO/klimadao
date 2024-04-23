@@ -6,6 +6,7 @@ import { loadOrCreateCarbonProject } from '../utils/CarbonProject'
 import { MethodologyCategories } from '../utils/MethodologyCategories'
 import { Address, BigInt, log } from '@graphprotocol/graph-ts'
 import { ICR_PROJECT_INFO } from '../../../lib/utils/ICRProjectInfo'
+import { createICRTokenWithCall, createTokenWithCall } from '../utils/Token'
 
 export function handleNewICC(event: ProjectCreated): void {
   // Start indexing the C3T tokens; `event.params.tokenAddress` is the
@@ -34,4 +35,6 @@ export function handleNewICC(event: ProjectCreated): void {
 
   log.info('Created new ICR Project Datasource', [])
   credit.save()
+  //  need to add tokenID to project list, same as in the marketplace. otherwise this won't work.
+  createICRTokenWithCall(event.params.projectAddress, BigInt.fromI32(0))
 }
