@@ -11,9 +11,9 @@ export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
   let registry = ''
   let projectIndex = 0
   for (let i = 0; i < PROJECT_INFO.length; i++) {
-    if (tokenAddress.toLowerCase() == PROJECT_INFO[i][0] && tokenId.toString() == PROJECT_INFO[i][7]) {
-      id = PROJECT_INFO[i][1] + '-' + PROJECT_INFO[i][2]
-      registry = PROJECT_INFO[i][1].split('-')[0]
+    if (tokenAddress.toLowerCase() == PROJECT_INFO[i].address && tokenId.toString() == PROJECT_INFO[i].tokenId) {
+      id = PROJECT_INFO[i].projectId + '-' + PROJECT_INFO[i].vintage
+      registry = PROJECT_INFO[i].projectId.split('-')[0]
       projectIndex = i
       break
     }
@@ -23,15 +23,16 @@ export function loadOrCreateProject(token: Address, tokenId: BigInt): Project {
 
   if (project == null) {
     project = new Project(id)
-    project.key = PROJECT_INFO[projectIndex][1]
-    project.name = PROJECT_INFO[projectIndex][3]
-    project.methodology = PROJECT_INFO[projectIndex][4]
-    project.vintage = BigInt.fromString(PROJECT_INFO[projectIndex][2])
+    project.key = PROJECT_INFO[projectIndex].projectId
+    project.name = PROJECT_INFO[projectIndex].name
+    project.methodology = PROJECT_INFO[projectIndex].methodology
+    project.vintage = BigInt.fromString(PROJECT_INFO[projectIndex].vintage)
     project.projectAddress = token
     project.registry = registry
-    project.category = PROJECT_INFO[projectIndex][5]
-    project.country = PROJECT_INFO[projectIndex][6]
+    project.category = PROJECT_INFO[projectIndex].category
+    project.country = PROJECT_INFO[projectIndex].country
     project.tokenId = tokenId
+    project.isExAnte = PROJECT_INFO[projectIndex].isExAnte
     project.save()
 
     createCountry(project.country)
