@@ -62,7 +62,7 @@ describe('Token Creation Tests', () => {
     clearStore()
   })
 
-  test('Should properly create or update tokens based on the contract calls', () => {
+  test('Create ICR Token entities', () => {
     const topTokenId = tokenContract.topTokenId()
 
     const isExPostToken = tokenContract.isExPostToken(BigInt.fromI32(exPostTokenId))
