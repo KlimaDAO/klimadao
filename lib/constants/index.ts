@@ -278,15 +278,35 @@ export const offsetCompatibility: CompatMap = {
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
+// TODO: configure Vercel with Graph API key
+// const GRAPH_API_KEY = process.env.GRAPH_API_KEY;
+// const SUBGRAPH_BASE_URL = (
+//   "https://gateway-arbitrum.network.thegraph.com/api/"
+//   + GRAPH_API_KEY + "/subgraphs/id"
+// );
+const SUBGRAPH_DEV_URL = "https://api.studio.thegraph.com/query/71975";
+const SUBGRAPH_VERSION_SUFFIX = "version/latest";
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 const SUBGRAPH_URL_ID = "https://api.thegraph.com/subgraphs/id";
-export const subgraphs = {
-  polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
-  userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
-  cujoRefiHoldings:
-    "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
-  carbonmark: `${SUBGRAPH_URL_ID}/QmT2YkGwTqvek54VsGkfurGLrGGKgkwcK6TLotvkjpF4Mz`,
-};
+
+export let subgraphs: object;
+if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production") {
+  subgraphs = {
+    polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
+    userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
+    cujoRefiHoldings:
+      "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
+    carbonmark: `${SUBGRAPH_URL_ID}/QmT2YkGwTqvek54VsGkfurGLrGGKgkwcK6TLotvkjpF4Mz`,
+  };
+} else {
+  subgraphs = {
+    polygonDigitalCarbon: `${SUBGRAPH_DEV_URL}/staging-polygon-digital-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
+    userCarbon: `${SUBGRAPH_DEV_URL}/staging-klimadao-user-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
+    cujoRefiHoldings:
+      "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
+    carbonmark: `${SUBGRAPH_DEV_URL}/staging-klimadao-carbonmark/${SUBGRAPH_VERSION_SUFFIX}`,
+  };
+}
 
 /** Definitions of available registries */
 export const REGISTRIES = {
