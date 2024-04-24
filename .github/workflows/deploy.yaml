@@ -14,16 +14,16 @@ jobs:
       matrix:
         value:
           [
-            'bonds',
-            'carbonmark',
-            'protocol-metrics',
+            # 'bonds',
+            # 'carbonmark',
+            # 'protocol-metrics',
             'vesting',
             'user-carbon',
-            'pairs',
-            'celo-bridged-carbon',
-            'ethereum-bridged-carbon',
-            'polygon-bridged-carbon',
-            'polygon-digital-carbon',
+            # 'pairs',
+            # 'celo-bridged-carbon',
+            # 'ethereum-bridged-carbon',
+            # 'polygon-bridged-carbon',
+            # 'polygon-digital-carbon',
           ]
     steps:
       - name: Check out source repository
