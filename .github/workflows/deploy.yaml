@@ -76,3 +76,4 @@ jobs:
           REF: ${{ github.ref }}
       - name: Deploy Subgraph
         run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.staging_or_not.outputs.subgraph }} --version-label ${{ steps.staging_or_not.outputs.short_sha }}
+        working-directory: '${{ matrix.value }}'
