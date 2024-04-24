@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "codegen": "rm -rf ./generated && graph codegen",
+    "test": "graph test",
     "build": "graph build",
     "create-local": "graph create --node http://127.0.0.1:8020 polygon-carbon",
     "remove-local": "graph remove --node http://127.0.0.1:8020 polygon-carbon",

@@ -51,10 +51,9 @@ jobs:
       - name: Build Subgraph
         run: npm run build
         working-directory: '${{ matrix.value }}'
-      # TODO: add matchstick test suite
-      # - name: Run Tests
-      #   run: npm run test
-      #   working-directory: "${{ matrix.value }}"
+      - name: Run Tests
+        run: npm run test
+        working-directory: "${{ matrix.value }}"
 
       - name: Staging or not
         id: staging_or_not
