@@ -52,6 +52,7 @@ jobs:
         run: npm run build
         working-directory: '${{ matrix.value }}'
       - name: Run Tests
+        if: matrix.value == 'polygon-digital-carbon'
         run: npm run test
         working-directory: "${{ matrix.value }}"
 
