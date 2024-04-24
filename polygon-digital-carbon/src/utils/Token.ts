@@ -1,4 +1,4 @@
-import { Address, BigInt } from '@graphprotocol/graph-ts'
+import { Address, BigInt, Bytes, log, ByteArray } from '@graphprotocol/graph-ts'
 import { Token } from '../../generated/schema'
 import { ERC20 } from '../../generated/ToucanFactory/ERC20'
 import { ICRProjectToken } from '../../generated/ICRCarbonContractRegistry/ICRProjectToken'
@@ -16,11 +16,20 @@ export function createTokenWithCall(tokenAddress: Address): void {
   token.save()
 }
 
+export function createICRTokenID(tokenAddress: Address, tokenId: BigInt): Bytes {
+  const tokenIdBytes = ByteArray.fromBigInt(tokenId)
+
+  const addressBytes = ByteArray.fromHexString(tokenAddress.toHexString())
+
+  const combinedByteArray = addressBytes.concat(tokenIdBytes)
+
+  const combinedBytes = Bytes.fromUint8Array(combinedByteArray)
+  return combinedBytes
+}
+
 export function createICRTokenWithCall(tokenAddress: Address): void {
   let token = Token.load(tokenAddress)
   if (token) return
-
-  token = new Token(tokenAddress)
 
   let tokenContract = ICRProjectToken.bind(tokenAddress)
   const topTokenId = tokenContract.topTokenId()
@@ -38,14 +47,31 @@ export function createICRTokenWithCall(tokenAddress: Address): void {
       tokenId = BigInt.fromI32(i)
     }
 
-    const serialization = tokenContract.exPostVintageMapping(tokenId)
-    const symbol = serialization.value0 + '-' + serialization.value3.toString() + '-' + serialization.value4.toString()
+    const id = createICRTokenID(tokenAddress, tokenId)
 
-    token.name = tokenContract.projectName()
-    token.symbol = symbol
-    token.decimals = 18
-    token.tokenId = BigInt.fromI32(i)
+    let token = Token.load(id)
 
-    token.save()
+    if (token == null) {
+      log.info('New ICR Token created with id {}', [id.toHexString()])
+      token = new Token(id)
+
+      const mappingValues = tokenContract.exPostVintageMapping(tokenId)
+      const serializationParts = mappingValues.value0.split('-')
+
+      const symbol =
+        'ICR' +
+        '-' +
+        serializationParts[3].toString() +
+        '-' +
+        serializationParts[serializationParts.length - 1].toString()
+
+      token.name = tokenContract.projectName()
+
+      token.symbol = symbol
+      token.decimals = 18
+      token.tokenId = BigInt.fromI32(i)
+
+      token.save()
+    }
   }
 }
