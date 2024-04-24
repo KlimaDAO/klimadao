@@ -47,6 +47,6 @@ jobs:
       - name: Build Subgraph
         run: npm run build
         working-directory: '${{ matrix.value }}'
-    - name: Run Tests
-      run: npm run test
-      working-directory: "${{ matrix.value }}"
+      - name: Run Tests
+        run: npm run test
+        working-directory: "${{ matrix.value }}"
