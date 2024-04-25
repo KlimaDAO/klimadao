@@ -34,7 +34,7 @@ export function createICRTokenWithCall(tokenAddress: Address): void {
   const topTokenId = tokenContract.topTokenId()
 
   for (let i = 1; i < topTokenId.toI32(); i++) {
-    log.info('looping through token id {}', [i.toString()])
+    log.info('Looping through tokenIds. Index: {}', [i.toString()])
 
     let tokenId: BigInt
 
@@ -53,7 +53,7 @@ export function createICRTokenWithCall(tokenAddress: Address): void {
     let token = Token.load(id)
 
     if (token != null) {
-      log.info('found token {}', [token.id.toHexString()])
+      log.info('found ICR Token entity {}', [id.toHexString()])
     }
 
     if (token == null) {
