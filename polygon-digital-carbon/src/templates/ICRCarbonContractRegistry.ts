@@ -10,12 +10,14 @@ export function handleNewICC(event: ProjectCreated): void {
   // Start indexing the C3T tokens; `event.params.tokenAddress` is the
   // address of the new token contract
 
-  ICRProjectToken.create(event.params.projectAddress)
+  const projectAddress = event.params.projectAddress
+
+  ICRProjectToken.create(projectAddress)
 
   let project = loadOrCreateCarbonProject('ICR', event.params.projectId.toString())
 
   for (let i = 0; i < ICR_PROJECT_INFO.length; i++) {
-    if (event.params.projectAddress.toHexString().toLowerCase() == ICR_PROJECT_INFO[i][0]) {
+    if (projectAddress.toHexString().toLowerCase() == ICR_PROJECT_INFO[i][0]) {
       project.id = ICR_PROJECT_INFO[i][1]
       project.projectID = ICR_PROJECT_INFO[i][1]
       project.name = ICR_PROJECT_INFO[i][2]
@@ -28,11 +30,11 @@ export function handleNewICC(event: ProjectCreated): void {
   project.save()
 
   // Load a default credit with ID 0 for future use
-  let credit = loadOrCreateCarbonCredit(event.params.projectAddress, 'ICR', BigInt.fromI32(0))
+  let credit = loadOrCreateCarbonCredit(projectAddress, 'ICR', BigInt.fromI32(0))
   credit.project = project.id
 
   log.info('Created new ICR Project Datasource', [])
   credit.save()
   //  creates all token associated with this project
-  createICRTokenWithCall(event.params.projectAddress)
+  createICRTokenWithCall(projectAddress)
 }

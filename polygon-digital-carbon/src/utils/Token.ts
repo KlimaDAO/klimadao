@@ -31,9 +31,16 @@ export function createICRTokenWithCall(tokenAddress: Address): void {
   log.info('Creating ICR Tokens for token address {}', [tokenAddress.toHexString()])
 
   let tokenContract = ICRProjectToken.bind(tokenAddress)
-  const topTokenId = tokenContract.topTokenId()
+  const topTokenId = tokenContract.try_topTokenId()
 
-  for (let i = 1; i < topTokenId.toI32(); i++) {
+  if (topTokenId.reverted) {
+    log.error('topTokenId reverted for token address {}', [tokenAddress.toHexString()])
+    return
+  }
+
+  log.info('topTokenId: {}', [topTokenId.value.toString()])
+
+  for (let i = 1; i < topTokenId.value.toI32(); i++) {
     log.info('Looping through tokenIds. Index: {}', [i.toString()])
 
     let tokenId: BigInt
