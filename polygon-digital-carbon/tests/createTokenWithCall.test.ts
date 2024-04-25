@@ -1,7 +1,19 @@
-import { clearStore, test, assert, beforeAll, afterAll, describe, createMockedFunction, log } from 'matchstick-as'
+import {
+  clearStore,
+  test,
+  assert,
+  beforeAll,
+  afterAll,
+  describe,
+  createMockedFunction,
+  log,
+  newMockEvent,
+} from 'matchstick-as'
 import { createICRTokenWithCall, createICRTokenID } from '../src/utils/Token'
 import { Address, BigInt, ethereum } from '@graphprotocol/graph-ts'
 import { ICRProjectToken } from '../generated/ICRCarbonContractRegistry/ICRProjectToken'
+import { ProjectCreated } from '../generated/ICRCarbonContractRegistry/ICRCarbonContractRegistry'
+import { handleNewICC } from '../src/templates/ICRCarbonContractRegistry'
 
 test(
   'Should throw an error. Confirm test is working',
@@ -20,6 +32,35 @@ const topTokenId = 52
 const exPostTokenId = 6
 
 const exAnteTokenId = 51
+
+export function createNewProjectCreateEvent(
+  projectId: BigInt,
+  projectAddress: Address,
+  projectName: string
+): ProjectCreated {
+  let mockEvent = newMockEvent()
+
+  let newProjectCreatedEvent = new ProjectCreated(
+    mockEvent.address,
+    mockEvent.logIndex,
+    mockEvent.transactionLogIndex,
+    mockEvent.logType,
+    mockEvent.block,
+    mockEvent.transaction,
+    mockEvent.parameters,
+    mockEvent.receipt
+  )
+  newProjectCreatedEvent.parameters = new Array()
+  let idParam = new ethereum.EventParam('id', ethereum.Value.fromUnsignedBigInt(projectId))
+  let addressParam = new ethereum.EventParam('projectAddress', ethereum.Value.fromAddress(projectAddress))
+  let displayNameParam = new ethereum.EventParam('displayName', ethereum.Value.fromString(projectName))
+
+  newProjectCreatedEvent.parameters.push(idParam)
+  newProjectCreatedEvent.parameters.push(addressParam)
+  newProjectCreatedEvent.parameters.push(displayNameParam)
+
+  return newProjectCreatedEvent
+}
 
 describe('Token Creation Tests', () => {
   beforeAll(() => {
@@ -83,5 +124,25 @@ describe('Token Creation Tests', () => {
     assert.fieldEquals('Token', id.toHexString(), 'symbol', 'ICR-57-2027')
     assert.fieldEquals('Token', id.toHexString(), 'decimals', '18')
     assert.fieldEquals('Token', id.toHexString(), 'id', id.toHexString())
+
+    clearStore()
   })
+
+  test('ProjectCreated event successfully creates ICR Token entities', () => {
+    let projectCreatedEvent = createNewProjectCreateEvent(BigInt.fromString('111335577020044091155429424115574818587789787042677079110890642729072090294424'), tokenAddress, 'Skógálfar, Álfabrekka')
+
+    handleNewICC(projectCreatedEvent)
+
+    const id = createICRTokenID(tokenAddress, BigInt.fromI32(exPostTokenId))
+
+    assert.fieldEquals('Token', id.toHexString(), 'name', 'Skógálfar, Álfabrekka')
+    assert.fieldEquals('Token', id.toHexString(), 'symbol', 'ICR-57-2027')
+    assert.fieldEquals('Token', id.toHexString(), 'decimals', '18')
+    assert.fieldEquals('Token', id.toHexString(), 'id', id.toHexString())
+
+    clearStore()
+
+
+  })
+
 })

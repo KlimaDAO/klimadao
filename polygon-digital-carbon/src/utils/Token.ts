@@ -28,13 +28,14 @@ export function createICRTokenID(tokenAddress: Address, tokenId: BigInt): Bytes 
 }
 
 export function createICRTokenWithCall(tokenAddress: Address): void {
-  let token = Token.load(tokenAddress)
-  if (token) return
+  log.info('Creating ICR Tokens for token address {}', [tokenAddress.toHexString()])
 
   let tokenContract = ICRProjectToken.bind(tokenAddress)
   const topTokenId = tokenContract.topTokenId()
 
   for (let i = 1; i < topTokenId.toI32(); i++) {
+    log.info('looping through token id {}', [i.toString()])
+
     let tokenId: BigInt
 
     const isExPost = tokenContract.isExPostToken(BigInt.fromI32(i))
@@ -50,6 +51,10 @@ export function createICRTokenWithCall(tokenAddress: Address): void {
     const id = createICRTokenID(tokenAddress, tokenId)
 
     let token = Token.load(id)
+
+    if (token != null) {
+      log.info('found token {}', [token.id.toHexString()])
+    }
 
     if (token == null) {
       log.info('New ICR Token created with id {}', [id.toHexString()])
