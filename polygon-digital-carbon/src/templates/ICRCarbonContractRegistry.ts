@@ -35,6 +35,4 @@ export function handleNewICC(event: ProjectCreated): void {
 
   log.info('Created new ICR Project Datasource', [])
   credit.save()
-  //  creates all token associated with this project
-  createICRTokenWithCall(projectAddress)
 }

@@ -17,73 +17,49 @@ export function createTokenWithCall(tokenAddress: Address): void {
 }
 
 export function createICRTokenID(tokenAddress: Address, tokenId: BigInt): Bytes {
-  const tokenIdBytes = ByteArray.fromBigInt(tokenId)
-
-  const addressBytes = ByteArray.fromHexString(tokenAddress.toHexString())
-
-  const combinedByteArray = addressBytes.concat(tokenIdBytes)
-
-  const combinedBytes = Bytes.fromUint8Array(combinedByteArray)
-  return combinedBytes
+  return tokenAddress.concatI32(tokenId.toI32())
 }
 
-export function createICRTokenWithCall(tokenAddress: Address): void {
+export function createICRTokenWithCall(tokenAddress: Address, tokenId: BigInt): void {
   log.info('Creating ICR Tokens for token address {}', [tokenAddress.toHexString()])
 
   let tokenContract = ICRProjectToken.bind(tokenAddress)
-  const topTokenId = tokenContract.try_topTokenId()
 
-  if (topTokenId.reverted) {
-    log.error('topTokenId reverted for token address {}', [tokenAddress.toHexString()])
-    return
+  const isExPost = tokenContract.isExPostToken(tokenId)
+
+  // if it's not exPost it's an exAnte. Get the equivalent exPost for the corresponding exAnte info
+  if (!isExPost) {
+    const exPostTokenId = tokenContract.exAnteToExPostTokenId(tokenId)
+    tokenId = exPostTokenId
+  } else {
+    tokenId = tokenId
   }
 
-  log.info('topTokenId: {}', [topTokenId.value.toString()])
+  const id = createICRTokenID(tokenAddress, tokenId)
 
-  for (let i = 1; i < topTokenId.value.toI32(); i++) {
-    log.info('Looping through tokenIds. Index: {}', [i.toString()])
+  let token = Token.load(id)
 
-    let tokenId: BigInt
+  if (token == null) {
+    log.info('New ICR Token created with id {}', [id.toHexString()])
+    token = new Token(id)
 
-    const isExPost = tokenContract.isExPostToken(BigInt.fromI32(i))
+    const mappingValues = tokenContract.exPostVintageMapping(tokenId)
+    const serializationParts = mappingValues.value0.split('-')
 
-    // if it's not exPost it's an exAnte. Get the equivalent exPost for the corresponding exAnte info
-    if (!isExPost) {
-      const exPostTokenId = tokenContract.exAnteToExPostTokenId(BigInt.fromI32(i))
-      tokenId = exPostTokenId
-    } else {
-      tokenId = BigInt.fromI32(i)
-    }
+    const symbol =
+      'ICR' +
+      '-' +
+      serializationParts[3].toString() +
+      '-' +
+      serializationParts[serializationParts.length - 1].toString()
 
-    const id = createICRTokenID(tokenAddress, tokenId)
+    token.name = tokenContract.projectName()
 
-    let token = Token.load(id)
+    token.symbol = symbol
+    token.decimals = 18
+    token.tokenId = tokenId
 
-    if (token != null) {
-      log.info('found ICR Token entity {}', [id.toHexString()])
-    }
-
-    if (token == null) {
-      log.info('New ICR Token created with id {}', [id.toHexString()])
-      token = new Token(id)
-
-      const mappingValues = tokenContract.exPostVintageMapping(tokenId)
-      const serializationParts = mappingValues.value0.split('-')
-
-      const symbol =
-        'ICR' +
-        '-' +
-        serializationParts[3].toString() +
-        '-' +
-        serializationParts[serializationParts.length - 1].toString()
-
-      token.name = tokenContract.projectName()
-
-      token.symbol = symbol
-      token.decimals = 18
-      token.tokenId = BigInt.fromI32(i)
-
-      token.save()
-    }
+    token.save()
   }
 }
+

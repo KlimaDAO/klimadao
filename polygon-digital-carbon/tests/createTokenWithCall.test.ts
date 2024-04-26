@@ -1,19 +1,19 @@
 import {
   clearStore,
   test,
-  assert,
-  beforeAll,
+  log,
   afterAll,
   describe,
   createMockedFunction,
-  log,
   newMockEvent,
+  beforeEach,
+  assert,
 } from 'matchstick-as'
-import { createICRTokenWithCall, createICRTokenID } from '../src/utils/Token'
 import { Address, BigInt, ethereum } from '@graphprotocol/graph-ts'
 import { ICRProjectToken } from '../generated/ICRCarbonContractRegistry/ICRProjectToken'
-import { ProjectCreated } from '../generated/ICRCarbonContractRegistry/ICRCarbonContractRegistry'
-import { handleNewICC } from '../src/templates/ICRCarbonContractRegistry'
+import { ExPostCreated } from '../generated/templates/ICRProjectToken/ICRProjectToken'
+import { handleExPostCreated } from '../src/TransferHandler'
+import { createICRTokenWithCall, createICRTokenID } from '../src/utils/Token'
 
 test(
   'Should throw an error. Confirm test is working',
@@ -23,25 +23,21 @@ test(
   true
 )
 
-const tokenAddress = Address.fromString('0xaE63fBD056512fC4B1D15B58A98F9Aaea44b18a9')
+const tokenAddress = Address.fromString('0xae63fbd056512fc4b1d15b58a98f9aaea44b18a9')
 
 const tokenContract = ICRProjectToken.bind(tokenAddress)
-
-const topTokenId = 52
 
 const exPostTokenId = 6
 
 const exAnteTokenId = 51
 
-export function createNewProjectCreateEvent(
-  projectId: BigInt,
-  projectAddress: Address,
-  projectName: string
-): ProjectCreated {
+const estimatedAmount = 115221
+
+export function createNewExPostCreatedEvent(): ExPostCreated {
   let mockEvent = newMockEvent()
 
-  let newProjectCreatedEvent = new ProjectCreated(
-    mockEvent.address,
+  let newExPostCreatedEvent = new ExPostCreated(
+    tokenAddress,
     mockEvent.logIndex,
     mockEvent.transactionLogIndex,
     mockEvent.logType,
@@ -50,53 +46,53 @@ export function createNewProjectCreateEvent(
     mockEvent.parameters,
     mockEvent.receipt
   )
-  newProjectCreatedEvent.parameters = new Array()
-  let idParam = new ethereum.EventParam('id', ethereum.Value.fromUnsignedBigInt(projectId))
-  let addressParam = new ethereum.EventParam('projectAddress', ethereum.Value.fromAddress(projectAddress))
-  let displayNameParam = new ethereum.EventParam('displayName', ethereum.Value.fromString(projectName))
+  newExPostCreatedEvent.parameters = new Array()
+  let tokenId = new ethereum.EventParam('id', ethereum.Value.fromI32(exPostTokenId))
+  let estAmount = new ethereum.EventParam('estAmount', ethereum.Value.fromI32(estimatedAmount))
+  let verificationPeriodStart = new ethereum.EventParam('verificationPeriodStart', ethereum.Value.fromI32(1735689600))
 
-  newProjectCreatedEvent.parameters.push(idParam)
-  newProjectCreatedEvent.parameters.push(addressParam)
-  newProjectCreatedEvent.parameters.push(displayNameParam)
+  let verificationPeriodEnd = new ethereum.EventParam('verificationPeriodEnd', ethereum.Value.fromI32(1767139200))
+  let serialization = new ethereum.EventParam('serialization', ethereum.Value.fromString('FCC-ISL-354-57-14-R-0-2027'))
 
-  return newProjectCreatedEvent
+  newExPostCreatedEvent.parameters.push(tokenId)
+  newExPostCreatedEvent.parameters.push(estAmount)
+  newExPostCreatedEvent.parameters.push(verificationPeriodStart)
+  newExPostCreatedEvent.parameters.push(verificationPeriodEnd)
+  newExPostCreatedEvent.parameters.push(serialization)
+
+  return newExPostCreatedEvent
 }
 
 describe('Token Creation Tests', () => {
-  beforeAll(() => {
+  beforeEach(() => {
+    clearStore()
     // Mocking necessary contract methods. Need to mock for all potential tokenIds
 
-    for (let i = 1; i < topTokenId; i++) {
-      createMockedFunction(tokenAddress, 'topTokenId', 'topTokenId():(uint256)').returns([
-        ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(topTokenId)),
+    createMockedFunction(tokenAddress, 'isExPostToken', 'isExPostToken(uint256):(bool)')
+      .withArgs([ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(exPostTokenId))])
+      .returns([ethereum.Value.fromBoolean(true)])
+
+    createMockedFunction(tokenAddress, 'exAnteToExPostTokenId', 'exAnteToExPostTokenId(uint256):(uint256)')
+      .withArgs([ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(exAnteTokenId))])
+      .returns([ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(exPostTokenId))])
+
+    createMockedFunction(tokenAddress, 'projectName', 'projectName():(string)').returns([
+      ethereum.Value.fromString('Skógálfar, Álfabrekka'),
+    ])
+
+    createMockedFunction(
+      tokenAddress,
+      'exPostVintageMapping',
+      'exPostVintageMapping(uint256):(string,uint256,uint256,uint256,uint256)'
+    )
+      .withArgs([ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(exPostTokenId))])
+      .returns([
+        ethereum.Value.fromString('FCC-ISL-354-57-14-R-0-2027'),
+        ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(398)),
+        ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(1798761600)),
+        ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(1830211200)),
+        ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(0)),
       ])
-
-      createMockedFunction(tokenAddress, 'projectName', 'projectName():(string)').returns([
-        ethereum.Value.fromString('Skógálfar, Álfabrekka'),
-      ])
-
-      createMockedFunction(tokenAddress, 'isExPostToken', 'isExPostToken(uint256):(bool)')
-        .withArgs([ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(i))])
-        .returns([ethereum.Value.fromBoolean(true)])
-
-      createMockedFunction(tokenAddress, 'exAnteToExPostTokenId', 'exAnteToExPostTokenId(uint256):(uint256)')
-        .withArgs([ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(i))])
-        .returns([ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(i))])
-
-      createMockedFunction(
-        tokenAddress,
-        'exPostVintageMapping',
-        'exPostVintageMapping(uint256):(string,uint256,uint256,uint256,uint256)'
-      )
-        .withArgs([ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(i))])
-        .returns([
-          ethereum.Value.fromString('FCC-ISL-354-57-14-R-0-2027'),
-          ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(398)),
-          ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(1798761600)),
-          ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(1830211200)),
-          ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(0)),
-        ])
-    }
   })
 
   afterAll(() => {
@@ -104,20 +100,17 @@ describe('Token Creation Tests', () => {
   })
 
   test('Create ICR Token entities', () => {
-    const topTokenId = tokenContract.topTokenId()
-
     const isExPostToken = tokenContract.isExPostToken(BigInt.fromI32(exPostTokenId))
     const exAnteToExPostTokenId = tokenContract.exAnteToExPostTokenId(BigInt.fromI32(exAnteTokenId))
     const exPostVintageMapping = tokenContract.exPostVintageMapping(BigInt.fromI32(exPostTokenId))
     const projectName = tokenContract.projectName()
 
-    log.info('Top Token ID: {}', [topTokenId.toString()])
     log.info('Is Ex Post Token: {}', [isExPostToken.toString()])
     log.info('Ex Ante to Ex Post Token ID: {}', [exAnteToExPostTokenId.toString()])
     log.info('Ex Post Vintage Mapping: {}', [exPostVintageMapping.value0.toString()])
     log.info('Project Name: {}', [projectName.toString()])
 
-    createICRTokenWithCall(tokenAddress)
+    createICRTokenWithCall(tokenAddress, BigInt.fromI32(exPostTokenId))
     const id = createICRTokenID(tokenAddress, BigInt.fromI32(exPostTokenId))
 
     assert.fieldEquals('Token', id.toHexString(), 'name', 'Skógálfar, Álfabrekka')
@@ -129,9 +122,9 @@ describe('Token Creation Tests', () => {
   })
 
   test('ProjectCreated event successfully creates ICR Token entities', () => {
-    let projectCreatedEvent = createNewProjectCreateEvent(BigInt.fromString('111335577020044091155429424115574818587789787042677079110890642729072090294424'), tokenAddress, 'Skógálfar, Álfabrekka')
+    let projectCreatedEvent = createNewExPostCreatedEvent()
 
-    handleNewICC(projectCreatedEvent)
+    handleExPostCreated(projectCreatedEvent)
 
     const id = createICRTokenID(tokenAddress, BigInt.fromI32(exPostTokenId))
 
@@ -141,8 +134,5 @@ describe('Token Creation Tests', () => {
     assert.fieldEquals('Token', id.toHexString(), 'id', id.toHexString())
 
     clearStore()
-
-
   })
-
 })
