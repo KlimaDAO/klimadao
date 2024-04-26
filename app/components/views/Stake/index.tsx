@@ -1,4 +1,3 @@
-import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import { providers } from "ethers";
@@ -26,7 +25,6 @@ import {
 } from "state/user";
 
 import {
-  Anchor,
   ButtonPrimary,
   Spinner,
   Text,
@@ -39,7 +37,7 @@ import { ImageCard } from "components/ImageCard";
 import { RebaseCard } from "components/RebaseCard";
 import { TransactionModal } from "components/TransactionModal";
 
-import { addresses, urls } from "@klimadao/lib/constants";
+import { addresses } from "@klimadao/lib/constants";
 import { DisclamerModal } from "components/DisclaimerModal";
 import { tokenInfo } from "lib/getTokenInfo";
 import * as styles from "./styles";
@@ -308,14 +306,6 @@ export const Stake = (props: Props) => {
           <Text t="caption" color="lightest">
             <Trans id="stake.stake_hold_earn">
               Stake, hold, and earn compounding sKLIMA.
-            </Trans>
-          </Text>
-          <Text t="caption" color="lightest">
-            <FiberNewRoundedIcon className="new-releases-icon" />
-            <Trans id="stake.lifi">
-              Cross-chain staking is now available through{" "}
-              <Anchor href={urls.lifiStake}>LI.FI and Etherspot</Anchor>, with
-              support for multiple chains and tokens.
             </Trans>
           </Text>
         </div>
