@@ -1,9 +1,18 @@
 import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { Holding } from '../../generated/schema'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
+import { createICRTokenID } from './Token';
 
 export function loadOrCreateHolding(account: Address, token: Address, tokenId: BigInt | null): Holding {
   let id = tokenId !== null ? account.concat(token).concatI32(tokenId.toI32()) : account.concat(token)
+
+  let tokenEntityId : Bytes;
+
+  if (tokenId !== null) {
+    tokenEntityId = createICRTokenID(token, tokenId)
+  } else {
+    tokenEntityId = token
+  }
 
   let holding = Holding.load(id)
   if (holding) return holding as Holding
