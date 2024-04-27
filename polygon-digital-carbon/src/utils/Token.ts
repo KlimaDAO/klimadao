@@ -27,12 +27,14 @@ export function createICRTokenWithCall(tokenAddress: Address, tokenId: BigInt): 
 
   const isExPost = tokenContract.isExPostToken(tokenId)
 
+  let exPostTokenId: BigInt
+
   // if it's not exPost it's an exAnte. Get the equivalent exPost for the corresponding exAnte info
   if (!isExPost) {
-    const exPostTokenId = tokenContract.exAnteToExPostTokenId(tokenId)
-    tokenId = exPostTokenId
+    const exPostId = tokenContract.exAnteToExPostTokenId(tokenId)
+    exPostTokenId = exPostId
   } else {
-    tokenId = tokenId
+    exPostTokenId = tokenId
   }
 
   const id = createICRTokenID(tokenAddress, tokenId)
@@ -43,7 +45,8 @@ export function createICRTokenWithCall(tokenAddress: Address, tokenId: BigInt): 
     log.info('New ICR Token created with id {}', [id.toHexString()])
     token = new Token(id)
 
-    const mappingValues = tokenContract.exPostVintageMapping(tokenId)
+    const mappingValues = tokenContract.exPostVintageMapping(exPostTokenId)
+
     const serializationParts = mappingValues.value0.split('-')
 
     const symbol =
@@ -62,4 +65,3 @@ export function createICRTokenWithCall(tokenAddress: Address, tokenId: BigInt): 
     token.save()
   }
 }
-

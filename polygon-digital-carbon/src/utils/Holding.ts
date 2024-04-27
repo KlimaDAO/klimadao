@@ -19,7 +19,7 @@ export function loadOrCreateHolding(account: Address, token: Address, tokenId: B
 
   holding = new Holding(id)
   holding.account = account
-  holding.token = token
+  holding.token = tokenEntityId
   holding.tokenId = tokenId
   holding.amount = ZERO_BI
   holding.activeProvenanceRecords = []
