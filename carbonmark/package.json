@@ -20,9 +20,15 @@
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
     "@graphprotocol/graph-ts": "0.31.0",
+    "@types/node": "20.12.7",
     "dotenv": "16.3.1",
+    "node-fetch": "3.3.2",
     "prettier": "2.7.1",
-    "ts-node": "10.9.2"
+    "ts-node": "10.9.2",
+    "typescript": "5.4.5"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "axios": "1.6.8"
+  }
 }

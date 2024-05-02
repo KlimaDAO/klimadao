@@ -4,15 +4,6 @@ import { PROJECT_INFO } from '../Projects'
 
 require('dotenv').config()
 
-type Project = [
-  address: string,
-  projectID: string,
-  vintage: string,
-  name: string,
-  methodology: string,
-  category: string,
-  country: string
-]
 
 async function fetchCMSProject(registry: string, registryProjectId: string) {
   const { data } = await axios.post('https://l6of5nwi.apicdn.sanity.io/v1/graphql/production/default', {
@@ -55,16 +46,17 @@ async function fetchCMSProject(registry: string, registryProjectId: string) {
 }
 
 async function updateMainnetICRProjects() {
-  const updated_PROJECT_INFO: Project[] = [...PROJECT_INFO] as Project[]
-  const updatedProjects: Project[] = []
-  const limit = 50
+  const updated_PROJECT_INFO = [...PROJECT_INFO] 
+  const updatedProjects = []
+  const limit = 100
   let totalFetched = 0
+
 
   try {
     while (true) {
-      const { data } = await axios.get('https://api.carbonregistry.com/v0/public/projects/list', {
+      const { data } = await axios.get('https://api.carbonregistry.com/projects', {
         headers: {
-          Authorization: `Bearer ${process.env.ICR_MAINNET_API_KEY}`,
+          Authorization: `Bearer ${process.env.ICR_MAINNET_ACCESS_TOKEN}`,
         },
         params: {
           limit,
@@ -84,7 +76,7 @@ async function updateMainnetICRProjects() {
         const cmsInfo = await fetchCMSProject(registry, registryProjectId)
 
         for (const credit of project.carbonCredits) {
-          const newProject: Project = [
+          const newProject = [
             project.projectContracts[0].address,
             registry + '-' + registryProjectId,
             credit.vintage,
@@ -92,6 +84,8 @@ async function updateMainnetICRProjects() {
             project.methodology.id,
             cmsInfo.methodologies[0].category,
             cmsInfo.country,
+            '0',
+            'false'
           ]
 
           updatedProjects.push(newProject)

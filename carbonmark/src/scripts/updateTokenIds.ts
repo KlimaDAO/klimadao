@@ -1,17 +1,7 @@
 import axios from 'axios'
 import fs from 'fs'
 import { PROJECT_INFO } from '../Projects'
-
-type Project = [
-  address: string,
-  projectID: string,
-  vintage: string,
-  name: string,
-  methodology: string,
-  category: string,
-  country: string,
-  tokenId: string
-]
+import { ProjectInfo } from './types'
 
 type ExPost = {
   tokenId: string
@@ -57,39 +47,75 @@ async function fetchTokenIds() {
     exAntes: data.data.exAntes,
   }
 }
+// only needed for original Project_Info array that are not instances of ProjectInfo
+// function convertToProjectInfo(data: any[]): ProjectInfo[] {
+//   return data.map(
+//     (item) => new ProjectInfo(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8])
+//   )
+// }
 
 async function updateProjectsTokenIds() {
   const { exPosts, exAntes } = await fetchTokenIds()
+  // const projectInfoArray = convertToProjectInfo(PROJECT_INFO);
 
   const updatedProjects = PROJECT_INFO.map((project) => {
-    const [projectAddress, , projectVintage, ...rest] = project
-    const lowerCaseAddress = projectAddress.toLowerCase()
-
+    const lowerCaseAddress = project.address.toLowerCase()
     const foundExPost = exPosts.find(
-      (exPost: ExPost) =>
-        exPost.project.projectAddress.toLowerCase() === lowerCaseAddress && exPost.vintage === projectVintage
+      (exPost) => exPost.project.projectAddress.toLowerCase() === lowerCaseAddress && exPost.vintage === project.vintage
     )
 
     if (foundExPost) {
-      return [...project.slice(0, -1), foundExPost.tokenId]
-    } else {
-      const foundExAnte = exAntes.find((exAnte: ExAnte) => {
-        const anteVintage = exAnte.serialization.split('-').pop()
-        return exAnte.project.projectAddress.toLowerCase() === lowerCaseAddress && anteVintage === projectVintage
-      })
-
-      if (foundExAnte) {
-        return [...project.slice(0, -1), foundExAnte.tokenId]
-      }
+      return new ProjectInfo(
+        project.address,
+        project.projectId,
+        project.vintage,
+        project.name,
+        project.methodology,
+        project.category,
+        project.country,
+        foundExPost.tokenId,
+        false
+      )
     }
 
-    // console.log(`no match: ${projectAddress} ${projectVintage}`);
-    return [...project.slice(0, -1), '0']
+    const foundExAnte = exAntes.find((exAnte) => {
+      const anteVintage = exAnte.serialization.split('-').pop()
+      return exAnte.project.projectAddress.toLowerCase() === lowerCaseAddress && anteVintage === project.vintage
+    })
+
+    if (foundExAnte) {
+      return new ProjectInfo(
+        project.address,
+        project.projectId,
+        project.vintage,
+        project.name,
+        project.methodology,
+        project.category,
+        project.country,
+        foundExAnte.tokenId,
+        true
+      )
+    }
+
+    return project
   })
 
-  const newFileContents = `export const PROJECT_INFO = ${JSON.stringify(updatedProjects, null, 2)};`
+  const importStatement = 'import { ProjectInfo } from "./scripts/types";\n'
+  const arrayDeclaration = 'export const PROJECT_INFO: ProjectInfo[] = [\n'
+  const projectInstances = updatedProjects
+    .map(
+      (project) =>
+        `    new ProjectInfo('${project.address}', '${project.projectId}', '${project.vintage}', '${project.name}', '${project.methodology}', '${project.category}', '${project.country}', '${project.tokenId}', ${project.isExAnte})`
+    )
+    .join(',\n')
+  const closingBracket = '\n];'
 
-  fs.writeFileSync('../Projects.ts', newFileContents, 'utf8')
+  const finalContent = importStatement + arrayDeclaration + projectInstances + closingBracket
+
+  fs.writeFile('../Projects.ts', finalContent, 'utf8', (err) => {
+    if (err) return console.error('Failed to write file:', err)
+    console.log('Project info updated and saved successfully!')
+  })
 }
 
 updateProjectsTokenIds()
