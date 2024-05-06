@@ -6,17 +6,20 @@
   "scripts": {
     "codegen": "rm -rf ./generated && graph codegen",
     "build": "graph build",
+    "prepare-local": "startBlock=1002 npx mustache networkConfig/localhost.json subgraph.template.yaml > subgraph.yaml",
     "prepare-matic": "npx mustache networkConfig/matic.json subgraph.template.yaml > subgraph.yaml",
     "prepare-mumbai": "npx mustache networkConfig/mumbai.json subgraph.template.yaml > subgraph.yaml",
-    "create-local": "graph create --node http://127.0.0.1:8020 polygon-carbon",
-    "remove-local": "graph remove --node http://127.0.0.1:8020 polygon-carbon",
+    "create-local": "graph create --node http://127.0.0.1:8020 polygon-digital-carbon",
+    "remove-local": "graph remove --node http://127.0.0.1:8020 polygon-digital-carbon",
     "watch-local": "graph deploy --watch --debug --node http://127.0.0.1:8020/ --ipfs http://127.0.0.1:5001 polygon-carbon",
-    "deploy-local": "graph deploy --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5001 polygon-carbon",
+    "deploy-local": "graph deploy --debug-fork QmSKcyCG2B2SavJLsJjjSWLPrfUqt7BMRfLSRSTpk6WZAt --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5001 polygon-digital-carbon",
     "create-args": "graph create --node $npm_config_node polygon-carbon",
     "deploy-args": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node polygon-carbon",
     "deploy-version": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node --version-label $npm_config_label polygon-carbon",
     "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ polygon-carbon",
-    "deploy-hosted": "graph deploy --product hosted-service $npm_config_path"
+    "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
+    "deploy-tufnel": "yarn codegen && yarn build && graph deploy --studio dev-only-smart-invoice-rinkeby",
+    "deploy": "yarn prepare-local && yarn codegen && yarn build && yarn remove-local && yarn create-local && yarn deploy-local"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.69.1",
