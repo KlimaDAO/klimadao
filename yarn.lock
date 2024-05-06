@@ -4104,6 +4104,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mustache@npm:4.2.0":
+  version: 4.2.0
+  resolution: "mustache@npm:4.2.0"
+  bin:
+    mustache: bin/mustache
+  checksum: 928fcb63e3aa44a562bfe9b59ba202cccbe40a46da50be6f0dd831b495be1dd7e38ca4657f0ecab2c1a89dc7bccba0885eab7ee7c1b215830da765758c7e0506
+  languageName: node
+  linkType: hard
+
 "nanoid@npm:^3.0.2, nanoid@npm:^3.1.20, nanoid@npm:^3.1.23":
   version: 3.3.6
   resolution: "nanoid@npm:3.3.6"
@@ -4856,6 +4865,7 @@ __metadata:
   dependencies:
     "@graphprotocol/graph-cli": 0.56.0
     "@graphprotocol/graph-ts": 0.31.0
+    mustache: 4.2.0
     prettier: 2.7.1
     ts-node: ^10.9.2
   languageName: unknown
