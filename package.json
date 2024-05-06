@@ -18,7 +18,11 @@
     "clean": "rm -rf ./generated && rm -rf ./build",
     "codegen": "graph codegen",
     "build": "graph build",
-    "test": "graph test"
+    "test": "graph test",
+    "local-fork": "make local-fork",
+    "fund": "make impersonate && make transfer"
+
+
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
