@@ -20,7 +20,6 @@ export function initializePuroCredit(block: ethereum.Block): void {
   let tokenAddress = Address.fromString("0x6960cE1d21f63C4971324B5b611c4De29aCF980C")
   ToucanPuroCarbonOffsets.create(tokenAddress)
   setupNewToucanCredit(tokenAddress, 'PURO_EARTH')
-  loadOrCreateCarbonProject('PURO_EARTH', '558')
 }
 
 function setupNewToucanCredit(tokenAddress: Address, registry: string, tokenId: BigInt | null = null): void {
