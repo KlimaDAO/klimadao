@@ -57,7 +57,7 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
   let project = loadOrCreateCarbonProject(registry, attributes.value0.projectId)
 
   carbonCredit.project = project.id
-  carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.startTime)
+  carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.endTime)
   carbonCredit.save()
 
   project.methodologies = attributes.value0.methodology
