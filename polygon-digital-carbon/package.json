@@ -7,7 +7,7 @@
     "codegen": "rm -rf ./generated && graph codegen",
     "test": "graph test",
     "build": "graph build",
-    "prepare-local": "startBlock=1002 npx mustache networkConfig/localhost.json subgraph.template.yaml > subgraph.yaml",
+    "prepare-local": "npx mustache networkConfig/localhost.json subgraph.template.yaml > subgraph.yaml",
     "prepare-matic": "npx mustache networkConfig/matic.json subgraph.template.yaml > subgraph.yaml",
     "prepare-mumbai": "npx mustache networkConfig/mumbai.json subgraph.template.yaml > subgraph.yaml",
     "create-local": "graph create --node http://127.0.0.1:8020 polygon-digital-carbon",
