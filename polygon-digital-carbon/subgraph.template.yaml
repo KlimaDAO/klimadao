@@ -49,6 +49,10 @@ dataSources:
           file: ../lib/abis/ToucanCarbonOffsets.json
         - name: ERC20
           file: ../lib/abis/ERC20.json
+        - name: ToucanContractRegistry
+          file: ../lib/abis/ToucanContractRegistry.json      
+        - name: ToucanCarbonOffsetBatches
+          file: ../lib/abis/ToucanCarbonOffsetBatches.json    
       eventHandlers:
         - event: TokenCreated(uint256,address)
           handler: handleNewPuroTCO2
@@ -79,7 +83,7 @@ dataSources:
         - event: BatchUpdated(uint256,string,uint256)
           handler: handleBatchUpdated
         - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleBatchTransfer
+          handler: handleBatchTransfer   
   - kind: ethereum/contract
     name: BCT
     network: {{network}}
@@ -529,7 +533,8 @@ templates:
           handler: handleToucanPuroRetirementReverted
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleCreditTransfer
-      file: ./src/TransferHandler.ts      
+      file: ./src/TransferHandler.ts   
+         
   - name: C3ProjectToken
     kind: ethereum/contract
     network: {{network}}
