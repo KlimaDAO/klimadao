@@ -7,6 +7,7 @@ import {
   KLIMA_NBO_PAIR,
   MCO2_USDC_PAIR,
   NCT_USDC_PAIR,
+  KLIMA_NCT_PAIR,
   KLIMA_CCO2_PAIR,
 } from './Constants'
 import { Address, BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
@@ -114,6 +115,15 @@ export class PriceUtil {
       NCT_USDC_PAIR,
       this.usdcToken.getDecimals(),
       this.nctToken.getDecimals(),
+      RATE_FOR_TOKEN.SECOND
+    )
+  }
+
+  static getKLIMA_NCTRate(): BigDecimal {
+    return this.getUniV2Rate(
+      KLIMA_NCT_PAIR,
+      this.nctToken.getDecimals(),
+      this.klimaToken.getDecimals(),
       RATE_FOR_TOKEN.SECOND
     )
   }
