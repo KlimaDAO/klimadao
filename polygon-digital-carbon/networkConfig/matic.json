@@ -75,5 +75,9 @@
   "ToucanPuroFactory": {
     "address": "0x0feAD3f81B35e133f9D78F9029950cF1F6056Ea1",
     "startBlock": "46459849"
+  },
+  "ToucanContractRegistry": {
+    "address": "0x8A4d7458dDe3023A3B24225D62087701A88b09DD",
+    "startBlock": "56763843"
   }
 }
