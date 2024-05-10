@@ -234,11 +234,6 @@ type CarbonCredit @entity {
   "Puro NFT token ID linked to Puro batch"
   puroNftTokenId: BigInt
   
-  "Consumption starting timestamp"
-  consumptionPeriodStart: BigInt
-
-  "Consumption ending timestamp"
-  consumptionPeriodEnd: BigInt
 }
 
 type CarbonCreditSnapshot @entity {
