@@ -65,8 +65,6 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
   let standard = attributes.value0.standard
 
   if (standard.toLowerCase() == 'puro') {
-    carbonCredit.consumptionPeriodStart = attributes.value1.startTime
-    carbonCredit.consumptionPeriodEnd = attributes.value1.endTime
 
     // retrieve nft token id linked to batch to enable retirement
     let projectVintageTokenId = carbonCreditERC20.projectVintageTokenId()
