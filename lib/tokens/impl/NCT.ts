@@ -42,7 +42,7 @@ export class NCT implements IToken {
     if (nctMarketPrice.equals(BigDecimal.zero())) {
       return BigDecimal.zero()
     }
-    return klimaUsdPrice.div(nctMarketPrice)
+    return nctMarketPrice.div(klimaUsdPrice)
   }
 
   getTotalSupply(): BigDecimal {
