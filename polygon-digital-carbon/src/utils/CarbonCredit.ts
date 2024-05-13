@@ -60,7 +60,6 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
 
   carbonCredit.project = project.id
   carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.endTime)
-  carbonCredit.tokenId = attributes.value1.projectTokenId
 
   let standard = attributes.value0.standard
 
