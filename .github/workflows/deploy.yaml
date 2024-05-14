@@ -59,12 +59,14 @@ jobs:
       - name: Staging or not
         id: staging_or_not
         run: |
+          echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
+
           if [ $REF == "refs/heads/staging" ]
           then
               PREFIX="staging-"
           fi;
 
-          if [[ "${{ matrix.value }}" =~ .*"-carbon".* ]]
+          if [[ "${{ matrix.value }}" =~ .*"-".*"-carbon".* ]]
           then
               echo "subgraph=${PREFIX}${{ matrix.value }}" >> $GITHUB_OUTPUT
           else
@@ -73,5 +75,5 @@ jobs:
         env:
           REF: ${{ github.ref }}
       - name: Deploy Subgraph
-        run: ../node_modules/.bin/graph deploy --product hosted-service --deploy-key ${{ secrets.HOSTED_SERVICE_ACCESS_TOKEN }} klimadao/${{ steps.staging_or_not.outputs.subgraph }}
+        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.staging_or_not.outputs.subgraph }} --version-label ${{ steps.staging_or_not.outputs.short_sha }}
         working-directory: '${{ matrix.value }}'
