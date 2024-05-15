@@ -56,7 +56,7 @@ export function createICRTokenWithCall(tokenAddress: Address, tokenId: BigInt): 
       '-' +
       serializationParts[serializationParts.length - 1].toString()
 
-    token.name = tokenContract.projectName()
+    token.name = `ICR: ${symbol}`
 
     token.symbol = symbol
     token.decimals = 18
