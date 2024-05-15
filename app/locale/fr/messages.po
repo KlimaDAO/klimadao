@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-04-17 10:38+0000\n"
+"POT-Creation-Date: 2024-05-15 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -256,7 +256,7 @@ msgstr "Paiement par KLIMA"
 
 #: components/views/Bond/index.tsx:664
 msgid "bond.payout_per_klima.description_inverse"
-msgstr ""
+msgstr "Si vous émettez une obligation de 1 KLIMA, vous recevrez ce montant en USDC.e."
 
 #: components/views/Bond/index.tsx:468
 #: components/views/Bond/index.tsx:580
@@ -345,7 +345,7 @@ msgstr "Veuillez Vous Identifier ou Connecter Un Portefeuille"
 
 #: components/views/Bond/index.tsx:700
 msgid "capacity.description_inverse"
-msgstr ""
+msgstr "Voici le montant d'USDC.e disponible dans le contrat pour les obligations."
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -366,7 +366,7 @@ msgstr "⚠️ Vérifiez l'URL et mettez cette page dans vos favoris !"
 
 #: components/views/ChooseBond/index.tsx:99
 msgid "choose_bond.bct.base_carbon_tonne"
-msgstr ""
+msgstr "Tonne de Carbone Base"
 
 #: components/views/ChooseBond/index.tsx:209
 msgid "choose_bond.bond_carbon"
@@ -383,7 +383,7 @@ msgstr "Choisissez une obligation"
 
 #: components/views/ChooseBond/index.tsx:115
 msgid "choose_bond.inverse_usdc"
-msgstr ""
+msgstr "Fournissez des KLIMA, recevez des USDC.e"
 
 #: components/views/ChooseBond/index.tsx:107
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
@@ -391,7 +391,7 @@ msgstr "Liquidité Sushiswap KLIMA/BCT"
 
 #: components/views/ChooseBond/index.tsx:103
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
-msgstr ""
+msgstr "Liquidité KLIMA/USDC.e sur Sushiswap"
 
 #: components/views/ChooseBond/index.tsx:95
 msgid "choose_bond.mco2.moss_carbon_credit_token"
@@ -462,45 +462,45 @@ msgid "imagecard.new_to_klima"
 msgstr "Nouveau sur KLIMA ?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:147
+#: components/views/Info/index.tsx:155
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Ouvrez Metamask et choisissez le réseau Ethereum Mainnet"
 
 #. Long sentence
-#: components/views/Info/index.tsx:154
+#: components/views/Info/index.tsx:162
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr "2. Allez dans Paramètres/Réseaux/Polygon et cliquez sur 'supprimer'"
 
 #. Long sentence
-#: components/views/Info/index.tsx:161
+#: components/views/Info/index.tsx:169
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. Retournez sur app.klimadao.finance et choisissez le réseau principal"
 
 #. Long sentence
-#: components/views/Info/index.tsx:139
+#: components/views/Info/index.tsx:147
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "Si l'application indique \"chargement...\", il s'agit probablement d'un problème lié à la configuration de votre réseau dans Metamask. Pour résoudre ce problème :"
 
 #. Long sentence
-#: components/views/Info/index.tsx:168
+#: components/views/Info/index.tsx:176
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask devrait vous inviter à ajouter le réseau Polygon, avec la configuration RPC qui convient."
 
 #. Long sentence
-#: components/views/Info/index.tsx:134
+#: components/views/Info/index.tsx:142
 msgid "info.app_not_loading.title"
 msgstr "Pourquoi l'application ne charge-t-elle pas ?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:122
+#: components/views/Info/index.tsx:130
 msgid "info.common_app_related_questions"
 msgstr "Questions courantes concernant l'application et liens utiles. Pour des informations plus complètes sur KlimaDAO, veuillez consulter notre <0>documentation officielle</0> ."
 
-#: components/views/Info/index.tsx:119
+#: components/views/Info/index.tsx:127
 msgid "info.info_and_faq"
 msgstr "Informations et FAQ"
 
-#: components/views/Info/index.tsx:182
+#: components/views/Info/index.tsx:190
 msgid "info.official_contract_addresses"
 msgstr "Adresses officielles des contrats"
 

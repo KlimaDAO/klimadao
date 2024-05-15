@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-04-17 10:38+0000\n"
+"POT-Creation-Date: 2024-05-15 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -466,47 +466,47 @@ msgid "imagecard.new_to_klima"
 msgstr "Впервые на KLIMA?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:147
+#: components/views/Info/index.tsx:155
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Откройте Metamask и переключитесь на сеть Ethereum Mainnet."
 
 #. Long sentence
-#: components/views/Info/index.tsx:154
+#: components/views/Info/index.tsx:162
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr ""
 "2. Перейдите в Настройки/Сети/Polygon и нажмите «Удалить».\n"
 ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:161
+#: components/views/Info/index.tsx:169
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. Вернитесь на app.klimadao.finance и нажмите «переключиться на основную сеть»."
 
 #. Long sentence
-#: components/views/Info/index.tsx:139
+#: components/views/Info/index.tsx:147
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "Если приложение показывает сообщение \"загрузка...\", это, скорее всего, проблема с конфигурацией сети в Metamask. Чтобы исправить это:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:168
+#: components/views/Info/index.tsx:176
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask должен предложить вам добавить Polygon с правильной конфигурацией RPC."
 
 #. Long sentence
-#: components/views/Info/index.tsx:134
+#: components/views/Info/index.tsx:142
 msgid "info.app_not_loading.title"
 msgstr "Почему у меня не загружается приложение?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:122
+#: components/views/Info/index.tsx:130
 msgid "info.common_app_related_questions"
 msgstr "Общие вопросы, связанные с приложением, и полезные ссылки. Подробную информацию о KlimaDAO см. в нашей <0>официальной документации.</0> ."
 
-#: components/views/Info/index.tsx:119
+#: components/views/Info/index.tsx:127
 msgid "info.info_and_faq"
 msgstr "Информация и часто задаваемые вопросы"
 
-#: components/views/Info/index.tsx:182
+#: components/views/Info/index.tsx:190
 msgid "info.official_contract_addresses"
 msgstr "Официальные адреса контрактов"
 
