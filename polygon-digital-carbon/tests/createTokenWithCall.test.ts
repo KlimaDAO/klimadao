@@ -103,7 +103,7 @@ describe('Token Creation Tests', () => {
     const isExPostToken = tokenContract.isExPostToken(BigInt.fromI32(exPostTokenId))
     const exAnteToExPostTokenId = tokenContract.exAnteToExPostTokenId(BigInt.fromI32(exAnteTokenId))
     const exPostVintageMapping = tokenContract.exPostVintageMapping(BigInt.fromI32(exPostTokenId))
-    const projectName = tokenContract.projectName()
+    const projectName = `ICR: ${exPostVintageMapping.value0}`
 
     log.info('Is Ex Post Token: {}', [isExPostToken.toString()])
     log.info('Ex Ante to Ex Post Token ID: {}', [exAnteToExPostTokenId.toString()])
@@ -113,7 +113,7 @@ describe('Token Creation Tests', () => {
     createICRTokenWithCall(tokenAddress, BigInt.fromI32(exPostTokenId))
     const id = createICRTokenID(tokenAddress, BigInt.fromI32(exPostTokenId))
 
-    assert.fieldEquals('Token', id.toHexString(), 'name', 'Skógálfar, Álfabrekka')
+    assert.fieldEquals('Token', id.toHexString(), 'name', 'ICR: ICR-57-2027')
     assert.fieldEquals('Token', id.toHexString(), 'symbol', 'ICR-57-2027')
     assert.fieldEquals('Token', id.toHexString(), 'decimals', '18')
     assert.fieldEquals('Token', id.toHexString(), 'id', id.toHexString())
@@ -128,7 +128,7 @@ describe('Token Creation Tests', () => {
 
     const id = createICRTokenID(tokenAddress, BigInt.fromI32(exPostTokenId))
 
-    assert.fieldEquals('Token', id.toHexString(), 'name', 'Skógálfar, Álfabrekka')
+    assert.fieldEquals('Token', id.toHexString(), 'name', 'ICR: ICR-57-2027')
     assert.fieldEquals('Token', id.toHexString(), 'symbol', 'ICR-57-2027')
     assert.fieldEquals('Token', id.toHexString(), 'decimals', '18')
     assert.fieldEquals('Token', id.toHexString(), 'id', id.toHexString())
