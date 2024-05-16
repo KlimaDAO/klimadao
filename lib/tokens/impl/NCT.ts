@@ -4,12 +4,10 @@ import { IToken } from '../IToken'
 
 import * as constants from '../../utils/Constants'
 import { toDecimal } from '../../utils/Decimals'
-import { KLIMA } from './KLIMA'
 import { PriceUtil } from '../../utils/Price'
 
 export class NCT implements IToken {
   private contractAddress: Address = constants.NCT_ERC20_CONTRACT
-  private klimaToken: KLIMA = new KLIMA()
 
   getERC20ContractAddress(): string {
     return this.contractAddress.toHexString()
@@ -27,22 +25,11 @@ export class NCT implements IToken {
   }
 
   getMarketPrice(blockNumber: BigInt): BigDecimal {
-    return PriceUtil.getKLIMA_NCTRate()
+    throw new Error('Method not implemented.')
   }
 
   getUSDPrice(blockNumber: BigInt): BigDecimal {
-    //We are going through NCT-USD until the liquidity is removed
-    if (blockNumber.lt(constants.NCT_USDC_PAIR_REMOVE_LIQUIDITY_BLOCK)) {
-      return PriceUtil.getNCT_USDRate()
-    }
-
-    const klimaUsdPrice = this.klimaToken.getUSDPrice(blockNumber)
-    const nctMarketPrice = this.getMarketPrice(blockNumber)
-
-    if (nctMarketPrice.equals(BigDecimal.zero())) {
-      return BigDecimal.zero()
-    }
-    return nctMarketPrice.div(klimaUsdPrice)
+    return PriceUtil.getNCT_USDRate()
   }
 
   getTotalSupply(): BigDecimal {
