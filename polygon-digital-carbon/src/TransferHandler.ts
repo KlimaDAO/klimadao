@@ -1,13 +1,7 @@
-import { Address, BigInt, Bytes, ethereum, log, store } from '@graphprotocol/graph-ts'
-import {
-  ICR_MIGRATION_BLOCK,
-  ICR_MIGRATION_HASHES,
-  MCO2_ERC20_CONTRACT,
-  TOUCAN_CROSS_CHAIN_MESSENGER,
-  ZERO_ADDRESS,
-} from '../../lib/utils/Constants'
+import { Address, BigInt, Bytes, store } from '@graphprotocol/graph-ts'
+import { ICR_MIGRATION_BLOCK, ICR_MIGRATION_HASHES, MCO2_ERC20_CONTRACT, ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { Transfer } from '../generated/BCT/ERC20'
-import { loadCarbonCredit, loadOrCreateCarbonCredit, updateICRCredit } from './utils/CarbonCredit'
+import { loadOrCreateCarbonCredit, updateICRCredit } from './utils/CarbonCredit'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import {
   TransferSingle,
@@ -26,6 +20,7 @@ import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool } from './utils/Carb
 import { checkForCarbonPoolCreditSnapshot } from './utils/CarbonPoolCreditBalance'
 import { loadOrCreateEcosystem } from './utils/Ecosystem'
 import { recordProvenance } from './utils/Provenance'
+import { createICRTokenWithCall } from './utils/Token'
 
 export function handleCreditTransfer(event: Transfer): void {
   recordTransfer(
@@ -134,6 +129,7 @@ export function handleICRRetired(event: RetiredVintage): void {
 
 export function handleExPostCreated(event: ExPostCreated): void {
   updateICRCredit(event.address, event.params.tokenId, event.params.verificationPeriodStart)
+  createICRTokenWithCall(event.address, event.params.tokenId)
 }
 
 export function handleExAnteMinted(event: ExAnteMinted): void {
@@ -145,6 +141,8 @@ export function handleExAnteMinted(event: ExAnteMinted): void {
   exAnteCredit.vintage = exPostCredit.vintage
   exAnteCredit.isExAnte = true
   exAnteCredit.save()
+
+  createICRTokenWithCall(event.address, event.params.exAnteTokenId)
 }
 
 function recordTransfer(

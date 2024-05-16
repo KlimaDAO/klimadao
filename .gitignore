@@ -76,3 +76,5 @@ typings/
 # env files
 .env.local
 
+#  auto generated test files
+polygon-digital-carbon/tests/.latest.json

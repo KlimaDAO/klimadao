@@ -504,8 +504,8 @@ __metadata:
   linkType: hard
 
 "@oclif/core@npm:^2.15.0":
-  version: 2.15.0
-  resolution: "@oclif/core@npm:2.15.0"
+  version: 2.16.0
+  resolution: "@oclif/core@npm:2.16.0"
   dependencies:
     "@types/cli-progress": ^3.11.0
     ansi-escapes: ^4.3.2
@@ -535,7 +535,7 @@ __metadata:
     widest-line: ^3.1.0
     wordwrap: ^1.0.0
     wrap-ansi: ^7.0.0
-  checksum: a4ef8ad00d9bc7cb48e5847bad7def6947f913875f4b0ecec65ab423a3c2a82c87df173c709c3c25396d545f60d20d17d562c474f66230d76de43061ce22ba90
+  checksum: 40341a41200354a30492f32997cd3634ff7987ec645223746a5e22f26f7f4aed818fe4d4e0925f31946cbed68dac93ec310807c40d02160b9232915f980b7fb6
   languageName: node
   linkType: hard
 
@@ -3841,6 +3841,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"matchstick-as@npm:0.6.0":
+  version: 0.6.0
+  resolution: "matchstick-as@npm:0.6.0"
+  dependencies:
+    wabt: 1.0.24
+  checksum: 340025caf2fe677675d9e388f2726b9517dcd977e13c1d5d13517d3d72ebfe561ea849e5859df74e1ccf48559d5fe3a9bb7cce107187102ec9a3d0d677c596ff
+  languageName: node
+  linkType: hard
+
 "md5.js@npm:^1.3.4":
   version: 1.3.5
   resolution: "md5.js@npm:1.3.5"
@@ -4865,6 +4874,7 @@ __metadata:
   dependencies:
     "@graphprotocol/graph-cli": 0.56.0
     "@graphprotocol/graph-ts": 0.31.0
+    matchstick-as: 0.6.0
     mustache: 4.2.0
     prettier: 2.7.1
     ts-node: ^10.9.2
@@ -5675,6 +5685,23 @@ __metadata:
     prettier: 2.7.1
   languageName: unknown
   linkType: soft
+
+"wabt@npm:1.0.24":
+  version: 1.0.24
+  resolution: "wabt@npm:1.0.24"
+  bin:
+    wasm-decompile: bin/wasm-decompile
+    wasm-interp: bin/wasm-interp
+    wasm-objdump: bin/wasm-objdump
+    wasm-opcodecnt: bin/wasm-opcodecnt
+    wasm-strip: bin/wasm-strip
+    wasm-validate: bin/wasm-validate
+    wasm2c: bin/wasm2c
+    wasm2wat: bin/wasm2wat
+    wat2wasm: bin/wat2wasm
+  checksum: 7d404acaa0605b5cde99585839b97db37998754512d89e1c63147bc62f4bfd46484595cc8f2e8d6f9741f67206ed936336a0828a3e1e6f3d348567cda6176333
+  languageName: node
+  linkType: hard
 
 "wcwidth@npm:^1.0.1":
   version: 1.0.1

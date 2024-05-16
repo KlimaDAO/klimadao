@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "codegen": "rm -rf ./generated && graph codegen",
+    "test": "graph test",
     "build": "graph build",
     "prepare-matic": "npx mustache networkConfig/matic.json subgraph.template.yaml > subgraph.yaml",
     "prepare-mumbai": "npx mustache networkConfig/mumbai.json subgraph.template.yaml > subgraph.yaml",
