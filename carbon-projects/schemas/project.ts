@@ -76,7 +76,7 @@ export default defineType({
           { title: "Gold Standard", value: "GS" },
           { title: "EcoRegistry", value: "ECO" },
           { title: "International Carbon Registry", value: "ICR" },
-          { title: "Puro", value: "PURO" },
+          { title: "Puro", value: "PUR" },
           { title: "J-Credit", value: "JCS" },
         ],
       },
