@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-05-15 15:41+0000\n"
+"POT-Creation-Date: 2024-05-17 17:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr "स्वीकार करें और स्वीकार कर�
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Stake/index.tsx:252
+#: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:230
 msgid "Approve"
 msgstr "मंज़ूरी दें"
@@ -38,7 +38,7 @@ msgstr "क्षमता"
 msgid "Enter Quantity"
 msgstr "मात्रा दर्ज करें"
 
-#: components/views/Stake/index.tsx:242
+#: components/views/Stake/index.tsx:240
 #: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
 msgstr "मात्रा दर्ज करें"
@@ -47,7 +47,7 @@ msgstr "मात्रा दर्ज करें"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr ""
 
-#: components/views/Stake/index.tsx:247
+#: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
 msgstr "अपर्याप्त शेषराशि"
@@ -68,9 +68,9 @@ msgstr "लोड हो रहा है..."
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Stake/index.tsx:431
-#: components/views/Stake/index.tsx:438
-#: components/views/Stake/index.tsx:445
+#: components/views/Stake/index.tsx:421
+#: components/views/Stake/index.tsx:428
+#: components/views/Stake/index.tsx:435
 #: components/views/Wrap/index.tsx:207
 msgid "Loading..."
 msgstr "लोड हो रहा है..."
@@ -682,18 +682,18 @@ msgstr "भाषा बदलें"
 msgid "shared.confirming"
 msgstr "पुष्टि"
 
-#: components/views/Stake/index.tsx:237
+#: components/views/Stake/index.tsx:235
 msgid "shared.connect_wallet"
 msgstr "लोड हो रहा है..."
 
-#: components/views/Stake/index.tsx:259
-#: components/views/Stake/index.tsx:268
+#: components/views/Stake/index.tsx:257
+#: components/views/Stake/index.tsx:266
 msgid "shared.enter_amount"
 msgstr "राशि डालें"
 
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:276
+#: components/views/Stake/index.tsx:274
 #: components/views/Wrap/index.tsx:247
 msgid "shared.error"
 msgstr "ग़लती"
@@ -702,14 +702,14 @@ msgstr "ग़लती"
 #: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:154
 #: components/views/PKlima/index.tsx:149
-#: components/views/Stake/index.tsx:229
+#: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"
 msgstr "साइन इन / कनेक्ट करें"
 
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:372
+#: components/views/Stake/index.tsx:362
 #: components/views/Wrap/index.tsx:346
 msgid "shared.max"
 msgstr "अधिकतम"
@@ -718,28 +718,28 @@ msgstr "अधिकतम"
 msgid "shared.sold_out"
 msgstr "बिक चुका है"
 
-#: components/views/Stake/index.tsx:385
+#: components/views/Stake/index.tsx:375
 msgid "stake.5_day_rewards"
 msgstr "5 दिवसीय पुरस्कार"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:388
+#: components/views/Stake/index.tsx:378
 msgid "stake.5_day_rewards.tooltip"
 msgstr "कंपाउंडिंग सहित अनुमानित पुरस्कार, यदि आप 5 दिनों तक दाँव पर लगाते हैं।"
 
-#: components/views/Stake/index.tsx:401
+#: components/views/Stake/index.tsx:391
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:404
+#: components/views/Stake/index.tsx:394
 msgid "stake.akr.tooltip"
 msgstr "कंपाउंडिंग सहित वार्षिक KLIMA पुरस्कार, यदि वर्तमान इनाम दर 12 महीनों के लिए अपरिवर्तित रहे (इनाम दर परिवर्तन के अधीन हो सकती है)।"
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:78
-#: components/views/Stake/index.tsx:294
+#: components/views/Stake/index.tsx:292
 msgid "stake.balancescard.tooltip"
 msgstr "sKLIMA प्राप्त करने के लिए अपने KLIMA टोकन को दाँव पर लगाएँ। हर रिबेस के बाद, आपका sKLIMA बैलेंस दिए गए प्रतिशत के हिसाब से बढ़ जाएगा।"
 
@@ -747,26 +747,22 @@ msgstr "sKLIMA प्राप्त करने के लिए अपने 
 msgid "stake.estimated_payout"
 msgstr "अनुमानित भुगतान (sKLIMA)"
 
-#: components/views/Stake/index.tsx:415
+#: components/views/Stake/index.tsx:405
 msgid "stake.index"
 msgstr "इंडेक्स"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:418
+#: components/views/Stake/index.tsx:408
 msgid "stake.index.tooltip"
 msgstr "यदि आप लॉन्च के दिन 1 KLIMA दाँव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। लेखांकन के लिए उपयोगी।"
 
-#: components/views/Stake/index.tsx:55
+#: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.stake"
 msgstr "स्टेक राशि"
 
-#: components/views/Stake/index.tsx:59
+#: components/views/Stake/index.tsx:57
 msgid "stake.inputplaceholder.unstake"
 msgstr "अनस्टेक राशि"
-
-#: components/views/Stake/index.tsx:315
-msgid "stake.lifi"
-msgstr "क्रॉस-चेन ऑफ़सेटिंग, कई श्रृंखलाओं और टोकन के समर्थन के साथ, अब <0>LI.FI and Etherspot</0> के माध्यम से उपलब्ध है।"
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -784,26 +780,26 @@ msgstr "रिबेस करना"
 msgid "stake.rebase.info"
 msgstr "प्रोटोकॉल स्वचालित रूप से पुरस्कार बनाता और वितरित करता है। आपका भुगतान आपके sKLIMA बैलेंस का कुछेक प्रतिशत है"
 
-#: components/views/Stake/index.tsx:335
+#: components/views/Stake/index.tsx:325
 msgid "stake.stake"
 msgstr "दाँव लगाना"
 
-#: components/views/Stake/index.tsx:309
+#: components/views/Stake/index.tsx:307
 msgid "stake.stake_hold_earn"
 msgstr "दाँव पर लगाएँ, होल्ड करें, और कंपाउंडिंग sKLIMA अर्जित करें"
 
-#: components/views/Stake/index.tsx:258
-#: components/views/Stake/index.tsx:306
-#: components/views/Stake/index.tsx:471
+#: components/views/Stake/index.tsx:256
+#: components/views/Stake/index.tsx:304
+#: components/views/Stake/index.tsx:461
 msgid "stake.stake_klima"
 msgstr "KLIMA दाँव पर लगाएँ"
 
-#: components/views/Stake/index.tsx:347
+#: components/views/Stake/index.tsx:337
 msgid "stake.unstake"
 msgstr "अनस्टेक करना"
 
-#: components/views/Stake/index.tsx:267
-#: components/views/Stake/index.tsx:473
+#: components/views/Stake/index.tsx:265
+#: components/views/Stake/index.tsx:463
 msgid "stake.unstake_klima"
 msgstr "KLIMA अनस्टेक करें"
 

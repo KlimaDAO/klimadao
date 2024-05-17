@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-05-15 15:41+0000\n"
+"POT-Creation-Date: 2024-05-17 17:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr "Reconocer y aceptar"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Stake/index.tsx:252
+#: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:230
 msgid "Approve"
 msgstr "Aprobar"
@@ -38,7 +38,7 @@ msgstr "Capacidad"
 msgid "Enter Quantity"
 msgstr "Introduce la cantidad"
 
-#: components/views/Stake/index.tsx:242
+#: components/views/Stake/index.tsx:240
 #: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
 msgstr "Introduce la cantidad"
@@ -47,7 +47,7 @@ msgstr "Introduce la cantidad"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "Para los usuarios que quieran compensar el pago con un pool token, utilice <0>este sitio</0> ."
 
-#: components/views/Stake/index.tsx:247
+#: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
 msgstr "Saldo insuficiente"
@@ -68,9 +68,9 @@ msgstr "Cargando saldos..."
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Stake/index.tsx:431
-#: components/views/Stake/index.tsx:438
-#: components/views/Stake/index.tsx:445
+#: components/views/Stake/index.tsx:421
+#: components/views/Stake/index.tsx:428
+#: components/views/Stake/index.tsx:435
 #: components/views/Wrap/index.tsx:207
 msgid "Loading..."
 msgstr "Cargando..."
@@ -682,18 +682,18 @@ msgstr "Cambiar idioma"
 msgid "shared.confirming"
 msgstr "Confirmando"
 
-#: components/views/Stake/index.tsx:237
+#: components/views/Stake/index.tsx:235
 msgid "shared.connect_wallet"
 msgstr "Cargando..."
 
-#: components/views/Stake/index.tsx:259
-#: components/views/Stake/index.tsx:268
+#: components/views/Stake/index.tsx:257
+#: components/views/Stake/index.tsx:266
 msgid "shared.enter_amount"
 msgstr "Ingrese la cantidad"
 
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:276
+#: components/views/Stake/index.tsx:274
 #: components/views/Wrap/index.tsx:247
 msgid "shared.error"
 msgstr "ERROR"
@@ -702,14 +702,14 @@ msgstr "ERROR"
 #: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:154
 #: components/views/PKlima/index.tsx:149
-#: components/views/Stake/index.tsx:229
+#: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"
 msgstr "Iniciar sesión / Conectar"
 
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:372
+#: components/views/Stake/index.tsx:362
 #: components/views/Wrap/index.tsx:346
 msgid "shared.max"
 msgstr "Max"
@@ -718,28 +718,28 @@ msgstr "Max"
 msgid "shared.sold_out"
 msgstr "Agotado"
 
-#: components/views/Stake/index.tsx:385
+#: components/views/Stake/index.tsx:375
 msgid "stake.5_day_rewards"
 msgstr "Recompensas en 5 días"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:388
+#: components/views/Stake/index.tsx:378
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Recompensas aproximadas, incluyendo el compounding, en caso de hacer staking durante 5 días."
 
-#: components/views/Stake/index.tsx:401
+#: components/views/Stake/index.tsx:391
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:404
+#: components/views/Stake/index.tsx:394
 msgid "stake.akr.tooltip"
 msgstr "Recompensas KLIMA anualizadas, incluida la capitalización, en caso de que la tasa de recompensa actual se mantenga sin cambios durante 12 meses (la tasa de recompensa puede estar sujeta a cambios)."
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:78
-#: components/views/Stake/index.tsx:294
+#: components/views/Stake/index.tsx:292
 msgid "stake.balancescard.tooltip"
 msgstr "Haga staking con sus tokens KLIMA para recibir sKLIMA. Después de cada rebase, su saldo de sKLIMA aumentará en el porcentaje indicado."
 
@@ -747,26 +747,22 @@ msgstr "Haga staking con sus tokens KLIMA para recibir sKLIMA. Después de cada 
 msgid "stake.estimated_payout"
 msgstr "Pago estimado (sKLIMA)"
 
-#: components/views/Stake/index.tsx:415
+#: components/views/Stake/index.tsx:405
 msgid "stake.index"
 msgstr "Índice"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:418
+#: components/views/Stake/index.tsx:408
 msgid "stake.index.tooltip"
 msgstr "Cantidad de KLIMA que tendrías hoy si hubieras hecho staking con 1 KLIMA el día del lanzamiento. Útil para fines contables."
 
-#: components/views/Stake/index.tsx:55
+#: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.stake"
 msgstr "Cantidad para hacer staking"
 
-#: components/views/Stake/index.tsx:59
+#: components/views/Stake/index.tsx:57
 msgid "stake.inputplaceholder.unstake"
 msgstr "Cantidad para retirar"
-
-#: components/views/Stake/index.tsx:315
-msgid "stake.lifi"
-msgstr "El staking entre cadenas ya está disponible a través de <0>LI.FI y Etherspot</0>, con soporte para múltiples cadenas y tokens."
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -784,26 +780,26 @@ msgstr "Rebase"
 msgid "stake.rebase.info"
 msgstr "El protocolo mintea y distribuye automáticamente las recompensas. Su pago es un porcentaje de su saldo sKLIMA"
 
-#: components/views/Stake/index.tsx:335
+#: components/views/Stake/index.tsx:325
 msgid "stake.stake"
 msgstr "Stake"
 
-#: components/views/Stake/index.tsx:309
+#: components/views/Stake/index.tsx:307
 msgid "stake.stake_hold_earn"
 msgstr "Haz staking, holdea y gana sKLIMA."
 
-#: components/views/Stake/index.tsx:258
-#: components/views/Stake/index.tsx:306
-#: components/views/Stake/index.tsx:471
+#: components/views/Stake/index.tsx:256
+#: components/views/Stake/index.tsx:304
+#: components/views/Stake/index.tsx:461
 msgid "stake.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/views/Stake/index.tsx:347
+#: components/views/Stake/index.tsx:337
 msgid "stake.unstake"
 msgstr "Retirar"
 
-#: components/views/Stake/index.tsx:267
-#: components/views/Stake/index.tsx:473
+#: components/views/Stake/index.tsx:265
+#: components/views/Stake/index.tsx:463
 msgid "stake.unstake_klima"
 msgstr "Retirar KLIMA"
 
