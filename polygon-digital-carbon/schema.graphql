@@ -357,6 +357,9 @@ type Retire @entity {
   "Final provenance record created by this retirement"
   provenance: ProvenanceRecord
 
+  "Bridge status for retirement if applicable"
+  bridgeStatus: BridgeStatus @derivedFrom(field: "retire")
+
   ### Additional attributes if applicable ###
 
   klimaRetire: KlimaRetire @derivedFrom(field: "retire")
