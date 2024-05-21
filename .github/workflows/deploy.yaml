@@ -14,16 +14,16 @@ jobs:
       matrix:
         value:
           [
-            # 'bonds',
-            # 'carbonmark',
-            # 'protocol-metrics',
+            'bonds',
+            'carbonmark',
+            'protocol-metrics',
             'vesting',
             'user-carbon',
-            # 'pairs',
-            # 'celo-bridged-carbon',
-            # 'ethereum-bridged-carbon',
-            # 'polygon-bridged-carbon',
-            # 'polygon-digital-carbon',
+            'pairs',
+            'celo-bridged-carbon',
+            'ethereum-bridged-carbon',
+            'polygon-bridged-carbon',
+            'polygon-digital-carbon',
           ]
     steps:
       - name: Check out source repository
@@ -59,8 +59,6 @@ jobs:
       - name: Staging or not
         id: staging_or_not
         run: |
-          echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
-
           if [ $REF == "refs/heads/staging" ]
           then
               PREFIX="staging-"
@@ -75,5 +73,5 @@ jobs:
         env:
           REF: ${{ github.ref }}
       - name: Deploy Subgraph
-        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.staging_or_not.outputs.subgraph }} --version-label ${{ steps.staging_or_not.outputs.short_sha }}
+        run: ../node_modules/.bin/graph deploy --product hosted-service --deploy-key ${{ secrets.HOSTED_SERVICE_ACCESS_TOKEN }} klimadao/${{ steps.staging_or_not.outputs.subgraph }}
         working-directory: '${{ matrix.value }}'
