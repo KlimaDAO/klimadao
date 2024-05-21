@@ -354,7 +354,7 @@ type Retire @entity {
   provenance: ProvenanceRecord
 
   "Bridge status for retirement if applicable"
-  bridgeStatus: BridgeStatus @derivedFrom(field: "retire")
+  bridgeStatus: BridgeStatus
 
   ### Additional attributes if applicable ###
 

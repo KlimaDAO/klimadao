@@ -120,6 +120,7 @@ export function saveToucanPuroRetirementRequest(event: RetirementRequested): voi
   retire.consumptionCountryCode = event.params.params.consumptionCountryCode
   retire.consumptionPeriodStart = event.params.params.consumptionPeriodStart
   retire.consumptionPeriodEnd = event.params.params.consumptionPeriodEnd
+  retire.bridgeStatus = 'REQUESTED'
   retire.save()
 
   let request = loadOrCreateToucanBridgeRequest(event.params.requestId)

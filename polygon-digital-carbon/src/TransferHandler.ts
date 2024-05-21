@@ -26,6 +26,12 @@ import { checkForCarbonPoolCreditSnapshot } from './utils/CarbonPoolCreditBalanc
 import { loadOrCreateEcosystem } from './utils/Ecosystem'
 import { recordProvenance } from './utils/Provenance'
 import { createICRTokenWithCall } from './utils/Token'
+import { loadRetire } from './utils/Retire'
+import {
+  RetirementRequested,
+  RetirementFinalized,
+} from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
+import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
 
 export function handleCreditTransfer(event: Transfer): void {
   recordTransfer(
@@ -93,14 +99,10 @@ export function handleToucanPuroRetirementFinalized(event: RetirementFinalized):
   request.status = 'FINALIZED'
   request.save()
 
-  // if (request.provenance == null) {
-  //   return
-  // }
-
-  // let provenance = ProvenanceRecord.load(request.provenance)
-  // if (provenance !== null) {
-  //   provenance.receiver = ZERO_ADDRESS
-  //   provenance.save()
+  // if (request.retire !== null) {
+  //   let retire = loadRetire(request.retire)
+  //   retire.bridgeStatus = 'FINALIZED'
+  //   retire.save()
   // }
 }
 
