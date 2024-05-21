@@ -20,4 +20,4 @@ envsubst < networkConfig/localhost.json.template > networkConfig/localhost.json
 
 echo "Deploying polygon-digital-carbon"
 # Start your application
-yarn deploy
+yarn deploy:docker

@@ -5,19 +5,18 @@
    WORKDIR /usr/src/app
 
    # Copy package.json and package-lock.json
-   COPY package*.json ./
+   COPY polygon-digital-carbon/package*.json ./
+
+   COPY ../lib /usr/src/lib
 
    # Install dependencies
    RUN yarn
 
    # Copy the rest of the application code
-   COPY . .
+   COPY polygon-digital-carbon .
 
    # Install gettext
    RUN apt-get update && apt-get install -y gettext
-
-   # Copy the start script
-   COPY start.sh .
 
    # Make the script executable
    RUN chmod +x start.sh
