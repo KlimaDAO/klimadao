@@ -21,7 +21,8 @@
     "test": "graph test",
     "local-fork": "make local-fork",
     "fund": "make impersonate && make transfer",
-    "usdc": "make impersonate && make transfer_USDC"
+    "usdc": "make impersonate && make transfer_USDC",
+    "docker:build:polygon-digital-carbon": "docker build -t carbonmark/subgraphs/polygon-digital-carbon -f polygon-digital-carbon/Dockerfile ."
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
