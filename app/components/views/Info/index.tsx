@@ -3,11 +3,19 @@ import { FC } from "react";
 
 import { Anchor as A, CopyValueButton, Text } from "@klimadao/lib/components";
 import { addresses, urls } from "@klimadao/lib/constants";
+import {
+  BCTIcon,
+  KLIMABCTLPIcon,
+  KLIMAIcon,
+  MCO2Icon,
+  NBOIcon,
+  NCTIcon,
+  UBOIcon,
+} from "@klimadao/lib/resources";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { ImageCard } from "components/ImageCard";
-import { BASE_URL } from "lib/constants";
 import AddToMetaMaskButton from "./AddToMetaMaskButton";
 import * as styles from "./styles";
 
@@ -32,7 +40,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy KLIMA token address.",
     metamaskAriaLabel: "Add KLIMA token to wallet.",
     ticker: "KLIMA",
-    image: `${BASE_URL}/icons/KLIMA.png`,
+    image: KLIMAIcon.src,
     decimals: 9,
   },
   {
@@ -41,7 +49,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy sKLIMA token address.",
     metamaskAriaLabel: "Add sKLIMA token to wallet.",
     ticker: "sKLIMA",
-    image: `${BASE_URL}/icons/KLIMA.png`,
+    image: KLIMAIcon.src,
     decimals: 9,
   },
   {
@@ -50,7 +58,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy wsKLIMA token address.",
     metamaskAriaLabel: "Add wsKLIMA token to wallet.",
     ticker: "wsKLIMA",
-    image: `${BASE_URL}/icons/KLIMA.png`,
+    image: KLIMAIcon.src,
     decimals: 18,
   },
   {
@@ -59,7 +67,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy BCT token address.",
     metamaskAriaLabel: "Add BCT token to wallet.",
     ticker: "BCT",
-    image: `${BASE_URL}/icons/BCT.png`,
+    image: BCTIcon.src,
     decimals: 18,
   },
   {
@@ -68,7 +76,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy MCO2 token address.",
     metamaskAriaLabel: "Add MCO2 token to wallet.",
     ticker: "MCO2",
-    image: `${BASE_URL}/icons/MCO2.png`,
+    image: MCO2Icon.src,
     decimals: 18,
   },
   {
@@ -77,7 +85,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy UBO token address.",
     metamaskAriaLabel: "Add UBO token to wallet.",
     ticker: "UBO",
-    image: `${BASE_URL}/icons/UBO.png`,
+    image: UBOIcon.src,
     decimals: 18,
   },
   {
@@ -86,7 +94,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy NBO token address.",
     metamaskAriaLabel: "Add NBO token to wallet.",
     ticker: "NBO",
-    image: `${BASE_URL}/icons/NBO.png`,
+    image: NBOIcon.src,
     decimals: 18,
   },
   {
@@ -95,7 +103,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy NCT token address.",
     metamaskAriaLabel: "Add NCT token to wallet.",
     ticker: "NCT",
-    image: `${BASE_URL}/icons/NCT.png`,
+    image: NCTIcon.src,
     decimals: 18,
   },
   {
@@ -104,7 +112,7 @@ const addressInfo: AddressInfo[] = [
     ariaLabel: "Copy KLIMA BCT LP address.",
     metamaskAriaLabel: "Add KLIMA BCT LP to wallet.",
     ticker: "KLIMA/BCT",
-    image: `${BASE_URL}/icons/BCT-KLIMA-LP.png`,
+    image: KLIMABCTLPIcon.src,
     decimals: 18,
   },
 ];

@@ -19,7 +19,7 @@ msgstr "Acknowledge and Accept"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Stake/index.tsx:252
+#: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:230
 msgid "Approve"
 msgstr "Approve"
@@ -44,7 +44,7 @@ msgstr "Capacity"
 msgid "Enter Quantity"
 msgstr "Enter Quantity"
 
-#: components/views/Stake/index.tsx:242
+#: components/views/Stake/index.tsx:240
 #: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
 msgstr "Enter quantity"
@@ -53,7 +53,7 @@ msgstr "Enter quantity"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "For users who want to offset paying with a pool token, please use <0>this site</0>."
 
-#: components/views/Stake/index.tsx:247
+#: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
 msgstr "Insufficient balance"
@@ -74,9 +74,9 @@ msgstr "Loading balances..."
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Stake/index.tsx:431
-#: components/views/Stake/index.tsx:438
-#: components/views/Stake/index.tsx:445
+#: components/views/Stake/index.tsx:421
+#: components/views/Stake/index.tsx:428
+#: components/views/Stake/index.tsx:435
 #: components/views/Wrap/index.tsx:207
 msgid "Loading..."
 msgstr "Loading..."
@@ -468,45 +468,45 @@ msgid "imagecard.new_to_klima"
 msgstr "New to KLIMA?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:147
+#: components/views/Info/index.tsx:155
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Open Metamask and switch to Ethereum Mainnet"
 
 #. Long sentence
-#: components/views/Info/index.tsx:154
+#: components/views/Info/index.tsx:162
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr "2. Go to Settings/Networks/Polygon and click 'delete'"
 
 #. Long sentence
-#: components/views/Info/index.tsx:161
+#: components/views/Info/index.tsx:169
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. Return to app.klimadao.finance and click 'switch to mainnet'."
 
 #. Long sentence
-#: components/views/Info/index.tsx:139
+#: components/views/Info/index.tsx:147
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "If the app says 'loading...' this is likely a problem with your network configuration in Metamask. To fix this:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:168
+#: components/views/Info/index.tsx:176
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask should prompt you to add Polygon, with the correct RPC configuration."
 
 #. Long sentence
-#: components/views/Info/index.tsx:134
+#: components/views/Info/index.tsx:142
 msgid "info.app_not_loading.title"
 msgstr "Why won't the app load for me?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:122
+#: components/views/Info/index.tsx:130
 msgid "info.common_app_related_questions"
 msgstr "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
 
-#: components/views/Info/index.tsx:119
+#: components/views/Info/index.tsx:127
 msgid "info.info_and_faq"
 msgstr "Info & FAQ"
 
-#: components/views/Info/index.tsx:182
+#: components/views/Info/index.tsx:190
 msgid "info.official_contract_addresses"
 msgstr "Official Contract Addresses"
 
@@ -688,18 +688,18 @@ msgstr "Change language"
 msgid "shared.confirming"
 msgstr "Confirming"
 
-#: components/views/Stake/index.tsx:237
+#: components/views/Stake/index.tsx:235
 msgid "shared.connect_wallet"
 msgstr "Loading..."
 
-#: components/views/Stake/index.tsx:259
-#: components/views/Stake/index.tsx:268
+#: components/views/Stake/index.tsx:257
+#: components/views/Stake/index.tsx:266
 msgid "shared.enter_amount"
 msgstr "Enter Amount"
 
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:276
+#: components/views/Stake/index.tsx:274
 #: components/views/Wrap/index.tsx:247
 msgid "shared.error"
 msgstr "ERROR"
@@ -708,14 +708,14 @@ msgstr "ERROR"
 #: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:154
 #: components/views/PKlima/index.tsx:149
-#: components/views/Stake/index.tsx:229
+#: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"
 msgstr "Login / Connect"
 
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:372
+#: components/views/Stake/index.tsx:362
 #: components/views/Wrap/index.tsx:346
 msgid "shared.max"
 msgstr "Max"
@@ -724,28 +724,28 @@ msgstr "Max"
 msgid "shared.sold_out"
 msgstr "Sold Out"
 
-#: components/views/Stake/index.tsx:385
+#: components/views/Stake/index.tsx:375
 msgid "stake.5_day_rewards"
 msgstr "5 Day Rewards"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:388
+#: components/views/Stake/index.tsx:378
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Approximate rewards, including compounding, should you remain staked for 5 days."
 
-#: components/views/Stake/index.tsx:401
+#: components/views/Stake/index.tsx:391
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:404
+#: components/views/Stake/index.tsx:394
 msgid "stake.akr.tooltip"
 msgstr "Annualized KLIMA Rewards, including compounding, should the current reward rate remain unchanged for 12 months (reward rate may be subject to change)."
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:78
-#: components/views/Stake/index.tsx:294
+#: components/views/Stake/index.tsx:292
 msgid "stake.balancescard.tooltip"
 msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."
 
@@ -753,26 +753,22 @@ msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLI
 msgid "stake.estimated_payout"
 msgstr "Est. payout (sKLIMA)"
 
-#: components/views/Stake/index.tsx:415
+#: components/views/Stake/index.tsx:405
 msgid "stake.index"
 msgstr "Index"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:418
+#: components/views/Stake/index.tsx:408
 msgid "stake.index.tooltip"
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
 
-#: components/views/Stake/index.tsx:55
+#: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.stake"
 msgstr "Amount to stake"
 
-#: components/views/Stake/index.tsx:59
+#: components/views/Stake/index.tsx:57
 msgid "stake.inputplaceholder.unstake"
 msgstr "Amount to unstake"
-
-#: components/views/Stake/index.tsx:315
-msgid "stake.lifi"
-msgstr "Cross-chain staking is now available through <0>LI.FI and Etherspot</0>, with support for multiple chains and tokens."
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -790,26 +786,26 @@ msgstr "Rebase"
 msgid "stake.rebase.info"
 msgstr "The protocol automatically mints and distributes rewards. Your payout is a percentage of your sKLIMA balance"
 
-#: components/views/Stake/index.tsx:335
+#: components/views/Stake/index.tsx:325
 msgid "stake.stake"
 msgstr "Stake"
 
-#: components/views/Stake/index.tsx:309
+#: components/views/Stake/index.tsx:307
 msgid "stake.stake_hold_earn"
 msgstr "Stake, hold, and earn compounding sKLIMA."
 
-#: components/views/Stake/index.tsx:258
-#: components/views/Stake/index.tsx:306
-#: components/views/Stake/index.tsx:471
+#: components/views/Stake/index.tsx:256
+#: components/views/Stake/index.tsx:304
+#: components/views/Stake/index.tsx:461
 msgid "stake.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/views/Stake/index.tsx:347
+#: components/views/Stake/index.tsx:337
 msgid "stake.unstake"
 msgstr "Unstake"
 
-#: components/views/Stake/index.tsx:267
-#: components/views/Stake/index.tsx:473
+#: components/views/Stake/index.tsx:265
+#: components/views/Stake/index.tsx:463
 msgid "stake.unstake_klima"
 msgstr "Unstake KLIMA"
 

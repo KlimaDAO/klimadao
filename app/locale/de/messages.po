@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-04-17 10:38+0000\n"
+"POT-Creation-Date: 2024-05-17 18:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr "Bestätigen und akzeptieren"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Stake/index.tsx:252
+#: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:230
 msgid "Approve"
 msgstr "Genehmigen"
@@ -38,7 +38,7 @@ msgstr "Kapazität"
 msgid "Enter Quantity"
 msgstr "Menge angeben"
 
-#: components/views/Stake/index.tsx:242
+#: components/views/Stake/index.tsx:240
 #: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
 msgstr "Menge eingeben"
@@ -47,7 +47,7 @@ msgstr "Menge eingeben"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "Nutzerinnen und Nutzer, die ihren CO2-Fußabdruck mit einem Pool-Token ausgleichen möchten, können <0>diese Seite</0> verwenden."
 
-#: components/views/Stake/index.tsx:247
+#: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
 msgstr "Unzureichendes Guthaben"
@@ -68,9 +68,9 @@ msgstr "Guthaben wird geladen..."
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Stake/index.tsx:431
-#: components/views/Stake/index.tsx:438
-#: components/views/Stake/index.tsx:445
+#: components/views/Stake/index.tsx:421
+#: components/views/Stake/index.tsx:428
+#: components/views/Stake/index.tsx:435
 #: components/views/Wrap/index.tsx:207
 msgid "Loading..."
 msgstr "Lade..."
@@ -464,45 +464,45 @@ msgid "imagecard.new_to_klima"
 msgstr "Neu bei KLIMA?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:147
+#: components/views/Info/index.tsx:155
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Metamask öffnen und zu Ethereum Mainnet wechseln"
 
 #. Long sentence
-#: components/views/Info/index.tsx:154
+#: components/views/Info/index.tsx:162
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr "2. Gehe nach Einstellungen -> Netzwerke -> Polygon und klicke \"Löschen\"."
 
 #. Long sentence
-#: components/views/Info/index.tsx:161
+#: components/views/Info/index.tsx:169
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "Gehe zurück nach app.klimadao.finance und klicke auf \"Wechsel zum Mainnet\"."
 
 #. Long sentence
-#: components/views/Info/index.tsx:139
+#: components/views/Info/index.tsx:147
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "Falls die App \"Laden...\" anzeigt, liegt wahrscheinlich ein Problem der Netzwerkkonfiguration in Metamask vor. Löse dies wie folgt:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:168
+#: components/views/Info/index.tsx:176
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask sollte dich dazu auffordern, Polygon mit der korrekten RPC-Konfiguration hinzuzufügen."
 
 #. Long sentence
-#: components/views/Info/index.tsx:134
+#: components/views/Info/index.tsx:142
 msgid "info.app_not_loading.title"
 msgstr "Warum lädt die App nicht?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:122
+#: components/views/Info/index.tsx:130
 msgid "info.common_app_related_questions"
 msgstr "Häufige Fragen zur App und nützliche Links. Umfassende Informationen zu KlimaDAO findest du in unserer <0>offiziellen Dokumentation</0>."
 
-#: components/views/Info/index.tsx:119
+#: components/views/Info/index.tsx:127
 msgid "info.info_and_faq"
 msgstr "Info & FAQ"
 
-#: components/views/Info/index.tsx:182
+#: components/views/Info/index.tsx:190
 msgid "info.official_contract_addresses"
 msgstr "Offizielle Vertragsadressen"
 
@@ -686,18 +686,18 @@ msgstr "Sprache wechseln"
 msgid "shared.confirming"
 msgstr "Bestätigen..."
 
-#: components/views/Stake/index.tsx:237
+#: components/views/Stake/index.tsx:235
 msgid "shared.connect_wallet"
 msgstr "Lade..."
 
-#: components/views/Stake/index.tsx:259
-#: components/views/Stake/index.tsx:268
+#: components/views/Stake/index.tsx:257
+#: components/views/Stake/index.tsx:266
 msgid "shared.enter_amount"
 msgstr "Menge eingeben"
 
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:276
+#: components/views/Stake/index.tsx:274
 #: components/views/Wrap/index.tsx:247
 msgid "shared.error"
 msgstr "FEHLER"
@@ -706,14 +706,14 @@ msgstr "FEHLER"
 #: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:154
 #: components/views/PKlima/index.tsx:149
-#: components/views/Stake/index.tsx:229
+#: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"
 msgstr "Anmelden / Verbinden"
 
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:372
+#: components/views/Stake/index.tsx:362
 #: components/views/Wrap/index.tsx:346
 msgid "shared.max"
 msgstr "Max"
@@ -722,28 +722,28 @@ msgstr "Max"
 msgid "shared.sold_out"
 msgstr "Ausverkauft"
 
-#: components/views/Stake/index.tsx:385
+#: components/views/Stake/index.tsx:375
 msgid "stake.5_day_rewards"
 msgstr "ROI über fünf Tage"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:388
+#: components/views/Stake/index.tsx:378
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Ungefähre Belohnungen inklusive Zinseszinseffekt, falls du über fünf Tage gestaket bleibst."
 
-#: components/views/Stake/index.tsx:401
+#: components/views/Stake/index.tsx:391
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:404
+#: components/views/Stake/index.tsx:394
 msgid "stake.akr.tooltip"
 msgstr "Jährliche KLIMA-Belohnungen, Zinseszinseffekte inbegriffen, sofern die aktuelle Belohnungsrate über zwölf Monate identisch bleibt (Rate kann sich ändern)."
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:78
-#: components/views/Stake/index.tsx:294
+#: components/views/Stake/index.tsx:292
 msgid "stake.balancescard.tooltip"
 msgstr "Stake deine KLIMA-Tokens, um sKLIMA zu erhalten. Nach jedem Rebase wird dein sKLIMA um die angegebene Prozentwahl wachsen."
 
@@ -751,26 +751,22 @@ msgstr "Stake deine KLIMA-Tokens, um sKLIMA zu erhalten. Nach jedem Rebase wird 
 msgid "stake.estimated_payout"
 msgstr "Geschätzte Auszahlung (sKLIMA)"
 
-#: components/views/Stake/index.tsx:415
+#: components/views/Stake/index.tsx:405
 msgid "stake.index"
 msgstr "Index"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:418
+#: components/views/Stake/index.tsx:408
 msgid "stake.index.tooltip"
 msgstr "Menge an KLIMA, die du heute hättest, wenn du 1 KLIMA am Starttag gestaket hättest. Nützlich für Buchführungszwecke."
 
-#: components/views/Stake/index.tsx:55
+#: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.stake"
 msgstr "Zu stakende Menge"
 
-#: components/views/Stake/index.tsx:59
+#: components/views/Stake/index.tsx:57
 msgid "stake.inputplaceholder.unstake"
 msgstr "Zu unstakende Menge"
-
-#: components/views/Stake/index.tsx:315
-msgid "stake.lifi"
-msgstr "Cross-Chain-CO2-Ausgleich wird durch <0>LI.FI und Etherspot</0> ermöglicht. Zahlreiche Blockchains und Tokens werden unterstützt."
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -788,26 +784,26 @@ msgstr "Rebase"
 msgid "stake.rebase.info"
 msgstr "Das Protokoll generiert und verteilt automatisch Belohnungen. Deine Auszahlung wird als Prozentsatz deines sKLIMA-Guthabens berechnet."
 
-#: components/views/Stake/index.tsx:335
+#: components/views/Stake/index.tsx:325
 msgid "stake.stake"
 msgstr "Staken"
 
-#: components/views/Stake/index.tsx:309
+#: components/views/Stake/index.tsx:307
 msgid "stake.stake_hold_earn"
 msgstr "Stake, behalte und verdiene automatisch verzinstes sKLIMA."
 
-#: components/views/Stake/index.tsx:258
-#: components/views/Stake/index.tsx:306
-#: components/views/Stake/index.tsx:471
+#: components/views/Stake/index.tsx:256
+#: components/views/Stake/index.tsx:304
+#: components/views/Stake/index.tsx:461
 msgid "stake.stake_klima"
 msgstr "KLIMA staken"
 
-#: components/views/Stake/index.tsx:347
+#: components/views/Stake/index.tsx:337
 msgid "stake.unstake"
 msgstr "Unstaken"
 
-#: components/views/Stake/index.tsx:267
-#: components/views/Stake/index.tsx:473
+#: components/views/Stake/index.tsx:265
+#: components/views/Stake/index.tsx:463
 msgid "stake.unstake_klima"
 msgstr "KLIMA unstaken"
 
