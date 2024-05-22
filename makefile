@@ -21,26 +21,25 @@ local-fork:
 	anvil --fork-url $(POLYGON_URL) --host 0.0.0.0 --no-storage-caching
 
 impersonate:
-	cast rpc anvil_impersonateAccount ${PURO_TOKEN_HOLDER}
+	$(eval RPC_URL := $(shell grep '^RPC_URL' .env | cut -d '=' -f2))
+	cast rpc anvil_impersonateAccount ${PURO_TOKEN_HOLDER} --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount ${OTHER_HOLDER}
+	cast rpc anvil_impersonateAccount ${OTHER_HOLDER} --rpc-url ${RPC_URL}
 	
 	# impersonate kraken
-	cast rpc anvil_impersonateAccount ${KRAKEN}
+	cast rpc anvil_impersonateAccount ${KRAKEN} --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount ${ANVIL_PUBLIC_WALLET}
+	cast rpc anvil_impersonateAccount ${ANVIL_PUBLIC_WALLET} --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount ${DIAMOND_OWNER}
+	cast rpc anvil_impersonateAccount ${DIAMOND_OWNER} --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount ${TEST_DIAMOND_OWNER}
-	
+	cast rpc anvil_impersonateAccount ${TEST_DIAMOND_OWNER} --rpc-url ${RPC_URL}
 
 transfer:
-	cast send 0x6960cE1d21f63C4971324B5b611c4De29aCF980C --unlocked --from ${PURO_TOKEN_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 3000000000000000000 --rpc-url http://localhost:8545
+	$(eval RPC_URL := $(shell grep '^RPC_URL' .env | cut -d '=' -f2))
+	cast send 0x6960cE1d21f63C4971324B5b611c4De29aCF980C --unlocked --from ${PURO_TOKEN_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 3000000000000000000 --rpc-url ${RPC_URL}
 
-	cast send 0x6960cE1d21f63C4971324B5b611c4De29aCF980C --unlocked --from ${OTHER_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 2000000000000000000 --rpc-url http://localhost:8545
-		
-	
+	cast send 0x6960cE1d21f63C4971324B5b611c4De29aCF980C --unlocked --from ${OTHER_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 2000000000000000000 --rpc-url ${RPC_URL}
 
 usdc_transfer:
 	cast send ${USDC} --unlocked --from ${KRAKEN} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 500000000000
