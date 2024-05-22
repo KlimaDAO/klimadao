@@ -20,9 +20,7 @@ import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
-import Payment from "@mui/icons-material/Payment";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
-import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
@@ -154,28 +152,12 @@ export const NavMenu: FC<Props> = (props) => {
         <div className="hr" />
       </div>
       <MenuButton
-        isActive={pathname === "/buy"}
-        href={"/buy"}
-        icon={<Payment />}
-        onClick={handleHide}
-      >
-        <Trans id="menu.buy_klima">Buy KLIMA</Trans>
-      </MenuButton>
-      <MenuButton
         isActive={pathname === "/stake"}
         href="/stake"
         icon={<LibraryAddOutlined />}
         onClick={handleHide}
       >
         <Trans id="menu.stake_klima">Stake KLIMA</Trans>
-      </MenuButton>
-      <MenuButton
-        isActive={pathname.includes("/bond")}
-        href="/bonds"
-        icon={<SpaOutlined />}
-        onClick={handleHide}
-      >
-        <Trans id="menu.bond_carbon">Bond Carbon</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname === "/wrap"}
