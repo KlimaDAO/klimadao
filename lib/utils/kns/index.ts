@@ -1,33 +1,14 @@
 import { Domain } from "../../types/domains";
 import { getContract } from "../getContract";
-import { getIsValidAddress } from "../getIsValidAddress";
 import { getStaticProvider } from "../getStaticProvider";
-
-// https://www.kns.earth/#/
-export const isKNSDomain = (domain: string): boolean =>
-  !!domain && domain.toLowerCase().includes(".klima");
 
 // Use this import and overwrite your provider if needed with
 // import { KNSContract } from '...'
 // KNSContract.provider = myProvider;
-export const KNSContract = getContract({
+const KNSContract = getContract({
   contractName: "klimaNameService",
   provider: getStaticProvider(),
 });
-
-export const getAddressByKNS = async (domain: string): Promise<string> => {
-  try {
-    const strippedDomain = domain.replace(".klima", "");
-    const address = await KNSContract.getDomainHolder(strippedDomain);
-    if (!getIsValidAddress(address)) {
-      throw new Error("Not a valid KNS address");
-    }
-    return address;
-  } catch (e) {
-    console.error("Error in getAddressByKNS", e);
-    return Promise.reject(e);
-  }
-};
 
 // Resolves kns domain for profile image
 export const getKNSProfile = async (params: {

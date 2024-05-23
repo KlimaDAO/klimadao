@@ -17,7 +17,7 @@ import { polygonNetworks, urls } from "../../constants";
 import { isTestnetChainId } from "../isTestnetChainId";
 
 /** Type guards for convenience and readability */
-export const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
+const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
   !!p && "isTorus" in p && p.isTorus;
 
 const isWalletConnectProvider = (
