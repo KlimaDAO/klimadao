@@ -10,14 +10,14 @@ import { Text } from "../../Text";
 import * as styles from "./styles";
 
 export const Home = () => {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState("0");
   const [retirementMessage, setRetirementMessage] = useState(
     "Doing my part to support climate action"
   );
   const [pool, setPool] = useState<RedeemablePoolToken>("bct"); // only support bct initially...
   const [isPoolTokenModalOpen, setPoolTokenModalOpen] = useState(false);
 
-  const handleQuantityChange = (value: number) => {
+  const handleQuantityChange = (value: string) => {
     const valueToWholeNumber = Math.ceil(Number(value)).toString();
     setQuantity(valueToWholeNumber);
   };

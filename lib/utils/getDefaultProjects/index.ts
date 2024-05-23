@@ -43,12 +43,3 @@ const knownDefaultProjects = defaultProjects
 
 export const isDefaultProjectAddress = (projectAddress: string): boolean =>
   knownDefaultProjects.includes(projectAddress.toLowerCase());
-
-export const getPoolNameFromAddress = (
-  projectAddress: string
-): PoolToken | null => {
-  if (!isDefaultProjectAddress(projectAddress)) return null;
-  return (
-    defaultProjects.find((d) => d.address === projectAddress)?.pool || null
-  );
-};

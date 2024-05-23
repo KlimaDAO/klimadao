@@ -59,7 +59,7 @@ export const getRedeemAllowances = (params: {
 
       dispatch(updateAllowances(allowances));
     } catch (error: any) {
-      console.error("Error in getRetirementAllowances: ", error);
+      console.error("Error in getRedeemAllowances: ", error);
       throw error;
     }
   };
