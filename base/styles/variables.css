@@ -1,0 +1,42 @@
+:root {
+  --klima-green: #00cc33;
+  --klima-blue: #0ba1ff;
+  --gray: rgb(160, 160, 160);
+  --dark-gray: rgb(100, 100, 100);
+  --warn: #fc3503;
+  --white: #ffffff;
+  --font-family: Inter, sans-serif;
+  --font-family-secondary: Poppins, sans-serif;
+  --border-radius: 0.4rem;
+  --header-height: 6.4rem; /* We override this on desktop breakpoints in globals.css */
+  --shadow-01: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-02: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-03: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  --shadow-04: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  --shadow-05: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  --shadow-06: 0px 4.2px 37px rgba(0, 0, 0, 0.08);
+  --shadow-07: 0 4px 28px 0 rgba(0, 0, 0, 0.06);
+}
+
+body,
+body[data-theme="theme-light"] {
+  --surface-01: #ffffff;
+  --surface-02: #f5f5f7;
+  --surface-03: #f4f4f4;
+  --surface-04: rgba(0, 0, 0, 0.2);
+  --font-01: #313131;
+  --font-02: #767676;
+  --font-03: #a1a1a1;
+  --shadow-light: var(--shadow-07);
+}
+
+body[data-theme="theme-dark"] {
+  --surface-01: #2a2a2a;
+  --surface-02: #202020;
+  --surface-03: #303030;
+  --surface-04: rgba(255, 255, 255, 0.2);
+  --font-01: #ffffff;
+  --font-02: #dddddd;
+  --font-03: #9c9c9c;
+  --shadow-light: var(--shadow-04);
+}

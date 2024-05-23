@@ -1,0 +1,35 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "destinationChain",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "usdcAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "retirementData",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "traceId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "fallbackRecipient",
+        "type": "address"
+      }
+    ],
+    "name": "nativeUsdcDefaultRetirement",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
