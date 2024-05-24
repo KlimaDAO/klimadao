@@ -1,0 +1,35 @@
+name: Wait for Commit Status
+on:
+  workflow_call:
+    inputs:
+      branch:
+        required: true
+        type: string
+    secrets:
+      GH_TOKEN:
+        required: true
+    outputs:
+      status:
+        description: "The final status after all checks"
+        value: ${{ jobs.wait_for_status.outputs.status }}
+
+jobs:
+  wait_for_status:
+    runs-on: ubuntu-latest
+    name: Wait Status
+    outputs:
+      status: ${{ steps.status_check.outputs.status }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install action package
+        run: cd ./.github/actions/check-status && npm install && npm run build
+
+      - name: Run action
+        uses: ./.github/actions/check-status
+        id: status_check
+        with:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          timeoutSeconds: 360
+          ref: ${{ inputs.branch }}
