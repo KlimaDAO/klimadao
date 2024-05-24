@@ -679,10 +679,10 @@ export const Offset = (props: Props) => {
           </Text>
           <Text t="caption" color="lightest">
             <Trans>
-              Pay with fiat or crypto, or retire credits you already own. Your
-              message and data will be permanently inscribed on the blockchain.
-              Learn more about supported tokens in our{" "}
-              <A href={urls.officialDocs}>docs</A>.
+              Visit our <A href={urls.officialDocs}>docs</A> to learn how to
+              integrate carbon credit retirement into your application, or visit
+              <A href="https://carbonmark.com/projects">Carbonmark</A> to
+              explore project details.
             </Trans>
           </Text>
         </div>
