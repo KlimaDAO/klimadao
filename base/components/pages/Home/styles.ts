@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
   position: relative;
@@ -46,11 +47,14 @@ export const ctaCard = css`
   border-radius: 1.2rem;
   grid-column: 1 / 3;
   padding-top: 2.4rem;
-  max-width: 50%;
   margin: 1rem auto;
   .hr {
     height: 0.2rem;
     background-color: #202020;
+  }
+
+  ${breakpoints.desktop} {
+    max-width: 50%;
   }
 `;
 
@@ -106,13 +110,17 @@ export const stakeCard_ui = css`
   display: grid;
   gap: 4.8rem;
   padding: 3.2rem;
-  width: 48rem;
-  max-width: 48rem;
+  width: 100%;
   justify-self: center;
   align-items: center;
   border: 2px solid #303030;
   padding: 2.4rem;
   border-radius: 1.2rem;
+
+  ${breakpoints.medium} {
+    width: 48rem;
+    max-width: 48rem;
+  }
 `;
 
 export const inputsContainer = css`
