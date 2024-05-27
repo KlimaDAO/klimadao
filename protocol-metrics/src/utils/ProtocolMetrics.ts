@@ -380,13 +380,13 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     let total_lp = toDecimal(klimanboUNIV2.totalSupply(), 18)
     let ownedLP = treasuryKLIMANBO.tokenBalance.div(total_lp)
     let reserves = klimanboUNIV2.getReserves()
-    let reserves0 = toDecimal(reserves.value0, 18)
-    let reserves1 = toDecimal(reserves.value1, 9)
+    let reserves0 = toDecimal(reserves.value0, 9)
+    let reserves1 = toDecimal(reserves.value1, 18)
     let kValue = parseFloat(reserves0.times(reserves1).toString())
     treasuryKLIMANBO.POL = ownedLP
 
     // Percent of Carbon in LP owned by the treasury
-    treasuryKLIMANBO.carbonBalance = reserves0.times(ownedLP)
+    treasuryKLIMANBO.carbonBalance = reserves1.times(ownedLP)
     treasuryKLIMANBO.carbonCustodied = BigDecimal.fromString((2 * Math.sqrt(kValue)).toString()).times(ownedLP)
     treasuryKLIMANBO.marketValue = treasuryKLIMANBO.carbonBalance.times(nboUsdPrice).times(BigDecimal.fromString('2'))
   }
@@ -407,13 +407,13 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     let total_lp = toDecimal(klimanctUNIV2.totalSupply(), 18)
     let ownedLP = treasuryKLIMANCT.tokenBalance.div(total_lp)
     let reserves = klimanctUNIV2.getReserves()
-    let reserves0 = toDecimal(reserves.value0, 18)
-    let reserves1 = toDecimal(reserves.value1, 9)
+    let reserves0 = toDecimal(reserves.value0, 9)
+    let reserves1 = toDecimal(reserves.value1, 18)
     let kValue = parseFloat(reserves0.times(reserves1).toString())
     treasuryKLIMANCT.POL = ownedLP
 
     // Percent of Carbon in LP owned by the treasury
-    treasuryKLIMANCT.carbonBalance = reserves0.times(ownedLP)
+    treasuryKLIMANCT.carbonBalance = reserves1.times(ownedLP)
     treasuryKLIMANCT.carbonCustodied = BigDecimal.fromString((2 * Math.sqrt(kValue)).toString()).times(ownedLP)
     treasuryKLIMANCT.marketValue = treasuryKLIMANCT.carbonBalance.times(nctUsdPrice).times(BigDecimal.fromString('2'))
   }
@@ -499,10 +499,10 @@ function getKlimaAmountFromLP(transaction: Transaction): BigDecimal {
     totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_UBO_PAIR, klimaToken, false))
   }
   if (transaction.blockNumber.gt(KLIMA_NBO_PAIR_BLOCK)) {
-    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NBO_PAIR, klimaToken, true))
+    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NBO_PAIR, klimaToken, false))
   }
   if (transaction.blockNumber.gt(KLIMA_NCT_PAIR_BLOCK)) {
-    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NCT_PAIR, klimaToken, true))
+    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NCT_PAIR, klimaToken, false))
   }
   if (transaction.blockNumber.gt(KLIMA_CCO2_PAIR_BLOCK)) {
     totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_CCO2_PAIR, klimaToken, true))
