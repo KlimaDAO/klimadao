@@ -278,41 +278,6 @@ export const offsetCompatibility: CompatMap = {
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
-const GRAPH_API_KEY = process.env.GRAPH_API_KEY;
-const SUBGRAPH_BASE_URL =
-  "https://gateway-arbitrum.network.thegraph.com/api/" +
-  GRAPH_API_KEY +
-  "/subgraphs/id/";
-// const SUBGRAPH_DEV_URL = "https://api.studio.thegraph.com/query/71975";
-// const SUBGRAPH_VERSION_SUFFIX = "version/latest";
-const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
-const SUBGRAPH_URL_ID = "https://api.thegraph.com/subgraphs/id";
-
-const POLYGON_DIGITAL_CARBON_SG_ID = "";
-const USER_CARBON_SG_ID = "";
-const CARBONMARK_SG_ID = "";
-
-export let subgraphs: object;
-if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production") {
-  subgraphs = {
-    // TODO: switch to prod decentralized network URLs
-    polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
-    userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
-    carbonmark: `${SUBGRAPH_URL_ID}/QmT2YkGwTqvek54VsGkfurGLrGGKgkwcK6TLotvkjpF4Mz`,
-  };
-} else {
-  subgraphs = {
-    polygonDigitalCarbon: `${SUBGRAPH_BASE_URL}${POLYGON_DIGITAL_CARBON_SG_ID}`,
-    userCarbon: `${SUBGRAPH_BASE_URL}${USER_CARBON_SG_ID}`,
-    carbonmark: `${SUBGRAPH_BASE_URL}${CARBONMARK_SG_ID}`,
-
-    // TODO: switch back to dev URLs
-    // polygonDigitalCarbon: `${SUBGRAPH_DEV_URL}/staging-polygon-digital-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
-    // userCarbon: `${SUBGRAPH_DEV_URL}/staging-klimadao-user-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
-    // carbonmark: `${SUBGRAPH_DEV_URL}/staging-klimadao-carbonmark/${SUBGRAPH_VERSION_SUFFIX}`,
-  };
-}
-
 /** Definitions of available registries */
 export const REGISTRIES = {
   Verra: {
