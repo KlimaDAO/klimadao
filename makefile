@@ -1,5 +1,7 @@
 .PHONY: local-fork
 
+PURO_TOKEN = 0x6960cE1d21f63C4971324B5b611c4De29aCF980C
+
 PURO_TOKEN_HOLDER = 0x89DCA1d490aa6e4e7404dC7a55408519858895FE
 
 OTHER_HOLDER=0xE32bb999851587b53d170C0A130cCE7f542c754d
@@ -21,6 +23,8 @@ ANVIL_PUBLIC_WALLET = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 TCO2 = 0xb139c4cc9d20a3618e9a2268d73eff18c496b991
 
 TCO2_HOLDER = 0x34798dd650DD478a801Fc1b0125cD6848F52F693
+
+MARKETPLACE = 0x7B51dBc2A8fD98Fe0924416E628D5755f57eB821
 
 local-fork:
 	$(eval POLYGON_URL := $(shell grep '^POLYGON_URL' .env | cut -d '=' -f2))
@@ -84,6 +88,12 @@ transfer:
 	cast send ${TCO2} --unlocked --from ${TCO2_HOLDER} "approve(address,uint256)(bool)" ${DIAMOND} 8224922846527844 --rpc-url http://localhost:8545
 
 	cast send ${TCO2} --unlocked --from ${TCO2_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 8224922846527844 --rpc-url http://localhost:8545
+
+create_listing:
+
+	cast send ${PURO_TOKEN} --unlocked --from ${ANVIL_PUBLIC_WALLET} "approve(address,uint256)(bool)" ${MARKETPLACE} 5000000000000000000 --rpc-url http://localhost:8545
+
+	cast send ${MARKETPLACE} --unlocked --from ${ANVIL_PUBLIC_WALLET} "createListing(address,uint256,uint256,uint256,uint256)(bool)" ${PURO_TOKEN} 5000000000000000000 2500000 10000000000000000 1748548281
 		
 
 approve:
