@@ -5,6 +5,7 @@ enum Registry {
   GOLD_STANDARD
   PURO_EARTH
   ICR
+  J_CREDIT
 }
 
 enum RetireSource {
