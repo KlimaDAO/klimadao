@@ -75,6 +75,7 @@ function updateC3Call(tokenAddress: Address, carbonCredit: CarbonCredit): Carbon
   let registry = ''
   if (attributes.registry == 'VCS') registry = 'VERRA'
   else if (attributes.registry == 'GS') registry = 'GOLD_STANDARD'
+  else if (attributes.registry == 'JCS') registry = 'J_CREDIT'
 
   let project = loadOrCreateCarbonProject(registry, attributes.registry + '-' + attributes.project_id)
 
