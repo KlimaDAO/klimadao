@@ -1,8 +1,8 @@
-# Use build arguments to specify the subgraph directory
-ARG SUBGRAPH_DIR   
-
 # amd64 version is necessary for Foundry
 FROM --platform=linux/amd64 node:21-slim
+
+# Use build arguments to specify the subgraph directory
+ARG SUBGRAPH_DIR   
 
 # Fail the build if SUBGRAPH_DIR is not provided
 RUN if [ -z "$SUBGRAPH_DIR" ]; then echo "SUBGRAPH_DIR build argument is required" && exit 1; fi
@@ -15,13 +15,13 @@ COPY ${SUBGRAPH_DIR}/package*.json ./${SUBGRAPH_DIR}
 
 COPY lib /usr/src/lib
 
+COPY ./deploy_graph.sh /usr/src/app/deploy_graph.sh
+
 # Install dependencies
 RUN yarn
 
 # Copy the rest of the application code
-COPY ${SUBGRAPH_DIR} .
-
-# COPY makefile .
+COPY ${SUBGRAPH_DIR} /usr/src/app/${SUBGRAPH_DIR}
 
 COPY .env .
 
