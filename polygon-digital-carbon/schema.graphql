@@ -91,6 +91,9 @@ type Token @entity {
   "Decimals of the token"
   decimals: Int!
 
+  "Token Id"
+  tokenId: BigInt
+
   "Latest price in USD"
   latestPriceUSD: BigDecimal
 
@@ -354,6 +357,9 @@ type Retire @entity {
 
   "Final provenance record created by this retirement"
   provenance: ProvenanceRecord
+
+  "Bridge status for retirement if applicable"
+  bridgeStatus: BridgeStatus
 
   ### Additional attributes if applicable ###
 

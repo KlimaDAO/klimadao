@@ -7,7 +7,7 @@ import {
   ZERO_ADDRESS,
 } from '../../lib/utils/Constants'
 import { Transfer } from '../generated/BCT/ERC20'
-import { loadCarbonCredit, loadOrCreateCarbonCredit, updateICRCredit } from './utils/CarbonCredit'
+import { loadOrCreateCarbonCredit, updateICRCredit } from './utils/CarbonCredit'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import {
   TransferSingle,
@@ -31,9 +31,11 @@ import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool } from './utils/Carb
 import { checkForCarbonPoolCreditSnapshot } from './utils/CarbonPoolCreditBalance'
 import { loadOrCreateEcosystem } from './utils/Ecosystem'
 import { recordProvenance } from './utils/Provenance'
+import { createICRTokenWithCall } from './utils/Token'
+import { loadRetire } from './utils/Retire'
 import {
-  RetirementFinalized,
   RetirementRequested,
+  RetirementFinalized,
 } from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
 import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
 
@@ -103,14 +105,10 @@ export function handleToucanPuroRetirementFinalized(event: RetirementFinalized):
   request.status = 'FINALIZED'
   request.save()
 
-  // if (request.provenance == null) {
-  //   return
-  // }
-
-  // let provenance = ProvenanceRecord.load(request.provenance)
-  // if (provenance !== null) {
-  //   provenance.receiver = ZERO_ADDRESS
-  //   provenance.save()
+  // if (request.retire !== null) {
+  //   let retire = loadRetire(request.retire)
+  //   retire.bridgeStatus = 'FINALIZED'
+  //   retire.save()
   // }
 }
 
@@ -177,6 +175,7 @@ export function handleICRRetired(event: RetiredVintage): void {
 
 export function handleExPostCreated(event: ExPostCreated): void {
   updateICRCredit(event.address, event.params.tokenId, event.params.verificationPeriodStart)
+  createICRTokenWithCall(event.address, event.params.tokenId)
 }
 
 export function handleExAnteMinted(event: ExAnteMinted): void {
@@ -188,6 +187,8 @@ export function handleExAnteMinted(event: ExAnteMinted): void {
   exAnteCredit.vintage = exPostCredit.vintage
   exAnteCredit.isExAnte = true
   exAnteCredit.save()
+
+  createICRTokenWithCall(event.address, event.params.exAnteTokenId)
 }
 
 function recordTransfer(
