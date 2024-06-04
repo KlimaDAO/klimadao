@@ -12,7 +12,11 @@ decimal_result=$(printf "%d" 0x$hex_result)
 echo "Hex result: $hex_result"
 echo "Decimal result: $decimal_result"
 
-export START_BLOCK=$decimal_result
+# Increment the block number by one
+incremented_result=$((decimal_result + 1))
+echo "Incremented result: $incremented_result"
+
+export START_BLOCK=$incremented_result
 
 echo "Substituting block number"
 # Substitute environment variables in the JSON file
