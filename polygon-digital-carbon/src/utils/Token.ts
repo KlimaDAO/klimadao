@@ -61,6 +61,7 @@ export function createICRTokenWithCall(tokenAddress: Address, tokenId: BigInt): 
     token.symbol = symbol
     token.decimals = 18
     token.tokenId = tokenId
+    token.isExAnte = !isExPost
 
     token.save()
   }
