@@ -16,7 +16,7 @@ dataSources:
     source:
       address: '0x599a978c43F5cEa1B26a399D28869Ad4690DC07d'
       abi: CarbonProjectsAddress
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -36,7 +36,7 @@ dataSources:
     source:
       address: '0x2359677E513Bc83106268514c5B2De3C29C849ea'
       abi: ToucanCarbonOffsetsFactory
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -60,7 +60,7 @@ dataSources:
     source:
       address: '0x0feAD3f81B35e133f9D78F9029950cF1F6056Ea1'
       abi: PuroToucanCarbonOffsetsFactory
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -92,7 +92,7 @@ dataSources:
     source:
       address: '0x8A4d7458dDe3023A3B24225D62087701A88b09DD'
       abi: ToucanCarbonOffsetBatches
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -116,7 +116,7 @@ dataSources:
     source:
       address: '0x2F800Db0fdb5223b3C3f354886d907A671414A7F'
       abi: ToucanCarbonPool
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -144,7 +144,7 @@ dataSources:
     source:
       address: '0xD838290e877E0188a4A44700463419ED96c16107'
       abi: ToucanCarbonPool
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -173,7 +173,7 @@ dataSources:
     source:
       address: '0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf'
       abi: ToucanCrossChainMessenger
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -203,7 +203,7 @@ dataSources:
     source:
       address: '0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC'
       abi: ToucanRegenBridge
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -227,7 +227,7 @@ dataSources:
     source:
       address: '0xaa7dbd1598251f856c12f63557a4c4397c253cea'
       abi: ERC20
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -247,7 +247,7 @@ dataSources:
     source:
       address: '0xeDAEFCf60e12Bd331c092341D5b3d8901C1c05A8'
       abi: CarbonChain
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -269,7 +269,7 @@ dataSources:
     source:
       address: '0xa4c951B30952f5E2feFC8a92F4d3c7551925A63B'
       abi: C3ProjectTokenFactory
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -305,7 +305,7 @@ dataSources:
     source:
       address: '0x2B3eCb0991AF0498ECE9135bcD04013d7993110c'
       abi: C3CarbonPool
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -331,7 +331,7 @@ dataSources:
     source:
       address: '0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48'
       abi: C3CarbonPool
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -357,7 +357,7 @@ dataSources:
     source:
       address: '0x7b364DFc0e085468aFDe869DF20036D80b8868e7'
       abi: C3OffsetNFT
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -377,7 +377,7 @@ dataSources:
     source:
       address: '0x9f87988ff45e9b58ae30fa1685088460125a7d8a'
       abi: ICRCarbonContractRegistry
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -402,7 +402,7 @@ dataSources:
     source:
       address: '0xCefb61aF5325C0c100cBd77eb4c9F51d17B189Ca'
       abi: RetireToucanCarbon
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -426,7 +426,7 @@ dataSources:
     source:
       address: '0xa35f62dbdb93e4B772784E89B7B35736A4aeaCc5'
       abi: RetireMossCarbon
-      startBlock: 57614136
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -450,7 +450,7 @@ dataSources:
     source:
       address: '0x933AF8c652c696FB0969Eb85DDd111edb2b4E057'
       abi: RetireC3Carbon
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -474,7 +474,7 @@ dataSources:
     source:
       address: '0x8cE54d9625371fb2a068986d32C85De8E6e995f8'
       abi: KlimaInfinity
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -501,7 +501,7 @@ dataSources:
     source:
       address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
       abi: sKlimaERC20V1
-      startBlock: 57775878
+      startBlock: 57799711
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
