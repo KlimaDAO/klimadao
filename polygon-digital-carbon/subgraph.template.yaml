@@ -11,6 +11,26 @@ graft:
   block: 58773839
 dataSources:
   - kind: ethereum/contract
+    name: CarbonProjectsAddress  
+    network: {{network}}
+    source:
+      address: '{{CarbonProjectsAddress.address}}'
+      abi: CarbonProjectsAddress
+      startBlock: {{CarbonProjectsAddress.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/utils/Token.ts
+      entities:
+        - PuroMigrationProjects
+      abis:
+        - name: CarbonProjectsAddress
+          file: ../lib/abis/CarbonProjectsAddress.json
+      eventHandlers:
+        - event: ProjectIdUpdated(uint256)
+          handler: handlePuroIdMigration
+  - kind: ethereum/contract
     name: ToucanFactory
     network: {{network}}
     source:

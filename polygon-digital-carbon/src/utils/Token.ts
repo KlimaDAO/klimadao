@@ -1,11 +1,14 @@
-import { Address, BigInt, Bytes, log, BigDecimal } from '@graphprotocol/graph-ts'
+import { Address, BigInt, Bytes, log, ByteArray, ethereum, dataSource, BigDecimal } from '@graphprotocol/graph-ts'
 import { Token } from '../../generated/schema'
 import { ERC20 } from '../../generated/ToucanFactory/ERC20'
 import { ICRProjectToken } from '../../generated/ICRCarbonContractRegistry/ICRProjectToken'
+import { PuroIdMigration } from '../../generated/schema'
+import { PURO_ID_MIGRATION_BLOCK } from '../../../lib/utils/Constants'
+import { ProjectIdUpdated } from '../../generated/CarbonProjectsAddress/CarbonProjectsAddress'
 import { USDC_ERC20_CONTRACT } from '../../../lib/utils/Constants'
 import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
 
-export function createTokenWithCall(tokenAddress: Address): void {
+export function createTokenWithCall(tokenAddress: Address, block: ethereum.Block): void {
   let token = Token.load(tokenAddress)
   if (token) return
 
@@ -18,6 +21,20 @@ export function createTokenWithCall(tokenAddress: Address): void {
   token.decimals = tokenContract.decimals()
   token.isExAnte = false
   token.save()
+
+  if (token.symbol.startsWith('TCO2-PUR') && block.number < PURO_ID_MIGRATION_BLOCK) {
+    let migration = PuroIdMigration.load('puro-migration')
+    if (migration == null) {
+      migration = new PuroIdMigration('puro-migration')
+      migration.tokenIds = []
+      migration.save()
+    }
+
+    let tokenIds = migration.tokenIds
+    tokenIds.push(token.id)
+    migration.tokenIds = tokenIds
+    migration.save()
+  }
 }
 
 export function createICRTokenID(tokenAddress: Address, tokenId: BigInt): Bytes {
@@ -99,4 +116,32 @@ export function loadOrCreateToken(tokenAddress: Address): Token {
     token.save()
   }
   return token as Token
+}
+export function handlePuroIdMigration(event: ProjectIdUpdated): void {
+  let migrations = PuroIdMigration.load('puro-migrations')
+
+  if (migrations == null) {
+    migrations = new PuroIdMigration('puro-migrations')
+    migrations.tokenIds = []
+    migrations.save()
+  }
+  let tokenIds = migrations.tokenIds
+
+  for (let i = 0; i < tokenIds.length; i++) {
+    let token = Token.load(tokenIds[i])
+
+    if (token == null) {
+      log.info('Token with id {} not found', [tokenIds[i].toHexString()])
+      continue
+    }
+
+    let projectAddress = Address.fromBytes(tokenIds[i])
+    let projectContract = ERC20.bind(projectAddress)
+
+    let newSymbol = projectContract.try_symbol()
+    if (!newSymbol.reverted) {
+      token.symbol = newSymbol.value
+    }
+    token.save()
+  }
 }
