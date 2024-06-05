@@ -10277,9 +10277,9 @@ export const PROJECT_INFO: ProjectInfo[] = [
   ),
   new ProjectInfo(
     '0x6960ce1d21f63c4971324b5b611c4de29acf980c',
-    'PUR-558',
+    'PUR-862421',
     '2023',
-    'Puro Project: TCO2-PUR-558-2023',
+    'Puro Project: TCO2-PUR-862421-2023',
     'ACM0017',
     'Renewable Energy',
     'Canada',
