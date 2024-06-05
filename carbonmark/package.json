@@ -19,7 +19,8 @@
     "deploy-version": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node --version-label $npm_config_label carbonmark",
     "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ carbonmark",
     "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
-    "deploy": "yarn prepare-local && yarn codegen && yarn build && yarn remove-local && yarn create-local && yarn deploy-local"
+    "deploy": "yarn prepare-local && yarn codegen && yarn build && yarn remove-local && yarn create-local && yarn deploy-local",
+    "deploy-test": "yarn prepare-matic && yarn codegen && yarn build && graph deploy --studio pdc-testing-2"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
