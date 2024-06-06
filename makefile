@@ -31,27 +31,28 @@ local-fork:
 	anvil --fork-url $(POLYGON_URL) --host 0.0.0.0 --no-storage-caching
 
 impersonate:
-	cast rpc anvil_impersonateAccount ${PURO_TOKEN_HOLDER}
+	$(eval RPC_URL := $(shell grep '^RPC_URL' .env | cut -d '=' -f2))
+	cast rpc anvil_impersonateAccount ${PURO_TOKEN_HOLDER} --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount ${OTHER_HOLDER}
+	cast rpc anvil_impersonateAccount ${OTHER_HOLDER} --rpc-url ${RPC_URL}
 	
 	# impersonate kraken for USDC transfers
-	cast rpc anvil_impersonateAccount ${KRAKEN}
+	cast rpc anvil_impersonateAccount ${KRAKEN} --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount ${ANVIL_PUBLIC_WALLET}
+	cast rpc anvil_impersonateAccount ${ANVIL_PUBLIC_WALLET} --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount ${DIAMOND_OWNER}
+	cast rpc anvil_impersonateAccount ${DIAMOND_OWNER} --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount ${DUMMY_SERVER_WALLET}
+	cast rpc anvil_impersonateAccount ${DUMMY_SERVER_WALLET} --rpc-url ${RPC_URL}
 
 	# BCT holder
-	cast rpc anvil_impersonateAccount ${TCO2_HOLDER}
+	cast rpc anvil_impersonateAccount ${TCO2_HOLDER} --rpc-url ${RPC_URL}
 
 	# impersonate server wallets
 
-	cast rpc anvil_impersonateAccount 0xfb079f82cdd18313f3566fb8ddd6414b3507bda2
+	cast rpc anvil_impersonateAccount 0xfb079f82cdd18313f3566fb8ddd6414b3507bda2 --rpc-url ${RPC_URL}
 
-	cast rpc anvil_impersonateAccount 0x885d78bc6d5cab15e7ef10963846bd2f975c2b89
+	cast rpc anvil_impersonateAccount 0x885d78bc6d5cab15e7ef10963846bd2f975c2b89 --rpc-url ${RPC_URL}
 
 tco2:
 
@@ -64,30 +65,31 @@ tco2:
 
 
 transfer:
-	cast send 0x6960cE1d21f63C4971324B5b611c4De29aCF980C --unlocked --from ${PURO_TOKEN_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 3000000000000000000 --rpc-url http://localhost:8545
+	$(eval RPC_URL := $(shell grep '^RPC_URL' .env | cut -d '=' -f2))
+	cast send 0x6960cE1d21f63C4971324B5b611c4De29aCF980C --unlocked --from ${PURO_TOKEN_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 3000000000000000000 --rpc-url ${RPC_URL}
 
-	cast send 0x6960cE1d21f63C4971324B5b611c4De29aCF980C --unlocked --from ${OTHER_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 2000000000000000000 --rpc-url http://localhost:8545
+	cast send 0x6960cE1d21f63C4971324B5b611c4De29aCF980C --unlocked --from ${OTHER_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 2000000000000000000 --rpc-url ${RPC_URL}
 
-	cast send ${USDC} --unlocked --from ${KRAKEN} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 500000000000 --rpc-url http://localhost:8545
+	cast send ${USDC} --unlocked --from ${KRAKEN} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 500000000000 --rpc-url ${RPC_URL}
 
 	# fund fake server wallets
 
-	cast send ${USDC} --unlocked --from ${DUMMY_SERVER_WALLET} "approve(address,uint256)(bool)" ${DIAMOND} 500000000000 --rpc-url http://localhost:8545
+	cast send ${USDC} --unlocked --from ${DUMMY_SERVER_WALLET} "approve(address,uint256)(bool)" ${DIAMOND} 500000000000 --rpc-url ${RPC_URL}
 
-	cast send ${USDC} --unlocked --from ${KRAKEN} "transfer(address,uint256)(bool)" ${DUMMY_SERVER_WALLET} 500000000000 --rpc-url http://localhost:8545
+	cast send ${USDC} --unlocked --from ${KRAKEN} "transfer(address,uint256)(bool)" ${DUMMY_SERVER_WALLET} 500000000000 --rpc-url ${RPC_URL}
 
 	# fund server wallets, production and otherwise
 
-	cast send ${USDC} --unlocked --from 0xfb079f82cdd18313f3566fb8ddd6414b3507bda2 "approve(address,uint256)(bool)" ${DIAMOND} 500000000000 --rpc-url http://localhost:8545
+	cast send ${USDC} --unlocked --from 0xfb079f82cdd18313f3566fb8ddd6414b3507bda2 "approve(address,uint256)(bool)" ${DIAMOND} 500000000000 --rpc-url ${RPC_URL}
 
-	cast send ${USDC} --unlocked --from 0x885d78bc6d5cab15e7ef10963846bd2f975c2b89 "approve(address,uint256)(bool)" ${DIAMOND} 500000000000 --rpc-url http://localhost:8545
+	cast send ${USDC} --unlocked --from 0x885d78bc6d5cab15e7ef10963846bd2f975c2b89 "approve(address,uint256)(bool)" ${DIAMOND} 500000000000 --rpc-url ${RPC_URL}
 
 
 	# fund with TCO2 for other erc20 testing
 
-	cast send ${TCO2} --unlocked --from ${TCO2_HOLDER} "approve(address,uint256)(bool)" ${DIAMOND} 8224922846527844 --rpc-url http://localhost:8545
+	cast send ${TCO2} --unlocked --from ${TCO2_HOLDER} "approve(address,uint256)(bool)" ${DIAMOND} 8224922846527844 --rpc-url ${RPC_URL}
 
-	cast send ${TCO2} --unlocked --from ${TCO2_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 8224922846527844 --rpc-url http://localhost:8545
+	cast send ${TCO2} --unlocked --from ${TCO2_HOLDER} "transfer(address,uint256)(bool)" ${ANVIL_PUBLIC_WALLET} 8224922846527844 --rpc-url ${RPC_URL}
 
 create_listing:
 
