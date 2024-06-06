@@ -11,19 +11,21 @@ RUN if [ -z "$SUBGRAPH_DIR" ]; then echo "SUBGRAPH_DIR build argument is require
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json
-COPY ${SUBGRAPH_DIR}/package*.json ./${SUBGRAPH_DIR}
-
-COPY lib /usr/src/lib
-
-COPY ./deploy_graph.sh /usr/src/app/deploy_graph.sh
-
-# Install dependencies
-RUN yarn
+COPY ${SUBGRAPH_DIR}/package*.json ./${SUBGRAPH_DIR}/
 
 # Copy the rest of the application code
-COPY ${SUBGRAPH_DIR} /usr/src/app/${SUBGRAPH_DIR}
+COPY ${SUBGRAPH_DIR} ./${SUBGRAPH_DIR}
+
+COPY lib /usr/src/app/lib
+
+COPY makefile .
 
 COPY .env .
+
+COPY ./deploy_graph.sh .
+
+# Install dependencies
+RUN cd ${SUBGRAPH_DIR} && yarn
 
 # Install Foundry
 RUN apt-get update && \
