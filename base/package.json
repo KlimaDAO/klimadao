@@ -22,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@axelar-network/axelarjs-sdk": "^0.16.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "typescript": "^5.0.4"
