@@ -542,7 +542,7 @@ templates:
       file: ./src/TransferHandler.ts
   - name: ToucanPuroCarbonOffsets
     kind: ethereum/contract
-    network: mainnet
+    network: {{network}}
     source:
       abi: ToucanPuroCarbonOffsets
     mapping:
