@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: CarbonProjectsAddress  
-    network: mainnet
+    network: matic
     source:
       address: '0x599a978c43F5cEa1B26a399D28869Ad4690DC07d'
       abi: CarbonProjectsAddress
-      startBlock: 57799711
+      startBlock: 57616136
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -26,11 +26,11 @@ dataSources:
           handler: handlePuroIdMigration
   - kind: ethereum/contract
     name: ToucanFactory
-    network: mainnet
+    network: matic
     source:
       address: '0x2359677E513Bc83106268514c5B2De3C29C849ea'
       abi: ToucanCarbonOffsetsFactory
-      startBlock: 57799711
+      startBlock: 20078328
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -50,11 +50,11 @@ dataSources:
           handler: handleNewTCO2
   - kind: ethereum/contract
     name: ToucanPuroFactory
-    network: mainnet
+    network: matic
     source:
       address: '0x0feAD3f81B35e133f9D78F9029950cF1F6056Ea1'
       abi: PuroToucanCarbonOffsetsFactory
-      startBlock: 57799711
+      startBlock: 46459849
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -82,11 +82,11 @@ dataSources:
             kind: once          
   - kind: ethereum/contract
     name: ToucanCarbonOffsetBatch
-    network: mainnet
+    network: matic
     source:
       address: '0x8A4d7458dDe3023A3B24225D62087701A88b09DD'
       abi: ToucanCarbonOffsetBatches
-      startBlock: 57799711
+      startBlock: 20078307
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -106,11 +106,11 @@ dataSources:
           handler: handleBatchTransfer   
   - kind: ethereum/contract
     name: BCT
-    network: mainnet
+    network: matic
     source:
       address: '0x2F800Db0fdb5223b3C3f354886d907A671414A7F'
       abi: ToucanCarbonPool
-      startBlock: 57799711
+      startBlock: 20078351
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -134,11 +134,11 @@ dataSources:
           handler: handleTransfer
   - kind: ethereum/contract
     name: NCT
-    network: mainnet
+    network: matic
     source:
       address: '0xD838290e877E0188a4A44700463419ED96c16107'
       abi: ToucanCarbonPool
-      startBlock: 57799711
+      startBlock: 24705011
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -163,11 +163,11 @@ dataSources:
   # Toucan cross chain bridges
   - kind: ethereum/contract
     name: ToucanCrossChainMessenger
-    network: mainnet
+    network: matic
     source:
       address: '0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf'
       abi: ToucanCrossChainMessenger
-      startBlock: 57799711
+      startBlock: 31390596
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -193,11 +193,11 @@ dataSources:
           handler: handleBridgeRequestSent_1_1_0
   - kind: ethereum/contract
     name: ToucanRegenBridge
-    network: mainnet
+    network: matic
     source:
       address: '0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC'
       abi: ToucanRegenBridge
-      startBlock: 57799711
+      startBlock: 40568139
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -217,11 +217,11 @@ dataSources:
           handler: handleToucanRegenIssue
   - kind: ethereum/contract
     name: MossCarbon
-    network: mainnet
+    network: matic
     source:
       address: '0xaa7dbd1598251f856c12f63557a4c4397c253cea'
       abi: ERC20
-      startBlock: 57799711
+      startBlock: 23193932
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -237,11 +237,11 @@ dataSources:
           handler: handleCreditTransfer
   - kind: ethereum/contract
     name: MossCarbonOffset
-    network: mainnet
+    network: matic
     source:
       address: '0xeDAEFCf60e12Bd331c092341D5b3d8901C1c05A8'
       abi: CarbonChain
-      startBlock: 57799711
+      startBlock: 25259584
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -259,11 +259,11 @@ dataSources:
         #   handler: handleMossRetirementToMainnet
   - kind: ethereum/contract
     name: C3ProjectTokenFactory
-    network: mainnet
+    network: matic
     source:
       address: '0xa4c951B30952f5E2feFC8a92F4d3c7551925A63B'
       abi: C3ProjectTokenFactory
-      startBlock: 57799711
+      startBlock: 25427652
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -283,11 +283,11 @@ dataSources:
           handler: handleNewC3T
   - kind: ethereum/contract
     name: UBO
-    network: mainnet
+    network: matic
     source:
       address: '0x2B3eCb0991AF0498ECE9135bcD04013d7993110c'
       abi: C3CarbonPool
-      startBlock: 57799711
+      startBlock: 25429110
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -309,11 +309,11 @@ dataSources:
           handler: handleTransfer
   - kind: ethereum/contract
     name: NBO
-    network: mainnet
+    network: matic
     source:
       address: '0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48'
       abi: C3CarbonPool
-      startBlock: 57799711
+      startBlock: 25428966
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -335,11 +335,11 @@ dataSources:
           handler: handleTransfer
   - kind: ethereum/contract
     name: C3-Offset
-    network: mainnet
+    network: matic
     source:
       address: '0x7b364DFc0e085468aFDe869DF20036D80b8868e7'
       abi: C3OffsetNFT
-      startBlock: 57799711
+      startBlock: 27049043
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -355,11 +355,11 @@ dataSources:
           handler: handleVCUOMinted
   - kind: ethereum/contract
     name: ICRCarbonContractRegistry
-    network: mainnet
+    network: matic
     source:
       address: '0x9f87988ff45e9b58ae30fa1685088460125a7d8a'
       abi: ICRCarbonContractRegistry
-      startBlock: 57799711
+      startBlock: 42035327
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -380,11 +380,11 @@ dataSources:
   # Retirement aggregator
   - kind: ethereum/contract
     name: RetireToucanCarbon
-    network: mainnet
+    network: matic
     source:
       address: '0xCefb61aF5325C0c100cBd77eb4c9F51d17B189Ca'
       abi: RetireToucanCarbon
-      startBlock: 57799711
+      startBlock: 25476120
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -404,11 +404,11 @@ dataSources:
           handler: handleToucanRetired
   - kind: ethereum/contract
     name: RetireMossCarbon
-    network: mainnet
+    network: matic
     source:
       address: '0xa35f62dbdb93e4B772784E89B7B35736A4aeaCc5'
       abi: RetireMossCarbon
-      startBlock: 57799711
+      startBlock: 25476110
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -428,11 +428,11 @@ dataSources:
           handler: handleMossRetired
   - kind: ethereum/contract
     name: RetireC3Carbon
-    network: mainnet
+    network: matic
     source:
       address: '0x933AF8c652c696FB0969Eb85DDd111edb2b4E057'
       abi: RetireC3Carbon
-      startBlock: 57799711
+      startBlock: 27175005
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -452,11 +452,11 @@ dataSources:
           handler: handleC3Retired
   - kind: ethereum/contract
     name: KlimaInfinity
-    network: mainnet
+    network: matic
     source:
       address: '0x8cE54d9625371fb2a068986d32C85De8E6e995f8'
       abi: KlimaInfinity
-      startBlock: 57799711
+      startBlock: 36550000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -479,11 +479,11 @@ dataSources:
   # Track KLIMA rebases for creating supply snapshot
   - kind: ethereum/contract
     name: sKlimaERC20V1
-    network: mainnet
+    network: matic
     source:
       address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
       abi: sKlimaERC20V1
-      startBlock: 57799711
+      startBlock: 20190686
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -500,7 +500,7 @@ dataSources:
 templates:
   - name: ToucanCarbonOffsets
     kind: ethereum/contract
-    network: mainnet
+    network: matic
     source:
       abi: ToucanCarbonOffsets
     mapping:
@@ -524,7 +524,7 @@ templates:
       file: ./src/TransferHandler.ts
   - name: ToucanPuroCarbonOffsets
     kind: ethereum/contract
-    network: mainnet
+    network: matic
     source:
       abi: ToucanPuroCarbonOffsets
     mapping:
@@ -557,7 +557,7 @@ templates:
          
   - name: C3ProjectToken
     kind: ethereum/contract
-    network: mainnet
+    network: matic
     source:
       abi: C3ProjectToken
     mapping:
@@ -577,7 +577,7 @@ templates:
       file: ./src/TransferHandler.ts
   - name: ICRProjectToken
     kind: ethereum/contract
-    network: mainnet
+    network: matic
     source:
       abi: ICRProjectToken
     mapping:
