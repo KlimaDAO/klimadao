@@ -35,6 +35,7 @@ export const BCT_USDC_PAIR_BLOCK = BigInt.fromString('20294523')
 export const BCT_USDC_PAIR_REMOVE_LIQUIDITY_BLOCK = BigInt.fromString('29479227')
 export const NCT_USDC_PAIR = Address.fromString('0xDb995F975F1Bfc3B2157495c47E4efB31196B2CA')
 export const NCT_USDC_PAIR_BLOCK = BigInt.fromString('24782864')
+export const NCT_USDC_PAIR_REMOVE_LIQUIDITY_BLOCK = BigInt.fromString('51305262')
 export const KLIMA_MCO2_PAIR = Address.fromString('0x64a3b8ca5a7e406a78e660ae10c7563d9153a739')
 export const KLIMA_MCO2_PAIR_BLOCK = BigInt.fromString('23688190')
 export const KLIMA_USDC_PAIR = Address.fromString('0x5786b267d35f9d011c4750e0b0ba584e1fdbead1')
@@ -115,6 +116,7 @@ export const KLIMA_CARBON_RETIREMENTS_CONTRACT = Address.fromString('0xac298cd34
 export const KLIMA_INFINITY_DIAMOND = Address.fromString('0x8cE54d9625371fb2a068986d32C85De8E6e995f8')
 
 // Other ecosystem addresses
+export const TOUCAN_CARBON_OFFSETS_ESCROW_ADDRESS = Address.fromString('0x2D2B8A154EFE0E5dd9e8E923eAd9abb7e5D770C3')
 export const TOUCAN_REGEN_BRIDGE = Address.fromString('0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC')
 export const TOUCAN_CROSS_CHAIN_MESSENGER = Address.fromString('0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf')
 export const ICR_MIGRATION_BLOCK = BigInt.fromI32(55149940)

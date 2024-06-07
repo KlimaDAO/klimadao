@@ -5,7 +5,7 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: CarbonProjectsAddress
+    name: CarbonProjectsAddress  
     network: matic
     source:
       address: '0x599a978c43F5cEa1B26a399D28869Ad4690DC07d'
@@ -70,16 +70,16 @@ dataSources:
         - name: ERC20
           file: ../lib/abis/ERC20.json
         - name: ToucanContractRegistry
-          file: ../lib/abis/ToucanContractRegistry.json
+          file: ../lib/abis/ToucanContractRegistry.json      
         - name: ToucanCarbonOffsetBatches
-          file: ../lib/abis/ToucanCarbonOffsetBatches.json
+          file: ../lib/abis/ToucanCarbonOffsetBatches.json    
       eventHandlers:
         - event: TokenCreated(uint256,address)
           handler: handleNewPuroTCO2
       blockHandlers:
         - handler: initializePuroCredit
           filter:
-            kind: once
+            kind: once          
   - kind: ethereum/contract
     name: ToucanCarbonOffsetBatch
     network: matic
@@ -103,7 +103,7 @@ dataSources:
         - event: BatchUpdated(uint256,string,uint256)
           handler: handleBatchUpdated
         - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleBatchTransfer
+          handler: handleBatchTransfer   
   - kind: ethereum/contract
     name: BCT
     network: matic
@@ -553,8 +553,8 @@ templates:
           handler: handleToucanPuroRetirementReverted
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleCreditTransfer
-      file: ./src/TransferHandler.ts
-
+      file: ./src/TransferHandler.ts   
+         
   - name: C3ProjectToken
     kind: ethereum/contract
     network: matic

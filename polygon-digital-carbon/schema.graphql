@@ -5,6 +5,7 @@ enum Registry {
   GOLD_STANDARD
   PURO_EARTH
   ICR
+  J_CREDIT
 }
 
 enum RetireSource {
@@ -93,6 +94,9 @@ type Token @entity {
 
   "Token Id"
   tokenId: BigInt
+
+  "isExAnte Identifier"
+  isExAnte: Boolean
 
   "Latest price in USD"
   latestPriceUSD: BigDecimal
