@@ -20,7 +20,7 @@
     "build": "graph build",
     "test": "graph test",
     "local-fork": "make local-fork",
-    "fund": "make impersonate && make transfer",
+    "fund": "make impersonate && make transfer && make tco2",
     "usdc": "make impersonate && make transfer_USDC"
   },
   "devDependencies": {

@@ -65,6 +65,6 @@ export function handleToucanTCO2Bridged(event: TCO2Bridged): void {
 }
 
 export function handleTransfer(event: Transfer): void {
-  createTokenWithCall(event.address)
+  createTokenWithCall(event.address, event.block)
   handlePoolTransfer(event)
 }

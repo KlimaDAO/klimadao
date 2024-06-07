@@ -229,7 +229,6 @@ type CarbonCredit @entity {
   # Puro specific fields
   "Puro NFT token ID linked to Puro batch"
   puroNftTokenId: BigInt
-  
 }
 
 type CarbonCreditSnapshot @entity {
@@ -670,4 +669,9 @@ type HoldingDailySnapshot @entity {
 
   "Amount currently held in native units"
   amount: BigInt!
+}
+
+type PuroIdMigration @entity {
+  id: ID!
+  tokenIds: [Bytes!]!
 }
