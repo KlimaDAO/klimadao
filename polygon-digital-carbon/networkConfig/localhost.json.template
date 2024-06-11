@@ -79,5 +79,9 @@
   "ToucanContractRegistry": {
     "address": "0x8A4d7458dDe3023A3B24225D62087701A88b09DD",
     "startBlock": "${START_BLOCK}"
+  },
+  "CarbonProjectsAddress": {
+    "address": "0x599a978c43F5cEa1B26a399D28869Ad4690DC07d",
+    "startBlock": "${START_BLOCK}"
   }
 }
