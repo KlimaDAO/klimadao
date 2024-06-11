@@ -229,6 +229,10 @@ type CarbonCredit @entity {
 
   "Last batch ID that was fractionalized if applicable"
   lastBatchId: BigInt!
+
+  # Puro specific fields
+  "Puro NFT token ID linked to Puro batch"
+  puroNftTokenId: BigInt
 }
 
 type CarbonCreditSnapshot @entity {
@@ -669,4 +673,9 @@ type HoldingDailySnapshot @entity {
 
   "Amount currently held in native units"
   amount: BigInt!
+}
+
+type PuroIdMigration @entity {
+  id: ID!
+  tokenIds: [Bytes!]!
 }

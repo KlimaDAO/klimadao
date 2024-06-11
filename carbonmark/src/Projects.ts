@@ -10275,4 +10275,15 @@ export const PROJECT_INFO: ProjectInfo[] = [
     '52',
     true
   ),
+  new ProjectInfo(
+    '0x6960ce1d21f63c4971324b5b611c4de29acf980c',
+    'PUR-862421',
+    '2023',
+    'Puro Project: TCO2-PUR-862421-2023',
+    'ACM0017',
+    'Renewable Energy',
+    'Canada',
+    '0',
+    false
+  ),
 ]
