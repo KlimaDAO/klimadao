@@ -10314,7 +10314,7 @@ export const PROJECT_INFO: ProjectInfo[] = [
     '2023',
     'Puro Project: TCO2-PUR-862421-2023',
     'ACM0017',
-    'Renewable Energy',
+    'Biochar',
     'Canada',
     '0',
     false
