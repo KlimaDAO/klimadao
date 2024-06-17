@@ -1,48 +1,54 @@
-import { Anchor, LogoWithClaim, Text } from "@klimadao/lib/components";
+import {
+  Anchor,
+  BaseLogo,
+  LogoWithClaim,
+  Text,
+} from "@klimadao/lib/components";
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
+import { BrowserProvider, JsonRpcSigner, Signer } from "ethers";
 import { formatTonnes } from "lib/formatTonnes";
+import { submitCrossChain } from "lib/submitCrossChain";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAccount } from "wagmi";
 import { tokenInfoMap } from "../../../lib/getTokenInfo";
 import { ButtonPrimary } from "../../Buttons/ButtonPrimary";
 import { Connect } from "../../Connect";
 import * as styles from "./styles";
 
-function BaseIcon(props: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="146"
-      height="146"
-      fill="none"
-      viewBox="0 0 146 146"
-      aria-hidden
-      role="presentation"
-      className={props.className}
-    >
-      <circle cx="73" cy="73" r="73" fill="#0052FF"></circle>
-      <path
-        fill="#fff"
-        d="M73.323 123.729c28.294 0 51.23-22.897 51.23-51.141 0-28.245-22.936-51.142-51.23-51.142-26.843 0-48.865 20.61-51.052 46.843h67.715v8.597H22.27c2.187 26.233 24.209 46.843 51.052 46.843z"
-      ></path>
-    </svg>
-  );
-}
-
 export const Home = () => {
+  const { address, connector } = useAccount();
+  const [signer, setSigner] = useState<Signer | undefined>();
   const [quantity, setQuantity] = useState("0");
-  const [retirementMessage, setRetirementMessage] = useState("");
+  const [beneficiaryString, setBeneficiaryString] = useState("");
+  const [retirementMessage, setRetirementMessage] = useState(
+    "Doing my part to support climate action"
+  );
 
   const handleQuantityChange = (value: string) => {
     const valueToWholeNumber = Math.ceil(Number(value)).toString();
     setQuantity(valueToWholeNumber);
   };
 
+  useEffect(() => {
+    if (!connector) {
+      console.error("No connector found");
+      return;
+    }
+    connector
+      .getProvider()
+      .then((provider) => {
+        const browserProvider = new BrowserProvider(provider);
+        setSigner(new JsonRpcSigner(browserProvider, address as string));
+      })
+      .catch((e) => console.error("An error occurred", e));
+  }, [connector]);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <a href="https://app.klimadao.finance">
-          <LogoWithClaim className={"logo"} />
+          <LogoWithClaim className="logo" />
         </a>
         <Connect />
       </div>
@@ -51,7 +57,7 @@ export const Home = () => {
           ✨ New!
         </Text>
         <Text as="h1" t="h2">
-          Retire carbon on <BaseIcon className="baseIcon" />
+          Retire carbon on <BaseLogo className="baseIcon" />
           <span className="base">BASE</span>
         </Text>
         <Text t="body8">
@@ -86,8 +92,9 @@ export const Home = () => {
             <div className={styles.formGroup}>
               <label>Who will this retirement be credited to?</label>
               <input
+                value={beneficiaryString}
                 placeholder={"e.g. 'The Planet LLC'"}
-                onChange={() => console.log("onChange")}
+                onChange={(e) => setBeneficiaryString(e.target.value)}
               />
             </div>
             <div className={styles.formGroup}>
@@ -100,7 +107,6 @@ export const Home = () => {
             </div>
             <div className={styles.formGroup}>
               <label>Retiring</label>
-
               <div className="field">
                 <Image
                   width={42}
@@ -124,12 +130,26 @@ export const Home = () => {
               </Text>
             </div>
             <ButtonPrimary
-              disabled
-              label="Approve"
-              onClick={() => {
-                console.log("onApprove");
-              }}
+              disabled={
+                // TODO clean this up
+                !signer ||
+                Number(quantity) === 0 ||
+                !retirementMessage ||
+                beneficiaryString === ""
+              }
+              label="Submit"
               className={styles.submitButton}
+              onClick={() =>
+                // todo - show approval button if not approved
+                // otherwise show cross chain button
+                submitCrossChain({
+                  signer,
+                  quantity: Number(quantity),
+                  beneficiaryAddress: address as string,
+                  retirementMessage,
+                  beneficiaryString,
+                })
+              }
             />
           </div>
         </div>

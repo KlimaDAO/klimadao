@@ -1,66 +1,132 @@
 import {
-    AxelarQueryAPI,
-    CHAINS,
-    Environment,
-    EvmChain,
+  AxelarQueryAPI,
+  CHAINS,
+  Environment,
 } from "@axelar-network/axelarjs-sdk";
-import { AbiCoder, Contract, Signer, formatEther, parseEther } from "ethers";
+import IERC20 from "@klimadao/lib/abi/IERC20.json";
+import interchainTokenService from "@klimadao/lib/abi/InterchainTokenService.json";
+import retireCarbonAbi from "@klimadao/lib/abi/KlimaRetirementAggregatorV2.json";
+import {
+  AbiCoder,
+  Contract,
+  Interface,
+  Signer,
+  formatEther,
+  formatUnits,
+  parseEther,
+  parseUnits,
+} from "ethers";
 
+// move this to utils or constants...
 const addresses = {
+  polygon: {
+    bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+    retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
+    destinationHelperContract: "0x3d5f8d9218D2943498d400439271eb87c20833Af",
+  },
   base: {
+    klimaToken: "0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2",
     interchainTokenService: "0xB5FB4BE02232B1bBA4dC8f81dc24C26980dE9e3C",
   },
 };
 
+export const approveToken = async (value: string, signer: Signer) => {
+  try {
+    const contract = new Contract(addresses.polygon.bct, IERC20.abi, signer);
+    const parsedValue = parseUnits(value, 18);
+    const txn = await contract.approve(
+      addresses.polygon.retirementAggregatorV2,
+      parsedValue.toString()
+    );
+    await txn.wait(1);
+    // show confirmation message here...
+    console.log("done", "Approval was successful");
+    return formatUnits(parsedValue, 18);
+  } catch (error: any) {
+    if (error.code === 4001) {
+      console.log("error", "userRejected");
+      throw error;
+    }
+    console.error(error);
+    throw error;
+  }
+};
+
+export function createDefaultExactRetirePayload(
+  poolToken: string,
+  maxAmountIn: string,
+  retireAmount: string,
+  retiringEntityString: string,
+  beneficiaryAddress: string,
+  beneficiaryString: string,
+  retirementMessage: string
+) {
+  const iface = new Interface(retireCarbonAbi.abi);
+  return iface.encodeFunctionData("retireExactCarbonDefault", [
+    addresses.base.klimaToken,
+    poolToken,
+    maxAmountIn,
+    retireAmount,
+    retiringEntityString,
+    beneficiaryAddress,
+    beneficiaryString,
+    retirementMessage,
+    0,
+  ]);
+}
+
 export const submitCrossChain = async (props: {
-  userAddress: string;
-  signer: Signer;
-  quantity: number;
+  signer: Signer | undefined;
+  quantity: number | undefined;
+  beneficiaryAddress: string | undefined;
+  retirementMessage: string;
+  beneficiaryString: string;
 }) => {
+  if (!props.signer || !props.beneficiaryAddress || !props.quantity) {
+    // handle message properly here if params are undefined...
+    return;
+  }
+
   const chainName = "base";
   const destinationChain = "polygon";
   const destinationChainId = CHAINS.MAINNET.POLYGON; // polygon
   const api = new AxelarQueryAPI({ environment: Environment.MAINNET });
-  const fallbackRecipient = props.userAddress;
 
   const gasFee = await api.estimateGasFee(
     chainName,
-    EvmChain.POLYGON,
+    destinationChainId,
     1, // TODO Ask cujo what to do about gaslimit
-    2500000
+    1500000
   );
+
+  const klimaAmount = "1000000000"; // TODO
+  const subunitAmount = parseEther("0");
+  const formattedGasFee = formatEther(gasFee.toString());
+  const totalFees = parseUnits(subunitAmount + formattedGasFee).toString();
 
   console.log(
-    `Total fee for ${chainName} to ${destinationChain}:`,j
-    formatEther(gasFee.toString())
-    // NativeToken[chainName] ??
+    `Total fee for ${chainName} to ${destinationChain}:`,
+    formattedGasFee
   );
-  //   const [deployer] = await getSigners();
-
-  const subunitAmount = parseEther("0");
 
   // Step 1: Create the retirementData for the retirement
-
-  const retireData = createDefaultExactRetirePayload(
-    "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
-    "1000000000",
-    "4000000000000000000",
+  const retirementData = createDefaultExactRetirePayload(
+    addresses.polygon.bct,
+    klimaAmount,
+    "2000000000000000000", // TODO
     "Rawr",
-    "0x375C1DC69F05Ff526498C8aCa48805EeC52861d5",
-    "Gandalf",
-    "All we have to decide is what to do with the time that is given us."
+    props.beneficiaryAddress,
+    props.beneficiaryString,
+    props.retirementMessage
   );
 
   // Step 2: Back the rest of the data needed to process on Polygon
-
-  //   const fallbackRecipient = deployer.address;
-
   const data = AbiCoder.defaultAbiCoder().encode(
     ["bytes", "uint256", "address"],
     [
-      retireData,
-      "1000000000", // Klima amount
-      fallbackRecipient, // Refund address
+      retirementData,
+      klimaAmount,
+      props.beneficiaryAddress, // Refund address
     ]
   );
 
@@ -71,17 +137,24 @@ export const submitCrossChain = async (props: {
     props.signer
   );
 
+  // Step 4: Call the Axelar contract
   const tx = await contract
     .callContractWithInterchainToken(
       "0xdc30a9bd9048b5a833e3f90ea281f70ae77e82018fa5b96831d3a1f563e38aaf",
       "Polygon",
-      "0x3d5f8d9218D2943498d400439271eb87c20833Af", // destination helper contract
-      BigInt(props.quantity), // TODO 18 decimal
+      addresses.polygon.destinationHelperContract, // destination helper contract
+      klimaAmount,
       data,
-      subunitAmount.add(gasFee),
-      {
-        value: subunitAmount.add(gasFee),
-      }
+      totalFees,
+      { value: totalFees }
     )
-    .then((tx: any) => tx.wait());
+    .then((tx: any) => tx.wait())
+    .catch((err) => console.error(err));
+
+  console.log("Tx Hash:", tx.transactionHash);
+
+  console.log(
+    "Continue tracking at",
+    `https://axelarscan.io/gmp/${tx.transactionHash}`
+  );
 };
