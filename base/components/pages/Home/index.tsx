@@ -4,10 +4,14 @@ import {
   LogoWithClaim,
   Text,
 } from "@klimadao/lib/components";
+import { trimStringDecimals } from "@klimadao/lib/utils";
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
 import { BrowserProvider, JsonRpcSigner, Signer } from "ethers";
 import { formatTonnes } from "lib/formatTonnes";
-import { submitCrossChain } from "lib/submitCrossChain";
+import {
+  getOffsetConsumptionCost,
+  submitCrossChain,
+} from "lib/submitCrossChain";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
@@ -18,6 +22,7 @@ import * as styles from "./styles";
 
 export const Home = () => {
   const { address, connector } = useAccount();
+  const [cost, setCost] = useState("");
   const [signer, setSigner] = useState<Signer | undefined>();
   const [quantity, setQuantity] = useState("0");
   const [beneficiaryString, setBeneficiaryString] = useState("");
@@ -43,6 +48,19 @@ export const Home = () => {
       })
       .catch((e) => console.error("An error occurred", e));
   }, [connector]);
+
+  useEffect(() => {
+    if (Number(quantity) === 0) return;
+    const offsetConsumptionCost = async () => {
+      const [cost] = await getOffsetConsumptionCost({
+        quantity: quantity,
+        inputToken: "klima",
+        retirementToken: "bct",
+      });
+      setCost(cost);
+    };
+    offsetConsumptionCost();
+  }, [quantity]);
 
   return (
     <div className={styles.container}>
@@ -106,6 +124,25 @@ export const Home = () => {
               />
             </div>
             <div className={styles.formGroup}>
+              <label>Cost</label>
+              <div className="field">
+                <Image
+                  width={42}
+                  height={42}
+                  className="icon"
+                  src={tokenInfoMap.klima.icon}
+                  alt={tokenInfoMap.klima.label || ""}
+                />
+                <Text>
+                  {!cost
+                    ? "0"
+                    : Number(cost) > 1
+                    ? trimStringDecimals(cost, 3)
+                    : trimStringDecimals(cost, 5)}
+                </Text>
+              </div>
+            </div>
+            <div className={styles.formGroup}>
               <label>Retiring</label>
               <div className="field">
                 <Image
@@ -144,10 +181,11 @@ export const Home = () => {
                 // otherwise show cross chain button
                 submitCrossChain({
                   signer,
-                  quantity: Number(quantity),
-                  beneficiaryAddress: address as string,
-                  retirementMessage,
+                  quantity,
                   beneficiaryString,
+                  retirementMessage,
+                  beneficiaryAddress: address as string,
+                  maxAmountIn: cost,
                 })
               }
             />
