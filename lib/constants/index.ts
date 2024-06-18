@@ -278,16 +278,6 @@ export const offsetCompatibility: CompatMap = {
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
-const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
-const SUBGRAPH_URL_ID = "https://api.thegraph.com/subgraphs/id";
-export const subgraphs = {
-  polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
-  userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
-  cujoRefiHoldings:
-    "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
-  carbonmark: `${SUBGRAPH_URL_ID}/QmT2YkGwTqvek54VsGkfurGLrGGKgkwcK6TLotvkjpF4Mz`,
-};
-
 /** Definitions of available registries */
 export const REGISTRIES = {
   Verra: {
