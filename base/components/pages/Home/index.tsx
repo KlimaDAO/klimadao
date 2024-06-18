@@ -9,6 +9,7 @@ import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
 import { BrowserProvider, JsonRpcSigner, Signer } from "ethers";
 import { formatTonnes } from "lib/formatTonnes";
 import {
+  approveToken,
   getOffsetConsumptionCost,
   submitCrossChain,
 } from "lib/submitCrossChain";
@@ -23,6 +24,7 @@ import * as styles from "./styles";
 export const Home = () => {
   const { address, connector } = useAccount();
   const [cost, setCost] = useState("");
+  const [isApproved, setIsApproved] = useState(true);
   const [signer, setSigner] = useState<Signer | undefined>();
   const [quantity, setQuantity] = useState("0");
   const [beneficiaryString, setBeneficiaryString] = useState("");
@@ -166,29 +168,53 @@ export const Home = () => {
                 public blockchain.
               </Text>
             </div>
-            <ButtonPrimary
-              disabled={
-                // TODO clean this up
-                !signer ||
-                Number(quantity) === 0 ||
-                !retirementMessage ||
-                beneficiaryString === ""
-              }
-              label="Submit"
-              className={styles.submitButton}
-              onClick={() =>
-                // todo - show approval button if not approved
-                // otherwise show cross chain button
-                submitCrossChain({
-                  signer,
-                  quantity,
-                  beneficiaryString,
-                  retirementMessage,
-                  beneficiaryAddress: address as string,
-                  maxAmountIn: cost,
-                })
-              }
-            />
+            {!isApproved ? (
+              <ButtonPrimary
+                disabled={
+                  // TODO clean this up
+                  !signer ||
+                  Number(quantity) === 0 ||
+                  !retirementMessage ||
+                  beneficiaryString === ""
+                }
+                label="Approve"
+                className={styles.submitButton}
+                onClick={() => {
+                  // TODO -
+                  // Check the allowance on the contract
+                  // and ensure the appropriate amunt has been approved...
+                  if (!signer) return;
+                  const result = approveToken(cost, signer);
+                  if (!!result) {
+                    setIsApproved(true);
+                  } else {
+                    setIsApproved(false);
+                  }
+                }}
+              />
+            ) : (
+              <ButtonPrimary
+                disabled={
+                  // TODO clean this up
+                  !signer ||
+                  Number(quantity) === 0 ||
+                  !retirementMessage ||
+                  beneficiaryString === ""
+                }
+                label="Submit"
+                className={styles.submitButton}
+                onClick={() => {
+                  submitCrossChain({
+                    signer,
+                    quantity,
+                    beneficiaryString,
+                    retirementMessage,
+                    beneficiaryAddress: address as string,
+                    maxAmountIn: cost,
+                  });
+                }}
+              />
+            )}
           </div>
         </div>
       </div>

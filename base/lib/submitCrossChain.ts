@@ -36,7 +36,10 @@ const addresses = {
 };
 
 // don't need this for the klima token?
-export const approveToken = async (value: string, signer: Signer) => {
+export const approveToken = async (
+  value: string,
+  signer: Signer | undefined
+) => {
   try {
     const contract = new Contract(addresses.base.klima, IERC20.abi, signer);
     const parsedValue = parseUnits(value, 18);
@@ -134,9 +137,9 @@ export const submitCrossChain = async (props: {
     1500000
   );
 
-  // const klimaAmount = "1000000000"; // TODO
   const subunitAmount = parseEther("0");
-  const maxAmountIn = parseEther(props.maxAmountIn);
+  // KLIMA has 9 decimals...
+  const maxAmountIn = parseUnits(props.maxAmountIn.toString(), 9);
   const retireAmount = parseEther(props.quantity);
   const formattedGasFee = formatEther(gasFee.toString());
   const totalFees = parseUnits(subunitAmount + formattedGasFee).toString();
