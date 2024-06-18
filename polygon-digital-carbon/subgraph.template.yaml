@@ -7,7 +7,7 @@ features:
   - grafting
 graft:
   base: QmUTK4dB7CXVvN2XsX1temzZGcryQ59j8YKdQP5Z2AwzVZ
-  block: 58284561
+  block: 58282296
 dataSources:
   - kind: ethereum/contract
     name: ToucanFactory
