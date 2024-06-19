@@ -3,6 +3,7 @@ import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import { BalancesCard } from "components/BalancesCard";
+import { DisclamerModal } from "components/DisclaimerModal";
 import * as styles from "components/views/Stake/styles";
 import { tokenInfo } from "lib/getTokenInfo";
 import Image from "next/image";
@@ -15,8 +16,8 @@ interface Props {
 export const Deposit = (props: Props) => {
   return (
     <>
+      <DisclamerModal />
       <BalancesCard assets={["klima", "bct"]} tooltip={<></>} />
-
       <div className={cx(styles.stakeCard, localStyles.card)}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
