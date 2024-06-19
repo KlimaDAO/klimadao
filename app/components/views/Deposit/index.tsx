@@ -17,7 +17,7 @@ export const Deposit = (props: Props) => {
   return (
     <>
       <DisclamerModal />
-      <BalancesCard assets={["klima", "bct"]} tooltip={<></>} />
+      <BalancesCard assets={["klima", "sklima", "wsklima"]} tooltip={<></>} />
       <div className={cx(styles.stakeCard, localStyles.card)}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
