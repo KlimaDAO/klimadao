@@ -6,7 +6,7 @@ import {
 } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
-import { BrowserProvider, JsonRpcSigner, Signer } from "ethers";
+import { BrowserProvider, JsonRpcSigner, Signer, formatUnits } from "ethers";
 import { formatTonnes } from "lib/formatTonnes";
 import {
   approveToken,
@@ -15,14 +15,20 @@ import {
 } from "lib/submitCrossChain";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useAccount } from "wagmi";
+import { Address, useAccount, useBalance } from "wagmi";
+import { addresses } from "../../../lib/constants";
 import { tokenInfoMap } from "../../../lib/getTokenInfo";
 import { ButtonPrimary } from "../../Buttons/ButtonPrimary";
 import { Connect } from "../../Connect";
 import * as styles from "./styles";
 
 export const Home = () => {
-  const { address, connector } = useAccount();
+  const { address, isConnected, connector } = useAccount();
+  const { data } = useBalance({
+    address,
+    token: addresses.base.klima as Address,
+  });
+
   const [cost, setCost] = useState("");
   const [isApproved, setIsApproved] = useState(true);
   const [signer, setSigner] = useState<Signer | undefined>();
@@ -46,7 +52,7 @@ export const Home = () => {
       .getProvider()
       .then((provider) => {
         const browserProvider = new BrowserProvider(provider);
-        setSigner(new JsonRpcSigner(browserProvider, address as string));
+        setSigner(new JsonRpcSigner(browserProvider, address as Address));
       })
       .catch((e) => console.error("An error occurred", e));
   }, [connector]);
@@ -63,6 +69,14 @@ export const Home = () => {
     };
     offsetConsumptionCost();
   }, [quantity]);
+
+  // TODO - replicate logic from klima app,
+  // show insufficentBalance text on button...
+  const insufficientBalance = () => {
+    if (!data?.value) return;
+    const value = formatUnits(data?.value.toString(), 9);
+    return isConnected && Number(cost) > Number(value ?? "0");
+  };
 
   return (
     <div className={styles.container}>
@@ -199,7 +213,8 @@ export const Home = () => {
                   !signer ||
                   Number(quantity) === 0 ||
                   !retirementMessage ||
-                  beneficiaryString === ""
+                  beneficiaryString === "" ||
+                  !!insufficientBalance()
                 }
                 label="Submit"
                 className={styles.submitButton}
@@ -209,8 +224,8 @@ export const Home = () => {
                     quantity,
                     beneficiaryString,
                     retirementMessage,
-                    beneficiaryAddress: address as string,
                     maxAmountIn: cost,
+                    beneficiaryAddress: address as string,
                   });
                 }}
               />

@@ -20,20 +20,7 @@ import {
   parseEther,
   parseUnits,
 } from "ethers";
-
-// move this to utils or constants...
-const addresses = {
-  polygon: {
-    bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
-    klima: "0x4e78011ce80ee02d2c3e649fb657e45898257815",
-    retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
-    destinationHelperContract: "0x3d5f8d9218D2943498d400439271eb87c20833Af",
-  },
-  base: {
-    klima: "0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2",
-    interchainTokenService: "0xB5FB4BE02232B1bBA4dC8f81dc24C26980dE9e3C",
-  },
-};
+import { addresses } from "./constants";
 
 // don't need this for the klima token?
 export const approveToken = async (
