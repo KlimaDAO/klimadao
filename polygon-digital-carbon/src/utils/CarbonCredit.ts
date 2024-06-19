@@ -90,7 +90,7 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
       let projectVintageTokenIdFromNftList = nftData.value0
 
       if (projectVintageTokenIdFromNftList == projectVintageTokenId) {
-        carbonCredit.puroNftTokenId = tokenIds[i]
+        carbonCredit.puroBatchTokenId = tokenIds[i]
         break
       }
     }

@@ -232,7 +232,7 @@ type CarbonCredit @entity {
 
   # Puro specific fields
   "Puro NFT token ID linked to Puro batch"
-  puroNftTokenId: BigInt
+  puroBatchTokenId: BigInt
 }
 
 type CarbonCreditSnapshot @entity {
