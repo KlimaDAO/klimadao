@@ -10301,7 +10301,7 @@ export const PROJECT_INFO: ProjectInfo[] = [
     '0xa8853ffc5a0aeab7d31631a4b87cb12c0b289c6c',
     'ECO-114',
     '2022',
-    'Choco',
+    'Worldwide',
     'PROTOCOL CVCC 3.1',
     'Carbon offsets',
     'Worldwide',
