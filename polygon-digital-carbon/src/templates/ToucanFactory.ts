@@ -3,7 +3,6 @@ import { ToucanCarbonOffsets, ToucanPuroCarbonOffsets } from '../../generated/te
 import { TokenCreated } from '../../generated/ToucanFactory/ToucanCarbonOffsetsFactory'
 import { loadOrCreateCarbonCredit, updateCarbonCreditWithCall } from '../utils/CarbonCredit'
 import { createTokenWithCall } from '../utils/Token'
-import { loadOrCreateCarbonProject } from '../utils/CarbonProject'
 
 export function handleNewTCO2(event: TokenCreated): void {
   ToucanCarbonOffsets.create(event.params.tokenAddress)
