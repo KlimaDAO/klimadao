@@ -170,14 +170,7 @@ export const submitCrossChain = async (props: {
       totalFees,
       { value: totalFees }
     )
-    .then((tx: any) => tx.wait())
-    .catch((err) => console.error(err));
+    .then((tx: any) => tx.wait(1));
 
-  console.log("Tx:", tx);
-  console.log("Tx Hash:", tx.transactionHash);
-
-  console.log(
-    "Continue tracking at",
-    `https://axelarscan.io/gmp/${tx.transactionHash}`
-  );
+  console.log("Continue tracking at", `https://axelarscan.io/gmp/${tx.hash}`);
 };
