@@ -1,5 +1,6 @@
 import {
   Anchor as A,
+  ButtonPrimary,
   CopyValueButton,
   DiscordIcon,
   GithubIcon,
@@ -206,6 +207,12 @@ export const NavMenu: FC<Props> = (props) => {
         </div>
       )}
       <div className="navFooter">
+        <ButtonPrimary
+          target="_blank"
+          className={styles.bridgeButton}
+          href="https://v2.app.squidrouter.com/?chains=137%2C8453&tokens=0x4e78011Ce80ee02d2c3e649Fb657E45898257815%2C0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2"
+          label={<Trans>Bridge KLIMA to Base</Trans>}
+        />
         <div className="hr" />
         <div className="navFooter_buttons">
           <A className="navFooter_button" href={urls.twitter}>
