@@ -112,7 +112,7 @@ export const container = css`
 `;
 
 export const bridgeButton = css`
-  padding: 0rem 1.2rem;
+  padding: 0 1.2rem;
 `;
 
 export const sidebarButton = css`
