@@ -31,7 +31,6 @@ export { YoutubeIcon } from "./Icons/YoutubeIcon";
 export { InitializeTheme } from "./InitializeTheme";
 export { GridContainer } from "./Layout/GridContainer";
 export { Section } from "./Layout/Section";
-export { BaseLogo } from "./Logos/BaseLogo";
 export { CarbonmarkLogo } from "./Logos/CarbonmarkLogo";
 export { KlimaInfinityLogo } from "./Logos/KlimaInfinityLogo";
 export { KlimaInfinityLogoOnly } from "./Logos/KlimaInfinityLogoOnly";
