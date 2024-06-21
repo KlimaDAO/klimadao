@@ -88,7 +88,7 @@ export function createDefaultExactRetirePayload(
 ) {
   const iface = new Interface(retireCarbonAbi.abi);
   return iface.encodeFunctionData("retireExactCarbonDefault", [
-    addresses.base.klima,
+    addresses.polygon.klima,
     poolToken,
     maxAmountIn,
     retireAmount,
@@ -151,6 +151,13 @@ export const submitCrossChain = async (props: {
       props.beneficiaryAddress, // Refund address
     ]
   );
+
+  const decoded = AbiCoder.defaultAbiCoder().decode(
+    ["bytes", "uint256", "address"],
+    data
+  );
+
+  console.log("decoded data", decoded);
 
   // Step 3: Send the retirement to CircleSwapExecutable
   const contract = new Contract(
