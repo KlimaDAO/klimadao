@@ -249,15 +249,15 @@ msgstr ""
 msgid "bond.bond_price"
 msgstr ""
 
-#: components/NavMenu/index.tsx:214
-msgid "Bridge KLIMA to Base"
+#: components/NavMenu/index.tsx:217
+msgid "Bridge to Base"
 msgstr ""
 
 #: components/views/Redeem/index.tsx:25
 msgid "Buy & Redeem Carbon"
 msgstr ""
 
-#: components/NavMenu/index.tsx:185
+#: components/NavMenu/index.tsx:187
 msgid "Buy Carbon"
 msgstr ""
 
@@ -505,7 +505,7 @@ msgid "pklima.index_adjusted"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:193
+#: components/NavMenu/index.tsx:195
 msgid "menu.info"
 msgstr ""
 
@@ -520,7 +520,7 @@ msgid "Insufficient balance"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:198
+#: components/NavMenu/index.tsx:200
 msgid "menu.just_for_you"
 msgstr ""
 
@@ -562,11 +562,6 @@ msgstr ""
 msgid "Loading balances..."
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:235
-msgid "shared.connect_wallet"
-msgstr ""
-
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
@@ -575,6 +570,11 @@ msgstr ""
 #: components/views/Stake/index.tsx:435
 #: components/views/Wrap/index.tsx:207
 msgid "Loading..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/views/Stake/index.tsx:235
+msgid "shared.connect_wallet"
 msgstr ""
 
 #: components/views/Home/index.tsx:178
@@ -667,7 +667,7 @@ msgid "Not Connected"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:67
+#: components/NavMenu/index.tsx:69
 msgid "menu.not_connected"
 msgstr ""
 
@@ -682,7 +682,7 @@ msgid "info.official_contract_addresses"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:177
+#: components/NavMenu/index.tsx:179
 msgid "menu.offset"
 msgstr ""
 
@@ -724,7 +724,7 @@ msgid "bond.discount.description_tooltip"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:207
 msgid "token.pKLIMA"
 msgstr ""
 
@@ -881,7 +881,7 @@ msgid "stake.stake"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:161
+#: components/NavMenu/index.tsx:163
 msgid "menu.stake_klima"
 msgstr ""
 
@@ -1063,7 +1063,7 @@ msgid "wrap.wrap"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:169
+#: components/NavMenu/index.tsx:171
 msgid "menu.wrap_klima"
 msgstr ""
 
@@ -1128,6 +1128,6 @@ msgid "offset.you_have_retired"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:49
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr ""

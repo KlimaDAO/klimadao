@@ -22,6 +22,7 @@ import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
+import { BaseLogo } from "components/Logos/BaseLogo";
 import { SQUID_ROUTER_URL } from "lib/constants";
 import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -212,7 +213,8 @@ export const NavMenu: FC<Props> = (props) => {
           target="_blank"
           href={SQUID_ROUTER_URL}
           className={styles.bridgeButton}
-          label={<Trans>Bridge KLIMA to Base</Trans>}
+          icon={<BaseLogo className={styles.baseIcon} />}
+          label={<Trans>Bridge to Base</Trans>}
         />
         <div className="hr" />
         <div className="navFooter_buttons">
