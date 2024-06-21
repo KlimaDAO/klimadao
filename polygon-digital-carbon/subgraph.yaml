@@ -81,11 +81,7 @@ dataSources:
           file: ../lib/abis/ToucanCarbonOffsetBatches.json    
       eventHandlers:
         - event: TokenCreated(uint256,address)
-          handler: handleNewPuroTCO2
-      blockHandlers:
-        - handler: initializePuroCredit
-          filter:
-            kind: once          
+          handler: handleNewPuroTCO2       
   - kind: ethereum/contract
     name: ToucanCarbonOffsetBatch
     network: matic
