@@ -1,11 +1,7 @@
-import {
-  Anchor,
-  BaseLogo,
-  LogoWithClaim,
-  Text,
-} from "@klimadao/lib/components";
+import { Anchor, LogoWithClaim, Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
+import { BaseLogo } from "components/Logos/BaseLogo";
 import { BrowserProvider, JsonRpcSigner, Signer, formatUnits } from "ethers";
 import { formatTonnes } from "lib/formatTonnes";
 import {

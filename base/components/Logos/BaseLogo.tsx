@@ -1,5 +1,3 @@
-import React from "react";
-
 export const BaseLogo = (props: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
