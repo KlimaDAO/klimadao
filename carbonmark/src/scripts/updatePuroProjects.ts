@@ -5,6 +5,8 @@ import { ProjectInfo } from './types'
 import dotenv from 'dotenv'
 dotenv.config()
 
+const PURO_EARTH_SUBGRAPH_ID = 'FU5APMSSCqcRy9jy56aXJiGV3PQmFQHg2tzukvSJBgwW'
+
 async function fetchCMSProject(registry: string) {
   const { data } = await axios.post('https://l6of5nwi.apicdn.sanity.io/v1/graphql/production/default', {
     query: `
@@ -45,7 +47,7 @@ async function fetchCMSProject(registry: string) {
 
 async function fetchSubgraphProjectVintages() {
   const { data } = await axios.post(
-    `https://gateway-arbitrum.network.thegraph.com/api/${process.env.GRAPH_API_KEY}/subgraphs/id/FU5APMSSCqcRy9jy56aXJiGV3PQmFQHg2tzukvSJBgwW`,
+    `https://gateway-arbitrum.network.thegraph.com/api/${process.env.GRAPH_API_KEY}/subgraphs/id/${PURO_EARTH_SUBGRAPH_ID}`,
     {
       query: `
         {
