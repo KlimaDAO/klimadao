@@ -1,4 +1,4 @@
-specVersion: 0.0.8
+specVersion: 0.0.4
 description: Polygon Carbon
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
