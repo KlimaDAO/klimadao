@@ -1,8 +1,19 @@
 import { Anchor, LogoWithClaim, Text } from "@klimadao/lib/components";
-import { trimStringDecimals } from "@klimadao/lib/utils";
+import { OffsetInputToken } from "@klimadao/lib/constants";
+import {
+  getTokenDecimals,
+  safeAdd,
+  trimStringDecimals,
+} from "@klimadao/lib/utils";
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
 import { BaseLogo } from "components/Logos/BaseLogo";
-import { BrowserProvider, JsonRpcSigner, Signer, formatUnits } from "ethers";
+import {
+  BrowserProvider,
+  JsonRpcSigner,
+  Signer,
+  formatUnits,
+  parseUnits,
+} from "ethers";
 import { formatTonnes } from "lib/formatTonnes";
 import {
   approveToken,
@@ -27,6 +38,7 @@ export const Home = () => {
 
   const [cost, setCost] = useState("");
   const [isApproved, setIsApproved] = useState(true);
+  const [paymentToken] = useState<OffsetInputToken>("klima");
   const [signer, setSigner] = useState<Signer | undefined>();
   const [quantity, setQuantity] = useState("0");
   const [beneficiaryString, setBeneficiaryString] = useState("");
@@ -57,14 +69,24 @@ export const Home = () => {
     if (Number(quantity) === 0) return;
     const offsetConsumptionCost = async () => {
       const [cost] = await getOffsetConsumptionCost({
-        quantity: quantity,
-        inputToken: "klima",
+        inputToken: paymentToken,
         retirementToken: "bct",
+        quantity: quantity,
       });
       setCost(cost);
     };
     offsetConsumptionCost();
   }, [quantity]);
+
+  const getApprovalValue = (): string => {
+    if (!cost) return "0";
+    const onePercent =
+      BigInt(parseUnits(cost, getTokenDecimals(paymentToken))) / BigInt("100");
+    return safeAdd(
+      cost,
+      formatUnits(onePercent, getTokenDecimals(paymentToken))
+    );
+  };
 
   // TODO - replicate logic from klima app,
   // show insufficentBalance text on button...
@@ -72,6 +94,15 @@ export const Home = () => {
     if (!data?.value) return;
     const value = formatUnits(data?.value.toString(), 9);
     return isConnected && Number(cost) > Number(value ?? "0");
+  };
+
+  const formattedCost = () => {
+    const cost = getApprovalValue();
+    return !cost
+      ? "0"
+      : Number(cost) > 1
+      ? trimStringDecimals(cost, 3)
+      : trimStringDecimals(cost, 5);
   };
 
   return (
@@ -145,13 +176,7 @@ export const Home = () => {
                   src={tokenInfoMap.klima.icon}
                   alt={tokenInfoMap.klima.label || ""}
                 />
-                <Text>
-                  {!cost
-                    ? "0"
-                    : Number(cost) > 1
-                    ? trimStringDecimals(cost, 3)
-                    : trimStringDecimals(cost, 5)}
-                </Text>
+                <Text>{formattedCost()}</Text>
               </div>
             </div>
             <div className={styles.formGroup}>
@@ -212,7 +237,7 @@ export const Home = () => {
                   beneficiaryString === "" ||
                   !!insufficientBalance()
                 }
-                label="Submit"
+                label="Retire Carbon"
                 className={styles.submitButton}
                 onClick={() => {
                   submitCrossChain({
@@ -220,7 +245,7 @@ export const Home = () => {
                     quantity,
                     beneficiaryString,
                     retirementMessage,
-                    maxAmountIn: cost,
+                    maxAmountIn: getApprovalValue(),
                     beneficiaryAddress: address as string,
                   });
                 }}
