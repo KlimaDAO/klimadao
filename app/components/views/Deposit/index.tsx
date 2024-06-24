@@ -3,10 +3,12 @@ import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import { BalancesCard } from "components/BalancesCard";
+import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
 import * as styles from "components/views/Stake/styles";
 import { tokenInfo } from "lib/getTokenInfo";
 import Image from "next/image";
+import { useState } from "react";
 import * as localStyles from "./styles";
 
 interface Props {
@@ -14,10 +16,14 @@ interface Props {
 }
 
 export const Deposit = (props: Props) => {
+  const [showModal, setShowModal] = useState(false);
+
+  // TODO - fetch a list of carbon tokens for the connected user
+
   return (
     <>
       <DisclamerModal />
-      <BalancesCard assets={["klima", "sklima", "wsklima"]} tooltip={<></>} />
+      <BalancesCard assets={["klima", "sklima", "wsklima", "bct"]} tooltip="" />
       <div className={cx(styles.stakeCard, localStyles.card)}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
@@ -40,12 +46,41 @@ export const Deposit = (props: Props) => {
           </Text>
         </div>
         <div className={cx(localStyles.grid, "cols-5")}>
-          <div />
+          <div className="start">
+            <div onClick={() => setShowModal(true)}>
+              <Text>
+                <Trans>VCS-1577-2015</Trans>
+              </Text>
+              <Text>
+                <Trans>0.85 TCO2</Trans>
+              </Text>
+            </div>
+          </div>
           <div className="divider" />
-          <div />
+          <div className="end">
+            <div>
+              <Text>
+                <Trans>0.85</Trans>
+              </Text>
+              <Text>
+                <Trans>Available Balance</Trans>
+              </Text>
+            </div>
+          </div>
           <div className="divider" />
-          <div />
+          <div className="end">
+            <div>
+              <Text>
+                <Trans>0.85</Trans>
+              </Text>
+              <Text>
+                <Trans>Deposit TC02</Trans>
+              </Text>
+            </div>
+          </div>
         </div>
+
+        {showModal && <CarbonTokenModal />}
 
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
