@@ -1,5 +1,6 @@
+import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
-import { t } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { Modal } from "components/Modal";
 import { formatEther } from "ethers-v6";
 import * as styles from "./styles";
@@ -23,11 +24,26 @@ export const CarbonTokenModal: React.FC<any> = ({ holdings }) => {
     <Modal title={t`Select Token`} onToggleModal={() => {}}>
       <div className={styles.container}>
         {holdings?.map((holding: any) => (
-          <div key={holding.id} className={styles.item}>
+          <div
+            key={holding.id}
+            className={cx(styles.item, {
+              [styles.incompatible]: !holding.token.symbol.startsWith("TCO2"),
+            })}
+          >
             {/* TODO - regex on the symbol to remove C3-/TCO2- from symbol?? */}
-            <Text>{holding.token.symbol}</Text>
-            {/* TODO - localised strings */}
-            <Text>{formatEther(holding.amount)} tonnes available</Text>
+            <div>
+              <Text className={styles.tokenText}>
+                <Trans>{holding.token.symbol}</Trans>
+              </Text>
+              <Text className={styles.tonnesText}>
+                <Trans>{formatEther(holding.amount)} tonnes available</Trans>
+              </Text>
+            </div>
+            {!holding.token.symbol.startsWith("TCO2") && (
+              <div className={styles.incompatibleBadge}>
+                <Trans>Not compatible with BCT</Trans>
+              </div>
+            )}
           </div>
         ))}
       </div>
