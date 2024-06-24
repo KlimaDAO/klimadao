@@ -21,7 +21,7 @@ export type CarbonTokenHoldings = {
 // TODO - fix types
 export const CarbonTokenModal: React.FC<any> = ({ holdings }) => {
   return (
-    <Modal title={t`Select Token`} onToggleModal={() => {}}>
+    <Modal title={t`Select Token`}>
       <div className={styles.container}>
         {holdings?.map((holding: any) => (
           <div
