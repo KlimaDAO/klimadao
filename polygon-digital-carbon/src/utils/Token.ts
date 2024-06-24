@@ -118,14 +118,14 @@ export function loadOrCreateToken(tokenAddress: Address): Token {
   return token as Token
 }
 export function handlePuroIdMigration(event: ProjectIdUpdated): void {
-  let migrations = PuroIdMigration.load('puro-migrations')
+  let migration = PuroIdMigration.load('puro-migration')
 
-  if (migrations == null) {
-    migrations = new PuroIdMigration('puro-migrations')
-    migrations.tokenIds = []
-    migrations.save()
+  if (migration == null) {
+    migration = new PuroIdMigration('puro-migration')
+    migration.tokenIds = []
+    migration.save()
   }
-  let tokenIds = migrations.tokenIds
+  let tokenIds = migration.tokenIds
 
   for (let i = 0; i < tokenIds.length; i++) {
     let token = Token.load(tokenIds[i])
