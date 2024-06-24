@@ -8,6 +8,7 @@ import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
 import * as styles from "components/views/Stake/styles";
+import { formatEther } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -20,8 +21,7 @@ interface Props {
 export const Deposit = (props: Props) => {
   const { address } = useWeb3();
   const [showModal, setShowModal] = useState(false);
-  // TODO - fix types
-  const [holdings, setHoldings] = useState<any>([]);
+  const [holdings, setHoldings] = useState<any>([]); // TODO - fix types
 
   // TODO - fetch a list of carbon tokens for the connected user
   useEffect(() => {
@@ -34,6 +34,12 @@ export const Deposit = (props: Props) => {
       );
     })();
   }, [address]);
+
+  const firstTCO2Token = holdings?.find(
+    ({ token }: any) => token?.symbol.startsWith("TCO2") // TODO - fix types
+  );
+
+  console.log(firstTCO2Token);
 
   return (
     <>
@@ -62,18 +68,24 @@ export const Deposit = (props: Props) => {
         </div>
         <div className={cx(localStyles.grid, "cols-5")}>
           <div className="start">
-            <div onClick={() => setShowModal(true)}>
-              <Text>TOKEN SYMBOL</Text>
-              <Text>0.85 TCO2</Text>
-            </div>
+            {firstTCO2Token && (
+              <div onClick={() => setShowModal(true)}>
+                <Text className={localStyles.titleText}>
+                  {firstTCO2Token?.token.symbol}
+                </Text>
+                <Text className={localStyles.descriptionText}>
+                  {formatEther(firstTCO2Token?.amount?.toString())} TCO2
+                </Text>
+              </div>
+            )}
           </div>
           <div className="divider" />
           <div className="end">
             <div>
-              <Text>
+              <Text className={localStyles.titleText}>
                 <Trans>0.85</Trans>
               </Text>
-              <Text>
+              <Text className={localStyles.descriptionText}>
                 <Trans>Available Balance</Trans>
               </Text>
             </div>
@@ -81,18 +93,15 @@ export const Deposit = (props: Props) => {
           <div className="divider" />
           <div className="end">
             <div>
-              <Text>
+              <Text className={localStyles.titleText}>
                 <Trans>0.85</Trans>
               </Text>
-              <Text>
+              <Text className={localStyles.descriptionText}>
                 <Trans>Deposit TC02</Trans>
               </Text>
             </div>
           </div>
         </div>
-
-        {showModal && <CarbonTokenModal holdings={holdings} />}
-
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <Trans>BCT to receive</Trans>
@@ -110,19 +119,22 @@ export const Deposit = (props: Props) => {
               src={tokenInfo.bct.icon}
               alt={tokenInfo.bct.label || ""}
             />
-            <Text>
+            <Text className={localStyles.titleText}>
               <Trans>Base Carbon Tonne</Trans>
             </Text>
           </div>
           <div className="divider" />
           <div className="end">
-            <Text>0.0</Text>
-            <Text>
+            <Text className={localStyles.titleText}>0.0</Text>
+            <Text className={localStyles.descriptionText}>
               <Trans>Receiving BCT</Trans>
             </Text>
           </div>
         </div>
       </div>
+      {showModal && props.isConnected && (
+        <CarbonTokenModal holdings={holdings} />
+      )}
     </>
   );
 };

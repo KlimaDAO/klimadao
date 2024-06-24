@@ -44,3 +44,17 @@ export const grid = css`
 export const card = css`
   gap: 0 !important;
 `;
+
+export const titleText = css`
+  font-weight: 700;
+  font-size: 1.6rem !important;
+  line-height: 2rem !important;
+  color: var(--white);
+`;
+
+export const descriptionText = css`
+  font-weight: 400;
+  font-size: 1.4rem !important;
+  line-height: 1.6rem !important;
+  color: var(--font-03);
+`;
