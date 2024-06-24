@@ -10,7 +10,7 @@ export const getWalletHoldingsViaPolygonDigitalCarbon = async (
       body: JSON.stringify({
         query: `
           query WalletHoldings($address: String) {
-            accounts(first: 1000, where: { id: $address }) {
+            account(id: $address) {
               holdings {
                 id
                 token {
@@ -18,7 +18,6 @@ export const getWalletHoldingsViaPolygonDigitalCarbon = async (
                   name
                   symbol
                   decimals
-                  isExAnte
                 }
                 amount
               }

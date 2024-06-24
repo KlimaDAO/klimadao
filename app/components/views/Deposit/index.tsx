@@ -20,7 +20,8 @@ interface Props {
 export const Deposit = (props: Props) => {
   const { address } = useWeb3();
   const [showModal, setShowModal] = useState(false);
-  const [holdings, setHoldings] = useState([]);
+  // TODO - fix types
+  const [holdings, setHoldings] = useState<any>([]);
 
   // TODO - fetch a list of carbon tokens for the connected user
   useEffect(() => {
