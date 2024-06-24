@@ -1,14 +1,16 @@
 import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
+import { getWalletHoldings } from "actions/deposit";
 import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
 import * as styles from "components/views/Stake/styles";
 import { tokenInfo } from "lib/getTokenInfo";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as localStyles from "./styles";
 
 interface Props {
@@ -16,9 +18,21 @@ interface Props {
 }
 
 export const Deposit = (props: Props) => {
+  const { address } = useWeb3();
   const [showModal, setShowModal] = useState(false);
+  const [holdings, setHoldings] = useState([]);
 
   // TODO - fetch a list of carbon tokens for the connected user
+  useEffect(() => {
+    if (!address) return;
+    (async () => {
+      setHoldings(
+        await getWalletHoldings({
+          address: address as string,
+        })
+      );
+    })();
+  }, [address]);
 
   return (
     <>
@@ -48,12 +62,8 @@ export const Deposit = (props: Props) => {
         <div className={cx(localStyles.grid, "cols-5")}>
           <div className="start">
             <div onClick={() => setShowModal(true)}>
-              <Text>
-                <Trans>VCS-1577-2015</Trans>
-              </Text>
-              <Text>
-                <Trans>0.85 TCO2</Trans>
-              </Text>
+              <Text>TOKEN SYMBOL</Text>
+              <Text>0.85 TCO2</Text>
             </div>
           </div>
           <div className="divider" />
@@ -80,7 +90,7 @@ export const Deposit = (props: Props) => {
           </div>
         </div>
 
-        {showModal && <CarbonTokenModal />}
+        {showModal && <CarbonTokenModal holdings={holdings} />}
 
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
