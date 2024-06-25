@@ -1,5 +1,6 @@
 import {
   Anchor as A,
+  ButtonPrimary,
   CopyValueButton,
   DiscordIcon,
   GithubIcon,
@@ -21,6 +22,8 @@ import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
+import { BaseLogo } from "components/Logos/BaseLogo";
+import { SQUID_ROUTER_URL } from "lib/constants";
 import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
@@ -206,6 +209,13 @@ export const NavMenu: FC<Props> = (props) => {
         </div>
       )}
       <div className="navFooter">
+        <ButtonPrimary
+          target="_blank"
+          href={SQUID_ROUTER_URL}
+          className={styles.bridgeButton}
+          icon={<BaseLogo className={styles.baseIcon} />}
+          label={<Trans>Bridge to Base</Trans>}
+        />
         <div className="hr" />
         <div className="navFooter_buttons">
           <A className="navFooter_button" href={urls.twitter}>

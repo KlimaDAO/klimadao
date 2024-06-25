@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-06-20 15:36+0000\n"
+"POT-Creation-Date: 2024-06-24 20:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,11 +22,15 @@ msgstr "Одобрить"
 msgid "Balances"
 msgstr "Балансы"
 
+#: components/NavMenu/index.tsx:217
+msgid "Bridge to Base"
+msgstr ""
+
 #: components/views/Redeem/index.tsx:25
 msgid "Buy & Redeem Carbon"
 msgstr "Купить и вывести углерод"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:187
 msgid "Buy Carbon"
 msgstr "Купить углерод"
 
@@ -518,31 +522,31 @@ msgstr "Не удалось связаться с сетью. Скорее вс�
 msgid "invalid_rpc.modal.title"
 msgstr "Проверьте настройки сети"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:195
 msgid "menu.info"
 msgstr "Информация"
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:200
 msgid "menu.just_for_you"
 msgstr "ТОЛЬКО ДЛЯ ВАС"
 
-#: components/NavMenu/index.tsx:66
+#: components/NavMenu/index.tsx:69
 msgid "menu.not_connected"
 msgstr "НЕ ПОДКЛЮЧЕН"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:179
 msgid "menu.offset"
 msgstr "Офсет"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:163
 msgid "menu.stake_klima"
 msgstr "Стейкинг KLIMA"
 
-#: components/NavMenu/index.tsx:48
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr "Адрес вашего кошелька"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:171
 msgid "menu.wrap_klima"
 msgstr "обернуть sKLIMA"
 
@@ -821,7 +825,7 @@ msgstr "Пожалуйста, нажмите \"подтвердить\" в ва�
 msgid "status.user_rejected"
 msgstr "Вы решили отклонить транзакцию"
 
-#: components/NavMenu/index.tsx:204
+#: components/NavMenu/index.tsx:207
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
