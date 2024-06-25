@@ -19,16 +19,23 @@ export type CarbonTokenHoldings = {
 };
 
 // TODO - fix types
-export const CarbonTokenModal: React.FC<any> = ({ holdings }) => {
+export const CarbonTokenModal: React.FC<any> = (props) => {
+  // TODO - fix types
+  const handleChange = (item: any) => {
+    props.onSelect(item);
+    props.onHide();
+  };
+
   return (
-    <Modal title={t`Select Token`}>
+    <Modal title={t`Select Token`} onToggleModal={props.onHide}>
       <div className={styles.container}>
-        {holdings?.map((holding: any) => (
+        {props.holdings?.map((holding: any) => (
           <div
             key={holding.id}
             className={cx(styles.item, {
               [styles.incompatible]: !holding.token.symbol.startsWith("TCO2"),
             })}
+            onClick={() => handleChange(holding)}
           >
             {/* TODO - regex on the symbol to remove C3-/TCO2- from symbol?? */}
             <div>

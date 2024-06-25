@@ -47,7 +47,25 @@ export const grid = css`
     display: flex;
     padding-left: 2rem;
     flex-direction: column;
+    justify-content: space-between;
   }
+`;
+
+export const input = css`
+  width: 12.6rem;
+  height: 2.7rem;
+  padding: 0 0.4rem;
+  font-weight: 700;
+  border-radius: 0.4rem;
+  border: 0.2rem solid var(--white);
+`;
+
+export const balanceErrorText = css`
+  color: var(--warn);
+`;
+
+export const inputError = css`
+  border-color: var(--warn);
 `;
 
 export const card = css`
@@ -65,6 +83,7 @@ export const titleText = css`
   font-size: 1.6rem !important;
   line-height: 2rem !important;
   color: var(--white);
+  margin: 0.4rem 0;
 `;
 
 export const descriptionText = css`

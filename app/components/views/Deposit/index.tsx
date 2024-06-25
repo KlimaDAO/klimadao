@@ -21,26 +21,35 @@ interface Props {
 
 export const Deposit = (props: Props) => {
   const { address } = useWeb3();
+  const [quantity, setQuantity] = useState("0.0");
   const [showModal, setShowModal] = useState(false);
   const [holdings, setHoldings] = useState<any>([]); // TODO - fix types
+  const [selectedToken, setSelectedToken] = useState<{
+    amount: number;
+    token: any;
+  }>();
 
   // TODO - fetch a list of carbon tokens for the connected user
   useEffect(() => {
     if (!address) return;
     (async () => {
-      setHoldings(
-        await getWalletHoldings({
-          address: address as string,
-        })
+      const holdings = await getWalletHoldings({
+        address: address as string,
+      });
+      setHoldings(holdings);
+      setSelectedToken(
+        holdings?.find(
+          ({ token }: any) => token?.symbol.startsWith("TCO2") // TODO - fix types
+        )
       );
     })();
   }, [address]);
 
-  const firstTCO2Token = holdings?.find(
-    ({ token }: any) => token?.symbol.startsWith("TCO2") // TODO - fix types
-  );
+  const formattedTokenBalance = selectedToken
+    ? formatEther(selectedToken?.amount?.toString())
+    : 0;
 
-  console.log(firstTCO2Token);
+  const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);
 
   return (
     <>
@@ -68,13 +77,13 @@ export const Deposit = (props: Props) => {
           </Text>
           <div className={cx(localStyles.grid, "cols-5")}>
             <button className="start" onClick={() => setShowModal(true)}>
-              {firstTCO2Token && (
+              {selectedToken && (
                 <div aria-label="title">
                   <Text className={localStyles.titleText}>
-                    {firstTCO2Token?.token.symbol}
+                    {selectedToken?.token.symbol}
                   </Text>
                   <Text className={localStyles.descriptionText}>
-                    {formatEther(firstTCO2Token?.amount?.toString())} TCO2
+                    {formattedTokenBalance} TCO2
                   </Text>
                 </div>
               )}
@@ -82,18 +91,35 @@ export const Deposit = (props: Props) => {
             </button>
             <div className="divider" />
             <div className="end">
-              <Text className={localStyles.titleText}>
-                <Trans>0.85</Trans>
+              <Text
+                className={cx(localStyles.titleText, {
+                  [localStyles.balanceErrorText]: !!insufficientTokens,
+                })}
+              >
+                <Trans>{formattedTokenBalance}</Trans>
               </Text>
-              <Text className={localStyles.descriptionText}>
+              <Text
+                className={cx(localStyles.descriptionText, {
+                  [localStyles.balanceErrorText]: !!insufficientTokens,
+                })}
+              >
                 <Trans>Available Balance</Trans>
               </Text>
             </div>
             <div className="divider" />
             <div className="end">
-              <Text className={localStyles.titleText}>
-                <Trans>0.85</Trans>
-              </Text>
+              <input
+                className={cx(localStyles.input, {
+                  [localStyles.inputError]: !!insufficientTokens,
+                })}
+                value={quantity}
+                onChange={(e) => {
+                  setQuantity(e.target.value);
+                }}
+                min="0"
+                type="number"
+                placeholder="0.0"
+              />
               <Text className={localStyles.descriptionText}>
                 <Trans>Deposit TC02</Trans>
               </Text>
@@ -122,17 +148,24 @@ export const Deposit = (props: Props) => {
             </div>
             <div className="divider" />
             <div className="end">
-              <Text className={localStyles.titleText}>0.0</Text>
+              <Text className={localStyles.titleText}>{quantity}</Text>
               <Text className={localStyles.descriptionText}>
                 <Trans>Receiving BCT</Trans>
               </Text>
             </div>
           </div>
         </div>
-        <ButtonPrimary disabled label="Continue" />
+        <ButtonPrimary
+          disabled={Number(quantity) === 0 || insufficientTokens}
+          label="Continue"
+        />
       </div>
       {showModal && props.isConnected && (
-        <CarbonTokenModal holdings={holdings} />
+        <CarbonTokenModal
+          holdings={holdings}
+          onHide={() => setShowModal(false)}
+          onSelect={(token: any) => setSelectedToken(token)}
+        />
       )}
     </>
   );

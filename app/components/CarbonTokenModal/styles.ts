@@ -8,9 +8,10 @@ export const container = css`
 
 export const item = css`
   width: 100%;
-  padding: 1.2rem;
   gap: 0.8rem;
+  padding: 1.2rem;
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   border-radius: 0.8rem;
   background: transparent;
