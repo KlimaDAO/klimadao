@@ -295,11 +295,15 @@ msgstr "Bond discount"
 msgid "bond.bond_price"
 msgstr "Bond price"
 
+#: components/NavMenu/index.tsx:217
+msgid "Bridge to Base"
+msgstr "Bridge to Base"
+
 #: components/views/Redeem/index.tsx:375
 msgid "Buy & Redeem Carbon"
 msgstr "Buy & Redeem Carbon"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:187
 #: components/views/Redeem/index.tsx:526
 msgid "Buy Carbon"
 msgstr "Buy Carbon"
@@ -603,7 +607,7 @@ msgid "pklima.index_adjusted"
 msgstr "Index adjusted"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:195
 msgid "menu.info"
 msgstr "Info"
 
@@ -634,7 +638,7 @@ msgid "shared.invalid_project_address"
 msgstr "Invalid project address"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:200
 msgid "menu.just_for_you"
 msgstr "JUST FOR YOU"
 
@@ -675,11 +679,6 @@ msgstr "Loading balances..."
 msgid "Loading project info..."
 msgstr "Loading project info..."
 
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:235
-msgid "shared.connect_wallet"
-msgstr "Loading..."
-
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
@@ -690,6 +689,11 @@ msgstr "Loading..."
 #: components/views/Stake/index.tsx:435
 #: components/views/Wrap/index.tsx:207
 msgid "Loading..."
+msgstr "Loading..."
+
+#. js-lingui-explicit-id
+#: components/views/Stake/index.tsx:235
+msgid "shared.connect_wallet"
 msgstr "Loading..."
 
 #: components/views/Home/index.tsx:178
@@ -783,7 +787,7 @@ msgid "Not Connected"
 msgstr "Not Connected"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:66
+#: components/NavMenu/index.tsx:69
 msgid "menu.not_connected"
 msgstr "NOT CONNECTED"
 
@@ -798,7 +802,7 @@ msgid "info.official_contract_addresses"
 msgstr "Official Contract Addresses"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:179
 msgid "menu.offset"
 msgstr "Offset"
 
@@ -848,7 +852,7 @@ msgid "bond.discount.description_tooltip"
 msgstr "Percentage discount (or premium if negative) relative to the market value of KLIMA."
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:204
+#: components/NavMenu/index.tsx:207
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
@@ -1034,7 +1038,7 @@ msgid "stake.stake"
 msgstr "Stake"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:163
 msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
@@ -1247,7 +1251,7 @@ msgid "wrap.wrap"
 msgstr "Wrap"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:171
 msgid "menu.wrap_klima"
 msgstr "Wrap sKLIMA"
 
@@ -1320,6 +1324,6 @@ msgid "Your balance must equal at least 1% more than the cost of the transaction
 msgstr "Your balance must equal at least 1% more than the cost of the transaction."
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:48
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr "Your Wallet Address"
