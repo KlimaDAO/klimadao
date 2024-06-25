@@ -10275,4 +10275,37 @@ export const PROJECT_INFO: ProjectInfo[] = [
     '52',
     true
   ),
+  new ProjectInfo(
+    '0x5557cf0e9f4c47b1e536aac2ac4bd2c50f9090bb',
+    'JCS-19011',
+    '2031',
+    'Kyushu/Okinawa',
+    'EN-R-002 Ver. 1.0',
+    'Renewable Energy',
+    'Japan',
+    '0',
+    false
+  ),
+  new ProjectInfo(
+    '0x4b69a69a80048e321da1d751f0f9dc39b5d63454',
+    'ECO-22',
+    '2018',
+    'Choco',
+    'PROTOCOL CVCC 3.1',
+    'Carbon offsets',
+    'Choco',
+    '0',
+    false
+  ),
+  new ProjectInfo(
+    '0xa8853ffc5a0aeab7d31631a4b87cb12c0b289c6c',
+    'ECO-114',
+    '2022',
+    'Worldwide',
+    'PROTOCOL CVCC 3.1',
+    'Carbon offsets',
+    'Worldwide',
+    '0',
+    false
+  ),
 ]
