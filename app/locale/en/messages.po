@@ -28,11 +28,15 @@ msgstr "Approve"
 msgid "Balances"
 msgstr "Balances"
 
+#: components/NavMenu/index.tsx:217
+msgid "Bridge to Base"
+msgstr "Bridge to Base"
+
 #: components/views/Redeem/index.tsx:25
 msgid "Buy & Redeem Carbon"
 msgstr "Buy & Redeem Carbon"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:187
 msgid "Buy Carbon"
 msgstr "Buy Carbon"
 
@@ -518,31 +522,31 @@ msgstr "The network could not be reached. This is most likely caused by an old P
 msgid "invalid_rpc.modal.title"
 msgstr "Check your network settings"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:195
 msgid "menu.info"
 msgstr "Info"
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:200
 msgid "menu.just_for_you"
 msgstr "JUST FOR YOU"
 
-#: components/NavMenu/index.tsx:66
+#: components/NavMenu/index.tsx:69
 msgid "menu.not_connected"
 msgstr "NOT CONNECTED"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:179
 msgid "menu.offset"
 msgstr "Offset"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:163
 msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/NavMenu/index.tsx:48
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr "Your Wallet Address"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:171
 msgid "menu.wrap_klima"
 msgstr "Wrap sKLIMA"
 
@@ -821,7 +825,7 @@ msgstr "Please click 'confirm' in your wallet to continue."
 msgid "status.user_rejected"
 msgstr "You chose to reject the transaction"
 
-#: components/NavMenu/index.tsx:204
+#: components/NavMenu/index.tsx:207
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

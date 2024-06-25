@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-06-17 15:36+0000\n"
+"POT-Creation-Date: 2024-06-24 20:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,11 +22,15 @@ msgstr "मंज़ूरी दें"
 msgid "Balances"
 msgstr "बैलेंस"
 
+#: components/NavMenu/index.tsx:217
+msgid "Bridge to Base"
+msgstr ""
+
 #: components/views/Redeem/index.tsx:25
 msgid "Buy & Redeem Carbon"
 msgstr "कार्बन खरीदें और रिडीम करें"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:187
 msgid "Buy Carbon"
 msgstr "कार्बन खरीदें"
 
@@ -512,31 +516,31 @@ msgstr "नेटवर्क पहुँच से बाहर है। ब�
 msgid "invalid_rpc.modal.title"
 msgstr "अपनी नेटवर्क सेटिंग बदलें"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:195
 msgid "menu.info"
 msgstr "जानकारी"
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:200
 msgid "menu.just_for_you"
 msgstr "सिर्फ आपके लिए"
 
-#: components/NavMenu/index.tsx:66
+#: components/NavMenu/index.tsx:69
 msgid "menu.not_connected"
 msgstr "कनेक्ट नहीं हैं"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:179
 msgid "menu.offset"
 msgstr "ऑफ़सेट"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:163
 msgid "menu.stake_klima"
 msgstr "KLIMA दाँव पर लगाएँ"
 
-#: components/NavMenu/index.tsx:48
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr "आपका वॉलेट पता"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:171
 msgid "menu.wrap_klima"
 msgstr "sKLIMA रैप करें"
 
@@ -815,7 +819,7 @@ msgstr "जारी रखने के लिए कृपया अपने 
 msgid "status.user_rejected"
 msgstr "आपने लेन-देन को अस्वीकार करना चयनित किया"
 
-#: components/NavMenu/index.tsx:204
+#: components/NavMenu/index.tsx:207
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
