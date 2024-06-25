@@ -32,9 +32,18 @@ export const grid = css`
     gap: 0.8rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-right: 2rem;
+
+    & [aria-label="title"] {
+      gap: 0.8rem;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   & .end {
+    gap: 0.8rem;
     display: flex;
     padding-left: 2rem;
     flex-direction: column;
@@ -42,7 +51,13 @@ export const grid = css`
 `;
 
 export const card = css`
-  gap: 0 !important;
+  grid-template-rows: unset !important;
+`;
+
+export const stakeCardRow = css`
+  gap: 0.8rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const titleText = css`

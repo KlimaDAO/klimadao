@@ -1,8 +1,9 @@
 import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { getWalletHoldings } from "actions/deposit";
 import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
@@ -46,7 +47,7 @@ export const Deposit = (props: Props) => {
       <DisclamerModal />
       <BalancesCard assets={["klima", "sklima", "wsklima", "bct"]} tooltip="" />
       <div className={cx(styles.stakeCard, localStyles.card)}>
-        <div className={styles.stakeCard_header}>
+        <div className={localStyles.stakeCardRow}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <AccountBalanceWalletOutlined />
             <Trans>Deposit Carbon</Trans>
@@ -55,7 +56,7 @@ export const Deposit = (props: Props) => {
             <Trans>Deposit TCO2 in exchange for BCT.</Trans>
           </Text>
         </div>
-        <div className={styles.stakeCard_header}>
+        <div className={localStyles.stakeCardRow}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <Trans>Token to deposit</Trans>
           </Text>
@@ -65,23 +66,22 @@ export const Deposit = (props: Props) => {
               pool.
             </Trans>
           </Text>
-        </div>
-        <div className={cx(localStyles.grid, "cols-5")}>
-          <div className="start">
-            {firstTCO2Token && (
-              <div onClick={() => setShowModal(true)}>
-                <Text className={localStyles.titleText}>
-                  {firstTCO2Token?.token.symbol}
-                </Text>
-                <Text className={localStyles.descriptionText}>
-                  {formatEther(firstTCO2Token?.amount?.toString())} TCO2
-                </Text>
-              </div>
-            )}
-          </div>
-          <div className="divider" />
-          <div className="end">
-            <div>
+          <div className={cx(localStyles.grid, "cols-5")}>
+            <button className="start" onClick={() => setShowModal(true)}>
+              {firstTCO2Token && (
+                <div aria-label="title">
+                  <Text className={localStyles.titleText}>
+                    {firstTCO2Token?.token.symbol}
+                  </Text>
+                  <Text className={localStyles.descriptionText}>
+                    {formatEther(firstTCO2Token?.amount?.toString())} TCO2
+                  </Text>
+                </div>
+              )}
+              <KeyboardArrowDown fontSize="large" htmlColor="white" />
+            </button>
+            <div className="divider" />
+            <div className="end">
               <Text className={localStyles.titleText}>
                 <Trans>0.85</Trans>
               </Text>
@@ -89,10 +89,8 @@ export const Deposit = (props: Props) => {
                 <Trans>Available Balance</Trans>
               </Text>
             </div>
-          </div>
-          <div className="divider" />
-          <div className="end">
-            <div>
+            <div className="divider" />
+            <div className="end">
               <Text className={localStyles.titleText}>
                 <Trans>0.85</Trans>
               </Text>
@@ -102,35 +100,36 @@ export const Deposit = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className={styles.stakeCard_header}>
+        <div className={localStyles.stakeCardRow}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <Trans>BCT to receive</Trans>
           </Text>
           <Text t="caption" color="lightest">
             <Trans>You'll receive BCT in exchange for your TCO2.</Trans>
           </Text>
-        </div>
-        <div className={cx(localStyles.grid, "cols-3")}>
-          <div className="start">
-            <Image
-              width={42}
-              height={42}
-              className="icon"
-              src={tokenInfo.bct.icon}
-              alt={tokenInfo.bct.label || ""}
-            />
-            <Text className={localStyles.titleText}>
-              <Trans>Base Carbon Tonne</Trans>
-            </Text>
+          <div className={cx(localStyles.grid, "cols-3")}>
+            <div className="start">
+              <Image
+                width={42}
+                height={42}
+                className="icon"
+                src={tokenInfo.bct.icon}
+                alt={tokenInfo.bct.label || ""}
+              />
+              <Text className={localStyles.titleText}>
+                <Trans>Base Carbon Tonne</Trans>
+              </Text>
+            </div>
+            <div className="divider" />
+            <div className="end">
+              <Text className={localStyles.titleText}>0.0</Text>
+              <Text className={localStyles.descriptionText}>
+                <Trans>Receiving BCT</Trans>
+              </Text>
+            </div>
           </div>
-          <div className="divider" />
-          <div className="end">
-            <Text className={localStyles.titleText}>0.0</Text>
-            <Text className={localStyles.descriptionText}>
-              <Trans>Receiving BCT</Trans>
-            </Text>
-          </div>
         </div>
+        <ButtonPrimary disabled label="Continue" />
       </div>
       {showModal && props.isConnected && (
         <CarbonTokenModal holdings={holdings} />
