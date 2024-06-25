@@ -27,6 +27,8 @@ dataSources:
       abis:
         - name: CarbonProjectsAddress
           file: ../lib/abis/CarbonProjectsAddress.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
       eventHandlers:
         - event: ProjectIdUpdated(uint256)
           handler: handlePuroIdMigration
