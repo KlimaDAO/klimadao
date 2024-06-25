@@ -15,7 +15,10 @@ export { getInteger } from "./getInteger";
 export { getIsValidAddress } from "./getIsValidAddress";
 export { getLocales } from "./getLocales";
 export { getOgImageSrc } from "./getOgImageSrc";
-export { createRetirementStorageContract } from "./getRetirement";
+export {
+  createRetirementStorageContract,
+  getRetirementTotalsAndBalances,
+} from "./getRetirement";
 export { getStaticProvider } from "./getStaticProvider";
 export { getTokenDecimals } from "./getTokenDecimals";
 export { getTreasuryBalance } from "./getTreasuryBalance";
@@ -27,6 +30,7 @@ export { safeAdd } from "./safeAdd";
 export { safeSub } from "./safeSub";
 export { secondsUntilBlock } from "./secondsUntilBlock";
 export { trimStringDecimals } from "./trimStringDecimals";
+export { trimWithLocale } from "./trimWithLocale";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
 export { useDebounce } from "./useDebounce";
 export { useFocusTrap } from "./useFocusTrap";
