@@ -37,12 +37,6 @@ enum BridgeStatus {
   FINALIZED
   REQUESTED
   REVERTED
-}
-
-enum BridgeStatus {
-  FINALIZED
-  REQUESTED
-  REVERTED
   AWAITING
 }
 
