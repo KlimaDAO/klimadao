@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-06-20 15:36+0000\n"
+"POT-Creation-Date: 2024-06-25 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,11 +22,15 @@ msgstr "Genehmigen"
 msgid "Balances"
 msgstr "Guthaben"
 
+#: components/NavMenu/index.tsx:217
+msgid "Bridge to Base"
+msgstr ""
+
 #: components/views/Redeem/index.tsx:25
 msgid "Buy & Redeem Carbon"
 msgstr "CO2-Tokens kaufen und freistellen"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:187
 msgid "Buy Carbon"
 msgstr "CO2 kaufen"
 
@@ -514,31 +518,31 @@ msgstr "Netzwerk konnte nicht erreicht werden. Die Ursache ist wahrscheinlich ei
 msgid "invalid_rpc.modal.title"
 msgstr "Überprüfe deine Netzwerkeinstellungen"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:195
 msgid "menu.info"
 msgstr "Info"
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:200
 msgid "menu.just_for_you"
 msgstr "NUR FÜR DICH"
 
-#: components/NavMenu/index.tsx:66
+#: components/NavMenu/index.tsx:69
 msgid "menu.not_connected"
 msgstr "NICHT VERBUNDEN"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:179
 msgid "menu.offset"
 msgstr "Ausgleichen"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:163
 msgid "menu.stake_klima"
 msgstr "KLIMA staken"
 
-#: components/NavMenu/index.tsx:48
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr "Deine Walletadresse"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:171
 msgid "menu.wrap_klima"
 msgstr "sKLIMA wrappen"
 
@@ -819,7 +823,7 @@ msgstr "Bitte klicke \"Bestätigen\" in deiner Wallet, um fortzufahren."
 msgid "status.user_rejected"
 msgstr "Du hast die Transaktion abgebrochen"
 
-#: components/NavMenu/index.tsx:204
+#: components/NavMenu/index.tsx:207
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
