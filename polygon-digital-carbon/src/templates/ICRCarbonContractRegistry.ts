@@ -4,7 +4,6 @@ import { loadOrCreateCarbonCredit } from '../utils/CarbonCredit'
 import { loadOrCreateCarbonProject } from '../utils/CarbonProject'
 import { Address, BigInt, log } from '@graphprotocol/graph-ts'
 import { ICR_PROJECT_INFO } from '../../../lib/utils/ICRProjectInfo'
-import { createICRTokenWithCall } from '../utils/Token'
 
 export function handleNewICC(event: ProjectCreated): void {
   // Start indexing the C3T tokens; `event.params.tokenAddress` is the

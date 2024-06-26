@@ -17,3 +17,5 @@ export function incrementAccountRetirements(accountAddress: Address): void {
   account.totalRetirements += 1
   account.save()
 }
+
+

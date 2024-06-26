@@ -39,10 +39,7 @@ export function toWei(value: BigInt): BigInt {
 }
 
 export function handleMigrationDecimals(registry: string, blockNumber: BigInt, amount: BigInt): BigInt {
-  log.info('qwe1: {} qwe2: {} qwe3: {}', [blockNumber.toString(), ICR_MIGRATION_BLOCK.toString(), registry])
-
   if (registry == 'ICR' && blockNumber.lt(ICR_MIGRATION_BLOCK)) {
-    log.info('qwe4: {}', [toWei(amount).toString()])
     return toWei(amount)
   } else {
     return amount

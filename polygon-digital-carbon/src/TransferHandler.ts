@@ -11,11 +11,15 @@ import {
   ExAnteMinted,
 } from '../generated/templates/ICRProjectToken/ICRProjectToken'
 import { loadOrCreateHolding } from './utils/Holding'
-import { BIG_INT_1E18, ZERO_BI } from '../../lib/utils/Decimals'
+import { ZERO_BI, BIG_INT_1E18 } from '../../lib/utils/Decimals'
 import { loadOrCreateAccount } from './utils/Account'
-import { saveICRRetirement, saveToucanRetirement, saveToucanRetirement_1_4_0 } from './RetirementHandler'
+import {
+  saveICRRetirement,
+  saveToucanRetirement,
+  saveToucanRetirement_1_4_0,
+} from './RetirementHandler'
 import { saveBridge } from './utils/Bridge'
-import { CarbonCredit, CarbonProject, CrossChainBridge } from '../generated/schema'
+import { CarbonCredit, CrossChainBridge } from '../generated/schema'
 import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool } from './utils/CarbonPool'
 import { checkForCarbonPoolCreditSnapshot } from './utils/CarbonPoolCreditBalance'
 import { loadOrCreateEcosystem } from './utils/Ecosystem'

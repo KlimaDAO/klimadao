@@ -5,6 +5,7 @@ import { loadOrCreateHolding } from './Holding'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { loadOrCreateToucanBatch } from './ToucanBatch'
 import { ZERO_ADDRESS } from '../../../lib/utils/Constants'
+import { CarbonProject } from '../../generated/schema'
 
 export function recordProvenance(
   hash: Bytes,
@@ -113,7 +114,16 @@ export function recordProvenance(
 
 export function updateProvenanceForRetirement(creditId: Bytes): Bytes | null {
   let credit = loadCarbonCredit(creditId)
-  let id = creditId.concat(ZERO_ADDRESS).concatI32(credit.provenanceCount - 1)
+  let project = CarbonProject.load(credit.project)
+
+  if (project == null) return null
+
+  /** C3 ECO_REGISTRY and J_CREDIT credits are two-step async retirements.
+   * The tokens are transferred back to the contract and then retired from there by an admin */
+  let id =
+    project.registry == 'J_CREDIT' || project.registry == 'ECO_REGISTRY'
+      ? creditId.concat(Address.fromHexString(credit.tokenAddress.toHexString())).concatI32(credit.provenanceCount - 1)
+      : creditId.concat(ZERO_ADDRESS).concatI32(credit.provenanceCount - 1)
   let record = ProvenanceRecord.load(id)
   if (record == null) {
     return null

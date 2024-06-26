@@ -2,21 +2,23 @@ import { MossRetired } from '../generated/RetireMossCarbon/RetireMossCarbon'
 import { ToucanRetired } from '../generated/RetireToucanCarbon/RetireToucanCarbon'
 import { C3Retired } from '../generated/RetireC3Carbon/RetireC3Carbon'
 import { CarbonRetired, CarbonRetired1 as CarbonRetiredTokenId } from '../generated/KlimaInfinity/KlimaInfinity'
-
 import { KlimaCarbonRetirements } from '../generated/RetireC3Carbon/KlimaCarbonRetirements'
-import { Address, BigInt } from '@graphprotocol/graph-ts'
+import { BigInt, dataSource } from '@graphprotocol/graph-ts'
 import { loadOrCreateAccount } from './utils/Account'
 import { loadRetire } from './utils/Retire'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { saveKlimaRetire } from './utils/KlimaRetire'
-import { KLIMA_CARBON_RETIREMENTS_CONTRACT } from '../../lib/utils/Constants'
 import { ZERO_BI } from '../../lib/utils/Decimals'
+import { getRetirementsContractAddress } from '../utils/getRetirementsContractAddress'
 
 export function handleMossRetired(event: MossRetired): void {
   // Ignore zero value retirements
   if (event.params.retiredAmount == ZERO_BI) return
+  let network = dataSource.network()
 
-  let klimaRetirements = KlimaCarbonRetirements.bind(KLIMA_CARBON_RETIREMENTS_CONTRACT)
+  let retirementsContractAddress = getRetirementsContractAddress(network)
+
+  let klimaRetirements = KlimaCarbonRetirements.bind(retirementsContractAddress)
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
@@ -46,8 +48,11 @@ export function handleMossRetired(event: MossRetired): void {
 export function handleToucanRetired(event: ToucanRetired): void {
   // Ignore zero value retirements
   if (event.params.retiredAmount == ZERO_BI) return
+  let network = dataSource.network()
 
-  let klimaRetirements = KlimaCarbonRetirements.bind(KLIMA_CARBON_RETIREMENTS_CONTRACT)
+  let retirementsContractAddress = getRetirementsContractAddress(network)
+  let klimaRetirements = KlimaCarbonRetirements.bind(retirementsContractAddress)
+
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
@@ -78,7 +83,10 @@ export function handleC3Retired(event: C3Retired): void {
   // Ignore zero value retirements
   if (event.params.retiredAmount == ZERO_BI) return
 
-  let klimaRetirements = KlimaCarbonRetirements.bind(KLIMA_CARBON_RETIREMENTS_CONTRACT)
+  let network = dataSource.network()
+  let retirementsContractAddress = getRetirementsContractAddress(network)
+
+  let klimaRetirements = KlimaCarbonRetirements.bind(retirementsContractAddress)
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
@@ -108,8 +116,11 @@ export function handleC3Retired(event: C3Retired): void {
 export function handleCarbonRetired(event: CarbonRetired): void {
   // Ignore zero value retirements
   if (event.params.retiredAmount == ZERO_BI) return
+  let network = dataSource.network()
 
-  let klimaRetirements = KlimaCarbonRetirements.bind(KLIMA_CARBON_RETIREMENTS_CONTRACT)
+  let retirementsContractAddress = getRetirementsContractAddress(network)
+
+  let klimaRetirements = KlimaCarbonRetirements.bind(retirementsContractAddress)
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
@@ -139,8 +150,10 @@ export function handleCarbonRetired(event: CarbonRetired): void {
 export function handleCarbonRetiredWithTokenId(event: CarbonRetiredTokenId): void {
   // Ignore zero value retirements
   if (event.params.retiredAmount == ZERO_BI) return
+  let network = dataSource.network()
 
-  let klimaRetirements = KlimaCarbonRetirements.bind(KLIMA_CARBON_RETIREMENTS_CONTRACT)
+  let retirementsContractAddress = getRetirementsContractAddress(network)
+  let klimaRetirements = KlimaCarbonRetirements.bind(retirementsContractAddress)
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
