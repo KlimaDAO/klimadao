@@ -10278,7 +10278,7 @@ export const PROJECT_INFO: ProjectInfo[] = [
   new ProjectInfo(
     '0x5557cf0e9f4c47b1e536aac2ac4bd2c50f9090bb',
     'JCS-19011',
-    '2031',
+    '2016',
     'Kyushu/Okinawa',
     'EN-R-002 Ver. 1.0',
     'Renewable Energy',
