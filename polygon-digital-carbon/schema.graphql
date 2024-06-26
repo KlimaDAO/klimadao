@@ -97,7 +97,7 @@ type Token @entity {
   tokenId: BigInt
 
   "isExAnte Identifier"
-  isExAnte: Boolean
+  isExAnte: Boolean!
 
   "Latest price in USD"
   latestPriceUSD: BigDecimal
