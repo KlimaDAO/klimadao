@@ -13,13 +13,17 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/CarbonTokenModal/index.tsx:36
+#: components/CarbonTokenModal/index.tsx:43
 msgid "{0}"
 msgstr "{0}"
 
-#: components/CarbonTokenModal/index.tsx:39
+#: components/CarbonTokenModal/index.tsx:46
 msgid "{0} tonnes available"
 msgstr "{0} tonnes available"
+
+#: components/views/Deposit/index.tsx:99
+msgid "{formattedTokenBalance}"
+msgstr "{formattedTokenBalance}"
 
 #. js-lingui-explicit-id
 #: components/views/ChooseBond/index.tsx:239
@@ -47,11 +51,6 @@ msgstr "⚠️ Warning: this bond price is inflated because the current discount
 #: actions/utils.ts:28
 msgid "status.error"
 msgstr "❌ Error: something went wrong..."
-
-#: components/views/Deposit/index.tsx:86
-#: components/views/Deposit/index.tsx:97
-msgid "0.85"
-msgstr "0.85"
 
 #. js-lingui-explicit-id
 #: components/TransactionModal/index.tsx:50
@@ -194,7 +193,7 @@ msgstr "Approximate rewards, including compounding, should you remain staked for
 msgid "bond.should_autostake"
 msgstr "Automatically stake for sKLIMA"
 
-#: components/views/Deposit/index.tsx:89
+#: components/views/Deposit/index.tsx:106
 msgid "Available Balance"
 msgstr "Available Balance"
 
@@ -233,11 +232,11 @@ msgstr "Balances"
 msgid "choose_bond.bct.base_carbon_tonne"
 msgstr "Base Carbon Tonne"
 
-#: components/views/Deposit/index.tsx:123
+#: components/views/Deposit/index.tsx:146
 msgid "Base Carbon Tonne"
 msgstr "Base Carbon Tonne"
 
-#: components/views/Deposit/index.tsx:107
+#: components/views/Deposit/index.tsx:131
 msgid "BCT to receive"
 msgstr "BCT to receive"
 
@@ -274,11 +273,15 @@ msgstr "Bond discount"
 msgid "bond.bond_price"
 msgstr "Bond price"
 
+#: components/NavMenu/index.tsx:227
+msgid "Bridge to Base"
+msgstr "Bridge to Base"
+
 #: components/views/Redeem/index.tsx:25
 msgid "Buy & Redeem Carbon"
 msgstr "Buy & Redeem Carbon"
 
-#: components/NavMenu/index.tsx:194
+#: components/NavMenu/index.tsx:197
 msgid "Buy Carbon"
 msgstr "Buy Carbon"
 
@@ -405,16 +408,16 @@ msgstr "Date when the entire bond value can be redeemed"
 msgid "bond.debt_ratio"
 msgstr "Debt ratio"
 
-#: components/NavMenu/index.tsx:186
-#: components/views/Deposit/index.tsx:52
+#: components/NavMenu/index.tsx:189
+#: components/views/Deposit/index.tsx:62
 msgid "Deposit Carbon"
 msgstr "Deposit Carbon"
 
-#: components/views/Deposit/index.tsx:100
+#: components/views/Deposit/index.tsx:124
 msgid "Deposit TC02"
 msgstr "Deposit TC02"
 
-#: components/views/Deposit/index.tsx:55
+#: components/views/Deposit/index.tsx:65
 msgid "Deposit TCO2 in exchange for BCT."
 msgstr "Deposit TCO2 in exchange for BCT."
 
@@ -539,7 +542,7 @@ msgid "pklima.index_adjusted"
 msgstr "Index adjusted"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:202
+#: components/NavMenu/index.tsx:205
 msgid "menu.info"
 msgstr "Info"
 
@@ -554,7 +557,7 @@ msgid "Insufficient balance"
 msgstr "Insufficient balance"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:207
+#: components/NavMenu/index.tsx:210
 msgid "menu.just_for_you"
 msgstr "JUST FOR YOU"
 
@@ -596,11 +599,6 @@ msgstr "Loading"
 msgid "Loading balances..."
 msgstr "Loading balances..."
 
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:235
-msgid "shared.connect_wallet"
-msgstr "Loading..."
-
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
@@ -609,6 +607,11 @@ msgstr "Loading..."
 #: components/views/Stake/index.tsx:435
 #: components/views/Wrap/index.tsx:207
 msgid "Loading..."
+msgstr "Loading..."
+
+#. js-lingui-explicit-id
+#: components/views/Stake/index.tsx:235
+msgid "shared.connect_wallet"
 msgstr "Loading..."
 
 #: components/views/Home/index.tsx:179
@@ -695,7 +698,7 @@ msgstr "No balances found."
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
 msgstr "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
 
-#: components/CarbonTokenModal/index.tsx:44
+#: components/CarbonTokenModal/index.tsx:51
 msgid "Not compatible with BCT"
 msgstr "Not compatible with BCT"
 
@@ -705,7 +708,7 @@ msgid "Not Connected"
 msgstr "Not Connected"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:68
+#: components/NavMenu/index.tsx:71
 msgid "menu.not_connected"
 msgstr "NOT CONNECTED"
 
@@ -720,7 +723,7 @@ msgid "info.official_contract_addresses"
 msgstr "Official Contract Addresses"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:178
+#: components/NavMenu/index.tsx:181
 msgid "menu.offset"
 msgstr "Offset"
 
@@ -762,7 +765,7 @@ msgid "bond.discount.description_tooltip"
 msgstr "Percentage discount (or premium if negative) relative to the market value of KLIMA."
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:214
+#: components/NavMenu/index.tsx:217
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
@@ -821,7 +824,7 @@ msgstr "Quantity to approve"
 msgid "stake.rebase"
 msgstr "Rebase"
 
-#: components/views/Deposit/index.tsx:130
+#: components/views/Deposit/index.tsx:153
 msgid "Receiving BCT"
 msgstr "Receiving BCT"
 
@@ -880,11 +883,11 @@ msgstr "Scan with Coinbase to connect"
 msgid "web3modal.walletconnect.desc"
 msgstr "Scan with WalletConnect to connect"
 
-#: components/views/Deposit/index.tsx:63
+#: components/views/Deposit/index.tsx:73
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
 msgstr "Select the TCO2 Token and the amount you want to deposit to the pool."
 
-#: components/CarbonTokenModal/index.tsx:24
+#: components/CarbonTokenModal/index.tsx:30
 msgid "Select Token"
 msgstr "Select Token"
 
@@ -931,7 +934,7 @@ msgid "stake.stake"
 msgstr "Stake"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:162
+#: components/NavMenu/index.tsx:165
 msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
@@ -1014,7 +1017,7 @@ msgstr "This is the amount of USDC.e in the contract available for bonds."
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
 msgstr "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
 
-#: components/views/Deposit/index.tsx:60
+#: components/views/Deposit/index.tsx:70
 msgid "Token to deposit"
 msgstr "Token to deposit"
 
@@ -1117,7 +1120,7 @@ msgid "wrap.wrap"
 msgstr "Wrap"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:170
+#: components/NavMenu/index.tsx:173
 msgid "menu.wrap_klima"
 msgstr "Wrap sKLIMA"
 
@@ -1171,7 +1174,7 @@ msgstr "You will get"
 msgid "wrap.you_will_get"
 msgstr "You Will Get"
 
-#: components/views/Deposit/index.tsx:110
+#: components/views/Deposit/index.tsx:134
 msgid "You'll receive BCT in exchange for your TCO2."
 msgstr "You'll receive BCT in exchange for your TCO2."
 
@@ -1186,6 +1189,6 @@ msgid "offset.you_have_retired"
 msgstr "You've Retired"
 
 #. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:49
+#: components/NavMenu/index.tsx:52
 msgid "menu.wallet_address"
 msgstr "Your Wallet Address"

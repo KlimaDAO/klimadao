@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-06-20 15:36+0000\n"
+"POT-Creation-Date: 2024-06-26 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,11 +22,15 @@ msgstr "Aprobar"
 msgid "Balances"
 msgstr "Saldos"
 
+#: components/NavMenu/index.tsx:217
+msgid "Bridge to Base"
+msgstr ""
+
 #: components/views/Redeem/index.tsx:25
 msgid "Buy & Redeem Carbon"
 msgstr "Comprar y canjear carbono"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:187
 msgid "Buy Carbon"
 msgstr "Comprar Carbono"
 
@@ -512,31 +516,31 @@ msgstr "No se ha podido acceder a la red. Esto es probablemente causado por una 
 msgid "invalid_rpc.modal.title"
 msgstr "Compruebe la configuración de su red"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:195
 msgid "menu.info"
 msgstr "Información"
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:200
 msgid "menu.just_for_you"
 msgstr "SOLO PARA TI"
 
-#: components/NavMenu/index.tsx:66
+#: components/NavMenu/index.tsx:69
 msgid "menu.not_connected"
 msgstr "NO CONECTADO"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:179
 msgid "menu.offset"
 msgstr "Compensación"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:163
 msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/NavMenu/index.tsx:48
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr "La dirección de su monedero"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:171
 msgid "menu.wrap_klima"
 msgstr "Empaquetar sKLIMA"
 
@@ -815,7 +819,7 @@ msgstr "Por favor, haga clic en \"confirmar\" en su cartera para continuar."
 msgid "status.user_rejected"
 msgstr "Usted eligió rechazar la transacción"
 
-#: components/NavMenu/index.tsx:204
+#: components/NavMenu/index.tsx:207
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

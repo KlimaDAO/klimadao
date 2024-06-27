@@ -122,6 +122,17 @@ export const container = css`
   }
 `;
 
+export const bridgeButton = css`
+  padding: 0 1.2rem;
+  color: white !important;
+  background-color: #0052ff; // base brand color
+`;
+
+export const baseIcon = css`
+  width: 3rem;
+  height: 3rem;
+`;
+
 export const sidebarButton = css`
   ${typography.caption};
   display: flex;
