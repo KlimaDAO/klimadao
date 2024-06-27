@@ -9,7 +9,7 @@ import { createTokenWithCall } from '../utils/Token'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { saveStartAsyncToken, completeC3RetireRequest } from '../RetirementHandler'
 import { C3_VERIFIED_CARBON_UNITS_OFFSET } from '../../../lib/utils/Constants'
-import { BigInt, ethereum, log } from '@graphprotocol/graph-ts'
+import { BigInt, Bytes, ethereum, log } from '@graphprotocol/graph-ts'
 import { TokenURISafeguard } from '../../generated/schema'
 import { C3OffsetNFT } from '../../generated/C3-Offset/C3OffsetNFT'
 import { loadC3RetireRequest } from '../utils/C3'
@@ -51,13 +51,13 @@ export function handleTokenURISafeguard(block: ethereum.Block): void {
 
   let c3OffsetNftContract = C3OffsetNFT.bind(C3_VERIFIED_CARBON_UNITS_OFFSET)
 
-  let updatedRequestArray: string[] = []
+  let updatedRequestArray: Bytes[] = []
 
   for (let i = 0; i < requestsArray.length; i++) {
     let requestId = requestsArray[i]
     let request = loadC3RetireRequest(requestId)
     if (request == null) {
-      log.error('handleURIBlockSafeguard request is null {}', [requestId])
+      log.error('handleURIBlockSafeguard request is null {}', [requestId.toHexString()])
       continue
     }
     let c3OffsetNftIndex = request.c3OffsetNftIndex
