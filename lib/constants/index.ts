@@ -243,7 +243,7 @@ export const SANITY_STUDIO_API_CARBON_PROJECTS_PROJECT_ID = "l6of5nwi";
 export const SANITY_STUDIO_API__CARBON_PROJECTS_DATASET = "production";
 
 /** Subgraph Ids */
-const BRIDGED_CARBON_ID = "9skh5pMQGRdyJcBe8PjWdDjLoYqoYTMLRDpFh6acSHUu";
+// const BRIDGED_CARBON_ID = "9skh5pMQGRdyJcBe8PjWdDjLoYqoYTMLRDpFh6acSHUu";
 
 /** Tokens accepted as input for the offset aggregator /#/offset */
 export type OffsetInputToken =
