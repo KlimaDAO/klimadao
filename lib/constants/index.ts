@@ -242,6 +242,9 @@ export const SANITY_STUDIO_API_DATASET = "production";
 export const SANITY_STUDIO_API_CARBON_PROJECTS_PROJECT_ID = "l6of5nwi";
 export const SANITY_STUDIO_API__CARBON_PROJECTS_DATASET = "production";
 
+/** Subgraph Ids */
+const BRIDGED_CARBON_ID = "9skh5pMQGRdyJcBe8PjWdDjLoYqoYTMLRDpFh6acSHUu";
+
 /** Tokens accepted as input for the offset aggregator /#/offset */
 export type OffsetInputToken =
   (typeof allowancesContracts)["retirementAggregatorV2"][number];
@@ -278,10 +281,26 @@ export const offsetCompatibility: CompatMap = {
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
+// const GRAPH_API_KEY =
+//   process.env.GRAPH_API_KEY ?? process.env.NEXT_PUBLIC_GRAPH_API_KEY;
+
+// const SUBGRAPH_BASE_URL =
+//   "https://gateway-arbitrum.network.thegraph.com/api/" +
+//   GRAPH_API_KEY +
+//   "/subgraphs/id/";
+
+const SUBGRAPH_DEV_URL = "https://api.studio.thegraph.com/query/78559";
+const SUBGRAPH_VERSION_SUFFIX = "version/latest";
+
+// TODO - remove once env variable is added...
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 const SUBGRAPH_URL_ID = "https://api.thegraph.com/subgraphs/id";
+
 export const subgraphs = {
-  polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
+  // use this temporarily until env variables are setup for prod
+  polygonBridgedCarbon: `${SUBGRAPH_DEV_URL}/polygon-bridged-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
+  // TODO - use this when env variable is added for prod
+  // polygonBridgedCarbonProd: `${SUBGRAPH_BASE_URL}${BRIDGED_CARBON_ID}`,
   polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
