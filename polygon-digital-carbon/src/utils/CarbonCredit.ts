@@ -56,7 +56,7 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
   let carbonCreditERC20 = ToucanCarbonOffsets.bind(tokenAddress)
 
   let attributes = carbonCreditERC20.getAttributes()
-  let project = loadOrCreateCarbonProject(registry, attributes.value0.projectId)
+  let project = loadOrCreateCarbonProject(registry, attributes.value0.projectId, attributes.value1.name, attributes.value0.region)
 
   carbonCredit.project = project.id
   carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.endTime)
@@ -65,7 +65,7 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
 
   if (standard.toLowerCase() == 'puro') {
 
-    // retrieve nft token id linked to batch to enable retirement
+    // retrieve nft batch token id linked to batch to enable retirement
     let projectVintageTokenId = carbonCreditERC20.projectVintageTokenId()
     let contractRegistryAddress = carbonCreditERC20.contractRegistry()
 
