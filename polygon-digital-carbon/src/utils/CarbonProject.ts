@@ -1,9 +1,15 @@
+import { ethereum } from '@graphprotocol/graph-ts'
 import { PURO_PROJECT_INFO } from '../../../lib/utils/PuroProjectInfo'
 import { VERRA_PROJECT_NAMES } from '../../../lib/utils/VerraProjectInfo'
 
 import { CarbonProject } from '../../generated/schema'
 
-export function loadOrCreateCarbonProject(registry: string, projectID: string): CarbonProject {
+export function loadOrCreateCarbonProject(
+  registry: string,
+  projectID: string,
+  name: string = '',
+  country: string = ''
+): CarbonProject {
   let project = CarbonProject.load(projectID)
   if (project == null) {
     project = new CarbonProject(projectID)
@@ -27,13 +33,8 @@ export function loadOrCreateCarbonProject(registry: string, projectID: string): 
     }
 
     if (registry == 'PURO_EARTH') {
-      for (let i = 0; i < PURO_PROJECT_INFO.length; i++) {
-        if (projectID == PURO_PROJECT_INFO[i][0]) {
-          project.name = PURO_PROJECT_INFO[i][1]
-          project.country = PURO_PROJECT_INFO[i][2]
-          break
-        }
-      }
+      project.name = name
+      project.country = country
     }
 
     project.save()

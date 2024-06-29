@@ -1,5 +1,13 @@
-import { Address, BigInt, Bytes, log, ByteArray, ethereum, dataSource, BigDecimal } from '@graphprotocol/graph-ts'
-import { Token } from '../../generated/schema'
+import {
+  Address,
+  BigInt,
+  Bytes,
+  log,
+  ethereum,
+  BigDecimal,
+  store,
+} from '@graphprotocol/graph-ts'
+import { CarbonProject, Token } from '../../generated/schema'
 import { ERC20 } from '../../generated/ToucanFactory/ERC20'
 import { ICRProjectToken } from '../../generated/ICRCarbonContractRegistry/ICRProjectToken'
 import { PuroIdMigration } from '../../generated/schema'
@@ -7,6 +15,10 @@ import { PURO_ID_MIGRATION_BLOCK } from '../../../lib/utils/Constants'
 import { ProjectIdUpdated } from '../../generated/CarbonProjectsAddress/CarbonProjectsAddress'
 import { USDC_ERC20_CONTRACT } from '../../../lib/utils/Constants'
 import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
+import { loadCarbonCredit, loadOrCreateCarbonCredit } from './CarbonCredit'
+import { ToucanCarbonOffsetBatches } from '../../generated/ToucanCarbonOffsetBatch/ToucanCarbonOffsetBatches'
+import { ToucanCarbonOffsets } from '../../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
+import { loadOrCreateCarbonProject } from './CarbonProject'
 
 export function createTokenWithCall(tokenAddress: Address, block: ethereum.Block): void {
   let token = Token.load(tokenAddress)
@@ -121,12 +133,11 @@ export function handlePuroIdMigration(event: ProjectIdUpdated): void {
   let migration = PuroIdMigration.load('puro-migration')
 
   if (migration == null) {
-    migration = new PuroIdMigration('puro-migration')
-    migration.tokenIds = []
-    migration.save()
+    log.info('No migration created yet {}', [])
+    return
   }
   let tokenIds = migration.tokenIds
-
+  // update tokens
   for (let i = 0; i < tokenIds.length; i++) {
     let token = Token.load(tokenIds[i])
 
@@ -136,12 +147,40 @@ export function handlePuroIdMigration(event: ProjectIdUpdated): void {
     }
 
     let projectAddress = Address.fromBytes(tokenIds[i])
-    let projectContract = ERC20.bind(projectAddress)
+    // let carbonCreditContract = ERC20.bind(projectAddress)
+    let carbonCreditContract = ToucanCarbonOffsets.bind(projectAddress)
 
-    let newSymbol = projectContract.try_symbol()
+    let newSymbol = carbonCreditContract.try_symbol()
     if (!newSymbol.reverted) {
       token.symbol = newSymbol.value
     }
     token.save()
+
+    // update credit and project
+    let carbonCredit = loadCarbonCredit(projectAddress)
+    let previousProject = CarbonProject.load(carbonCredit.project)
+
+    if (previousProject == null) {
+      log.info('Project not found for token {}', [projectAddress.toHexString()])
+      continue
+    }
+
+    store.remove('CarbonProject', previousProject.id)
+
+    // retrieve new project attributes
+    let attributes = carbonCreditContract.getAttributes()
+    // create new project with updated Id
+    const updatedProject = loadOrCreateCarbonProject(
+      'PURO_EARTH',
+      attributes.value0.projectId,
+      attributes.value1.name,
+      attributes.value0.region
+    )
+
+    updatedProject.save()
+
+    // update credit
+    carbonCredit.project = updatedProject.id
+    carbonCredit.save()
   }
 }
