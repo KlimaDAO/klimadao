@@ -7,18 +7,10 @@ import { loadOrCreateToucanBatch } from './ToucanBatch'
 import { ZERO_ADDRESS } from '../../../lib/utils/Constants'
 import { CarbonProject } from '../../generated/schema'
 
-function processBatchOfRecords(batch: Bytes[]): Bytes[] {
-  let processedRecords: Bytes[] = []
-
+function processBatchOfRecords(batch: Bytes[], recordPriorRecords: Bytes[]): void {
   for (let i = 0; i < batch.length; i++) {
-    let priorRecordId = batch[i]
-    let priorRecord = ProvenanceRecord.load(priorRecordId)
-    if (priorRecord) {
-      processedRecords.push(priorRecordId)
-    }
+    recordPriorRecords.push(batch[i])
   }
-
-  return processedRecords
 }
 
 export function recordProvenance(
@@ -127,10 +119,7 @@ export function recordProvenance(
           batch[i - batchStartIndex] = priorRecordIds[i]
         }
 
-        let processedBatch = processBatchOfRecords(batch)
-        for (let j = 0; j < processedBatch.length; j++) {
-          recordPriorRecords.push(processedBatch[j])
-        }
+        processBatchOfRecords(batch, recordPriorRecords)
 
         batchStartIndex += batchSize
       }
