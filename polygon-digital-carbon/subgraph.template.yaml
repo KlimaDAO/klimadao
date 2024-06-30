@@ -29,6 +29,8 @@ dataSources:
           file: ../lib/abis/CarbonProjectsAddress.json
         - name: ERC20
           file: ../lib/abis/ERC20.json
+        - name: ToucanCarbonOffsets
+          file: ../lib/abis/ToucanCarbonOffsets.json
       eventHandlers:
         - event: ProjectIdUpdated(uint256)
           handler: handlePuroIdMigration
