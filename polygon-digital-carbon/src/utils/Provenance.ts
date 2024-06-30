@@ -114,14 +114,25 @@ export function recordProvenance(
       // custody chain rather than having to traverse until origination
       let priorRecordIds = priorRecord.priorRecords
       let batchSize = 20
+      let batchStartIndex = 0
 
-      for (let i = 0; i < priorRecordIds.length; i += batchSize) {
-        let batch = priorRecordIds.slice(i, i + batchSize)
+      while (batchStartIndex < priorRecordIds.length) {
+        let batchEndIndex = batchStartIndex + batchSize
+        if (batchEndIndex > priorRecordIds.length) {
+          batchEndIndex = priorRecordIds.length
+        }
+
+        let batch = new Array<Bytes>(batchEndIndex - batchStartIndex)
+        for (let i = batchStartIndex; i < batchEndIndex; i++) {
+          batch[i - batchStartIndex] = priorRecordIds[i]
+        }
+
         let processedBatch = processBatchOfRecords(batch)
-
         for (let j = 0; j < processedBatch.length; j++) {
           recordPriorRecords.push(processedBatch[j])
         }
+
+        batchStartIndex += batchSize
       }
 
       record.priorRecords = recordPriorRecords
