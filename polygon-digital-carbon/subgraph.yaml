@@ -3,12 +3,12 @@ description: Polygon Carbon
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
   file: ./schema.graphql
-# Only use for testing. Keep commented out for full syncs and PRs 
-# features:
-#   - grafting
-# graft:
-#   base: Qmesnrcy7qmFuQC8EtE18oPNCd7izyr5MqRVSUT9dLVw5m
-#   block: 58282296
+# Only use grafting for temporary fixes until full sync is ready to merge
+features:
+  - grafting
+graft:
+  base: QmdciDEafs6i1fvXH3tc9dfLLa6i9z43SUEAPXEato586y
+  block: 58773839
 dataSources:
   - kind: ethereum/contract
     name: ToucanFactory
