@@ -164,8 +164,6 @@ export function handlePuroIdMigration(event: ProjectIdUpdated): void {
     // create new project with updated Id
     const updatedProject = loadOrCreateCarbonProject('PURO_EARTH', attributes.value0.projectId)
 
-    updatedProject.methodologies = attributes.value0.methodology
-
     for (let i = 0; i < PURO_PROJECT_INFO.length; i++) {
       if (updatedProject.id == PURO_PROJECT_INFO[i][0]) {
         updatedProject.name = PURO_PROJECT_INFO[i][1]
