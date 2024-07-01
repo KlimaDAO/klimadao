@@ -3,12 +3,16 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
   z-index: 0;
   overflow-x: hidden;
   overflow-y: auto;
   min-height: 100vh;
-  margin: 2.4rem 0;
   grid-template-rows: 1fr;
+  max-width: 120rem;
+  margin: 0 auto;
 
   .MuiSvgIcon-root {
     font-size: 2.4rem;
@@ -31,79 +35,64 @@ export const container = css`
   // firefox scrollbar
   scrollbar-color: var(--dark-gray);
   scrollbar-width: 0.6rem;
+
+  /** KlimaDAO Logo */
+  .logo {
+    align-self: center;
+  }
+
+  ${breakpoints.medium} {
+    padding: 1.6rem;
+    gap: 3.2rem;
+  }
+
+  ${breakpoints.large} {
+    padding: 2.4rem;
+    gap: 6.4rem;
+  }
+`;
+
+export const textHeading = css`
+  max-width: 72rem;
+  padding: 0rem 1.6rem;
+  display: grid;
+  gap: 1.6rem;
+  .newBadge {
+    margin-bottom: -1.6rem;
+  }
+  span.base {
+    color: #0052ff;
+  }
+  h1 {
+    color: white;
+    padding: unset;
+    margin: unset;
+  }
+  .baseIcon {
+    height: 3.2rem;
+    position: relative;
+    bottom: -0.4rem;
+    width: auto;
+  }
 `;
 
 export const header = css`
   display: flex;
-  justify-content: flex-end;
-  margin: 0 2.4rem 2.4rem 2.4rem;
+  gap: 0.6rem;
+  justify-content: space-between;
+  padding: 0.8rem;
+  padding-bottom: 0;
 `;
 
-export const ctaCard = css`
-  position: relative;
-  display: flex;
+export const cardBg = css`
+  align-self: center;
   justify-content: center;
+  display: flex;
   background-color: #202020;
   border-radius: 1.2rem;
-  grid-column: 1 / 3;
-  padding-top: 2.4rem;
-  margin: 1rem auto;
-  .hr {
-    height: 0.2rem;
-    background-color: #202020;
+  ${breakpoints.medium} {
+    padding: 3.2rem;
   }
-
-  ${breakpoints.desktop} {
-    max-width: 50%;
-  }
-`;
-
-export const ctaCard_header = css`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  align-items: center;
-  padding: 2.4rem;
-  max-width: 50rem;
-  width: 100%;
-  gap: 3.2rem;
-`;
-
-export const ctaCard_header_title = css`
-  display: flex;
-  width: 100%;
-  gap: 0.8rem;
-
-  font-family: "Poppins", sans-serif;
-  font-size: 2.4rem;
-  line-height: 3.2rem;
-  font-weight: 600;
-  color: #fff;
-  transition: color 0.25s ease-in-out 0s;
-  display: flex;
-  width: 100%;
-  text-align: left;
-  -webkit-box-align: center;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 2rem;
-`;
-
-export const ctaCard_header_subtitle = css`
-  width: 100%;
-  text-align: left;
-  padding-top: 0.8rem;
-`;
-
-export const columnRight = css`
-  display: grid;
-  gap: 2.4rem;
-  grid-column: 1 / 3;
-  align-content: start;
-`;
-
-export const offsetCard = css`
-  grid-row: 2;
 `;
 
 export const stakeCard_ui = css`
@@ -185,13 +174,6 @@ export const formGroup = css`
       min-width: 4.8rem;
       align-self: center;
       object-fit: contain;
-    }
-
-    p {
-      font-weight: 500;
-      font-size: 2.2rem;
-      line-height: 3.2rem;
-      padding: 0 0.6rem;
     }
   }
 `;

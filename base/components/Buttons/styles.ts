@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import { button } from "../../styles/typography";
+import { button } from "@klimadao/lib/theme/typography";
 
 const buttonBase = css`
   ${button};

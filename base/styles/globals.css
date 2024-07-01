@@ -30,7 +30,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--klima-green);
   text-decoration: none;
 }
 
