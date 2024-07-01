@@ -16,6 +16,7 @@ import {
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -62,6 +63,7 @@ const Address: FC<AddressProps> = (props) => {
         <Text t="caption" color="lightest">
           {props.address ? (
             <CopyValueButton
+              className={styles.copyValueButton}
               label={concatAddress(props.address)}
               value={props.address}
             />
@@ -177,6 +179,14 @@ export const NavMenu: FC<Props> = (props) => {
         onClick={handleHide}
       >
         <Trans id="menu.offset">Offset</Trans>
+      </MenuButton>
+      <MenuButton
+        isActive={pathname === "/deposit"}
+        icon={<AccountBalanceWalletOutlined />}
+        href="/deposit"
+        onClick={handleHide}
+      >
+        <Trans>Deposit Carbon</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname === "/redeem"}
