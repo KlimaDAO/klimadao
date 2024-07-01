@@ -1,4 +1,4 @@
-import { Address, BigInt, Bytes, log, ethereum } from '@graphprotocol/graph-ts'
+import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { stdYearFromTimestampNew as stdYearFromTimestamp } from '../../../lib/utils/Dates'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { C3ProjectToken } from '../../generated/templates/C3ProjectToken/C3ProjectToken'
@@ -56,7 +56,7 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
   let carbonCreditERC20 = ToucanCarbonOffsets.bind(tokenAddress)
 
   let attributes = carbonCreditERC20.getAttributes()
-  let project = loadOrCreateCarbonProject(registry, attributes.value0.projectId, attributes.value1.name, attributes.value0.region)
+  let project = loadOrCreateCarbonProject(registry, attributes.value0.projectId)
 
   carbonCredit.project = project.id
   carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.endTime)
@@ -64,7 +64,6 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
   let standard = attributes.value0.standard
 
   if (standard.toLowerCase() == 'puro') {
-
     // retrieve nft batch token id linked to batch to enable retirement
     let projectVintageTokenId = carbonCreditERC20.projectVintageTokenId()
     let contractRegistryAddress = carbonCreditERC20.contractRegistry()

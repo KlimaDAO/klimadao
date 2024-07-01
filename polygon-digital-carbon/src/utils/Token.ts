@@ -1,12 +1,4 @@
-import {
-  Address,
-  BigInt,
-  Bytes,
-  log,
-  ethereum,
-  BigDecimal,
-  store,
-} from '@graphprotocol/graph-ts'
+import { Address, BigInt, Bytes, log, ethereum, BigDecimal, store } from '@graphprotocol/graph-ts'
 import { CarbonProject, Token } from '../../generated/schema'
 import { ERC20 } from '../../generated/ToucanFactory/ERC20'
 import { ICRProjectToken } from '../../generated/ICRCarbonContractRegistry/ICRProjectToken'
@@ -15,10 +7,10 @@ import { PURO_ID_MIGRATION_BLOCK } from '../../../lib/utils/Constants'
 import { ProjectIdUpdated } from '../../generated/CarbonProjectsAddress/CarbonProjectsAddress'
 import { USDC_ERC20_CONTRACT } from '../../../lib/utils/Constants'
 import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
-import { loadCarbonCredit, loadOrCreateCarbonCredit } from './CarbonCredit'
-import { ToucanCarbonOffsetBatches } from '../../generated/ToucanCarbonOffsetBatch/ToucanCarbonOffsetBatches'
-import { ToucanCarbonOffsets } from '../../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
+import { loadCarbonCredit } from './CarbonCredit'
 import { loadOrCreateCarbonProject } from './CarbonProject'
+import { ToucanPuroCarbonOffsets } from '../../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
+import { PURO_PROJECT_INFO } from '../../../lib/utils/PuroProjectInfo'
 
 export function createTokenWithCall(tokenAddress: Address, block: ethereum.Block): void {
   let token = Token.load(tokenAddress)
@@ -148,7 +140,7 @@ export function handlePuroIdMigration(event: ProjectIdUpdated): void {
 
     let projectAddress = Address.fromBytes(tokenIds[i])
     // let carbonCreditContract = ERC20.bind(projectAddress)
-    let carbonCreditContract = ToucanCarbonOffsets.bind(projectAddress)
+    let carbonCreditContract = ToucanPuroCarbonOffsets.bind(projectAddress)
 
     let newSymbol = carbonCreditContract.try_symbol()
     if (!newSymbol.reverted) {
@@ -170,12 +162,17 @@ export function handlePuroIdMigration(event: ProjectIdUpdated): void {
     // retrieve new project attributes
     let attributes = carbonCreditContract.getAttributes()
     // create new project with updated Id
-    const updatedProject = loadOrCreateCarbonProject(
-      'PURO_EARTH',
-      attributes.value0.projectId,
-      attributes.value1.name,
-      attributes.value0.region
-    )
+    const updatedProject = loadOrCreateCarbonProject('PURO_EARTH', attributes.value0.projectId)
+
+    updatedProject.methodologies = attributes.value0.methodology
+
+    for (let i = 0; i < PURO_PROJECT_INFO.length; i++) {
+      if (updatedProject.id == PURO_PROJECT_INFO[i][0]) {
+        updatedProject.name = PURO_PROJECT_INFO[i][1]
+        updatedProject.country = PURO_PROJECT_INFO[i][2]
+        break
+      }
+    }
 
     updatedProject.save()
 
