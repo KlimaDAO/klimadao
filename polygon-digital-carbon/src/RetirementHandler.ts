@@ -5,7 +5,7 @@ import {
   ZERO_ADDRESS,
 } from '../../lib/utils/Constants'
 import { BIG_INT_1E18, ZERO_BI } from '../../lib/utils/Decimals'
-import { C3OffsetNFT, VCUOMinted } from '../generated/C3-Offset/C3OffsetNFT'
+import { C3OffsetNFT, VCUOMinted, VCUOMetaDataUpdated } from '../generated/C3-Offset/C3OffsetNFT'
 import { CarbonOffset } from '../generated/MossCarbonOffset/CarbonChain'
 import { StartAsyncToken, EndAsyncToken } from '../generated/C3ProjectTokenFactory/C3ProjectTokenFactory'
 import { RetiredVintage } from '../generated/templates/ICRProjectToken/ICRProjectToken'
@@ -344,4 +344,39 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
       request.save()
     }
   }
+}
+
+export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
+  let safeguard = TokenURISafeguard.load('safeguard')
+  if (safeguard == null) {
+    safeguard = new TokenURISafeguard('safeguard')
+    safeguard.requestsWithoutURI = []
+    safeguard.save()
+  }
+  let requestsArray = safeguard.requestsWithoutURI
+  if (requestsArray.length == 0) return
+
+  let updatedRequestArray: string[] = []
+
+  // target the request with the index that matches the event.index
+  for (let i = 0; i < requestsArray.length; i++) {
+    let requestId = requestsArray[i]
+    let request = loadC3RetireRequest(requestId)
+    if (request == null) {
+      log.error('handleURIBlockSafeguard request is null {}', [requestId])
+      continue
+    }
+    if (request.c3OffsetNftIndex === event.params.tokenId) {
+      request.tokenURI = event.params.url
+      request.save()
+    }
+
+    // remove request from safeguard if tokenURI is found
+    if (request.tokenURI == null || request.tokenURI == '') {
+      updatedRequestArray.push(requestId)
+    }
+  }
+
+  safeguard.requestsWithoutURI = updatedRequestArray
+  safeguard.save()
 }
