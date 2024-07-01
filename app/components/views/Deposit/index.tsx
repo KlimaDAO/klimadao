@@ -1,7 +1,7 @@
 import { cx } from "@emotion/css";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { getWalletHoldings } from "actions/deposit";
@@ -20,7 +20,7 @@ interface Props {
 }
 
 export const Deposit = (props: Props) => {
-  const { address } = useWeb3();
+  const { address, toggleModal } = useWeb3();
   const [quantity, setQuantity] = useState("0.0");
   const [showModal, setShowModal] = useState(false);
   const [holdings, setHoldings] = useState<any>([]); // TODO - fix types
@@ -51,6 +51,9 @@ export const Deposit = (props: Props) => {
 
   const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);
 
+  // TODO - add button props
+  const getButtonProps = () => {};
+
   return (
     <>
       <DisclamerModal />
@@ -77,17 +80,17 @@ export const Deposit = (props: Props) => {
           </Text>
           <div className={cx(localStyles.grid, "cols-5")}>
             <button className="start" onClick={() => setShowModal(true)}>
+              <div aria-label="title">
+                <Text className={localStyles.titleText}>
+                  {selectedToken?.token.symbol ?? "-"}
+                </Text>
+                <Text className={localStyles.descriptionText}>
+                  {props.isConnected ? formattedTokenBalance : "-"} TCO2
+                </Text>
+              </div>
               {selectedToken && (
-                <div aria-label="title">
-                  <Text className={localStyles.titleText}>
-                    {selectedToken?.token.symbol}
-                  </Text>
-                  <Text className={localStyles.descriptionText}>
-                    {formattedTokenBalance} TCO2
-                  </Text>
-                </div>
+                <KeyboardArrowDown fontSize="large" htmlColor="white" />
               )}
-              <KeyboardArrowDown fontSize="large" htmlColor="white" />
             </button>
             <div className="divider" />
             <div className="end">
@@ -96,7 +99,7 @@ export const Deposit = (props: Props) => {
                   [localStyles.balanceErrorText]: !!insufficientTokens,
                 })}
               >
-                <Trans>{formattedTokenBalance}</Trans>
+                <Trans>{props.isConnected ? formattedTokenBalance : "-"}</Trans>
               </Text>
               <Text
                 className={cx(localStyles.descriptionText, {
@@ -155,12 +158,22 @@ export const Deposit = (props: Props) => {
             </div>
           </div>
         </div>
-        <ButtonPrimary
-          disabled={Number(quantity) === 0 || insufficientTokens}
-          label="Continue"
-        />
+        {props.isConnected ? (
+          <ButtonPrimary
+            disabled={Number(quantity) === 0 || insufficientTokens}
+            label="Continue"
+          />
+        ) : (
+          <ButtonPrimary
+            label={t({
+              id: "shared.login_connect",
+              message: "Login / Connect",
+            })}
+            onClick={toggleModal}
+          />
+        )}
       </div>
-      {showModal && props.isConnected && (
+      {showModal && selectedToken && props.isConnected && (
         <CarbonTokenModal
           holdings={holdings}
           onHide={() => setShowModal(false)}
