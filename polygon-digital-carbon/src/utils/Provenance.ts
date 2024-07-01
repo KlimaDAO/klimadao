@@ -7,6 +7,12 @@ import { loadOrCreateToucanBatch } from './ToucanBatch'
 import { ZERO_ADDRESS } from '../../../lib/utils/Constants'
 import { CarbonProject } from '../../generated/schema'
 
+function processBatchOfRecords(batch: Bytes[], recordPriorRecords: Bytes[]): void {
+  for (let i = 0; i < batch.length; i++) {
+    recordPriorRecords.push(batch[i])
+  }
+}
+
 export function recordProvenance(
   hash: Bytes,
   tokenAddress: Address,
@@ -98,8 +104,24 @@ export function recordProvenance(
 
       // Pull in the previous prior records. This allows the final provenance record to have the full
       // custody chain rather than having to traverse until origination
-      for (let i = 0; i < priorRecord.priorRecords.length; i++) {
-        recordPriorRecords.push(priorRecord.priorRecords[i])
+      let priorRecordIds = priorRecord.priorRecords
+      let batchSize = 20
+      let batchStartIndex = 0
+
+      while (batchStartIndex < priorRecordIds.length) {
+        let batchEndIndex = batchStartIndex + batchSize
+        if (batchEndIndex > priorRecordIds.length) {
+          batchEndIndex = priorRecordIds.length
+        }
+
+        let batch = new Array<Bytes>(batchEndIndex - batchStartIndex)
+        for (let i = batchStartIndex; i < batchEndIndex; i++) {
+          batch[i - batchStartIndex] = priorRecordIds[i]
+        }
+
+        processBatchOfRecords(batch, recordPriorRecords)
+
+        batchStartIndex += batchSize
       }
 
       record.priorRecords = recordPriorRecords
