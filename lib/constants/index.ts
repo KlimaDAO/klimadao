@@ -278,8 +278,10 @@ export const offsetCompatibility: CompatMap = {
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
+// TODO - remove once env variable is added...
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 const SUBGRAPH_URL_ID = "https://api.thegraph.com/subgraphs/id";
+
 export const subgraphs = {
   polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
