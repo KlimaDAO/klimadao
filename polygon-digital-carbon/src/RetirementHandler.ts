@@ -317,9 +317,10 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
     if (request.status == BridgeStatus.REQUESTED) {
       let c3OffsetNftContract = C3OffsetNFT.bind(C3_VERIFIED_CARBON_UNITS_OFFSET)
 
+      request.c3OffsetNftIndex = event.params.nftIndex
+
       let tokenURICall = c3OffsetNftContract.try_tokenURI(event.params.nftIndex)
 
-      request.c3OffsetNftIndex = event.params.nftIndex
       if (tokenURICall.reverted) {
         log.error('tokenURI call reverted for NFT index {}', [event.params.nftIndex.toString()])
       } else {
@@ -358,7 +359,7 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
 
   let updatedRequestArray: string[] = []
 
-  // target the request with the index that matches the event.index
+  // target the request with the index that matches the event.params.tokenId
   for (let i = 0; i < requestsArray.length; i++) {
     let requestId = requestsArray[i]
     let request = loadC3RetireRequest(requestId)
@@ -366,7 +367,12 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
       log.error('handleURIBlockSafeguard request is null {}', [requestId])
       continue
     }
-    if (request.c3OffsetNftIndex === event.params.tokenId) {
+    log.info('fixt request {}', [requestId])
+    log.info('fixt1 event.params.url {}', [event.params.url])
+    log.info('fixt2 event.params.tokenId {}', [event.params.tokenId.toString()])
+    log.error('request.c3OffsetNftIndex is null {}', [request.c3OffsetNftIndex.toString()])
+
+    if (request.c3OffsetNftIndex == event.params.tokenId) {
       request.tokenURI = event.params.url
       request.save()
     }
