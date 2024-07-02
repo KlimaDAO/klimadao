@@ -19,8 +19,8 @@ export function handleNewC3T(event: NewTokenProject): void {
   // address of the new token contract
   C3ProjectToken.create(event.params.tokenAddress)
   loadOrCreateCarbonCredit(event.params.tokenAddress, 'C3', null)
-  createTokenWithCall(event.params.tokenAddress)
-  updateCarbonCreditWithCall(event.params.tokenAddress)
+  createTokenWithCall(event.params.tokenAddress, event.block)
+  updateCarbonCreditWithCall(event.params.tokenAddress, '')
 }
 
 // asyncToken handling

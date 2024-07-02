@@ -1,14 +1,27 @@
-import { ToucanCarbonOffsets } from '../../generated/templates'
+import { Address, BigInt, ethereum } from '@graphprotocol/graph-ts'
+import { ToucanCarbonOffsets, ToucanPuroCarbonOffsets } from '../../generated/templates'
 import { TokenCreated } from '../../generated/ToucanFactory/ToucanCarbonOffsetsFactory'
 import { loadOrCreateCarbonCredit, updateCarbonCreditWithCall } from '../utils/CarbonCredit'
 import { createTokenWithCall } from '../utils/Token'
 
 export function handleNewTCO2(event: TokenCreated): void {
-  // Start indexing the TCO2 tokens; `event.params.tokenAddress` is the
-  // address of the new token contract
-
   ToucanCarbonOffsets.create(event.params.tokenAddress)
-  loadOrCreateCarbonCredit(event.params.tokenAddress, 'TOUCAN', null)
-  createTokenWithCall(event.params.tokenAddress)
-  updateCarbonCreditWithCall(event.params.tokenAddress)
+  setupNewToucanCredit(event.params.tokenAddress, 'VERRA', event.block)
+}
+
+export function handleNewPuroTCO2(event: TokenCreated): void {
+  ToucanPuroCarbonOffsets.create(event.params.tokenAddress)
+  setupNewToucanCredit(event.params.tokenAddress, 'PURO_EARTH', event.block)
+}
+
+
+function setupNewToucanCredit(
+  tokenAddress: Address,
+  registry: string,
+  block: ethereum.Block,
+  tokenId: BigInt | null = null
+): void {
+  loadOrCreateCarbonCredit(tokenAddress, 'TOUCAN', null)
+  createTokenWithCall(tokenAddress, block)
+  updateCarbonCreditWithCall(tokenAddress, registry)
 }

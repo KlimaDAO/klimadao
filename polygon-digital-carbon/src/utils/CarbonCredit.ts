@@ -1,4 +1,4 @@
-import { Address, BigInt, Bytes, log } from '@graphprotocol/graph-ts'
+import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { stdYearFromTimestampNew as stdYearFromTimestamp } from '../../../lib/utils/Dates'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { C3ProjectToken } from '../../generated/templates/C3ProjectToken/C3ProjectToken'
@@ -6,6 +6,8 @@ import { CarbonCredit } from '../../generated/schema'
 import { ToucanCarbonOffsets } from '../../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { loadOrCreateCarbonProject } from './CarbonProject'
 import { MethodologyCategories } from './MethodologyCategories'
+import { ToucanContractRegistry } from '../../generated/ToucanPuroFactory/ToucanContractRegistry'
+import { ToucanCarbonOffsetBatches } from '../../generated/ToucanCarbonOffsetBatch/ToucanCarbonOffsetBatches'
 
 export function loadOrCreateCarbonCredit(tokenAddress: Address, bridge: string, tokenId: BigInt | null): CarbonCredit {
   let id = Bytes.fromHexString(tokenAddress.toHexString())
@@ -42,22 +44,57 @@ export function loadCarbonCredit(id: Bytes): CarbonCredit {
   return CarbonCredit.load(id) as CarbonCredit
 }
 
-export function updateCarbonCreditWithCall(tokenAddress: Address): CarbonCredit {
+export function updateCarbonCreditWithCall(tokenAddress: Address, registry: string): CarbonCredit {
   let credit = loadCarbonCredit(tokenAddress)
-  if (credit.bridgeProtocol == 'TOUCAN') credit = updateToucanCall(tokenAddress, credit)
+  if (credit.bridgeProtocol == 'TOUCAN') credit = updateToucanCall(tokenAddress, credit, registry)
   else if (credit.bridgeProtocol == 'C3') credit = updateC3Call(tokenAddress, credit)
 
   return credit
 }
 
-function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit): CarbonCredit {
+function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, registry: string): CarbonCredit {
   let carbonCreditERC20 = ToucanCarbonOffsets.bind(tokenAddress)
 
   let attributes = carbonCreditERC20.getAttributes()
-  let project = loadOrCreateCarbonProject('VERRA', attributes.value0.projectId)
+  let project = loadOrCreateCarbonProject(registry, attributes.value0.projectId)
 
   carbonCredit.project = project.id
-  carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.startTime)
+  carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.endTime)
+
+  let standard = attributes.value0.standard
+
+  if (standard.toLowerCase() == 'puro') {
+    // retrieve nft batch token id linked to batch to enable retirement
+    let projectVintageTokenId = carbonCreditERC20.projectVintageTokenId()
+    let contractRegistryAddress = carbonCreditERC20.contractRegistry()
+
+    let contractRegistry = ToucanContractRegistry.bind(contractRegistryAddress)
+    let toucanCarbonOffsetsBatchesAddress = contractRegistry.carbonOffsetBatchesAddress()
+
+    let toucanCarbonOffsetsBatches = ToucanCarbonOffsetBatches.bind(toucanCarbonOffsetsBatchesAddress)
+    let totalSupply = toucanCarbonOffsetsBatches.totalSupply()
+
+    let tokenIds: Array<BigInt> = []
+
+    for (let i = 0; i < totalSupply.toI32(); i++) {
+      let tokenId = toucanCarbonOffsetsBatches.try_tokenOfOwnerByIndex(tokenAddress, BigInt.fromI32(i))
+      if (tokenId.reverted) {
+        break
+      }
+      tokenIds.push(tokenId.value)
+    }
+
+    for (let i = 0; i < tokenIds.length; i++) {
+      let nftData = toucanCarbonOffsetsBatches.nftList(tokenIds[i])
+      let projectVintageTokenIdFromNftList = nftData.value0
+
+      if (projectVintageTokenIdFromNftList == projectVintageTokenId) {
+        carbonCredit.puroBatchTokenId = tokenIds[i]
+        break
+      }
+    }
+  }
+
   carbonCredit.save()
 
   project.methodologies = attributes.value0.methodology

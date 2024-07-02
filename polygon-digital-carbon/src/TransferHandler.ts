@@ -1,5 +1,11 @@
-import { Address, BigInt, Bytes, store } from '@graphprotocol/graph-ts'
-import { ICR_MIGRATION_BLOCK, ICR_MIGRATION_HASHES, MCO2_ERC20_CONTRACT, ZERO_ADDRESS } from '../../lib/utils/Constants'
+import { Address, BigInt, Bytes, ethereum, log, store } from '@graphprotocol/graph-ts'
+import {
+  ICR_MIGRATION_BLOCK,
+  ICR_MIGRATION_HASHES,
+  MCO2_ERC20_CONTRACT,
+  TOUCAN_CROSS_CHAIN_MESSENGER,
+  ZERO_ADDRESS,
+} from '../../lib/utils/Constants'
 import { Transfer } from '../generated/BCT/ERC20'
 import { loadOrCreateCarbonCredit, updateICRCredit } from './utils/CarbonCredit'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
@@ -15,6 +21,7 @@ import { ZERO_BI, BIG_INT_1E18 } from '../../lib/utils/Decimals'
 import { loadOrCreateAccount } from './utils/Account'
 import {
   saveICRRetirement,
+  saveToucanPuroRetirementRequest,
   saveToucanRetirement,
   saveToucanRetirement_1_4_0,
 } from './RetirementHandler'
@@ -25,6 +32,12 @@ import { checkForCarbonPoolCreditSnapshot } from './utils/CarbonPoolCreditBalanc
 import { loadOrCreateEcosystem } from './utils/Ecosystem'
 import { recordProvenance } from './utils/Provenance'
 import { createICRTokenWithCall } from './utils/Token'
+import { loadRetire } from './utils/Retire'
+import {
+  RetirementRequested,
+  RetirementFinalized,
+} from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
+import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
 
 export function handleCreditTransfer(event: Transfer): void {
   recordTransfer(
@@ -79,6 +92,35 @@ export function handleToucanRetired_1_4_0(event: Retired_1_4_0): void {
 
   saveToucanRetirement_1_4_0(event)
 }
+
+export function handleToucanPuroRetirementRequested(event: RetirementRequested): void {
+  // Ignore retirements of zero value
+  if (event.params.params.amount == ZERO_BI) return
+
+  saveToucanPuroRetirementRequest(event)
+}
+
+export function handleToucanPuroRetirementFinalized(event: RetirementFinalized): void {
+  let request = loadOrCreateToucanBridgeRequest(event.params.requestId)
+  request.status = 'FINALIZED'
+  request.save()
+
+  // if (request.retire !== null) {
+  //   let retire = loadRetire(request.retire)
+  //   retire.bridgeStatus = 'FINALIZED'
+  //   retire.save()
+  // }
+}
+
+// TODO:
+
+export function handleToucanPuroRetirementReverted(): void {}
+
+export function handleToucanPuroDetokenizationRequested(): void {}
+
+export function handleToucanPuroDetokenizationFinalized(): void {}
+
+export function handleToucanPuroDetokenizationReverted(): void {}
 
 export function handle1155CreditTransfer(event: TransferSingle): void {
   if (ICR_MIGRATION_HASHES.indexOf(event.transaction.hash.toHexString()) > 0) return

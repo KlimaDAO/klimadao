@@ -3,13 +3,31 @@ description: Polygon Carbon
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
   file: ./schema.graphql
-# Only use grafting for temporary fixes until full sync is ready to merge
-features:
-  - grafting
-graft:
-  base: QmdciDEafs6i1fvXH3tc9dfLLa6i9z43SUEAPXEato586y
-  block: 58773839
 dataSources:
+  - kind: ethereum/contract
+    name: CarbonProjectsAddress  
+    network: {{network}}
+    source:
+      address: '{{CarbonProjectsAddress.address}}'
+      abi: CarbonProjectsAddress
+      startBlock: {{CarbonProjectsAddress.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/utils/Token.ts
+      entities:
+        - PuroMigrationProjects
+      abis:
+        - name: CarbonProjectsAddress
+          file: ../lib/abis/CarbonProjectsAddress.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: ToucanPuroCarbonOffsets
+          file: ../lib/abis/ToucanPuroCarbonOffsets.json
+      eventHandlers:
+        - event: ProjectIdUpdated(uint256)
+          handler: handlePuroIdMigration
   - kind: ethereum/contract
     name: ToucanFactory
     network: {{network}}
@@ -35,6 +53,34 @@ dataSources:
         - event: TokenCreated(uint256,address)
           handler: handleNewTCO2
   - kind: ethereum/contract
+    name: ToucanPuroFactory
+    network: {{network}}
+    source:
+      address: '{{ToucanPuroFactory.address}}'
+      abi: PuroToucanCarbonOffsetsFactory
+      startBlock: {{ToucanPuroFactory.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/templates/ToucanFactory.ts
+      entities:
+        - PuroToucanCarbonOffsetsFactory
+      abis:
+        - name: PuroToucanCarbonOffsetsFactory
+          file: ../lib/abis/PuroToucanCarbonOffsetsFactory.json
+        - name: ToucanCarbonOffsets
+          file: ../lib/abis/ToucanCarbonOffsets.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: ToucanContractRegistry
+          file: ../lib/abis/ToucanContractRegistry.json      
+        - name: ToucanCarbonOffsetBatches
+          file: ../lib/abis/ToucanCarbonOffsetBatches.json    
+      eventHandlers:
+        - event: TokenCreated(uint256,address)
+          handler: handleNewPuroTCO2       
+  - kind: ethereum/contract
     name: ToucanCarbonOffsetBatch
     network: {{network}}
     source:
@@ -57,7 +103,7 @@ dataSources:
         - event: BatchUpdated(uint256,string,uint256)
           handler: handleBatchUpdated
         - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleBatchTransfer
+          handler: handleBatchTransfer   
   - kind: ethereum/contract
     name: BCT
     network: {{network}}
@@ -488,6 +534,39 @@ templates:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleCreditTransfer
       file: ./src/TransferHandler.ts
+  - name: ToucanPuroCarbonOffsets
+    kind: ethereum/contract
+    network: {{network}}
+    source:
+      abi: ToucanPuroCarbonOffsets
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ToucanPuroCarbonOffsets
+      abis:
+        - name: ToucanPuroCarbonOffsets
+          file: ../lib/abis/ToucanPuroCarbonOffsets.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: DetokenizationRequested(indexed address,uint256,indexed uint256,uint256[])
+          handler: handleToucanPuroDetokenizationRequested
+        - event: DetokenizationFinalized(indexed uint256)
+          handler: handleToucanPuroDetokenizationFinalized
+        - event: DetokenizationReverted(indexed uint256)
+          handler: handleToucanPuroDetokenizationReverted
+        - event: RetirementRequested(indexed address,indexed uint256,(uint256[],uint256,string,address,string,string,string,string,uint256,uint256))
+          handler: handleToucanPuroRetirementRequested
+        - event: RetirementFinalized(indexed uint256)
+          handler: handleToucanPuroRetirementFinalized
+        - event: RetirementReverted(indexed uint256)
+          handler: handleToucanPuroRetirementReverted
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleCreditTransfer
+      file: ./src/TransferHandler.ts   
+         
   - name: C3ProjectToken
     kind: ethereum/contract
     network: {{network}}

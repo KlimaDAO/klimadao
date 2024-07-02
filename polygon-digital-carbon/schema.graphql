@@ -30,6 +30,7 @@ enum ProvenanceType {
   ORIGINATION
   TRANSFER
   RETIREMENT
+  DETOKENIZED
 }
 
 enum BridgeStatus {
@@ -230,6 +231,10 @@ type CarbonCredit @entity {
 
   "Last batch ID that was fractionalized if applicable"
   lastBatchId: BigInt!
+
+  # Puro specific fields
+  "Puro NFT token ID linked to Puro batch"
+  puroBatchTokenId: BigInt
 }
 
 type CarbonCreditSnapshot @entity {
@@ -328,6 +333,18 @@ type Retire @entity {
   "Beneficiary description"
   beneficiaryName: String!
 
+  "Beneficiary location"
+  beneficiaryLocation: String!
+
+  "Country code where consumed"
+  consumptionCountryCode: String!
+
+  "Consumption starting timestamp"
+  consumptionPeriodStart: BigInt!
+
+  "Consumption ending timestamp"
+  consumptionPeriodEnd: BigInt!
+
   "Specific retirement message"
   retirementMessage: String!
 
@@ -345,6 +362,9 @@ type Retire @entity {
 
   "Final provenance record created by this retirement"
   provenance: ProvenanceRecord
+
+  "Bridge status for retirement if applicable"
+  bridgeStatus: BridgeStatus
 
   ### Additional attributes if applicable ###
 
@@ -401,6 +421,14 @@ type TokenURISafeguard @entity {
   "Token URI"
   id: ID!
   requestsWithoutURI: [C3RetireRequest!]!
+}
+
+type ToucanBridgeRequest @entity {
+  "Request ID"
+  id: ID!
+  status: BridgeStatus!
+  retire: Retire
+  provenance: ProvenanceRecord
 }
 
 ##############################
@@ -667,4 +695,9 @@ type HoldingDailySnapshot @entity {
 
   "Amount currently held in native units"
   amount: BigInt!
+}
+
+type PuroIdMigration @entity {
+  id: ID!
+  tokenIds: [Bytes!]!
 }
