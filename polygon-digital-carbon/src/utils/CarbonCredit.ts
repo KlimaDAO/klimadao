@@ -64,8 +64,7 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
   let standard = attributes.value0.standard
 
   if (standard.toLowerCase() == 'puro') {
-
-    // retrieve nft token id linked to batch to enable retirement
+    // retrieve nft batch token id linked to batch to enable retirement
     let projectVintageTokenId = carbonCreditERC20.projectVintageTokenId()
     let contractRegistryAddress = carbonCreditERC20.contractRegistry()
 
@@ -113,9 +112,21 @@ function updateC3Call(tokenAddress: Address, carbonCredit: CarbonCredit): Carbon
   let registry = ''
   if (attributes.registry == 'VCS') registry = 'VERRA'
   else if (attributes.registry == 'GS') registry = 'GOLD_STANDARD'
-  else if (attributes.registry == 'JCS') registry = 'J_CREDIT'
+  else if (attributes.registry == 'JCS' || attributes.registry == 'JPN') registry = 'J_CREDIT'
+  else if (attributes.registry == 'ACR') registry = 'AMERICAN_CARBON_REGISTRY'
+  else if (attributes.registry == 'ECO') registry = 'ECO_REGISTRY'
 
-  let project = loadOrCreateCarbonProject(registry, attributes.registry + '-' + attributes.project_id)
+  let projectID: string
+
+  /** the last two characters of a JCS/JPN project ID are a  batch suffix id of
+   * the vintage and do not relate to the projectId itself */
+  if (attributes.registry == 'JCS' || attributes.registry == 'JPN') {
+    projectID = attributes.project_id.slice(0, attributes.project_id.length - 2)
+  } else {
+    projectID = attributes.project_id
+  }
+
+  let project = loadOrCreateCarbonProject(registry, attributes.registry + '-' + projectID)
 
   carbonCredit.project = project.id
   let vintageParsed = BigInt.fromI64(Date.UTC(carbonCreditERC20.getVintage().toI32(), 0) / 1000)
@@ -125,7 +136,10 @@ function updateC3Call(tokenAddress: Address, carbonCredit: CarbonCredit): Carbon
 
   project.methodologies = attributes.methodology
   project.category = MethodologyCategories.getMethodologyCategory(project.methodologies)
+  project.region = attributes.region
+  project.methodologies = attributes.methodology
   project.save()
+
   return carbonCredit
 }
 

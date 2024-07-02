@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "updateICR": "ts-node src/scripts/updateICRProjects.ts",
+    "update-puro": "bun src/scripts/updatePuroProjects.ts",
     "prepare-local": "npx mustache networkConfig/localhost.json subgraph.template.yaml > subgraph.yaml",
     "prepare-matic": "npx mustache networkConfig/matic.json subgraph.template.yaml > subgraph.yaml",
     "prepare-mumbai": "npx mustache networkConfig/mumbai.json subgraph.template.yaml > subgraph.yaml",

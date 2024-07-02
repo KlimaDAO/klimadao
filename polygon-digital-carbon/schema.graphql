@@ -6,6 +6,7 @@ enum Registry {
   PURO_EARTH
   ICR
   J_CREDIT
+  ECO_REGISTRY
 }
 
 enum RetireSource {
@@ -96,7 +97,7 @@ type Token @entity {
   tokenId: BigInt
 
   "isExAnte Identifier"
-  isExAnte: Boolean
+  isExAnte: Boolean!
 
   "Latest price in USD"
   latestPriceUSD: BigDecimal
@@ -367,6 +368,8 @@ type Retire @entity {
   ### Additional attributes if applicable ###
 
   klimaRetire: KlimaRetire @derivedFrom(field: "retire")
+
+  c3RetireRequest: C3RetireRequest
 }
 
 type KlimaRetire @entity {
@@ -399,6 +402,24 @@ type ToucanBatch @entity {
 
   "Creation Transaction hash"
   creationTransactionHash: Bytes!
+}
+
+type C3RetireRequest @entity {
+  "Request ID"
+  id: ID!
+  index: BigInt!
+  c3OffsetNftIndex: BigInt
+  status: BridgeStatus!
+  retire: Retire
+  provenance: ProvenanceRecord
+  tokenURI: String!
+}
+
+# id is always and only safeguard
+type TokenURISafeguard @entity {
+  "Token URI"
+  id: ID!
+  requestsWithoutURI: [C3RetireRequest!]!
 }
 
 type ToucanBridgeRequest @entity {

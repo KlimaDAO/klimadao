@@ -7,6 +7,12 @@ import { loadOrCreateToucanBatch } from './Toucan'
 import { TOUCAN_CARBON_OFFSETS_ESCROW_ADDRESS, ZERO_ADDRESS } from '../../../lib/utils/Constants'
 import { CarbonProject } from '../../generated/schema'
 
+function processBatchOfRecords(batch: Bytes[], recordPriorRecords: Bytes[]): void {
+  for (let i = 0; i < batch.length; i++) {
+    recordPriorRecords.push(batch[i])
+  }
+}
+
 export function recordProvenance(
   hash: Bytes,
   tokenAddress: Address,
@@ -98,8 +104,24 @@ export function recordProvenance(
 
       // Pull in the previous prior records. This allows the final provenance record to have the full
       // custody chain rather than having to traverse until origination
-      for (let i = 0; i < priorRecord.priorRecords.length; i++) {
-        recordPriorRecords.push(priorRecord.priorRecords[i])
+      let priorRecordIds = priorRecord.priorRecords
+      let batchSize = 20
+      let batchStartIndex = 0
+
+      while (batchStartIndex < priorRecordIds.length) {
+        let batchEndIndex = batchStartIndex + batchSize
+        if (batchEndIndex > priorRecordIds.length) {
+          batchEndIndex = priorRecordIds.length
+        }
+
+        let batch = new Array<Bytes>(batchEndIndex - batchStartIndex)
+        for (let i = batchStartIndex; i < batchEndIndex; i++) {
+          batch[i - batchStartIndex] = priorRecordIds[i]
+        }
+
+        processBatchOfRecords(batch, recordPriorRecords)
+
+        batchStartIndex += batchSize
       }
 
       record.priorRecords = recordPriorRecords
@@ -118,8 +140,13 @@ export function updateProvenanceForRetirement(creditId: Bytes): Bytes | null {
 
   if (project == null) return null
 
+  /** C3 ECO_REGISTRY and J_CREDIT credits are two-step async retirements.
+   * The tokens are transferred back to the contract and then retired from there by an admin
+   * Puro credits are transferred back to an escrow where they are then retired by an admin */
   let id =
-    project.registry == 'PURO_EARTH'
+    project.registry == 'J_CREDIT' || project.registry == 'ECO_REGISTRY'
+      ? creditId.concat(Address.fromHexString(credit.tokenAddress.toHexString())).concatI32(credit.provenanceCount - 1)
+      : project.registry == 'PURO_EARTH'
       ? creditId
           .concat(Address.fromHexString(TOUCAN_CARBON_OFFSETS_ESCROW_ADDRESS.toHexString()))
           .concatI32(credit.provenanceCount - 1)

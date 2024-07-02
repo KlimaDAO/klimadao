@@ -3,14 +3,20 @@ description: Polygon Carbon
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
   file: ./schema.graphql
+# Only use grafting for temporary fixes until full sync is ready to merge
+features:
+  - grafting
+graft:
+  base: QmP8bhCUse8J5ak7FdYsnMP4wE4faDzNYJhYPM5vscjNwA
+  block: 57616136
 dataSources:
   - kind: ethereum/contract
-    name: CarbonProjectsAddress  
-    network: {{network}}
+    name: CarbonProjectsAddress
+    network: { { network } }
     source:
       address: '{{CarbonProjectsAddress.address}}'
       abi: CarbonProjectsAddress
-      startBlock: {{CarbonProjectsAddress.startBlock}}
+      startBlock: { { CarbonProjectsAddress.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -21,16 +27,20 @@ dataSources:
       abis:
         - name: CarbonProjectsAddress
           file: ../lib/abis/CarbonProjectsAddress.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: ToucanPuroCarbonOffsets
+          file: ../lib/abis/ToucanPuroCarbonOffsets.json
       eventHandlers:
         - event: ProjectIdUpdated(uint256)
           handler: handlePuroIdMigration
   - kind: ethereum/contract
     name: ToucanFactory
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{ToucanCarbonOffsetsFactory.address}}'
       abi: ToucanCarbonOffsetsFactory
-      startBlock: {{ToucanCarbonOffsetsFactory.startBlock}}
+      startBlock: { { ToucanCarbonOffsetsFactory.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -50,11 +60,11 @@ dataSources:
           handler: handleNewTCO2
   - kind: ethereum/contract
     name: ToucanPuroFactory
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{ToucanPuroFactory.address}}'
       abi: PuroToucanCarbonOffsetsFactory
-      startBlock: {{ToucanPuroFactory.startBlock}}
+      startBlock: { { ToucanPuroFactory.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -70,23 +80,19 @@ dataSources:
         - name: ERC20
           file: ../lib/abis/ERC20.json
         - name: ToucanContractRegistry
-          file: ../lib/abis/ToucanContractRegistry.json      
+          file: ../lib/abis/ToucanContractRegistry.json
         - name: ToucanCarbonOffsetBatches
-          file: ../lib/abis/ToucanCarbonOffsetBatches.json    
+          file: ../lib/abis/ToucanCarbonOffsetBatches.json
       eventHandlers:
         - event: TokenCreated(uint256,address)
           handler: handleNewPuroTCO2
-      blockHandlers:
-        - handler: initializePuroCredit
-          filter:
-            kind: once          
   - kind: ethereum/contract
     name: ToucanCarbonOffsetBatch
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{ToucanCarbonOffsetBatch.address}}'
       abi: ToucanCarbonOffsetBatches
-      startBlock: {{ToucanCarbonOffsetBatch.startBlock}}
+      startBlock: { { ToucanCarbonOffsetBatch.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -103,14 +109,14 @@ dataSources:
         - event: BatchUpdated(uint256,string,uint256)
           handler: handleBatchUpdated
         - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleBatchTransfer   
+          handler: handleBatchTransfer
   - kind: ethereum/contract
     name: BCT
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{BCT.address}}'
       abi: ToucanCarbonPool
-      startBlock: {{BCT.startBlock}}
+      startBlock: { { BCT.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -134,11 +140,11 @@ dataSources:
           handler: handleTransfer
   - kind: ethereum/contract
     name: NCT
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{NCT.address}}'
       abi: ToucanCarbonPool
-      startBlock: {{NCT.startBlock}}
+      startBlock: { { NCT.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -163,11 +169,11 @@ dataSources:
   # Toucan cross chain bridges
   - kind: ethereum/contract
     name: ToucanCrossChainMessenger
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{ToucanCrossChainMessenger.address}}'
       abi: ToucanCrossChainMessenger
-      startBlock: {{ToucanCrossChainMessenger.startBlock}}
+      startBlock: { { ToucanCrossChainMessenger.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -193,11 +199,11 @@ dataSources:
           handler: handleBridgeRequestSent_1_1_0
   - kind: ethereum/contract
     name: ToucanRegenBridge
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{ToucanRegenBridge.address}}'
       abi: ToucanRegenBridge
-      startBlock: {{ToucanRegenBridge.startBlock}}
+      startBlock: { { ToucanRegenBridge.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -217,11 +223,11 @@ dataSources:
           handler: handleToucanRegenIssue
   - kind: ethereum/contract
     name: MossCarbon
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{MossCarbon.address}}'
       abi: ERC20
-      startBlock: {{MossCarbon.startBlock}}
+      startBlock: { { MossCarbon.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -237,11 +243,11 @@ dataSources:
           handler: handleCreditTransfer
   - kind: ethereum/contract
     name: MossCarbonOffset
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{MossCarbonOffset.address}}'
       abi: CarbonChain
-      startBlock: {{MossCarbonOffset.startBlock}}
+      startBlock: { { MossCarbonOffset.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -259,11 +265,11 @@ dataSources:
         #   handler: handleMossRetirementToMainnet
   - kind: ethereum/contract
     name: C3ProjectTokenFactory
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{C3ProjectTokenFactory.address}}'
       abi: C3ProjectTokenFactory
-      startBlock: {{C3ProjectTokenFactory.startBlock}}
+      startBlock: { { C3ProjectTokenFactory.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -271,6 +277,7 @@ dataSources:
       file: ./src/templates/C3ProjectTokenFactory.ts
       entities:
         - C3ProjectTokenFactory
+        - TokenURISafeguard
       abis:
         - name: C3ProjectTokenFactory
           file: ../lib/abis/C3ProjectTokenFactory.json
@@ -278,16 +285,27 @@ dataSources:
           file: ../lib/abis/C3ProjectToken.json
         - name: ERC20
           file: ../lib/abis/ERC20.json
+        - name: C3OffsetNFT
+          file: ../lib/abis/C3OffsetNFT.json
       eventHandlers:
         - event: NewTokenProject(string,address)
           handler: handleNewC3T
+        - event: StartAsyncToken(address,address,address,uint256,string,string,uint256,uint256)
+          handler: handleStartAsyncToken
+        - event: EndAsyncToken(address,address,address,uint256,string,string,uint256,uint256,bool,uint256)
+          handler: handleEndAsyncToken
+      blockHandlers:
+        - handler: handleTokenURISafeguard
+          filter:
+            kind: polling
+            every: 75 # approx every 2.5 minutes
   - kind: ethereum/contract
     name: UBO
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{UBO.address}}'
       abi: C3CarbonPool
-      startBlock: {{UBO.startBlock}}
+      startBlock: { { UBO.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -309,11 +327,11 @@ dataSources:
           handler: handleTransfer
   - kind: ethereum/contract
     name: NBO
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{NBO.address}}'
       abi: C3CarbonPool
-      startBlock: {{NBO.startBlock}}
+      startBlock: { { NBO.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -335,11 +353,11 @@ dataSources:
           handler: handleTransfer
   - kind: ethereum/contract
     name: C3-Offset
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{C3-Offset.address}}'
       abi: C3OffsetNFT
-      startBlock: {{C3-Offset.startBlock}}
+      startBlock: { { C3-Offset.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -355,11 +373,11 @@ dataSources:
           handler: handleVCUOMinted
   - kind: ethereum/contract
     name: ICRCarbonContractRegistry
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{ICRCarbonContractRegistry.address}}'
       abi: ICRCarbonContractRegistry
-      startBlock: {{ICRCarbonContractRegistry.startBlock}}
+      startBlock: { { ICRCarbonContractRegistry.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -380,11 +398,11 @@ dataSources:
   # Retirement aggregator
   - kind: ethereum/contract
     name: RetireToucanCarbon
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{RetireToucanCarbon.address}}'
       abi: RetireToucanCarbon
-      startBlock: {{RetireToucanCarbon.startBlock}}
+      startBlock: { { RetireToucanCarbon.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -404,11 +422,11 @@ dataSources:
           handler: handleToucanRetired
   - kind: ethereum/contract
     name: RetireMossCarbon
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{RetireMossCarbon.address}}'
       abi: RetireMossCarbon
-      startBlock: {{RetireMossCarbon.startBlock}}
+      startBlock: { { RetireMossCarbon.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -428,11 +446,11 @@ dataSources:
           handler: handleMossRetired
   - kind: ethereum/contract
     name: RetireC3Carbon
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{RetireC3Carbon.address}}'
       abi: RetireC3Carbon
-      startBlock: {{RetireC3Carbon.startBlock}}
+      startBlock: { { RetireC3Carbon.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -452,11 +470,11 @@ dataSources:
           handler: handleC3Retired
   - kind: ethereum/contract
     name: KlimaInfinity
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{KlimaInfinity.address}}'
       abi: KlimaInfinity
-      startBlock: {{KlimaInfinity.startBlock}}
+      startBlock: { { KlimaInfinity.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -479,11 +497,11 @@ dataSources:
   # Track KLIMA rebases for creating supply snapshot
   - kind: ethereum/contract
     name: sKlimaERC20V1
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{sKlimaERC20V1.address}}'
       abi: sKlimaERC20V1
-      startBlock: {{sKlimaERC20V1.startBlock}}
+      startBlock: { { sKlimaERC20V1.startBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -500,7 +518,7 @@ dataSources:
 templates:
   - name: ToucanCarbonOffsets
     kind: ethereum/contract
-    network: {{network}}
+    network: { { network } }
     source:
       abi: ToucanCarbonOffsets
     mapping:
@@ -524,7 +542,7 @@ templates:
       file: ./src/TransferHandler.ts
   - name: ToucanPuroCarbonOffsets
     kind: ethereum/contract
-    network: {{network}}
+    network: { { network } }
     source:
       abi: ToucanPuroCarbonOffsets
     mapping:
@@ -553,11 +571,11 @@ templates:
           handler: handleToucanPuroRetirementReverted
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleCreditTransfer
-      file: ./src/TransferHandler.ts   
-         
+      file: ./src/TransferHandler.ts
+
   - name: C3ProjectToken
     kind: ethereum/contract
-    network: {{network}}
+    network: { { network } }
     source:
       abi: C3ProjectToken
     mapping:
@@ -577,7 +595,7 @@ templates:
       file: ./src/TransferHandler.ts
   - name: ICRProjectToken
     kind: ethereum/contract
-    network: {{network}}
+    network: { { network } }
     source:
       abi: ICRProjectToken
     mapping:

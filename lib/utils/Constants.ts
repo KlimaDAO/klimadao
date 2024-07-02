@@ -112,10 +112,12 @@ export const NFT_CO2COMPOUND_INIT_TIMESTAMP = BigInt.fromString('1638486000') //
 export const ZERO_ADDRESS = Address.fromString('0x0000000000000000000000000000000000000000')
 
 // Klima Infinity Addresses
-export const KLIMA_CARBON_RETIREMENTS_CONTRACT = Address.fromString('0xac298cd34559b9acfaedea8344a977eceff1c0fd')
-export const KLIMA_INFINITY_DIAMOND = Address.fromString('0x8cE54d9625371fb2a068986d32C85De8E6e995f8')
+export const KLIMA_CARBON_RETIREMENTS_CONTRACT = Address.fromString('0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd') // polygon
+export const AMOY_KLIMA_CARBON_RETIREMENTS_CONTRACT = Address.fromString('0x5505a7b6ced40a41882a38fc11e2f8bcab2b46f7') //amoy
+export const KLIMA_INFINITY_DIAMOND = Address.fromString('0x8cE54d9625371fb2a068986d32C85De8E6e995f8') //mumbai
 
 // Other ecosystem addresses
+export const C3_VERIFIED_CARBON_UNITS_OFFSET = Address.fromString('0x7b364DFc0e085468aFDe869DF20036D80b8868e7')
 export const TOUCAN_CARBON_OFFSETS_ESCROW_ADDRESS = Address.fromString('0x2D2B8A154EFE0E5dd9e8E923eAd9abb7e5D770C3')
 export const TOUCAN_REGEN_BRIDGE = Address.fromString('0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC')
 export const TOUCAN_CROSS_CHAIN_MESSENGER = Address.fromString('0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf')

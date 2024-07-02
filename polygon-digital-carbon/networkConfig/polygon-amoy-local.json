@@ -1,0 +1,76 @@
+{
+    "network": "mainnet",
+    "ToucanCarbonOffsetsFactory": {
+      "address": "0xdDd96D43b0B2Ca179DCefA58e71798d0ce56c9c8",
+      "startBlock": "7667754"
+    },
+    "ToucanCarbonOffsetBatch": {
+      "address": "0x8A4d7458dDe3023A3B24225D62087701A88b09DD",
+      "startBlock": "7667754"
+    },
+    "BCT": {
+      "address": "0x8f8b7D5d12c1fC37f20a89Bf4Dfe1E787Da529B5",
+      "startBlock": "7667754"
+    },
+    "NCT": {
+      "address": "0xD838290e877E0188a4A44700463419ED96c16107",
+      "startBlock": "7667754"
+    },
+    "ToucanCrossChainMessenger": {
+      "address": "0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf",
+      "startBlock": "7667754"
+    },
+    "ToucanRegenBridge": {
+      "address": "0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC",
+      "startBlock": "7667754"
+    },
+    "MossCarbon": {
+      "address": "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
+      "startBlock": "23193932"
+    },
+    "MossCarbonOffset": {
+      "address": "0xeDAEFCf60e12Bd331c092341D5b3d8901C1c05A8",
+      "startBlock": "7667754"
+    },
+    "C3ProjectTokenFactory": {
+      "address": "0xd0CAE7819FA604ADB8C5c7A2685E6324b9c5417C",
+      "startBlock": "6827036"
+    },
+    "UBO": {
+      "address": "0xd9cf88c9993AEf429160c7D725f9aFB4E25e2733",
+      "startBlock": "6827291"
+    },
+    "NBO": {
+      "address": "0x71Fb8a17b8DF0D6e3f14F0A955eC7da8140f640A",
+      "startBlock": "6827303"
+    },
+    "C3-Offset": {
+      "address": "0x282f92B498744ae357403e0e692646104fCB1dfc",
+      "startBlock": "6827054"
+    },
+    "ICRCarbonContractRegistry": {
+      "address": "0x825cccb05d82fcd0381e523116a03b9301e91c61",
+      "startBlock": "7667754"
+    },
+    "RetireToucanCarbon": {
+      "address": "0xcefb61af5325c0c100cbd77eb4c9f51d17b189ca",
+      "startBlock": "7667754"
+    },
+    "RetireMossCarbon": {
+      "address": "0xa35f62dbdb93e4B772784E89B7B35736A4aeaCc5",
+      "startBlock": "7667754"
+    },
+    "RetireC3Carbon": {
+      "address": "0x53AC0d9F5985551C1f0ca98665d870365D1c6Ead",
+      "startBlock": "7161008"
+    },
+    "KlimaInfinity": {
+      "address": "0x41e07f12f4E4297B98c2E2e1E93EE2518a07CD54",
+      "startBlock": "7161009"
+    },
+    "sKlimaERC20V1": {
+      "address": "0xb0C22d8D350C67420f06F48936654f567C73E8C8",
+      "startBlock": "20190686"
+    }
+  }
+}
