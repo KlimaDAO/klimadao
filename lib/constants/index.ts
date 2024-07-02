@@ -281,20 +281,11 @@ export const offsetCompatibility: CompatMap = {
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
-const GRAPH_API_KEY =
-  process.env.GRAPH_API_KEY ?? process.env.NEXT_PUBLIC_GRAPH_API_KEY;
-
-const SUBGRAPH_BASE_URL =
-  "https://gateway-arbitrum.network.thegraph.com/api/" +
-  GRAPH_API_KEY +
-  "/subgraphs/id/";
-
 // TODO - remove once env variable is added...
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 const SUBGRAPH_URL_ID = "https://api.thegraph.com/subgraphs/id";
 
 export const subgraphs = {
-  polygonBridgedCarbon: `${SUBGRAPH_BASE_URL}${BRIDGED_CARBON_ID}`,
   polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:

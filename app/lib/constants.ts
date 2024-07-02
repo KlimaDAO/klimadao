@@ -67,3 +67,18 @@ export const SQUID_ROUTER_URL =
 
 /** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
 export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
+
+/** Subgraph Ids */
+const BRIDGED_CARBON_ID = "9skh5pMQGRdyJcBe8PjWdDjLoYqoYTMLRDpFh6acSHUu";
+
+const GRAPH_API_KEY =
+  process.env.GRAPH_API_KEY ?? process.env.NEXT_PUBLIC_GRAPH_API_KEY;
+
+const SUBGRAPH_BASE_URL =
+  "https://gateway-arbitrum.network.thegraph.com/api/" +
+  GRAPH_API_KEY +
+  "/subgraphs/id/";
+
+export const subgraphs = {
+  polygonBridgedCarbon: `${SUBGRAPH_BASE_URL}${BRIDGED_CARBON_ID}`,
+};

@@ -1,4 +1,4 @@
-import { subgraphs } from "@klimadao/lib/constants";
+import { subgraphs } from "lib/constants";
 
 export type BalanceAttribute =
   | "balanceBCT"
