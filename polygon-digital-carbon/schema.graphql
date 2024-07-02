@@ -37,6 +37,7 @@ enum BridgeStatus {
   FINALIZED
   REQUESTED
   REVERTED
+  AWAITING
 }
 
 type ProvenanceRecord @entity {
