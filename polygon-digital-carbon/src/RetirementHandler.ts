@@ -337,8 +337,9 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
           safeguard.requestsWithoutURI = requestsArray
           safeguard.save()
           log.error('Retrieved tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
+        } else {
+          request.tokenURI = tokenURI
         }
-        request.tokenURI = tokenURI
       }
 
       request.status = BridgeStatus.FINALIZED
@@ -357,8 +358,6 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
   let requestsArray = safeguard.requestsWithoutURI
   if (requestsArray.length == 0) return
 
-  let updatedRequestArray: string[] = []
-
   // target the request with the index that matches the event.params.tokenId
   for (let i = 0; i < requestsArray.length; i++) {
     let requestId = requestsArray[i]
@@ -367,22 +366,10 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
       log.error('handleURIBlockSafeguard request is null {}', [requestId])
       continue
     }
-    log.info('fixt request {}', [requestId])
-    log.info('fixt1 event.params.url {}', [event.params.url])
-    log.info('fixt2 event.params.tokenId {}', [event.params.tokenId.toString()])
-    log.error('request.c3OffsetNftIndex is null {}', [request.c3OffsetNftIndex.toString()])
 
     if (request.c3OffsetNftIndex == event.params.tokenId) {
       request.tokenURI = event.params.url
       request.save()
     }
-
-    // remove request from safeguard if tokenURI is found
-    if (request.tokenURI == null || request.tokenURI == '') {
-      updatedRequestArray.push(requestId)
-    }
   }
-
-  safeguard.requestsWithoutURI = updatedRequestArray
-  safeguard.save()
 }
