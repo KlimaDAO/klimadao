@@ -67,3 +67,10 @@ export const SQUID_ROUTER_URL =
 
 /** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
 export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
+
+const SUBGRAPH_DEV_URL = "https://api.studio.thegraph.com/query/78559";
+const SUBGRAPH_VERSION_SUFFIX = "version/latest";
+
+export const subgraphs = {
+  polygonBridgedCarbon: `${SUBGRAPH_DEV_URL}/polygon-digital-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
+};

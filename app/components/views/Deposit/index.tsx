@@ -4,13 +4,13 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import { getWalletHoldings } from "actions/deposit";
 import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
 import * as styles from "components/views/Stake/styles";
 import { formatEther } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
+import { CarbonToken, queryUserCarbonTokens } from "lib/queryUserCarbonTokens";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import * as localStyles from "./styles";
@@ -23,24 +23,17 @@ export const Deposit = (props: Props) => {
   const { address, toggleModal } = useWeb3();
   const [quantity, setQuantity] = useState("0.0");
   const [showModal, setShowModal] = useState(false);
-  const [holdings, setHoldings] = useState<any>([]); // TODO - fix types
-  const [selectedToken, setSelectedToken] = useState<{
-    amount: number;
-    token: any;
-  }>();
+  const [holdings, setHoldings] = useState<null | Array<CarbonToken>>(null);
+  const [selectedToken, setSelectedToken] =
+    useState<Pick<CarbonToken, "amount" | "token">>();
 
-  // TODO - fetch a list of carbon tokens for the connected user
   useEffect(() => {
     if (!address) return;
     (async () => {
-      const holdings = await getWalletHoldings({
-        address: address as string,
-      });
-      setHoldings(holdings);
+      const tokens = await queryUserCarbonTokens(address as string);
+      setHoldings(tokens);
       setSelectedToken(
-        holdings?.find(
-          ({ token }: any) => token?.symbol.startsWith("TCO2") // TODO - fix types
-        )
+        tokens?.find(({ token }) => token?.symbol.startsWith("TCO2"))
       );
     })();
   }, [address]);
