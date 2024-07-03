@@ -51,9 +51,6 @@ export const Deposit = (props: Props) => {
 
   const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);
 
-  // TODO - add button props
-  const getButtonProps = () => {};
-
   return (
     <>
       <DisclamerModal />
