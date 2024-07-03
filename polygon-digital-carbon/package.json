@@ -8,8 +8,8 @@
     "prepare-matic": "npx mustache networkConfig/matic.json subgraph.template.yaml > subgraph.yaml",
     "prepare-mumbai": "npx mustache networkConfig/mumbai.json subgraph.template.yaml > subgraph.yaml",
     "codegen": "rm -rf ./generated && graph codegen",
-    "graph:test": "graph test",
-    "graph:build": "graph build",
+    "test": "graph test",
+    "build": "graph build",
     "graph:create": "graph create --node $GRAPH_NODE_URL polygon-digital-carbon",
     "graph:remove": "graph remove --node $GRAPH_NODE_URL polygon-digital-carbon",
     "graph:watch": "graph deploy --watch --debug --node $GRAPH_NODE_URL --ipfs $IPFS_URL polygon-carbon",
@@ -20,7 +20,7 @@
     "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ polygon-carbon",
     "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
     "deploy-tufnel": "yarn codegen && yarn build && graph deploy --studio dev-only-smart-invoice-rinkeby",
-    "deploy": "yarn prepare-local && yarn codegen && yarn graph:build && yarn graph:remove && yarn graph:create && yarn graph:deploy"
+    "deploy": "yarn prepare-local && yarn codegen && yarn build && yarn graph:remove && yarn graph:create && yarn graph:deploy"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.69.1",
