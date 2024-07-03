@@ -336,15 +336,15 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
           safeguard.requestsWithoutURI = requestsArray
           safeguard.save()
           log.error('Retrieved tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
+        } else {
+          request.tokenURI = tokenURI
         }
-        request.tokenURI = tokenURI
       }
 
       request.status = BridgeStatus.FINALIZED
-      request.save()
     } else if (request.status == BridgeStatus.REQUESTED && event.params.success == false) {
       request.status = BridgeStatus.REVERTED
-      request.save()
     }
   }
+  request.save()
 }
