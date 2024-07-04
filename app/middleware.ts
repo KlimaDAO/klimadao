@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
       <h1>Access Denied.</h1>
       <p>Pending further regulatory guidance, users located in the following regions are not permitted to access this page:
         <ul>
-          ${labels.map((l) => `<li>${l}</li>`)}
+          ${labels.map((l) => `<li>${l}</li>`).join("")}
         </ul>
       </p>
       `,
