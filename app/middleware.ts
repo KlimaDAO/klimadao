@@ -7,7 +7,6 @@ import type { NextRequest } from "next/server";
  * I advise against sharing these across packages, as each domain may have different legal requirements
  * */
 const BLOCKED_COUNTRY_MAP: { [key: string]: string } = {
-  US: "The United States of America",
   IR: "Iran",
   SY: "Syria",
   KP: "North Korea",
