@@ -409,7 +409,7 @@ type ToucanBatch @entity {
 
 type C3RetireRequest @entity {
   "Request ID"
-  id: ID!
+  id: Bytes!
   index: BigInt!
   c3OffsetNftIndex: BigInt
   status: BridgeStatus!
