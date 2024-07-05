@@ -82,8 +82,10 @@ type ProvenanceRecord @entity {
 }
 
 type Token @entity {
-  "Ethereum contract address"
+  "Ethereum contract address. for ERC1155s id address.concat(tokenId)"
   id: Bytes!
+
+  tokenAddress: Bytes!
 
   "Name of the token"
   name: String!

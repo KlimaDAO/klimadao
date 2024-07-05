@@ -19,7 +19,8 @@ export function createTokenWithCall(tokenAddress: Address, block: ethereum.Block
   token = new Token(tokenAddress)
 
   let tokenContract = ERC20.bind(tokenAddress)
-
+  
+  token.tokenAddress = tokenAddress
   token.name = tokenContract.name()
   token.symbol = tokenContract.symbol()
   token.decimals = tokenContract.decimals()
@@ -82,7 +83,7 @@ export function createICRTokenWithCall(tokenAddress: Address, tokenId: BigInt): 
       serializationParts[serializationParts.length - 1].toString()
 
     token.name = `ICR: ${symbol}`
-
+    token.tokenAddress = tokenAddress
     token.symbol = symbol
     token.decimals = 18
     token.tokenId = tokenId
@@ -111,6 +112,7 @@ export function loadOrCreateToken(tokenAddress: Address): Token {
     if (decimalCall.reverted) token.decimals = 18 // Default to 18 decimals
     else token.decimals = decimalCall.value
 
+    token.tokenAddress = tokenAddress
     token.latestPriceUSD = tokenAddress == USDC_ERC20_CONTRACT ? BigDecimal.fromString('1') : ZERO_BD
     token.latestPriceUSDUpdated = ZERO_BI
     token.latestPricePerKLIMA = ZERO_BD
