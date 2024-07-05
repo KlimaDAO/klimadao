@@ -365,7 +365,7 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
     let requestId = requestsArray[i]
     let request = loadC3RetireRequest(requestId)
     if (request == null) {
-      log.error('handleURIBlockSafeguard request is null {}', [requestId])
+      log.error('handleURIBlockSafeguard request is null {}', [requestId.toHexString()])
       continue
     }
 
