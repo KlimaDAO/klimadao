@@ -411,7 +411,7 @@ type C3RetireRequest @entity {
   "Request ID"
   id: Bytes!
   index: BigInt!
-  c3OffsetNftIndex: BigInt
+  c3OffsetNftIndex: BigInt!
   status: BridgeStatus!
   retire: Retire
   provenance: ProvenanceRecord
