@@ -150,6 +150,7 @@ export const Deposit = (props: Props) => {
         </div>
         {props.isConnected ? (
           <ButtonPrimary
+            className={localStyles.depositButton}
             disabled={Number(quantity) === 0 || insufficientTokens}
             label="Continue"
           />
@@ -159,6 +160,7 @@ export const Deposit = (props: Props) => {
               id: "shared.login_connect",
               message: "Login / Connect",
             })}
+            className={localStyles.depositButton}
             onClick={toggleModal}
           />
         )}

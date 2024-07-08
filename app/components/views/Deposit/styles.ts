@@ -92,3 +92,7 @@ export const descriptionText = css`
   line-height: 1.6rem !important;
   color: var(--font-03);
 `;
+
+export const depositButton = css`
+  width: max-content;
+`;
