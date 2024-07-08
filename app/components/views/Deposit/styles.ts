@@ -10,9 +10,9 @@ export const offsetCard = css`
 export const grid = css`
   margin-top: 1rem;
   display: grid;
-  border: 1px solid var(--font-03);
+  border: 0.1rem solid var(--font-03);
   border-radius: 0.4rem;
-  padding: 1.6rem;
+  padding: 1.2rem;
 
   &.cols-3 {
     grid-template-columns: 1fr 0.1rem 1fr;
@@ -87,7 +87,7 @@ export const titleText = css`
   font-size: 1.6rem !important;
   line-height: 2rem !important;
   color: var(--white);
-  margin: 0.4rem 0;
+  margin: 0.4rem 0 0;
 `;
 
 export const descriptionText = css`
