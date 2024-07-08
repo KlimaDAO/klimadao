@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-05 18:18+0000\n"
+"POT-Creation-Date: 2024-07-08 10:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,6 +13,7 @@ msgstr "स्वीकार करें और स्वीकार कर�
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
+#: components/views/Redeem/index.tsx:287
 #: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:230
 msgid "Approve"
@@ -26,11 +27,12 @@ msgstr "बैलेंस"
 msgid "Bridge to Base"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:25
+#: components/views/Redeem/index.tsx:377
 msgid "Buy & Redeem Carbon"
 msgstr "कार्बन खरीदें और रिडीम करें"
 
 #: components/NavMenu/index.tsx:187
+#: components/views/Redeem/index.tsx:528
 msgid "Buy Carbon"
 msgstr "कार्बन खरीदें"
 
@@ -38,10 +40,16 @@ msgstr "कार्बन खरीदें"
 msgid "Capacity"
 msgstr "क्षमता"
 
+#: components/views/Redeem/index.tsx:292
+msgid "Continue"
+msgstr "जारी रखें"
+
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
 msgstr "मात्रा दर्ज करें"
 
+#: components/views/Redeem/index.tsx:261
+#: components/views/Redeem/index.tsx:433
 #: components/views/Stake/index.tsx:240
 #: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
@@ -51,6 +59,11 @@ msgstr "मात्रा दर्ज करें"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr ""
 
+#: components/views/Redeem/index.tsx:415
+msgid "How many tonnes would you like to acquire?"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:282
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
@@ -69,9 +82,15 @@ msgstr "लोड हो रहा है"
 msgid "Loading balances..."
 msgstr "लोड हो रहा है..."
 
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:96
+msgid "Loading project info..."
+msgstr ""
+
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
+#: components/views/Redeem/index.tsx:256
+#: components/views/Redeem/index.tsx:340
 #: components/views/Stake/index.tsx:421
 #: components/views/Stake/index.tsx:428
 #: components/views/Stake/index.tsx:435
@@ -112,6 +131,18 @@ msgstr "12 अप्रैल, 2022 को हम \"dapp\" (डैप) से \"
 msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
 msgstr "परिचालन जोखिम: KlimaDAO प्लेटफ़ॉर्म पॉलीगॉन नेटवर्क और अन्य डिजिटल परिसंपत्तियों से संबंधित विभिन्न तकनीकों पर निर्भर करता है। ये प्रौद्योगिकियाँ परिवर्तन के अधीन हैं, और ऐसे परिवर्तन आपके निवेश पर प्रतिकूल प्रभाव डाल सकते हैं।"
 
+#: components/views/Redeem/index.tsx:489
+msgid "Payment Method"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:488
+msgid "Payment method"
+msgstr ""
+
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:130
+msgid "Project details <0/>"
+msgstr ""
+
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "$KLIMA टोकन सहित क्रिप्टोकरेंसी खरीदने में उच्च स्तर का जोखिम शामिल है और इसे अत्यधिक सट्टा माना जाना चाहिए। यहां विचार करने योग्य कुछ महत्वपूर्ण बिंदु दिए गए हैं:"
@@ -124,6 +155,11 @@ msgstr "नियामक कार्रवाइयां और परिव
 msgid "Risk Disclaimer"
 msgstr ""
 
+#: components/views/Redeem/index.tsx:390
+#: components/views/Redeem/index.tsx:391
+msgid "Select carbon pool"
+msgstr ""
+
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
 msgstr "Polygon (पॉलिगॉन) पर स्विच करें"
@@ -132,9 +168,25 @@ msgstr "Polygon (पॉलिगॉन) पर स्विच करें"
 msgid "This app only works on Polygon Mainnet."
 msgstr "यह ऐप केवल Polygon Mainnet (पॉलीगॉन मेननेट) पर ही काम करता है।"
 
+#: components/views/Redeem/index.tsx:457
+msgid "This cost includes slippage and any redemption fees charged by the pool"
+msgstr ""
+
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
 msgstr "यह सारांश जोखिम चेतावनी $KLIMA में निवेश से जुड़े सभी जोखिमों का खुलासा नहीं करती है। आपको कोई भी निवेश निर्णय लेने से पहले अपना उचित परिश्रम करना चाहिए और वित्तीय सलाहकार से परामर्श लेना चाहिए।"
+
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:126
+msgid "Tonnes available: {formattedQuantity}"
+msgstr ""
+
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:103
+msgid "Unknown category"
+msgstr ""
+
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:102
+msgid "Unknown methodology"
+msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
@@ -143,6 +195,14 @@ msgstr "ग़लत नेटवर्क"
 #: components/CarbonBalancesCard/index.tsx:171
 msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
 msgstr "आपको अपने वॉलेट को USDC, KLIMA या कार्बन पूल टोकन से लोड करना होगा। क्रेडिट कार्ड समर्थन जल्द ही आ रहा है।"
+
+#: components/views/Redeem/index.tsx:477
+msgid "You receive"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:501
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr "आपकी शेष राशि लेनदेन की लागत से कम से कम 1% अधिक होनी चाहिए।"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:1023
@@ -572,9 +632,109 @@ msgstr ""
 msgid "offset.cta_2"
 msgstr ""
 
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:21
+msgid "offset.enter_address"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:354
+msgid "offset.incompatible"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:266
+msgid "offset.insufficient_project_tonnage"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:442
+msgid "offset.invalid_project_tonnage"
+msgstr ""
+
 #: components/CarbonTonnesRetiredCard/index.tsx:49
 msgid "offset.number_of_retirements"
 msgstr "कुल रिटायरमेंट्स"
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:56
+msgid "offset.retire_specific"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:62
+msgid "offset.retire_specific_tooltip"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:98
+msgid "offset.selectiveRetirement.address_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:80
+msgid "offset.selectiveRetirement.back_to_filters"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:105
+msgid "offset.selectiveRetirement.clear_selection"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
+msgid "offset.selectiveRetirement.confirm_selection"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
+msgid "offset.selectiveRetirement.confirmation_message"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:77
+msgid "offset.selectiveRetirement.default_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:72
+msgid "offset.selectiveRetirement.empty_search_results"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
+msgid "offset.selectiveRetirement.filter.options_selected"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
+msgid "offset.selectiveRetirement.filters.find_project"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
+msgid "offset.selectiveRetirement.filters.region"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
+msgid "offset.selectiveRetirement.filters.type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
+msgid "offset.selectiveRetirement.filters.vintage"
+msgstr ""
+
+#: components/views/Offset/LoadingOverlay/index.tsx:12
+msgid "offset.selectiveRetirement.finding_projects"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
+msgid "offset.selectiveRetirement.project.available_tonnes"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:112
+msgid "offset.selectiveRetirement.retire_from_default_pool"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:89
+msgid "offset.selectiveRetirement.search_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
+msgid "offset.selectiveRetirement.selectProject.back"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
+msgid "offset.selectiveRetirement.selectProject.label"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
+msgid "offset.selectiveRetirement.selectProject.select"
+msgstr ""
 
 #: components/CarbonTonnesRetiredCard/index.tsx:39
 msgid "offset.tonnes_of_carbon_retired"
@@ -587,6 +747,10 @@ msgstr "रिटयरमेंट देखें"
 #: components/CarbonTonnesRetiredCard/index.tsx:23
 msgid "offset.you_have_retired"
 msgstr "अपने रिटायर किया"
+
+#: components/views/Redeem/index.tsx:453
+msgid "offset_cost"
+msgstr ""
 
 #: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_bct"
@@ -652,17 +816,17 @@ msgstr "कुल टोकन आपूर्त्ति का एक प्�
 msgid "pklima.update"
 msgstr "अपडेटेड अनुबंध अब मानता है कि pKLIMA धारकों ने पहले दावा किए गए टोकनों पर दाँव लगाया और पुरस्कार अर्जित किया। नवंबर फिक्स से पहले, इन दाँव पुरस्कारों को आपकी आपूर्त्ति शेयर सीमा के मुक़ाबले नहीं गिना जाता था, जिसका अर्थ था कि कुल KLIMA आपूर्त्ति का आपका हिस्सा आपकी शर्तों में परिभाषित सीमा को पार कर सकता है।"
 
-#: components/views/Redeem/index.tsx:28
-msgid "redeem.cta_1"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:34
-msgid "redeem.cta_2"
+#: components/views/Redeem/index.tsx:380
+msgid "redeem.description"
 msgstr ""
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
 msgstr "404 - पृष्ठ नहीं मिला"
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
+msgid "shared.back"
+msgstr ""
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -694,10 +858,15 @@ msgstr "राशि डालें"
 msgid "shared.error"
 msgstr "ग़लती"
 
+#: components/views/Redeem/index.tsx:274
+msgid "shared.invalid_project_address"
+msgstr ""
+
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:154
 #: components/views/PKlima/index.tsx:149
+#: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"

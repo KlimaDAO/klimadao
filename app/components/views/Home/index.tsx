@@ -242,7 +242,15 @@ export const Home: FC = () => {
             />
             <Route
               path="/redeem"
-              element={<Redeem isConnected={isConnected} />}
+              element={
+                <Redeem
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                  onRPCError={handleRPCError}
+                  toggleModal={toggleModal}
+                />
+              }
             />
             <Route path="/info" element={<Info provider={provider} />} />
             <Route path="/bonds" element={<ChooseBond />} />
