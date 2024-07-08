@@ -70,6 +70,10 @@ export const inputError = css`
 
 export const card = css`
   grid-template-rows: unset !important;
+
+  ${breakpoints.desktop} {
+    grid-row: 2 / span 2;
+  }
 `;
 
 export const stakeCardRow = css`
