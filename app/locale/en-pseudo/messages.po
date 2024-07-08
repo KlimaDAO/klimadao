@@ -1,665 +1,72 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-05 18:18+0000\n"
+"POT-Creation-Date: 2024-07-08 10:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
-msgid "offset.selectiveRetirement.filter.options_selected"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:239
-msgid "choose_bond.percent_discount"
-msgstr ""
-
-#. <0>app.klimadao.finance</0> is the only official domain.
-#. js-lingui-explicit-id
-#: components/CheckURLBanner/index.tsx:31
-msgid "checkurlbanner.is_the_only_official_domain"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CheckURLBanner/index.tsx:26
-msgid "checkurlbanner.verify_url_and_bookmark_this_page"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:1012
-msgid "bond.this_bond_price_is_inflated"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: actions/utils.ts:28
-msgid "status.error"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/SelectiveRetirement/index.tsx:98
-msgid "offset.selectiveRetirement.address_input_type"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/index.tsx:50
-msgid "transaction_modal.view.approve.title"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:170
-msgid "pklima.approve_pklima"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:155
-msgid "info.app_not_loading.1_open_metamask"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:179
-msgid "pklima.approve_bct"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:162
-msgid "info.app_not_loading.2_go_to_settings"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/index.tsx:60
-msgid "transaction_modal.view.submit.title"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:169
-msgid "info.app_not_loading.3_return_to_app"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/errors/Custom404.tsx:16
-msgid "shared.404"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:375
-msgid "stake.5_day_rewards"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:255
-msgid "pklima.supply_limit.tooltip"
-msgstr ""
 
 #: components/DisclaimerModal/index.tsx:84
 msgid "Acknowledge and Accept"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:378
-msgid "redeem.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:391
-msgid "stake.akr"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/SelectiveRetirement/index.tsx:112
-msgid "offset.selectiveRetirement.retire_from_default_pool"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:894
-msgid "bond.you_will_get.tooltip"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:953
-msgid "bond.redeemable.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:364
-msgid "wrap.index.tooltip"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:408
-msgid "stake.index.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:484
-msgid "bond.inputplaceholder.amount_to_bond"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:489
-msgid "bond.inputplaceholder.amount_to_redeem"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:53
-msgid "stake.inputplaceholder.stake"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:57
-msgid "stake.inputplaceholder.unstake"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:750
-msgid "bond.you_will_get.description_inverse"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:394
-msgid "stake.akr.tooltip"
-msgstr ""
-
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Redeem/index.tsx:286
+#: components/views/Redeem/index.tsx:287
 #: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:230
 msgid "Approve"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/RebaseCard/index.tsx:61
-msgid "stake.next_rebase"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:378
-msgid "stake.5_day_rewards.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
-msgid "offset.selectiveRetirement.confirmation_message"
-msgstr ""
-
-#. should autostake?
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:1053
-msgid "bond.should_autostake"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
-msgid "offset.selectiveRetirement.project.available_tonnes"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
-msgid "shared.back"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:534
-msgid "nav.back"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/index.tsx:80
-msgid "offset.selectiveRetirement.back_to_filters"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
-msgid "offset.selectiveRetirement.selectProject.back"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:620
-msgid "bond.balance"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:374
-msgid "wrap.balance"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:624
-msgid "bond.balance.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/BalancesCard/index.tsx:47
-msgid "shared.balances"
-msgstr ""
-
 #: components/CarbonBalancesCard/index.tsx:126
 msgid "Balances"
-msgstr "<<<<<<< HEAD"
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:99
-msgid "choose_bond.bct.base_carbon_tonne"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:462
-#: components/views/Bond/index.tsx:570
-msgid "bond.bond"
-msgstr ""
-
-#. Bond {0}
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:549
-msgid "bond.bond_token"
-msgstr ""
-
-#. Bond {0}
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:1074
-msgid "bond.transaction_modal.bond.title"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:209
-msgid "choose_bond.bond_carbon"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:848
-msgid "bond.discount"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:777
-msgid "bond.bond_price"
 msgstr ""
 
 #: components/NavMenu/index.tsx:217
 msgid "Bridge to Base"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:375
+#: components/views/Redeem/index.tsx:377
 msgid "Buy & Redeem Carbon"
 msgstr ""
 
 #: components/NavMenu/index.tsx:187
-#: components/views/Redeem/index.tsx:526
+#: components/views/Redeem/index.tsx:528
 msgid "Buy Carbon"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:31
-msgid "buy.buy_klima"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:91
-msgid "choose_bond.nbo.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:87
-msgid "choose_bond.ubo.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:440
-msgid "offset.invalid_project_tonnage"
 msgstr ""
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:448
-msgid "bond.capacity_exceeded"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/ChangeLanguageButton/index.tsx:56
-msgid "shared.change_language"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/InvalidRPCModal/index.tsx:21
-msgid "invalid_rpc.modal.title"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:236
-msgid "choose_bond.choose_bond"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/index.tsx:105
-msgid "offset.selectiveRetirement.clear_selection"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/Submit.tsx:98
-msgid "transaction_modal.close"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:130
-msgid "info.common_app_related_questions"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/Submit.tsx:65
-msgid "transaction_modal.submit.amount"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
-msgid "offset.selectiveRetirement.confirm_selection"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NotificationModal/index.tsx:28
-msgid "modal.user_confirmation"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:432
-#: components/views/PKlima/index.tsx:165
-#: components/views/Wrap/index.tsx:220
-msgid "shared.confirming"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Home/index.tsx:173
-msgid "connectModal.wallet"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/getWeb3ModalStrings.ts:13
-msgid "web3modal.injected.des"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Home/index.tsx:179
-msgid "connect_modal.connecting"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Home/index.tsx:183
-msgid "connect_modal.error_title"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:291
+#: components/views/Redeem/index.tsx:292
 msgid "Continue"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/Approve.tsx:55
-msgid "transaction_modal.approve.approve_quantity.contract_address"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/Submit.tsx:54
-msgid "transaction_modal.submit.contract_address"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:451
-msgid "offset_cost"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:646
-msgid "bond.bond_price.tooltip.inverse"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:797
-msgid "bond.market_price.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:983
-msgid "bond.date_of_full_vesting"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:988
-msgid "bond.date_of_full_vesting.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:813
-msgid "bond.debt_ratio"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/SelectiveRetirement/index.tsx:77
-msgid "offset.selectiveRetirement.default_input_type"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:781
-msgid "bond.bond_price.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CheckURLBanner/index.tsx:47
-msgid "checkurlbanner.dont_remind_me"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/getWeb3ModalStrings.ts:21
-msgid "web3modal.torus.desc"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/getWeb3ModalStrings.ts:17
-msgid "web3modal.torus.name"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/SelectiveRetirementInput/index.tsx:21
-msgid "offset.enter_address"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:257
-#: components/views/Stake/index.tsx:266
-msgid "shared.enter_amount"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:260
-#: components/views/Redeem/index.tsx:431
-#: components/views/Stake/index.tsx:240
-#: components/views/Wrap/index.tsx:212
-msgid "Enter quantity"
 msgstr ""
 
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
 msgstr ""
 
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:283
-msgid "pklima.index_adjusted.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:475
-#: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:274
-#: components/views/Wrap/index.tsx:247
-msgid "shared.error"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/RebaseCard/index.tsx:82
-msgid "stake.estimated_payout"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:184
-msgid "pklima.exercise"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:212
-msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NotificationModal/index.tsx:27
-msgid "modal.error"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
-msgid "offset.selectiveRetirement.filters.find_project"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/SelectiveRetirement/index.tsx:89
-msgid "offset.selectiveRetirement.search_input_type"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/LoadingOverlay/index.tsx:12
-msgid "offset.selectiveRetirement.finding_projects"
+#: components/views/Redeem/index.tsx:261
+#: components/views/Redeem/index.tsx:433
+#: components/views/Stake/index.tsx:240
+#: components/views/Wrap/index.tsx:212
+msgid "Enter quantity"
 msgstr ""
 
 #: components/views/Offset/index.tsx:45
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/CheckURLBanner/index.tsx:50
-msgid "checkurlbanner.got_it"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:413
+#: components/views/Redeem/index.tsx:415
 msgid "How many tonnes would you like to acquire?"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/ImageCard/index.tsx:16
-msgid "imagecard.how_to_get_started"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:147
-msgid "info.app_not_loading.if_app_says_loading"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:34
-msgid "buy.cta_1"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:664
-msgid "bond.payout_per_klima.description_inverse"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:837
-msgid "bond.vesting_term_end.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:405
-msgid "stake.index"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:361
-msgid "wrap.index"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:280
-msgid "pklima.index_adjusted"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:195
-msgid "menu.info"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:127
-msgid "info.info_and_faq"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:353
-msgid "offset.incompatible"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:281
+#: components/views/Redeem/index.tsx:282
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:265
-msgid "offset.insufficient_project_tonnage"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:273
-msgid "shared.invalid_project_address"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:200
-msgid "menu.just_for_you"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:107
-msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:111
-msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:103
-msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:30
-msgid "offset.cta_1"
 msgstr ""
 
 #: components/DisclaimerModal/index.tsx:47
@@ -675,15 +82,15 @@ msgstr ""
 msgid "Loading balances..."
 msgstr ""
 
-#: components/views/Redeem/ProjectTokenDetails/index.tsx:95
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:96
 msgid "Loading project info..."
 msgstr ""
 
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Redeem/index.tsx:255
-#: components/views/Redeem/index.tsx:339
+#: components/views/Redeem/index.tsx:256
+#: components/views/Redeem/index.tsx:340
 #: components/views/Stake/index.tsx:421
 #: components/views/Stake/index.tsx:428
 #: components/views/Stake/index.tsx:435
@@ -691,119 +98,25 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:235
-msgid "shared.connect_wallet"
-msgstr ""
-
 #: components/views/Home/index.tsx:178
 msgid "Login"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:397
-#: components/views/Buy/index.tsx:65
-#: components/views/Home/index.tsx:154
-#: components/views/PKlima/index.tsx:149
-#: components/views/Redeem/index.tsx:247
-#: components/views/Stake/index.tsx:227
-#: components/views/Wrap/index.tsx:199
-msgid "shared.login_connect"
 msgstr ""
 
 #: components/DisclaimerModal/index.tsx:39
 msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
 msgstr ""
 
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:196
-msgid "pklima.balances_card.make_sure_to_stake"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:642
-#: components/views/Bond/index.tsx:793
-msgid "bond.market_price"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:605
-#: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:362
-#: components/views/Wrap/index.tsx:346
-msgid "shared.max"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:438
-msgid "bond.max_exceeded"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:715
-#: components/views/Bond/index.tsx:867
-msgid "bond.maximum"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:719
-#: components/views/Bond/index.tsx:871
-msgid "bond.maximum.tooltip"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:176
-msgid "info.app_not_loading.metamask_should_prompt"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:95
-msgid "choose_bond.mco2.moss_carbon_credit_token"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/ImageCard/index.tsx:13
-msgid "imagecard.new_to_klima"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/Approve.tsx:101
-msgid "transaction_modal.next"
+#: components/DisclaimerModal/index.tsx:68
+msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
 msgstr ""
 
 #: components/CarbonBalancesCard/index.tsx:168
 msgid "No balances found."
 msgstr ""
 
-#: components/DisclaimerModal/index.tsx:68
-msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
-msgstr ""
-
 #: components/CarbonBalancesCard/index.tsx:131
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "Not Connected"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:69
-msgid "menu.not_connected"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:423
-msgid "bond.not_redeemable"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:190
-msgid "info.official_contract_addresses"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:179
-msgid "menu.offset"
 msgstr ""
 
 #: components/views/Offset/index.tsx:27
@@ -818,512 +131,981 @@ msgstr ""
 msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:40
-msgid "buy.cta_2"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:486
-msgid "Payment method"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:487
+#: components/views/Redeem/index.tsx:489
 msgid "Payment Method"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:660
-msgid "bond.payout_per_klima"
+#: components/views/Redeem/index.tsx:488
+msgid "Payment method"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/NotificationModal/index.tsx:29
-msgid "modal.pending"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/RebaseCard/index.tsx:73
-msgid "stake.percent_payout"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:852
-msgid "bond.discount.description_tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:207
-msgid "token.pKLIMA"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:228
-msgid "pklima.klima_to_exercise"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: actions/utils.ts:35
-msgid "status.user_confirmation"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:54
-msgid "buy.please_log_in"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/Submit.tsx:47
-msgid "transaction_modal.submit.confirm_transaction"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:679
-msgid "bond.inverse.premium"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:683
-msgid "bond.inverse.premium.description"
-msgstr ""
-
-#: components/views/Redeem/ProjectTokenDetails/index.tsx:129
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:130
 msgid "Project details <0/>"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:817
-msgid "bond.debt_ratio.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:115
-msgid "choose_bond.inverse_usdc"
 msgstr ""
 
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/TransactionModal/Approve.tsx:66
-msgid "transaction_modal.approve_quantity.quantity"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/RebaseCard/index.tsx:44
-msgid "stake.rebase"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:468
-#: components/views/Bond/index.tsx:580
-msgid "bond.redeem"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:1081
-msgid "bond.transaction_modal.redeem.title"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:209
-msgid "pklima.redeem_pklima"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:950
-msgid "bond.redeemable"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:268
-msgid "pklima.redeemed"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
-msgid "offset.selectiveRetirement.filters.region"
-msgstr ""
-
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:924
-msgid "bond.unredeemed.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/constants.ts:40
-msgid "connect_modal.error_processing"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/SelectiveRetirement/index.tsx:56
-msgid "offset.retire_specific"
 msgstr ""
 
 #: components/DisclaimerModal/index.tsx:29
 msgid "Risk Disclaimer"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: lib/getWeb3ModalStrings.ts:9
-msgid "web3modal.walletlink.desc"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/getWeb3ModalStrings.ts:5
-msgid "web3modal.walletconnect.desc"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
-msgid "offset.selectiveRetirement.selectProject.label"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:388
-#: components/views/Redeem/index.tsx:389
+#: components/views/Redeem/index.tsx:390
+#: components/views/Redeem/index.tsx:391
 msgid "Select carbon pool"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
-msgid "offset.selectiveRetirement.selectProject.select"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:51
-msgid "wrap.sklima_to_wrap"
-msgstr "<<<<<<< HEAD"
-
-#. js-lingui-explicit-id
-#: components/views/Home/index.tsx:169
-msgid "connectModal.torus"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:405
-msgid "shared.sold_out"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:265
-msgid "choose_bond.sold_out"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:1023
-msgid "bond.all_demand_has_been_filled"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:291
-msgid "wrap.wrap_sklima.some_find_this_useful"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/errors/Custom404.tsx:19
-msgid "error.404.page.text"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:325
-msgid "stake.stake"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:163
-msgid "menu.stake_klima"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:256
-#: components/views/Stake/index.tsx:304
-#: components/views/Stake/index.tsx:461
-msgid "stake.stake_klima"
-msgstr ""
-
-#. Long sentence
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:78
-#: components/views/Stake/index.tsx:292
-msgid "stake.balancescard.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:307
-msgid "stake.stake_hold_earn"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/SelectiveRetirement/index.tsx:62
-msgid "offset.retire_specific_tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/Submit.tsx:90
-msgid "transaction_modal.submit.button"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NotificationModal/index.tsx:26
-msgid "modal.done"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:252
-msgid "pklima.supply_limit"
 msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
 msgstr ""
 
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:212
-msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/InvalidRPCModal/index.tsx:28
-msgid "invalid_rpc.modal.text"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/RebaseCard/index.tsx:48
-msgid "stake.rebase.info"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/PKlima/ClaimExceededModal/index.tsx:22
-msgid "pklima.update"
-msgstr ""
-
 #: components/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
-#: components/views/Redeem/index.tsx:455
+#: components/views/Redeem/index.tsx:457
 msgid "This cost includes slippage and any redemption fees charged by the pool"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:59
-msgid "buy.connect_to_buy"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:700
-msgid "capacity.description_inverse"
 msgstr ""
 
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
 msgstr ""
 
-#: components/views/Redeem/ProjectTokenDetails/index.tsx:125
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:126
 msgid "Tonnes available: {formattedQuantity}"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:39
-msgid "offset.tonnes_of_carbon_retired"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/PKlima/index.tsx:271
-msgid "pklima.redeemed.tooltip"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:49
-msgid "offset.number_of_retirements"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: actions/utils.ts:33
-msgid "status.done"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: actions/utils.ts:40
-msgid "status.network_confirmation"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:226
-msgid "choose_bond.treasury_balance"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
-msgid "offset.selectiveRetirement.filters.type"
-msgstr ""
-
-#: components/views/Redeem/ProjectTokenDetails/index.tsx:102
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:103
 msgid "Unknown category"
 msgstr ""
 
-#: components/views/Redeem/ProjectTokenDetails/index.tsx:101
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:102
 msgid "Unknown methodology"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:921
-msgid "bond.unredeemed"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:337
-msgid "stake.unstake"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:265
-#: components/views/Stake/index.tsx:463
-msgid "stake.unstake_klima"
-msgstr "<<<<<<< HEAD"
-
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:324
-msgid "wrap.unwrap"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/BalancesCard/index.tsx:33
-msgid "wsklima.unwrapped.label"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/constants.ts:36
-msgid "connect_modal.error_message_refused"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:833
-msgid "bond.vesting_term_end"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CarbonTonnesRetiredCard/index.tsx:61
-msgid "offset.view_retirements"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
-msgid "offset.selectiveRetirement.filters.vintage"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:36
-msgid "offset.cta_2"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Offset/ProjectSearch/index.tsx:72
-msgid "offset.selectiveRetirement.empty_search_results"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/constants.ts:32
-msgid "connect_modal.error_message_default"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Info/index.tsx:142
-msgid "info.app_not_loading.title"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:313
-msgid "wrap.wrap"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:171
-msgid "menu.wrap_klima"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:279
-msgid "wrap.wrap_sklima"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:269
-msgid "wrap.balances_tooltip"
-msgstr ""
-
-#. Long sentence
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:282
-msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:55
-msgid "wrap.wsklima_to_unwrap"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: actions/utils.ts:22
-msgid "status.user_rejected"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/TransactionModal/Approve.tsx:47
-msgid "transaction_modal.approve.allow_amount"
-msgstr ""
-
 #: components/CarbonBalancesCard/index.tsx:171
 msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
 msgstr ""
 
-#: components/views/Redeem/index.tsx:475
+#: components/views/Redeem/index.tsx:477
 msgid "You receive"
 msgstr ""
 
-#. js-lingui-explicit-id
+#: components/views/Redeem/index.tsx:501
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:1023
+msgid "bond.all_demand_has_been_filled"
+msgstr ""
+
+#: components/views/Bond/index.tsx:620
+msgid "bond.balance"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:624
+msgid "bond.balance.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:462
+#: components/views/Bond/index.tsx:570
+msgid "bond.bond"
+msgstr ""
+
+#: components/views/Bond/index.tsx:777
+msgid "bond.bond_price"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:781
+msgid "bond.bond_price.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:646
+msgid "bond.bond_price.tooltip.inverse"
+msgstr ""
+
+#. Bond {0}
+#: components/views/Bond/index.tsx:549
+msgid "bond.bond_token"
+msgstr ""
+
+#: components/views/Bond/index.tsx:448
+msgid "bond.capacity_exceeded"
+msgstr ""
+
+#: components/views/Bond/index.tsx:983
+msgid "bond.date_of_full_vesting"
+msgstr ""
+
+#: components/views/Bond/index.tsx:988
+msgid "bond.date_of_full_vesting.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:813
+msgid "bond.debt_ratio"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:817
+msgid "bond.debt_ratio.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:848
+msgid "bond.discount"
+msgstr ""
+
+#: components/views/Bond/index.tsx:852
+msgid "bond.discount.description_tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:484
+msgid "bond.inputplaceholder.amount_to_bond"
+msgstr ""
+
+#: components/views/Bond/index.tsx:489
+msgid "bond.inputplaceholder.amount_to_redeem"
+msgstr ""
+
+#: components/views/Bond/index.tsx:679
+msgid "bond.inverse.premium"
+msgstr ""
+
+#: components/views/Bond/index.tsx:683
+msgid "bond.inverse.premium.description"
+msgstr ""
+
+#: components/views/Bond/index.tsx:642
+#: components/views/Bond/index.tsx:793
+msgid "bond.market_price"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:797
+msgid "bond.market_price.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:438
+msgid "bond.max_exceeded"
+msgstr ""
+
+#: components/views/Bond/index.tsx:715
+#: components/views/Bond/index.tsx:867
+msgid "bond.maximum"
+msgstr ""
+
+#: components/views/Bond/index.tsx:719
+#: components/views/Bond/index.tsx:871
+msgid "bond.maximum.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:423
+msgid "bond.not_redeemable"
+msgstr ""
+
+#: components/views/Bond/index.tsx:660
+msgid "bond.payout_per_klima"
+msgstr ""
+
+#: components/views/Bond/index.tsx:664
+msgid "bond.payout_per_klima.description_inverse"
+msgstr ""
+
+#: components/views/Bond/index.tsx:468
+#: components/views/Bond/index.tsx:580
+msgid "bond.redeem"
+msgstr ""
+
+#: components/views/Bond/index.tsx:950
+msgid "bond.redeemable"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:953
+msgid "bond.redeemable.tooltip"
+msgstr ""
+
+#. should autostake?
+#: components/views/Bond/index.tsx:1053
+msgid "bond.should_autostake"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:1012
+msgid "bond.this_bond_price_is_inflated"
+msgstr ""
+
+#. Bond {0}
+#: components/views/Bond/index.tsx:1074
+msgid "bond.transaction_modal.bond.title"
+msgstr ""
+
+#: components/views/Bond/index.tsx:1081
+msgid "bond.transaction_modal.redeem.title"
+msgstr ""
+
+#: components/views/Bond/index.tsx:921
+msgid "bond.unredeemed"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:924
+msgid "bond.unredeemed.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:833
+msgid "bond.vesting_term_end"
+msgstr ""
+
+#: components/views/Bond/index.tsx:837
+msgid "bond.vesting_term_end.tooltip"
+msgstr ""
+
 #: components/views/Bond/index.tsx:746
 #: components/views/Bond/index.tsx:890
 msgid "bond.you_will_get"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:377
-msgid "wrap.you_will_get"
+#: components/views/Bond/index.tsx:750
+msgid "bond.you_will_get.description_inverse"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/PKlima/ClaimExceededModal/index.tsx:15
-msgid "pklima.overclaim"
+#. Long sentence
+#: components/views/Bond/index.tsx:894
+msgid "bond.you_will_get.tooltip"
 msgstr ""
 
-#. js-lingui-explicit-id
+#: components/views/Buy/index.tsx:31
+msgid "buy.buy_klima"
+msgstr ""
+
+#. Long sentence
+#: components/views/Buy/index.tsx:59
+msgid "buy.connect_to_buy"
+msgstr ""
+
+#: components/views/Buy/index.tsx:34
+msgid "buy.cta_1"
+msgstr ""
+
+#: components/views/Buy/index.tsx:40
+msgid "buy.cta_2"
+msgstr ""
+
+#: components/views/Buy/index.tsx:54
+msgid "buy.please_log_in"
+msgstr ""
+
+#: components/views/Bond/index.tsx:700
+msgid "capacity.description_inverse"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:47
+msgid "checkurlbanner.dont_remind_me"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:50
+msgid "checkurlbanner.got_it"
+msgstr ""
+
+#. <0>app.klimadao.finance</0> is the only official domain.
+#: components/CheckURLBanner/index.tsx:31
+msgid "checkurlbanner.is_the_only_official_domain"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:26
+msgid "checkurlbanner.verify_url_and_bookmark_this_page"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:99
+msgid "choose_bond.bct.base_carbon_tonne"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:209
+msgid "choose_bond.bond_carbon"
+msgstr ""
+
+#. Long sentence
+#: components/views/ChooseBond/index.tsx:212
+msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:236
+msgid "choose_bond.choose_bond"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:115
+msgid "choose_bond.inverse_usdc"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:107
+msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:103
+msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:95
+msgid "choose_bond.mco2.moss_carbon_credit_token"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:111
+msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:91
+msgid "choose_bond.nbo.description"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:239
+msgid "choose_bond.percent_discount"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:265
+msgid "choose_bond.sold_out"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:226
+msgid "choose_bond.treasury_balance"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:87
+msgid "choose_bond.ubo.description"
+msgstr ""
+
+#: components/views/Home/index.tsx:169
+msgid "connectModal.torus"
+msgstr ""
+
+#: components/views/Home/index.tsx:173
+msgid "connectModal.wallet"
+msgstr ""
+
+#: components/views/Home/index.tsx:179
+msgid "connect_modal.connecting"
+msgstr ""
+
+#: lib/constants.ts:32
+msgid "connect_modal.error_message_default"
+msgstr ""
+
+#: lib/constants.ts:36
+msgid "connect_modal.error_message_refused"
+msgstr ""
+
+#: lib/constants.ts:40
+msgid "connect_modal.error_processing"
+msgstr ""
+
+#: components/views/Home/index.tsx:183
+msgid "connect_modal.error_title"
+msgstr ""
+
+#: components/views/errors/Custom404.tsx:19
+msgid "error.404.page.text"
+msgstr ""
+
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
+msgstr ""
+
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:155
+msgid "info.app_not_loading.1_open_metamask"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:162
+msgid "info.app_not_loading.2_go_to_settings"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:169
+msgid "info.app_not_loading.3_return_to_app"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:147
+msgid "info.app_not_loading.if_app_says_loading"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:176
+msgid "info.app_not_loading.metamask_should_prompt"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:142
+msgid "info.app_not_loading.title"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:130
+msgid "info.common_app_related_questions"
+msgstr ""
+
+#: components/views/Info/index.tsx:127
+msgid "info.info_and_faq"
+msgstr ""
+
+#: components/views/Info/index.tsx:190
+msgid "info.official_contract_addresses"
+msgstr ""
+
+#: components/InvalidRPCModal/index.tsx:28
+msgid "invalid_rpc.modal.text"
+msgstr ""
+
+#: components/InvalidRPCModal/index.tsx:21
+msgid "invalid_rpc.modal.title"
+msgstr ""
+
+#: components/NavMenu/index.tsx:195
+msgid "menu.info"
+msgstr ""
+
+#: components/NavMenu/index.tsx:200
+msgid "menu.just_for_you"
+msgstr ""
+
+#: components/NavMenu/index.tsx:69
+msgid "menu.not_connected"
+msgstr ""
+
+#: components/NavMenu/index.tsx:179
+msgid "menu.offset"
+msgstr ""
+
+#: components/NavMenu/index.tsx:163
+msgid "menu.stake_klima"
+msgstr ""
+
+#: components/NavMenu/index.tsx:51
+msgid "menu.wallet_address"
+msgstr ""
+
+#: components/NavMenu/index.tsx:171
+msgid "menu.wrap_klima"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:26
+msgid "modal.done"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:27
+msgid "modal.error"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:29
+msgid "modal.pending"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:28
+msgid "modal.user_confirmation"
+msgstr ""
+
+#: components/views/Bond/index.tsx:534
+msgid "nav.back"
+msgstr ""
+
+#: components/views/Offset/index.tsx:30
+msgid "offset.cta_1"
+msgstr ""
+
+#: components/views/Offset/index.tsx:36
+msgid "offset.cta_2"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:21
+msgid "offset.enter_address"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:354
+msgid "offset.incompatible"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:266
+msgid "offset.insufficient_project_tonnage"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:442
+msgid "offset.invalid_project_tonnage"
+msgstr ""
+
+#: components/CarbonTonnesRetiredCard/index.tsx:49
+msgid "offset.number_of_retirements"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:56
+msgid "offset.retire_specific"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:62
+msgid "offset.retire_specific_tooltip"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:98
+msgid "offset.selectiveRetirement.address_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:80
+msgid "offset.selectiveRetirement.back_to_filters"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:105
+msgid "offset.selectiveRetirement.clear_selection"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
+msgid "offset.selectiveRetirement.confirm_selection"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
+msgid "offset.selectiveRetirement.confirmation_message"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:77
+msgid "offset.selectiveRetirement.default_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:72
+msgid "offset.selectiveRetirement.empty_search_results"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
+msgid "offset.selectiveRetirement.filter.options_selected"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
+msgid "offset.selectiveRetirement.filters.find_project"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
+msgid "offset.selectiveRetirement.filters.region"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
+msgid "offset.selectiveRetirement.filters.type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
+msgid "offset.selectiveRetirement.filters.vintage"
+msgstr ""
+
+#: components/views/Offset/LoadingOverlay/index.tsx:12
+msgid "offset.selectiveRetirement.finding_projects"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
+msgid "offset.selectiveRetirement.project.available_tonnes"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:112
+msgid "offset.selectiveRetirement.retire_from_default_pool"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:89
+msgid "offset.selectiveRetirement.search_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
+msgid "offset.selectiveRetirement.selectProject.back"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
+msgid "offset.selectiveRetirement.selectProject.label"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
+msgid "offset.selectiveRetirement.selectProject.select"
+msgstr ""
+
+#: components/CarbonTonnesRetiredCard/index.tsx:39
+msgid "offset.tonnes_of_carbon_retired"
+msgstr ""
+
+#: components/CarbonTonnesRetiredCard/index.tsx:61
+msgid "offset.view_retirements"
+msgstr ""
+
 #: components/CarbonTonnesRetiredCard/index.tsx:23
 msgid "offset.you_have_retired"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:499
-msgid "Your balance must equal at least 1% more than the cost of the transaction."
+#: components/views/Redeem/index.tsx:453
+msgid "offset_cost"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/NavMenu/index.tsx:51
-msgid "menu.wallet_address"
+#: components/views/PKlima/index.tsx:179
+msgid "pklima.approve_bct"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:170
+msgid "pklima.approve_pklima"
+msgstr ""
+
+#. Long sentence
+#: components/views/PKlima/index.tsx:196
+msgid "pklima.balances_card.make_sure_to_stake"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:184
+msgid "pklima.exercise"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:212
+msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:280
+msgid "pklima.index_adjusted"
+msgstr ""
+
+#. Long sentence
+#: components/views/PKlima/index.tsx:283
+msgid "pklima.index_adjusted.tooltip"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:228
+msgid "pklima.klima_to_exercise"
+msgstr ""
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:15
+msgid "pklima.overclaim"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:209
+msgid "pklima.redeem_pklima"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:268
+msgid "pklima.redeemed"
+msgstr ""
+
+#. Long sentence
+#: components/views/PKlima/index.tsx:271
+msgid "pklima.redeemed.tooltip"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:252
+msgid "pklima.supply_limit"
+msgstr ""
+
+#. Long sentence
+#: components/views/PKlima/index.tsx:255
+msgid "pklima.supply_limit.tooltip"
+msgstr ""
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:22
+msgid "pklima.update"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:380
+msgid "redeem.description"
+msgstr ""
+
+#: components/views/errors/Custom404.tsx:16
+msgid "shared.404"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
+msgid "shared.back"
+msgstr ""
+
+#: components/BalancesCard/index.tsx:47
+msgid "shared.balances"
+msgstr ""
+
+#: components/ChangeLanguageButton/index.tsx:56
+msgid "shared.change_language"
+msgstr ""
+
+#: components/views/Bond/index.tsx:432
+#: components/views/PKlima/index.tsx:165
+#: components/views/Wrap/index.tsx:220
+msgid "shared.confirming"
+msgstr ""
+
+#: components/views/Stake/index.tsx:235
+msgid "shared.connect_wallet"
+msgstr ""
+
+#: components/views/Stake/index.tsx:257
+#: components/views/Stake/index.tsx:266
+msgid "shared.enter_amount"
+msgstr ""
+
+#: components/views/Bond/index.tsx:475
+#: components/views/Bond/index.tsx:494
+#: components/views/Stake/index.tsx:274
+#: components/views/Wrap/index.tsx:247
+msgid "shared.error"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:274
+msgid "shared.invalid_project_address"
+msgstr ""
+
+#: components/views/Bond/index.tsx:397
+#: components/views/Buy/index.tsx:65
+#: components/views/Home/index.tsx:154
+#: components/views/PKlima/index.tsx:149
+#: components/views/Redeem/index.tsx:248
+#: components/views/Stake/index.tsx:227
+#: components/views/Wrap/index.tsx:199
+msgid "shared.login_connect"
+msgstr ""
+
+#: components/views/Bond/index.tsx:605
+#: components/views/PKlima/index.tsx:239
+#: components/views/Stake/index.tsx:362
+#: components/views/Wrap/index.tsx:346
+msgid "shared.max"
+msgstr ""
+
+#: components/views/Bond/index.tsx:405
+msgid "shared.sold_out"
+msgstr ""
+
+#: components/views/Stake/index.tsx:375
+msgid "stake.5_day_rewards"
+msgstr ""
+
+#. Long sentence
+#: components/views/Stake/index.tsx:378
+msgid "stake.5_day_rewards.tooltip"
+msgstr ""
+
+#: components/views/Stake/index.tsx:391
+msgid "stake.akr"
+msgstr ""
+
+#. Long sentence
+#: components/views/Stake/index.tsx:394
+msgid "stake.akr.tooltip"
+msgstr ""
+
+#. Long sentence
+#. Long sentence
+#: components/views/Buy/index.tsx:78
+#: components/views/Stake/index.tsx:292
+msgid "stake.balancescard.tooltip"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:82
+msgid "stake.estimated_payout"
+msgstr ""
+
+#: components/views/Stake/index.tsx:405
+msgid "stake.index"
+msgstr ""
+
+#. Long sentence
+#: components/views/Stake/index.tsx:408
+msgid "stake.index.tooltip"
+msgstr ""
+
+#: components/views/Stake/index.tsx:53
+msgid "stake.inputplaceholder.stake"
+msgstr ""
+
+#: components/views/Stake/index.tsx:57
+msgid "stake.inputplaceholder.unstake"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:61
+msgid "stake.next_rebase"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:73
+msgid "stake.percent_payout"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:44
+msgid "stake.rebase"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:48
+msgid "stake.rebase.info"
+msgstr ""
+
+#: components/views/Stake/index.tsx:325
+msgid "stake.stake"
+msgstr ""
+
+#: components/views/Stake/index.tsx:307
+msgid "stake.stake_hold_earn"
+msgstr ""
+
+#: components/views/Stake/index.tsx:256
+#: components/views/Stake/index.tsx:304
+#: components/views/Stake/index.tsx:461
+msgid "stake.stake_klima"
+msgstr ""
+
+#: components/views/Stake/index.tsx:337
+msgid "stake.unstake"
+msgstr ""
+
+#: components/views/Stake/index.tsx:265
+#: components/views/Stake/index.tsx:463
+msgid "stake.unstake_klima"
+msgstr ""
+
+#: actions/utils.ts:33
+msgid "status.done"
+msgstr ""
+
+#: actions/utils.ts:28
+msgid "status.error"
+msgstr ""
+
+#: actions/utils.ts:40
+msgid "status.network_confirmation"
+msgstr ""
+
+#: actions/utils.ts:35
+msgid "status.user_confirmation"
+msgstr ""
+
+#: actions/utils.ts:22
+msgid "status.user_rejected"
+msgstr ""
+
+#: components/NavMenu/index.tsx:207
+msgid "token.pKLIMA"
+msgstr ""
+
+#: components/TransactionModal/Approve.tsx:47
+msgid "transaction_modal.approve.allow_amount"
+msgstr ""
+
+#: components/TransactionModal/Approve.tsx:55
+msgid "transaction_modal.approve.approve_quantity.contract_address"
+msgstr ""
+
+#: components/TransactionModal/Approve.tsx:66
+msgid "transaction_modal.approve_quantity.quantity"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:98
+msgid "transaction_modal.close"
+msgstr ""
+
+#: components/TransactionModal/Approve.tsx:101
+msgid "transaction_modal.next"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:65
+msgid "transaction_modal.submit.amount"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:90
+msgid "transaction_modal.submit.button"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:47
+msgid "transaction_modal.submit.confirm_transaction"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:54
+msgid "transaction_modal.submit.contract_address"
+msgstr ""
+
+#: components/TransactionModal/index.tsx:50
+msgid "transaction_modal.view.approve.title"
+msgstr ""
+
+#: components/TransactionModal/index.tsx:60
+msgid "transaction_modal.view.submit.title"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:13
+msgid "web3modal.injected.des"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:21
+msgid "web3modal.torus.desc"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:17
+msgid "web3modal.torus.name"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:5
+msgid "web3modal.walletconnect.desc"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:9
+msgid "web3modal.walletlink.desc"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:374
+msgid "wrap.balance"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:269
+msgid "wrap.balances_tooltip"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:361
+msgid "wrap.index"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:364
+msgid "wrap.index.tooltip"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:51
+msgid "wrap.sklima_to_wrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:324
+msgid "wrap.unwrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:313
+msgid "wrap.wrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:279
+msgid "wrap.wrap_sklima"
+msgstr ""
+
+#. Long sentence
+#: components/views/Wrap/index.tsx:291
+msgid "wrap.wrap_sklima.some_find_this_useful"
+msgstr ""
+
+#. Long sentence
+#: components/views/Wrap/index.tsx:282
+msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:55
+msgid "wrap.wsklima_to_unwrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:377
+msgid "wrap.you_will_get"
+msgstr ""
+
+#: components/BalancesCard/index.tsx:33
+msgid "wsklima.unwrapped.label"
 msgstr ""
