@@ -40,6 +40,7 @@ export const Deposit = (props: Props) => {
   const dispatch = useAppDispatch();
   const { address, toggleModal } = useWeb3();
   const [quantity, setQuantity] = useState("0.0");
+  const [spenderAddress, setSpenderAddress] = useState("");
   const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
@@ -110,12 +111,18 @@ export const Deposit = (props: Props) => {
     } else if (!hasAllowance) {
       return {
         label: t`Approve`,
-        onClick: () => setShowTransactionModal(true),
+        onClick: () => {
+          setSpenderAddress(selectedToken?.token.id ?? "");
+          setShowTransactionModal(true);
+        },
       };
     }
     return {
       label: t`Continue`,
-      onClick: () => setShowTransactionModal(true),
+      onClick: () => {
+        setSpenderAddress(addresses["mainnet"].bct);
+        setShowTransactionModal(true);
+      },
     };
   };
 
@@ -128,7 +135,6 @@ export const Deposit = (props: Props) => {
         ({ amount, token }) => !!Number(amount) && token.symbol.includes("VCS")
       );
 
-      console.log("tokens", tokens);
       setHoldings(tokens);
       setSelectedToken(
         tokens?.find(({ token }) => token?.symbol.startsWith("TCO2"))
@@ -305,7 +311,7 @@ export const Deposit = (props: Props) => {
           onCloseModal={closeTransactionModal}
           tokenName={"bct"}
           tokenIcon={tokenInfo.bct.icon}
-          spenderAddress={addresses["mainnet"].bct}
+          spenderAddress={spenderAddress}
           value={quantity}
           approvalValue={quantity}
           status={fullStatus}

@@ -14,7 +14,7 @@ export const approveDepositToken = async (params: {
 }): Promise<string> => {
   try {
     const contract = new Contract(
-      params.selectedToken?.token.id,
+      params.selectedToken.token.id,
       IERC20.abi,
       params.provider.getSigner()
     );
