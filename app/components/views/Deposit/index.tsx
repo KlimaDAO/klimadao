@@ -1,20 +1,25 @@
 import { cx } from "@emotion/css";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import { approveDepositToken, depositTokens } from "actions/deposit";
 import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
 import * as styles from "components/views/Stake/styles";
-import { Contract, providers } from "ethers";
-import { formatEther, formatUnits, parseUnits } from "ethers-v6";
+import { providers } from "ethers";
+import { formatEther } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import { CarbonToken, queryUserCarbonTokens } from "lib/queryUserCarbonTokens";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useAppDispatch } from "state";
+import { TxnStatus, setAppState } from "state/app";
+import { selectAllowancesWithParams } from "state/selectors";
+import { setAllowance } from "state/user";
 import * as localStyles from "./styles";
 
 interface Props {
@@ -24,18 +29,36 @@ interface Props {
 }
 
 export const Deposit = (props: Props) => {
+  const dispatch = useAppDispatch();
   const { address, toggleModal } = useWeb3();
   const [quantity, setQuantity] = useState("0.0");
+
   const [showModal, setShowModal] = useState(false);
   const [holdings, setHoldings] = useState<null | Array<CarbonToken>>(null);
   const [selectedToken, setSelectedToken] =
     useState<Pick<CarbonToken, "amount" | "token">>();
+
+  const allowances = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["bct"],
+      // @ts-expect-error
+      spender: selectedToken?.token.id,
+    })
+  );
+
+  console.log("allowances", allowances);
+
+  const setStatus = (statusType: TxnStatus | null, message?: string) => {
+    if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
+    dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  };
 
   useEffect(() => {
     if (!address) return;
     (async () => {
       const tokens = await queryUserCarbonTokens(address as string);
       setHoldings(tokens);
+      console.log("tokens", tokens);
       setSelectedToken(
         tokens?.find(({ token }) => token?.symbol.startsWith("TCO2"))
       );
@@ -47,34 +70,40 @@ export const Deposit = (props: Props) => {
     : 0;
 
   const handleApprove = async () => {
+    if (!props.provider || !selectedToken) return;
     try {
-      if (!props.provider || !selectedToken) return;
+      const approvedValue = await approveDepositToken({
+        provider: props.provider,
+        selectedToken,
+        quantity,
+        onStatus: setStatus,
+      });
 
-      const contract = new Contract(
-        selectedToken?.token.id,
-        IERC20.abi,
-        props.provider.getSigner()
+      dispatch(
+        setAllowance({
+          token: "bct",
+          // @ts-expect-error - need to allow a customer spender for individual tco2 tokens
+          spender: selectedToken?.token.id,
+          value: approvedValue,
+        })
       );
+    } catch (e) {
+      return;
+    }
+  };
 
-      const decimals = selectedToken?.token.decimals;
-      const parsedValue = parseUnits(quantity, decimals);
-      console.log("userConfirmation", "");
-      const txn = await contract.approve(
-        selectedToken?.token.id,
-        parsedValue.toString()
-      );
-      console.log("networkConfirmation", "");
-      await txn.wait(1);
-      console.log("done", "Approval was successful");
-      return formatUnits(parsedValue, decimals);
-    } catch (error: any) {
-      if (error.code === 4001) {
-        console.log("error", "userRejected");
-        throw error;
-      }
-      console.log("error");
-      console.error(error);
-      throw error;
+  const handleDeposit = async () => {
+    if (!props.provider || !selectedToken) return;
+    try {
+      const depositedResult = await depositTokens({
+        provider: props.provider,
+        selectedToken,
+        quantity,
+        onStatus: setStatus,
+      });
+      console.log("depositedResult", depositedResult);
+    } catch (e) {
+      return;
     }
   };
 
@@ -185,12 +214,23 @@ export const Deposit = (props: Props) => {
           </div>
         </div>
         {props.isConnected ? (
-          <ButtonPrimary
-            className={localStyles.depositButton}
-            // disabled={Number(quantity) === 0 || insufficientTokens}
-            label="Continue"
-            onClick={handleApprove}
-          />
+          <>
+            {allowances?.bct && Number(allowances?.bct) > 0 ? (
+              <ButtonPrimary
+                className={localStyles.depositButton}
+                disabled={Number(quantity) === 0 || insufficientTokens}
+                label="Continue"
+                onClick={handleDeposit}
+              />
+            ) : (
+              <ButtonPrimary
+                className={localStyles.depositButton}
+                disabled={Number(quantity) === 0 || insufficientTokens}
+                label="Approve"
+                onClick={handleApprove}
+              />
+            )}
+          </>
         ) : (
           <ButtonPrimary
             label={t({
