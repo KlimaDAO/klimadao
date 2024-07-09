@@ -108,3 +108,9 @@ export const cardTitle = css`
   align-items: center;
   font-family: var(--font-family-secondary);
 `;
+
+export const headerTitle = css`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+`;

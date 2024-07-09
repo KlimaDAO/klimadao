@@ -243,6 +243,8 @@ export const Home: FC = () => {
                   isConnected={isConnected}
                   address={address}
                   provider={provider}
+                  onRPCError={handleRPCError}
+                  toggleModal={toggleModal}
                 />
               }
             />

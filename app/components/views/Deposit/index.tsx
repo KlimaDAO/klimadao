@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { addresses } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
@@ -8,6 +9,7 @@ import { approveDepositToken, depositTokens } from "actions/deposit";
 import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
+import { TransactionModal } from "components/TransactionModal";
 import * as styles from "components/views/Stake/styles";
 import { providers } from "ethers";
 import { formatEther } from "ethers-v6";
@@ -16,9 +18,13 @@ import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import { CarbonToken, queryUserCarbonTokens } from "lib/queryUserCarbonTokens";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
-import { TxnStatus, setAppState } from "state/app";
-import { selectAllowancesWithParams } from "state/selectors";
+import { AppNotificationStatus, TxnStatus, setAppState } from "state/app";
+import {
+  selectAllowancesWithParams,
+  selectNotificationStatus,
+} from "state/selectors";
 import { setAllowance } from "state/user";
 import * as localStyles from "./styles";
 
@@ -26,12 +32,15 @@ interface Props {
   address?: string;
   isConnected: boolean;
   provider?: providers.JsonRpcProvider;
+  onRPCError: () => void;
+  toggleModal: () => void;
 }
 
 export const Deposit = (props: Props) => {
   const dispatch = useAppDispatch();
   const { address, toggleModal } = useWeb3();
   const [quantity, setQuantity] = useState("0.0");
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
   const [holdings, setHoldings] = useState<null | Array<CarbonToken>>(null);
@@ -46,28 +55,86 @@ export const Deposit = (props: Props) => {
     })
   );
 
-  console.log("allowances", allowances);
-
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
+  const formattedTokenBalance = selectedToken
+    ? formatEther(selectedToken?.amount?.toString())
+    : 0;
+
+  const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);
+  const hasAllowance = allowances?.bct && !!Number(allowances?.bct);
+  const fullStatus: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
+  const status = fullStatus?.statusType;
+
+  const closeTransactionModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
+  const handleOnSuccess = () => {
+    setQuantity("0");
+  };
+
+  const getButtonProps = () => {
+    if (!props.isConnected) {
+      return {
+        label: t({
+          id: "shared.login_connect",
+          message: "Login / Connect",
+        }),
+        onClick: toggleModal,
+      };
+    } else if (
+      status === "userConfirmation" ||
+      status === "networkConfirmation"
+    ) {
+      return {
+        label: t({ id: "shared.confirming", message: "Confirming" }),
+        disabled: true,
+      };
+    } else if (!quantity || !Number(quantity)) {
+      return {
+        label: t`Enter quantity`,
+        disabled: true,
+      };
+    } else if (insufficientTokens) {
+      return {
+        label: t`Insufficient balance`,
+        disabled: true,
+      };
+    } else if (!hasAllowance) {
+      return {
+        label: t`Approve`,
+        onClick: () => setShowTransactionModal(true),
+      };
+    }
+    return {
+      label: t`Continue`,
+      onClick: () => setShowTransactionModal(true),
+    };
+  };
+
   useEffect(() => {
     if (!address) return;
     (async () => {
-      const tokens = await queryUserCarbonTokens(address as string);
-      setHoldings(tokens);
+      let tokens = await queryUserCarbonTokens(address as string);
+      // filter out tokens that don't have a balance or are not TCO2
+      tokens = tokens.filter(
+        ({ amount, token }) => !!Number(amount) && token.symbol.includes("VCS")
+      );
+
       console.log("tokens", tokens);
+      setHoldings(tokens);
       setSelectedToken(
         tokens?.find(({ token }) => token?.symbol.startsWith("TCO2"))
       );
     })();
   }, [address]);
-
-  const formattedTokenBalance = selectedToken
-    ? formatEther(selectedToken?.amount?.toString())
-    : 0;
 
   const handleApprove = async () => {
     if (!props.provider || !selectedToken) return;
@@ -78,7 +145,6 @@ export const Deposit = (props: Props) => {
         quantity,
         onStatus: setStatus,
       });
-
       dispatch(
         setAllowance({
           token: "bct",
@@ -101,13 +167,14 @@ export const Deposit = (props: Props) => {
         quantity,
         onStatus: setStatus,
       });
+      // handle depositedResult after...
       console.log("depositedResult", depositedResult);
+
+      handleOnSuccess();
     } catch (e) {
       return;
     }
   };
-
-  const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);
 
   return (
     <>
@@ -206,47 +273,46 @@ export const Deposit = (props: Props) => {
             </div>
             <div className="divider" />
             <div className="end">
-              <Text className={localStyles.titleText}>{quantity}</Text>
+              <Text className={localStyles.titleText}>
+                {!insufficientTokens && quantity ? quantity : "-"}
+              </Text>
               <Text className={localStyles.descriptionText}>
                 <Trans>Receiving BCT</Trans>
               </Text>
             </div>
           </div>
         </div>
-        {props.isConnected ? (
-          <>
-            {allowances?.bct && Number(allowances?.bct) > 0 ? (
-              <ButtonPrimary
-                className={localStyles.depositButton}
-                disabled={Number(quantity) === 0 || insufficientTokens}
-                label="Continue"
-                onClick={handleDeposit}
-              />
-            ) : (
-              <ButtonPrimary
-                className={localStyles.depositButton}
-                disabled={Number(quantity) === 0 || insufficientTokens}
-                label="Approve"
-                onClick={handleApprove}
-              />
-            )}
-          </>
-        ) : (
-          <ButtonPrimary
-            label={t({
-              id: "shared.login_connect",
-              message: "Login / Connect",
-            })}
-            className={localStyles.depositButton}
-            onClick={toggleModal}
-          />
-        )}
+        <ButtonPrimary
+          className={localStyles.depositButton}
+          {...getButtonProps()}
+        />
       </div>
       {showModal && selectedToken && props.isConnected && (
         <CarbonTokenModal
           holdings={holdings}
           onHide={() => setShowModal(false)}
           onSelect={(token: any) => setSelectedToken(token)}
+        />
+      )}
+      {showTransactionModal && (
+        <TransactionModal
+          title={
+            <Text t="h4" className={localStyles.headerTitle}>
+              <AccountBalanceWalletOutlined />
+              <Trans>Deposit Carbon</Trans>
+            </Text>
+          }
+          onCloseModal={closeTransactionModal}
+          tokenName={"bct"}
+          tokenIcon={tokenInfo.bct.icon}
+          spenderAddress={addresses["mainnet"].bct}
+          value={quantity}
+          approvalValue={quantity}
+          status={fullStatus}
+          onResetStatus={() => setStatus(null)}
+          onApproval={handleApprove}
+          hasApproval={!!hasAllowance}
+          onSubmit={handleDeposit}
         />
       )}
     </>
