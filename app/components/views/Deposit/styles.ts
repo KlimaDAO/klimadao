@@ -1,9 +1,36 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const offsetCard = css`
+export const card = css`
+  position: relative;
+  display: grid;
+  background-color: var(--surface-02);
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+  gap: 2.4rem;
+  align-content: start;
+  grid-column: 1 / 3;
+  grid-template-rows: unset !important;
+
+  .hr {
+    height: 2px;
+    background-color: var(--surface-01);
+  }
+
+  ${breakpoints.medium} {
+    gap: 3.2rem;
+  }
+
   ${breakpoints.desktop} {
-    grid-row: 2;
+    grid-column: cardsleft;
+    grid-row: 2 / span 2;
+    gap: 4rem;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: start;
+  }
+
+  ${breakpoints.desktopLarge} {
+    padding: 3.2rem;
   }
 `;
 
@@ -66,15 +93,6 @@ export const balanceErrorText = css`
 
 export const inputError = css`
   border-color: var(--warn);
-`;
-
-export const card = css`
-  grid-template-rows: unset !important;
-
-  ${breakpoints.desktop} {
-    gap: 4rem;
-    grid-row: 2 / span 2;
-  }
 `;
 
 export const stakeCardRow = css`

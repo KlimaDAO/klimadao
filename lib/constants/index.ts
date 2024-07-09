@@ -218,7 +218,6 @@ export const allowancesContracts = {
     "sklima",
     "wsklima",
   ],
-  deposit_tco2: ["bct"],
   staking_helper: ["klima"],
   staking: ["sklima"],
   wsklima: ["sklima"],

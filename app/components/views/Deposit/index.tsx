@@ -1,6 +1,7 @@
 import { cx } from "@emotion/css";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { addresses } from "@klimadao/lib/constants";
+import { TCO2Icon } from "@klimadao/lib/resources";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
@@ -10,7 +11,6 @@ import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
 import { TransactionModal } from "components/TransactionModal";
-import * as styles from "components/views/Stake/styles";
 import { providers } from "ethers";
 import { formatEther } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
@@ -26,7 +26,7 @@ import {
   selectNotificationStatus,
 } from "state/selectors";
 import { setAllowance } from "state/user";
-import * as localStyles from "./styles";
+import * as styles from "./styles";
 
 interface Props {
   address?: string;
@@ -111,18 +111,12 @@ export const Deposit = (props: Props) => {
     } else if (!hasAllowance) {
       return {
         label: t`Approve`,
-        onClick: () => {
-          setSpenderAddress(selectedToken?.token.id ?? "");
-          setShowTransactionModal(true);
-        },
+        onClick: () => setShowTransactionModal(true),
       };
     }
     return {
       label: t`Continue`,
-      onClick: () => {
-        setSpenderAddress(addresses["mainnet"].bct);
-        setShowTransactionModal(true);
-      },
+      onClick: () => setShowTransactionModal(true),
     };
   };
 
@@ -130,8 +124,8 @@ export const Deposit = (props: Props) => {
     if (!address) return;
     (async () => {
       let tokens = await queryUserCarbonTokens(address as string);
-      // filter out tokens that don't have a balance or are not TCO2
       tokens = tokens.filter(
+        // filter out tokens that don't have a balance or are not TCO2
         ({ amount, token }) => !!Number(amount) && token.symbol.includes("VCS")
       );
 
@@ -173,7 +167,7 @@ export const Deposit = (props: Props) => {
         quantity,
         onStatus: setStatus,
       });
-      // handle depositedResult after...
+      // TODO - handle depositedResult after...
       console.log("depositedResult", depositedResult);
 
       handleOnSuccess();
@@ -186,9 +180,9 @@ export const Deposit = (props: Props) => {
     <>
       <DisclamerModal />
       <BalancesCard assets={["klima", "sklima", "wsklima", "bct"]} tooltip="" />
-      <div className={cx(styles.stakeCard, localStyles.card)}>
-        <div className={localStyles.stakeCardRow}>
-          <Text t="h5" className={localStyles.cardTitle}>
+      <div className={styles.card}>
+        <div className={styles.stakeCardRow}>
+          <Text t="h5" className={styles.cardTitle}>
             <AccountBalanceWalletOutlined />
             <Trans>Deposit Carbon</Trans>
           </Text>
@@ -196,8 +190,8 @@ export const Deposit = (props: Props) => {
             <Trans>Deposit TCO2 in exchange for BCT.</Trans>
           </Text>
         </div>
-        <div className={localStyles.stakeCardRow}>
-          <Text t="h5" className={localStyles.cardTitle}>
+        <div className={styles.stakeCardRow}>
+          <Text t="h5" className={styles.cardTitle}>
             <Trans>Token to deposit</Trans>
           </Text>
           <Text t="caption" color="lightest">
@@ -206,13 +200,13 @@ export const Deposit = (props: Props) => {
               pool.
             </Trans>
           </Text>
-          <div className={cx(localStyles.grid, "cols-5")}>
+          <div className={cx(styles.grid, "cols-5")}>
             <button className="start" onClick={() => setShowModal(true)}>
               <div aria-label="title">
-                <Text className={localStyles.titleText}>
+                <Text className={styles.titleText}>
                   {selectedToken?.token.symbol ?? "-"}
                 </Text>
-                <Text className={localStyles.descriptionText}>
+                <Text className={styles.descriptionText}>
                   {props.isConnected ? formattedTokenBalance : "-"} TCO2
                 </Text>
               </div>
@@ -223,15 +217,15 @@ export const Deposit = (props: Props) => {
             <div className="divider" />
             <div className="end">
               <Text
-                className={cx(localStyles.titleText, {
-                  [localStyles.balanceErrorText]: !!insufficientTokens,
+                className={cx(styles.titleText, {
+                  [styles.balanceErrorText]: !!insufficientTokens,
                 })}
               >
                 <Trans>{props.isConnected ? formattedTokenBalance : "-"}</Trans>
               </Text>
               <Text
-                className={cx(localStyles.descriptionText, {
-                  [localStyles.balanceErrorText]: !!insufficientTokens,
+                className={cx(styles.descriptionText, {
+                  [styles.balanceErrorText]: !!insufficientTokens,
                 })}
               >
                 <Trans>Available Balance</Trans>
@@ -240,31 +234,29 @@ export const Deposit = (props: Props) => {
             <div className="divider" />
             <div className="end">
               <input
-                className={cx(localStyles.input, {
-                  [localStyles.inputError]: !!insufficientTokens,
+                className={cx(styles.input, {
+                  [styles.inputError]: !!insufficientTokens,
                 })}
-                value={quantity}
-                onChange={(e) => {
-                  setQuantity(e.target.value);
-                }}
                 min="0"
                 type="number"
+                value={quantity}
                 placeholder="0.0"
+                onChange={(e) => setQuantity(e.target.value)}
               />
-              <Text className={localStyles.descriptionText}>
+              <Text className={styles.descriptionText}>
                 <Trans>Deposit TC02</Trans>
               </Text>
             </div>
           </div>
         </div>
-        <div className={localStyles.stakeCardRow}>
-          <Text t="h5" className={localStyles.cardTitle}>
+        <div className={styles.stakeCardRow}>
+          <Text t="h5" className={styles.cardTitle}>
             <Trans>BCT to receive</Trans>
           </Text>
           <Text t="caption" color="lightest">
             <Trans>You'll receive BCT in exchange for your TCO2.</Trans>
           </Text>
-          <div className={cx(localStyles.grid, "cols-3")}>
+          <div className={cx(styles.grid, "cols-3")}>
             <div className="start">
               <Image
                 width={42}
@@ -273,45 +265,46 @@ export const Deposit = (props: Props) => {
                 src={tokenInfo.bct.icon}
                 alt={tokenInfo.bct.label || ""}
               />
-              <Text className={localStyles.titleText}>
+              <Text className={styles.titleText}>
                 <Trans>Base Carbon Tonne</Trans>
               </Text>
             </div>
             <div className="divider" />
             <div className="end">
-              <Text className={localStyles.titleText}>
+              <Text className={styles.titleText}>
                 {!insufficientTokens && quantity ? quantity : "-"}
               </Text>
-              <Text className={localStyles.descriptionText}>
+              <Text className={styles.descriptionText}>
                 <Trans>Receiving BCT</Trans>
               </Text>
             </div>
           </div>
         </div>
-        <ButtonPrimary
-          className={localStyles.depositButton}
-          {...getButtonProps()}
-        />
+        <ButtonPrimary className={styles.depositButton} {...getButtonProps()} />
       </div>
       {showModal && selectedToken && props.isConnected && (
         <CarbonTokenModal
           holdings={holdings}
           onHide={() => setShowModal(false)}
-          onSelect={(token: any) => setSelectedToken(token)}
+          onSelect={(token: CarbonToken) => setSelectedToken(token)}
         />
       )}
       {showTransactionModal && (
         <TransactionModal
           title={
-            <Text t="h4" className={localStyles.headerTitle}>
+            <Text t="h4" className={styles.headerTitle}>
               <AccountBalanceWalletOutlined />
               <Trans>Deposit Carbon</Trans>
             </Text>
           }
           onCloseModal={closeTransactionModal}
-          tokenName={"bct"}
-          tokenIcon={tokenInfo.bct.icon}
-          spenderAddress={spenderAddress}
+          spenderAddress={
+            !!hasAllowance
+              ? addresses["mainnet"].bct
+              : selectedToken?.token.id ?? ""
+          }
+          tokenName="tco2"
+          tokenIcon={TCO2Icon}
           value={quantity}
           approvalValue={quantity}
           status={fullStatus}
