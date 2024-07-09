@@ -41,7 +41,7 @@ export const Deposit = (props: Props) => {
   const allowances = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
       tokens: ["bct"],
-      // @ts-expect-error
+      // @ts-expect-error - fix this (need to allow custom spender for tco2 tokens)
       spender: selectedToken?.token.id,
     })
   );
