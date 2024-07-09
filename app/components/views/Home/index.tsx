@@ -238,7 +238,13 @@ export const Home: FC = () => {
             />
             <Route
               path="/deposit"
-              element={<Deposit isConnected={isConnected} />}
+              element={
+                <Deposit
+                  isConnected={isConnected}
+                  address={address}
+                  provider={provider}
+                />
+              }
             />
             <Route
               path="/redeem"

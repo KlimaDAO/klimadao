@@ -72,6 +72,7 @@ export const card = css`
   grid-template-rows: unset !important;
 
   ${breakpoints.desktop} {
+    gap: 4rem;
     grid-row: 2 / span 2;
   }
 `;
@@ -99,4 +100,11 @@ export const descriptionText = css`
 
 export const depositButton = css`
   width: max-content;
+`;
+
+export const cardTitle = css`
+  gap: 1.2rem;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-secondary);
 `;

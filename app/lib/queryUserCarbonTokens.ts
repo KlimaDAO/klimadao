@@ -37,7 +37,7 @@ export const queryUserCarbonTokens = async (
     variables,
     query,
   });
-  const res = await fetch(subgraphs.polygonBridgedCarbon, {
+  const res = await fetch(subgraphs.polygonDigitalCarbon, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body,

@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
@@ -8,7 +9,8 @@ import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
 import * as styles from "components/views/Stake/styles";
-import { formatEther } from "ethers-v6";
+import { Contract, providers } from "ethers";
+import { formatEther, formatUnits, parseUnits } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import { CarbonToken, queryUserCarbonTokens } from "lib/queryUserCarbonTokens";
 import Image from "next/image";
@@ -16,7 +18,9 @@ import { useEffect, useState } from "react";
 import * as localStyles from "./styles";
 
 interface Props {
+  address?: string;
   isConnected: boolean;
+  provider?: providers.JsonRpcProvider;
 }
 
 export const Deposit = (props: Props) => {
@@ -42,6 +46,38 @@ export const Deposit = (props: Props) => {
     ? formatEther(selectedToken?.amount?.toString())
     : 0;
 
+  const handleApprove = async () => {
+    try {
+      if (!props.provider || !selectedToken) return;
+
+      const contract = new Contract(
+        selectedToken?.token.id,
+        IERC20.abi,
+        props.provider.getSigner()
+      );
+
+      const decimals = selectedToken?.token.decimals;
+      const parsedValue = parseUnits(quantity, decimals);
+      console.log("userConfirmation", "");
+      const txn = await contract.approve(
+        selectedToken?.token.id,
+        parsedValue.toString()
+      );
+      console.log("networkConfirmation", "");
+      await txn.wait(1);
+      console.log("done", "Approval was successful");
+      return formatUnits(parsedValue, decimals);
+    } catch (error: any) {
+      if (error.code === 4001) {
+        console.log("error", "userRejected");
+        throw error;
+      }
+      console.log("error");
+      console.error(error);
+      throw error;
+    }
+  };
+
   const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);
 
   return (
@@ -50,7 +86,7 @@ export const Deposit = (props: Props) => {
       <BalancesCard assets={["klima", "sklima", "wsklima", "bct"]} tooltip="" />
       <div className={cx(styles.stakeCard, localStyles.card)}>
         <div className={localStyles.stakeCardRow}>
-          <Text t="h4" className={styles.stakeCard_header_title}>
+          <Text t="h5" className={localStyles.cardTitle}>
             <AccountBalanceWalletOutlined />
             <Trans>Deposit Carbon</Trans>
           </Text>
@@ -59,7 +95,7 @@ export const Deposit = (props: Props) => {
           </Text>
         </div>
         <div className={localStyles.stakeCardRow}>
-          <Text t="h4" className={styles.stakeCard_header_title}>
+          <Text t="h5" className={localStyles.cardTitle}>
             <Trans>Token to deposit</Trans>
           </Text>
           <Text t="caption" color="lightest">
@@ -120,7 +156,7 @@ export const Deposit = (props: Props) => {
           </div>
         </div>
         <div className={localStyles.stakeCardRow}>
-          <Text t="h4" className={styles.stakeCard_header_title}>
+          <Text t="h5" className={localStyles.cardTitle}>
             <Trans>BCT to receive</Trans>
           </Text>
           <Text t="caption" color="lightest">
@@ -151,8 +187,9 @@ export const Deposit = (props: Props) => {
         {props.isConnected ? (
           <ButtonPrimary
             className={localStyles.depositButton}
-            disabled={Number(quantity) === 0 || insufficientTokens}
+            // disabled={Number(quantity) === 0 || insufficientTokens}
             label="Continue"
+            onClick={handleApprove}
           />
         ) : (
           <ButtonPrimary
