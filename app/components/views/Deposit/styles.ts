@@ -38,21 +38,33 @@ export const grid = css`
   margin-top: 1rem;
   display: grid;
   border: 0.1rem solid var(--font-03);
-  border-radius: 0.4rem;
+  border-radius: 0.8rem;
   padding: 1.2rem;
+  grid-gap: 1rem;
 
   &.cols-3 {
-    grid-template-columns: 1fr 0.1rem 1fr;
+    grid-template-columns: 1fr;
+    ${breakpoints.desktop} {
+      grid-template-columns: 1fr 0.1rem 1fr;
+    }
   }
 
   &.cols-5 {
-    grid-template-columns: 1fr 0.1rem 0.75fr 0.1rem 1fr;
+    grid-template-columns: 1fr;
+    ${breakpoints.desktop} {
+      grid-template-columns: 1fr 0.1rem 0.75fr 0.1rem 1fr;
+    }
   }
 
   & .divider {
-    width: 0.1rem;
-    height: 100%;
+    width: 100%;
+    height: 0.1rem;
     background: var(--font-03);
+
+    ${breakpoints.desktop} {
+      width: 0.1rem;
+      height: 100%;
+    }
   }
 
   & .start {
@@ -60,7 +72,11 @@ export const grid = css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 2rem;
+    padding-right: 0;
+
+    ${breakpoints.desktop} {
+      padding-right: 2rem;
+    }
 
     &[aria-label="bct-icon"] {
       justify-content: flex-start;
@@ -76,9 +92,12 @@ export const grid = css`
   & .end {
     gap: 0.8rem;
     display: flex;
-    padding-left: 2rem;
     flex-direction: column;
     justify-content: space-between;
+
+    ${breakpoints.desktop} {
+      padding-left: 2rem;
+    }
   }
 `;
 
@@ -107,10 +126,13 @@ export const stakeCardRow = css`
 
 export const titleText = css`
   font-weight: 700;
-  font-size: 1.6rem !important;
-  line-height: 2rem !important;
   color: var(--white);
   margin: 0.4rem 0 0;
+
+  ${breakpoints.desktop} {
+    font-size: 1.6rem !important;
+    line-height: 2rem !important;
+  }
 `;
 
 export const descriptionText = css`
@@ -129,6 +151,8 @@ export const cardTitle = css`
   display: flex;
   align-items: center;
   font-family: var(--font-family-secondary);
+  font-size: 2rem !important;
+  line-height: 2.8rem !important;
 `;
 
 export const headerTitle = css`
