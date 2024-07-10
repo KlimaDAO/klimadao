@@ -62,6 +62,10 @@ export const grid = css`
     justify-content: space-between;
     padding-right: 2rem;
 
+    &[aria-label="bct-icon"] {
+      justify-content: flex-start;
+    }
+
     & [aria-label="title"] {
       gap: 0.8rem;
       display: flex;

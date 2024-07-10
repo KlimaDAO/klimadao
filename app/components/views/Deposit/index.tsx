@@ -6,7 +6,11 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import { approveDepositToken, depositTokens } from "actions/deposit";
+import {
+  approveDepositToken,
+  depositTokens,
+  getAllowance,
+} from "actions/deposit";
 import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclamerModal } from "components/DisclaimerModal";
@@ -14,18 +18,13 @@ import { TransactionModal } from "components/TransactionModal";
 import { providers } from "ethers";
 import { formatEther } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
-import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import { CarbonToken, queryUserCarbonTokens } from "lib/queryUserCarbonTokens";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, TxnStatus, setAppState } from "state/app";
-import {
-  selectAllowancesWithParams,
-  selectNotificationStatus,
-} from "state/selectors";
-import { setAllowance } from "state/user";
+import { selectNotificationStatus } from "state/selectors";
 import * as styles from "./styles";
 
 interface Props {
@@ -43,17 +42,10 @@ export const Deposit = (props: Props) => {
   const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
+  const [allowance, setAllowance] = useState({ spender: "", value: "0" });
   const [holdings, setHoldings] = useState<null | Array<CarbonToken>>(null);
   const [selectedToken, setSelectedToken] =
     useState<Pick<CarbonToken, "amount" | "token">>();
-
-  const allowances = useTypedSelector((state) =>
-    selectAllowancesWithParams(state, {
-      tokens: ["bct"],
-      // @ts-expect-error - fix this (need to allow custom spender for tco2 tokens)
-      spender: selectedToken?.token.id,
-    })
-  );
 
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
@@ -65,18 +57,27 @@ export const Deposit = (props: Props) => {
     : 0;
 
   const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);
-  const hasAllowance = allowances?.bct && !!Number(allowances?.bct);
+  const hasAllowance = !!Number(allowance.value);
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
   );
   const status = fullStatus?.statusType;
+
+  useEffect(() => {
+    if (!address) return;
+    (async () => await getTokensHoldings())();
+  }, [address]);
+
+  useEffect(() => {
+    (async () => await getTokenAllowance())();
+  }, [selectedToken]);
 
   const closeTransactionModal = () => {
     setStatus(null);
     setShowTransactionModal(false);
   };
 
-  const handleOnSuccess = () => {
+  const handleOnSuccess = async () => {
     setQuantity("0");
   };
 
@@ -119,40 +120,44 @@ export const Deposit = (props: Props) => {
     };
   };
 
-  useEffect(() => {
-    if (!address) return;
-    (async () => {
-      let tokens = await queryUserCarbonTokens(address as string);
-      tokens = tokens.filter(
-        // filter out tokens that don't have a balance or are not TCO2
-        ({ amount, token }) => !!Number(amount) && token.symbol.includes("VCS")
-      );
+  const getTokensHoldings = async () => {
+    let tokens = await queryUserCarbonTokens(address as string);
+    tokens = tokens.filter(
+      ({ amount, token }) => !!Number(amount) && token.symbol.includes("VCS")
+    );
+    setHoldings(tokens);
+    setSelectedToken(
+      tokens?.find(({ token }) => token?.symbol.startsWith("TCO2"))
+    );
+  };
 
-      setHoldings(tokens);
-      setSelectedToken(
-        tokens?.find(({ token }) => token?.symbol.startsWith("TCO2"))
-      );
-    })();
-  }, [address]);
+  const getTokenAllowance = async () => {
+    if (!props.provider || !selectedToken || !address) return;
+    try {
+      const value = await getAllowance({
+        provider: props.provider,
+        selectedToken,
+        address: address,
+      });
+      setAllowance({ value, spender: selectedToken.token.id });
+    } catch (e) {
+      console.error(e);
+      return;
+    }
+  };
 
   const handleApprove = async () => {
     if (!props.provider || !selectedToken) return;
     try {
-      const approvedValue = await approveDepositToken({
+      const value = await approveDepositToken({
         provider: props.provider,
         selectedToken,
         quantity,
         onStatus: setStatus,
       });
-      dispatch(
-        setAllowance({
-          token: "bct",
-          // @ts-expect-error - need to allow a customer spender for individual tco2 tokens
-          spender: selectedToken?.token.id,
-          value: approvedValue,
-        })
-      );
+      setAllowance({ value, spender: selectedToken?.token.id });
     } catch (e) {
+      console.error(e);
       return;
     }
   };
@@ -160,17 +165,16 @@ export const Deposit = (props: Props) => {
   const handleDeposit = async () => {
     if (!props.provider || !selectedToken) return;
     try {
-      const depositedResult = await depositTokens({
+      await depositTokens({
         provider: props.provider,
         selectedToken,
         quantity,
         onStatus: setStatus,
       });
-      // TODO - handle depositedResult after...
-      console.log("depositedResult", depositedResult);
-
       handleOnSuccess();
+      await getTokensHoldings();
     } catch (e) {
+      console.error(e);
       return;
     }
   };
@@ -256,7 +260,7 @@ export const Deposit = (props: Props) => {
             <Trans>You'll receive BCT in exchange for your TCO2.</Trans>
           </Text>
           <div className={cx(styles.grid, "cols-3")}>
-            <div className="start">
+            <div aria-label="bct-icon" className="start">
               <Image
                 width={42}
                 height={42}

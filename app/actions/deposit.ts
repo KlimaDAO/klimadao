@@ -1,10 +1,33 @@
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import ToucanPoolToken from "@klimadao/lib/abi/ToucanPoolToken.json";
 import { addresses } from "@klimadao/lib/constants";
-import { Contract, providers } from "ethers";
+import { formatUnits as formatUnitsFn } from "@klimadao/lib/utils";
+import { BigNumber, Contract, providers } from "ethers";
 import { formatUnits, parseUnits } from "ethers-v6";
 import { CarbonToken } from "lib/queryUserCarbonTokens";
 import { OnStatusHandler } from "./utils";
+
+export const getAllowance = async (params: {
+  provider: providers.JsonRpcProvider;
+  selectedToken: Pick<CarbonToken, "amount" | "token">;
+  address: string;
+}) => {
+  try {
+    const contract = new Contract(
+      params.selectedToken.token.id,
+      IERC20.abi,
+      params.provider.getSigner()
+    );
+    const value: BigNumber = await contract.allowance(
+      params.address,
+      addresses["mainnet"]["bct"]
+    );
+    return formatUnitsFn(value);
+  } catch (e) {
+    console.error(e);
+    return Promise.reject(`Error in getAllowance: ${e}`);
+  }
+};
 
 export const approveDepositToken = async (params: {
   provider: providers.JsonRpcProvider;

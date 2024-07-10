@@ -1,7 +1,6 @@
 const mainnet = {
   daoMultiSig: "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c",
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
-  deposit_tco2: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   nct: "0xD838290e877E0188a4A44700463419ED96c16107",
   ubo: "0x2B3eCb0991AF0498ECE9135bcD04013d7993110c",
@@ -49,7 +48,6 @@ const testnet: typeof mainnet = {
   ubo: "0x1C08ED3fF245dE937a6414C2C39E372f2640f5f8",
   nbo: "0x28D5158d45EC651133Fac4c858BeD65252Ed5b7b",
   treasury: "",
-  deposit_tco2: "",
   distributor: "0xd49869652B3F194F73eC29a6954bC5DE6baeA8b8",
   klima: "0x6b4499909fD8947A3bdEa5d524Fb3697018fC750",
   pklima: "0x97731c2c6de011cbb47af7a9ceff50dea853d690",
