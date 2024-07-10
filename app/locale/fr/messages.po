@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-05 18:18+0000\n"
+"POT-Creation-Date: 2024-07-09 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,6 +13,7 @@ msgstr "Accuser réception et Accepter"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
+#: components/views/Redeem/index.tsx:287
 #: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:230
 msgid "Approve"
@@ -26,11 +27,12 @@ msgstr "Soldes"
 msgid "Bridge to Base"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:25
+#: components/views/Redeem/index.tsx:377
 msgid "Buy & Redeem Carbon"
 msgstr "Acheter et Réclamer du carbone"
 
 #: components/NavMenu/index.tsx:187
+#: components/views/Redeem/index.tsx:528
 msgid "Buy Carbon"
 msgstr "Acheter du Carbone"
 
@@ -38,10 +40,16 @@ msgstr "Acheter du Carbone"
 msgid "Capacity"
 msgstr "Capacité"
 
+#: components/views/Redeem/index.tsx:292
+msgid "Continue"
+msgstr "Continuer"
+
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
 msgstr "Entrez la Quantité"
 
+#: components/views/Redeem/index.tsx:261
+#: components/views/Redeem/index.tsx:433
 #: components/views/Stake/index.tsx:240
 #: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
@@ -51,6 +59,11 @@ msgstr "Entrez la quantité"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "Pour les utilisateurs qui souhaitent compenser le paiement par un jeton de pool, veuillez utiliser <0>ce site</0>."
 
+#: components/views/Redeem/index.tsx:415
+msgid "How many tonnes would you like to acquire?"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:282
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
@@ -69,9 +82,15 @@ msgstr "Chargement"
 msgid "Loading balances..."
 msgstr "Chargement des soldes des comptes..."
 
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:96
+msgid "Loading project info..."
+msgstr ""
+
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
+#: components/views/Redeem/index.tsx:256
+#: components/views/Redeem/index.tsx:340
 #: components/views/Stake/index.tsx:421
 #: components/views/Stake/index.tsx:428
 #: components/views/Stake/index.tsx:435
@@ -112,6 +131,18 @@ msgstr "Le 12 avril 2022, nous avons migré de \"dapp\" à \"app\". Veuillez met
 msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
 msgstr "Risques Opérationnels : La plateforme KlimaDAO repose sur diverses technologies liées au réseau Polygon et à d'autres actifs numériques. Ces technologies sont sujettes à des changements qui pourraient avoir un impact négatif sur votre investissement."
 
+#: components/views/Redeem/index.tsx:489
+msgid "Payment Method"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:488
+msgid "Payment method"
+msgstr ""
+
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:130
+msgid "Project details <0/>"
+msgstr ""
+
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "L'achat de crypto-monnaies, y compris le jeton $KLIMA, implique un degré élevé de risque et doit être considéré comme extrêmement spéculatif. Voici quelques points importants à prendre en compte :"
@@ -124,6 +155,11 @@ msgstr "Actions et Évolutions Réglementaires : L'environnement réglementaire 
 msgid "Risk Disclaimer"
 msgstr "Clause de non-responsabilité concernant les risques"
 
+#: components/views/Redeem/index.tsx:390
+#: components/views/Redeem/index.tsx:391
+msgid "Select carbon pool"
+msgstr ""
+
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
 msgstr "Passer sur le réseau Polygon"
@@ -132,9 +168,25 @@ msgstr "Passer sur le réseau Polygon"
 msgid "This app only works on Polygon Mainnet."
 msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal."
 
+#: components/views/Redeem/index.tsx:457
+msgid "This cost includes slippage and any redemption fees charged by the pool"
+msgstr ""
+
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
 msgstr "Cette liste de risques ne couvre pas tous les risques liés à l'investissement dans $KLIMA. Vous devez procéder à vos propres vérifications et consulter un conseiller financier agréé avant de prendre toute décision d'investissement."
+
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:126
+msgid "Tonnes available: {formattedQuantity}"
+msgstr ""
+
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:103
+msgid "Unknown category"
+msgstr ""
+
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:102
+msgid "Unknown methodology"
+msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
@@ -143,6 +195,14 @@ msgstr "Mauvais réseau"
 #: components/CarbonBalancesCard/index.tsx:171
 msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
 msgstr "Vous devez charger votre portefeuille avec des jetons USDC, KLIMA ou d'un pool de carbone. La prise en charge des cartes de crédit sera bientôt possible."
+
+#: components/views/Redeem/index.tsx:477
+msgid "You receive"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:501
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr "Votre solde doit être au moins égal à 1 % de plus que le coût de la transaction."
 
 #. Long sentence
 #: components/views/Bond/index.tsx:1023
@@ -572,9 +632,109 @@ msgstr "L'agrégateur de retrait de KlimaDAO est un outil à code source libre q
 msgid "offset.cta_2"
 msgstr "Consultez notre <0> documentation </0> pour l'intégrer dans votre application, ou visitez <1> Carbonmark </1> pour utiliser une implémentation en direct."
 
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:21
+msgid "offset.enter_address"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:354
+msgid "offset.incompatible"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:266
+msgid "offset.insufficient_project_tonnage"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:442
+msgid "offset.invalid_project_tonnage"
+msgstr ""
+
 #: components/CarbonTonnesRetiredCard/index.tsx:49
 msgid "offset.number_of_retirements"
 msgstr "Retraits totaux"
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:56
+msgid "offset.retire_specific"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:62
+msgid "offset.retire_specific_tooltip"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:98
+msgid "offset.selectiveRetirement.address_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:80
+msgid "offset.selectiveRetirement.back_to_filters"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:105
+msgid "offset.selectiveRetirement.clear_selection"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
+msgid "offset.selectiveRetirement.confirm_selection"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
+msgid "offset.selectiveRetirement.confirmation_message"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:77
+msgid "offset.selectiveRetirement.default_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:72
+msgid "offset.selectiveRetirement.empty_search_results"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
+msgid "offset.selectiveRetirement.filter.options_selected"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
+msgid "offset.selectiveRetirement.filters.find_project"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
+msgid "offset.selectiveRetirement.filters.region"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
+msgid "offset.selectiveRetirement.filters.type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
+msgid "offset.selectiveRetirement.filters.vintage"
+msgstr ""
+
+#: components/views/Offset/LoadingOverlay/index.tsx:12
+msgid "offset.selectiveRetirement.finding_projects"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
+msgid "offset.selectiveRetirement.project.available_tonnes"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:112
+msgid "offset.selectiveRetirement.retire_from_default_pool"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:89
+msgid "offset.selectiveRetirement.search_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
+msgid "offset.selectiveRetirement.selectProject.back"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
+msgid "offset.selectiveRetirement.selectProject.label"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
+msgid "offset.selectiveRetirement.selectProject.select"
+msgstr ""
 
 #: components/CarbonTonnesRetiredCard/index.tsx:39
 msgid "offset.tonnes_of_carbon_retired"
@@ -587,6 +747,10 @@ msgstr "Voir les Retraits du marché"
 #: components/CarbonTonnesRetiredCard/index.tsx:23
 msgid "offset.you_have_retired"
 msgstr "Vous avez retiré du marché"
+
+#: components/views/Redeem/index.tsx:453
+msgid "offset_cost"
+msgstr ""
 
 #: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_bct"
@@ -652,17 +816,17 @@ msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par 
 msgid "pklima.update"
 msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont mis en jeu et gagné des récompenses provenant d'actifs réclamés au préalable. Avant le correctif de novembre, le rendement des dépôts n'étaient pas pris en compte dans votre limite d'approvisionnement. De fait votre approvisionnement total en KLIMA pouvait dépasser la limite définie dans vos conditions."
 
-#: components/views/Redeem/index.tsx:28
-msgid "redeem.cta_1"
-msgstr "Les pools de liquidités numériques de carbone de KlimaDAO sont des ressources communes disponibles pour faire progresser l'impact sur l'environnement."
-
-#: components/views/Redeem/index.tsx:34
-msgid "redeem.cta_2"
-msgstr "Visitez notre <0>documentation </0> pour trouver les adresses des contrats LP, ou visitez <1> Carbonmark </1> pour acquérir du carbone via une interface utilisateur simple."
+#: components/views/Redeem/index.tsx:380
+msgid "redeem.description"
+msgstr ""
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
 msgstr "404 Page non trouvée"
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
+msgid "shared.back"
+msgstr ""
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -694,10 +858,15 @@ msgstr "Entrez le montant"
 msgid "shared.error"
 msgstr "ERREUR"
 
+#: components/views/Redeem/index.tsx:274
+msgid "shared.invalid_project_address"
+msgstr ""
+
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:154
 #: components/views/PKlima/index.tsx:149
+#: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"
