@@ -12,7 +12,8 @@ export const item = css`
   padding: 1.2rem;
   display: flex;
   cursor: pointer;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   border-radius: 0.8rem;
   background: transparent;
   border: 1px solid var(--font-03);
@@ -25,7 +26,7 @@ export const incompatible = css`
 
 export const incompatibleBadge = css`
   max-width: fit-content;
-  // height: 2.3rem;
+  height: fit-content;
   background: var(--white);
   border-radius: 0.4rem;
   font-size: 1.2rem;
