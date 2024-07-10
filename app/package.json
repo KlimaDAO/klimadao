@@ -26,6 +26,7 @@
     "@sentry/nextjs": "^7.77.0",
     "@tippyjs/react": "^4.2.6",
     "@translation/lingui": "^1.0.0",
+    "@vercel/edge": "^1.1.1",
     "ethers": "^5.7.2",
     "ethers-v6": "npm:ethers@^6.7.1",
     "lodash": "^4.17.21",
