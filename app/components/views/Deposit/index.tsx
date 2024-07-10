@@ -40,7 +40,6 @@ export const Deposit = (props: Props) => {
   const dispatch = useAppDispatch();
   const { address, toggleModal } = useWeb3();
   const [quantity, setQuantity] = useState("0.0");
-  const [spenderAddress, setSpenderAddress] = useState("");
   const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
