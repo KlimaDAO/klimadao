@@ -120,7 +120,6 @@ export const submitCrossChain = async (props: {
   const gasFee = await api.estimateGasFee(
     chainName,
     destinationChainId,
-    1, // TODO Ask cujo what to do about gaslimit
     1500000
   );
 
