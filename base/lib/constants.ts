@@ -1,4 +1,4 @@
-import { base } from "wagmi/chains";
+import { base, baseSepolia } from "wagmi/chains";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -11,7 +11,10 @@ export const IS_PREVIEW_BUILD =
 /** True if local development (not preview deployment) */
 export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 
-export const supportedChains = base;
+export const supportedChains =
+  IS_LOCAL_DEVELOPMENT || IS_PRODUCTION || IS_PREVIEW_BUILD
+    ? [base]
+    : [baseSepolia];
 
 export const addresses = {
   polygon: {
