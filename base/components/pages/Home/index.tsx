@@ -37,6 +37,12 @@ export type StatusMessage = {
   message?: string;
 } | null;
 
+const initialFormState = {
+  quantity: "0",
+  beneficiaryString: "",
+  retirementMessage: "Doing my part to support climate action",
+};
+
 // TODO: add lingui for translations
 export const Home = () => {
   const { chain } = useNetwork();
@@ -47,27 +53,19 @@ export const Home = () => {
     token: addresses.base.klima as Address,
   });
 
-  const [cost, setCost] = useState("");
   const [paymentToken] = useState<OffsetInputToken>("klima");
   const [status, setStatus] = useState<StatusMessage>(null);
   const [signer, setSigner] = useState<Signer | undefined>();
   const [showTransactionModal, setShowTransactionModal] = useState(false);
 
-  const [quantity, setQuantity] = useState("0");
-  const [beneficiaryString, setBeneficiaryString] = useState("");
-  const [retirementMessage, setRetirementMessage] = useState(
-    "Doing my part to support climate action"
+  const [cost, setCost] = useState("");
+  const [quantity, setQuantity] = useState(initialFormState.quantity);
+  const [beneficiaryString, setBeneficiaryString] = useState(
+    initialFormState.beneficiaryString
   );
-
-  const handleQuantityChange = (value: string) => {
-    const valueToWholeNumber = Math.ceil(Number(value)).toString();
-    setQuantity(valueToWholeNumber);
-  };
-
-  const closeModal = () => {
-    setStatus(null);
-    setShowTransactionModal(false);
-  };
+  const [retirementMessage, setRetirementMessage] = useState(
+    initialFormState.retirementMessage
+  );
 
   useEffect(() => {
     if (!connector) return;
@@ -92,6 +90,24 @@ export const Home = () => {
     };
     offsetConsumptionCost();
   }, [quantity]);
+
+  const handleQuantityChange = (value: string) => {
+    const valueToWholeNumber = Math.ceil(Number(value)).toString();
+    setQuantity(valueToWholeNumber);
+  };
+
+  const resetFormState = () => {
+    // TODO - code smell - clean this up with react-hook-form or useReducer
+    setCost("");
+    setQuantity(initialFormState.quantity);
+    setBeneficiaryString(initialFormState.beneficiaryString);
+    setRetirementMessage(initialFormState.retirementMessage);
+  };
+
+  const closeModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
 
   const getRetirementCost = (): string => {
     if (!cost) return "0";
@@ -138,8 +154,8 @@ export const Home = () => {
     };
   };
 
-  const handleCrossChainRetirement = () => {
-    submitCrossChain({
+  const handleCrossChainRetirement = async () => {
+    await submitCrossChain({
       signer,
       quantity,
       beneficiaryString,
@@ -148,6 +164,7 @@ export const Home = () => {
       beneficiaryAddress: address as string,
       onStatus: (statusType, message) => setStatus({ statusType, message }),
     });
+    resetFormState();
   };
 
   const formattedCost = () => {
