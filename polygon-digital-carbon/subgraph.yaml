@@ -1,4 +1,4 @@
-specVersion: 0.0.8
+specVersion: 0.0.4
 description: Polygon Carbon
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
@@ -288,11 +288,6 @@ dataSources:
           handler: handleStartAsyncToken
         - event: EndAsyncToken(address,address,address,uint256,string,string,uint256,uint256,bool,uint256)
           handler: handleEndAsyncToken
-      blockHandlers:
-        - handler: handleTokenURISafeguard
-          filter:
-            kind: polling
-            every: 75 # approx every 2.5 minutes
   - kind: ethereum/contract
     name: UBO
     network: matic
@@ -365,6 +360,8 @@ dataSources:
       eventHandlers:
         - event: VCUOMinted(address,uint256)
           handler: handleVCUOMinted
+        - event: VCUOMetaDataUpdated(uint256,string)
+          handler: handleVCUOMetaDataUpdated
   - kind: ethereum/contract
     name: ICRCarbonContractRegistry
     network: matic

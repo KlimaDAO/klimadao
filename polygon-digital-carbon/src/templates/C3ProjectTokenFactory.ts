@@ -8,11 +8,7 @@ import { loadOrCreateCarbonCredit, updateCarbonCreditWithCall } from '../utils/C
 import { createTokenWithCall } from '../utils/Token'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { saveStartAsyncToken, completeC3RetireRequest } from '../RetirementHandler'
-import { C3_VERIFIED_CARBON_UNITS_OFFSET } from '../../../lib/utils/Constants'
-import { BigInt, ethereum, log } from '@graphprotocol/graph-ts'
-import { TokenURISafeguard } from '../../generated/schema'
-import { C3OffsetNFT } from '../../generated/C3-Offset/C3OffsetNFT'
-import { loadC3RetireRequest } from '../utils/C3'
+import { log } from '@graphprotocol/graph-ts'
 
 export function handleNewC3T(event: NewTokenProject): void {
   // Start indexing the C3T tokens; `event.params.tokenAddress` is the
@@ -38,56 +34,3 @@ export function handleEndAsyncToken(event: EndAsyncToken): void {
   completeC3RetireRequest(event)
 }
 
-export function handleTokenURISafeguard(block: ethereum.Block): void {
-  log.info('handleTokenURISafeguard block number {}', [block.number.toString()])
-  let safeguard = TokenURISafeguard.load('safeguard')
-  if (safeguard == null) {
-    safeguard = new TokenURISafeguard('safeguard')
-    safeguard.requestsWithoutURI = []
-    safeguard.save()
-  }
-  let requestsArray = safeguard.requestsWithoutURI
-  if (requestsArray.length == 0) return
-
-  let c3OffsetNftContract = C3OffsetNFT.bind(C3_VERIFIED_CARBON_UNITS_OFFSET)
-
-  let updatedRequestArray: string[] = []
-
-  for (let i = 0; i < requestsArray.length; i++) {
-    let requestId = requestsArray[i]
-    let request = loadC3RetireRequest(requestId)
-    if (request == null) {
-      log.error('handleURIBlockSafeguard request is null {}', [requestId])
-      continue
-    }
-    let c3OffsetNftIndex = request.c3OffsetNftIndex
-
-    if (c3OffsetNftIndex === null) {
-      log.info('handleURIBlockSafeguard c3OffsetNftIndex is null {}', [request.id.toString()])
-      continue
-    }
-    let tokenURICall = c3OffsetNftContract.try_tokenURI(c3OffsetNftIndex as BigInt)
-
-    if (tokenURICall.reverted) {
-      log.error('handleURIBlockSafeguard reverted for request id {}', [request.id.toString()])
-      continue
-    } else {
-      let tokenURI = tokenURICall.value
-      log.info('handleURIBlockSafeguard tokenURI {}', [tokenURI])
-      if (tokenURI == null || tokenURI == '') {
-        log.error('handleURIBlockSafeguard tokenURI still null or undefined {}', [request.id.toString()])
-        continue
-      } else {
-        request.tokenURI = tokenURI
-        request.save()
-      }
-    }
-    // remove request from safeguard if tokenURI is found
-    if (request.tokenURI == null || request.tokenURI == '') {
-      updatedRequestArray.push(requestId)
-    }
-  }
-
-  safeguard.requestsWithoutURI = updatedRequestArray
-  safeguard.save()
-}

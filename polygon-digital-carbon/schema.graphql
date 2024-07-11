@@ -82,8 +82,10 @@ type ProvenanceRecord @entity {
 }
 
 type Token @entity {
-  "Ethereum contract address"
+  "Ethereum contract address. for ERC1155s id address.concat(tokenId)"
   id: Bytes!
+
+  tokenAddress: Bytes!
 
   "Name of the token"
   name: String!
@@ -407,9 +409,9 @@ type ToucanBatch @entity {
 
 type C3RetireRequest @entity {
   "Request ID"
-  id: ID!
+  id: Bytes!
   index: BigInt!
-  c3OffsetNftIndex: BigInt
+  c3OffsetNftIndex: BigInt!
   status: BridgeStatus!
   retire: Retire
   provenance: ProvenanceRecord

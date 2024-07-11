@@ -82,7 +82,7 @@ export const ICR_PROJECT_INFO = [
     'Renewable Energy',
     'Spain',
   ],
-  ['0x9d58dC930887F06D85A44A4a57CDe4db7CBA7d9F', 'ICR-17', 'Arnaldsstaðir', 'FCC', 'Forestry', 'Iceland'],
+  ['0x9d58dc930887f06d85a44a4a57cde4db7cba7d9f', 'ICR-17', 'Arnaldsstaðir', 'FCC', 'Forestry', 'Iceland'],
   ['0x0b036f17cb8074ce60658898b852e41953f8e629', 'ICR-72', 'Project Flux', 'ISO 14064-2', 'Other', 'United Kingdom'],
   [
     '0x8cc608c9594d042fae6fa127512be0476fba9f68',
@@ -91,5 +91,15 @@ export const ICR_PROJECT_INFO = [
     'ACM0017',
     'Renewable Energy',
     'Spain',
+  ],
+  ['0x811893265f3689f7c23acc5f0af46adbd2b9d791', 'ICR-1', 'Test Project', 'ACM0001', 'Renewable Energy', 'Iceland'],
+  ['0x2F5E9aB6C687F40f9119e06630c68054b16A4270', 'ICR-2', 'Test Project 1', 'ACM0001', 'Other', 'Iceland'],
+  [
+    '0x7ac9701f02c50e436263646b097116e6b839ca38',
+    'ICR-137',
+    'Dammam DR Sustainable Wetlands and Mangrove Conservation (DD-SWAM)',
+    'AR-AM0014',
+    'Blue Carbon',
+    'Saudi Arabia',
   ],
 ]
