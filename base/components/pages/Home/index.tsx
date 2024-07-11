@@ -7,6 +7,7 @@ import {
 } from "@klimadao/lib/utils";
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
 import { BaseLogo } from "components/Logos/BaseLogo";
+import { TransactionModal } from "components/TransactionModal";
 import {
   BrowserProvider,
   JsonRpcSigner,
@@ -14,22 +15,32 @@ import {
   formatUnits,
   parseUnits,
 } from "ethers";
+import { useIsMounted } from "hooks/useIsMounted";
 import { formatTonnes } from "lib/formatTonnes";
 import {
-  approveToken,
   getOffsetConsumptionCost,
   submitCrossChain,
 } from "lib/submitCrossChain";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Address, useAccount, useBalance } from "wagmi";
+import { Address, useAccount, useBalance, useNetwork } from "wagmi";
 import { addresses } from "../../../lib/constants";
 import { tokenInfoMap } from "../../../lib/getTokenInfo";
 import { ButtonPrimary } from "../../Buttons/ButtonPrimary";
 import { Connect } from "../../Connect";
 import * as styles from "./styles";
 
+export type TxnStatus = "networkConfirmation" | "done" | "error" | null;
+
+export type StatusMessage = {
+  statusType: TxnStatus;
+  message?: string;
+} | null;
+
+// TODO: add lingui for translations
 export const Home = () => {
+  const { chain } = useNetwork();
+  const isMounted = useIsMounted();
   const { address, isConnected, connector } = useAccount();
   const { data } = useBalance({
     address,
@@ -37,9 +48,11 @@ export const Home = () => {
   });
 
   const [cost, setCost] = useState("");
-  const [isApproved, setIsApproved] = useState(true);
   const [paymentToken] = useState<OffsetInputToken>("klima");
+  const [status, setStatus] = useState<StatusMessage>(null);
   const [signer, setSigner] = useState<Signer | undefined>();
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
+
   const [quantity, setQuantity] = useState("0");
   const [beneficiaryString, setBeneficiaryString] = useState("");
   const [retirementMessage, setRetirementMessage] = useState(
@@ -51,11 +64,13 @@ export const Home = () => {
     setQuantity(valueToWholeNumber);
   };
 
+  const closeModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
   useEffect(() => {
-    if (!connector) {
-      console.error("No connector found");
-      return;
-    }
+    if (!connector) return;
     connector
       .getProvider()
       .then((provider) => {
@@ -78,7 +93,7 @@ export const Home = () => {
     offsetConsumptionCost();
   }, [quantity]);
 
-  const getApprovalValue = (): string => {
+  const getRetirementCost = (): string => {
     if (!cost) return "0";
     const onePercent =
       BigInt(parseUnits(cost, getTokenDecimals(paymentToken))) / BigInt("100");
@@ -88,16 +103,55 @@ export const Home = () => {
     );
   };
 
-  // TODO - replicate logic from klima app,
-  // show insufficentBalance text on button...
-  const insufficientBalance = () => {
-    if (!data?.value) return;
-    const value = formatUnits(data?.value.toString(), 9);
-    return isConnected && Number(cost) > Number(value ?? "0");
+  const insufficientBalance =
+    data?.value &&
+    Number(cost) > Number(formatUnits(data?.value.toString(), 9) ?? "0");
+
+  const wrongNetworkOrNotConnected =
+    !isConnected || !address || !!chain?.unsupported;
+
+  const getButtonProps = () => {
+    if (!quantity || !Number(quantity)) {
+      return {
+        label: `Enter quantity`,
+        disabled: true,
+      };
+    } else if (beneficiaryString === "") {
+      return {
+        label: "Beneficiary required",
+        disabled: true,
+      };
+    } else if (retirementMessage === "") {
+      return {
+        label: "Retirment message required",
+        disabled: true,
+      };
+    } else if (insufficientBalance) {
+      return {
+        label: "Insufficient balance",
+        disabled: true,
+      };
+    }
+    return {
+      label: "Retire Carbon",
+      onClick: () => setShowTransactionModal(true),
+    };
+  };
+
+  const handleCrossChainRetirement = () => {
+    submitCrossChain({
+      signer,
+      quantity,
+      beneficiaryString,
+      retirementMessage,
+      maxAmountIn: getRetirementCost(),
+      beneficiaryAddress: address as string,
+      onStatus: (statusType, message) => setStatus({ statusType, message }),
+    });
   };
 
   const formattedCost = () => {
-    const cost = getApprovalValue();
+    const cost = getRetirementCost();
     return !cost
       ? "0"
       : Number(cost) > 1
@@ -138,7 +192,7 @@ export const Home = () => {
         </Text>
       </div>
       <div className={styles.cardBg}>
-        <div className={styles.stakeCard_ui}>
+        <div className={styles.card}>
           <div className={styles.inputsContainer}>
             <div className={styles.formGroup}>
               <label>How many tonnes of carbon would you like to retire?</label>
@@ -203,55 +257,33 @@ export const Home = () => {
                 public blockchain.
               </Text>
             </div>
-            {!isApproved ? (
-              <ButtonPrimary
-                disabled={
-                  // TODO clean this up
-                  !signer ||
-                  Number(quantity) === 0 ||
-                  !retirementMessage ||
-                  beneficiaryString === ""
-                }
-                label="Approve"
-                className={styles.submitButton}
-                onClick={() => {
-                  // TODO -
-                  // Check the allowance on the contract
-                  // and ensure the appropriate amunt has been approved...
-                  if (!signer) return;
-                  const result = approveToken(cost, signer);
-                  if (!!result) {
-                    setIsApproved(true);
-                  } else {
-                    setIsApproved(false);
-                  }
-                }}
-              />
-            ) : (
-              <ButtonPrimary
-                disabled={
-                  // TODO clean this up
-                  !signer ||
-                  Number(quantity) === 0 ||
-                  !retirementMessage ||
-                  beneficiaryString === "" ||
-                  !!insufficientBalance()
-                }
-                label="Retire Carbon"
-                className={styles.submitButton}
-                onClick={() => {
-                  submitCrossChain({
-                    signer,
-                    quantity,
-                    beneficiaryString,
-                    retirementMessage,
-                    maxAmountIn: getApprovalValue(),
-                    beneficiaryAddress: address as string,
-                  });
-                }}
-              />
-            )}
           </div>
+          {/* ensure the component isMounted to avoid hydration error when conditionally rendering buttons */}
+          {isMounted() && (
+            <>
+              {wrongNetworkOrNotConnected ? (
+                <Connect className={styles.submitButton} />
+              ) : (
+                <ButtonPrimary suppressHydrationWarning {...getButtonProps()} />
+              )}
+            </>
+          )}
+          {showTransactionModal && (
+            <TransactionModal
+              title={
+                <Text t="h4" className={styles.headerTitle}>
+                  Retire Carbon on Base
+                </Text>
+              }
+              status={status}
+              tokenName="klima"
+              onCloseModal={closeModal}
+              tokenIcon={tokenInfoMap.klima.icon}
+              spenderAddress={addresses.base.interchainTokenService}
+              value={getRetirementCost()}
+              onSubmit={handleCrossChainRetirement}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -3,11 +3,11 @@ import {
   CHAINS,
   Environment,
 } from "@axelar-network/axelarjs-sdk";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import interchainTokenService from "@klimadao/lib/abi/InterchainTokenService.json";
 import retireCarbonAbi from "@klimadao/lib/abi/KlimaRetirementAggregatorV2.json";
 import { OffsetInputToken, RetirementToken } from "@klimadao/lib/constants";
 import { getTokenDecimals } from "@klimadao/lib/utils";
+import { TxnStatus } from "components/pages/Home";
 import {
   AbiCoder,
   Contract,
@@ -22,31 +22,7 @@ import {
 } from "ethers";
 import { addresses } from "./constants";
 
-// don't need this for the klima token?
-export const approveToken = async (
-  value: string,
-  signer: Signer | undefined
-) => {
-  try {
-    const contract = new Contract(addresses.base.klima, IERC20.abi, signer);
-    const parsedValue = parseUnits(value, 18);
-    const txn = await contract.approve(
-      addresses.polygon.retirementAggregatorV2,
-      parsedValue.toString()
-    );
-    await txn.wait(1);
-    // show confirmation message here...
-    console.log("done", "Approval was successful");
-    return formatUnits(parsedValue, 18);
-  } catch (error: any) {
-    if (error.code === 4001) {
-      console.log("error", "userRejected");
-      throw error;
-    }
-    console.error(error);
-    throw error;
-  }
-};
+export type OnStatusHandler = (status: TxnStatus, message?: string) => void;
 
 /* Calculate the cost to retire BCT with klima as the payment token */
 export const getOffsetConsumptionCost = async (params: {
@@ -107,9 +83,10 @@ export const submitCrossChain = async (props: {
   maxAmountIn: string;
   retirementMessage: string;
   beneficiaryString: string;
+  onStatus: OnStatusHandler;
 }) => {
   if (!props.signer || !props.beneficiaryAddress || !props.quantity) {
-    // handle message properly here if params are undefined...
+    props.onStatus("error");
     return;
   }
 
@@ -124,7 +101,6 @@ export const submitCrossChain = async (props: {
   );
 
   const subunitAmount = parseEther("0");
-  // KLIMA has 9 decimals...
   const maxAmountIn = parseUnits(props.maxAmountIn.toString(), 9);
   const retireAmount = parseEther(props.quantity);
   const formattedGasFee = formatEther(gasFee.toString());
@@ -151,13 +127,6 @@ export const submitCrossChain = async (props: {
     ]
   );
 
-  const decoded = AbiCoder.defaultAbiCoder().decode(
-    ["bytes", "uint256", "address"],
-    data
-  );
-
-  console.log("decoded data", decoded);
-
   // Step 3: Send the retirement to CircleSwapExecutable
   const contract = new Contract(
     addresses.base.interchainTokenService,
@@ -165,18 +134,26 @@ export const submitCrossChain = async (props: {
     props.signer
   );
 
-  // Step 4: Call the Axelar contract
-  const tx = await contract
-    .callContractWithInterchainToken(
+  try {
+    // Step 4: Call the Axelar contract
+    props.onStatus("networkConfirmation");
+    const tx = await contract.callContractWithInterchainToken(
       "0xdc30a9bd9048b5a833e3f90ea281f70ae77e82018fa5b96831d3a1f563e38aaf",
       "Polygon",
-      addresses.polygon.destinationHelperContract, // destination helper contract
+      addresses.polygon.destinationHelperContract,
       maxAmountIn.toString(),
       data,
       totalFees,
       { value: totalFees }
-    )
-    .then((tx: any) => tx.wait(1));
-
-  console.log("Continue tracking at", `https://axelarscan.io/gmp/${tx.hash}`);
+    );
+    await tx.wait(1);
+    props.onStatus("done", `https://axelarscan.io/gmp/${tx.hash}`);
+  } catch (error: any) {
+    if (error.code === "ACTION_REJECTED") {
+      props.onStatus("error", "userRejected");
+      throw error;
+    }
+    props.onStatus("error");
+    throw error;
+  }
 };

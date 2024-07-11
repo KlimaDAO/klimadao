@@ -95,9 +95,9 @@ export const cardBg = css`
   }
 `;
 
-export const stakeCard_ui = css`
+export const card = css`
   display: grid;
-  gap: 4.8rem;
+  gap: 2.4rem;
   padding: 3.2rem;
   width: 100%;
   justify-self: center;
@@ -193,4 +193,14 @@ export const disclaimer = css`
 
 export const submitButton = css`
   width: 100%;
+`;
+
+export const headerTitle = css`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+`;
+
+export const hidden = css`
+  display: none;
 `;
