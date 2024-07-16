@@ -30,27 +30,31 @@ export const getOffsetConsumptionCost = async (params: {
   retirementToken: RetirementToken;
   quantity: string;
 }) => {
-  const provider = getDefaultProvider("matic", {
-    exclusive: "publicPolygon",
-  }) as JsonRpcProvider;
+  try {
+    const provider = getDefaultProvider("matic", {
+      exclusive: "publicPolygon",
+    }) as JsonRpcProvider;
 
-  const contract = new Contract(
-    addresses.polygon.retirementAggregatorV2,
-    retireCarbonAbi.abi,
-    provider
-  );
+    const contract = new Contract(
+      addresses.polygon.retirementAggregatorV2,
+      retireCarbonAbi.abi,
+      provider
+    );
 
-  const parsed = parseUnits(
-    params.quantity,
-    getTokenDecimals(params.retirementToken)
-  );
+    const parsed = parseUnits(
+      params.quantity,
+      getTokenDecimals(params.retirementToken)
+    );
 
-  const sourceAmount = await contract.getSourceAmountDefaultRetirement(
-    addresses.polygon.klima,
-    addresses.polygon.bct,
-    parsed
-  );
-  return [formatUnits(sourceAmount, getTokenDecimals(params.inputToken))];
+    const sourceAmount = await contract.getSourceAmountDefaultRetirement(
+      addresses.polygon.klima,
+      addresses.polygon.bct,
+      parsed
+    );
+    return [formatUnits(sourceAmount, getTokenDecimals(params.inputToken))];
+  } catch (e) {
+    return ["e"];
+  }
 };
 
 export function createDefaultExactRetirePayload(

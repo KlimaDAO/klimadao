@@ -52,13 +52,13 @@ export const Home = () => {
     address,
     token: addresses.base.klima as Address,
   });
-
   const [paymentToken] = useState<OffsetInputToken>("klima");
   const [status, setStatus] = useState<StatusMessage>(null);
   const [signer, setSigner] = useState<Signer | undefined>();
   const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const [cost, setCost] = useState("");
+  const [error, setError] = useState("");
   const [quantity, setQuantity] = useState(initialFormState.quantity);
   const [beneficiaryString, setBeneficiaryString] = useState(
     initialFormState.beneficiaryString
@@ -86,13 +86,21 @@ export const Home = () => {
         retirementToken: "bct",
         quantity: quantity,
       });
+      // handle error when calculating cost
+      if (cost === "e") {
+        setError("Quantity too large");
+        return;
+      }
+      setError("");
       setCost(cost);
     };
     offsetConsumptionCost();
   }, [quantity]);
 
   const handleQuantityChange = (value: string) => {
-    const valueToWholeNumber = Math.ceil(Number(value)).toString();
+    // only allow up to 10 digits in input field
+    const truncatedValue = value.slice(0, 10);
+    const valueToWholeNumber = Math.ceil(Number(truncatedValue)).toString();
     setQuantity(valueToWholeNumber);
   };
 
@@ -119,9 +127,9 @@ export const Home = () => {
     );
   };
 
-  const insufficientBalance =
-    data?.value &&
-    Number(cost) > Number(formatUnits(data?.value.toString(), 9) ?? "0");
+  const insufficientBalance = data?.value
+    ? Number(cost) > Number(formatUnits(data.value.toString(), 9))
+    : "0";
 
   const wrongNetworkOrNotConnected =
     !isConnected || !address || !!chain?.unsupported;
@@ -132,6 +140,16 @@ export const Home = () => {
         label: `Enter quantity`,
         disabled: true,
       };
+    } else if (error !== "") {
+      return {
+        label: error,
+        disabled: true,
+      };
+    } else if (insufficientBalance) {
+      return {
+        label: "Insufficient balance",
+        disabled: true,
+      };
     } else if (beneficiaryString === "") {
       return {
         label: "Beneficiary required",
@@ -140,11 +158,6 @@ export const Home = () => {
     } else if (retirementMessage === "") {
       return {
         label: "Retirment message required",
-        disabled: true,
-      };
-    } else if (insufficientBalance) {
-      return {
-        label: "Insufficient balance",
         disabled: true,
       };
     }
@@ -216,6 +229,7 @@ export const Home = () => {
               <input
                 min="0"
                 step="1"
+                maxLength={10}
                 value={quantity}
                 type="number"
                 onChange={(e) => handleQuantityChange(e.target.value)}
