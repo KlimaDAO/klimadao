@@ -1,6 +1,22 @@
-import { BatchMinted, BatchUpdated, Transfer } from '../generated/ToucanCarbonOffsetBatch/ToucanCarbonOffsetBatches'
+import { log } from '@graphprotocol/graph-ts'
+import {
+  BatchMinted,
+  BatchUpdated,
+  Transfer,
+  Tokenized,
+} from '../generated/ToucanCarbonOffsetBatch/ToucanCarbonOffsetBatches'
 import { CarbonCredit } from '../generated/schema'
+import { updateCarbonCreditWithCall } from './utils/CarbonCredit'
 import { loadOrCreateToucanBatch } from './utils/Toucan'
+
+export function handleTokenized(event: Tokenized): void {
+  log.info("tokenized {} {}", [event.params.tco2.toHexString(), event.params.tokenId.toI32().toString()])
+  let credit = updateCarbonCreditWithCall(event.params.tco2, 'PURO_EARTH')
+
+  credit.puroBatchTokenId = event.params.tokenId
+
+  credit.save()
+}
 
 export function handleBatchMinted(event: BatchMinted): void {
   let batch = loadOrCreateToucanBatch(event.params.tokenId)

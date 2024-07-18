@@ -30,6 +30,11 @@ local-fork:
 	$(eval POLYGON_URL := $(shell grep '^POLYGON_URL' .env | cut -d '=' -f2))
 	anvil --fork-url $(POLYGON_URL) --host 0.0.0.0 --no-storage-caching
 
+local-fork-block:
+	$(eval POLYGON_URL := $(shell grep '^POLYGON_URL' .env | cut -d '=' -f2))
+	anvil --fork-url $(POLYGON_URL) --fork-block-number 55637900 --host 0.0.0.0 --no-storage-caching
+
+
 impersonate:
 	cast rpc anvil_impersonateAccount ${PURO_TOKEN_HOLDER}
 
@@ -95,7 +100,6 @@ create_listing:
 
 	cast send ${MARKETPLACE} --unlocked --from ${ANVIL_PUBLIC_WALLET} "createListing(address,uint256,uint256,uint256,uint256)(bool)" ${PURO_TOKEN} 5000000000000000000 2500000 10000000000000000 1748548281
 		
-
 approve:
 
 	# cast send ${USDC} --unlocked --from ${ANVIL_PUBLIC_WALLET} "approve(address,uint256)(bool)" ${DIAMOND} 500000000000 --rpc-url http://localhost:8545

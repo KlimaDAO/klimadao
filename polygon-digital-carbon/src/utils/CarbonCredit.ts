@@ -1,13 +1,13 @@
-import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
+import { Address, BigInt, Bytes, dataSource } from '@graphprotocol/graph-ts'
 import { stdYearFromTimestampNew as stdYearFromTimestamp } from '../../../lib/utils/Dates'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { C3ProjectToken } from '../../generated/templates/C3ProjectToken/C3ProjectToken'
-import { CarbonCredit } from '../../generated/schema'
+import { CarbonCredit, CarbonProject } from '../../generated/schema'
 import { ToucanCarbonOffsets } from '../../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { loadOrCreateCarbonProject } from './CarbonProject'
 import { MethodologyCategories } from './MethodologyCategories'
-import { ToucanContractRegistry } from '../../generated/ToucanPuroFactory/ToucanContractRegistry'
 import { ToucanCarbonOffsetBatches } from '../../generated/ToucanCarbonOffsetBatch/ToucanCarbonOffsetBatches'
+import { ToucanContractRegistry } from '../../generated/ToucanPuroFactory/ToucanContractRegistry'
 
 export function loadOrCreateCarbonCredit(tokenAddress: Address, bridge: string, tokenId: BigInt | null): CarbonCredit {
   let id = Bytes.fromHexString(tokenAddress.toHexString())
@@ -53,18 +53,32 @@ export function updateCarbonCreditWithCall(tokenAddress: Address, registry: stri
 }
 
 function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, registry: string): CarbonCredit {
+  let network = dataSource.network()
   let carbonCreditERC20 = ToucanCarbonOffsets.bind(tokenAddress)
 
   let attributes = carbonCreditERC20.getAttributes()
-  let project = loadOrCreateCarbonProject(registry, attributes.value0.projectId)
+
+  let project: CarbonProject
+
+  if (attributes.value0.projectId == '') {
+    project = loadOrCreateCarbonProject(registry, 'PURO-NO_PROJECT_DATA_NOT_AVAILABLE')
+  } else {
+    project = loadOrCreateCarbonProject(registry, attributes.value0.projectId)
+  }
+
+  project.methodologies = attributes.value0.methodology
+  project.category = MethodologyCategories.getMethodologyCategory(project.methodologies)
+  project.save()
 
   carbonCredit.project = project.id
   carbonCredit.vintage = stdYearFromTimestamp(attributes.value1.endTime)
 
+  // still necessary for a local environment
+  // ideally replaced with event emission script in the future
   let standard = attributes.value0.standard
 
-  if (standard.toLowerCase() == 'puro') {
-    // retrieve nft batch token id linked to batch to enable retirement
+  if (standard.toLowerCase() == 'puro' && network == 'mainnet') {
+    // retrieve largest batch tokenId with largest quantity to enable retirement
     let projectVintageTokenId = carbonCreditERC20.projectVintageTokenId()
     let contractRegistryAddress = carbonCreditERC20.contractRegistry()
 
@@ -72,11 +86,12 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
     let toucanCarbonOffsetsBatchesAddress = contractRegistry.carbonOffsetBatchesAddress()
 
     let toucanCarbonOffsetsBatches = ToucanCarbonOffsetBatches.bind(toucanCarbonOffsetsBatchesAddress)
-    let totalSupply = toucanCarbonOffsetsBatches.totalSupply()
+    // let totalSupply = toucanCarbonOffsetsBatches.totalSupply()
+    let batchTokenCounter = toucanCarbonOffsetsBatches.batchTokenCounter()
 
     let tokenIds: Array<BigInt> = []
 
-    for (let i = 0; i < totalSupply.toI32(); i++) {
+    for (let i = 0; i < batchTokenCounter.toI32(); i++) {
       let tokenId = toucanCarbonOffsetsBatches.try_tokenOfOwnerByIndex(tokenAddress, BigInt.fromI32(i))
       if (tokenId.reverted) {
         break
@@ -84,22 +99,62 @@ function updateToucanCall(tokenAddress: Address, carbonCredit: CarbonCredit, reg
       tokenIds.push(tokenId.value)
     }
 
+    // retrieve all batches & quantities linked to projectVintageTokenId
+    let batchesAndQuantities: Array<Array<BigInt>> = new Array<Array<BigInt>>()
     for (let i = 0; i < tokenIds.length; i++) {
-      let nftData = toucanCarbonOffsetsBatches.nftList(tokenIds[i])
+      let nftData = toucanCarbonOffsetsBatches.getBatchNFTData(tokenIds[i])
       let projectVintageTokenIdFromNftList = nftData.value0
-
+      let quantity = nftData.value1
+      let batchStatus = nftData.value2
       if (projectVintageTokenIdFromNftList == projectVintageTokenId) {
         carbonCredit.puroBatchTokenId = tokenIds[i]
-        break
+        // break
+        let batchAndQuantity: Array<BigInt> = new Array<BigInt>(2)
+        batchAndQuantity[0] = tokenIds[i]
+
+        // Toucan BatchStatus enum
+        //   enum BatchStatus {
+        //     Pending, // 0
+        //     Rejected, // 1
+        //     Confirmed, // 2
+        //     DetokenizationRequested, // 3
+        //     DetokenizationFinalized, // 4
+        //     RetirementRequested, // 5
+        //     RetirementFinalized // 6
+        // }
+
+        // If the batch status is 2 then those credits are confirmed and avaiable for retirement
+        // if the batch status is 5 then the whole batch is being requested for retirement
+        // If a retirement is requested for less than a whole batch a new batch with a new batch token id will be created with the requested amount
+        // and the original batch is be updated with the remaining amount that has not been requested
+        // if the batch status is 6 then the whole batch has been retired and is no longer available for retirement
+
+        batchAndQuantity[1] = batchStatus == 2 ? quantity : BigInt.fromI32(0)
+
+        batchesAndQuantities.push(batchAndQuantity)
       }
+
+      let maxQuantity: BigInt = BigInt.fromI32(0)
+      let maxBatchTokenId: BigInt = BigInt.fromI32(0)
+
+      for (let i = 0; i < batchesAndQuantities.length; i++) {
+        let currentBatchTokenId: BigInt = batchesAndQuantities[i][0]
+        let currentQuantity: BigInt = batchesAndQuantities[i][1]
+        // issue here if quantity is 0 then batch token id won't be set
+        if (currentQuantity > maxQuantity) {
+          maxQuantity = currentQuantity
+          maxBatchTokenId = currentBatchTokenId
+        } else if (currentQuantity == BigInt.fromI32(0) && maxQuantity == BigInt.fromI32(0)) {
+          maxBatchTokenId = currentBatchTokenId
+        }
+      }
+
+      carbonCredit.puroBatchTokenId = maxBatchTokenId
     }
   }
 
   carbonCredit.save()
 
-  project.methodologies = attributes.value0.methodology
-  project.category = MethodologyCategories.getMethodologyCategory(project.methodologies)
-  project.save()
   return carbonCredit
 }
 

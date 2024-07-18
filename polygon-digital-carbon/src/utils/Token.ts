@@ -19,7 +19,7 @@ export function createTokenWithCall(tokenAddress: Address, block: ethereum.Block
   token = new Token(tokenAddress)
 
   let tokenContract = ERC20.bind(tokenAddress)
-  
+
   token.tokenAddress = tokenAddress
   token.name = tokenContract.name()
   token.symbol = tokenContract.symbol()
@@ -156,10 +156,10 @@ export function handlePuroIdMigration(event: ProjectIdUpdated): void {
 
     if (previousProject == null) {
       log.info('Project not found for token {}', [projectAddress.toHexString()])
-      continue
+    } else {
+      log.info('Removing project for token {} {}', [previousProject.id, projectAddress.toHexString()])
+      store.remove('CarbonProject', previousProject.id)
     }
-
-    store.remove('CarbonProject', previousProject.id)
 
     // retrieve new project attributes
     let attributes = carbonCreditContract.getAttributes()

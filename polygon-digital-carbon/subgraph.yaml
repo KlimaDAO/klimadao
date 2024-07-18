@@ -76,10 +76,10 @@ dataSources:
         - name: ToucanContractRegistry
           file: ../lib/abis/ToucanContractRegistry.json      
         - name: ToucanCarbonOffsetBatches
-          file: ../lib/abis/ToucanCarbonOffsetBatches.json    
+          file: ../lib/abis/ToucanCarbonOffsetBatches.json       
       eventHandlers:
         - event: TokenCreated(uint256,address)
-          handler: handleNewPuroTCO2       
+          handler: handleNewPuroTCO2 
   - kind: ethereum/contract
     name: ToucanCarbonOffsetBatch
     network: matic
@@ -97,7 +97,11 @@ dataSources:
       abis:
         - name: ToucanCarbonOffsetBatches
           file: ../lib/abis/ToucanCarbonOffsetBatches.json
+        - name: ToucanCarbonOffsets
+          file: ../lib/abis/ToucanCarbonOffsets.json
       eventHandlers:
+        - event: Tokenized(uint256,address,indexed address,uint256)
+          handler: handleTokenized
         - event: BatchMinted(address,uint256)
           handler: handleBatchMinted
         - event: BatchUpdated(uint256,string,uint256)
@@ -480,6 +484,12 @@ dataSources:
           file: ../lib/abis/KlimaCarbonRetirements.json
         - name: ERC20
           file: ../lib/abis/ERC20.json
+        - name: ToucanCarbonOffsets
+          file: ../lib/abis/ToucanCarbonOffsets.json
+        - name: ToucanContractRegistry
+          file: ../lib/abis/ToucanContractRegistry.json  
+        - name: ToucanCarbonOffsetBatches
+          file: ../lib/abis/ToucanCarbonOffsetBatches.json            
       eventHandlers:
         - event: CarbonRetired(uint8,indexed address,string,indexed address,string,string,indexed address,address,uint256)
           handler: handleCarbonRetired
