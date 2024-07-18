@@ -5,7 +5,7 @@ import {
   ZERO_ADDRESS,
 } from '../../lib/utils/Constants'
 import { BIG_INT_1E18, ZERO_BI } from '../../lib/utils/Decimals'
-import { C3OffsetNFT, VCUOMinted } from '../generated/C3-Offset/C3OffsetNFT'
+import { C3OffsetNFT, VCUOMinted, VCUOMetaDataUpdated } from '../generated/C3-Offset/C3OffsetNFT'
 import { CarbonOffset } from '../generated/MossCarbonOffset/CarbonChain'
 import { StartAsyncToken, EndAsyncToken } from '../generated/C3ProjectTokenFactory/C3ProjectTokenFactory'
 import { RetiredVintage } from '../generated/templates/ICRProjectToken/ICRProjectToken'
@@ -314,12 +314,13 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
     ])
     return
   } else {
-    if (request.status == BridgeStatus.REQUESTED) {
+    if (request.status == BridgeStatus.REQUESTED && event.params.success == true) {
       let c3OffsetNftContract = C3OffsetNFT.bind(C3_VERIFIED_CARBON_UNITS_OFFSET)
+
+      request.c3OffsetNftIndex = event.params.nftIndex
 
       let tokenURICall = c3OffsetNftContract.try_tokenURI(event.params.nftIndex)
 
-      request.c3OffsetNftIndex = event.params.nftIndex
       if (tokenURICall.reverted) {
         log.error('tokenURI call reverted for NFT index {}', [event.params.nftIndex.toString()])
       } else {
@@ -336,11 +337,40 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
           safeguard.requestsWithoutURI = requestsArray
           safeguard.save()
           log.error('Retrieved tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
+        } else {
+          request.tokenURI = tokenURI
         }
-        request.tokenURI = tokenURI
       }
 
       request.status = BridgeStatus.FINALIZED
+    } else if (request.status == BridgeStatus.REQUESTED && event.params.success == false) {
+      request.status = BridgeStatus.REVERTED
+    }
+  }
+  request.save()
+}
+
+export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
+  let safeguard = TokenURISafeguard.load('safeguard')
+  if (safeguard == null) {
+    safeguard = new TokenURISafeguard('safeguard')
+    safeguard.requestsWithoutURI = []
+    safeguard.save()
+  }
+  let requestsArray = safeguard.requestsWithoutURI
+  if (requestsArray.length == 0) return
+
+  // target the request with the index that matches the event.params.tokenId
+  for (let i = 0; i < requestsArray.length; i++) {
+    let requestId = requestsArray[i]
+    let request = loadC3RetireRequest(requestId)
+    if (request == null) {
+      log.error('handleURIBlockSafeguard request is null {}', [requestId.toHexString()])
+      continue
+    }
+
+    if (request.c3OffsetNftIndex == event.params.tokenId) {
+      request.tokenURI = event.params.url
       request.save()
     }
   }
