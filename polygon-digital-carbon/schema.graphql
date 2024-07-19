@@ -418,6 +418,38 @@ type C3RetireRequest @entity {
   tokenURI: String!
 }
 
+# C3Project and C3RetirementMetadata are used for file datasources for C3 metadata
+type C3MetadataProject @entity {
+  id: ID!
+  name: String!
+  project_id: String!
+  project_type: String!
+  registry: String!
+  region: String!
+  country: String!
+  methodology: String!
+  period_start: String!
+  period_end: String!
+  ac: Boolean!
+  uri: String!
+}
+
+type C3RetirementMetadata @entity {
+  id: ID!
+  transferee: String!
+  reason: String!
+  projectId: String!
+  projectAddress: Bytes!
+  amount: Int!
+  vintage: String!
+  owner: Bytes!
+  project: C3MetadataProject!
+  image: String!
+  pdf: String!
+  nftRegistry: String!
+}
+
+
 # id is always and only safeguard
 type TokenURISafeguard @entity {
   "Token URI"

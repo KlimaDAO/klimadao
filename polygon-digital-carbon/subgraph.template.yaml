@@ -572,8 +572,7 @@ templates:
           handler: handleToucanPuroRetirementReverted
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleCreditTransfer
-      file: ./src/TransferHandler.ts   
-         
+      file: ./src/TransferHandler.ts    
   - name: C3ProjectToken
     kind: ethereum/contract
     network: {{network}}
@@ -622,3 +621,16 @@ templates:
         - event: ExAnteMinted(indexed uint256,indexed uint256,indexed address,uint256)
           handler: handleExAnteMinted
       file: ./src/TransferHandler.ts
+  - name: C3RetirementMetadata
+    kind: file/ipfs
+    mapping:
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/RetirementHandler.ts
+      handler: handleC3RetirementMetadata
+      entities:
+        - C3RetireRequest      
+        - C3RetirementMetadata
+      abis:
+        - name: ICRProjectToken
+          file: ../lib/abis/ICRProjectToken.json
