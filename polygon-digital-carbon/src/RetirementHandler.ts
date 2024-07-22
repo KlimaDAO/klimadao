@@ -22,6 +22,7 @@ import { getC3RetireRequestId } from '../utils/getRetirementsContractAddress'
 import { BridgeStatus } from '../utils/enums'
 import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
 import { C3RetirementMetadata as C3RetirementMetadataTemplate } from '../generated/templates'
+import { extractIpfsHash } from '../utils/ipfs'
 
 export function saveToucanRetirement(event: Retired): void {
   // Disregard events with zero amount
@@ -341,7 +342,9 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
         } else {
           request.tokenURI = tokenURI
           request.retirementMetadata = tokenURI
-          C3RetirementMetadataTemplate.create(tokenURI)
+          
+          const hash = extractIpfsHash(tokenURI)
+          C3RetirementMetadataTemplate.create(hash)
         }
       }
 
@@ -379,7 +382,8 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
       request.retirementMetadata = tokenURI
       request.save()
 
-      C3RetirementMetadataTemplate.create(tokenURI)
+      const hash = extractIpfsHash(tokenURI)
+      C3RetirementMetadataTemplate.create(hash)
     }
   }
 }
