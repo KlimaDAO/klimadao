@@ -342,7 +342,7 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
         } else {
           request.tokenURI = tokenURI
           request.retirementMetadata = tokenURI
-          
+
           const hash = extractIpfsHash(tokenURI)
           C3RetirementMetadataTemplate.create(hash)
         }
@@ -380,10 +380,11 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
 
       request.tokenURI = tokenURI
       request.retirementMetadata = tokenURI
-      request.save()
 
       const hash = extractIpfsHash(tokenURI)
       C3RetirementMetadataTemplate.create(hash)
+
+      request.save()
     }
   }
 }
