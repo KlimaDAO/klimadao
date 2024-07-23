@@ -1,9 +1,9 @@
 import { cx } from "@emotion/css";
+import { Text } from "@klimadao/lib/components";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Image, { StaticImageData } from "next/image";
 import { FC, ReactNode } from "react";
 import { Modal } from "../Modal";
-import { Text } from "../Text";
 import * as styles from "./styles";
 
 interface Item {

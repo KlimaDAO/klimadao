@@ -149,6 +149,8 @@ export const urls = {
     "https://transferto.xyz/showcase/carbon-offset?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
   polyscanGasStation: "https://gasstation.polygon.technology/v2",
   polygonscan: "https://polygonscan.com",
+  basescan: "https://basescan.org",
+  sepoliaBasescan: "https://sepolia.basescan.org",
   mumbaiPolygonscan: "https://mumbai.polygonscan.com",
   polygonBridge: "https://wallet.polygon.technology/polygon/bridge/deposit",
   polygonTor: "https://polygon.tor.us/",
@@ -280,6 +282,7 @@ export const offsetCompatibility: CompatMap = {
 
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 const SUBGRAPH_URL_ID = "https://api.thegraph.com/subgraphs/id";
+
 export const subgraphs = {
   polygonDigitalCarbon: `${SUBGRAPH_URL}/polygon-digital-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,

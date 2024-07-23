@@ -1,7 +1,7 @@
 import { cx } from "@emotion/css";
+import { Text } from "@klimadao/lib/components";
 import Close from "@mui/icons-material/Close";
 import { FC, ReactNode } from "react";
-import { Text } from "../Text";
 import * as styles from "./styles";
 
 interface Props {

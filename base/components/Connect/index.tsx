@@ -1,10 +1,13 @@
 import { cx } from "@emotion/css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { FC } from "react";
 import { ButtonPrimary } from "../Buttons/ButtonPrimary";
 import * as styles from "./styles";
 
 /* example from https://www.rainbowkit.com/docs/custom-connect-button */
-export const Connect = () => (
+export const Connect: FC<{
+  className?: string;
+}> = ({ className }) => (
   <ConnectButton.Custom>
     {({
       account,
@@ -17,6 +20,7 @@ export const Connect = () => (
     }) => {
       // Note: If your app doesn't use authentication, you
       // can remove all 'authenticationStatus' checks
+      const buttonClassName = cx(styles.connectButton, className);
       const ready = mounted && authenticationStatus !== "loading";
       const connected =
         ready &&
@@ -35,7 +39,7 @@ export const Connect = () => (
                 <ButtonPrimary
                   label="Login / Connect"
                   onClick={openConnectModal}
-                  className={styles.connectButton}
+                  className={buttonClassName}
                 />
               );
             }
@@ -44,7 +48,7 @@ export const Connect = () => (
                 <ButtonPrimary
                   label="Wrong network"
                   onClick={openChainModal}
-                  className={styles.connectButton}
+                  className={buttonClassName}
                 />
               );
             }
@@ -71,7 +75,7 @@ export const Connect = () => (
                 <ButtonPrimary
                   label={account.displayName}
                   onClick={openAccountModal}
-                  className={styles.connectButton}
+                  className={buttonClassName}
                 />
               </div>
             );
