@@ -36,7 +36,8 @@ const getWeb3Provider = (p: any): TypedProvider => {
 export const useProvider = (
   walletConnectProjectId?: string
 ): Web3ModalState => {
-  const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
+  // TODO - fix types here - base build breaking with Type error: This expression is not callable.
+  const [web3state, setWeb3State] = useState<Web3State | any>(web3InitialState);
 
   const disconnect = async () => {
     localStorage.removeItem("web3-wallet");
@@ -179,7 +180,7 @@ export const useProvider = (
     if (wallet) {
       connect(wallet, { useCache: true, walletConnectProjectId });
     } else {
-      setWeb3State((s) => ({ ...s, initializing: false }));
+      setWeb3State((s: Web3State) => ({ ...s, initializing: false }));
     }
   }, []);
 
