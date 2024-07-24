@@ -288,13 +288,18 @@ export function handleSwap(event: SwapEvent): void {
       let decimalRatio = BigDecimal.fromString(cco2_contract.decimalRatio().toString())
       let transactionPercentage = BigDecimal.fromString(cco2_contract.transactionPercentage().toString())
 
-      let fee = swap.volume.times(transactionPercentage.div(decimalRatio))
+      /** Need to take into the account the fee, charged in the retired token
+       * i.e. if the goal is to retire 100 tonnes at a 10% fee
+       * ex. 100 = .9 * x. x = 111.11 
+       * So cost to the user is the same as retiring 111.11 tonnes, which accounts for the fee and actually retires 100 tonnes
+       */
+      let effectiveTransactionPercentage = BigDecimal.fromString('1').minus(transactionPercentage.div(decimalRatio))
 
-      let currentPriceWithFee = swap.close.plus(fee)
+      let adjustedPrice = swap.close.div(effectiveTransactionPercentage)
 
-      pair.currentprice = currentPriceWithFee
+      pair.currentprice = adjustedPrice
 
-      pair.currentPricePerTonne = currentPriceWithFee.div(BigDecimal.fromString('1000'))
+      pair.currentPricePerTonne = adjustedPrice.div(BigDecimal.fromString('1000'))
     } else {
       pair.currentprice = swap.close
     }
