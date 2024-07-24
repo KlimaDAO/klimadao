@@ -3,11 +3,6 @@ description: Polygon Carbon
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
   file: ./schema.graphql
-features:
-  - grafting
-graft:
-  base: QmYaGZwuyGsCKyPzKLqLrUtVxubJXTFj8953X7Fm1QyUXd
-  block: 57961533
 dataSources:
   - kind: ethereum/contract
     name: CarbonProjectsAddress  
