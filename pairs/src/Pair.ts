@@ -23,7 +23,7 @@ import { Address } from '@graphprotocol/graph-ts'
 import { BigDecimalZero, BigIntZero } from './utils'
 import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
-import { CCO2 } from '../../lib/tokens/impl/CCO2'
+import { CCO2Token as CCO2TokenContract} from '../generated/KLIMA_CCO2/CCO2Token'
 
 // Create or Load Token
 export function getCreateToken(address: Address): Token {
@@ -284,9 +284,9 @@ export function handleSwap(event: SwapEvent): void {
 
     // get coorest fee
     if (event.address == KLIMA_CCO2_PAIR) {
-      let cco2_contract = CCO2.bind(CCO2_ERC20_CONTRACT)
-      let decimalRatio = cco2_contract.decimalRatio()
-      let transactionPercentage = cco2_contract.transactionPercentage()
+      let cco2_contract = CCO2TokenContract.bind(CCO2_ERC20_CONTRACT)
+      let decimalRatio = BigDecimal.fromString(cco2_contract.decimalRatio().toString())
+      let transactionPercentage = BigDecimal.fromString(cco2_contract.transactionPercentage().toString())
 
       let fee = swap.volume.times(transactionPercentage.div(decimalRatio))
 
