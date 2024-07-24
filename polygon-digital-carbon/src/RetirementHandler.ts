@@ -341,9 +341,9 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
           log.error('Retrieved tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
         } else {
           request.tokenURI = tokenURI
-          request.retirementMetadata = tokenURI
-
           const hash = extractIpfsHash(tokenURI)
+
+          request.retirementMetadata = hash
           C3RetirementMetadataTemplate.create(hash)
         }
       }
@@ -379,9 +379,9 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
       const tokenURI = event.params.url
 
       request.tokenURI = tokenURI
-      request.retirementMetadata = tokenURI
-
       const hash = extractIpfsHash(tokenURI)
+
+      request.retirementMetadata = hash
       C3RetirementMetadataTemplate.create(hash)
 
       request.save()
