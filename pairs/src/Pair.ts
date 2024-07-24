@@ -23,7 +23,7 @@ import { Address } from '@graphprotocol/graph-ts'
 import { BigDecimalZero, BigIntZero } from './utils'
 import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
-import { CCO2Token as CCO2TokenContract} from '../generated/KLIMA_CCO2/CCO2Token'
+import { CCO2Token as CCO2TokenContract } from '../generated/KLIMA_CCO2/CCO2Token'
 
 // Create or Load Token
 export function getCreateToken(address: Address): Token {
@@ -282,7 +282,7 @@ export function handleSwap(event: SwapEvent): void {
       swap.save()
     }
 
-    // get coorest fee
+    // calculate cco2 fee from contract. Apply to currentprice and currentPricePerTonne
     if (event.address == KLIMA_CCO2_PAIR) {
       let cco2_contract = CCO2TokenContract.bind(CCO2_ERC20_CONTRACT)
       let decimalRatio = BigDecimal.fromString(cco2_contract.decimalRatio().toString())
@@ -290,12 +290,15 @@ export function handleSwap(event: SwapEvent): void {
 
       let fee = swap.volume.times(transactionPercentage.div(decimalRatio))
 
-      let priceWithFee = swap.close.plus(fee)
+      let currentPriceWithFee = swap.close.plus(fee)
 
-      pair.currentPricePerTonne = priceWithFee.div(BigDecimal.fromString('1000'))
+      pair.currentprice = currentPriceWithFee
+
+      pair.currentPricePerTonne = currentPriceWithFee.div(BigDecimal.fromString('1000'))
+    } else {
+      pair.currentprice = swap.close
     }
 
-    pair.currentprice = swap.close
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
     pair.totalklimaearnedfees = pair.totalklimaearnedfees.plus(swap.klimaearnedfees)
     pair.lastupdate = hour_timestamp
