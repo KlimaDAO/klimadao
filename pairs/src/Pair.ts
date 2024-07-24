@@ -13,6 +13,7 @@ import {
   KLIMA_BCT_PAIR_BLOCK,
   KLIMA_MCO2_PAIR_BLOCK,
   KLIMA_CCO2_PAIR_BLOCK,
+  CCO2_ERC20_CONTRACT,
 } from '../../lib/utils/Constants'
 import { BigInt, BigDecimal, log } from '@graphprotocol/graph-ts'
 import { Pair, Token, Swap } from '../generated/schema'
@@ -22,6 +23,7 @@ import { Address } from '@graphprotocol/graph-ts'
 import { BigDecimalZero, BigIntZero } from './utils'
 import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
+import { CCO2 } from '../../lib/tokens/impl/CCO2'
 
 // Create or Load Token
 export function getCreateToken(address: Address): Token {
@@ -272,12 +274,27 @@ export function handleSwap(event: SwapEvent): void {
       if (usdprice != BigDecimalZero) {
         swap.close = usdprice
       }
+
       swap.volume = swap.volume.plus(volume.times(usdprice))
       swap.lpfees = swap.lpfees.plus(lpfees.times(usdprice))
       swap.klimaearnedfees = swap.klimaearnedfees.plus(klimaearnedfees.times(usdprice))
       swap.slippage = swap.slippage.plus(slippage.times(usdprice))
       swap.save()
     }
+
+    // get coorest fee
+    if (event.address == KLIMA_CCO2_PAIR) {
+      let cco2_contract = CCO2.bind(CCO2_ERC20_CONTRACT)
+      let decimalRatio = cco2_contract.decimalRatio()
+      let transactionPercentage = cco2_contract.transactionPercentage()
+
+      let fee = swap.volume.times(transactionPercentage.div(decimalRatio))
+
+      let priceWithFee = swap.close.plus(fee)
+
+      pair.currentPricePerTonne = priceWithFee.times(BigDecimal.fromString('1000'))
+    }
+
     pair.currentprice = swap.close
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
     pair.totalklimaearnedfees = pair.totalklimaearnedfees.plus(swap.klimaearnedfees)
