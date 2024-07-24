@@ -3,10 +3,7 @@ import { VERRA_PROJECT_NAMES } from '../../../lib/utils/VerraProjectInfo'
 
 import { CarbonProject } from '../../generated/schema'
 
-export function loadOrCreateCarbonProject(
-  registry: string,
-  projectID: string,
-): CarbonProject {
+export function loadOrCreateCarbonProject(registry: string, projectID: string): CarbonProject {
   let project = CarbonProject.load(projectID)
   if (project == null) {
     project = new CarbonProject(projectID)
@@ -30,7 +27,6 @@ export function loadOrCreateCarbonProject(
     }
 
     if (registry == 'PURO_EARTH') {
-
       for (let i = 0; i < PURO_PROJECT_INFO.length; i++) {
         if (projectID == PURO_PROJECT_INFO[i][0]) {
           project.name = PURO_PROJECT_INFO[i][1]
