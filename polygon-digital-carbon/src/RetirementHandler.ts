@@ -311,7 +311,6 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
 
   if (request == null) {
     log.error('No C3RetireRequest found for retireId: {} hash: {}', [
-      // retireId.toHexString(),
       event.transaction.hash.toHexString(),
     ])
     return
@@ -338,7 +337,7 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
           requestsArray.push(requestId)
           safeguard.requestsWithoutURI = requestsArray
           safeguard.save()
-          log.error('Retrieved tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
+          log.error('Initial attempt to retrieve tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
         } else {
           request.tokenURI = tokenURI
           const hash = extractIpfsHash(tokenURI)
@@ -366,7 +365,13 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
   let requestsArray = safeguard.requestsWithoutURI
   if (requestsArray.length == 0) return
 
-  // target the request with the index that matches the event.params.tokenId
+  /** Target the request with the index that matches the event.params.tokenId
+   * With event.params.tokenId, it's theoretically possible to call .list() on the C3OffsetNFT contract to get the project address
+   * However the issue is the request cannot be loaded as the request id is project address.concat(with retirement index)
+   * The retirement index is not available in this event. There is currently no way to call the C3OffsetNFT or 
+   * credit contract with any of the event params to retrieve the retirement index  */ 
+
+
   for (let i = 0; i < requestsArray.length; i++) {
     let requestId = requestsArray[i]
     let request = loadC3RetireRequest(requestId)
