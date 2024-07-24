@@ -292,7 +292,7 @@ export function handleSwap(event: SwapEvent): void {
 
       let priceWithFee = swap.close.plus(fee)
 
-      pair.currentPricePerTonne = priceWithFee.times(BigDecimal.fromString('1000'))
+      pair.currentPricePerTonne = priceWithFee.div(BigDecimal.fromString('1000'))
     }
 
     pair.currentprice = swap.close
