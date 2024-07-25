@@ -333,6 +333,9 @@ type Retire @entity {
   "Amount of carbon retired"
   amount: BigInt!
 
+  "Amount of carbon Retired in Tonnes"
+  amountTonnes: BigDecimal!
+
   "Beneficiary address"
   beneficiaryAddress: Account!
 
@@ -484,6 +487,9 @@ type CarbonPool @entity {
 
   "Current supply"
   supply: BigInt!
+
+  "Current supply in Tonnes"
+  supplyTonnes: BigDecimal!
 
   "Total tokens bridged to other chains"
   crossChainSupply: BigInt!

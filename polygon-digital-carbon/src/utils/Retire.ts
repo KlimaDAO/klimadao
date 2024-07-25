@@ -1,7 +1,7 @@
-import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
+import { Address, BigDecimal, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { Retire } from '../../generated/schema'
 import { updateProvenanceForRetirement } from './Provenance'
-import { ZERO_BI } from '../../../lib/utils/Decimals'
+import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
 
 export function saveRetire(
   id: Bytes,
@@ -23,6 +23,7 @@ export function saveRetire(
   retire.pool = pool
   retire.source = source
   retire.amount = amount
+  retire.amountTonnes = amount.toBigDecimal()
   retire.beneficiaryAddress = beneficiary
   retire.beneficiaryName = beneficiaryName
   retire.beneficiaryLocation = ''
@@ -36,6 +37,11 @@ export function saveRetire(
   retire.hash = hash
   retire.provenance = updateProvenanceForRetirement(credit)
   if (bridgeID !== null) retire.bridgeID = bridgeID
+
+  if (bridgeID == 'CCO2') {
+    let amountBD = retire.amount.toBigDecimal()
+    retire.amountTonnes = amountBD.div(BigDecimal.fromString('1000'))
+  }
   retire.save()
 }
 

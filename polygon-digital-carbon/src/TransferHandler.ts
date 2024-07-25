@@ -1,4 +1,4 @@
-import { Address, BigInt, Bytes, ethereum, log, store } from '@graphprotocol/graph-ts'
+import { Address, BigDecimal, BigInt, Bytes, ethereum, log, store } from '@graphprotocol/graph-ts'
 import {
   CCO2_ERC20_CONTRACT,
   ICR_MIGRATION_BLOCK,
@@ -308,7 +308,14 @@ function recordTransfer(
     let pool = loadOrCreateCarbonPool(tokenAddress)
 
     if (to == ZERO_ADDRESS) pool.supply = pool.supply.minus(amount)
-    else pool.supply = pool.supply.plus(amount)
+    else {
+      pool.supply = pool.supply.plus(amount)
+
+      if (tokenAddress == CCO2_ERC20_CONTRACT) {
+        const newAmountBD = pool.supply.plus(amount).toBigDecimal()
+        pool.supplyTonnes = newAmountBD.div(BigDecimal.fromString('1000'))
+      }
+    }
 
     pool.save()
   }
