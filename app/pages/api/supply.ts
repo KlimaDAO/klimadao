@@ -19,13 +19,26 @@ type APIResponse =
       error: string;
     };
 
+// This can be simplified to be just a string[]
+// but IERC20 ABI doesn't have a decimal exposed
+const DEFAULT_TOKENS = [
+  {
+    name: "klima",
+    decimals: 9,
+  },
+  {
+    name: "bct",
+    decimals: 18,
+  },
+];
+
 /**
- *
+ * @description fetch total supply for a token
  * @param req
  * @param res
- * @example GET /api/supply Returns {APIResponse}
- * @example GET /api/supply?type=total-supply Returns number
- * @example GET /api/supply?type=circulating-supply Return number
+ * @example GET /api/supply?token=klima Returns {APIResponse}
+ * @example GET /api/supply?type=total-supply&token=klima Returns number
+ * @example GET /api/supply?type=circulating-supply&token=klima Return number
  */
 export default async function handler(
   req: NextApiRequest,
@@ -34,15 +47,30 @@ export default async function handler(
   try {
     switch (req.method) {
       case "GET":
-        const { type } = req.query;
+        const { type, token } = req.query;
+
+        if (!token) {
+          return res.status(400).send({ error: "Token missing" });
+        }
+
+        if (typeof token !== "string") {
+          return res.status(400).send({ error: "Token should be a string" });
+        }
+
+        const targetToken = DEFAULT_TOKENS.find((t) => t.name === token);
+
+        if (!targetToken) {
+          return res.status(400).send({ error: "Invalid token" });
+        }
 
         const provider = getStaticProvider({
           chain: "polygon",
         });
 
         const contract = getContract({
-          contractName: "klima",
-          network: DEFAULT_NETWORK, // TODO; Make dynamic for testnet
+          // TODO: Improve typing by exporting ContractName type from lib
+          contractName: targetToken.name as "klima" | "bct",
+          network: DEFAULT_NETWORK,
           provider,
         });
 
@@ -52,7 +80,9 @@ export default async function handler(
           return res.status(500).send({ error: "Failed to get total supply" });
         }
 
-        const totalSupplyNum = Number(formatUnits(totalSupply, 9));
+        const totalSupplyNum = Number(
+          formatUnits(totalSupply, targetToken.decimals)
+        );
 
         if (type) {
           switch (type) {
@@ -60,7 +90,7 @@ export default async function handler(
             case "circulating-supply":
               return res.status(200).send(totalSupplyNum);
             default:
-              return res.status(400).end({ error: "Invalid type" });
+              return res.status(400).send({ error: "Invalid type" });
           }
         }
 
@@ -70,7 +100,9 @@ export default async function handler(
         });
       default:
         res.setHeader("Allow", ["GET"]);
-        return res.status(405).end(`Method ${req.method} Not Allowed`);
+        return res
+          .status(405)
+          .send({ error: `Method ${req.method} Not Allowed` });
     }
   } catch (error) {
     console.error(error);
