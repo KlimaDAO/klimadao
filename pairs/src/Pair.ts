@@ -299,11 +299,11 @@ export function handleSwap(event: SwapEvent): void {
       let adjustedPrice = swap.close.div(effectiveTransactionPercentage)
 
       pair.currentprice = adjustedPrice
-
+      // convert the adjusted price to per tonne as cco2 uses kgs
       pair.currentPricePerTonne = adjustedPrice.div(BigDecimal.fromString('1000'))
     } else {
       pair.currentprice = swap.close
-      pair.currentPricePerTonne = swap.close.div(BigDecimal.fromString('1000'))
+      pair.currentPricePerTonne = swap.close
     }
 
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
