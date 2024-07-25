@@ -37,8 +37,8 @@ const DEFAULT_TOKENS = [
  * @param req
  * @param res
  * @example GET /api/supply?token=klima Returns {APIResponse}
- * @example GET /api/supply?type=total-supply&token=klima Returns number
- * @example GET /api/supply?type=circulating-supply&token=klima Return number
+ * @example GET /api/supply?type=total&token=klima Returns number
+ * @example GET /api/supply?type=circulating&token=klima Return number
  */
 export default async function handler(
   req: NextApiRequest,
@@ -86,8 +86,8 @@ export default async function handler(
 
         if (type) {
           switch (type) {
-            case "total-supply":
-            case "circulating-supply":
+            case "total":
+            case "circulating":
               return res.status(200).send(totalSupplyNum);
             default:
               return res.status(400).send({ error: "Invalid type" });
