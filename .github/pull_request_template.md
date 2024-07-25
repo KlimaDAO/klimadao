@@ -16,7 +16,7 @@ Also related to <issue-number>
 
 ## How to Test
 <!--
- Pleas eprovide a shrot description of how a reviewer can confirm the changes
+ Please provide a short description of how a reviewer can confirm the changes
 -->
 
 1. _step1_
