@@ -3,7 +3,7 @@ type Pair @entity {
   token0: Token!
   token1: Token!
   currentprice: BigDecimal!
-  currentPricePerTonne: BigDecimal
+  currentPricePerTonne: BigDecimal!
   totalklimaearnedfees: BigDecimal!
   totalvolume: BigDecimal!
   lastupdate: String!

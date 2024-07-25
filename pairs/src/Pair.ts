@@ -290,7 +290,7 @@ export function handleSwap(event: SwapEvent): void {
 
       /** Need to take into the account the fee, charged in the retired token
        * i.e. if the goal is to retire 100 tonnes at a 10% fee
-       * ex. 100 = .9 * x. x = 111.11 
+       * ex. 100 = .9 * x. x = 111.11
        * So cost to the user is the same as retiring 111.11 tonnes, which accounts for the fee and actually retires 100 tonnes
        */
       let effectiveTransactionPercentage = BigDecimal.fromString('1').minus(transactionPercentage.div(decimalRatio))
@@ -302,6 +302,7 @@ export function handleSwap(event: SwapEvent): void {
       pair.currentPricePerTonne = adjustedPrice.div(BigDecimal.fromString('1000'))
     } else {
       pair.currentprice = swap.close
+      pair.currentPricePerTonne = swap.close.div(BigDecimal.fromString('1000'))
     }
 
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
