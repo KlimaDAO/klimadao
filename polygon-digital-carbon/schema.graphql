@@ -19,6 +19,7 @@ enum BridgeProtocol {
   C3
   MOSS
   ICR
+  CCO2
 }
 
 enum CrossChainBridgeDirection {

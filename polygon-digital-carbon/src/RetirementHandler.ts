@@ -1,5 +1,6 @@
 import {
   C3_VERIFIED_CARBON_UNITS_OFFSET,
+  CCO2_ERC20_CONTRACT,
   ICR_MIGRATION_BLOCK,
   MCO2_ERC20_CONTRACT,
   ZERO_ADDRESS,
@@ -11,6 +12,7 @@ import { StartAsyncToken, EndAsyncToken } from '../generated/C3ProjectTokenFacto
 import { RetiredVintage } from '../generated/templates/ICRProjectToken/ICRProjectToken'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { RetirementRequested } from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
+import { burnedCO2Token } from '../generated/CCO2CarbonOffset/CCO2Token'
 import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Account'
 import { loadCarbonCredit, loadOrCreateCarbonCredit } from './utils/CarbonCredit'
 import { loadOrCreateCarbonProject } from './utils/CarbonProject'
@@ -214,6 +216,47 @@ export function handleMossRetirement(event: CarbonOffset): void {
     event.params.carbonTon,
     event.params.sender,
     event.params.onBehalfOf,
+    senderAddress,
+    '',
+    event.block.timestamp,
+    event.transaction.hash
+  )
+
+  incrementAccountRetirements(senderAddress)
+}
+
+export function handleCCO2Retirement(event: burnedCO2Token): void {
+  // Don't process zero amount events
+  if (event.params.amount == ZERO_BI) return
+
+  let credit = loadOrCreateCarbonCredit(CCO2_ERC20_CONTRACT, 'CCO2', null)
+
+  // Set up project/default info for Moss "project"
+
+  if (credit.vintage == 1970) {
+    credit.vintage = 2021
+    credit.project = 'CCO2'
+    credit.save()
+
+    // @todo Is this correct for CCO2?
+    loadOrCreateCarbonProject('VERRA', 'CCO2')
+  }
+
+  credit.retired = credit.retired.plus(event.params.amount)
+  credit.save()
+
+  // Ensure account entities are created for all addresses
+  let sender = loadOrCreateAccount(event.transaction.from)
+  let senderAddress = event.transaction.from
+
+  saveRetire(
+    sender.id.concatI32(sender.totalRetirements),
+    CCO2_ERC20_CONTRACT,
+    CCO2_ERC20_CONTRACT,
+    'OTHER',
+    event.params.amount,
+    event.transaction.from,
+    '',
     senderAddress,
     '',
     event.block.timestamp,

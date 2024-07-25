@@ -238,7 +238,7 @@ dataSources:
           file: ../lib/abis/ERC20.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleCreditTransfer
+          handler: handleCreditTransfer            
   - kind: ethereum/contract
     name: MossCarbonOffset
     network: matic
@@ -261,6 +261,48 @@ dataSources:
           handler: handleMossRetirement
         # - event: CarbonOffsetBatch((uint256,bytes32,uint256,uint256),uint256,bytes32,uint256)
         #   handler: handleMossRetirementToMainnet
+  - kind: ethereum/contract
+    name: CCO2Carbon
+    network: matic
+    source:
+      address: '0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2'
+      abi: ERC20
+      startBlock: 34084189
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/TransferHandler.ts
+      entities:
+        - CCO2Carbon
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleCreditTransfer  
+  - kind: ethereum/contract
+    name: CCO2CarbonOffset
+    network: matic
+    source:
+      address: '0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2'
+      abi: CCO2Token
+      startBlock: 34084189
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/RetirementHandler.ts
+      entities:
+        - CCO2CarbonOffset
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: CCO2Token
+          file: ../lib/abis/CCO2Token.json
+      eventHandlers: 
+        - event: burnedCO2Token(uint256)
+          handler: handleCCO2Retirement                     
   - kind: ethereum/contract
     name: C3ProjectTokenFactory
     network: matic
@@ -463,6 +505,30 @@ dataSources:
       eventHandlers:
         - event: C3Retired(indexed address,indexed address,string,string,indexed address,address,uint256)
           handler: handleC3Retired
+  - kind: ethereum/contract
+    name: RetireCCO2Carbon
+    network: matic
+    source:
+      address: '0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2'
+      abi: CCO2Token
+      startBlock: 34084189
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: CCO2Token
+          file: ../lib/abis/CCO2Token.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: burnedCO2Token(uint256)
+          handler: handleCCO2Retired        
   - kind: ethereum/contract
     name: KlimaInfinity
     network: matic

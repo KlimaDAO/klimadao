@@ -83,5 +83,9 @@
   "CarbonProjectsAddress": {
     "address": "0x599a978c43F5cEa1B26a399D28869Ad4690DC07d",
     "startBlock": "55637898"
+  },
+  "CCO2CarbonAddress": {
+    "address": "0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2",
+    "startBlock": "34084189"
   }
 }
