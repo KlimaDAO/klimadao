@@ -53,6 +53,7 @@ export function getCreatePair(address: Address): Pair {
     pair.token0 = getCreateToken(contract.token0()).id
     pair.token1 = getCreateToken(contract.token1()).id
     pair.currentprice = BigDecimalZero
+    pair.currentPricePerTonne = BigDecimalZero
     pair.totalvolume = BigDecimalZero
     pair.totalklimaearnedfees = BigDecimalZero
     pair.lastupdate = ''
