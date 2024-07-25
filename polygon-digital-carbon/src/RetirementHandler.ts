@@ -238,8 +238,7 @@ export function handleCCO2Retirement(event: burnedCO2Token): void {
     credit.project = 'CCO2'
     credit.save()
 
-    // @todo Is this correct for CCO2?
-    loadOrCreateCarbonProject('VERRA', 'CCO2')
+    loadOrCreateCarbonProject('COOREST', 'CCO2')
   }
 
   credit.retired = credit.retired.plus(event.params.amount)

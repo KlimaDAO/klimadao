@@ -217,7 +217,7 @@ function recordTransfer(
   let creditId = Bytes.fromHexString(tokenAddress.toHexString())
 
   if (tokenAddress == MCO2_ERC20_CONTRACT) loadOrCreateCarbonCredit(MCO2_ERC20_CONTRACT, 'MOSS', null)
-  if (tokenAddress == CCO2_ERC20_CONTRACT) loadOrCreateCarbonCredit(CCO2_ERC20_CONTRACT, 'CCO2', null)
+  if (tokenAddress == CCO2_ERC20_CONTRACT) loadOrCreateCarbonCredit(CCO2_ERC20_CONTRACT, 'COOREST', null)
 
   if (tokenId !== null) {
     creditId = creditId.concatI32(tokenId.toI32())

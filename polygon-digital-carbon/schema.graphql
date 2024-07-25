@@ -7,6 +7,7 @@ enum Registry {
   ICR
   J_CREDIT
   ECO_REGISTRY
+  COOREST
 }
 
 enum RetireSource {
@@ -19,7 +20,7 @@ enum BridgeProtocol {
   C3
   MOSS
   ICR
-  CCO2
+  COOREST
 }
 
 enum CrossChainBridgeDirection {
