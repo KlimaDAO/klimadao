@@ -21,6 +21,8 @@ import { Token, TokenURISafeguard } from '../generated/schema'
 import { getC3RetireRequestId } from '../utils/getRetirementsContractAddress'
 import { BridgeStatus } from '../utils/enums'
 import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
+import { C3RetirementMetadata as C3RetirementMetadataTemplate } from '../generated/templates'
+import { extractIpfsHash } from '../utils/ipfs'
 
 export function saveToucanRetirement(event: Retired): void {
   // Disregard events with zero amount
@@ -309,7 +311,6 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
 
   if (request == null) {
     log.error('No C3RetireRequest found for retireId: {} hash: {}', [
-      // retireId.toHexString(),
       event.transaction.hash.toHexString(),
     ])
     return
@@ -336,9 +337,13 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
           requestsArray.push(requestId)
           safeguard.requestsWithoutURI = requestsArray
           safeguard.save()
-          log.error('Retrieved tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
+          log.error('Initial attempt to retrieve tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
         } else {
           request.tokenURI = tokenURI
+          const hash = extractIpfsHash(tokenURI)
+
+          request.retirementMetadata = hash
+          C3RetirementMetadataTemplate.create(hash)
         }
       }
 
@@ -360,7 +365,13 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
   let requestsArray = safeguard.requestsWithoutURI
   if (requestsArray.length == 0) return
 
-  // target the request with the index that matches the event.params.tokenId
+  /** Target the request with the index that matches the event.params.tokenId
+   * With event.params.tokenId, it's theoretically possible to call .list() on the C3OffsetNFT contract to get the project address
+   * However the issue is the request cannot be loaded as the request id is project address.concat(with retirement index)
+   * The retirement index is not available in this event. There is currently no way to call the C3OffsetNFT or 
+   * credit contract with any of the event params to retrieve the retirement index  */ 
+
+
   for (let i = 0; i < requestsArray.length; i++) {
     let requestId = requestsArray[i]
     let request = loadC3RetireRequest(requestId)
@@ -370,7 +381,14 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
     }
 
     if (request.c3OffsetNftIndex == event.params.tokenId) {
-      request.tokenURI = event.params.url
+      const tokenURI = event.params.url
+
+      request.tokenURI = tokenURI
+      const hash = extractIpfsHash(tokenURI)
+
+      request.retirementMetadata = hash
+      C3RetirementMetadataTemplate.create(hash)
+
       request.save()
     }
   }
