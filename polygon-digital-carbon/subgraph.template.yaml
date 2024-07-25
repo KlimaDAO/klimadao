@@ -509,8 +509,9 @@ dataSources:
     name: RetireCCO2Carbon
     network: {{network}}
     source:
+    # will be diamond facet
       address: '{{CCO2CarbonAddress.address}}'
-      abi: CCO2Token
+      abi: RetireCCO2Carbon
       startBlock: {{CCO2CarbonAddress.startBlock}}
     mapping:
       kind: ethereum/events
@@ -527,6 +528,7 @@ dataSources:
         - name: ERC20
           file: ../lib/abis/ERC20.json
       eventHandlers:
+      # will be event from diamond facet
         - event: burnedCO2Token(uint256)
           handler: handleCCO2Retired        
   - kind: ethereum/contract
