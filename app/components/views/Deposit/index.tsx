@@ -255,7 +255,9 @@ export const Deposit = (props: Props) => {
                 type="button"
                 disabled={!props.isConnected}
                 className={styles.maxButton}
-                onClick={() => setQuantity(formattedTokenBalance)}
+                onClick={() =>
+                  setQuantity(formattedTokenBalance.toString() ?? "0.0")
+                }
               >
                 <Trans>Max</Trans>
               </button>
