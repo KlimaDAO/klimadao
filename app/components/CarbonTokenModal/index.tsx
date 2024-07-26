@@ -21,7 +21,7 @@ export const CarbonTokenModal: React.FC<Props> = (props) => {
   return (
     <Modal title={t`Select Token`} onToggleModal={props.onHide}>
       <div className={styles.container}>
-        {props.holdings?.map((holding: any) => (
+        {props.holdings?.map((holding) => (
           <div
             key={holding.id}
             className={cx(styles.item, {
