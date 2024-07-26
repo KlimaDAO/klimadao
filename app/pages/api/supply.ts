@@ -1,4 +1,8 @@
-import { getContract, getStaticProvider } from "@klimadao/lib/utils";
+import {
+  getContract,
+  getStaticProvider,
+  getTokenDecimals,
+} from "@klimadao/lib/utils";
 import { formatUnits } from "ethers/lib/utils";
 import { DEFAULT_NETWORK } from "lib/constants";
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -19,18 +23,7 @@ type APIResponse =
       error: string;
     };
 
-// This can be simplified to be just a string[]
-// but IERC20 ABI doesn't have a decimal exposed
-const DEFAULT_TOKENS = [
-  {
-    name: "klima",
-    decimals: 9,
-  },
-  {
-    name: "bct",
-    decimals: 18,
-  },
-];
+const DEFAULT_TOKENS = ["klima", "bct"];
 
 /**
  * @description fetch total supply for a token
@@ -57,7 +50,7 @@ export default async function handler(
           return res.status(400).send({ error: "Token should be a string" });
         }
 
-        const targetToken = DEFAULT_TOKENS.find((t) => t.name === token);
+        const targetToken = DEFAULT_TOKENS.find((t) => t === token);
 
         if (!targetToken) {
           return res.status(400).send({ error: "Invalid token" });
@@ -69,7 +62,7 @@ export default async function handler(
 
         const contract = getContract({
           // TODO: Improve typing by exporting ContractName type from lib
-          contractName: targetToken.name as "klima" | "bct",
+          contractName: targetToken as "klima" | "bct",
           network: DEFAULT_NETWORK,
           provider,
         });
@@ -81,7 +74,7 @@ export default async function handler(
         }
 
         const totalSupplyNum = Number(
-          formatUnits(totalSupply, targetToken.decimals)
+          formatUnits(totalSupply, getTokenDecimals(targetToken))
         );
 
         if (type) {
