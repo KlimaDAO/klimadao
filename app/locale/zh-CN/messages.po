@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-09 15:37+0000\n"
+"POT-Creation-Date: 2024-07-25 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr "余额"
 
 #: components/NavMenu/index.tsx:217
 msgid "Bridge to Base"
-msgstr ""
+msgstr "桥链接到Base"
 
 #: components/views/Redeem/index.tsx:377
 msgid "Buy & Redeem Carbon"
@@ -61,7 +61,7 @@ msgstr "对于想要使用矿池代币抵消付款的用户，请使用<0>此网
 
 #: components/views/Redeem/index.tsx:415
 msgid "How many tonnes would you like to acquire?"
-msgstr ""
+msgstr "您想购买多少吨？"
 
 #: components/views/Redeem/index.tsx:282
 #: components/views/Stake/index.tsx:245
@@ -84,7 +84,7 @@ msgstr "正在加载余额..."
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:96
 msgid "Loading project info..."
-msgstr ""
+msgstr "正在加载项目信息..."
 
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
@@ -133,15 +133,15 @@ msgstr "操作风险：KlimaDAO 平台依赖于与 Polygon 网络和其他数字
 
 #: components/views/Redeem/index.tsx:489
 msgid "Payment Method"
-msgstr ""
+msgstr "付款方式"
 
 #: components/views/Redeem/index.tsx:488
 msgid "Payment method"
-msgstr ""
+msgstr "付款方式"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:130
 msgid "Project details <0/>"
-msgstr ""
+msgstr "项目详情<0/>"
 
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
@@ -158,7 +158,7 @@ msgstr "风险免责声明"
 #: components/views/Redeem/index.tsx:390
 #: components/views/Redeem/index.tsx:391
 msgid "Select carbon pool"
-msgstr ""
+msgstr "选择碳池"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -170,7 +170,7 @@ msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #: components/views/Redeem/index.tsx:457
 msgid "This cost includes slippage and any redemption fees charged by the pool"
-msgstr ""
+msgstr "该成本包括滑点和矿池收取的任何赎回费用"
 
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
@@ -178,15 +178,15 @@ msgstr "本风险警告摘要并未披露与投资 $KLIMA 相关的所有风险�
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:126
 msgid "Tonnes available: {formattedQuantity}"
-msgstr ""
+msgstr "可用吨数：{formattedQuantity}"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:103
 msgid "Unknown category"
-msgstr ""
+msgstr "未知类别"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:102
 msgid "Unknown methodology"
-msgstr ""
+msgstr "未知方法"
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
@@ -198,7 +198,7 @@ msgstr "您的钱包需加载 USDC、KLIMA 或碳池代币。信用卡支付功�
 
 #: components/views/Redeem/index.tsx:477
 msgid "You receive"
-msgstr ""
+msgstr "您将收到"
 
 #: components/views/Redeem/index.tsx:501
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
@@ -634,19 +634,19 @@ msgstr "访问我们的<0>documentation</0>将其构建到您的应用程序中�
 
 #: components/views/Offset/SelectiveRetirementInput/index.tsx:21
 msgid "offset.enter_address"
-msgstr ""
+msgstr "输入 0x 地址"
 
 #: components/views/Redeem/index.tsx:354
 msgid "offset.incompatible"
-msgstr ""
+msgstr "输入代币不兼容"
 
 #: components/views/Redeem/index.tsx:266
 msgid "offset.insufficient_project_tonnage"
-msgstr ""
+msgstr "项目吨位不足"
 
 #: components/views/Redeem/index.tsx:442
 msgid "offset.invalid_project_tonnage"
-msgstr ""
+msgstr "不可超过所选项目的可用吨位"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:49
 msgid "offset.number_of_retirements"
@@ -654,87 +654,87 @@ msgstr "总碳停用"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific"
-msgstr ""
+msgstr "退出特定项目代币（可选）"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:62
 msgid "offset.retire_specific_tooltip"
-msgstr ""
+msgstr "需支的付额外费用，由所选的碳池决定，并支付给桥链接供应商。"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:98
 msgid "offset.selectiveRetirement.address_input_type"
-msgstr ""
+msgstr "0x 地址"
 
 #: components/views/Offset/ProjectSearch/index.tsx:80
 msgid "offset.selectiveRetirement.back_to_filters"
-msgstr ""
+msgstr "返回到筛选"
 
 #: components/views/Offset/ProjectSearch/index.tsx:105
 msgid "offset.selectiveRetirement.clear_selection"
-msgstr ""
+msgstr "清空选项"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
 msgid "offset.selectiveRetirement.confirm_selection"
-msgstr ""
+msgstr "确认选项"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
 msgid "offset.selectiveRetirement.confirmation_message"
-msgstr ""
+msgstr "您确实要选择以下项目吗："
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:77
 msgid "offset.selectiveRetirement.default_input_type"
-msgstr ""
+msgstr "默认"
 
 #: components/views/Offset/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
-msgstr ""
+msgstr "我们找不到与您的搜索相关的任何项目。请修改筛选条件并重试。"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
 msgid "offset.selectiveRetirement.filter.options_selected"
-msgstr ""
+msgstr "已选择 {0}"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
 msgid "offset.selectiveRetirement.filters.find_project"
-msgstr ""
+msgstr "查找项目"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
 msgid "offset.selectiveRetirement.filters.region"
-msgstr ""
+msgstr "地区"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
 msgid "offset.selectiveRetirement.filters.type"
-msgstr ""
+msgstr "类型"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
 msgid "offset.selectiveRetirement.filters.vintage"
-msgstr ""
+msgstr "优质的"
 
 #: components/views/Offset/LoadingOverlay/index.tsx:12
 msgid "offset.selectiveRetirement.finding_projects"
-msgstr ""
+msgstr "正在查找项目..."
 
 #: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
 msgid "offset.selectiveRetirement.project.available_tonnes"
-msgstr ""
+msgstr "可用吨数：{0}"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:112
 msgid "offset.selectiveRetirement.retire_from_default_pool"
-msgstr ""
+msgstr "允许退出池中的默认项目。此选项可避免支付额外费用。"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:89
 msgid "offset.selectiveRetirement.search_input_type"
-msgstr ""
+msgstr "查找项目"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
 msgid "offset.selectiveRetirement.selectProject.back"
-msgstr ""
+msgstr "返回到筛选"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
 msgid "offset.selectiveRetirement.selectProject.label"
-msgstr ""
+msgstr "选择一个项目继续："
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
 msgid "offset.selectiveRetirement.selectProject.select"
-msgstr ""
+msgstr "选择项目"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:39
 msgid "offset.tonnes_of_carbon_retired"
@@ -750,7 +750,7 @@ msgstr "您已停用了..."
 
 #: components/views/Redeem/index.tsx:453
 msgid "offset_cost"
-msgstr ""
+msgstr "成本"
 
 #: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_bct"
@@ -818,7 +818,7 @@ msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之�
 
 #: components/views/Redeem/index.tsx:380
 msgid "redeem.description"
-msgstr ""
+msgstr "获取特定碳补偿项目的代币。项目代币将从碳池中兑换并转移到您的钱包，便于您以后可以交易或退出。"
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
@@ -826,7 +826,7 @@ msgstr "404 - 页面不存在"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
 msgid "shared.back"
-msgstr ""
+msgstr "返回"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -860,7 +860,7 @@ msgstr "错误"
 
 #: components/views/Redeem/index.tsx:274
 msgid "shared.invalid_project_address"
-msgstr ""
+msgstr "项目地址无效"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:65

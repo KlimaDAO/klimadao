@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import { cx } from "@emotion/css";
+import React from "react";
 import * as styles from "./styles";
 
-export const LogoWithClaim: FC = () => {
+export const LogoWithClaim = (props: { className?: string }) => {
   return (
     <svg
-      className={styles.logoWithClaim}
+      className={cx(styles.logoWithClaim, props.className)}
       width="191"
       height="32"
       viewBox="0 0 191 32"
