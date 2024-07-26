@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: components/CarbonTokenModal/index.tsx:43
-#: components/views/Deposit/index.tsx:213
+#: components/views/Deposit/index.tsx:227
 msgid "{0}"
 msgstr "{0}"
 
@@ -188,7 +188,7 @@ msgstr "Annualized KLIMA Rewards, including compounding, should the current rewa
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Deposit/index.tsx:108
+#: components/views/Deposit/index.tsx:113
 #: components/views/Redeem/index.tsx:287
 #: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:230
@@ -217,7 +217,7 @@ msgstr "Are you sure you want to select the following project:"
 msgid "bond.should_autostake"
 msgstr "Automatically stake for sKLIMA"
 
-#: components/views/Deposit/index.tsx:220
+#: components/views/Deposit/index.tsx:234
 msgid "Available Balance"
 msgstr "Available Balance"
 
@@ -276,11 +276,11 @@ msgstr "Balances"
 msgid "choose_bond.bct.base_carbon_tonne"
 msgstr "Base Carbon Tonne"
 
-#: components/views/Deposit/index.tsx:260
+#: components/views/Deposit/index.tsx:284
 msgid "Base Carbon Tonne"
 msgstr "Base Carbon Tonne"
 
-#: components/views/Deposit/index.tsx:245
+#: components/views/Deposit/index.tsx:269
 msgid "BCT to receive"
 msgstr "BCT to receive"
 
@@ -407,7 +407,7 @@ msgstr "CONFIRMATION"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:432
-#: components/views/Deposit/index.tsx:93
+#: components/views/Deposit/index.tsx:98
 #: components/views/PKlima/index.tsx:165
 #: components/views/Wrap/index.tsx:220
 msgid "shared.confirming"
@@ -433,7 +433,7 @@ msgstr "Connecting..."
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/views/Deposit/index.tsx:113
+#: components/views/Deposit/index.tsx:118
 #: components/views/Redeem/index.tsx:292
 msgid "Continue"
 msgstr "Continue"
@@ -485,16 +485,16 @@ msgid "offset.selectiveRetirement.default_input_type"
 msgstr "Default"
 
 #: components/NavMenu/index.tsx:189
-#: components/views/Deposit/index.tsx:176
-#: components/views/Deposit/index.tsx:291
+#: components/views/Deposit/index.tsx:190
+#: components/views/Deposit/index.tsx:312
 msgid "Deposit Carbon"
 msgstr "Deposit Carbon"
 
-#: components/views/Deposit/index.tsx:238
+#: components/views/Deposit/index.tsx:251
 msgid "Deposit TC02"
 msgstr "Deposit TC02"
 
-#: components/views/Deposit/index.tsx:179
+#: components/views/Deposit/index.tsx:193
 msgid "Deposit TCO2 in exchange for BCT."
 msgstr "Deposit TCO2 in exchange for BCT."
 
@@ -530,7 +530,7 @@ msgstr "Enter 0x address"
 msgid "shared.enter_amount"
 msgstr "Enter Amount"
 
-#: components/views/Deposit/index.tsx:98
+#: components/views/Deposit/index.tsx:103
 #: components/views/Redeem/index.tsx:261
 #: components/views/Redeem/index.tsx:433
 #: components/views/Stake/index.tsx:240
@@ -660,7 +660,7 @@ msgstr "Info & FAQ"
 msgid "offset.incompatible"
 msgstr "INPUT TOKEN INCOMPATIBLE"
 
-#: components/views/Deposit/index.tsx:103
+#: components/views/Deposit/index.tsx:108
 #: components/views/Redeem/index.tsx:282
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:225
@@ -743,7 +743,7 @@ msgstr "Login"
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:65
-#: components/views/Deposit/index.tsx:82
+#: components/views/Deposit/index.tsx:87
 #: components/views/Home/index.tsx:155
 #: components/views/PKlima/index.tsx:149
 #: components/views/Redeem/index.tsx:248
@@ -767,6 +767,10 @@ msgstr "Make sure to stake your redeemed pKLIMA, and stay staked, until global G
 #: components/views/Bond/index.tsx:793
 msgid "bond.market_price"
 msgstr "Market price"
+
+#: components/views/Deposit/index.tsx:262
+msgid "Max"
+msgstr "Max"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:605
@@ -960,7 +964,7 @@ msgstr "Quantity to approve"
 msgid "stake.rebase"
 msgstr "Rebase"
 
-#: components/views/Deposit/index.tsx:269
+#: components/views/Deposit/index.tsx:293
 msgid "Receiving BCT"
 msgstr "Receiving BCT"
 
@@ -1044,7 +1048,7 @@ msgstr "Select carbon pool"
 msgid "offset.selectiveRetirement.selectProject.select"
 msgstr "Select project"
 
-#: components/views/Deposit/index.tsx:187
+#: components/views/Deposit/index.tsx:201
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
 msgstr "Select the TCO2 Token and the amount you want to deposit to the pool."
 
@@ -1187,7 +1191,7 @@ msgstr "This is the amount of USDC.e in the contract available for bonds."
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
 msgstr "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
 
-#: components/views/Deposit/index.tsx:184
+#: components/views/Deposit/index.tsx:198
 msgid "Token to deposit"
 msgstr "Token to deposit"
 
@@ -1370,7 +1374,7 @@ msgstr "You will get"
 msgid "wrap.you_will_get"
 msgstr "You Will Get"
 
-#: components/views/Deposit/index.tsx:248
+#: components/views/Deposit/index.tsx:272
 msgid "You'll receive BCT in exchange for your TCO2."
 msgstr "You'll receive BCT in exchange for your TCO2."
 
