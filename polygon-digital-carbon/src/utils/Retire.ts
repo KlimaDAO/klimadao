@@ -42,7 +42,7 @@ export function saveRetire(
   let loadedCredit = loadCarbonCredit(credit)
   let project = CarbonProject.load(loadedCredit.project)
 
-  if (project !== null && project.registry == 'COOREST') {
+  if (project !== null && project.registry == 'CCS') {
     let amountBD = retire.amount.toBigDecimal()
     retire.amountTonnes = amountBD.div(BigDecimal.fromString('1000'))
   } else {

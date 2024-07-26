@@ -238,7 +238,7 @@ export function handleCCO2Retirement(event: burnedCO2Token): void {
     credit.project = 'CCO2'
     credit.save()
 
-    loadOrCreateCarbonProject('COOREST', 'CCO2')
+    loadOrCreateCarbonProject('CCS', 'CCO2')
   }
 
   credit.retired = credit.retired.plus(event.params.amount)

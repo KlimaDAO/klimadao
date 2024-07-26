@@ -7,7 +7,7 @@ enum Registry {
   ICR
   J_CREDIT
   ECO_REGISTRY
-  COOREST
+  CCS
 }
 
 enum RetireSource {
