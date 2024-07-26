@@ -1,7 +1,8 @@
 import { Address, BigDecimal, BigInt, Bytes } from '@graphprotocol/graph-ts'
-import { Retire } from '../../generated/schema'
+import { CarbonProject, Retire } from '../../generated/schema'
 import { updateProvenanceForRetirement } from './Provenance'
 import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
+import { loadCarbonCredit } from './CarbonCredit'
 
 export function saveRetire(
   id: Bytes,
@@ -38,9 +39,14 @@ export function saveRetire(
   retire.provenance = updateProvenanceForRetirement(credit)
   if (bridgeID !== null) retire.bridgeID = bridgeID
 
-  if (bridgeID == 'CCO2') {
+  let loadedCredit = loadCarbonCredit(credit)
+  let project = CarbonProject.load(loadedCredit.project)
+
+  if (project !== null && project.registry == 'COOREST') {
     let amountBD = retire.amount.toBigDecimal()
     retire.amountTonnes = amountBD.div(BigDecimal.fromString('1000'))
+  } else {
+    retire.amountTonnes = retire.amount.toBigDecimal()
   }
   retire.save()
 }
