@@ -3,25 +3,17 @@ import { Text } from "@klimadao/lib/components";
 import { Trans, t } from "@lingui/macro";
 import { Modal } from "components/Modal";
 import { formatEther } from "ethers-v6";
+import { CarbonToken } from "lib/queryUserCarbonTokens";
 import * as styles from "./styles";
 
-export type CarbonTokenHoldings = {
-  holdings: Array<{
-    id: string;
-    amount: string;
-    token: {
-      decimals: number;
-      id: string;
-      name: string;
-      symbol: string;
-    };
-  }>;
+type Props = {
+  holdings: Array<CarbonToken> | null;
+  onSelect: (item: CarbonToken) => void;
+  onHide: () => void;
 };
 
-// TODO - fix types
-export const CarbonTokenModal: React.FC<any> = (props) => {
-  // TODO - fix types
-  const handleChange = (item: any) => {
+export const CarbonTokenModal: React.FC<Props> = (props) => {
+  const handleChange = (item: CarbonToken) => {
     props.onSelect(item);
     props.onHide();
   };
