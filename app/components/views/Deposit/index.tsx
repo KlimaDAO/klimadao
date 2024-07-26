@@ -235,20 +235,30 @@ export const Deposit = (props: Props) => {
               </Text>
             </div>
             <div className="divider" />
-            <div className="end">
-              <input
-                className={cx(styles.input, {
-                  [styles.inputError]: !!insufficientTokens,
-                })}
-                min="0"
-                type="number"
-                value={quantity}
-                placeholder="0.0"
-                onChange={(e) => setQuantity(e.target.value)}
-              />
-              <Text className={styles.descriptionText}>
-                <Trans>Deposit TC02</Trans>
-              </Text>
+            <div className="end row">
+              <div className="end">
+                <input
+                  className={cx(styles.input, {
+                    [styles.inputError]: !!insufficientTokens,
+                  })}
+                  min="0"
+                  type="number"
+                  value={quantity}
+                  placeholder="0.0"
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+                <Text className={styles.descriptionText}>
+                  <Trans>Deposit TC02</Trans>
+                </Text>
+              </div>
+              <button
+                type="button"
+                disabled={!props.isConnected}
+                className={styles.maxButton}
+                onClick={() => setQuantity(formattedTokenBalance)}
+              >
+                <Trans>Max</Trans>
+              </button>
             </div>
           </div>
         </div>

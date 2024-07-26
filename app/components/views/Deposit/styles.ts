@@ -96,7 +96,13 @@ export const grid = css`
     justify-content: space-between;
 
     ${breakpoints.desktop} {
-      padding-left: 2rem;
+      padding-left: 1rem;
+    }
+
+    &.row {
+      padding-left: 0;
+      align-items: center;
+      flex-direction: row;
     }
   }
 `;
@@ -143,7 +149,15 @@ export const descriptionText = css`
 `;
 
 export const depositButton = css`
-  width: max-content;
+  width: 100%;
+  ${breakpoints.desktop} {
+    width: max-content;
+  }
+
+  &:disabled {
+    color: #767676;
+    background: #ebebeb;
+  }
 `;
 
 export const cardTitle = css`
@@ -159,4 +173,14 @@ export const headerTitle = css`
   display: flex;
   align-items: center;
   gap: 0.8rem;
+`;
+
+export const maxButton = css`
+  background: var(--surface-01);
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.06rem;
+  border-radius: 0.4rem;
 `;
