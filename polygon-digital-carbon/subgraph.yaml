@@ -505,32 +505,32 @@ dataSources:
       eventHandlers:
         - event: C3Retired(indexed address,indexed address,string,string,indexed address,address,uint256)
           handler: handleC3Retired
-  - kind: ethereum/contract
-    name: RetireCCO2Carbon
-    network: matic
-    source:
-    # will be diamond facet
-      address: '0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2'
-      abi: RetireCCO2Carbon
-      startBlock: 34084189
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.7
-      language: wasm/assemblyscript
-      file: ./src/KlimaAggregator.ts
-      entities:
-        - KlimaRetire
-      abis:
-        - name: CCO2Token
-          file: ../lib/abis/CCO2Token.json
-        - name: KlimaCarbonRetirements
-          file: ../lib/abis/KlimaCarbonRetirements.json
-        - name: ERC20
-          file: ../lib/abis/ERC20.json
-      eventHandlers:
-      # will be event from diamond facet
-        - event: burnedCO2Token(uint256)
-          handler: handleCCO2Retired        
+  # - kind: ethereum/contract
+  #   name: RetireCCO2Carbon
+  #   network: matic
+  #   source:
+  #   # will be diamond facet
+  #     address: '0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2'
+  #     abi: RetireCCO2Carbon
+  #     startBlock: 34084189
+  #   mapping:
+  #     kind: ethereum/events
+  #     apiVersion: 0.0.7
+  #     language: wasm/assemblyscript
+  #     file: ./src/KlimaAggregator.ts
+  #     entities:
+  #       - KlimaRetire
+  #     abis:
+  #       - name: CCO2Token
+  #         file: ../lib/abis/CCO2Token.json
+  #       - name: KlimaCarbonRetirements
+  #         file: ../lib/abis/KlimaCarbonRetirements.json
+  #       - name: ERC20
+  #         file: ../lib/abis/ERC20.json
+  #     eventHandlers:
+  #     # will be event from diamond facet
+  #       - event: burnedCO2Token(uint256)
+  #         handler: handleCCO2Retired        
   - kind: ethereum/contract
     name: KlimaInfinity
     network: matic
