@@ -1,7 +1,8 @@
 import { Anchor, Text } from "@klimadao/lib/components";
-import { goldStandard, subgraphs, verra } from "@klimadao/lib/constants";
+import { goldStandard, verra } from "@klimadao/lib/constants";
 import { Trans, t } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { subgraphs } from "lib/constants";
 import { useEffect, useState } from "react";
 import * as styles from "./styles";
 

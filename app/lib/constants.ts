@@ -64,3 +64,22 @@ export const DEFAULT_NETWORK = config.networks[ENVIRONMENT] as
 
 /** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
 export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
+
+/** Subgraph Ids */
+const GRAPH_API_KEY =
+  process.env.GRAPH_API_KEY ?? process.env.NEXT_PUBLIC_GRAPH_API_KEY;
+
+const BRIDGED_CARBON_ID = "9skh5pMQGRdyJcBe8PjWdDjLoYqoYTMLRDpFh6acSHUu";
+const SUBGRAPH_BASE_URL =
+  "https://gateway-arbitrum.network.thegraph.com/api/" +
+  GRAPH_API_KEY +
+  "/subgraphs/id/";
+
+const SUBGRAPH_DEV_URL = "https://api.studio.thegraph.com/query/78559";
+const SUBGRAPH_VERSION_SUFFIX = "version/latest";
+
+export const subgraphs = {
+  polygonBridgedCarbon: IS_PRODUCTION
+    ? `${SUBGRAPH_BASE_URL}${BRIDGED_CARBON_ID}`
+    : `${SUBGRAPH_DEV_URL}/polygon-bridged-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
+};
