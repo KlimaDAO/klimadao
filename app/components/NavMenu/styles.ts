@@ -111,7 +111,15 @@ export const container = css`
   }
 `;
 
-export const bridgeButton = css`
+export const baseButtons = css`
+  gap: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2.4rem;
+`;
+
+export const baseButton = css`
   padding: 0 1.2rem;
   color: white !important;
   background-color: #0052ff; // base brand color

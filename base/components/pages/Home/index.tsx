@@ -210,9 +210,9 @@ export const Home = () => {
           <Anchor href="https://forum.klimadao.finance/d/321-kip-62-build-on-base">
             building on Base
           </Anchor>
-          . This proof-of-concept cross-chain retirement application gives Base
-          users access to the 17 million tokenized carbon credits already on
-          Polygon.
+          . This <span className="emphasized">proof-of-concept</span>{" "}
+          cross-chain retirement application gives Base users access to the 17
+          million tokenized carbon credits already on Polygon.
         </Text>
         <Text t="body8">
           Stay tuned as we continue to deploy more advanced Base integrations

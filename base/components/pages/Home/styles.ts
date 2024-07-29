@@ -74,6 +74,10 @@ export const textHeading = css`
     bottom: -0.4rem;
     width: auto;
   }
+  .emphasized {
+    color: var(--klima-green);
+    font-weight: 600;
+  }
 `;
 
 export const header = css`
