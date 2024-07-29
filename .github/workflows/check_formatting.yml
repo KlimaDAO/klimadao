@@ -26,13 +26,10 @@ jobs:
           cut -d ':' -f 2 | tr -d '"' | tr -d ' ' | tr -d ,)" >> $GITHUB_OUTPUT
 
       - name: Install Prettier
-        run: npm install -g prettier@${{ steps.prettier-version.outputs.version }}
+        run: npm install --ignore-scripts prettier@${{ steps.prettier-version.outputs.version }}
 
       - name: Install Prettier plugins
-        run: npm install -g --prefix=$(pwd) prettier-plugin-organize-imports@${{ steps.prettier-org-import-version.outputs.version }}
-
-      - name: Move Prettier plugins
-        run: mv lib/node_modules .
+        run: npm install --ignore-scripts --prefix=$(pwd) prettier-plugin-organize-imports@${{ steps.prettier-org-import-version.outputs.version }}
 
       - name: Get base branch
         id: base-branch
