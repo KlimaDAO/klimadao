@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-30 15:36+0000\n"
+"POT-Creation-Date: 2024-07-30 16:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr "मंज़ूरी दें"
 msgid "Balances"
 msgstr "बैलेंस"
 
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:218
 msgid "Bridge to Base"
 msgstr ""
 
@@ -150,6 +150,10 @@ msgstr "$KLIMA टोकन सहित क्रिप्टोकरेंस
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
 msgstr "नियामक कार्रवाइयां और परिवर्तन: क्रिप्टोकरेंसी के लिए नियामक वातावरण विकसित हो रहा है और विनियमन में बदलाव आपके निवेश पर प्रतिकूल प्रभाव डाल सकता है।"
+
+#: components/NavMenu/index.tsx:225
+msgid "Retire on Base"
+msgstr ""
 
 #: components/DisclaimerModal/index.tsx:29
 msgid "Risk Disclaimer"
