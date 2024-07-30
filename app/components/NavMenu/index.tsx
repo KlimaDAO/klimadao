@@ -219,7 +219,7 @@ export const NavMenu: FC<Props> = (props) => {
           />
           <ButtonPrimary
             target="_blank"
-            href="https://base-poc.vercel.app"
+            href="https://base.klimadao.finance"
             className={styles.baseButton}
             icon={<BaseLogo className={styles.baseIcon} />}
             label={<Trans>Retire on Base</Trans>}
