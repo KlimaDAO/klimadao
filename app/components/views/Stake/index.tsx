@@ -1,15 +1,28 @@
+import {
+  ButtonPrimary,
+  Spinner,
+  Text,
+  TextInfoTooltip,
+} from "@klimadao/lib/components";
+import { addresses } from "@klimadao/lib/constants";
+import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
+import { Trans, defineMessage, t } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
-import { providers } from "ethers";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
-
 import { changeStakeTransaction } from "actions/stake";
 import { changeApprovalTransaction } from "actions/utils";
-import { useAppDispatch } from "state";
-
+import { BalancesCard } from "components/BalancesCard";
+import { DisclaimerModal } from "components/DisclaimerModal";
+import { ImageCard } from "components/ImageCard";
+import { RebaseCard } from "components/RebaseCard";
+import { TransactionModal } from "components/TransactionModal";
+import { providers } from "ethers";
+import { tokenInfo } from "lib/getTokenInfo";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "state";
+import { AppNotificationStatus, TxnStatus, setAppState } from "state/app";
 import {
   selectAllowancesWithParams,
   selectAppState,
@@ -23,23 +36,6 @@ import {
   incrementStake,
   setAllowance,
 } from "state/user";
-
-import {
-  ButtonPrimary,
-  Spinner,
-  Text,
-  TextInfoTooltip,
-} from "@klimadao/lib/components";
-import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
-import { defineMessage, t, Trans } from "@lingui/macro";
-import { BalancesCard } from "components/BalancesCard";
-import { ImageCard } from "components/ImageCard";
-import { RebaseCard } from "components/RebaseCard";
-import { TransactionModal } from "components/TransactionModal";
-
-import { addresses } from "@klimadao/lib/constants";
-import { DisclamerModal } from "components/DisclaimerModal";
-import { tokenInfo } from "lib/getTokenInfo";
 import * as styles from "./styles";
 
 interface Props {
@@ -285,7 +281,7 @@ export const Stake = (props: Props) => {
 
   return (
     <>
-      <DisclamerModal />
+      <DisclaimerModal />
       <BalancesCard
         assets={["klima", "sklima"]}
         tooltip={

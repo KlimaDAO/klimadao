@@ -31,6 +31,7 @@ import { Route, useLocation } from "react-router-dom";
 import { useAppDispatch } from "state";
 import { setAppState } from "state/app";
 import { selectAppState } from "state/selectors";
+import { Deposit } from "../Deposit";
 import * as styles from "./styles";
 
 export const Home: FC = () => {
@@ -234,6 +235,18 @@ export const Home: FC = () => {
             <Route
               path="/offset"
               element={<Offset isConnected={isConnected} />}
+            />
+            <Route
+              path="/deposit"
+              element={
+                <Deposit
+                  isConnected={isConnected}
+                  address={address}
+                  provider={provider}
+                  onRPCError={handleRPCError}
+                  toggleModal={toggleModal}
+                />
+              }
             />
             <Route
               path="/redeem"

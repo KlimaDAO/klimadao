@@ -18,7 +18,7 @@ import {
 } from "actions/redeem";
 import { changeApprovalTransaction } from "actions/utils";
 import { CarbonBalancesCard } from "components/CarbonBalancesCard";
-import { DisclamerModal } from "components/DisclaimerModal";
+import { DisclaimerModal } from "components/DisclaimerModal";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { TransactionModal } from "components/TransactionModal";
@@ -365,7 +365,7 @@ export const Redeem = (props: Props) => {
 
   return (
     <>
-      <DisclamerModal />
+      <DisclaimerModal />
       <div className={styles.columnRight}>
         <CarbonBalancesCard isConnected={props.isConnected} />
       </div>

@@ -85,4 +85,7 @@ export const subgraphs = {
   polygonBridgedCarbon: IS_PRODUCTION
     ? `${SUBGRAPH_BASE_URL}${BRIDGED_CARBON_ID}`
     : `${SUBGRAPH_DEV_URL}/polygon-bridged-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
+  polygonDigitalCarbon: IS_PRODUCTION
+    ? `${SUBGRAPH_BASE_URL}${BRIDGED_CARBON_ID}`
+    : `${SUBGRAPH_DEV_URL}/polygon-digital-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
 };

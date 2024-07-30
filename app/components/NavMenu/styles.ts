@@ -3,6 +3,17 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as common from "@klimadao/lib/theme/common";
 import * as typography from "@klimadao/lib/theme/typography";
 
+export const copyValueButton = css`
+  min-height: auto;
+  font-size: 1.6rem !important;
+
+  & svg {
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+    font-size: 1.6rem !important;
+  }
+`;
+
 export const container = css`
   position: relative;
   padding: 3.2rem;
@@ -24,7 +35,7 @@ export const container = css`
 
   .stack-04 {
     display: grid;
-    gap: 0.4rem;
+    gap: 0.8rem;
   }
 
   .stack-12 {
@@ -135,9 +146,10 @@ export const sidebarButton = css`
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  padding: 0.1rem;
+  padding: 0.6rem;
   border-radius: 0.8rem;
   width: 100%;
+  border: 1px solid transparent;
 
   span {
     color: var(--font-03);

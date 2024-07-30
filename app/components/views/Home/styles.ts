@@ -12,9 +12,9 @@ export const container = css`
   min-height: 100vh;
   grid-template-rows: 1fr;
   .MuiSvgIcon-root {
-    font-size: 2.4rem;
-    width: 2.4rem;
-    height: 2.4rem;
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
   }
   &[data-scroll-lock="true"] {
     overflow-y: hidden;
