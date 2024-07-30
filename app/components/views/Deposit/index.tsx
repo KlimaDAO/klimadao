@@ -54,7 +54,7 @@ export const Deposit = (props: Props) => {
 
   const formattedTokenBalance = selectedToken
     ? formatEther(selectedToken?.amount?.toString())
-    : 0;
+    : "0.0";
 
   const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);
   const hasAllowance = !!Number(allowance.value);
@@ -65,11 +65,11 @@ export const Deposit = (props: Props) => {
 
   useEffect(() => {
     if (!address) return;
-    (async () => await getTokensHoldings())();
+    getTokensHoldings();
   }, [address]);
 
   useEffect(() => {
-    (async () => await getTokenAllowance())();
+    getTokenAllowance();
   }, [selectedToken]);
 
   const closeTransactionModal = () => {
