@@ -16,7 +16,7 @@ import { CarbonTokenModal } from "components/CarbonTokenModal";
 import { DisclaimerModal } from "components/DisclaimerModal";
 import { TransactionModal } from "components/TransactionModal";
 import { providers } from "ethers";
-import { formatEther } from "ethers-v6";
+import { formatUnits } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import { CarbonToken, queryUserCarbonTokens } from "lib/queryUserCarbonTokens";
 import Image from "next/image";
@@ -53,7 +53,10 @@ export const Deposit = (props: Props) => {
   };
 
   const formattedTokenBalance = selectedToken
-    ? formatEther(selectedToken?.amount?.toString())
+    ? formatUnits(
+        selectedToken?.amount?.toString(),
+        selectedToken.token.decimals
+      )
     : "0.0";
 
   const insufficientTokens = Number(formattedTokenBalance) < Number(quantity);

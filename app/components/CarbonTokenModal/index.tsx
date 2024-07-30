@@ -2,7 +2,7 @@ import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
 import { Trans, t } from "@lingui/macro";
 import { Modal } from "components/Modal";
-import { formatEther } from "ethers-v6";
+import { formatUnits } from "ethers-v6";
 import { CarbonToken } from "lib/queryUserCarbonTokens";
 import * as styles from "./styles";
 
@@ -35,7 +35,10 @@ export const CarbonTokenModal: React.FC<Props> = (props) => {
                 <Trans>{holding.token.symbol}</Trans>
               </Text>
               <Text className={styles.tonnesText}>
-                <Trans>{formatEther(holding.amount)} tonnes available</Trans>
+                <Trans>
+                  {formatUnits(holding.amount, holding.token.decimals)} tonnes
+                  available
+                </Trans>
               </Text>
             </div>
             {!holding.token.symbol.startsWith("TCO2") && (
