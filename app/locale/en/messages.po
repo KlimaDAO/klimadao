@@ -103,7 +103,7 @@ msgid "shared.404"
 msgstr "404 - Page Not Found"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:375
+#: components/views/Stake/index.tsx:371
 msgid "stake.5_day_rewards"
 msgstr "5 Day Rewards"
 
@@ -123,7 +123,7 @@ msgid "redeem.description"
 msgstr "Acquire tokens for a specific carbon offset project. The project tokens will be redeemed from a carbon pool and transferred to your wallet, so you can trade or retire them later."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:391
+#: components/views/Stake/index.tsx:387
 msgid "stake.akr"
 msgstr "AKR"
 
@@ -145,13 +145,13 @@ msgid "bond.redeemable.tooltip"
 msgstr "Amount of KLIMA that has already vested and can be redeemed"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:364
+#: components/views/Wrap/index.tsx:361
 msgid "wrap.index.tooltip"
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:408
+#: components/views/Stake/index.tsx:404
 msgid "stake.index.tooltip"
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
 
@@ -166,12 +166,12 @@ msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr "Amount to redeem"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:53
+#: components/views/Stake/index.tsx:49
 msgid "stake.inputplaceholder.stake"
 msgstr "Amount to stake"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:57
+#: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.unstake"
 msgstr "Amount to unstake"
 
@@ -182,7 +182,7 @@ msgstr "Amount you will get, at the provided input quantity"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:394
+#: components/views/Stake/index.tsx:390
 msgid "stake.akr.tooltip"
 msgstr "Annualized KLIMA Rewards, including compounding, should the current reward rate remain unchanged for 12 months (reward rate may be subject to change)."
 
@@ -190,8 +190,8 @@ msgstr "Annualized KLIMA Rewards, including compounding, should the current rewa
 #: components/views/Bond/index.tsx:454
 #: components/views/Deposit/index.tsx:113
 #: components/views/Redeem/index.tsx:287
-#: components/views/Stake/index.tsx:250
-#: components/views/Wrap/index.tsx:230
+#: components/views/Stake/index.tsx:246
+#: components/views/Wrap/index.tsx:227
 msgid "Approve"
 msgstr "Approve"
 
@@ -202,7 +202,7 @@ msgstr "Approx. next rebase"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:378
+#: components/views/Stake/index.tsx:374
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Approximate rewards, including compounding, should you remain staked for 5 days."
 
@@ -252,7 +252,7 @@ msgid "bond.balance"
 msgstr "Balance"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:374
+#: components/views/Wrap/index.tsx:371
 msgid "wrap.balance"
 msgstr "Balance"
 
@@ -409,7 +409,7 @@ msgstr "CONFIRMATION"
 #: components/views/Bond/index.tsx:432
 #: components/views/Deposit/index.tsx:98
 #: components/views/PKlima/index.tsx:165
-#: components/views/Wrap/index.tsx:220
+#: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "Confirming"
 
@@ -525,16 +525,16 @@ msgid "offset.enter_address"
 msgstr "Enter 0x address"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:257
-#: components/views/Stake/index.tsx:266
+#: components/views/Stake/index.tsx:253
+#: components/views/Stake/index.tsx:262
 msgid "shared.enter_amount"
 msgstr "Enter Amount"
 
 #: components/views/Deposit/index.tsx:103
 #: components/views/Redeem/index.tsx:261
 #: components/views/Redeem/index.tsx:433
-#: components/views/Stake/index.tsx:240
-#: components/views/Wrap/index.tsx:212
+#: components/views/Stake/index.tsx:236
+#: components/views/Wrap/index.tsx:209
 msgid "Enter quantity"
 msgstr "Enter quantity"
 
@@ -551,8 +551,8 @@ msgstr "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIM
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:274
-#: components/views/Wrap/index.tsx:247
+#: components/views/Stake/index.tsx:270
+#: components/views/Wrap/index.tsx:244
 msgid "shared.error"
 msgstr "ERROR"
 
@@ -631,12 +631,12 @@ msgid "bond.vesting_term_end.tooltip"
 msgstr "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:405
+#: components/views/Stake/index.tsx:401
 msgid "stake.index"
 msgstr "Index"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:361
+#: components/views/Wrap/index.tsx:358
 msgid "wrap.index"
 msgstr "Index"
 
@@ -662,8 +662,8 @@ msgstr "INPUT TOKEN INCOMPATIBLE"
 
 #: components/views/Deposit/index.tsx:108
 #: components/views/Redeem/index.tsx:282
-#: components/views/Stake/index.tsx:245
-#: components/views/Wrap/index.tsx:225
+#: components/views/Stake/index.tsx:241
+#: components/views/Wrap/index.tsx:222
 msgid "Insufficient balance"
 msgstr "Insufficient balance"
 
@@ -724,15 +724,15 @@ msgstr "Loading project info..."
 #: components/views/Loading/index.tsx:11
 #: components/views/Redeem/index.tsx:256
 #: components/views/Redeem/index.tsx:340
-#: components/views/Stake/index.tsx:421
-#: components/views/Stake/index.tsx:428
-#: components/views/Stake/index.tsx:435
-#: components/views/Wrap/index.tsx:207
+#: components/views/Stake/index.tsx:417
+#: components/views/Stake/index.tsx:424
+#: components/views/Stake/index.tsx:431
+#: components/views/Wrap/index.tsx:204
 msgid "Loading..."
 msgstr "Loading..."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:235
+#: components/views/Stake/index.tsx:231
 msgid "shared.connect_wallet"
 msgstr "Loading..."
 
@@ -747,8 +747,8 @@ msgstr "Login"
 #: components/views/Home/index.tsx:155
 #: components/views/PKlima/index.tsx:149
 #: components/views/Redeem/index.tsx:248
-#: components/views/Stake/index.tsx:227
-#: components/views/Wrap/index.tsx:199
+#: components/views/Stake/index.tsx:223
+#: components/views/Wrap/index.tsx:196
 msgid "shared.login_connect"
 msgstr "Login / Connect"
 
@@ -771,8 +771,8 @@ msgstr "Market price"
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:362
-#: components/views/Wrap/index.tsx:346
+#: components/views/Stake/index.tsx:358
+#: components/views/Wrap/index.tsx:343
 msgid "shared.max"
 msgstr "Max"
 
@@ -1061,7 +1061,7 @@ msgid "Select Token"
 msgstr "Select Token"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:51
+#: components/views/Wrap/index.tsx:48
 msgid "wrap.sklima_to_wrap"
 msgstr "sKLIMA to wrap"
 
@@ -1088,7 +1088,7 @@ msgstr "SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:291
+#: components/views/Wrap/index.tsx:288
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Some find this useful for accounting purposes, but the rewards are exactly the same. Wrap and unwrap values are calculated based on the current index."
 
@@ -1098,7 +1098,7 @@ msgid "error.404.page.text"
 msgstr "Sorry, looks like we sent you the wrong way. <0/>Please select a destination from the menu."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:325
+#: components/views/Stake/index.tsx:321
 msgid "stake.stake"
 msgstr "Stake"
 
@@ -1108,9 +1108,9 @@ msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:256
-#: components/views/Stake/index.tsx:304
-#: components/views/Stake/index.tsx:461
+#: components/views/Stake/index.tsx:252
+#: components/views/Stake/index.tsx:300
+#: components/views/Stake/index.tsx:457
 msgid "stake.stake_klima"
 msgstr "Stake KLIMA"
 
@@ -1118,12 +1118,12 @@ msgstr "Stake KLIMA"
 #. Long sentence
 #. js-lingui-explicit-id
 #: components/views/Buy/index.tsx:78
-#: components/views/Stake/index.tsx:292
+#: components/views/Stake/index.tsx:288
 msgid "stake.balancescard.tooltip"
 msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:307
+#: components/views/Stake/index.tsx:303
 msgid "stake.stake_hold_earn"
 msgstr "Stake, hold, and earn compounding sKLIMA."
 
@@ -1253,18 +1253,18 @@ msgid "bond.unredeemed"
 msgstr "Unredeemed"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:337
+#: components/views/Stake/index.tsx:333
 msgid "stake.unstake"
 msgstr "Unstake"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:265
-#: components/views/Stake/index.tsx:463
+#: components/views/Stake/index.tsx:261
+#: components/views/Stake/index.tsx:459
 msgid "stake.unstake_klima"
 msgstr "Unstake KLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:324
+#: components/views/Wrap/index.tsx:321
 msgid "wrap.unwrap"
 msgstr "Unwrap"
 
@@ -1315,7 +1315,7 @@ msgid "info.app_not_loading.title"
 msgstr "Why won't the app load for me?"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:313
+#: components/views/Wrap/index.tsx:310
 msgid "wrap.wrap"
 msgstr "Wrap"
 
@@ -1325,18 +1325,18 @@ msgid "menu.wrap_klima"
 msgstr "Wrap sKLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:279
+#: components/views/Wrap/index.tsx:276
 msgid "wrap.wrap_sklima"
 msgstr "Wrap sKLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:269
+#: components/views/Wrap/index.tsx:266
 msgid "wrap.balances_tooltip"
 msgstr "Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:282
+#: components/views/Wrap/index.tsx:279
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
 
@@ -1345,7 +1345,7 @@ msgid "Wrong Network"
 msgstr "Wrong Network"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:55
+#: components/views/Wrap/index.tsx:52
 msgid "wrap.wsklima_to_unwrap"
 msgstr "wsKLIMA to unwrap"
 
@@ -1374,7 +1374,7 @@ msgid "bond.you_will_get"
 msgstr "You will get"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:377
+#: components/views/Wrap/index.tsx:374
 msgid "wrap.you_will_get"
 msgstr "You Will Get"
 

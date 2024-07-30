@@ -7,11 +7,18 @@ import { formatUnits, parseUnits } from "ethers-v6";
 import { CarbonToken } from "lib/queryUserCarbonTokens";
 import { OnStatusHandler } from "./utils";
 
-export const getAllowance = async (params: {
+interface DepositParams {
   provider: providers.JsonRpcProvider;
   selectedToken: Pick<CarbonToken, "amount" | "token">;
+  quantity: string;
+  onStatus: OnStatusHandler;
+}
+
+type AllowanceParams = Pick<DepositParams, "provider" | "selectedToken"> & {
   address: string;
-}) => {
+};
+
+export const getAllowance = async (params: AllowanceParams) => {
   try {
     const contract = new Contract(
       params.selectedToken.token.id,
@@ -20,7 +27,7 @@ export const getAllowance = async (params: {
     );
     const value: BigNumber = await contract.allowance(
       params.address,
-      addresses["mainnet"]["bct"]
+      addresses["mainnet"].bct
     );
     return formatUnitsFn(value);
   } catch (e) {
@@ -29,12 +36,9 @@ export const getAllowance = async (params: {
   }
 };
 
-export const approveDepositToken = async (params: {
-  provider: providers.JsonRpcProvider;
-  selectedToken: Pick<CarbonToken, "amount" | "token">;
-  quantity: string;
-  onStatus: OnStatusHandler;
-}): Promise<string> => {
+export const approveDepositToken = async (
+  params: DepositParams
+): Promise<string> => {
   try {
     const contract = new Contract(
       params.selectedToken.token.id,
@@ -63,15 +67,10 @@ export const approveDepositToken = async (params: {
   }
 };
 
-export const depositTokens = async (params: {
-  provider: providers.JsonRpcProvider;
-  selectedToken: Pick<CarbonToken, "amount" | "token">;
-  quantity: string;
-  onStatus: OnStatusHandler;
-}): Promise<string> => {
+export const depositTokens = async (params: DepositParams): Promise<string> => {
   try {
     const contract = new Contract(
-      addresses["mainnet"]["bct"],
+      addresses["mainnet"].bct,
       ToucanPoolToken.abi,
       params.provider.getSigner()
     );

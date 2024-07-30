@@ -1,28 +1,34 @@
-import FlipOutlined from "@mui/icons-material/FlipOutlined";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { providers } from "ethers";
-import { FC, useState } from "react";
-import { useSelector } from "react-redux";
-
-import { changeApprovalTransaction } from "actions/utils";
-import { wrapTransaction } from "actions/wrap";
-import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
-import { selectLocale, selectNotificationStatus } from "state/selectors";
-
 import {
   ButtonPrimary,
   Spinner,
   Text,
   TextInfoTooltip,
 } from "@klimadao/lib/components";
+import { addresses } from "@klimadao/lib/constants";
 import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
+import { Trans, defineMessage, t } from "@lingui/macro";
+import FlipOutlined from "@mui/icons-material/FlipOutlined";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { changeApprovalTransaction } from "actions/utils";
+import { wrapTransaction } from "actions/wrap";
 import { BalancesCard } from "components/BalancesCard";
+import { DisclaimerModal } from "components/DisclaimerModal";
 import { ImageCard } from "components/ImageCard";
 import { TransactionModal } from "components/TransactionModal";
+import * as styles from "components/views/Stake/styles";
+import { providers } from "ethers";
+import { tokenInfo } from "lib/getTokenInfo";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
+import { FC, useState } from "react";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "state";
+import { AppNotificationStatus, TxnStatus, setAppState } from "state/app";
 import {
   selectAllowancesWithParams,
   selectAppState,
   selectBalances,
+  selectLocale,
+  selectNotificationStatus,
 } from "state/selectors";
 import {
   decrementAllowance,
@@ -30,15 +36,6 @@ import {
   incrementWrap,
   setAllowance,
 } from "state/user";
-
-import { useTypedSelector } from "lib/hooks/useTypedSelector";
-import { useAppDispatch } from "state";
-
-import { addresses } from "@klimadao/lib/constants";
-import { defineMessage, t, Trans } from "@lingui/macro";
-import { DisclamerModal } from "components/DisclaimerModal";
-import * as styles from "components/views/Stake/styles";
-import { tokenInfo } from "lib/getTokenInfo";
 
 interface Props {
   provider?: providers.Web3Provider;
@@ -262,7 +259,7 @@ export const Wrap: FC<Props> = (props) => {
 
   return (
     <>
-      <DisclamerModal />
+      <DisclaimerModal />
       <BalancesCard
         assets={["sklima", "wsklima", "wsklimaUnwrapped"]}
         tooltip={

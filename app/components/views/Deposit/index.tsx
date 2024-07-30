@@ -13,7 +13,7 @@ import {
 } from "actions/deposit";
 import { BalancesCard } from "components/BalancesCard";
 import { CarbonTokenModal } from "components/CarbonTokenModal";
-import { DisclamerModal } from "components/DisclaimerModal";
+import { DisclaimerModal } from "components/DisclaimerModal";
 import { TransactionModal } from "components/TransactionModal";
 import { providers } from "ethers";
 import { formatEther } from "ethers-v6";
@@ -181,7 +181,7 @@ export const Deposit = (props: Props) => {
 
   return (
     <>
-      <DisclamerModal />
+      <DisclaimerModal />
       <BalancesCard assets={["klima", "sklima", "wsklima", "bct"]} tooltip="" />
       <div className={styles.card}>
         <div className={styles.stakeCardRow}>
@@ -301,7 +301,7 @@ export const Deposit = (props: Props) => {
         <CarbonTokenModal
           holdings={holdings}
           onHide={() => setShowModal(false)}
-          onSelect={(token: CarbonToken) => setSelectedToken(token)}
+          onSelect={setSelectedToken}
         />
       )}
       {showTransactionModal && (

@@ -6,7 +6,7 @@ import { isNil } from "lodash";
 import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
 
-export const DisclamerModal: FC = () => {
+export const DisclaimerModal: FC = () => {
   const [showModal, setShowModal] = useState(false);
   useScrollLock(showModal);
 

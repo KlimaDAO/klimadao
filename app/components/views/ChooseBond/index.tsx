@@ -14,7 +14,7 @@ import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { calcBondDetails, getIsInverse } from "actions/bonds";
-import { DisclamerModal } from "components/DisclaimerModal";
+import { DisclaimerModal } from "components/DisclaimerModal";
 import { Image } from "components/Image";
 import { ImageCard } from "components/ImageCard";
 import { useEffect } from "react";
@@ -201,7 +201,7 @@ export function ChooseBond() {
 
   return (
     <>
-      <DisclamerModal />
+      <DisclaimerModal />
       <div className={styles.chooseBondCard}>
         <div className={styles.chooseBondCard_header}>
           <Text t="h4" className={styles.chooseBondCard_header_title}>

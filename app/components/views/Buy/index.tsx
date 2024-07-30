@@ -7,7 +7,7 @@ import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import LoginIcon from "@mui/icons-material/Login";
 import { BalancesCard } from "components/BalancesCard";
-import { DisclamerModal } from "components/DisclaimerModal";
+import { DisclaimerModal } from "components/DisclaimerModal";
 import { ImageCard } from "components/ImageCard";
 import * as styles from "../styles";
 
@@ -21,7 +21,7 @@ export const Buy = (props: Props) => {
   const { toggleModal } = useWeb3();
   return (
     <>
-      <DisclamerModal />
+      <DisclaimerModal />
       <div className={styles.ctaCard}>
         <div className={styles.ctaCard_header}>
           {props.isConnected && props.address ? (
