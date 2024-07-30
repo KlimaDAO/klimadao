@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-25 15:36+0000\n"
+"POT-Creation-Date: 2024-07-30 16:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/CarbonTokenModal/index.tsx:43
+#: components/CarbonTokenModal/index.tsx:35
 #: components/views/Deposit/index.tsx:227
 msgid "{0}"
 msgstr ""
@@ -23,7 +23,7 @@ msgstr ""
 msgid "offset.selectiveRetirement.filter.options_selected"
 msgstr ""
 
-#: components/CarbonTokenModal/index.tsx:46
+#: components/CarbonTokenModal/index.tsx:38
 msgid "{0} tonnes available"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
-msgstr ""
+msgstr "<<<<<<< HEAD"
 
 #. Long sentence
 #. js-lingui-explicit-id
@@ -317,7 +317,7 @@ msgstr ""
 msgid "bond.bond_price"
 msgstr ""
 
-#: components/NavMenu/index.tsx:227
+#: components/NavMenu/index.tsx:228
 msgid "Bridge to Base"
 msgstr ""
 
@@ -768,16 +768,16 @@ msgstr ""
 msgid "bond.market_price"
 msgstr ""
 
-#: components/views/Deposit/index.tsx:262
-msgid "Max"
-msgstr ""
-
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
 #: components/views/Stake/index.tsx:362
 #: components/views/Wrap/index.tsx:346
 msgid "shared.max"
+msgstr ""
+
+#: components/views/Deposit/index.tsx:262
+msgid "Max"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -826,7 +826,7 @@ msgstr ""
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
 msgstr ""
 
-#: components/CarbonTokenModal/index.tsx:51
+#: components/CarbonTokenModal/index.tsx:43
 msgid "Not compatible with BCT"
 msgstr ""
 
@@ -1014,6 +1014,10 @@ msgstr ""
 msgid "connect_modal.error_processing"
 msgstr ""
 
+#: components/NavMenu/index.tsx:235
+msgid "Retire on Base"
+msgstr ""
+
 #. js-lingui-explicit-id
 #: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific"
@@ -1052,7 +1056,7 @@ msgstr ""
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
 msgstr ""
 
-#: components/CarbonTokenModal/index.tsx:30
+#: components/CarbonTokenModal/index.tsx:22
 msgid "Select Token"
 msgstr "<<<<<<< HEAD"
 

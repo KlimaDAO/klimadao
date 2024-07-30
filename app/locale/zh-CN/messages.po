@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-25 15:36+0000\n"
+"POT-Creation-Date: 2024-07-30 16:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr "批准"
 msgid "Balances"
 msgstr "余额"
 
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:218
 msgid "Bridge to Base"
 msgstr "桥链接到Base"
 
@@ -150,6 +150,10 @@ msgstr "购买加密货币，包括$KLIMA代币，涉及高度风险，应被视
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
 msgstr "监管行动和变化：加密货币的监管环境在不断发展，监管政策的变化可能对您的投资产生不利影响。"
+
+#: components/NavMenu/index.tsx:225
+msgid "Retire on Base"
+msgstr ""
 
 #: components/DisclaimerModal/index.tsx:29
 msgid "Risk Disclaimer"

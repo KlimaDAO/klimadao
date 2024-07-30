@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/CarbonTokenModal/index.tsx:43
+#: components/CarbonTokenModal/index.tsx:35
 #: components/views/Deposit/index.tsx:227
 msgid "{0}"
 msgstr "{0}"
@@ -23,7 +23,7 @@ msgstr "{0}"
 msgid "offset.selectiveRetirement.filter.options_selected"
 msgstr "{0} selected"
 
-#: components/CarbonTokenModal/index.tsx:46
+#: components/CarbonTokenModal/index.tsx:38
 msgid "{0} tonnes available"
 msgstr "{0} tonnes available"
 
@@ -317,7 +317,7 @@ msgstr "Bond discount"
 msgid "bond.bond_price"
 msgstr "Bond price"
 
-#: components/NavMenu/index.tsx:227
+#: components/NavMenu/index.tsx:228
 msgid "Bridge to Base"
 msgstr "Bridge to Base"
 
@@ -768,16 +768,16 @@ msgstr "Make sure to stake your redeemed pKLIMA, and stay staked, until global G
 msgid "bond.market_price"
 msgstr "Market price"
 
-#: components/views/Deposit/index.tsx:262
-msgid "Max"
-msgstr "Max"
-
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
 #: components/views/Stake/index.tsx:362
 #: components/views/Wrap/index.tsx:346
 msgid "shared.max"
+msgstr "Max"
+
+#: components/views/Deposit/index.tsx:262
+msgid "Max"
 msgstr "Max"
 
 #. js-lingui-explicit-id
@@ -826,7 +826,7 @@ msgstr "No balances found."
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
 msgstr "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
 
-#: components/CarbonTokenModal/index.tsx:51
+#: components/CarbonTokenModal/index.tsx:43
 msgid "Not compatible with BCT"
 msgstr "Not compatible with BCT"
 
@@ -1014,6 +1014,10 @@ msgstr "Remaining unredeemed value (vested and un-vested)"
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
+#: components/NavMenu/index.tsx:235
+msgid "Retire on Base"
+msgstr "Retire on Base"
+
 #. js-lingui-explicit-id
 #: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific"
@@ -1052,7 +1056,7 @@ msgstr "Select project"
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
 msgstr "Select the TCO2 Token and the amount you want to deposit to the pool."
 
-#: components/CarbonTokenModal/index.tsx:30
+#: components/CarbonTokenModal/index.tsx:22
 msgid "Select Token"
 msgstr "Select Token"
 

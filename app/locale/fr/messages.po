@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-25 15:36+0000\n"
+"POT-Creation-Date: 2024-07-30 16:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr "Approuver"
 msgid "Balances"
 msgstr "Soldes"
 
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:218
 msgid "Bridge to Base"
 msgstr ""
 
@@ -150,6 +150,10 @@ msgstr "L'achat de crypto-monnaies, y compris le jeton $KLIMA, implique un degr�
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
 msgstr "Actions et Évolutions Réglementaires : L'environnement réglementaire des crypto-monnaies évolue et les changements de réglementation pourraient avoir un impact négatif sur votre investissement."
+
+#: components/NavMenu/index.tsx:225
+msgid "Retire on Base"
+msgstr ""
 
 #: components/DisclaimerModal/index.tsx:29
 msgid "Risk Disclaimer"
