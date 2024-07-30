@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-07-30 16:25+0000\n"
+"POT-Creation-Date: 2024-07-30 19:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,17 +13,30 @@ msgstr "确认并接受"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
+#: components/views/Deposit/index.tsx:116
 #: components/views/Redeem/index.tsx:287
-#: components/views/Stake/index.tsx:250
-#: components/views/Wrap/index.tsx:230
+#: components/views/Stake/index.tsx:246
+#: components/views/Wrap/index.tsx:227
 msgid "Approve"
 msgstr "批准"
+
+#: components/views/Deposit/index.tsx:237
+msgid "Available Balance"
+msgstr ""
+
+#: components/views/Deposit/index.tsx:272
+msgid "BCT to receive"
+msgstr ""
 
 #: components/CarbonBalancesCard/index.tsx:126
 msgid "Balances"
 msgstr "余额"
 
-#: components/NavMenu/index.tsx:218
+#: components/views/Deposit/index.tsx:287
+msgid "Base Carbon Tonne"
+msgstr "基准碳吨"
+
+#: components/NavMenu/index.tsx:228
 msgid "Bridge to Base"
 msgstr "桥链接到Base"
 
@@ -31,7 +44,7 @@ msgstr "桥链接到Base"
 msgid "Buy & Redeem Carbon"
 msgstr "购买和赎回碳"
 
-#: components/NavMenu/index.tsx:187
+#: components/NavMenu/index.tsx:197
 #: components/views/Redeem/index.tsx:528
 msgid "Buy Carbon"
 msgstr "购买碳"
@@ -40,18 +53,34 @@ msgstr "购买碳"
 msgid "Capacity"
 msgstr "容量"
 
+#: components/views/Deposit/index.tsx:121
 #: components/views/Redeem/index.tsx:292
 msgid "Continue"
 msgstr "继续"
+
+#: components/NavMenu/index.tsx:189
+#: components/views/Deposit/index.tsx:193
+#: components/views/Deposit/index.tsx:315
+msgid "Deposit Carbon"
+msgstr ""
+
+#: components/views/Deposit/index.tsx:254
+msgid "Deposit TC02"
+msgstr ""
+
+#: components/views/Deposit/index.tsx:196
+msgid "Deposit TCO2 in exchange for BCT."
+msgstr ""
 
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
 msgstr "输入数量"
 
+#: components/views/Deposit/index.tsx:106
 #: components/views/Redeem/index.tsx:261
 #: components/views/Redeem/index.tsx:433
-#: components/views/Stake/index.tsx:240
-#: components/views/Wrap/index.tsx:212
+#: components/views/Stake/index.tsx:236
+#: components/views/Wrap/index.tsx:209
 msgid "Enter quantity"
 msgstr "输入数量"
 
@@ -63,9 +92,10 @@ msgstr "对于想要使用矿池代币抵消付款的用户，请使用<0>此网
 msgid "How many tonnes would you like to acquire?"
 msgstr "您想购买多少吨？"
 
+#: components/views/Deposit/index.tsx:111
 #: components/views/Redeem/index.tsx:282
-#: components/views/Stake/index.tsx:245
-#: components/views/Wrap/index.tsx:225
+#: components/views/Stake/index.tsx:241
+#: components/views/Wrap/index.tsx:222
 msgid "Insufficient balance"
 msgstr "余额不足"
 
@@ -91,20 +121,24 @@ msgstr "正在加载项目信息..."
 #: components/views/Loading/index.tsx:11
 #: components/views/Redeem/index.tsx:256
 #: components/views/Redeem/index.tsx:340
-#: components/views/Stake/index.tsx:421
-#: components/views/Stake/index.tsx:428
-#: components/views/Stake/index.tsx:435
-#: components/views/Wrap/index.tsx:207
+#: components/views/Stake/index.tsx:417
+#: components/views/Stake/index.tsx:424
+#: components/views/Stake/index.tsx:431
+#: components/views/Wrap/index.tsx:204
 msgid "Loading..."
 msgstr "正在加载..."
 
-#: components/views/Home/index.tsx:178
+#: components/views/Home/index.tsx:179
 msgid "Login"
 msgstr "登录"
 
 #: components/DisclaimerModal/index.tsx:39
 msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
 msgstr "投资损失：$KLIMA 和其他加密货币的价值可能随时快速增加或减少。因此，您可能会遭受重大且快速的损失，包括损失所有投资资金。"
+
+#: components/views/Deposit/index.tsx:265
+msgid "Max"
+msgstr "最大额度"
 
 #: components/DisclaimerModal/index.tsx:68
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
@@ -118,6 +152,10 @@ msgstr "未找到余额。"
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "Not Connected"
 msgstr "未连接"
+
+#: components/CarbonTokenModal/index.tsx:46
+msgid "Not compatible with BCT"
+msgstr ""
 
 #: components/views/Offset/index.tsx:27
 msgid "Offset"
@@ -147,11 +185,15 @@ msgstr "项目详情<0/>"
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "购买加密货币，包括$KLIMA代币，涉及高度风险，应被视为极具投机性。以下是一些重要考虑要点："
 
+#: components/views/Deposit/index.tsx:296
+msgid "Receiving BCT"
+msgstr ""
+
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
 msgstr "监管行动和变化：加密货币的监管环境在不断发展，监管政策的变化可能对您的投资产生不利影响。"
 
-#: components/NavMenu/index.tsx:225
+#: components/NavMenu/index.tsx:235
 msgid "Retire on Base"
 msgstr ""
 
@@ -159,10 +201,18 @@ msgstr ""
 msgid "Risk Disclaimer"
 msgstr "风险免责声明"
 
+#: components/CarbonTokenModal/index.tsx:22
+msgid "Select Token"
+msgstr ""
+
 #: components/views/Redeem/index.tsx:390
 #: components/views/Redeem/index.tsx:391
 msgid "Select carbon pool"
 msgstr "选择碳池"
+
+#: components/views/Deposit/index.tsx:204
+msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
+msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -179,6 +229,10 @@ msgstr "该成本包括滑点和矿池收取的任何赎回费用"
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
 msgstr "本风险警告摘要并未披露与投资 $KLIMA 相关的所有风险。在做出任何投资决定之前，您应该自行进行尽职调查并咨询财务顾问。"
+
+#: components/views/Deposit/index.tsx:201
+msgid "Token to deposit"
+msgstr ""
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:126
 msgid "Tonnes available: {formattedQuantity}"
@@ -203,6 +257,10 @@ msgstr "您的钱包需加载 USDC、KLIMA 或碳池代币。信用卡支付功�
 #: components/views/Redeem/index.tsx:477
 msgid "You receive"
 msgstr "您将收到"
+
+#: components/views/Deposit/index.tsx:275
+msgid "You'll receive BCT in exchange for your TCO2."
+msgstr ""
 
 #: components/views/Redeem/index.tsx:501
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
@@ -489,15 +547,15 @@ msgstr "国库余额"
 msgid "choose_bond.ubo.description"
 msgstr "C3 基本通用抵消"
 
-#: components/views/Home/index.tsx:169
+#: components/views/Home/index.tsx:170
 msgid "connectModal.torus"
 msgstr "社交或电子邮件"
 
-#: components/views/Home/index.tsx:173
+#: components/views/Home/index.tsx:174
 msgid "connectModal.wallet"
 msgstr "连接钱包"
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:180
 msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
@@ -513,7 +571,7 @@ msgstr "用户拒绝连接。"
 msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
-#: components/views/Home/index.tsx:183
+#: components/views/Home/index.tsx:184
 msgid "connect_modal.error_title"
 msgstr "连接错误"
 
@@ -580,31 +638,31 @@ msgstr "无法访问网络。这很可能是由您钱包中的旧 Polygon RPC �
 msgid "invalid_rpc.modal.title"
 msgstr "检查您的网络设置"
 
-#: components/NavMenu/index.tsx:195
+#: components/NavMenu/index.tsx:205
 msgid "menu.info"
 msgstr "信息"
 
-#: components/NavMenu/index.tsx:200
+#: components/NavMenu/index.tsx:210
 msgid "menu.just_for_you"
 msgstr "只为您服务"
 
-#: components/NavMenu/index.tsx:69
+#: components/NavMenu/index.tsx:71
 msgid "menu.not_connected"
 msgstr "未连接"
 
-#: components/NavMenu/index.tsx:179
+#: components/NavMenu/index.tsx:181
 msgid "menu.offset"
 msgstr "抵消"
 
-#: components/NavMenu/index.tsx:163
+#: components/NavMenu/index.tsx:165
 msgid "menu.stake_klima"
 msgstr "质押 KLIMA"
 
-#: components/NavMenu/index.tsx:51
+#: components/NavMenu/index.tsx:52
 msgid "menu.wallet_address"
 msgstr "您的钱包地址"
 
-#: components/NavMenu/index.tsx:171
+#: components/NavMenu/index.tsx:173
 msgid "menu.wrap_klima"
 msgstr "打包 sKLIMA"
 
@@ -841,24 +899,25 @@ msgid "shared.change_language"
 msgstr "变更语言"
 
 #: components/views/Bond/index.tsx:432
+#: components/views/Deposit/index.tsx:101
 #: components/views/PKlima/index.tsx:165
-#: components/views/Wrap/index.tsx:220
+#: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "确认中"
 
-#: components/views/Stake/index.tsx:235
+#: components/views/Stake/index.tsx:231
 msgid "shared.connect_wallet"
 msgstr "正在加载..."
 
-#: components/views/Stake/index.tsx:257
-#: components/views/Stake/index.tsx:266
+#: components/views/Stake/index.tsx:253
+#: components/views/Stake/index.tsx:262
 msgid "shared.enter_amount"
 msgstr "输入金额"
 
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:274
-#: components/views/Wrap/index.tsx:247
+#: components/views/Stake/index.tsx:270
+#: components/views/Wrap/index.tsx:244
 msgid "shared.error"
 msgstr "错误"
 
@@ -868,18 +927,19 @@ msgstr "项目地址无效"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:65
-#: components/views/Home/index.tsx:154
+#: components/views/Deposit/index.tsx:90
+#: components/views/Home/index.tsx:155
 #: components/views/PKlima/index.tsx:149
 #: components/views/Redeem/index.tsx:248
-#: components/views/Stake/index.tsx:227
-#: components/views/Wrap/index.tsx:199
+#: components/views/Stake/index.tsx:223
+#: components/views/Wrap/index.tsx:196
 msgid "shared.login_connect"
 msgstr "登录/连接"
 
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:362
-#: components/views/Wrap/index.tsx:346
+#: components/views/Stake/index.tsx:358
+#: components/views/Wrap/index.tsx:343
 msgid "shared.max"
 msgstr "最大额度"
 
@@ -887,28 +947,28 @@ msgstr "最大额度"
 msgid "shared.sold_out"
 msgstr "售罄"
 
-#: components/views/Stake/index.tsx:375
+#: components/views/Stake/index.tsx:371
 msgid "stake.5_day_rewards"
 msgstr "5天奖励"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:378
+#: components/views/Stake/index.tsx:374
 msgid "stake.5_day_rewards.tooltip"
 msgstr "如果连续质押5天，约可获得...奖励，包括复利。"
 
-#: components/views/Stake/index.tsx:391
+#: components/views/Stake/index.tsx:387
 msgid "stake.akr"
 msgstr "KLIMA年化奖励率"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:394
+#: components/views/Stake/index.tsx:390
 msgid "stake.akr.tooltip"
 msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能会发生变化), KLIMA 年化奖利率...，包括复利。"
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:78
-#: components/views/Stake/index.tsx:292
+#: components/views/Stake/index.tsx:288
 msgid "stake.balancescard.tooltip"
 msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将按给定的百分比增加。"
 
@@ -916,20 +976,20 @@ msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将�
 msgid "stake.estimated_payout"
 msgstr "预计支出 (sKLIMA)"
 
-#: components/views/Stake/index.tsx:405
+#: components/views/Stake/index.tsx:401
 msgid "stake.index"
 msgstr "指数"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:408
+#: components/views/Stake/index.tsx:404
 msgid "stake.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。对做账有利。"
 
-#: components/views/Stake/index.tsx:53
+#: components/views/Stake/index.tsx:49
 msgid "stake.inputplaceholder.stake"
 msgstr "质押量"
 
-#: components/views/Stake/index.tsx:57
+#: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.unstake"
 msgstr "取消质押量"
 
@@ -949,26 +1009,26 @@ msgstr "变基"
 msgid "stake.rebase.info"
 msgstr "该协议自动铸造和分配奖励。所得是您的 sKLIMA 余额的百分比"
 
-#: components/views/Stake/index.tsx:325
+#: components/views/Stake/index.tsx:321
 msgid "stake.stake"
 msgstr "质押"
 
-#: components/views/Stake/index.tsx:307
+#: components/views/Stake/index.tsx:303
 msgid "stake.stake_hold_earn"
 msgstr "质押、持有并赚取 sKLIMA 复利 。"
 
-#: components/views/Stake/index.tsx:256
-#: components/views/Stake/index.tsx:304
-#: components/views/Stake/index.tsx:461
+#: components/views/Stake/index.tsx:252
+#: components/views/Stake/index.tsx:300
+#: components/views/Stake/index.tsx:457
 msgid "stake.stake_klima"
 msgstr "质押 KLIMA"
 
-#: components/views/Stake/index.tsx:337
+#: components/views/Stake/index.tsx:333
 msgid "stake.unstake"
 msgstr "取消质押"
 
-#: components/views/Stake/index.tsx:265
-#: components/views/Stake/index.tsx:463
+#: components/views/Stake/index.tsx:261
+#: components/views/Stake/index.tsx:459
 msgid "stake.unstake_klima"
 msgstr "取消质押KLIMA"
 
@@ -992,7 +1052,7 @@ msgstr "请点击您钱包中的 \"确认\" 以继续。"
 msgid "status.user_rejected"
 msgstr "您已选择拒绝交易"
 
-#: components/NavMenu/index.tsx:207
+#: components/NavMenu/index.tsx:217
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
@@ -1060,56 +1120,65 @@ msgstr "使用 WalletConnect 扫描进行连接"
 msgid "web3modal.walletlink.desc"
 msgstr "使用 Coinbase 扫描进行连接"
 
-#: components/views/Wrap/index.tsx:374
+#: components/views/Wrap/index.tsx:371
 msgid "wrap.balance"
 msgstr "余额"
 
-#: components/views/Wrap/index.tsx:269
+#: components/views/Wrap/index.tsx:266
 msgid "wrap.balances_tooltip"
 msgstr "打包 sKLIMA 以获得指数调整的已打包质押的 KLIMA"
 
-#: components/views/Wrap/index.tsx:361
+#: components/views/Wrap/index.tsx:358
 msgid "wrap.index"
 msgstr "指数"
 
-#: components/views/Wrap/index.tsx:364
+#: components/views/Wrap/index.tsx:361
 msgid "wrap.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。用于计算 wsKLIMA 价值。"
 
-#: components/views/Wrap/index.tsx:51
+#: components/views/Wrap/index.tsx:48
 msgid "wrap.sklima_to_wrap"
 msgstr "待打包的 sKLIMA"
 
-#: components/views/Wrap/index.tsx:324
+#: components/views/Wrap/index.tsx:321
 msgid "wrap.unwrap"
 msgstr "分拆"
 
-#: components/views/Wrap/index.tsx:313
+#: components/views/Wrap/index.tsx:310
 msgid "wrap.wrap"
 msgstr "打包"
 
-#: components/views/Wrap/index.tsx:279
+#: components/views/Wrap/index.tsx:276
 msgid "wrap.wrap_sklima"
 msgstr "打包 sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:291
+#: components/views/Wrap/index.tsx:288
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "部分人认为这对做账有帮助，但其实收益则完全相同。 打包数值和分拆数值是根据当前指标计算得出的。"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:282
+#: components/views/Wrap/index.tsx:279
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "打包 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不会随着时间的推移而增加。"
 
-#: components/views/Wrap/index.tsx:55
+#: components/views/Wrap/index.tsx:52
 msgid "wrap.wsklima_to_unwrap"
 msgstr "待拆分的 wsKLIMA"
 
-#: components/views/Wrap/index.tsx:377
+#: components/views/Wrap/index.tsx:374
 msgid "wrap.you_will_get"
 msgstr "你将获得"
 
 #: components/BalancesCard/index.tsx:33
 msgid "wsklima.unwrapped.label"
 msgstr "已拆分"
+
+#: components/CarbonTokenModal/index.tsx:35
+#: components/views/Deposit/index.tsx:230
+msgid "{0}"
+msgstr ""
+
+#: components/CarbonTokenModal/index.tsx:38
+msgid "{0} tonnes available"
+msgstr ""
