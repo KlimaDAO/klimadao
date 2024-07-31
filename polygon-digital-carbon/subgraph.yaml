@@ -265,7 +265,7 @@ dataSources:
     name: CCO2Carbon
     network: matic
     source:
-      address: '0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2'
+      address: '0x82b37070e43c1ba0ea9e2283285b674ef7f1d4e2'
       abi: ERC20
       startBlock: 34084189
     mapping:
