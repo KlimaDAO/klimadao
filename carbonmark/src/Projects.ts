@@ -10254,6 +10254,28 @@ export const PROJECT_INFO: ProjectInfo[] = [
     false
   ),
   new ProjectInfo(
+    '0x77be59acfef85a1578a5996d06b48b6ee1bac29c',
+    'ICR-48',
+    '2022',
+    'Reducing GHG Emissions and Increasing Carbon Sequestration in Italian Agriculture',
+    'ISO 14064-2',
+    'Agriculture',
+    'Italy',
+    '1',
+    false
+  ),
+  new ProjectInfo(
+    '0x77be59acfef85a1578a5996d06b48b6ee1bac29c',
+    'ICR-48',
+    '2023',
+    'Reducing GHG Emissions and Increasing Carbon Sequestration in Italian Agriculture',
+    'ISO 14064-2',
+    'Agriculture',
+    'Italy',
+    '2',
+    false
+  ),
+  new ProjectInfo(
     '0xae63fbd056512fc4b1d15b58a98f9aaea44b18a9',
     'ICR-57',
     '2071',

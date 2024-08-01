@@ -102,4 +102,12 @@ export const ICR_PROJECT_INFO = [
     'Blue Carbon',
     'Saudi Arabia',
   ],
+  [
+    '0x77be59acfef85a1578a5996d06b48b6ee1bac29c',
+    'ICR-48',
+    'Reducing GHG Emissions and Increasing Carbon Sequestration in Italian Agriculture',
+    'ISO 14064-2',
+    'Agriculture',
+    'Italy',
+  ],
 ]
