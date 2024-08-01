@@ -299,6 +299,7 @@ export function saveStartAsyncToken(event: StartAsyncToken): void {
   c3RetireRequestDetails.index = event.params.index
   c3RetireRequestDetails.save()
 
+  asyncRetireRequest.c3RetireRequestDetails = c3RetireRequestDetails.id
   asyncRetireRequest.save()
 
   retire.asyncRetireRequest = requestId
@@ -362,12 +363,13 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
       retire.save()
 
       asyncRetireRequest.status = AsyncRetireRequestStatus.FINALIZED
-      
     } else if (asyncRetireRequest.status == AsyncRetireRequestStatus.REQUESTED && event.params.success == false) {
       asyncRetireRequest.status = AsyncRetireRequestStatus.REVERTED
     }
   }
   c3RetireRequestDetails.save()
+
+  asyncRetireRequest.c3RetireRequestDetails = c3RetireRequestDetails.id
   asyncRetireRequest.save()
 }
 
