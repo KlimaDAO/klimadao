@@ -290,19 +290,19 @@ export function saveStartAsyncToken(event: StartAsyncToken): void {
 
   let requestId = getC3RetireRequestId(event.params.fromToken, event.params.index)
 
-  let asyncRetireRequest = loadOrCreateAsyncRetireRequest(requestId)
-  asyncRetireRequest.retire = retireId
-  asyncRetireRequest.provenance = retire.provenance
-  asyncRetireRequest.status = AsyncRetireRequestStatus.REQUESTED
-
   let c3RetireRequestDetails = loadOrCreateC3RetireRequestDetails(requestId)
   c3RetireRequestDetails.index = event.params.index
   c3RetireRequestDetails.save()
 
+  let asyncRetireRequest = loadOrCreateAsyncRetireRequest(requestId)
+  asyncRetireRequest.retire = retireId
+  asyncRetireRequest.provenance = retire.provenance
+  asyncRetireRequest.status = AsyncRetireRequestStatus.REQUESTED
   asyncRetireRequest.c3RetireRequestDetails = c3RetireRequestDetails.id
   asyncRetireRequest.save()
 
   retire.asyncRetireRequest = requestId
+  retire.asyncRetireStatus = AsyncRetireRequestStatus.REQUESTED
   retire.save()
 
   incrementAccountRetirements(senderAddress)
@@ -315,8 +315,11 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
 
   let requestId = getC3RetireRequestId(event.params.fromToken, event.params.index)
 
-  let asyncRetireRequest = loadAsyncRetireRequest(requestId)
   let c3RetireRequestDetails = loadC3RetireRequestDetails(requestId)
+  let asyncRetireRequest = loadAsyncRetireRequest(requestId)
+
+  let retireId: Bytes = asyncRetireRequest.retire
+  let retire = loadRetire(retireId)
 
   if (c3RetireRequestDetails == null) {
     log.error('No C3RetireRequest found for retireId: {} hash: {}', [event.transaction.hash.toHexString()])
@@ -326,7 +329,6 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
       let c3OffsetNftContract = C3OffsetNFT.bind(C3_VERIFIED_CARBON_UNITS_OFFSET)
 
       c3RetireRequestDetails.c3OffsetNftIndex = event.params.nftIndex
-
       let tokenURICall = c3OffsetNftContract.try_tokenURI(event.params.nftIndex)
 
       if (tokenURICall.reverted) {
@@ -356,21 +358,17 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
         }
       }
 
-      // set status on retire as well
-      let retireId: Bytes = asyncRetireRequest.retire
-      let retire = loadRetire(retireId)
-      retire.asyncRetireStatus = AsyncRetireRequestStatus.FINALIZED
-      retire.save()
-
       asyncRetireRequest.status = AsyncRetireRequestStatus.FINALIZED
+      retire.asyncRetireStatus = AsyncRetireRequestStatus.FINALIZED
     } else if (asyncRetireRequest.status == AsyncRetireRequestStatus.REQUESTED && event.params.success == false) {
       asyncRetireRequest.status = AsyncRetireRequestStatus.REVERTED
+      retire.asyncRetireStatus = AsyncRetireRequestStatus.REVERTED
     }
   }
-  c3RetireRequestDetails.save()
 
-  asyncRetireRequest.c3RetireRequestDetails = c3RetireRequestDetails.id
+  c3RetireRequestDetails.save()
   asyncRetireRequest.save()
+  retire.save()
 }
 
 export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
