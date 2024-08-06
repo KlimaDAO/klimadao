@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { categories } from "../lib/categories";
 import { sdgs } from "../lib/sdgs";
 
 export default defineType({
@@ -29,6 +30,22 @@ export default defineType({
       description: "The project this content is associated with",
       group: "info",
       validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "nameOverride",
+      description:
+        "Manually modified name to override the official registry name for the project (used to handle formatting issues)",
+      group: "info",
+      type: "string",
+    }),
+    defineField({
+      name: "categoryOverride",
+      description:
+        "For this project, override the methodology's normal category with a different one from our predefined ontology of categories",
+      type: "string",
+      options: {
+        list: categories,
+      },
     }),
     defineField({
       name: "shortDescription",
