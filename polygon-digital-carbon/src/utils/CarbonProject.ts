@@ -42,6 +42,7 @@ export function loadOrCreateCarbonProject(registry: string, projectID: string): 
         if (projectID == ECO_REGISTRY_PROJECT_INFO[i][0]) {
           project.name = ECO_REGISTRY_PROJECT_INFO[i][1]
           project.country = ECO_REGISTRY_PROJECT_INFO[i][2]
+          project.category = ECO_REGISTRY_PROJECT_INFO[i][4]
           break
         }
       }
