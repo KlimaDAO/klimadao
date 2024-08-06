@@ -11144,7 +11144,6 @@ export const PROJECT_INFO: ProjectInfo[] = [
     '0',
     false
   ),
-
   new ProjectInfo(
     '0xa8853ffc5a0aeab7d31631a4b87cb12c0b289c6c',
     'ECO-114',
@@ -11156,7 +11155,6 @@ export const PROJECT_INFO: ProjectInfo[] = [
     '0',
     false
   ),
-
   new ProjectInfo(
     '0x6960ce1d21f63c4971324b5b611c4de29acf980c',
     'PUR-862421',
