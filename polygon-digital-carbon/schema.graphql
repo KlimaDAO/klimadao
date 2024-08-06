@@ -441,7 +441,7 @@ type C3RetirementMetadata @entity {
   reason: String
   projectId: String
   projectAddress: Bytes
-  amount: Int
+  amount: String
   vintage: String
   owner: Bytes
   project: C3MetadataProject

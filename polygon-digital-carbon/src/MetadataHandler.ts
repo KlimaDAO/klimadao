@@ -21,7 +21,7 @@ export function handleC3RetirementMetadata(content: Bytes): void {
     if (reason) c3RetirementMetadata.reason = reason.toString()
     if (projectId) c3RetirementMetadata.projectId = projectId.toString()
     if (projectAddress) c3RetirementMetadata.projectAddress = Bytes.fromHexString(projectAddress.toString())
-    if (amount) c3RetirementMetadata.amount = amount.toBigInt().toI32()
+    if (amount) c3RetirementMetadata.amount = amount.toString()
     if (vintage) c3RetirementMetadata.vintage = vintage.toString()
     if (owner) c3RetirementMetadata.owner = Bytes.fromHexString(owner.toString())
     if (image) c3RetirementMetadata.image = image.toString()
