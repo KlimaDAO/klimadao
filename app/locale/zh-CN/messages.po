@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-08-06 15:36+0000\n"
+"POT-Creation-Date: 2024-08-07 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,11 +22,11 @@ msgstr "批准"
 
 #: components/views/Deposit/index.tsx:237
 msgid "Available Balance"
-msgstr ""
+msgstr "可用余额"
 
 #: components/views/Deposit/index.tsx:272
 msgid "BCT to receive"
-msgstr ""
+msgstr "您将收到"
 
 #: components/CarbonBalancesCard/index.tsx:126
 msgid "Balances"
@@ -62,15 +62,15 @@ msgstr "继续"
 #: components/views/Deposit/index.tsx:193
 #: components/views/Deposit/index.tsx:315
 msgid "Deposit Carbon"
-msgstr ""
+msgstr "存碳"
 
 #: components/views/Deposit/index.tsx:254
 msgid "Deposit TC02"
-msgstr ""
+msgstr "存 TC02"
 
 #: components/views/Deposit/index.tsx:196
 msgid "Deposit TCO2 in exchange for BCT."
-msgstr ""
+msgstr "存入TCO2以兑换BCT。"
 
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
@@ -155,7 +155,7 @@ msgstr "未连接"
 
 #: components/CarbonTokenModal/index.tsx:46
 msgid "Not compatible with BCT"
-msgstr ""
+msgstr "与BCT不兼容"
 
 #: components/views/Offset/index.tsx:27
 msgid "Offset"
@@ -187,7 +187,7 @@ msgstr "购买加密货币，包括$KLIMA代币，涉及高度风险，应被视
 
 #: components/views/Deposit/index.tsx:296
 msgid "Receiving BCT"
-msgstr ""
+msgstr "收到 BCT"
 
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
@@ -195,7 +195,7 @@ msgstr "监管行动和变化：加密货币的监管环境在不断发展，监
 
 #: components/NavMenu/index.tsx:235
 msgid "Retire on Base"
-msgstr ""
+msgstr "在Base链上停用碳"
 
 #: components/DisclaimerModal/index.tsx:29
 msgid "Risk Disclaimer"
@@ -203,7 +203,7 @@ msgstr "风险免责声明"
 
 #: components/CarbonTokenModal/index.tsx:22
 msgid "Select Token"
-msgstr ""
+msgstr "选择代币"
 
 #: components/views/Redeem/index.tsx:390
 #: components/views/Redeem/index.tsx:391
@@ -212,7 +212,7 @@ msgstr "选择碳池"
 
 #: components/views/Deposit/index.tsx:204
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
-msgstr ""
+msgstr "选择 TCO2 代币和您想要存入的金额。"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -233,6 +233,8 @@ msgstr "本风险警告摘要并未披露与投资 $KLIMA 相关的所有风险�
 #: components/views/Deposit/index.tsx:201
 msgid "Token to deposit"
 msgstr ""
+"存入代币\n"
+""
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:126
 msgid "Tonnes available: {formattedQuantity}"
@@ -260,7 +262,7 @@ msgstr "您将收到"
 
 #: components/views/Deposit/index.tsx:275
 msgid "You'll receive BCT in exchange for your TCO2."
-msgstr ""
+msgstr "通过兑换TCO2 您将收到 BCT。"
 
 #: components/views/Redeem/index.tsx:501
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
@@ -1177,8 +1179,8 @@ msgstr "已拆分"
 #: components/CarbonTokenModal/index.tsx:35
 #: components/views/Deposit/index.tsx:230
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #: components/CarbonTokenModal/index.tsx:38
 msgid "{0} tonnes available"
-msgstr ""
+msgstr "{0} 吨可用"
