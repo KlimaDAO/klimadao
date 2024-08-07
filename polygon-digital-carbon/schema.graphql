@@ -440,10 +440,10 @@ type C3RetirementMetadata @entity {
   transferee: String
   reason: String
   projectId: String
-  projectAddress: Bytes
+  projectAddress: String
   amount: String
   vintage: String
-  owner: Bytes
+  owner: String
   project: C3MetadataProject
   image: String
   pdf: String
