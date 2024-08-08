@@ -119,7 +119,8 @@ export function saveToucanPuroRetirementRequest(event: RetirementRequested): voi
     senderAddress,
     event.params.params.retiringEntityString,
     event.block.timestamp,
-    event.transaction.hash
+    event.transaction.hash,
+    event.params.requestId.toString()
   )
 
   let retire = loadRetire(retireId)
@@ -174,7 +175,7 @@ export function handleVCUOMinted(event: VCUOMinted): void {
       senderAddress,
       '',
       event.block.timestamp,
-      event.transaction.hash
+      event.transaction.hash,
     )
 
     incrementAccountRetirements(senderAddress)
@@ -283,7 +284,7 @@ export function saveStartAsyncToken(event: StartAsyncToken): void {
     '',
     event.block.timestamp,
     event.transaction.hash,
-    'C3'
+    event.params.index.toString()
   )
 
   let retire = loadRetire(retireId)

@@ -103,11 +103,11 @@ export function handleToucanPuroRetirementFinalized(event: RetirementFinalized):
   request.status = AsyncRetireRequestStatus.FINALIZED
   request.save()
 
-  // if (request.retire !== null) {
-  //   let retire = loadRetire(request.retire)
-  //   retire.AsyncRetireRequestStatus = 'FINALIZED'
-  //   retire.save()
-  // }
+  if (request.retire !== null) {
+    let retire = loadRetire(request.retire)
+    retire.asyncRetireStatus = AsyncRetireRequestStatus.FINALIZED
+    retire.save()
+  }
 }
 
 // TODO:
