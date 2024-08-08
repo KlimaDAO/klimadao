@@ -3,10 +3,10 @@ import { C3RetirementMetadata, C3MetadataProject } from '../generated/schema'
 
 export function handleC3RetirementMetadata(content: Bytes): void {
   let c3RetirementMetadata = new C3RetirementMetadata(dataSource.stringParam())
-  const rawValue = json.try_fromBytes(content)
+  const result = json.try_fromBytes(content)
 
-  if (!rawValue.value.isNull()) {
-    const value = rawValue.value.toObject()
+  if (!result.value.isNull()) {
+    const value = result.value.toObject()
     const transferee = value.get('transferee')
     const reason = value.get('reason')
     const projectId = value.get('projectId')
@@ -44,8 +44,8 @@ export function handleC3RetirementMetadata(content: Bytes): void {
     }
 
     if (amount) {
-      if (amount.kind == JSONValueKind.STRING || amount.kind == JSONValueKind.NUMBER) {
-        const stringAmount = amount.toString()
+      if (amount.kind == JSONValueKind.NUMBER) {
+        const stringAmount = amount.toF64().toString()
         c3RetirementMetadata.amount = stringAmount
       } else {
         log.error('Invalid amount value. ipfs hash {}', [content.toHexString()])
