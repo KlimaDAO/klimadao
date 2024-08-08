@@ -7,6 +7,6 @@ export function getRetirementsContractAddress(network: string): Address {
     : AMOY_KLIMA_CARBON_RETIREMENTS_CONTRACT
 }
 
-export function getC3RetireRequestId(fromToken: Address, index: BigInt): Bytes {
-  return fromToken.concatI32(index.toI32())
+export function createAsyncRetireRequestId(token: Address, index: BigInt): Bytes {
+  return token.concatI32(index.toI32())
 }

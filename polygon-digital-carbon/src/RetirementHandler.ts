@@ -18,7 +18,7 @@ import { loadRetire, saveRetire } from './utils/Retire'
 import { Bytes, log } from '@graphprotocol/graph-ts'
 import { loadOrCreateC3RetireRequestDetails, loadC3RetireRequestDetails } from './utils/C3'
 import { Token, TokenURISafeguard } from '../generated/schema'
-import { getC3RetireRequestId } from '../utils/getRetirementsContractAddress'
+import { createAsyncRetireRequestId } from '../utils/getRetirementsContractAddress'
 import { AsyncRetireRequestStatus } from '../utils/enums'
 import { loadAsyncRetireRequest, loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
 import { C3RetirementMetadata as C3RetirementMetadataTemplate } from '../generated/templates'
@@ -131,8 +131,7 @@ export function saveToucanPuroRetirementRequest(event: RetirementRequested): voi
   retire.asyncRetireStatus = AsyncRetireRequestStatus.REQUESTED
   retire.save()
 
-  let requestIdByteArray = Bytes.fromBigInt(event.params.requestId)
-  let requestId = Bytes.fromByteArray(requestIdByteArray)
+  let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
 
   let request = loadOrCreateAsyncRetireRequest(requestId)
 
@@ -175,7 +174,7 @@ export function handleVCUOMinted(event: VCUOMinted): void {
       senderAddress,
       '',
       event.block.timestamp,
-      event.transaction.hash,
+      event.transaction.hash
     )
 
     incrementAccountRetirements(senderAddress)
@@ -289,7 +288,7 @@ export function saveStartAsyncToken(event: StartAsyncToken): void {
 
   let retire = loadRetire(retireId)
 
-  let requestId = getC3RetireRequestId(event.params.fromToken, event.params.index)
+  let requestId = createAsyncRetireRequestId(event.params.fromToken, event.params.index)
 
   let c3RetireRequestDetails = loadOrCreateC3RetireRequestDetails(requestId)
   c3RetireRequestDetails.index = event.params.index
@@ -314,7 +313,7 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
 
   loadOrCreateAccount(event.transaction.from)
 
-  let requestId = getC3RetireRequestId(event.params.fromToken, event.params.index)
+  let requestId = createAsyncRetireRequestId(event.params.fromToken, event.params.index)
 
   let c3RetireRequestDetails = loadC3RetireRequestDetails(requestId)
   let asyncRetireRequest = loadAsyncRetireRequest(requestId)

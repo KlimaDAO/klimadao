@@ -33,6 +33,7 @@ import {
 } from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
 import { loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
 import { AsyncRetireRequestStatus } from '../utils/enums'
+import { createAsyncRetireRequestId } from '../utils/getRetirementsContractAddress'
 
 export function handleCreditTransfer(event: Transfer): void {
   recordTransfer(
@@ -96,8 +97,8 @@ export function handleToucanPuroRetirementRequested(event: RetirementRequested):
 }
 
 export function handleToucanPuroRetirementFinalized(event: RetirementFinalized): void {
-  let requestIdByteArray = Bytes.fromBigInt(event.params.requestId)
-  let requestId = Bytes.fromByteArray(requestIdByteArray)
+
+  let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
 
   let request = loadOrCreateAsyncRetireRequest(requestId)
   request.status = AsyncRetireRequestStatus.FINALIZED
