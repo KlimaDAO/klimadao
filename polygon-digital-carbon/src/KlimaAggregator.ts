@@ -45,41 +45,6 @@ export function handleMossRetired(event: MossRetired): void {
   )
 }
 
-// // @todo no CC02 retired event on RA yet. 
-// export function handleCCO2Retired(event: CCO2Retired): void {
-//   // Ignore zero value retirements
-//   if (event.params.retiredAmount == ZERO_BI) return
-//   let network = dataSource.network()
-
-//   let retirementsContractAddress = getRetirementsContractAddress(network)
-
-//   let klimaRetirements = KlimaCarbonRetirements.bind(retirementsContractAddress)
-//   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
-
-//   let sender = loadOrCreateAccount(event.transaction.from)
-//   loadOrCreateAccount(event.params.beneficiaryAddress)
-//   loadOrCreateAccount(event.params.retiringAddress)
-
-//   let retire = loadRetire(sender.id.concatI32(sender.totalRetirements - 1))
-
-//   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
-
-//   retire.source = 'KLIMA'
-//   retire.beneficiaryAddress = event.params.beneficiaryAddress
-//   retire.beneficiaryName = event.params.beneficiaryString
-//   retire.retiringAddress = event.params.retiringAddress
-//   retire.retirementMessage = event.params.retirementMessage
-//   retire.save()
-
-//   saveKlimaRetire(
-//     event.params.beneficiaryAddress,
-//     retire.id,
-//     index,
-//     event.params.retiredAmount.div(BigInt.fromI32(100)),
-//     false
-//   )
-// }
-
 export function handleToucanRetired(event: ToucanRetired): void {
   // Ignore zero value retirements
   if (event.params.retiredAmount == ZERO_BI) return
