@@ -278,6 +278,8 @@ dataSources:
       abis:
         - name: CCO2
           file: ../lib/abis/CCO2.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
       eventHandlers: 
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleCreditTransfer        
