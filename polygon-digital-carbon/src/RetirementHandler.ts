@@ -123,22 +123,25 @@ export function saveToucanPuroRetirementRequest(event: RetirementRequested): voi
     event.params.requestId.toString()
   )
 
+
+  let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
+
+  let request = loadOrCreateAsyncRetireRequest(requestId)
+
   let retire = loadRetire(retireId)
   retire.beneficiaryLocation = event.params.params.beneficiaryLocation
   retire.consumptionCountryCode = event.params.params.consumptionCountryCode
   retire.consumptionPeriodStart = event.params.params.consumptionPeriodStart
   retire.consumptionPeriodEnd = event.params.params.consumptionPeriodEnd
   retire.asyncRetireStatus = AsyncRetireRequestStatus.REQUESTED
+  retire.asyncRetireRequest = requestId
   retire.save()
 
-  let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
-
-  let request = loadOrCreateAsyncRetireRequest(requestId)
 
   request.retire = retireId
   request.provenance = retire.provenance
-
   request.save()
+
   incrementAccountRetirements(senderAddress)
 }
 
