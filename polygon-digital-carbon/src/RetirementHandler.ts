@@ -123,7 +123,6 @@ export function saveToucanPuroRetirementRequest(event: RetirementRequested): voi
     event.params.requestId.toString()
   )
 
-
   let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
 
   let request = loadOrCreateAsyncRetireRequest(requestId)
@@ -136,7 +135,6 @@ export function saveToucanPuroRetirementRequest(event: RetirementRequested): voi
   retire.asyncRetireStatus = AsyncRetireRequestStatus.REQUESTED
   retire.asyncRetireRequest = requestId
   retire.save()
-
 
   request.retire = retireId
   request.provenance = retire.provenance
