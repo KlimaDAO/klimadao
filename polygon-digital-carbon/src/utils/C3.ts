@@ -1,13 +1,11 @@
 import { BigInt, Bytes } from '@graphprotocol/graph-ts'
-import { C3RetireRequest } from '../../generated/schema'
-import { BridgeStatus } from '../../utils/enums'
+import { C3RetireRequestDetails } from '../../generated/schema'
 
-export function loadOrCreateC3RetireRequest(requestId: Bytes): C3RetireRequest {
-  let request = C3RetireRequest.load(requestId)
+export function loadOrCreateC3RetireRequestDetails(requestId: Bytes): C3RetireRequestDetails {
+  let request = C3RetireRequestDetails.load(requestId)
 
   if (request == null) {
-    request = new C3RetireRequest(requestId)
-    request.status = BridgeStatus.AWAITING
+    request = new C3RetireRequestDetails(requestId)
     request.index = BigInt.fromI32(0)
     request.c3OffsetNftIndex = BigInt.fromI32(0)
     request.tokenURI = ''
@@ -17,7 +15,7 @@ export function loadOrCreateC3RetireRequest(requestId: Bytes): C3RetireRequest {
   return request
 }
 
-export function loadC3RetireRequest(requestId: Bytes): C3RetireRequest | null {
-  let request = C3RetireRequest.load(requestId)
+export function loadC3RetireRequestDetails(requestId: Bytes): C3RetireRequestDetails | null {
+  let request = C3RetireRequestDetails.load(requestId)
   return request
 }

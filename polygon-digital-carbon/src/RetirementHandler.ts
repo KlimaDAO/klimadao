@@ -15,12 +15,12 @@ import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Accoun
 import { loadCarbonCredit, loadOrCreateCarbonCredit } from './utils/CarbonCredit'
 import { loadOrCreateCarbonProject } from './utils/CarbonProject'
 import { loadRetire, saveRetire } from './utils/Retire'
-import { log } from '@graphprotocol/graph-ts'
-import { loadOrCreateC3RetireRequest, loadC3RetireRequest } from './utils/C3'
+import { Bytes, log } from '@graphprotocol/graph-ts'
+import { loadOrCreateC3RetireRequestDetails, loadC3RetireRequestDetails } from './utils/C3'
 import { Token, TokenURISafeguard } from '../generated/schema'
-import { getC3RetireRequestId } from '../utils/getRetirementsContractAddress'
-import { BridgeStatus } from '../utils/enums'
-import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
+import { createAsyncRetireRequestId } from '../utils/getRetirementsContractAddress'
+import { AsyncRetireRequestStatus } from '../utils/enums'
+import { loadAsyncRetireRequest, loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
 import { C3RetirementMetadata as C3RetirementMetadataTemplate } from '../generated/templates'
 import { extractIpfsHash } from '../utils/ipfs'
 
@@ -119,24 +119,27 @@ export function saveToucanPuroRetirementRequest(event: RetirementRequested): voi
     senderAddress,
     event.params.params.retiringEntityString,
     event.block.timestamp,
-    event.transaction.hash
+    event.transaction.hash,
+    event.params.requestId.toString()
   )
+
+  let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
+
+  let request = loadOrCreateAsyncRetireRequest(requestId)
 
   let retire = loadRetire(retireId)
   retire.beneficiaryLocation = event.params.params.beneficiaryLocation
   retire.consumptionCountryCode = event.params.params.consumptionCountryCode
   retire.consumptionPeriodStart = event.params.params.consumptionPeriodStart
   retire.consumptionPeriodEnd = event.params.params.consumptionPeriodEnd
-  retire.bridgeStatus = 'REQUESTED'
+  retire.asyncRetireStatus = AsyncRetireRequestStatus.REQUESTED
+  retire.asyncRetireRequest = requestId
   retire.save()
 
-  let request = loadOrCreateToucanBridgeRequest(event.params.requestId)
   request.retire = retireId
-  if (retire != null) {
-    request.provenance = retire.provenance
-  }
-
+  request.provenance = retire.provenance
   request.save()
+
   incrementAccountRetirements(senderAddress)
 }
 
@@ -281,21 +284,26 @@ export function saveStartAsyncToken(event: StartAsyncToken): void {
     '',
     event.block.timestamp,
     event.transaction.hash,
-    'C3'
+    event.params.index.toString()
   )
 
   let retire = loadRetire(retireId)
 
-  let requestId = getC3RetireRequestId(event.params.fromToken, event.params.index)
-  let request = loadOrCreateC3RetireRequest(requestId)
+  let requestId = createAsyncRetireRequestId(event.params.fromToken, event.params.index)
 
-  request.status = BridgeStatus.REQUESTED
-  request.index = event.params.index
-  request.retire = retireId
-  request.provenance = retire.provenance
-  request.save()
+  let c3RetireRequestDetails = loadOrCreateC3RetireRequestDetails(requestId)
+  c3RetireRequestDetails.index = event.params.index
+  c3RetireRequestDetails.save()
 
-  retire.c3RetireRequest = requestId
+  let asyncRetireRequest = loadOrCreateAsyncRetireRequest(requestId)
+  asyncRetireRequest.retire = retireId
+  asyncRetireRequest.provenance = retire.provenance
+  asyncRetireRequest.status = AsyncRetireRequestStatus.REQUESTED
+  asyncRetireRequest.c3RetireRequestDetails = c3RetireRequestDetails.id
+  asyncRetireRequest.save()
+
+  retire.asyncRetireRequest = requestId
+  retire.asyncRetireStatus = AsyncRetireRequestStatus.REQUESTED
   retire.save()
 
   incrementAccountRetirements(senderAddress)
@@ -306,20 +314,22 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
 
   loadOrCreateAccount(event.transaction.from)
 
-  let requestId = getC3RetireRequestId(event.params.fromToken, event.params.index)
-  let request = loadC3RetireRequest(requestId)
+  let requestId = createAsyncRetireRequestId(event.params.fromToken, event.params.index)
 
-  if (request == null) {
-    log.error('No C3RetireRequest found for retireId: {} hash: {}', [
-      event.transaction.hash.toHexString(),
-    ])
+  let c3RetireRequestDetails = loadC3RetireRequestDetails(requestId)
+  let asyncRetireRequest = loadAsyncRetireRequest(requestId)
+
+  let retireId: Bytes = asyncRetireRequest.retire
+  let retire = loadRetire(retireId)
+
+  if (c3RetireRequestDetails == null) {
+    log.error('No C3RetireRequest found for retireId: {} hash: {}', [event.transaction.hash.toHexString()])
     return
   } else {
-    if (request.status == BridgeStatus.REQUESTED && event.params.success == true) {
+    if (asyncRetireRequest.status == AsyncRetireRequestStatus.REQUESTED && event.params.success == true) {
       let c3OffsetNftContract = C3OffsetNFT.bind(C3_VERIFIED_CARBON_UNITS_OFFSET)
 
-      request.c3OffsetNftIndex = event.params.nftIndex
-
+      c3RetireRequestDetails.c3OffsetNftIndex = event.params.nftIndex
       let tokenURICall = c3OffsetNftContract.try_tokenURI(event.params.nftIndex)
 
       if (tokenURICall.reverted) {
@@ -337,22 +347,29 @@ export function completeC3RetireRequest(event: EndAsyncToken): void {
           requestsArray.push(requestId)
           safeguard.requestsWithoutURI = requestsArray
           safeguard.save()
-          log.error('Initial attempt to retrieve tokenURI is null or empty for nft index {}', [event.params.nftIndex.toString()])
+          log.error('Initial attempt to retrieve tokenURI is null or empty for nft index {}', [
+            event.params.nftIndex.toString(),
+          ])
         } else {
-          request.tokenURI = tokenURI
+          c3RetireRequestDetails.tokenURI = tokenURI
           const hash = extractIpfsHash(tokenURI)
 
-          request.retirementMetadata = hash
+          c3RetireRequestDetails.retirementMetadata = hash
           C3RetirementMetadataTemplate.create(hash)
         }
       }
 
-      request.status = BridgeStatus.FINALIZED
-    } else if (request.status == BridgeStatus.REQUESTED && event.params.success == false) {
-      request.status = BridgeStatus.REVERTED
+      asyncRetireRequest.status = AsyncRetireRequestStatus.FINALIZED
+      retire.asyncRetireStatus = AsyncRetireRequestStatus.FINALIZED
+    } else if (asyncRetireRequest.status == AsyncRetireRequestStatus.REQUESTED && event.params.success == false) {
+      asyncRetireRequest.status = AsyncRetireRequestStatus.REVERTED
+      retire.asyncRetireStatus = AsyncRetireRequestStatus.REVERTED
     }
   }
-  request.save()
+
+  c3RetireRequestDetails.save()
+  asyncRetireRequest.save()
+  retire.save()
 }
 
 export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
@@ -368,13 +385,12 @@ export function handleVCUOMetaDataUpdated(event: VCUOMetaDataUpdated): void {
   /** Target the request with the index that matches the event.params.tokenId
    * With event.params.tokenId, it's theoretically possible to call .list() on the C3OffsetNFT contract to get the project address
    * However the issue is the request cannot be loaded as the request id is project address.concat(with retirement index)
-   * The retirement index is not available in this event. There is currently no way to call the C3OffsetNFT or 
-   * credit contract with any of the event params to retrieve the retirement index  */ 
-
+   * The retirement index is not available in this event. There is currently no way to call the C3OffsetNFT or
+   * credit contract with any of the event params to retrieve the retirement index  */
 
   for (let i = 0; i < requestsArray.length; i++) {
     let requestId = requestsArray[i]
-    let request = loadC3RetireRequest(requestId)
+    let request = loadC3RetireRequestDetails(requestId)
     if (request == null) {
       log.error('handleURIBlockSafeguard request is null {}', [requestId.toHexString()])
       continue

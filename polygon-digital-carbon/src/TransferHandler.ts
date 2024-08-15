@@ -1,11 +1,5 @@
-import { Address, BigInt, Bytes, ethereum, log, store } from '@graphprotocol/graph-ts'
-import {
-  ICR_MIGRATION_BLOCK,
-  ICR_MIGRATION_HASHES,
-  MCO2_ERC20_CONTRACT,
-  TOUCAN_CROSS_CHAIN_MESSENGER,
-  ZERO_ADDRESS,
-} from '../../lib/utils/Constants'
+import { Address, BigInt, Bytes, store } from '@graphprotocol/graph-ts'
+import { ICR_MIGRATION_BLOCK, ICR_MIGRATION_HASHES, MCO2_ERC20_CONTRACT, ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { Transfer } from '../generated/BCT/ERC20'
 import { loadOrCreateCarbonCredit, updateICRCredit } from './utils/CarbonCredit'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
@@ -37,7 +31,9 @@ import {
   RetirementRequested,
   RetirementFinalized,
 } from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
-import { loadOrCreateToucanBridgeRequest } from './utils/Toucan'
+import { loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
+import { AsyncRetireRequestStatus } from '../utils/enums'
+import { createAsyncRetireRequestId } from '../utils/getRetirementsContractAddress'
 
 export function handleCreditTransfer(event: Transfer): void {
   recordTransfer(
@@ -101,15 +97,18 @@ export function handleToucanPuroRetirementRequested(event: RetirementRequested):
 }
 
 export function handleToucanPuroRetirementFinalized(event: RetirementFinalized): void {
-  let request = loadOrCreateToucanBridgeRequest(event.params.requestId)
-  request.status = 'FINALIZED'
+
+  let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
+
+  let request = loadOrCreateAsyncRetireRequest(requestId)
+  request.status = AsyncRetireRequestStatus.FINALIZED
   request.save()
 
-  // if (request.retire !== null) {
-  //   let retire = loadRetire(request.retire)
-  //   retire.bridgeStatus = 'FINALIZED'
-  //   retire.save()
-  // }
+  if (request.retire !== null) {
+    let retire = loadRetire(request.retire)
+    retire.asyncRetireStatus = AsyncRetireRequestStatus.FINALIZED
+    retire.save()
+  }
 }
 
 // TODO:

@@ -33,7 +33,7 @@ enum ProvenanceType {
   DETOKENIZED
 }
 
-enum BridgeStatus {
+enum AsyncRetireStatus {
   FINALIZED
   REQUESTED
   REVERTED
@@ -365,14 +365,15 @@ type Retire @entity {
   "Final provenance record created by this retirement"
   provenance: ProvenanceRecord
 
-  "Bridge status for retirement if applicable"
-  bridgeStatus: BridgeStatus
-
   ### Additional attributes if applicable ###
 
   klimaRetire: KlimaRetire @derivedFrom(field: "retire")
 
-  c3RetireRequest: C3RetireRequest
+  "Async retire status for retirement if applicable"
+  asyncRetireStatus: AsyncRetireStatus
+
+  "Additional data for async retirements. Currently C3 retires, ECO & J-Credit, and puro.earth"
+  asyncRetireRequest: AsyncRetireRequest
 }
 
 type KlimaRetire @entity {
@@ -407,18 +408,6 @@ type ToucanBatch @entity {
   creationTransactionHash: Bytes!
 }
 
-type C3RetireRequest @entity {
-  "Request ID"
-  id: Bytes!
-  index: BigInt!
-  c3OffsetNftIndex: BigInt!
-  status: BridgeStatus!
-  retire: Retire
-  provenance: ProvenanceRecord
-  tokenURI: String!
-  retirementMetadata: C3RetirementMetadata
-}
-
 # C3Project and C3RetirementMetadata are used for file datasources for C3 metadata
 type C3MetadataProject @entity {
   id: ID!
@@ -450,20 +439,29 @@ type C3RetirementMetadata @entity {
   nftRegistry: String
 }
 
-
 # id is always and only safeguard
 type TokenURISafeguard @entity {
   "Token URI"
   id: ID!
-  requestsWithoutURI: [C3RetireRequest!]!
+  requestsWithoutURI: [C3RetireRequestDetails!]!
 }
 
-type ToucanBridgeRequest @entity {
+type AsyncRetireRequest @entity {
   "Request ID"
-  id: ID!
-  status: BridgeStatus!
-  retire: Retire
+  id: Bytes!
+  status: AsyncRetireStatus!
+  retire: Retire!
   provenance: ProvenanceRecord
+  c3RetireRequestDetails: C3RetireRequestDetails
+}
+
+type C3RetireRequestDetails @entity {
+  "Request ID"
+  id: Bytes!
+  index: BigInt!
+  c3OffsetNftIndex: BigInt!
+  tokenURI: String!
+  retirementMetadata: C3RetirementMetadata
 }
 
 ##############################
