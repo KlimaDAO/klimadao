@@ -1,4 +1,4 @@
-import { Address, BigDecimal, BigInt, Bytes, ethereum, log, store } from '@graphprotocol/graph-ts'
+import { Address, BigDecimal, BigInt, Bytes, store } from '@graphprotocol/graph-ts'
 import {
   CCO2_ERC20_CONTRACT,
   ICR_MIGRATION_BLOCK,
@@ -41,6 +41,7 @@ import {
 import { loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
 import { AsyncRetireRequestStatus } from '../utils/enums'
 import { createAsyncRetireRequestId } from '../utils/getRetirementsContractAddress'
+import { burnedCO2Token } from '../generated/CCO2/CCO2'
 
 export function handleCreditTransfer(event: Transfer): void {
   recordTransfer(
@@ -104,7 +105,6 @@ export function handleToucanPuroRetirementRequested(event: RetirementRequested):
 }
 
 export function handleToucanPuroRetirementFinalized(event: RetirementFinalized): void {
-
   let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
 
   let request = loadOrCreateAsyncRetireRequest(requestId)
