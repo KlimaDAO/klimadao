@@ -232,10 +232,9 @@ export function saveCCO2Retirement(event: burnedCO2Token): void {
 
   let credit = loadOrCreateCarbonCredit(CCO2_ERC20_CONTRACT, 'CCO2', null)
 
-  // Set up project/default info for Moss "project"
+  // Set up project/default info for Coorest "project"
 
   if (credit.vintage == 1970) {
-    credit.vintage = 2021
     credit.project = 'CCO2'
     credit.save()
 

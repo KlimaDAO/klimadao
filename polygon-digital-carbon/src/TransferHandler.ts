@@ -129,7 +129,6 @@ export function handleToucanPuroDetokenizationFinalized(): void {}
 export function handleToucanPuroDetokenizationReverted(): void {}
 
 export function handleCCO2Retired(event: burnedCO2Token): void {
-  if (event.params.amount == ZERO_BI) return
   saveCCO2Retirement(event)
 }
 
