@@ -177,6 +177,8 @@ function updateC3Call(tokenAddress: Address, carbonCredit: CarbonCredit): Carbon
    * the vintage and do not relate to the projectId itself */
   if (attributes.registry == 'JCS' || attributes.registry == 'JPN') {
     projectID = attributes.project_id.slice(0, attributes.project_id.length - 2)
+    let batchSuffix = attributes.project_id.slice(-2)
+    carbonCredit.batchSuffix = batchSuffix
   } else {
     projectID = attributes.project_id
   }

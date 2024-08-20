@@ -234,6 +234,9 @@ type CarbonCredit @entity {
   "Last batch ID that was fractionalized if applicable"
   lastBatchId: BigInt!
 
+  "Two digit credit identifier for J-credits"
+  batchSuffix: String
+
   # Puro specific fields
   "Puro NFT token ID linked to Puro batch"
   puroBatchTokenId: BigInt
