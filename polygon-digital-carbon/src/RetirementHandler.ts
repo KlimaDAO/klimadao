@@ -1,5 +1,6 @@
 import {
   C3_VERIFIED_CARBON_UNITS_OFFSET,
+  CCO2_ERC20_CONTRACT,
   ICR_MIGRATION_BLOCK,
   MCO2_ERC20_CONTRACT,
   ZERO_ADDRESS,
@@ -11,6 +12,7 @@ import { StartAsyncToken, EndAsyncToken } from '../generated/C3ProjectTokenFacto
 import { RetiredVintage } from '../generated/templates/ICRProjectToken/ICRProjectToken'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { RetirementRequested } from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
+import { burnedCO2Token } from '../generated/CCO2/CCO2'
 import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Account'
 import { loadCarbonCredit, loadOrCreateCarbonCredit } from './utils/CarbonCredit'
 import { loadOrCreateCarbonProject } from './utils/CarbonProject'
@@ -23,6 +25,7 @@ import { AsyncRetireRequestStatus } from '../utils/enums'
 import { loadAsyncRetireRequest, loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
 import { C3RetirementMetadata as C3RetirementMetadataTemplate } from '../generated/templates'
 import { extractIpfsHash } from '../utils/ipfs'
+import { returnedPoccID } from '../generated/Coorest/Coorest'
 
 export function saveToucanRetirement(event: Retired): void {
   // Disregard events with zero amount
@@ -221,6 +224,55 @@ export function handleMossRetirement(event: CarbonOffset): void {
   )
 
   incrementAccountRetirements(senderAddress)
+}
+
+export function saveCCO2Retirement(event: burnedCO2Token): void {
+  // Don't process zero amount events
+  if (event.params.amount == ZERO_BI) return
+
+  let credit = loadOrCreateCarbonCredit(CCO2_ERC20_CONTRACT, 'CCO2', null)
+
+  // Set up project/default info for Coorest "project"
+
+  if (credit.vintage == 1970) {
+    credit.project = 'CCO2'
+    credit.save()
+
+    loadOrCreateCarbonProject('CCS', 'CCO2')
+  }
+
+  credit.retired = credit.retired.plus(event.params.amount)
+  credit.save()
+
+  // Ensure account entities are created for all addresses
+  let sender = loadOrCreateAccount(event.transaction.from)
+  let senderAddress = event.transaction.from
+
+  saveRetire(
+    sender.id.concatI32(sender.totalRetirements),
+    CCO2_ERC20_CONTRACT,
+    CCO2_ERC20_CONTRACT,
+    'OTHER',
+    event.params.amount,
+    /** event.transaction.from will save the RA address as the beneficiary for RA retires
+     * This should not an issue however as this field is reassigned in handleCarbonRetired*/
+    event.transaction.from,
+    '',
+    senderAddress,
+    '',
+    event.block.timestamp,
+    event.transaction.hash
+  )
+
+  incrementAccountRetirements(senderAddress)
+}
+
+export function handleReturnedPoccID(event: returnedPoccID): void {
+  log.info('Returned POCC ID event fired {}', [event.transaction.hash.toHexString()])
+  let sender = loadOrCreateAccount(event.transaction.from)
+  let retire = loadRetire(sender.id.concatI32(sender.totalRetirements - 1))
+  retire.retirementTokenId = event.params.poccID
+  retire.save()
 }
 
 export function saveICRRetirement(event: RetiredVintage): void {

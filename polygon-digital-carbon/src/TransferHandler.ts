@@ -1,5 +1,11 @@
-import { Address, BigInt, Bytes, store } from '@graphprotocol/graph-ts'
-import { ICR_MIGRATION_BLOCK, ICR_MIGRATION_HASHES, MCO2_ERC20_CONTRACT, ZERO_ADDRESS } from '../../lib/utils/Constants'
+import { Address, BigDecimal, BigInt, Bytes, store } from '@graphprotocol/graph-ts'
+import {
+  CCO2_ERC20_CONTRACT,
+  ICR_MIGRATION_BLOCK,
+  ICR_MIGRATION_HASHES,
+  MCO2_ERC20_CONTRACT,
+  ZERO_ADDRESS,
+} from '../../lib/utils/Constants'
 import { Transfer } from '../generated/BCT/ERC20'
 import { loadOrCreateCarbonCredit, updateICRCredit } from './utils/CarbonCredit'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
@@ -14,6 +20,7 @@ import { loadOrCreateHolding } from './utils/Holding'
 import { ZERO_BI, BIG_INT_1E18 } from '../../lib/utils/Decimals'
 import { loadOrCreateAccount } from './utils/Account'
 import {
+  saveCCO2Retirement,
   saveICRRetirement,
   saveToucanPuroRetirementRequest,
   saveToucanRetirement,
@@ -34,6 +41,7 @@ import {
 import { loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
 import { AsyncRetireRequestStatus } from '../utils/enums'
 import { createAsyncRetireRequestId } from '../utils/getRetirementsContractAddress'
+import { burnedCO2Token } from '../generated/CCO2/CCO2'
 
 export function handleCreditTransfer(event: Transfer): void {
   recordTransfer(
@@ -97,7 +105,6 @@ export function handleToucanPuroRetirementRequested(event: RetirementRequested):
 }
 
 export function handleToucanPuroRetirementFinalized(event: RetirementFinalized): void {
-
   let requestId = createAsyncRetireRequestId(event.address, event.params.requestId)
 
   let request = loadOrCreateAsyncRetireRequest(requestId)
@@ -120,6 +127,10 @@ export function handleToucanPuroDetokenizationRequested(): void {}
 export function handleToucanPuroDetokenizationFinalized(): void {}
 
 export function handleToucanPuroDetokenizationReverted(): void {}
+
+export function handleCCO2Retired(event: burnedCO2Token): void {
+  saveCCO2Retirement(event)
+}
 
 export function handle1155CreditTransfer(event: TransferSingle): void {
   if (ICR_MIGRATION_HASHES.indexOf(event.transaction.hash.toHexString()) > 0) return
@@ -209,7 +220,9 @@ function recordTransfer(
   if (amount == ZERO_BI) return
 
   let creditId = Bytes.fromHexString(tokenAddress.toHexString())
+
   if (tokenAddress == MCO2_ERC20_CONTRACT) loadOrCreateCarbonCredit(MCO2_ERC20_CONTRACT, 'MOSS', null)
+  if (tokenAddress == CCO2_ERC20_CONTRACT) loadOrCreateCarbonCredit(CCO2_ERC20_CONTRACT, 'COOREST', null)
 
   if (tokenId !== null) {
     creditId = creditId.concatI32(tokenId.toI32())
@@ -262,7 +275,7 @@ function recordTransfer(
     toHolding.save()
 
     // Exclude MCO2 retirements that are bridged back for one final burn to the zero address on mainnet
-    if (from != ZERO_ADDRESS && tokenAddress != MCO2_ERC20_CONTRACT) {
+    if (from != ZERO_ADDRESS && tokenAddress != MCO2_ERC20_CONTRACT && tokenAddress != CCO2_ERC20_CONTRACT) {
       recordProvenance(hash, tokenAddress, tokenId, from, to, 'TRANSFER', amount, timestamp)
 
       credit.provenanceCount += 1
@@ -290,14 +303,27 @@ function recordTransfer(
   credit.save()
 
   // Also save supply changes for MCO2
-  if (tokenAddress == MCO2_ERC20_CONTRACT && (to == ZERO_ADDRESS || from == ZERO_ADDRESS)) {
+  if (
+    (tokenAddress == MCO2_ERC20_CONTRACT || tokenAddress == CCO2_ERC20_CONTRACT) &&
+    (to == ZERO_ADDRESS || from == ZERO_ADDRESS)
+  ) {
     checkForCarbonPoolSnapshot(tokenAddress, timestamp, blockNumber)
     checkForCarbonPoolCreditSnapshot(tokenAddress, tokenAddress, timestamp, blockNumber)
 
     let pool = loadOrCreateCarbonPool(tokenAddress)
 
     if (to == ZERO_ADDRESS) pool.supply = pool.supply.minus(amount)
-    else pool.supply = pool.supply.plus(amount)
+    else {
+      pool.supply = pool.supply.plus(amount)
+      
+      const supplyBD = pool.supply.toBigDecimal()
+      pool.supplyTonnes = supplyBD
+
+      if (tokenAddress == CCO2_ERC20_CONTRACT) {
+        // Convert from kg to tonnes for CCO2
+        pool.supplyTonnes = supplyBD.div(BigDecimal.fromString('1000'))
+      }
+    }
 
     pool.save()
   }

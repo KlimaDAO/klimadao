@@ -7,6 +7,7 @@ enum Registry {
   ICR
   J_CREDIT
   ECO_REGISTRY
+  CCS
 }
 
 enum RetireSource {
@@ -19,6 +20,7 @@ enum BridgeProtocol {
   C3
   MOSS
   ICR
+  COOREST
 }
 
 enum CrossChainBridgeDirection {
@@ -332,6 +334,9 @@ type Retire @entity {
   "Amount of carbon retired"
   amount: BigInt!
 
+  "Amount of carbon Retired in Tonnes"
+  amountTonnes: BigDecimal!
+
   "Beneficiary address"
   beneficiaryAddress: Account!
 
@@ -369,6 +374,9 @@ type Retire @entity {
   provenance: ProvenanceRecord
 
   ### Additional attributes if applicable ###
+
+  "Many registries assign a unique retirement token id, most often 721s"
+  retirementTokenId: BigInt
 
   klimaRetire: KlimaRetire @derivedFrom(field: "retire")
 
@@ -483,6 +491,9 @@ type CarbonPool @entity {
 
   "Current supply"
   supply: BigInt!
+
+  "Current supply in Tonnes"
+  supplyTonnes: BigDecimal!
 
   "Total tokens bridged to other chains"
   crossChainSupply: BigInt!

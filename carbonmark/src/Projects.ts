@@ -2740,6 +2740,7 @@ export const PROJECT_INFO: ProjectInfo[] = [
     false
   ),
   new ProjectInfo('0xaa7dbd1598251f856c12f63557a4c4397c253cea', 'Moss', '2021', '', '', '', '', '0', false),
+  new ProjectInfo('0x82B37070e43C1BA0EA9e2283285b674eF7f1D4E2', 'Coorest', '2021', '', '', '', '', '0', false),
   new ProjectInfo(
     '0xab9c77ebc8bb34b872dbe7d0a89a7578752ab854',
     'VCS-12',

@@ -1,6 +1,6 @@
 import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { CarbonPool, CarbonPoolDailySnapshot, PoolDeposit, PoolRedeem } from '../../generated/schema'
-import { ZERO_BI } from '../../../lib/utils/Decimals'
+import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
 import { dayFromTimestamp } from '../../../lib/utils/Dates'
 import { loadOrCreateCarbonPoolCreditBalanceDailySnapshot } from './CarbonPoolCreditBalance'
 import { loadOrCreateToken } from './Token'
@@ -15,6 +15,7 @@ export function loadOrCreateCarbonPool(poolAddress: Address): CarbonPool {
   pool.name = token.name
   pool.decimals = token.decimals
   pool.supply = ZERO_BI
+  pool.supplyTonnes = ZERO_BD
   pool.crossChainSupply = ZERO_BI
   pool.lastSnapshotDayID = 0
   pool.nextSnapshotDayID = 0
