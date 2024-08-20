@@ -315,10 +315,13 @@ function recordTransfer(
     if (to == ZERO_ADDRESS) pool.supply = pool.supply.minus(amount)
     else {
       pool.supply = pool.supply.plus(amount)
+      
+      const supplyBD = pool.supply.toBigDecimal()
+      pool.supplyTonnes = supplyBD
 
       if (tokenAddress == CCO2_ERC20_CONTRACT) {
-        const newAmountBD = pool.supply.plus(amount).toBigDecimal()
-        pool.supplyTonnes = newAmountBD.div(BigDecimal.fromString('1000'))
+        // Convert from kg to tonnes for CCO2
+        pool.supplyTonnes = supplyBD.div(BigDecimal.fromString('1000'))
       }
     }
 

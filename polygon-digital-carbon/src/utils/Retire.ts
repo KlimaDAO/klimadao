@@ -42,12 +42,14 @@ export function saveRetire(
   let loadedCredit = loadCarbonCredit(credit)
   let project = CarbonProject.load(loadedCredit.project)
 
+  let amountBD = retire.amount.toBigDecimal()
+  retire.amountTonnes = amountBD
+
   if (project !== null && project.registry == 'CCS') {
-    let amountBD = retire.amount.toBigDecimal()
+    // Convert from tonnes to kg for Coorest
     retire.amountTonnes = amountBD.div(BigDecimal.fromString('1000'))
-  } else {
-    retire.amountTonnes = retire.amount.toBigDecimal()
   }
+
   retire.save()
 }
 
