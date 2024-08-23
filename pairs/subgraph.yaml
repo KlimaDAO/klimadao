@@ -128,8 +128,8 @@ dataSources:
           file: ../lib/abis/ERC20.json
         - name: UniswapV2Pair
           file: ../lib/abis/UniswapV2Pair.json
-        - name: CCO2Token
-          file: ../lib/abis/CCO2Token.json
+        - name: CCO2
+          file: ../lib/abis/CCO2.json
       eventHandlers:
         - event: Swap(indexed address,uint256,uint256,uint256,uint256,indexed address)
           handler: handleSwap

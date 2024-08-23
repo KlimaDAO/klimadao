@@ -23,7 +23,7 @@ import { Address } from '@graphprotocol/graph-ts'
 import { BigDecimalZero, BigIntZero } from './utils'
 import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
-import { CCO2Token as CCO2TokenContract } from '../generated/KLIMA_CCO2/CCO2Token'
+import { CCO2 } from '../generated/KLIMA_CCO2/CCO2'
 
 // Create or Load Token
 export function getCreateToken(address: Address): Token {
@@ -285,7 +285,7 @@ export function handleSwap(event: SwapEvent): void {
 
     // calculate cco2 fee from contract. Apply to currentprice and currentPricePerTonne
     if (event.address == KLIMA_CCO2_PAIR) {
-      let cco2_contract = CCO2TokenContract.bind(CCO2_ERC20_CONTRACT)
+      let cco2_contract = CCO2.bind(CCO2_ERC20_CONTRACT)
       let decimalRatio = BigDecimal.fromString(cco2_contract.decimalRatio().toString())
       let burningPercentage = BigDecimal.fromString(cco2_contract.burningPercentage().toString())
 
