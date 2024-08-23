@@ -53,7 +53,7 @@ export function getCreatePair(address: Address): Pair {
     pair.token0 = getCreateToken(contract.token0()).id
     pair.token1 = getCreateToken(contract.token1()).id
     pair.currentprice = BigDecimalZero
-    pair.currentPricePerTonne = BigDecimalZero
+    pair.currentpricepertonne = BigDecimalZero
     pair.totalvolume = BigDecimalZero
     pair.totalklimaearnedfees = BigDecimalZero
     pair.lastupdate = ''
@@ -287,23 +287,23 @@ export function handleSwap(event: SwapEvent): void {
     if (event.address == KLIMA_CCO2_PAIR) {
       let cco2_contract = CCO2TokenContract.bind(CCO2_ERC20_CONTRACT)
       let decimalRatio = BigDecimal.fromString(cco2_contract.decimalRatio().toString())
-      let transactionPercentage = BigDecimal.fromString(cco2_contract.transactionPercentage().toString())
+      let burningPercentage = BigDecimal.fromString(cco2_contract.burningPercentage().toString())
 
       /** Need to take into the account the fee, charged in the retired token
        * i.e. if the goal is to retire 100 tonnes at a 10% fee
        * ex. 100 = .9 * x. x = 111.11
        * So cost to the user is the same as retiring 111.11 tonnes, which accounts for the fee and actually retires 100 tonnes
        */
-      let effectiveTransactionPercentage = BigDecimal.fromString('1').minus(transactionPercentage.div(decimalRatio))
+      let effectiveFeePercentage = BigDecimal.fromString('1').minus(burningPercentage.div(decimalRatio))
 
-      let adjustedPrice = swap.close.div(effectiveTransactionPercentage)
+      let adjustedPrice = swap.close.div(effectiveFeePercentage)
 
       pair.currentprice = adjustedPrice
       // convert the adjusted price to per tonne as cco2 uses kgs
-      pair.currentPricePerTonne = adjustedPrice.div(BigDecimal.fromString('1000'))
+      pair.currentpricepertonne = adjustedPrice.div(BigDecimal.fromString('1000'))
     } else {
       pair.currentprice = swap.close
-      pair.currentPricePerTonne = swap.close
+      pair.currentpricepertonne = swap.close
     }
 
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
