@@ -34,6 +34,7 @@ export function getCreatePair(address: Address): Pair {
     pair.token0 = getCreateToken(contract.token0()).id
     pair.token1 = getCreateToken(contract.token1()).id
     pair.currentprice = BigDecimalZero
+    pair.currentpricepertonne = BigDecimalZero
     pair.totalvolume = BigDecimalZero
     pair.totalklimaearnedfees = BigDecimalZero
     pair.lastupdate = ''
@@ -139,6 +140,7 @@ export function handleSwap(event: SwapEvent): void {
     swap.save()
   }
   pair.currentprice = swap.close
+  pair.currentpricepertonne = swap.close
   pair.totalvolume = pair.totalvolume.plus(swap.volume)
   pair.totalklimaearnedfees = pair.totalklimaearnedfees.plus(swap.klimaearnedfees)
   pair.lastupdate = hour_timestamp
