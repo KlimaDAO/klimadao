@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-08-26 15:36+0000\n"
+"POT-Creation-Date: 2024-08-27 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,11 +22,11 @@ msgstr "Aprobar"
 
 #: components/views/Deposit/index.tsx:237
 msgid "Available Balance"
-msgstr ""
+msgstr "Saldo disponible"
 
 #: components/views/Deposit/index.tsx:272
 msgid "BCT to receive"
-msgstr ""
+msgstr "BCT para recibir"
 
 #: components/CarbonBalancesCard/index.tsx:126
 msgid "Balances"
@@ -39,6 +39,8 @@ msgstr "Tonelada base de carbono"
 #: components/NavMenu/index.tsx:228
 msgid "Bridge to Base"
 msgstr ""
+"Transferir a Base \n"
+""
 
 #: components/views/Redeem/index.tsx:377
 msgid "Buy & Redeem Carbon"
@@ -708,7 +710,7 @@ msgstr ""
 
 #: components/views/Redeem/index.tsx:442
 msgid "offset.invalid_project_tonnage"
-msgstr ""
+msgstr "No puede superar el tonelaje disponible del proyecto seleccionado"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:49
 msgid "offset.number_of_retirements"
@@ -724,27 +726,27 @@ msgstr ""
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:98
 msgid "offset.selectiveRetirement.address_input_type"
-msgstr ""
+msgstr "Dirección 0x"
 
 #: components/views/Offset/ProjectSearch/index.tsx:80
 msgid "offset.selectiveRetirement.back_to_filters"
-msgstr ""
+msgstr "Volver a los filtros"
 
 #: components/views/Offset/ProjectSearch/index.tsx:105
 msgid "offset.selectiveRetirement.clear_selection"
-msgstr ""
+msgstr "Borrar selección"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
 msgid "offset.selectiveRetirement.confirm_selection"
-msgstr ""
+msgstr "Confirmar selección"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
 msgid "offset.selectiveRetirement.confirmation_message"
-msgstr ""
+msgstr "¿Está seguro de que desea seleccionar el siguiente proyecto?"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:77
 msgid "offset.selectiveRetirement.default_input_type"
-msgstr ""
+msgstr "Por defecto"
 
 #: components/views/Offset/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
@@ -776,11 +778,11 @@ msgstr ""
 
 #: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
 msgid "offset.selectiveRetirement.project.available_tonnes"
-msgstr ""
+msgstr "Toneladas disponibles: {0}"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:112
 msgid "offset.selectiveRetirement.retire_from_default_pool"
-msgstr ""
+msgstr "Permite retirar el proyecto por defecto del pool. Esta opción evita el pago de tasas adicionales."
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:89
 msgid "offset.selectiveRetirement.search_input_type"
@@ -788,7 +790,7 @@ msgstr ""
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
 msgid "offset.selectiveRetirement.selectProject.back"
-msgstr ""
+msgstr "Volver a los filtros"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
 msgid "offset.selectiveRetirement.selectProject.label"
@@ -812,7 +814,7 @@ msgstr "Has retirado"
 
 #: components/views/Redeem/index.tsx:453
 msgid "offset_cost"
-msgstr ""
+msgstr "Costo"
 
 #: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_bct"
@@ -880,7 +882,7 @@ msgstr "El contrato actualizado asume ahora que los titulares de pKLIMA han hech
 
 #: components/views/Redeem/index.tsx:380
 msgid "redeem.description"
-msgstr ""
+msgstr "Adquiera tokens para un proyecto específico de compensación de carbono. Los tokens del proyecto se canjearán de un fondo de carbono y se transferirán a tu monedero, para que puedas canjearlos o retirarlos más tarde."
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
@@ -888,7 +890,7 @@ msgstr "404 Pagina no encontrada"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
 msgid "shared.back"
-msgstr ""
+msgstr "Atrás"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
