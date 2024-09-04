@@ -9,7 +9,7 @@ import { loadRetire } from './utils/Retire'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { saveKlimaRetire } from './utils/KlimaRetire'
 import { ZERO_BI } from '../../lib/utils/Decimals'
-import { getRetirementsContractAddress } from '../utils/getRetirementsContractAddress'
+import { getRetirementsContractAddress } from '../utils/helpers'
 
 export function handleMossRetired(event: MossRetired): void {
   // Ignore zero value retirements

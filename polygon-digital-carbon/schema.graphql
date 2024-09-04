@@ -719,6 +719,9 @@ type Holding @entity {
   "Amount currently held in native units"
   amount: BigInt!
 
+  "amount currently held in tonnes"
+  amountTonnes: BigDecimal!
+
   activeProvenanceRecords: [ProvenanceRecord!]!
 
   historicalProvenanceRecords: [ProvenanceRecord!]!
