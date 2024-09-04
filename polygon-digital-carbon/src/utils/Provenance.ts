@@ -6,6 +6,7 @@ import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { loadOrCreateToucanBatch } from './Toucan'
 import { TOUCAN_CARBON_OFFSETS_ESCROW_ADDRESS, ZERO_ADDRESS } from '../../../lib/utils/Constants'
 import { CarbonProject } from '../../generated/schema'
+import { convertToTonnes } from '../../utils/helpers'
 
 function processBatchOfRecords(batch: Bytes[], recordPriorRecords: Bytes[]): void {
   for (let i = 0; i < batch.length; i++) {
@@ -40,7 +41,9 @@ export function recordProvenance(
   record.sender = sender
   record.receiver = receiver
   record.originalAmount = amount
+  record.originalAmountTonnes = convertToTonnes(amount)
   record.remainingAmount = amount
+  record.remainingAmountTonnes = convertToTonnes(amount)
   record.createdAt = timestamp
   record.updatedAt = timestamp
   record.save()
