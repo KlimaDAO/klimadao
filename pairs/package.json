@@ -4,6 +4,7 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
+    "test": "graph test",
     "create-args": "graph create --node $npm_config_node klimadao-bonds",
     "deploy-args": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node klimadao-bonds",
     "deploy-version": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node --version-label $npm_config_label klimadao-bonds",

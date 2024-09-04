@@ -120,11 +120,11 @@ export function updatePairPrice(address: Address, klima_usdc_rate: BigDecimal, h
 
   // calculate cco2 fee from contract. Apply to currentprice and currentPricePerTonne
   if (address == KLIMA_CCO2_PAIR) {
-    let { adjustedPrice, adjustedPricePerTonne } = calculateCCO2AdjustedPrice(swap.close)
+    let adjustedPriceResult = calculateCCO2AdjustedPrice(swap.close)
 
-    pair.currentprice = adjustedPrice
+    pair.currentprice = adjustedPriceResult.adjustedPrice
     // convert the adjusted price to per tonne as cco2 uses kgs
-    pair.currentpricepertonne = adjustedPricePerTonne
+    pair.currentpricepertonne = adjustedPriceResult.adjustedPricePerTonne
   }
 
   pair.lastupdate = hour_timestamp
@@ -298,11 +298,11 @@ export function handleSwap(event: SwapEvent): void {
 
     // calculate cco2 fee from contract. Apply to currentprice and currentPricePerTonne
     if (event.address == KLIMA_CCO2_PAIR) {
-      let { adjustedPrice, adjustedPricePerTonne } = calculateCCO2AdjustedPrice(swap.close)
+      let adjustedPriceResult = calculateCCO2AdjustedPrice(swap.close)
 
-      pair.currentprice = adjustedPrice
+      pair.currentprice = adjustedPriceResult.adjustedPrice
       // convert the adjusted price to per tonne as cco2 uses kgs
-      pair.currentpricepertonne = adjustedPricePerTonne
+      pair.currentpricepertonne = adjustedPriceResult.adjustedPricePerTonne
     }
 
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
