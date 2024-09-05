@@ -232,13 +232,14 @@ export function handleSwap(event: SwapEvent): void {
       swap.save()
     }
     pair.currentprice = swap.close
+    pair.currentpricepertonne = swap.close
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
     pair.totalklimaearnedfees = pair.totalklimaearnedfees.plus(swap.klimaearnedfees)
     pair.lastupdate = hour_timestamp
     pair.save()
   }
   if (event.address == KLIMA_USDC_PAIR) {
-    // Update prices of tokens which are depedent on klima_usdc rate
+    // Update prices of tokens which are dependent on klima_usdc rate
     if (event.block.number.ge(KLIMA_NBO_PAIR_BLOCK)) {
       updatePairPrice(KLIMA_NBO_PAIR, price, hour_timestamp)
     }
