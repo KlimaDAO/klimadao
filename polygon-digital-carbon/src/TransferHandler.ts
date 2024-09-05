@@ -40,7 +40,7 @@ import {
 } from '../generated/templates/ToucanPuroCarbonOffsets/ToucanPuroCarbonOffsets'
 import { loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
 import { AsyncRetireRequestStatus } from '../utils/enums'
-import { convertToTonnes, createAsyncRetireRequestId } from '../utils/helpers'
+import { convertToAmountTonnes, createAsyncRetireRequestId } from '../utils/helpers'
 import { burnedCO2Token } from '../generated/CCO2/CCO2'
 
 export function handleCreditTransfer(event: Transfer): void {
@@ -65,7 +65,7 @@ export function handlePoolTransfer(event: Transfer): void {
     loadOrCreateAccount(event.params.from)
     let fromHolding = loadOrCreateHolding(event.params.from, event.address, null)
     fromHolding.amount = fromHolding.amount.minus(event.params.value)
-    fromHolding.amountTonnes = convertToTonnes(event.address, fromHolding.amount)
+    fromHolding.amountTonnes = convertToAmountTonnes(event.address, fromHolding.amount)
     fromHolding.lastUpdated = event.block.timestamp
     fromHolding.save()
 
@@ -79,7 +79,7 @@ export function handlePoolTransfer(event: Transfer): void {
     loadOrCreateAccount(event.params.to)
     let toHolding = loadOrCreateHolding(event.params.to, event.address, null)
     toHolding.amount = toHolding.amount.plus(event.params.value)
-    toHolding.amountTonnes = convertToTonnes(event.address, toHolding.amount)
+    toHolding.amountTonnes = convertToAmountTonnes(event.address, toHolding.amount)
     toHolding.lastUpdated = event.block.timestamp
     toHolding.save()
   }
@@ -254,7 +254,7 @@ function recordTransfer(
     loadOrCreateAccount(from)
     let fromHolding = loadOrCreateHolding(from, tokenAddress, tokenId)
     fromHolding.amount = fromHolding.amount.minus(amount)
-    fromHolding.amountTonnes = convertToTonnes(tokenAddress, fromHolding.amount)
+    fromHolding.amountTonnes = convertToAmountTonnes(tokenAddress, fromHolding.amount)
     fromHolding.lastUpdated = timestamp
     fromHolding.save()
 
@@ -274,7 +274,7 @@ function recordTransfer(
     loadOrCreateAccount(to)
     let toHolding = loadOrCreateHolding(to, tokenAddress, tokenId)
     toHolding.amount = toHolding.amount.plus(amount)
-    toHolding.amountTonnes = convertToTonnes(tokenAddress, toHolding.amount)
+    toHolding.amountTonnes = convertToAmountTonnes(tokenAddress, toHolding.amount)
     toHolding.lastUpdated = timestamp
     toHolding.save()
 

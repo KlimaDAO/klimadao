@@ -16,8 +16,8 @@ export function createAsyncRetireRequestId(token: Address, index: BigInt): Bytes
   return token.concatI32(index.toI32())
 }
 
-export function convertToTonnes(tokenAddress: Address, amount: BigInt): BigDecimal {
-  const amountBD = amount.div(BIG_INT_1E18).toBigDecimal()
+export function convertToAmountTonnes(tokenAddress: Address, amount: BigInt): BigDecimal {
+  const amountBD = amount.toBigDecimal().div(BigDecimal.fromString(BIG_INT_1E18.toString()))
 
   if (tokenAddress == CCO2_ERC20_CONTRACT) {
     return amountBD.div(BigDecimal.fromString('1000'))
