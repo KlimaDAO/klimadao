@@ -1,5 +1,10 @@
-import { AMOY_KLIMA_CARBON_RETIREMENTS_CONTRACT, KLIMA_CARBON_RETIREMENTS_CONTRACT } from '../../lib/utils/Constants'
+import {
+  AMOY_KLIMA_CARBON_RETIREMENTS_CONTRACT,
+  CCO2_ERC20_CONTRACT,
+  KLIMA_CARBON_RETIREMENTS_CONTRACT,
+} from '../../lib/utils/Constants'
 import { Address, BigInt, Bytes, BigDecimal } from '@graphprotocol/graph-ts'
+import { BIG_INT_1E18 } from '../../lib/utils/Decimals'
 
 export function getRetirementsContractAddress(network: string): Address {
   return network == 'matic' || network == 'mainnet'
@@ -11,6 +16,11 @@ export function createAsyncRetireRequestId(token: Address, index: BigInt): Bytes
   return token.concatI32(index.toI32())
 }
 
-export function convertToTonnes(amount: BigInt): BigDecimal {
-  return amount.toBigDecimal().div(BigDecimal.fromString('1000'))
+export function convertToTonnes(tokenAddress: Address, amount: BigInt): BigDecimal {
+  const amountBD = amount.div(BIG_INT_1E18).toBigDecimal()
+
+  if (tokenAddress == CCO2_ERC20_CONTRACT) {
+    return amountBD.div(BigDecimal.fromString('1000'))
+  }
+  return amountBD
 }

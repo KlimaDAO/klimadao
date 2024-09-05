@@ -41,9 +41,9 @@ export function recordProvenance(
   record.sender = sender
   record.receiver = receiver
   record.originalAmount = amount
-  record.originalAmountTonnes = convertToTonnes(amount)
+  record.originalAmountTonnes = convertToTonnes(tokenAddress, amount)
   record.remainingAmount = amount
-  record.remainingAmountTonnes = convertToTonnes(amount)
+  record.remainingAmountTonnes = convertToTonnes(tokenAddress, amount)
   record.createdAt = timestamp
   record.updatedAt = timestamp
   record.save()
