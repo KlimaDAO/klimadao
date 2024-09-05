@@ -7,7 +7,7 @@ import { convertToAmountTonnes } from '../../utils/helpers'
 export function saveRetire(
   id: Bytes,
   credit: Bytes,
-  creditAddress: Address,
+  creditAddress: Bytes,
   pool: Address,
   source: string,
   amount: BigInt,
