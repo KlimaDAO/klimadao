@@ -2,7 +2,7 @@ import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { ProvenanceRecord } from '../../generated/schema'
 import { loadCarbonCredit } from './CarbonCredit'
 import { loadOrCreateHolding } from './Holding'
-import { ZERO_BI } from '../../../lib/utils/Decimals'
+import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
 import { loadOrCreateToucanBatch } from './Toucan'
 import { TOUCAN_CARBON_OFFSETS_ESCROW_ADDRESS, ZERO_ADDRESS } from '../../../lib/utils/Constants'
 import { CarbonProject } from '../../generated/schema'
@@ -84,12 +84,16 @@ export function recordProvenance(
 
         recordPriorRecords.push(priorRecord.id)
         priorRecord.remainingAmount = priorRecord.remainingAmount.minus(remainingAmount)
+        priorRecord.remainingAmountTonnes = priorRecord.remainingAmountTonnes.minus(convertToAmountTonnes(tokenAddress, remainingAmount))
+        
         remainingAmount = ZERO_BI
       } else if (priorRecord.remainingAmount == remainingAmount) {
         // Transferred the exact number of credits from prior record
 
         recordPriorRecords.push(priorRecord.id)
         priorRecord.remainingAmount = ZERO_BI
+        priorRecord.remainingAmountTonnes = ZERO_BD
+
         remainingAmount = ZERO_BI
 
         // Remove the record from the active list
@@ -100,6 +104,7 @@ export function recordProvenance(
         recordPriorRecords.push(priorRecord.id)
         remainingAmount = remainingAmount.minus(priorRecord.remainingAmount)
         priorRecord.remainingAmount = ZERO_BI
+        priorRecord.remainingAmountTonnes = ZERO_BD
 
         // Remove the record from the active list
         senderActiveRecords.shift()
