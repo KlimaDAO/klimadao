@@ -136,7 +136,7 @@ describe('handleSwap', () => {
       'Pair',
       pairAddress.toHex(),
       'currentpricepertonne',
-      '0.00001846581475982910603740163507456394'
+      '18.46581475982910603740163507456394'
     )
   })
 
@@ -153,6 +153,6 @@ describe('handleSwap', () => {
 
     // Assert that the pair price is updated correctly
     assert.fieldEquals('Pair', pairAddress.toHex(), 'currentprice', '0.004616453689957276509350408768640985')
-    assert.fieldEquals('Pair', pairAddress.toHex(), 'currentpricepertonne', '0.000004616453689957276509350408768640985')
+    assert.fieldEquals('Pair', pairAddress.toHex(), 'currentpricepertonne', '4.616453689957276509350408768640985')
   })
 })

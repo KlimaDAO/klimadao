@@ -28,6 +28,6 @@ class AdjustedPriceResult {
   
     let adjustedPrice = swapClose.div(effectiveFeePercentage)
   
-    return new AdjustedPriceResult(adjustedPrice, adjustedPrice.div(BigDecimal.fromString('1000')))
+    return new AdjustedPriceResult(adjustedPrice, adjustedPrice.times(BigDecimal.fromString('1000')))
   }
   
