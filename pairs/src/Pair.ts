@@ -21,9 +21,9 @@ import { Swap as SwapEvent, Pair as PairContract } from '../generated/KLIMA_USDC
 import { ERC20 as ERC20Contract } from '../generated/KLIMA_USDC/ERC20'
 import { Address } from '@graphprotocol/graph-ts'
 import { BigDecimalZero, BigIntZero } from './utils'
+import { calculateCCO2AdjustedPrice } from './pair.utils'
 import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
-import { CCO2 } from '../generated/KLIMA_CCO2/CCO2'
 
 // Create or Load Token
 export function getCreateToken(address: Address): Token {
@@ -117,6 +117,17 @@ export function updatePairPrice(address: Address, klima_usdc_rate: BigDecimal, h
     swap.save()
   }
   pair.currentprice = swap.close
+  pair.currentpricepertonne = swap.close
+
+  // calculate cco2 fee from contract. Apply to currentprice and currentPricePerTonne
+  if (address == KLIMA_CCO2_PAIR) {
+    let adjustedPriceResult = calculateCCO2AdjustedPrice(swap.close)
+
+    pair.currentprice = adjustedPriceResult.adjustedPrice
+    // convert the adjusted price to per tonne as cco2 uses kgs
+    pair.currentpricepertonne = adjustedPriceResult.adjustedPricePerTonne
+  }
+
   pair.lastupdate = hour_timestamp
   pair.save()
 }
@@ -221,13 +232,14 @@ export function handleSwap(event: SwapEvent): void {
       swap.save()
     }
     pair.currentprice = swap.close
+    pair.currentpricepertonne = swap.close
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
     pair.totalklimaearnedfees = pair.totalklimaearnedfees.plus(swap.klimaearnedfees)
     pair.lastupdate = hour_timestamp
     pair.save()
   }
   if (event.address == KLIMA_USDC_PAIR) {
-    // Update prices of tokens which are depedent on klima_usdc rate
+    // Update prices of tokens which are dependent on klima_usdc rate
     if (event.block.number.ge(KLIMA_NBO_PAIR_BLOCK)) {
       updatePairPrice(KLIMA_NBO_PAIR, price, hour_timestamp)
     }
@@ -283,27 +295,16 @@ export function handleSwap(event: SwapEvent): void {
       swap.save()
     }
 
+    pair.currentprice = swap.close
+    pair.currentpricepertonne = swap.close
+
     // calculate cco2 fee from contract. Apply to currentprice and currentPricePerTonne
     if (event.address == KLIMA_CCO2_PAIR) {
-      let cco2_contract = CCO2.bind(CCO2_ERC20_CONTRACT)
-      let decimalRatio = BigDecimal.fromString(cco2_contract.decimalRatio().toString())
-      let burningPercentage = BigDecimal.fromString(cco2_contract.burningPercentage().toString())
+      let adjustedPriceResult = calculateCCO2AdjustedPrice(swap.close)
 
-      /** Need to take into the account the fee, charged in the retired token
-       * i.e. if the goal is to retire 100 tonnes at a 10% fee
-       * ex. 100 = .9 * x. x = 111.11
-       * So cost to the user is the same as retiring 111.11 tonnes, which accounts for the fee and actually retires 100 tonnes
-       */
-      let effectiveFeePercentage = BigDecimal.fromString('1').minus(burningPercentage.div(decimalRatio))
-
-      let adjustedPrice = swap.close.div(effectiveFeePercentage)
-
-      pair.currentprice = adjustedPrice
+      pair.currentprice = adjustedPriceResult.adjustedPrice
       // convert the adjusted price to per tonne as cco2 uses kgs
-      pair.currentpricepertonne = adjustedPrice.div(BigDecimal.fromString('1000'))
-    } else {
-      pair.currentprice = swap.close
-      pair.currentpricepertonne = swap.close
+      pair.currentpricepertonne = adjustedPriceResult.adjustedPricePerTonne
     }
 
     pair.totalvolume = pair.totalvolume.plus(swap.volume)
