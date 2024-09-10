@@ -15,6 +15,7 @@ import { handleCarbonRetired } from '../src/KlimaAggregator'
 import { KLIMA_CARBON_RETIREMENTS_CONTRACT } from '../../lib/utils/Constants'
 import { handleCCO2Retired } from '../src/TransferHandler'
 import { loadOrCreateAccount } from '../src/utils/Account'
+import { convertToAmountTonnes } from '../utils/helpers'
 
 const cco2 = Address.fromString('0x82b37070e43c1ba0ea9e2283285b674ef7f1d4e2')
 
@@ -166,7 +167,7 @@ describe('Carbon Retired Tests', () => {
     assert.fieldEquals('Retire', retireId, 'pool', carbonPool.toHexString())
     assert.fieldEquals('Retire', retireId, 'source', 'KLIMA')
     assert.fieldEquals('Retire', retireId, 'amount', retiredAmount.toString())
-    assert.fieldEquals('Retire', retireId, 'amountTonnes', retiredAmountTotal.div(BigInt.fromI32(1000)).toString())
+    assert.fieldEquals('Retire', retireId, 'amountTonnes', convertToAmountTonnes(carbonToken, retiredAmount).toString())
     assert.fieldEquals('Retire', retireId, 'beneficiaryAddress', beneficiaryAddress.toHexString())
     assert.fieldEquals('Retire', retireId, 'beneficiaryName', beneficiaryString)
     assert.fieldEquals('Retire', retireId, 'retirementMessage', retirementMessage)

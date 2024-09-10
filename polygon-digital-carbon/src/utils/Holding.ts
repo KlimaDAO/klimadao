@@ -1,6 +1,6 @@
 import { Address, BigInt, Bytes, log } from '@graphprotocol/graph-ts'
 import { Holding, Token } from '../../generated/schema'
-import { ZERO_BI } from '../../../lib/utils/Decimals'
+import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
 import { createICRTokenID } from './Token'
 import { loadOrCreateAccount } from './Account'
 
@@ -24,6 +24,7 @@ export function loadOrCreateHolding(account: Address, token: Address, tokenId: B
   holding.token = tokenEntityId
   holding.tokenId = tokenId
   holding.amount = ZERO_BI
+  holding.amountTonnes = ZERO_BD
   holding.activeProvenanceRecords = []
   holding.historicalProvenanceRecords = []
   holding.lastUpdated = ZERO_BI

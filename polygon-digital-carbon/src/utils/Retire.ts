@@ -1,12 +1,13 @@
-import { Address, BigDecimal, BigInt, Bytes } from '@graphprotocol/graph-ts'
-import { CarbonProject, Retire } from '../../generated/schema'
+import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
+import { Retire } from '../../generated/schema'
 import { updateProvenanceForRetirement } from './Provenance'
-import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
-import { loadCarbonCredit } from './CarbonCredit'
+import { ZERO_BI } from '../../../lib/utils/Decimals'
+import { convertToAmountTonnes } from '../../utils/helpers'
 
 export function saveRetire(
   id: Bytes,
   credit: Bytes,
+  creditAddress: Bytes,
   pool: Address,
   source: string,
   amount: BigInt,
@@ -19,12 +20,13 @@ export function saveRetire(
   bridgeID: string | null = null,
   message: string = ''
 ): void {
+
   let retire = new Retire(id)
   retire.credit = credit
   retire.pool = pool
   retire.source = source
   retire.amount = amount
-  retire.amountTonnes = amount.toBigDecimal()
+  retire.amountTonnes = convertToAmountTonnes(creditAddress, amount)
   retire.beneficiaryAddress = beneficiary
   retire.beneficiaryName = beneficiaryName
   retire.beneficiaryLocation = ''
@@ -38,17 +40,6 @@ export function saveRetire(
   retire.hash = hash
   retire.provenance = updateProvenanceForRetirement(credit)
   if (bridgeID !== null) retire.bridgeID = bridgeID
-
-  let loadedCredit = loadCarbonCredit(credit)
-  let project = CarbonProject.load(loadedCredit.project)
-
-  let amountBD = retire.amount.toBigDecimal()
-  retire.amountTonnes = amountBD
-
-  if (project !== null && project.registry == 'CCS') {
-    // Convert from tonnes to kg for Coorest
-    retire.amountTonnes = amountBD.div(BigDecimal.fromString('1000'))
-  }
 
   retire.save()
 }

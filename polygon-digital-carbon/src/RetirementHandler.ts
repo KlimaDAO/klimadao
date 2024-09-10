@@ -20,7 +20,7 @@ import { loadRetire, saveRetire } from './utils/Retire'
 import { Bytes, log } from '@graphprotocol/graph-ts'
 import { loadOrCreateC3RetireRequestDetails, loadC3RetireRequestDetails } from './utils/C3'
 import { Token, TokenURISafeguard } from '../generated/schema'
-import { createAsyncRetireRequestId } from '../utils/getRetirementsContractAddress'
+import { createAsyncRetireRequestId } from '../utils/helpers'
 import { AsyncRetireRequestStatus } from '../utils/enums'
 import { loadAsyncRetireRequest, loadOrCreateAsyncRetireRequest } from './utils/AsyncRetireRequest'
 import { C3RetirementMetadata as C3RetirementMetadataTemplate } from '../generated/templates'
@@ -46,6 +46,7 @@ export function saveToucanRetirement(event: Retired): void {
   saveRetire(
     sender.id.concatI32(sender.totalRetirements),
     credit.id,
+    credit.tokenAddress,
     ZERO_ADDRESS,
     'OTHER',
     event.params.tokenId,
@@ -79,6 +80,7 @@ export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
   saveRetire(
     sender.id.concatI32(sender.totalRetirements),
     credit.id,
+    credit.tokenAddress,
     ZERO_ADDRESS,
     'OTHER',
     event.params.amount,
@@ -114,6 +116,7 @@ export function saveToucanPuroRetirementRequest(event: RetirementRequested): voi
   saveRetire(
     retireId,
     credit.id,
+    credit.tokenAddress,
     ZERO_ADDRESS,
     'OTHER',
     event.params.params.amount,
@@ -170,6 +173,7 @@ export function handleVCUOMinted(event: VCUOMinted): void {
     saveRetire(
       sender.id.concatI32(sender.totalRetirements),
       projectAddress,
+      credit.tokenAddress,
       ZERO_ADDRESS,
       'OTHER',
       retireAmount,
@@ -212,6 +216,7 @@ export function handleMossRetirement(event: CarbonOffset): void {
   saveRetire(
     sender.id.concatI32(sender.totalRetirements),
     MCO2_ERC20_CONTRACT,
+    credit.tokenAddress,
     MCO2_ERC20_CONTRACT,
     'OTHER',
     event.params.carbonTon,
@@ -251,6 +256,7 @@ export function saveCCO2Retirement(event: burnedCO2Token): void {
   saveRetire(
     sender.id.concatI32(sender.totalRetirements),
     CCO2_ERC20_CONTRACT,
+    credit.tokenAddress,
     CCO2_ERC20_CONTRACT,
     'OTHER',
     event.params.amount,
@@ -294,6 +300,7 @@ export function saveICRRetirement(event: RetiredVintage): void {
   saveRetire(
     sender.id.concatI32(sender.totalRetirements),
     credit.id,
+    credit.tokenAddress,
     ZERO_ADDRESS,
     'OTHER',
     amount,
@@ -327,6 +334,7 @@ export function saveStartAsyncToken(event: StartAsyncToken): void {
   saveRetire(
     retireId,
     credit.id,
+    credit.tokenAddress,
     ZERO_ADDRESS,
     'OTHER',
     event.params.amount,

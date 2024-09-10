@@ -73,8 +73,14 @@ type ProvenanceRecord @entity {
   "Original amount received"
   originalAmount: BigInt!
 
+  "Original amount received in tonnes"
+  originalAmountTonnes: BigDecimal!
+
   "Remaining amount held"
   remainingAmount: BigInt!
+
+  "Remaining amount held in tonnes"
+  remainingAmountTonnes: BigDecimal!
 
   "Unix timestamp created"
   createdAt: BigInt!
@@ -718,6 +724,9 @@ type Holding @entity {
 
   "Amount currently held in native units"
   amount: BigInt!
+
+  "amount currently held in tonnes"
+  amountTonnes: BigDecimal!
 
   activeProvenanceRecords: [ProvenanceRecord!]!
 

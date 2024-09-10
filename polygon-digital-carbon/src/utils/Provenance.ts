@@ -2,10 +2,11 @@ import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { ProvenanceRecord } from '../../generated/schema'
 import { loadCarbonCredit } from './CarbonCredit'
 import { loadOrCreateHolding } from './Holding'
-import { ZERO_BI } from '../../../lib/utils/Decimals'
+import { ZERO_BD, ZERO_BI } from '../../../lib/utils/Decimals'
 import { loadOrCreateToucanBatch } from './Toucan'
 import { TOUCAN_CARBON_OFFSETS_ESCROW_ADDRESS, ZERO_ADDRESS } from '../../../lib/utils/Constants'
 import { CarbonProject } from '../../generated/schema'
+import { convertToAmountTonnes } from '../../utils/helpers'
 
 function processBatchOfRecords(batch: Bytes[], recordPriorRecords: Bytes[]): void {
   for (let i = 0; i < batch.length; i++) {
@@ -40,7 +41,9 @@ export function recordProvenance(
   record.sender = sender
   record.receiver = receiver
   record.originalAmount = amount
+  record.originalAmountTonnes = convertToAmountTonnes(tokenAddress, amount)
   record.remainingAmount = amount
+  record.remainingAmountTonnes = convertToAmountTonnes(tokenAddress, amount)
   record.createdAt = timestamp
   record.updatedAt = timestamp
   record.save()
@@ -81,12 +84,16 @@ export function recordProvenance(
 
         recordPriorRecords.push(priorRecord.id)
         priorRecord.remainingAmount = priorRecord.remainingAmount.minus(remainingAmount)
+        priorRecord.remainingAmountTonnes = priorRecord.remainingAmountTonnes.minus(convertToAmountTonnes(tokenAddress, remainingAmount))
+        
         remainingAmount = ZERO_BI
       } else if (priorRecord.remainingAmount == remainingAmount) {
         // Transferred the exact number of credits from prior record
 
         recordPriorRecords.push(priorRecord.id)
         priorRecord.remainingAmount = ZERO_BI
+        priorRecord.remainingAmountTonnes = ZERO_BD
+
         remainingAmount = ZERO_BI
 
         // Remove the record from the active list
@@ -97,6 +104,7 @@ export function recordProvenance(
         recordPriorRecords.push(priorRecord.id)
         remainingAmount = remainingAmount.minus(priorRecord.remainingAmount)
         priorRecord.remainingAmount = ZERO_BI
+        priorRecord.remainingAmountTonnes = ZERO_BD
 
         // Remove the record from the active list
         senderActiveRecords.shift()
