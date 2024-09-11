@@ -74,6 +74,10 @@ jobs:
           fi
         env:
           REF: ${{ github.ref }}
-      - name: Deploy Subgraph
+      - name: Deploy Subgraph to Studio
         run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.staging_or_not.outputs.subgraph }} --version-label ${{ steps.staging_or_not.outputs.short_sha }}
+        working-directory: '${{ matrix.value }}'
+      - name: Deploy Subgraph to Alchemy Hosted Service
+        if: ${{ matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' }}
+        run: ../node_modules/.bin/graph deploy ${{ steps.staging_or_not.outputs.subgraph }} --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label ${{ steps.staging_or_not.outputs.short_sha }}
         working-directory: '${{ matrix.value }}'
