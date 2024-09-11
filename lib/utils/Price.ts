@@ -5,6 +5,8 @@ import {
   KLIMA_USDC_PAIR,
   KLIMA_UBO_PAIR,
   KLIMA_NBO_PAIR,
+  UBO_KLIMA_V2_PAIR,
+  KLIMA_NBO_V2_PAIR,
   MCO2_USDC_PAIR,
   NCT_USDC_PAIR,
   KLIMA_NCT_PAIR,
@@ -101,9 +103,27 @@ export class PriceUtil {
     )
   }
 
+  static getUBO_KLIMAV2Rate(): BigDecimal {
+    return this.getUniV2Rate(
+      UBO_KLIMA_V2_PAIR,
+      this.uboToken.getDecimals(),
+      this.klimaToken.getDecimals(),
+      RATE_FOR_TOKEN.SECOND
+    )
+  }
+
   static getKLIMA_NBORate(): BigDecimal {
     return this.getUniV2Rate(
       KLIMA_NBO_PAIR,
+      this.klimaToken.getDecimals(),
+      this.nboToken.getDecimals(),
+      RATE_FOR_TOKEN.FIRST
+    )
+  }
+
+  static getKLIMA_NBOV2Rate(): BigDecimal {
+    return this.getUniV2Rate(
+      KLIMA_NBO_V2_PAIR,
       this.klimaToken.getDecimals(),
       this.nboToken.getDecimals(),
       RATE_FOR_TOKEN.FIRST

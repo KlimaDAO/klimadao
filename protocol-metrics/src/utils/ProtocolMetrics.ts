@@ -39,10 +39,14 @@ import {
   UBOBOND_V1_BLOCK,
   UBO_ERC20_CONTRACT,
   KLIMA_UBO_PAIR_BLOCK,
+  UBO_KLIMA_V2_PAIR,
+  UBO_KLIMA_V2_PAIR_BLOCK,
   NBOBOND_V1,
   NBOBOND_V1_BLOCK,
   NBO_ERC20_CONTRACT,
   KLIMA_NBO_PAIR_BLOCK,
+  KLIMA_NBO_V2_PAIR,
+  KLIMA_NBO_V2_PAIR_BLOCK,
   SKLIMA_ERC20_V1_CONTRACT,
   STAKING_CONTRACT_V1,
   TREASURY_ADDRESS,
@@ -366,6 +370,33 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
 
   treasuryKLIMAUBO.save()
 
+  // UBO-KLIMA V2
+  let treasuryUBOKLIMAV2 = loadOrCreateTreasuryAsset(transaction.timestamp, UBO_KLIMA_V2_PAIR.toHexString())
+
+  if (transaction.blockNumber.gt(UBO_KLIMA_V2_PAIR_BLOCK)) {
+    let uboklimaERC20 = ERC20.bind(UBO_KLIMA_V2_PAIR)
+    let uboklimaUNIV2 = UniswapV2Pair.bind(UBO_KLIMA_V2_PAIR)
+
+    // Treasury LP token balance
+    treasuryUBOKLIMAV2.tokenBalance = toDecimal(uboklimaERC20.balanceOf(TREASURY_ADDRESS), 18)
+
+    // Get total LP supply and calc treasury percent
+    let total_lp = toDecimal(uboklimaUNIV2.totalSupply(), 18)
+    let ownedLP = treasuryUBOKLIMAV2.tokenBalance.div(total_lp)
+    let reserves = uboklimaUNIV2.getReserves()
+    let reserves0 = toDecimal(reserves.value0, 18)
+    let reserves1 = toDecimal(reserves.value1, 9)
+    let kValue = parseFloat(reserves0.times(reserves1).toString())
+    treasuryUBOKLIMAV2.POL = ownedLP
+
+    // Percent of Carbon in LP owned by the treasury
+    treasuryUBOKLIMAV2.carbonBalance = reserves0.times(ownedLP)
+    treasuryUBOKLIMAV2.carbonCustodied = BigDecimal.fromString((2 * Math.sqrt(kValue)).toString()).times(ownedLP)
+    treasuryUBOKLIMAV2.marketValue = treasuryUBOKLIMAV2.carbonBalance.times(uboUsdPrice).times(BigDecimal.fromString('2'))
+  }
+
+  treasuryUBOKLIMAV2.save()
+
   // KLIMA-NBO
   let treasuryKLIMANBO = loadOrCreateTreasuryAsset(transaction.timestamp, KLIMA_NBO_PAIR.toHexString())
 
@@ -392,6 +423,33 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
   }
 
   treasuryKLIMANBO.save()
+
+  // KLIMA-NBO Sushi V2
+  let treasuryKLIMANBOV2 = loadOrCreateTreasuryAsset(transaction.timestamp, KLIMA_NBO_V2_PAIR.toHexString())
+
+  if (transaction.blockNumber.gt(KLIMA_NBO_V2_PAIR_BLOCK)) {
+    let klimanboERC20 = ERC20.bind(KLIMA_NBO_V2_PAIR)
+    let klimanboUNIV2 = UniswapV2Pair.bind(KLIMA_NBO_V2_PAIR)
+
+    // Treasury LP token balance
+    treasuryKLIMANBOV2.tokenBalance = toDecimal(klimanboERC20.balanceOf(TREASURY_ADDRESS), 18)
+
+    // Get total LP supply and calc treasury percent
+    let total_lp = toDecimal(klimanboUNIV2.totalSupply(), 18)
+    let ownedLP = treasuryKLIMANBO.tokenBalance.div(total_lp)
+    let reserves = klimanboUNIV2.getReserves()
+    let reserves0 = toDecimal(reserves.value0, 9)
+    let reserves1 = toDecimal(reserves.value1, 18)
+    let kValue = parseFloat(reserves0.times(reserves1).toString())
+    treasuryKLIMANBOV2.POL = ownedLP
+
+    // Percent of Carbon in LP owned by the treasury
+    treasuryKLIMANBOV2.carbonBalance = reserves1.times(ownedLP)
+    treasuryKLIMANBOV2.carbonCustodied = BigDecimal.fromString((2 * Math.sqrt(kValue)).toString()).times(ownedLP)
+    treasuryKLIMANBOV2.marketValue = treasuryKLIMANBOV2.carbonBalance.times(nboUsdPrice).times(BigDecimal.fromString('2'))
+  }
+
+  treasuryKLIMANBOV2.save()
 
   // KLIMA-NCT
   let treasuryKLIMANCT = loadOrCreateTreasuryAsset(transaction.timestamp, KLIMA_NCT_PAIR.toHexString())
@@ -474,7 +532,9 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     treasuryKLIMABCT.id,
     treasuryKLIMAMCO2.id,
     treasuryKLIMAUBO.id,
+    treasuryUBOKLIMAV2.id,
     treasuryKLIMANBO.id,
+    treasuryKLIMANBOV2.id,
     treasuryKLIMANCT.id,
     treasuryBCTUSDC.id,
     treasuryKLIMAUSDC.id,
@@ -498,11 +558,17 @@ function getKlimaAmountFromLP(transaction: Transaction): BigDecimal {
   if (transaction.blockNumber.gt(KLIMA_UBO_PAIR_BLOCK)) {
     totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_UBO_PAIR, klimaToken, false))
   }
+  if (transaction.blockNumber.gt(UBO_KLIMA_V2_PAIR_BLOCK)) {
+    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(UBO_KLIMA_V2_PAIR, klimaToken, false))
+  }
   if (transaction.blockNumber.gt(KLIMA_NBO_PAIR_BLOCK)) {
-    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NBO_PAIR, klimaToken, false))
+    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NBO_PAIR, klimaToken, true))
+  }
+  if (transaction.blockNumber.gt(KLIMA_NBO_V2_PAIR_BLOCK)) {
+    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NBO_V2_PAIR, klimaToken, true))
   }
   if (transaction.blockNumber.gt(KLIMA_NCT_PAIR_BLOCK)) {
-    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NCT_PAIR, klimaToken, false))
+    totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_NCT_PAIR, klimaToken, true))
   }
   if (transaction.blockNumber.gt(KLIMA_CCO2_PAIR_BLOCK)) {
     totalKlimaInLP = totalKlimaInLP.plus(getTokenReserveAmount(KLIMA_CCO2_PAIR, klimaToken, true))

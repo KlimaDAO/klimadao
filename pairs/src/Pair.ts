@@ -5,11 +5,15 @@ import {
   BCT_USDC_PAIR,
   NCT_USDC_PAIR,
   KLIMA_NBO_PAIR,
+  KLIMA_NBO_V2_PAIR,
   KLIMA_UBO_PAIR,
+  UBO_KLIMA_V2_PAIR,
   KLIMA_MCO2_PAIR,
   KLIMA_CCO2_PAIR,
   KLIMA_NBO_PAIR_BLOCK,
   KLIMA_UBO_PAIR_BLOCK,
+  UBO_KLIMA_V2_PAIR_BLOCK,
+  KLIMA_NBO_V2_PAIR_BLOCK,
   KLIMA_BCT_PAIR_BLOCK,
   KLIMA_MCO2_PAIR_BLOCK,
   KLIMA_CCO2_PAIR_BLOCK,
@@ -73,6 +77,12 @@ export function updatePairPrice(address: Address, klima_usdc_rate: BigDecimal, h
   }
   if (address == KLIMA_UBO_PAIR) {
     price = klima_usdc_rate.div(PriceUtil.getKLIMA_UBORate())
+  }
+  if (address == KLIMA_NBO_V2_PAIR) {
+    price = klima_usdc_rate.div(PriceUtil.getKLIMA_NBOV2Rate())
+  }
+  if (address == UBO_KLIMA_V2_PAIR) {
+    price = klima_usdc_rate.div(PriceUtil.getUBO_KLIMAV2Rate())
   }
   if (address == KLIMA_MCO2_PAIR) {
     price = klima_usdc_rate.div(PriceUtil.getKLIMA_MCO2Rate())
@@ -245,6 +255,12 @@ export function handleSwap(event: SwapEvent): void {
     }
     if (event.block.number.ge(KLIMA_UBO_PAIR_BLOCK)) {
       updatePairPrice(KLIMA_UBO_PAIR, price, hour_timestamp)
+    }
+    if (event.block.number.ge(KLIMA_NBO_V2_PAIR_BLOCK)) {
+      updatePairPrice(KLIMA_NBO_V2_PAIR, price, hour_timestamp)
+    }
+    if (event.block.number.ge(UBO_KLIMA_V2_PAIR_BLOCK)) {
+      updatePairPrice(UBO_KLIMA_V2_PAIR, price, hour_timestamp)
     }
     if (event.block.number.ge(KLIMA_BCT_PAIR_BLOCK)) {
       updatePairPrice(KLIMA_BCT_PAIR, price, hour_timestamp)

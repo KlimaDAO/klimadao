@@ -45,6 +45,10 @@ export const KLIMA_UBO_PAIR = Address.fromString('0x5400A05B8B45EaF9105315B4F2e3
 export const KLIMA_UBO_PAIR_BLOCK = BigInt.fromString('26470811')
 export const KLIMA_NBO_PAIR = Address.fromString('0x251cA6A70cbd93Ccd7039B6b708D4cb9683c266C')
 export const KLIMA_NBO_PAIR_BLOCK = BigInt.fromString('26470990')
+export const UBO_KLIMA_V2_PAIR = Address.fromString('0x09053745A04A7E78492ee8fdb866c750594F2a60')
+export const UBO_KLIMA_V2_PAIR_BLOCK = BigInt.fromString('59678049')
+export const KLIMA_NBO_V2_PAIR = Address.fromString('0xE69E0E02297E2f3b4298F250ECFDC58207536327')
+export const KLIMA_NBO_V2_PAIR_BLOCK = BigInt.fromString('59678049')
 export const KLIMA_NCT_PAIR = Address.fromString('0xb2D0D5C86d933b0aceFE9B95bEC160d514d152E1')
 export const KLIMA_NCT_PAIR_BLOCK = BigInt.fromString('32607148')
 export const KLIMA_CCO2_PAIR = Address.fromString('0x4D2263FF85e334C1f1d04C6262F6c2580335a93C')
@@ -118,7 +122,7 @@ export const KLIMA_INFINITY_DIAMOND = Address.fromString('0x8cE54d9625371fb2a068
 
 // Other ecosystem addresses
 export const TOUCAN_CONTRACT_REGISTRY_ADDRESS = Address.fromString('0x263fA1c180889b3a3f46330F32a4a23287E99FC9')
-export const C3_VERIFIED_CARBON_UNITS_OFFSET = Address.fromString('0x7b364DFc0e085468aFDe869DF20036D80b8868e7') 
+export const C3_VERIFIED_CARBON_UNITS_OFFSET = Address.fromString('0x7b364DFc0e085468aFDe869DF20036D80b8868e7')
 export const TOUCAN_CARBON_OFFSETS_ESCROW_ADDRESS = Address.fromString('0x2D2B8A154EFE0E5dd9e8E923eAd9abb7e5D770C3')
 export const TOUCAN_REGEN_BRIDGE = Address.fromString('0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC')
 export const TOUCAN_CROSS_CHAIN_MESSENGER = Address.fromString('0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf')
