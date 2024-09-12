@@ -102,6 +102,10 @@ describe('Carbon Retired Tests', () => {
       ethereum.Value.fromString('CCO2 Project'),
     ])
 
+    createMockedFunction(cco2, 'totalSupply', 'totalSupply():(uint256)').returns([
+      ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(1000000))
+    ])
+
     createMockedFunction(
       KLIMA_CARBON_RETIREMENTS_CONTRACT,
       'retirements',
@@ -136,6 +140,7 @@ describe('Carbon Retired Tests', () => {
 
     let burnedCO2TokenEvent = newBurnedCO2TokenEvent(retiredAmount)
     burnedCO2TokenEvent.transaction.from = senderAddress
+    burnedCO2TokenEvent.address = cco2
 
     handleCCO2Retired(burnedCO2TokenEvent)
 
