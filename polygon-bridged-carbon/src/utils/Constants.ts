@@ -9,6 +9,8 @@ export const UBO_TOKEN: string = 'UBO'
 export const UBO_ERC20_CONTRACT: string = '0x2b3ecb0991af0498ece9135bcd04013d7993110c'
 export const NBO_TOKEN: string = 'NBO'
 export const NBO_ERC20_CONTRACT: string = '0x6bca3b77c1909ce1a4ba1a20d1103bde8d222e48'
+export const CCO2_TOKEN: string = 'CCO2'
+export const CCO2_ERC20_CONTRACT: string = '0x82b37070e43c1ba0ea9e2283285b674ef7f1d4e2'
 
 // Klima Retirement Contracts
 export const KLIMA_CARBON_RETIREMENTS_CONTRACT = '0xac298cd34559b9acfaedea8344a977eceff1c0fd'
