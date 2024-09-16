@@ -7,6 +7,7 @@ import { MCO2 } from './impl/MCO2'
 import { NBO } from './impl/NBO'
 import { NCT } from './impl/NCT'
 import { UBO } from './impl/UBO'
+import { CCO2 } from './impl/CCO2'
 
 export class PoolTokenFactory {
   constructor() {}
@@ -26,6 +27,9 @@ export class PoolTokenFactory {
     }
     if (address.equals(Address.fromHexString(constants.NBO_ERC20_CONTRACT))) {
       return new NBO(address)
+    }
+    if (address.equals(Address.fromHexString(constants.CCO2_ERC20_CONTRACT))) {
+      return new CCO2(address)
     }
 
     throw new Error('[Carbon Factory] Failed to get Carbon Token for address: ' + address.toHexString())
