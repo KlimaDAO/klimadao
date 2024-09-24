@@ -63,7 +63,7 @@ export const DEFAULT_NETWORK = config.networks[ENVIRONMENT] as
   | "mainnet";
 
 export const SQUID_ROUTER_URL =
-  "https://v2.app.squidrouter.com/?chains=137%2C8453&tokens=0x4e78011Ce80ee02d2c3e649Fb657E45898257815%2C0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2";
+  "https://app.squidrouter.com/?chains=137%2C8453&tokens=0x4e78011ce80ee02d2c3e649fb657e45898257815%2C0xdcefd8c8fcc492630b943abcab3429f12ea9fea2";
 
 /** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
 export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
