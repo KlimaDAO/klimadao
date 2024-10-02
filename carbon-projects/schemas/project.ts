@@ -66,7 +66,7 @@ export default defineType({
     {
       name: "registry",
       description:
-        "One of a limited number of approved registries (typically signalted via KlimaDAO governance)",
+        "One of a limited number of approved registries (typically signaled via KlimaDAO governance)",
       group: "info",
       placeholder: "VCS",
       type: "string",
