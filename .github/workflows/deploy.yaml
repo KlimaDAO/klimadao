@@ -1,10 +1,14 @@
 name: Deployment
 
-on:
-  push:
-    branches:
-      - main
-      - staging
+# on:
+#   push:
+#     branches:
+#       - main
+#       - staging
+#       # @todo remove this before any merge. Only for testing actions
+#       - test-staging
+
+on: [push]
 
 jobs:
   compile:
@@ -25,6 +29,8 @@ jobs:
             'polygon-bridged-carbon',
             'polygon-digital-carbon',
           ]
+    env:
+      VERSIONED_SUBGRAPHS: 'carbonmark polygon-digital-carbonm pairs,'
     steps:
       - name: Check out source repository
         uses: actions/checkout@v2
@@ -35,49 +41,128 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
         working-directory: '${{ matrix.value }}'
+      - name: Set Version
+        if: contains(VERSIONED_SUBGRAPHS, matrix.value)
+        run: npm run set-version
 
-      # Generate code and check for uncommitted changes
-      # https://github.com/marketplace/actions/check-uncommitted-changes
-      - name: Generate Subgraph Code
-        run: npm run codegen
-        working-directory: '${{ matrix.value }}'
-      - name: Check for uncommitted changes
-        id: check-changes
-        uses: mskri/check-uncommitted-changes-action@v1.0.1
-      - name: Evaluate if there are changes
-        if: steps.check-changes.outputs.outcome == failure()
-        run: echo "There are uncommitted changes - execute 'npm run codegen' locally and commit the generated files!"
-
-      - name: Build Subgraph
-        run: npm run build
-        working-directory: '${{ matrix.value }}'
-      # TODO: add matchstick test suite
-      # - name: Run Tests
-      #   run: npm run test
-      #   working-directory: "${{ matrix.value }}"
-
-      - name: Staging or not
-        id: staging_or_not
+      - name: Get last release tag
+        id: get_last_tag
+        if: contains(VERSIONED_SUBGRAPHS, matrix.value)
         run: |
-          echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
+          LAST_TAG=$(git describe --tags --abbrev=0)
+          echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
 
-          if [ $REF == "refs/heads/staging" ]
-          then
-              PREFIX="staging-"
-          fi;
+      - name: Get schema version from package.json
+        id: get_schema_version
+        if: contains(VERSIONED_SUBGRAPHS, matrix.value)
+        run: |
+          SCHEMA_VERSION=$(cat ${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
+          echo "schema_version=$SCHEMA_VERSION" >> $GITHUB_OUTPUT
 
-          if [[ "${{ matrix.value }}" =~ .*"-".*"-carbon".* ]]
-          then
-              echo "subgraph=${PREFIX}${{ matrix.value }}" >> $GITHUB_OUTPUT
+      - name: Compare schema versions and determine new version
+        id: compare_versions
+        if: contains(VERSIONED_SUBGRAPHS, matrix.value)
+        run: |
+          LAST_VERSION=${{ steps.get_last_tag.outputs.last_tag }}
+          SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
+
+          # Extract major, minor, patch versions
+          IFS='.' read -ra VERSION_PARTS <<< "$LAST_VERSION"
+          MAJOR=${VERSION_PARTS[0]}
+          MINOR=${VERSION_PARTS[1]}
+          PATCH=${VERSION_PARTS[2]}
+
+          # determine version increment
+          if [[ "$SCHEMA_VERSION" == *"major"* ]]; then
+            MAJOR=$((MAJOR + 1))
+            MINOR=0
+            PATCH=0
+          elif [[ "$SCHEMA_VERSION" == *"minor"* ]]; then
+            MINOR=$((MINOR + 1))
+            PATCH=0
           else
-              echo "subgraph=${PREFIX}klimadao-${{ matrix.value }}" >> $GITHUB_OUTPUT
+            PATCH=$((PATCH + 1))
           fi
-        env:
-          REF: ${{ github.ref }}
-      - name: Deploy Subgraph to Studio
-        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.staging_or_not.outputs.subgraph }} --version-label ${{ steps.staging_or_not.outputs.short_sha }}
-        working-directory: '${{ matrix.value }}'
-      - name: Deploy Subgraph to Alchemy Hosted Service
-        if: ${{ matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' || matrix.value == 'ethereum-bridged-carbon'}}
-        run: ../node_modules/.bin/graph deploy ${{ steps.staging_or_not.outputs.subgraph }} --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label ${{ steps.staging_or_not.outputs.short_sha }}
-        working-directory: '${{ matrix.value }}'
+
+          NEW_PUBLISHED_VERSION="$MAJOR.$MINOR.$PATCH"
+          echo "NEW_PUBLISHED_VERSION=$NEW_PUBLISHED_VERSION" >> $GITHUB_OUTPUT
+      - name: Set version in version.json
+        if: matrix.value == 'carbonmark' || matrix.value == 'pairs' || matrix.value == 'polygon-digital-carbon'
+        run: |
+          NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
+          SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
+          echo "{\"schemaVersion\": \"$SCHEMA_VERSION\", \"publishedVersion\": \"$NEW_PUBLISHED_VERSION\"}" > ${{ matrix.value }}/version.json
+
+      - name: Commit version change
+        if: steps.check_subgraph.outputs.should_run_versioning == 'true'
+        run: |
+          # Get the new version from the previous step
+          NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
+
+          # Stage the updated version.json file
+          git add ${{ matrix.value }}/version.json
+
+          # Commit the changes with a message
+          git commit -m "action: update version.json to publishedVersion: $NEW_PUBLISHED_VERSION for ${{ matrix.value }}"
+
+          # Extract the branch name from GITHUB_REF
+          if [[ "${GITHUB_REF}" == "refs/heads/"* ]]; then
+            BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          elif [[ "${GITHUB_REF}" == "refs/pull/"* ]]; then
+            BRANCH_NAME=${GITHUB_HEAD_REF}
+          else
+            echo "Unsupported GITHUB_REF format: ${GITHUB_REF}"
+            exit 1
+          fi
+
+          # Push the commit to the current branch
+          # git push origin $BRANCH_NAME
+
+      # - name: Prepare Manifest
+      #   if: matrix.value == 'polygon-digital-carbon' || matrix.value == 'carbonmark'
+      #   run: npm run prepare-matic
+      # # Generate code and check for uncommitted changes
+      # # https://github.com/marketplace/actions/check-uncommitted-changes
+      # - name: Generate Subgraph Code
+      #   run: npm run codegen
+      #   working-directory: '${{ matrix.value }}'
+      # - name: Check for uncommitted changes
+      #   id: check-changes
+      #   uses: mskri/check-uncommitted-changes-action@v1.0.1
+      # # - name: Evaluate if there are changes
+      # #   if: steps.check-changes.outputs.outcome == failure()
+      # #   run: echo "There are uncommitted changes - execute 'npm run codegen' locally and commit the generated files!"
+
+      # # - name: Build Subgraph
+      # #   run: npm run build
+      # #   working-directory: '${{ matrix.value }}'
+      # # # TODO: add matchstick test suite
+      # # # - name: Run Tests
+      # # #   run: npm run test
+      # # #   working-directory: "${{ matrix.value }}"
+
+      # # - name: Staging or not
+      # #   id: staging_or_not
+      # #   run: |
+      # #     echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
+
+      # #     if [ $REF == "refs/heads/staging" ]
+      # #     then
+      # #         PREFIX="staging-"
+      # #     fi;
+
+      # #     if [[ "${{ matrix.value }}" =~ .*"-".*"-carbon".* ]]
+      # #     then
+      # #         echo "subgraph=${PREFIX}${{ matrix.value }}" >> $GITHUB_OUTPUT
+      # #     else
+      # #         echo "subgraph=${PREFIX}klimadao-${{ matrix.value }}" >> $GITHUB_OUTPUT
+      # #     fi
+      # #   env:
+      # #     REF: ${{ github.ref }}
+      # # - name: Deploy Subgraph to Studio
+      # #   run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.staging_or_not.outputs.subgraph }} --version-label ${{ steps.staging_or_not.outputs.short_sha }}
+      # #   working-directory: '${{ matrix.value }}'
+      # # - name: Deploy Subgraph to Alchemy Hosted Service
+      # #   if: ${{ matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' || matrix.value == 'ethereum-bridged-carbon'}}
+      # #   run: ../node_modules/.bin/graph deploy ${{ steps.staging_or_not.outputs.subgraph }} --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label ${{ steps.staging_or_not.outputs.short_sha }}
+      # #   working-directory: '${{ matrix.value }}'
