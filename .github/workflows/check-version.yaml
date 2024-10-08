@@ -25,18 +25,29 @@ jobs:
         with:
           fetch-depth: 0 # We need this for fetching all history for all branches and tags
 
+    - name: Initialize error log
+        run: |
+          echo "" > errors.log
       - name: Check version update
         run: |
           BASE_VERSION=$(git show origin/${{ github.base_ref }}:${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
           PR_VERSION=$(git show ${{ github.event.pull_request.head.sha }}:${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
-          
+
           if [ "$BASE_VERSION" = "$PR_VERSION" ]; then
-            echo "Error: Version in package.json has not been updated."
+            echo "Error: Version in package.json for ${{ matrix.value }} has not been updated." >> errors.log
+            echo "Base version: $BASE_VERSION" >> errors.log
+            echo "PR version: $PR_VERSION" >> errors.log
+          else
+            echo "Version has been updated for ${{ matrix.value }}."
             echo "Base version: $BASE_VERSION"
             echo "PR version: $PR_VERSION"
+          fi
+
+      - name: Final version check summary
+        run: |
+          if [ -s errors.log ]; then
+            cat errors.log
             exit 1
           else
-            echo "Version has been updated."
-            echo "Base version: $BASE_VERSION"
-            echo "PR version: $PR_VERSION"
+            echo "All subgraphs have been successfully updated."
           fi
