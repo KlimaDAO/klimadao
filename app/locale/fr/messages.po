@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-10-07 15:40+0000\n"
+"POT-Creation-Date: 2024-10-08 15:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -104,7 +104,7 @@ msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may re
 msgstr "Manque de Liquidité : Il se peut qu'il n'y ait pas de marché actif pour $KLIMA, ce qui peut entraîner des pertes si vous devez vendre vos jetons rapidement."
 
 #: components/views/Bond/index.tsx:411
-#: components/views/PKlima/index.tsx:157
+#: components/views/PKlima/index.tsx:166
 msgid "Loading"
 msgstr "Chargement"
 
@@ -814,37 +814,37 @@ msgstr "Vous avez retiré du marché"
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:179
+#: components/views/PKlima/index.tsx:188
 msgid "pklima.approve_bct"
 msgstr "2. Approuvez BCT"
 
-#: components/views/PKlima/index.tsx:170
+#: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_pklima"
 msgstr "1. Approuver pKLIMA"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:196
+#: components/views/PKlima/index.tsx:205
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "Assurez-vous de mettre en jeu le pKLIMA réclamé et de conserver votre mise jusqu'à ce que les émissions mondiales de GHG aient atteint un plateau."
 
-#: components/views/PKlima/index.tsx:184
+#: components/views/PKlima/index.tsx:193
 msgid "pklima.exercise"
 msgstr "EXERCER"
 
-#: components/views/PKlima/index.tsx:212
+#: components/views/PKlima/index.tsx:221
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "Exercez 1 pKLIMA et 1 BCT pour recevoir 1 KLIMA."
 
-#: components/views/PKlima/index.tsx:280
+#: components/views/PKlima/index.tsx:289
 msgid "pklima.index_adjusted"
 msgstr "Indice ajusté"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:283
+#: components/views/PKlima/index.tsx:292
 msgid "pklima.index_adjusted.tooltip"
 msgstr "Équivalent sKLIMA réclamé, en supposant que vous avez mis en jeu tous vos KLIMA jusqu'à aujourd'hui."
 
-#: components/views/PKlima/index.tsx:228
+#: components/views/PKlima/index.tsx:237
 msgid "pklima.klima_to_exercise"
 msgstr "pKLIMA que vous pouvez exercer"
 
@@ -852,25 +852,25 @@ msgstr "pKLIMA que vous pouvez exercer"
 msgid "pklima.overclaim"
 msgstr "Vous avez réclamé plus de KLIMA que votre limite de partage d'approvisionnement ne le permet. Cela est probablement dû au correctif mis en œuvre le 24 novembre 2021 au contrat de réclamation de pKLIMA."
 
-#: components/views/PKlima/index.tsx:209
+#: components/views/PKlima/index.tsx:218
 msgid "pklima.redeem_pklima"
 msgstr "Réclamer pKlima"
 
-#: components/views/PKlima/index.tsx:268
+#: components/views/PKlima/index.tsx:277
 msgid "pklima.redeemed"
 msgstr "Réclamé"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:271
+#: components/views/PKlima/index.tsx:280
 msgid "pklima.redeemed.tooltip"
 msgstr "Montant total de KLIMA que vous avez échangé jusqu'à présent."
 
-#: components/views/PKlima/index.tsx:252
+#: components/views/PKlima/index.tsx:261
 msgid "pklima.supply_limit"
 msgstr "Quantité maximale"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:255
+#: components/views/PKlima/index.tsx:264
 msgid "pklima.supply_limit.tooltip"
 msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par l’indice ne peut pas dépasser cette valeur."
 
@@ -900,7 +900,7 @@ msgstr "Changer de langue"
 
 #: components/views/Bond/index.tsx:432
 #: components/views/Deposit/index.tsx:101
-#: components/views/PKlima/index.tsx:165
+#: components/views/PKlima/index.tsx:174
 #: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "Confirmation en cours"
@@ -929,7 +929,7 @@ msgstr ""
 #: components/views/Buy/index.tsx:65
 #: components/views/Deposit/index.tsx:90
 #: components/views/Home/index.tsx:155
-#: components/views/PKlima/index.tsx:149
+#: components/views/PKlima/index.tsx:158
 #: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:223
 #: components/views/Wrap/index.tsx:196
@@ -937,7 +937,7 @@ msgid "shared.login_connect"
 msgstr "S'identifier / Se connecter"
 
 #: components/views/Bond/index.tsx:605
-#: components/views/PKlima/index.tsx:239
+#: components/views/PKlima/index.tsx:248
 #: components/views/Stake/index.tsx:358
 #: components/views/Wrap/index.tsx:343
 msgid "shared.max"

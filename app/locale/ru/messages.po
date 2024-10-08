@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-10-07 15:40+0000\n"
+"POT-Creation-Date: 2024-10-08 15:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -104,7 +104,7 @@ msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may re
 msgstr ""
 
 #: components/views/Bond/index.tsx:411
-#: components/views/PKlima/index.tsx:157
+#: components/views/PKlima/index.tsx:166
 msgid "Loading"
 msgstr ""
 
@@ -820,37 +820,37 @@ msgstr "Вы выбили"
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:179
+#: components/views/PKlima/index.tsx:188
 msgid "pklima.approve_bct"
 msgstr "Одобрить BCT"
 
-#: components/views/PKlima/index.tsx:170
+#: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_pklima"
 msgstr "1. Одобрить pKLIMA"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:196
+#: components/views/PKlima/index.tsx:205
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "Обязательно застейкайте вашу выкупленную pKLIMA и оставайтесь в стейке до тех пор, пока глобальные выбросы парниковых газов не стабилизируются."
 
-#: components/views/PKlima/index.tsx:184
+#: components/views/PKlima/index.tsx:193
 msgid "pklima.exercise"
 msgstr "Осуществление "
 
-#: components/views/PKlima/index.tsx:212
+#: components/views/PKlima/index.tsx:221
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "Объедините 1 pKLIMA и 1 BCT для получения 1 KLIMA."
 
-#: components/views/PKlima/index.tsx:280
+#: components/views/PKlima/index.tsx:289
 msgid "pklima.index_adjusted"
 msgstr "Показатель скорректирован"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:283
+#: components/views/PKlima/index.tsx:292
 msgid "pklima.index_adjusted.tooltip"
 msgstr "Требуемый эквивалент sKLIMA , при условии, что вы застейкали все свои полученные KLIMA до сегодняшнего дня."
 
-#: components/views/PKlima/index.tsx:228
+#: components/views/PKlima/index.tsx:237
 msgid "pklima.klima_to_exercise"
 msgstr "pKLIMA к обьеденинеию"
 
@@ -858,25 +858,25 @@ msgstr "pKLIMA к обьеденинеию"
 msgid "pklima.overclaim"
 msgstr "Вы потребовали больше KLIMA, чем ваш лимит поставок. Вероятно, это связано с исправлением, внесенным 24 ноября 2021 года в контракт выкупа pKLIMA."
 
-#: components/views/PKlima/index.tsx:209
+#: components/views/PKlima/index.tsx:218
 msgid "pklima.redeem_pklima"
 msgstr "Погасить pKLIMA"
 
-#: components/views/PKlima/index.tsx:268
+#: components/views/PKlima/index.tsx:277
 msgid "pklima.redeemed"
 msgstr "Погашенно"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:271
+#: components/views/PKlima/index.tsx:280
 msgid "pklima.redeemed.tooltip"
 msgstr "Общее количество KLIMA, которые вы использовали на данный момент."
 
-#: components/views/PKlima/index.tsx:252
+#: components/views/PKlima/index.tsx:261
 msgid "pklima.supply_limit"
 msgstr "Предел предложения"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:255
+#: components/views/PKlima/index.tsx:264
 msgid "pklima.supply_limit.tooltip"
 msgstr "Процент от общего количества токенов. Ваша заявка с поправкой на индекс не может превышать это значение."
 
@@ -906,7 +906,7 @@ msgstr "измененить язык"
 
 #: components/views/Bond/index.tsx:432
 #: components/views/Deposit/index.tsx:101
-#: components/views/PKlima/index.tsx:165
+#: components/views/PKlima/index.tsx:174
 #: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "Подтверждение"
@@ -935,7 +935,7 @@ msgstr ""
 #: components/views/Buy/index.tsx:65
 #: components/views/Deposit/index.tsx:90
 #: components/views/Home/index.tsx:155
-#: components/views/PKlima/index.tsx:149
+#: components/views/PKlima/index.tsx:158
 #: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:223
 #: components/views/Wrap/index.tsx:196
@@ -943,7 +943,7 @@ msgid "shared.login_connect"
 msgstr "Войти / Подключиться"
 
 #: components/views/Bond/index.tsx:605
-#: components/views/PKlima/index.tsx:239
+#: components/views/PKlima/index.tsx:248
 #: components/views/Stake/index.tsx:358
 #: components/views/Wrap/index.tsx:343
 msgid "shared.max"

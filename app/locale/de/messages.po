@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-10-07 15:40+0000\n"
+"POT-Creation-Date: 2024-10-08 15:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -104,7 +104,7 @@ msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may re
 msgstr "Mangelnde Liquidität: Möglicherweise gibt es keinen aktiven Markt für $KLIMA, was zu Verlusten führen kann, wenn Sie Ihre Tokens schnell verkaufen müssen."
 
 #: components/views/Bond/index.tsx:411
-#: components/views/PKlima/index.tsx:157
+#: components/views/PKlima/index.tsx:166
 msgid "Loading"
 msgstr "Wird geladen"
 
@@ -816,39 +816,39 @@ msgstr "Bislang ausgeglichen"
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:179
+#: components/views/PKlima/index.tsx:188
 msgid "pklima.approve_bct"
 msgstr "2. BCT genehmigen"
 
-#: components/views/PKlima/index.tsx:170
+#: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_pklima"
 msgstr ""
 "1. pKLIMA genehmigen\n"
 ""
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:196
+#: components/views/PKlima/index.tsx:205
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "Stelle sicher, dass du dein eingelöstes pKLIMA stakest, bis die globalen Treibhausgasemissionen stagnieren."
 
-#: components/views/PKlima/index.tsx:184
+#: components/views/PKlima/index.tsx:193
 msgid "pklima.exercise"
 msgstr "AUSÜBEN"
 
-#: components/views/PKlima/index.tsx:212
+#: components/views/PKlima/index.tsx:221
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "1 pKLIMA und 1 BCT ausüben, um 1 KLIMA zu erhalten."
 
-#: components/views/PKlima/index.tsx:280
+#: components/views/PKlima/index.tsx:289
 msgid "pklima.index_adjusted"
 msgstr "Indexbereinigt"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:283
+#: components/views/PKlima/index.tsx:292
 msgid "pklima.index_adjusted.tooltip"
 msgstr "Beanspruchtes sKLIMA-Äquivalent, vorausgesetzt, du hast dein eingelöstes KLIMA bis heute vollständig gestaket."
 
-#: components/views/PKlima/index.tsx:228
+#: components/views/PKlima/index.tsx:237
 msgid "pklima.klima_to_exercise"
 msgstr "Ausübbares pKLIMA"
 
@@ -856,25 +856,25 @@ msgstr "Ausübbares pKLIMA"
 msgid "pklima.overclaim"
 msgstr "Du hast dein Supply-Share-Limit überschritten und zu viel KLIMA beansprucht. Dies liegt wahrscheinlich an einem Bugfix, der am 24. November am pKLIMA-Einlösungsvertrag vorgenommen wurde."
 
-#: components/views/PKlima/index.tsx:209
+#: components/views/PKlima/index.tsx:218
 msgid "pklima.redeem_pklima"
 msgstr "pKLIMA einlösen"
 
-#: components/views/PKlima/index.tsx:268
+#: components/views/PKlima/index.tsx:277
 msgid "pklima.redeemed"
 msgstr "Eingelöst"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:271
+#: components/views/PKlima/index.tsx:280
 msgid "pklima.redeemed.tooltip"
 msgstr "Gesamtmenge KLIMA, die du bislang eingelöst hast."
 
-#: components/views/PKlima/index.tsx:252
+#: components/views/PKlima/index.tsx:261
 msgid "pklima.supply_limit"
 msgstr "Angebotslimit"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:255
+#: components/views/PKlima/index.tsx:264
 msgid "pklima.supply_limit.tooltip"
 msgstr "Ein Prozentwert des gesamten Tokenangebotes. Deine indexbereinigte Anforderung darf diesen Wert nicht überschreiten."
 
@@ -904,7 +904,7 @@ msgstr "Sprache wechseln"
 
 #: components/views/Bond/index.tsx:432
 #: components/views/Deposit/index.tsx:101
-#: components/views/PKlima/index.tsx:165
+#: components/views/PKlima/index.tsx:174
 #: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "Bestätigen..."
@@ -933,7 +933,7 @@ msgstr ""
 #: components/views/Buy/index.tsx:65
 #: components/views/Deposit/index.tsx:90
 #: components/views/Home/index.tsx:155
-#: components/views/PKlima/index.tsx:149
+#: components/views/PKlima/index.tsx:158
 #: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:223
 #: components/views/Wrap/index.tsx:196
@@ -941,7 +941,7 @@ msgid "shared.login_connect"
 msgstr "Anmelden / Verbinden"
 
 #: components/views/Bond/index.tsx:605
-#: components/views/PKlima/index.tsx:239
+#: components/views/PKlima/index.tsx:248
 #: components/views/Stake/index.tsx:358
 #: components/views/Wrap/index.tsx:343
 msgid "shared.max"
