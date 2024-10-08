@@ -4,7 +4,7 @@
   "repository": "https://github.com/KlimaDAO/klima-subgraphs/polygon-carbon",
   "license": "MIT",
   "scripts": {
-    "set-version": "cd .. && bun version-control/inject-version.ts",
+    "set-version": "cd .. && bun version-control/set-version.ts",
     "prepare-local": "npx mustache networkConfig/localhost.json subgraph.template.yaml > subgraph.yaml",
     "prepare-matic": "npx mustache networkConfig/matic.json subgraph.template.yaml > subgraph.yaml",
     "prepare-mumbai": "npx mustache networkConfig/mumbai.json subgraph.template.yaml > subgraph.yaml",
