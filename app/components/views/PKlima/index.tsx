@@ -137,9 +137,18 @@ export const PKlima: FC<Props> = (props) => {
   };
 
   const hasApproval = (token: "pklima" | "bct") => {
+    const value = Number(quantity || "0");
     if (token === "pklima")
-      return !!exerciseAllowances && !!Number(exerciseAllowances.pklima);
-    return !!exerciseAllowances && !!Number(exerciseAllowances.bct);
+      return (
+        !!exerciseAllowances &&
+        !!Number(exerciseAllowances.pklima) &&
+        Number(exerciseAllowances.pklima) > value
+      );
+    return (
+      !!exerciseAllowances &&
+      !!Number(exerciseAllowances.bct) &&
+      Number(exerciseAllowances.bct) > value
+    );
   };
 
   const getButtonProps = () => {
