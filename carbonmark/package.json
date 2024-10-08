@@ -4,6 +4,7 @@
   "repository": "https://github.com/KlimaDAO/klima-subgraphs/carbonmark",
   "license": "MIT",
   "scripts": {
+    "set-version": "cd .. && bun version-control/set-version.ts",
     "updateICR": "ts-node src/scripts/updateICRProjects.ts",
     "update-puro": "bun src/scripts/updatePuroProjects.ts",
     "prepare-local": "npx mustache networkConfig/localhost.json subgraph.template.yaml > subgraph.yaml",

@@ -2,6 +2,7 @@
   "name": "klimadao-pairs",
   "license": "MIT",
   "scripts": {
+    "set-version": "cd .. && bun version-control/set-version.ts",
     "codegen": "graph codegen",
     "build": "graph build",
     "test": "graph test",

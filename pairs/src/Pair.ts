@@ -17,14 +17,13 @@ import {
   KLIMA_BCT_PAIR_BLOCK,
   KLIMA_MCO2_PAIR_BLOCK,
   KLIMA_CCO2_PAIR_BLOCK,
-  CCO2_ERC20_CONTRACT,
 } from '../../lib/utils/Constants'
 import { BigInt, BigDecimal, log } from '@graphprotocol/graph-ts'
 import { Pair, Token, Swap } from '../generated/schema'
 import { Swap as SwapEvent, Pair as PairContract } from '../generated/KLIMA_USDC/Pair'
 import { ERC20 as ERC20Contract } from '../generated/KLIMA_USDC/ERC20'
 import { Address } from '@graphprotocol/graph-ts'
-import { BigDecimalZero, BigIntZero } from './utils'
+import { BigDecimalZero, BigIntZero } from './utils/utils'
 import { calculateCCO2AdjustedPrice } from './pair.utils'
 import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'

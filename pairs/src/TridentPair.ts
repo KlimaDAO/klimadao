@@ -11,7 +11,7 @@ import { Pair as PairContract } from '../generated/KLIMA_USDC/Pair'
 import { Swap as SwapEvent, TridentPair as TridentPairContract } from '../generated/KLIMA_UBO/TridentPair'
 import { ERC20 as ERC20Contract } from '../generated/KLIMA_USDC/ERC20'
 import { Address } from '@graphprotocol/graph-ts'
-import { BigDecimalZero } from './utils'
+import { BigDecimalZero } from './utils/utils'
 import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
 
