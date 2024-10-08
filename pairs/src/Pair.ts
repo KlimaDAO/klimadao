@@ -18,8 +18,8 @@ import {
   KLIMA_MCO2_PAIR_BLOCK,
   KLIMA_CCO2_PAIR_BLOCK,
 } from '../../lib/utils/Constants'
-import { BigInt, BigDecimal, log } from '@graphprotocol/graph-ts'
-import { Pair, Token, Swap } from '../generated/schema'
+import { BigInt, BigDecimal, log, ethereum } from '@graphprotocol/graph-ts'
+import { Pair, Token, Swap, SubgraphVersion } from '../generated/schema'
 import { Swap as SwapEvent, Pair as PairContract } from '../generated/KLIMA_USDC/Pair'
 import { ERC20 as ERC20Contract } from '../generated/KLIMA_USDC/ERC20'
 import { Address } from '@graphprotocol/graph-ts'
@@ -27,6 +27,7 @@ import { BigDecimalZero, BigIntZero } from './utils/utils'
 import { calculateCCO2AdjustedPrice } from './pair.utils'
 import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
+import { SCHEMA_VERSION, PUBLISHED_VERSION } from './utils/version'
 
 // Create or Load Token
 export function getCreateToken(address: Address): Token {
@@ -327,4 +328,11 @@ export function handleSwap(event: SwapEvent): void {
     pair.lastupdate = hour_timestamp
     pair.save()
   }
+}
+
+export function handleSetSubgraphVersion(block: ethereum.Block): void {
+  let version = new SubgraphVersion('polygon-digital-carbon')
+  version.schemaVersion = SCHEMA_VERSION
+  version.publishedVersion = PUBLISHED_VERSION
+  version.save()
 }

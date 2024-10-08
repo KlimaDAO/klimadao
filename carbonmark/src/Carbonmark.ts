@@ -13,6 +13,7 @@ import { ERC20 } from '../generated/Carbonmark/ERC20'
 import { ERC1155 } from '../generated/Carbonmark/ERC1155'
 import { Bytes, ethereum, log } from '@graphprotocol/graph-ts'
 import { SubgraphVersion } from '../generated/schema'
+import { SCHEMA_VERSION, PUBLISHED_VERSION } from './utils/version'
 
 export function handleListingCreated(event: ListingCreated): void {
   let blockNumber = event.block.number
@@ -215,7 +216,7 @@ export function handleListingCancelled(event: ListingCancelled): void {
 
 export function handleSetSubgraphVersion(block: ethereum.Block): void {
   let version = new SubgraphVersion('polygon-digital-carbon')
-  version.schemaVersion = version.schemaVersion
-  version.publishedVersion = version.publishedVersion
+  version.schemaVersion = SCHEMA_VERSION
+  version.publishedVersion = PUBLISHED_VERSION
   version.save()
 }

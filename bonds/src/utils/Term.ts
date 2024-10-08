@@ -2,7 +2,7 @@ import { Address, BigInt } from '@graphprotocol/graph-ts'
 import { Term } from '../../generated/schema'
 import * as constants from '../../../lib/utils/Constants'
 import { KlimaProV2 } from '../../generated/BondV2/KlimaProV2'
-import { BigIntZero } from '../../../pairs/src/utils'
+import { BigIntZero } from '../../../pairs/src/utils/utils'
 
 export function createTerm(marketId: BigInt): Term {
   const term = new Term(marketId.toString())
