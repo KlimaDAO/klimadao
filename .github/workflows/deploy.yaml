@@ -42,7 +42,7 @@ jobs:
         run: yarn --frozen-lockfile
         working-directory: '${{ matrix.value }}'
       - name: Set Version
-        if: contains(VERSIONED_SUBGRAPHS, matrix.value)
+        if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
         run: npm run set-version
 
       - name: Get last release tag
