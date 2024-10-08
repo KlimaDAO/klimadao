@@ -1,0 +1,8 @@
+[
+  {
+    "name": "polygon-digital-carbon",
+    "versionJsonPath": "polygon-digital-carbon/version.json",
+    "templateFile": "polygon-digital-carbon/utils/version.ts",
+    "outputFile": "polygon-digital-carbon/utils/version.ts"
+  }
+]

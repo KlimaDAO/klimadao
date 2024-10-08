@@ -459,6 +459,10 @@ dataSources:
       eventHandlers:
         - event: ToucanRetired(indexed address,indexed address,string,string,indexed address,address,uint256)
           handler: handleToucanRetired
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
   - kind: ethereum/contract
     name: RetireMossCarbon
     network: {{network}}
