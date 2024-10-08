@@ -76,6 +76,7 @@ export const exerciseTransaction = async (params: {
       throw error;
     }
     params.onStatus("error");
+    console.error(error);
     throw error;
   }
 };
