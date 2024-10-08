@@ -4,7 +4,6 @@
   "repository": "https://github.com/KlimaDAO/klima-subgraphs/carbonmark",
   "license": "MIT",
   "scripts": {
-    "set-version": "cd .. && bun version-control/set-version.ts",
     "updateICR": "ts-node src/scripts/updateICRProjects.ts",
     "update-puro": "bun src/scripts/updatePuroProjects.ts",
     "prepare-local": "npx mustache networkConfig/localhost.json subgraph.template.yaml > subgraph.yaml",
@@ -23,7 +22,10 @@
     "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ carbonmark",
     "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
     "deploy": "yarn prepare-local && yarn codegen && yarn build && yarn graph:remove && yarn graph:create && yarn graph:deploy",
-    "deploy-test": "yarn prepare-matic && yarn codegen && yarn build && graph deploy --studio pdc-testing-2"
+    "set-version": "cd .. && bun version-control/set-version.ts",
+    "version:prepatch": "npm version prepatch",
+    "version:preminor": "npm version preminor",
+    "version:premajor": "npm version premajor"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
