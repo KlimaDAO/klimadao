@@ -11,7 +11,8 @@ import { ZERO_BI, handleMigrationDecimals } from '../../lib/utils/Decimals'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { ERC20 } from '../generated/Carbonmark/ERC20'
 import { ERC1155 } from '../generated/Carbonmark/ERC1155'
-import { Bytes, log } from '@graphprotocol/graph-ts'
+import { Bytes, ethereum, log } from '@graphprotocol/graph-ts'
+import { SubgraphVersion } from '../generated/schema'
 
 export function handleListingCreated(event: ListingCreated): void {
   let blockNumber = event.block.number
@@ -209,4 +210,12 @@ export function handleListingCancelled(event: ListingCancelled): void {
   activity.listing = listing.id
   activity.seller = listing.seller
   activity.save()
+}
+
+
+export function handleSetSubgraphVersion(block: ethereum.Block): void {
+  let version = new SubgraphVersion('polygon-digital-carbon')
+  version.schemaVersion = version.schemaVersion
+  version.publishedVersion = version.publishedVersion
+  version.save()
 }
