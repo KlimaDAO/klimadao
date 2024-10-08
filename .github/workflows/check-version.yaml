@@ -1,0 +1,42 @@
+name: Check Version Update
+
+on:
+  pull_request:
+    paths:
+      - "polygon-digital-carbon/**"
+      - "carbonmark/**"
+      - "pairs/**"
+
+jobs:
+  check-version-update:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        value:
+          [
+            'carbonmark',
+            'pairs',
+            'polygon-digital-carbon',
+          ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # We need this for fetching all history for all branches and tags
+
+      - name: Check version update
+        run: |
+          BASE_VERSION=$(git show origin/${{ github.base_ref }}:${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
+          PR_VERSION=$(git show ${{ github.event.pull_request.head.sha }}:${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
+          
+          if [ "$BASE_VERSION" = "$PR_VERSION" ]; then
+            echo "Error: Version in package.json has not been updated."
+            echo "Base version: $BASE_VERSION"
+            echo "PR version: $PR_VERSION"
+            exit 1
+          else
+            echo "Version has been updated."
+            echo "Base version: $BASE_VERSION"
+            echo "PR version: $PR_VERSION"
+          fi
