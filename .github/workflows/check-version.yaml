@@ -13,21 +13,20 @@ jobs:
     strategy:
       matrix:
         value:
-          [
-            'carbonmark',
-            'pairs',
-            'polygon-digital-carbon',
-          ]
+          - 'carbonmark'
+          - 'pairs'
+          - 'polygon-digital-carbon'
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # We need this for fetching all history for all branches and tags
+          fetch-depth: 0  # We need this for fetching all history for all branches and tags
 
-    - name: Initialize error log
+      - name: Initialize error log
         run: |
           echo "" > errors.log
+
       - name: Check version update
         run: |
           BASE_VERSION=$(git show origin/${{ github.base_ref }}:${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
