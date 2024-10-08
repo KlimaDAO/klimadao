@@ -23,7 +23,7 @@
     "graph:remove:local": "graph remove --node http://127.0.0.1:8020 polygon-digital-carbon",
     "graph:deploy:local": "graph deploy --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5001 polygon-digital-carbon",
     "deploy": "yarn prepare-local && yarn codegen && yarn build && yarn graph:remove:local && yarn graph:create:local && yarn graph:deploy:local",
-    "set-version": "cd .. && bun version-control/set-version.ts",
+    "set-version": "cd .. && ts-node version-control/set-version.ts",
     "version:prepatch": "npm version prepatch",
     "version:preminor": "npm version preminor",
     "version:premajor": "npm version premajor"

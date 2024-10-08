@@ -13,7 +13,7 @@
     "create-local": "graph create --node http://127.0.0.1:8020 klima-pairs",
     "remove-local": "graph remove --node http://127.0.0.1:8020 klima-pairs",
     "deploy-local": "graph deploy --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5001 klimadao-pairs",
-    "set-version": "cd .. && bun version-control/set-version.ts",
+    "set-version": "cd .. && ts-node version-control/set-version.ts",
     "version:prepatch": "npm version prepatch",
     "version:preminor": "npm version preminor",
     "version:premajor": "npm version premajor"
