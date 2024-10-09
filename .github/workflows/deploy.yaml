@@ -45,17 +45,17 @@ jobs:
         if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
         run: npm run set-version
         working-directory: '${{ matrix.value }}'
-    - name: Get last release tag
-      id: get_last_tag
-      if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
-      run: |
-        if git describe --tags --abbrev=0 > /dev/null 2>&1; then
-          LAST_TAG=$(git describe --tags --abbrev=0)
-        else
-          LAST_TAG="0.0.0"  # Fallback for no existing tags
-        fi
-        echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
-      working-directory: '${{ matrix.value }}'
+      - name: Get last release tag
+        id: get_last_tag
+        if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
+        run: |
+          if git describe --tags --abbrev=0 > /dev/null 2>&1; then
+            LAST_TAG=$(git describe --tags --abbrev=0)
+          else
+            LAST_TAG="0.0.0"  # Fallback for no existing tags
+          fi
+          echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
+        working-directory: '${{ matrix.value }}'
       - name: Get schema version from package.json
         id: get_schema_version
         if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
