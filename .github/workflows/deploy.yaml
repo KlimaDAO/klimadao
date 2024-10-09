@@ -95,7 +95,7 @@ jobs:
         run: |
           NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
           SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
-          echo "{\"schemaVersion\": \"$SCHEMA_VERSION\", \"publishedVersion\": \"$NEW_PUBLISHED_VERSION\"}" > ${{ matrix.value }}/version.json
+          echo "{\"schemaVersion\": \"$SCHEMA_VERSION\", \"publishedVersion\": \"$NEW_PUBLISHED_VERSION\"}" > version.json
         working-directory: '${{ matrix.value }}'
 
       - name: Commit version change
@@ -103,7 +103,7 @@ jobs:
         run: |
           NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
 
-          git add ${{ matrix.value }}/version.json
+          git add version.json
 
           git commit -m "action: update version.json to publishedVersion: $NEW_PUBLISHED_VERSION for ${{ matrix.value }}"
 
