@@ -45,13 +45,17 @@ jobs:
         if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
         run: npm run set-version
         working-directory: '${{ matrix.value }}'
-      - name: Get last release tag
-        id: get_last_tag
-        if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
-        run: |
+    - name: Get last release tag
+      id: get_last_tag
+      if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
+      run: |
+        if git describe --tags --abbrev=0 > /dev/null 2>&1; then
           LAST_TAG=$(git describe --tags --abbrev=0)
-          echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
-        working-directory: '${{ matrix.value }}'
+        else
+          LAST_TAG="0.0.0"  # Fallback for no existing tags
+        fi
+        echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
+      working-directory: '${{ matrix.value }}'
       - name: Get schema version from package.json
         id: get_schema_version
         if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
@@ -66,7 +70,6 @@ jobs:
           LAST_VERSION=${{ steps.get_last_tag.outputs.last_tag }}
           SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
 
-          # Extract major, minor, patch versions
           IFS='.' read -ra VERSION_PARTS <<< "$LAST_VERSION"
           MAJOR=${VERSION_PARTS[0]}
           MINOR=${VERSION_PARTS[1]}
@@ -98,16 +101,12 @@ jobs:
       - name: Commit version change
         if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
         run: |
-          # Get the new version from the previous step
           NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
 
-          # Stage the updated version.json file
           git add ${{ matrix.value }}/version.json
 
-          # Commit the changes with a message
           git commit -m "action: update version.json to publishedVersion: $NEW_PUBLISHED_VERSION for ${{ matrix.value }}"
 
-          # Extract the branch name from GITHUB_REF
           if [[ "${GITHUB_REF}" == "refs/heads/"* ]]; then
             BRANCH_NAME=${GITHUB_REF#refs/heads/}
           elif [[ "${GITHUB_REF}" == "refs/pull/"* ]]; then
@@ -117,10 +116,15 @@ jobs:
             exit 1
           fi
 
-          # Push the commit to the current branch
           # git push origin $BRANCH_NAME
         working-directory: '${{ matrix.value }}'
-
+      - name: Tag the commit with the new version
+        if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
+        run: |
+          NEW_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
+          git tag -a "v${NEW_VERSION}" -m "Version ${NEW_VERSION}"
+          # git push origin $BRANCH_NAME
+        working-directory: '${{ matrix.value }}'
       # - name: Prepare Manifest
       #   if: matrix.value == 'polygon-digital-carbon' || matrix.value == 'carbonmark'
       #   run: npm run prepare-matic
