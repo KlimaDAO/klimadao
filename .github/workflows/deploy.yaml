@@ -49,9 +49,8 @@ jobs:
         id: get_last_tag
         if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
         run: |
-          if git describe --tags --abbrev=0 > /dev/null 2>&1; then
-            LAST_TAG=$(git describe --tags --abbrev=0)
-          else
+          LAST_TAG=$(git tag --list "${{ matrix.value }}-v*" | sort -V | tail -n 1)
+          if [ -z "$LAST_TAG" ]; then
             LAST_TAG="0.0.0"  # Fallback for no existing tags
           fi
           echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
@@ -60,7 +59,7 @@ jobs:
         id: get_schema_version
         if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
         run: |
-          SCHEMA_VERSION=$(cat ${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
+          SCHEMA_VERSION=$(cat package.json | grep '"version":' | cut -d'"' -f4)
           echo "schema_version=$SCHEMA_VERSION" >> $GITHUB_OUTPUT
         working-directory: '${{ matrix.value }}'
       - name: Compare schema versions and determine new version
@@ -119,14 +118,14 @@ jobs:
             exit 1
           fi
 
-          # git push origin $BRANCH_NAME
+          git push origin $BRANCH_NAME
         working-directory: '${{ matrix.value }}'
       - name: Tag the commit with the new version
         if: contains(env.VERSIONED_SUBGRAPHS, matrix.value)
         run: |
           NEW_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
           git tag -a "v${NEW_VERSION}" -m "Version ${NEW_VERSION}"
-          # git push origin $BRANCH_NAME
+          git push origin $BRANCH_NAME
         working-directory: '${{ matrix.value }}'
       # - name: Prepare Manifest
       #   if: matrix.value == 'polygon-digital-carbon' || matrix.value == 'carbonmark'
