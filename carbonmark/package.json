@@ -23,9 +23,9 @@
     "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
     "deploy": "yarn prepare-local && yarn codegen && yarn build && yarn graph:remove && yarn graph:create && yarn graph:deploy",
     "set-version": "cd .. && ts-node version-control/set-version.ts",
-    "version:prepatch": "npm version prepatch",
-    "version:preminor": "npm version preminor",
-    "version:premajor": "npm version premajor"
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",
