@@ -1,6 +1,6 @@
 {
   "name": "carbonmark",
-  "version": "0.0.1",
+  "version": "1.6.0",
   "repository": "https://github.com/KlimaDAO/klima-subgraphs/carbonmark",
   "license": "MIT",
   "scripts": {
