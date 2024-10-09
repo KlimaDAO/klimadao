@@ -103,6 +103,9 @@ jobs:
         run: |
           NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
 
+          git config user.email "deploy-action@carbonmark.com"
+          git config user.name "deploy-action"
+
           git add version.json
 
           git commit -m "action: update version.json to publishedVersion: $NEW_PUBLISHED_VERSION for ${{ matrix.value }}"
