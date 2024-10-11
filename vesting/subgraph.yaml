@@ -1,4 +1,4 @@
-specVersion: 0.0.5
+specVersion: 0.0.8
 description: Klima DAO Vesting Metrics
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
@@ -30,6 +30,10 @@ dataSources:
           handler: handleStakeLocked
         - event: WithdrawLocked(indexed address,uint256,bytes32,address)
           handler: handleWithdrawLocked
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
       file: ./src/C3WsklimaHandler.ts
   # CO2 Compound NFT
   - kind: ethereum/contract

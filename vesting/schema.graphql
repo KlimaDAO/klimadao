@@ -39,3 +39,9 @@ type VestingMetric @entity {
   index: BigDecimal!
   inFuture: Boolean! #Returns if the given metric is for the future date or not
 }
+
+type SubgraphVersion @entity {
+  id: ID!
+  schemaVersion: String!
+  publishedVersion: String!
+}
