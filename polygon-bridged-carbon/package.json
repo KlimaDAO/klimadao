@@ -1,6 +1,6 @@
 {
   "name": "polygon-bridged-carbon",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": "https://github.com/klimadao/klima-subgraph",
   "license": "MIT",
   "scripts": {
