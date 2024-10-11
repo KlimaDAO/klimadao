@@ -89,15 +89,6 @@ jobs:
             echo "Version has been updated for ${{ matrix.value }}."
           fi
 
-      - name: Ensure errors.log is created
-        run: |
-          if [ ! -f errors.log ]; then
-            echo "No errors.log file created"
-          else
-            echo "errors.log file exists"
-          fi
-
-
       - name: Final version check summary
         if: env.changes == 'true'
         run: |
