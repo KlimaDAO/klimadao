@@ -13,7 +13,9 @@ import { MCO2 as cMCO2 } from './utils/carbon_token/impl/MCO2'
 import { CarbonMetricUtils } from './utils/CarbonMetrics'
 import { MCO2_ERC20_CONTRACT } from './utils/Constants'
 import { PUBLISHED_VERSION, SCHEMA_VERSION } from './utils/version'
-import { SubgraphVersion } from '../../celo-bridged-carbon/generated/schema'
+import { SubgraphVersion } from '../generated/schema'
+
+
 
 export function handleTransfer(event: Transfer): void {
   let transaction = loadOrCreateTransaction(event.transaction, event.block)
