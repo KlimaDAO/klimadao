@@ -1,4 +1,4 @@
-specVersion: 0.0.4
+specVersion: 0.0.8
 description: Klima DAO Protocol Metrics
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
@@ -36,6 +36,10 @@ dataSources:
       eventHandlers:
         - event: Deposit(indexed address,uint256,uint256)
           handler: handleDeposit
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
       file: ./src/TreasuryV1.ts
   # Treasury V1
   - kind: ethereum/contract

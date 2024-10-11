@@ -89,3 +89,11 @@ type DepositOwnershipChange @entity {
   startDate: BigInt!
   endDate: BigInt!
 }
+
+# Subgraph Versioning
+
+type SubgraphVersion @entity(immutable: true) {
+  id: ID!
+  schemaVersion: String!
+  publishedVersion: String!
+}

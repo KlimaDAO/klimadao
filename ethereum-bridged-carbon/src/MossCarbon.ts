@@ -1,4 +1,4 @@
-import { Address } from '@graphprotocol/graph-ts'
+import { Address, ethereum } from '@graphprotocol/graph-ts'
 
 import { ERC20, Transfer } from '../generated/MossCarbon/ERC20'
 import { Offset } from '../generated/MossInventory/MossCarbonInventoryControl'
@@ -12,6 +12,8 @@ import { MCO2 as pMCO2 } from './utils/pool_token/impl/MCO2'
 import { MCO2 as cMCO2 } from './utils/carbon_token/impl/MCO2'
 import { CarbonMetricUtils } from './utils/CarbonMetrics'
 import { MCO2_ERC20_CONTRACT } from './utils/Constants'
+import { PUBLISHED_VERSION, SCHEMA_VERSION } from './utils/version'
+import { SubgraphVersion } from '../../celo-bridged-carbon/generated/schema'
 
 export function handleTransfer(event: Transfer): void {
   let transaction = loadOrCreateTransaction(event.transaction, event.block)
@@ -86,4 +88,11 @@ export function handleRetire(event: Offset): void {
 
   retire.save()
   carbonOffset.save()
+}
+
+export function handleSetSubgraphVersion(block: ethereum.Block): void {
+  let version = new SubgraphVersion('ethereum-bridged-carbon')
+  version.schemaVersion = SCHEMA_VERSION
+  version.publishedVersion = PUBLISHED_VERSION
+  version.save()
 }

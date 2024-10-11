@@ -16,7 +16,11 @@
     "deploy-version": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node --version-label $npm_config_label klimadao-user-carbon",
     "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ klimadao-user-carbon",
     "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
-    "deploy": "graph deploy --product hosted-service klimadao/klimadao-user-carbon"
+    "deploy": "graph deploy --product hosted-service klimadao/klimadao-user-carbon",
+    "set-version": "cd .. && ts-node version-control/set-version.ts",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.56.0",

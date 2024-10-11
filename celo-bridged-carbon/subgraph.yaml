@@ -1,4 +1,4 @@
-specVersion: 0.0.5
+specVersion: 0.0.8
 description: Celo Bridged Carbon
 repository: https://github.com/KlimaDAO/carbon-subgraph
 schema:
@@ -28,6 +28,10 @@ dataSources:
           handler: handleBridgeRequestReceived
         - event: BridgeRequestSent(uint32,indexed uint32,indexed address,indexed address,uint256,uint256,bytes32)
           handler: handleBridgeRequestSent
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
   - kind: ethereum/contract
     name: MossCarbon
     network: celo

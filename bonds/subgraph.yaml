@@ -1,4 +1,4 @@
-specVersion: 0.0.4
+specVersion: 0.0.8
 description: Klima DAO Subgraph
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
@@ -32,6 +32,10 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
       file: ./src/BondHandlerV1.ts
   # KLIMA-BCT Bond Contract V1
   - kind: ethereum/contract

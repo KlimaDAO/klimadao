@@ -8,6 +8,9 @@ import { KLIMA } from '../../lib/tokens/impl/KLIMA'
 import * as constants from '../../lib/utils/Constants'
 import { BondFactory } from '../../lib/bonds/BondFactory'
 import { BigInt } from '@graphprotocol/graph-ts'
+import { PUBLISHED_VERSION, SCHEMA_VERSION } from './utils/version'
+import { SubgraphVersion } from '../generated/schema'
+import { ethereum } from '@graphprotocol/graph-ts'
 
 export function handleDeposit(event: BondCreated): void {
   let bonder = loadOrCreateBonder(event.transaction.from)
@@ -72,4 +75,11 @@ export function handleBCV(event: ControlVariableAdjustment): void {
 
   let transaction = loadOrCreateTransaction(event.transaction, event.block)
   updateBondBCV(transaction.timestamp, bond.getBondName(), event.params.newBCV)
+}
+
+export function handleSetSubgraphVersion(block: ethereum.Block): void {
+  let version = new SubgraphVersion('bonds')
+  version.schemaVersion = SCHEMA_VERSION
+  version.publishedVersion = PUBLISHED_VERSION
+  version.save()
 }
