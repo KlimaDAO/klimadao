@@ -4,7 +4,6 @@ import path from 'path'
 type Subgraph = {
   name: string
   versionJsonPath: string
-  templateFile: string
   outputFile: string
   packageJsonPath: string
 }
