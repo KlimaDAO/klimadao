@@ -210,13 +210,41 @@ jobs:
 
       #     ../node_modules/.bin/graph deploy "${{ steps.staging_or_not.outputs.subgraph }}" --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label "$VERSION_LABEL"
       #   working-directory: '${{ matrix.value }}'
-      - name: Create GitHub Issue
+      - name: Create issue for deployment tracking
         uses: JasonEtco/create-an-issue@v2
         if: steps.compare_versions.outputs.should_deploy == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}
           SUBGRAPH_NAME: ${{ matrix.value }}
+      - name: Generate Changelog
+        if: steps.compare_versions.outputs.should_deploy == 'true'
+        id: generate_changelog
+        run: |
+          LAST_TAG=${{ steps.get_last_tag.outputs.last_tag }}
+          CURRENT_TAG="${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}"
+          
+          CHANGELOG=$(conventional-changelog -p angular -i CHANGELOG.md -s -r 0)
+          
+          CHANGELOG_CONTENT=$(cat CHANGELOG.md)
+          
+          # Set the changelog as an output
+          echo "changelog=${CHANGELOG_CONTENT}" >> $GITHUB_OUTPUT
+        working-directory: '${{ matrix.value }}'
+    - name: Create GitHub Release
+      if: steps.compare_versions.outputs.should_deploy == 'true'
+      uses: actions/create-release@v1
+      id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: "${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}"
+        release_name: "${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}"
+        body: ${{ steps.generate_changelog.outputs.changelog }}
+        draft: true
+        prerelease: ${{ startsWith(github.ref, 'refs/heads/staging') }}
+
+
 
 
 
