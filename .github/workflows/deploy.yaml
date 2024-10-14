@@ -222,29 +222,98 @@ jobs:
         id: generate_changelog
         run: |
           LAST_TAG=${{ steps.get_last_tag.outputs.last_tag }}
-          CURRENT_TAG="${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}"
-          
-          CHANGELOG=$(conventional-changelog -p angular -i CHANGELOG.md -s -r 0)
-          
-          CHANGELOG_CONTENT=$(cat CHANGELOG.md)
-          
-          # Set the changelog as an output
-          echo "changelog=${CHANGELOG_CONTENT}" >> $GITHUB_OUTPUT
+          NEW_TAG="${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}"
+
+          echo "Generating changelog from $LAST_TAG to $NEW_TAG"
+
+          # Fetch commit messages between LAST_TAG and NEW_TAG that match the specified patterns
+          COMMITS=$(git log ${LAST_TAG}..${NEW_TAG} --pretty=format:"%s" | grep -E '^(feat|fix|docs|chore|refactor|style|test):' || true)
+
+          FEAT=""
+          FIX=""
+          DOCS=""
+          CHORE=""
+          REFACTOR=""
+          STYLE=""
+          TEST=""
+
+          # Iterate over each commit and categorize them
+          for COMMIT in $COMMITS; do
+            TYPE=$(echo "$COMMIT" | cut -d':' -f1)
+            MESSAGE=$(echo "$COMMIT" | cut -d':' -f2-)
+            case $TYPE in
+              feat)
+                FEAT="${FEAT}\n- ${MESSAGE}"
+                ;;
+              fix)
+                FIX="${FIX}\n- ${MESSAGE}"
+                ;;
+              docs)
+                DOCS="${DOCS}\n- ${MESSAGE}"
+                ;;
+              chore)
+                CHORE="${CHORE}\n- ${MESSAGE}"
+                ;;
+              refactor)
+                REFACTOR="${REFACTOR}\n- ${MESSAGE}"
+                ;;
+              style)
+                STYLE="${STYLE}\n- ${MESSAGE}"
+                ;;
+              test)
+                TEST="${TEST}\n- ${MESSAGE}"
+                ;;
+            esac
+          done
+
+          # Compile the categorized changelog
+          CHANGELOG=""
+          if [ -n "$FEAT" ]; then
+            CHANGELOG="${CHANGELOG}\n### Features\n${FEAT}"
+          fi
+          if [ -n "$FIX" ]; then
+            CHANGELOG="${CHANGELOG}\n### Bug Fixes\n${FIX}"
+          fi
+          if [ -n "$DOCS" ]; then
+            CHANGELOG="${CHANGELOG}\n### Documentation\n${DOCS}"
+          fi
+          if [ -n "$CHORE" ]; then
+            CHANGELOG="${CHANGELOG}\n### Chores\n${CHORE}"
+          fi
+          if [ -n "$REFACTOR" ]; then
+            CHANGELOG="${CHANGELOG}\n### Refactors\n${REFACTOR}"
+          fi
+          if [ -n "$STYLE" ]; then
+            CHANGELOG="${CHANGELOG}\n### Styles\n${STYLE}"
+          fi
+          if [ -n "$TEST" ]; then
+            CHANGELOG="${CHANGELOG}\n### Tests\n${TEST}"
+          fi
+        
+          # Remove leading and trailing blank lines
+          CHANGELOG=$(echo -e "$CHANGELOG" | sed '/^$/d')
+
+          # Handle the case where no changelog entries are found
+          if [ -z "$CHANGELOG" ]; then
+            echo "No changelog entries found."
+            echo "changelog=No changes." >> $GITHUB_OUTPUT
+          else
+            echo "changelog=$CHANGELOG" >> $GITHUB_OUTPUT
+          fi
+
+          # Set changelog as output
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
         working-directory: '${{ matrix.value }}'
-    - name: Create GitHub Release
-      if: steps.compare_versions.outputs.should_deploy == 'true'
-      uses: actions/create-release@v1
-      id: create_release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: "${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}"
-        release_name: "${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}"
-        body: ${{ steps.generate_changelog.outputs.changelog }}
-        draft: true
-        prerelease: ${{ startsWith(github.ref, 'refs/heads/staging') }}
-
-
-
-
-
+      - name: Create GitHub Release
+        if: steps.compare_versions.outputs.should_deploy == 'true'
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}"
+          release_name: "${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}"
+          body: ${{ steps.generate_changelog.outputs.changelog }}
+          draft: true
