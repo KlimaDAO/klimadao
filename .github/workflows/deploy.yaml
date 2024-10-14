@@ -1,13 +1,11 @@
 name: Deployment
 
-# on:
-#   push:
-#     branches:
-#       - main
-#       - staging
-#       # @todo remove this before any merge. Only for testing actions
+on:
+  push:
+    branches:
+      - main
+      - staging
 
-on: [push]
 
 jobs:
   compile:
@@ -212,4 +210,13 @@ jobs:
 
       #     ../node_modules/.bin/graph deploy "${{ steps.staging_or_not.outputs.subgraph }}" --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label "$VERSION_LABEL"
       #   working-directory: '${{ matrix.value }}'
+      - name: Create GitHub Issue
+        uses: JasonEtco/create-an-issue@v2
+        if: steps.compare_versions.outputs.should_deploy == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}
+          SUBGRAPH_NAME: ${{ matrix.value }}
+
+
 
