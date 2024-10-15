@@ -121,6 +121,7 @@ jobs:
       - name: Commit all changes
         if: steps.compare_versions.outputs.should_deploy == 'true'
         run: |
+          set -x  # Enable debugging output
           NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
 
           git config user.email "deploy-action@carbonmark.com"
@@ -128,10 +129,12 @@ jobs:
 
           git add version.json src/utils/version.ts
 
-          if git diff-index --quiet HEAD --; then
+          # Use git diff --cached --quiet to check for staged changes
+          if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "action: update to publishedVersion: $NEW_PUBLISHED_VERSION for ${{ matrix.value }}"
+            
             if [[ "${GITHUB_REF}" == "refs/heads/"* ]]; then
               BRANCH_NAME=${GITHUB_REF#refs/heads/}
             elif [[ "${GITHUB_REF}" == "refs/pull/"* ]]; then
@@ -145,12 +148,8 @@ jobs:
             git pull --rebase origin $BRANCH_NAME
 
             echo "Pushing to branch: $BRANCH_NAME"
-
             git push origin $BRANCH_NAME
           fi
-
-
-      
         working-directory: '${{ matrix.value }}'
       - name: Tag the commit with the new version
         if: steps.compare_versions.outputs.should_deploy == 'true'
