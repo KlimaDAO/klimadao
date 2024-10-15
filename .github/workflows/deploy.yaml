@@ -241,7 +241,7 @@ jobs:
             console.log(`Generating changelog from ${lastTag} to ${newTag} for subgraph: ${subgraphDir}`);
 
             // Fetch commits between the two tags
-            const { data: commitComparison } = await github.repos.compareCommits({
+            const { data: commitComparison } = await octokit.repos.compareCommits({
               owner: context.repo.owner,
               repo: context.repo.repo,
               base: lastTag,
@@ -260,7 +260,7 @@ jobs:
 
             for (const commit of commits) {
               // Check if the commit affects files in the subgraph directory
-              const { data: commitData } = await github.repos.getCommit({
+              const { data: commitData } = await octokit.repos.getCommit({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 ref: commit.sha,
@@ -274,7 +274,7 @@ jobs:
               }
 
               // Get PRs associated with the commit
-              const { data: prs } = await github.repos.listPullRequestsAssociatedWithCommit({
+              const { data: prs } = await octokit.repos.listPullRequestsAssociatedWithCommit({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 commit_sha: commit.sha,
