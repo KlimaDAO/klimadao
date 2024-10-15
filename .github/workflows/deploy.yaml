@@ -6,7 +6,6 @@ on:
       - main
       - staging
 
-
 jobs:
   compile:
     runs-on: ubuntu-latest
@@ -238,7 +237,7 @@ jobs:
           echo "Generating changelog from $LAST_TAG to $NEW_TAG"
 
           # Fetch commit messages between LAST_TAG and NEW_TAG that match the specified patterns
-          COMMITS=$(git log ${LAST_TAG}..${NEW_TAG} --pretty=format:"%s" | grep -E '^(feat|fix|docs|chore|refactor|style|test):' || true)
+          COMMITS=$(git log ${LAST_TAG}..${NEW_TAG} --pretty=format:"%s" | grep -E '^(feat|fix|docs|chore|perf|refactor|style|test):' || true)
 
           FEAT=""
           FIX=""
@@ -247,7 +246,7 @@ jobs:
           REFACTOR=""
           STYLE=""
           TEST=""
-
+          PERF=""
           # Iterate over each commit and categorize them
           for COMMIT in $COMMITS; do
             TYPE=$(echo "$COMMIT" | cut -d':' -f1)
@@ -264,6 +263,9 @@ jobs:
                 ;;
               chore)
                 CHORE="${CHORE}\n- ${MESSAGE}"
+                ;;
+              perf)
+                PERF="${PERF}\n- ${MESSAGE}"
                 ;;
               refactor)
                 REFACTOR="${REFACTOR}\n- ${MESSAGE}"
@@ -296,6 +298,9 @@ jobs:
           fi
           if [ -n "$STYLE" ]; then
             CHANGELOG="${CHANGELOG}\n### Styles\n${STYLE}"
+          fi
+          if [ -n "$PERF" ]; then
+            CHANGELOG="${CHANGELOG}\n### Performance\n${PERF}"
           fi
           if [ -n "$TEST" ]; then
             CHANGELOG="${CHANGELOG}\n### Tests\n${TEST}"
