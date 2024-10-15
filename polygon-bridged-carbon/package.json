@@ -17,7 +17,7 @@
     "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ polygon-bridged-carbon",
     "deploy": "graph deploy --product hosted-service cujowolf/polygon-bridged-carbon",
     "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
-    "set-version": "cd .. && ts-node version-control/set-version.ts",
+    "set-version": "ts-node ../version-control/set-version.ts",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",
     "version:major": "npm version major"
