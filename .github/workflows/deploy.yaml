@@ -248,7 +248,7 @@ jobs:
               head: newTag,
             });
 
-            # Handle if this is the first released of a versioned subgraph
+            // Handle if this is the first released of a versioned subgraph
             if (commitComparison.commits.length === 0) {
               core.setOutput('changelog', 'No changes.');
               return;
