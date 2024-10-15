@@ -230,98 +230,84 @@ jobs:
       - name: Generate Changelog
         if: steps.compare_versions.outputs.should_deploy == 'true'
         id: generate_changelog
-        run: |
-          LAST_TAG=${{ steps.get_last_tag.outputs.last_tag }}
-          NEW_TAG="${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}"
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const lastTag = '${{ steps.get_last_tag.outputs.last_tag }}';
+            const newTag = '${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}';
+            const subgraphDir = '${{ matrix.value }}';
 
-          echo "Generating changelog from $LAST_TAG to $NEW_TAG"
+            console.log(`Generating changelog from ${lastTag} to ${newTag} for subgraph: ${subgraphDir}`);
 
-          # Fetch commit messages between LAST_TAG and NEW_TAG that match the specified patterns
-          COMMITS=$(git log ${LAST_TAG}..${NEW_TAG} --pretty=format:"%s" | grep -E '^(feat|fix|docs|chore|perf|refactor|style|test):' || true)
+            // Fetch commits between the two tags
+            const { data: commitComparison } = await github.repos.compareCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: lastTag,
+              head: newTag,
+            });
 
-          FEAT=""
-          FIX=""
-          DOCS=""
-          CHORE=""
-          REFACTOR=""
-          STYLE=""
-          TEST=""
-          PERF=""
-          # Iterate over each commit and categorize them
-          for COMMIT in $COMMITS; do
-            TYPE=$(echo "$COMMIT" | cut -d':' -f1)
-            MESSAGE=$(echo "$COMMIT" | cut -d':' -f2-)
-            case $TYPE in
-              feat)
-                FEAT="${FEAT}\n- ${MESSAGE}"
-                ;;
-              fix)
-                FIX="${FIX}\n- ${MESSAGE}"
-                ;;
-              docs)
-                DOCS="${DOCS}\n- ${MESSAGE}"
-                ;;
-              chore)
-                CHORE="${CHORE}\n- ${MESSAGE}"
-                ;;
-              perf)
-                PERF="${PERF}\n- ${MESSAGE}"
-                ;;
-              refactor)
-                REFACTOR="${REFACTOR}\n- ${MESSAGE}"
-                ;;
-              style)
-                STYLE="${STYLE}\n- ${MESSAGE}"
-                ;;
-              test)
-                TEST="${TEST}\n- ${MESSAGE}"
-                ;;
-            esac
-          done
+            const commits = commitComparison.commits;
+            let prNumbers = new Set();
+            let changelogEntries = [];
 
-          # Compile the categorized changelog
-          CHANGELOG=""
-          if [ -n "$FEAT" ]; then
-            CHANGELOG="${CHANGELOG}\n### Features\n${FEAT}"
-          fi
-          if [ -n "$FIX" ]; then
-            CHANGELOG="${CHANGELOG}\n### Bug Fixes\n${FIX}"
-          fi
-          if [ -n "$DOCS" ]; then
-            CHANGELOG="${CHANGELOG}\n### Documentation\n${DOCS}"
-          fi
-          if [ -n "$CHORE" ]; then
-            CHANGELOG="${CHANGELOG}\n### Chores\n${CHORE}"
-          fi
-          if [ -n "$REFACTOR" ]; then
-            CHANGELOG="${CHANGELOG}\n### Refactors\n${REFACTOR}"
-          fi
-          if [ -n "$STYLE" ]; then
-            CHANGELOG="${CHANGELOG}\n### Styles\n${STYLE}"
-          fi
-          if [ -n "$PERF" ]; then
-            CHANGELOG="${CHANGELOG}\n### Performance\n${PERF}"
-          fi
-          if [ -n "$TEST" ]; then
-            CHANGELOG="${CHANGELOG}\n### Tests\n${TEST}"
-          fi
-        
-          # Remove leading and trailing blank lines
-          CHANGELOG=$(echo -e "$CHANGELOG" | sed '/^$/d')
+            for (const commit of commits) {
+              // Check if the commit affects files in the subgraph directory
+              const { data: commitData } = await github.repos.getCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: commit.sha,
+              });
 
-          # Handle the case where no changelog entries are found
-          if [ -z "$CHANGELOG" ]; then
-            echo "No changelog entries found."
-            echo "changelog=No changes." >> $GITHUB_OUTPUT
-          else
-            echo "changelog=$CHANGELOG" >> $GITHUB_OUTPUT
-          fi
+              const filesChanged = commitData.files.map(file => file.filename);
+              const affectsSubgraph = filesChanged.some(filename => filename.startsWith(subgraphDir + '/'));
 
-          # Set changelog as output
-          echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          echo "$CHANGELOG" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-        working-directory: '${{ matrix.value }}'
+              if (!affectsSubgraph) {
+                continue; // Skip commits that don't affect the current subgraph
+              }
+
+              // Get PRs associated with the commit
+              const { data: prs } = await github.repos.listPullRequestsAssociatedWithCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                commit_sha: commit.sha,
+              });
+
+              for (const pr of prs) {
+                // Avoid duplicates
+                if (prNumbers.has(pr.number)) continue;
+                prNumbers.add(pr.number);
+
+                const prBody = pr.body || '';
+                const changelogMatch = prBody.match(/## ?📝 Changelog\s*([\s\S]*?)(?:##|$)/i);
+
+                if (changelogMatch) {
+                  const changelogText = changelogMatch[1].trim();
+
+                  if (changelogText) {
+                    changelogEntries.push({
+                      number: pr.number,
+                      title: pr.title,
+                      url: pr.html_url,
+                      changelog: changelogText,
+                      author: pr.user.login,
+                    });
+                  }
+                }
+              }
+            }
+
+            if (changelogEntries.length === 0) {
+              core.setOutput('changelog', 'No changes.');
+            } else {
+              let changelog = '';
+              for (const entry of changelogEntries) {
+                changelog += `- PR [#${entry.number}](${entry.url}) by @${entry.author}:\n${entry.changelog}\n\n`;
+              }
+              core.setOutput('changelog', changelog);
+            }
+
       - name: Create GitHub Release
         if: steps.compare_versions.outputs.should_deploy == 'true'
         uses: actions/create-release@v1
@@ -329,7 +315,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}"
-          release_name: "${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}"
+          tag_name: ${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}
+          release_name: ${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}
           body: ${{ steps.generate_changelog.outputs.changelog }}
           draft: true
