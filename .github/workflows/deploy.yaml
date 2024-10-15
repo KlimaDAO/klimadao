@@ -127,7 +127,12 @@ jobs:
 
           git add version.json src/utils/version.ts
 
-          git commit -m "action: update to publishedVersion: $NEW_PUBLISHED_VERSION for ${{ matrix.value }}"
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
+          else
+            git commit -m "action: update to publishedVersion: $NEW_PUBLISHED_VERSION for ${{ matrix.value }}"
+          fi
+
 
           if [[ "${GITHUB_REF}" == "refs/heads/"* ]]; then
             BRANCH_NAME=${GITHUB_REF#refs/heads/}
