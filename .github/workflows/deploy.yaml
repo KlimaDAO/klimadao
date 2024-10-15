@@ -131,24 +131,25 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "action: update to publishedVersion: $NEW_PUBLISHED_VERSION for ${{ matrix.value }}"
+            if [[ "${GITHUB_REF}" == "refs/heads/"* ]]; then
+              BRANCH_NAME=${GITHUB_REF#refs/heads/}
+            elif [[ "${GITHUB_REF}" == "refs/pull/"* ]]; then
+              BRANCH_NAME=${GITHUB_HEAD_REF}
+            else
+              echo "Unsupported GITHUB_REF format: ${GITHUB_REF}"
+              exit 1
+            fi
+
+            echo "Pulling latest changes for branch: $BRANCH_NAME"
+            git pull --rebase origin $BRANCH_NAME
+
+            echo "Pushing to branch: $BRANCH_NAME"
+
+            git push origin $BRANCH_NAME
           fi
 
 
-          if [[ "${GITHUB_REF}" == "refs/heads/"* ]]; then
-            BRANCH_NAME=${GITHUB_REF#refs/heads/}
-          elif [[ "${GITHUB_REF}" == "refs/pull/"* ]]; then
-            BRANCH_NAME=${GITHUB_HEAD_REF}
-          else
-            echo "Unsupported GITHUB_REF format: ${GITHUB_REF}"
-            exit 1
-          fi
-
-          echo "Pulling latest changes for branch: $BRANCH_NAME"
-          git pull --rebase origin $BRANCH_NAME
-
-          echo "Pushing to branch: $BRANCH_NAME"
-
-          git push origin $BRANCH_NAME
+      
         working-directory: '${{ matrix.value }}'
       - name: Tag the commit with the new version
         if: steps.compare_versions.outputs.should_deploy == 'true'
