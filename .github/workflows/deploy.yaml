@@ -26,6 +26,7 @@ jobs:
             'polygon-bridged-carbon',
             'polygon-digital-carbon',
           ]
+        max-parallel: 1
     steps:
       - name: Check out source repository
         uses: actions/checkout@v2
