@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - staging
+      # @todo for testing the versioning and releases process
+      - repo/versioning-and-releases
 
 
 jobs:
