@@ -248,6 +248,12 @@ jobs:
               head: newTag,
             });
 
+            # Handle if this is the first released of a versioned subgraph
+            if (commitComparison.commits.length === 0) {
+              core.setOutput('changelog', 'No changes.');
+              return;
+            }
+
             const commits = commitComparison.commits;
             let prNumbers = new Set();
             let changelogEntries = [];
