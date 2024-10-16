@@ -244,7 +244,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SUBGRAPH_NAME: ${{ matrix.value }}
           LAST_TAG: ${{ steps.get_last_tag.outputs.last_tag }}
-          PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}
+          NEW_PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}
         run: |
           echo "Generating changelog for ${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}"
           node .github/actions-scripts/fetch-PRs.mjs
