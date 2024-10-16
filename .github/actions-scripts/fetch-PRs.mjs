@@ -1,12 +1,11 @@
 import { Octokit } from 'octokit'
 
+console.log('asd node version', process.version)
+console.log('asd directory', process.cwd())
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 })
-
-// const octokit = new Octokit({
-//   auth: process.env.SEVEN_DAY_TOKEN_FOR_TUFNEL,
-// })
 
 const lastTag = process.env.LAST_TAG
 const newTag = process.env.NEW_PUBLISHED_VERSION
@@ -15,7 +14,11 @@ const subgraphDir = process.env.SUBGRAPH_NAME
 const owner = 'klimadao'
 const repo = 'klima-subgraph'
 
-// @todo remove after testing
+// const octokit = new Octokit({
+//   auth: process.env.SEVEN_DAY_TOKEN_FOR_TUFNEL,
+// })
+
+// // @todo remove after testing
 // const lastTag = 'carbonmark-v1.6.0'
 // const newTag = 'carbonmark-v1.6.1'
 // const subgraphDir = 'carbonmark'
@@ -100,7 +103,6 @@ for (const commit of reversedCommits) {
       }
     }
   }
-
   if (changelogEntries.length === 0) {
     core.setOutput('changelog', 'No changes.')
   } else {
