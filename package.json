@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "conventional-changelog-cli": "5.0.0",
-    "mustache": "4.2.0"
+    "mustache": "4.2.0",
+    "octokit": "4.0.2"
   }
 }
