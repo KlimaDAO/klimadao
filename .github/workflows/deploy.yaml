@@ -231,6 +231,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}
           SUBGRAPH_NAME: ${{ matrix.value }}
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
       - name: Check Node.js version (debugging)
         run: node -v
       - name: Generate Changelog
