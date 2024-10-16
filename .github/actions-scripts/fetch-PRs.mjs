@@ -1,8 +1,8 @@
-// import { Octokit } from 'octokit'
+import { Octokit } from 'octokit'
 
-// const octokit = new Octokit({
-//   auth: process.env.GITHUB_TOKEN,
-// });
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
 
 // const octokit = new Octokit({
 //   auth: process.env.SEVEN_DAY_TOKEN_FOR_TUFNEL,
@@ -24,7 +24,7 @@ console.log(`Generating changelog from ${lastTag} to ${newTag} for subgraph: ${s
 
 // Fetch commits between the two tags
 
-const { data: commitComparison } = await github.rest.repos.compareCommitsWithBasehead({
+const { data: commitComparison } = await octokit.rest.repos.compareCommitsWithBasehead({
   owner,
   repo,
   basehead: `${lastTag}...${newTag}`,
@@ -46,7 +46,7 @@ const reversedCommits = commits.reverse()
 
 for (const commit of reversedCommits) {
   // Check if the commit affects files in the subgraph directory
-  const { data: commitData } = await github.rest.repos.getCommit({
+  const { data: commitData } = await octokit.rest.repos.getCommit({
     owner,
     repo,
     ref: commit.sha,
@@ -60,7 +60,7 @@ for (const commit of reversedCommits) {
   }
 
   // Get PRs associated with the commit
-  const { data: prs } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+  const { data: prs } = await octokit.rest.repos.listPullRequestsAssociatedWithCommit({
     owner,
     repo,
     commit_sha: commit.sha,
