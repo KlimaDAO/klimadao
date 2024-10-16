@@ -8,8 +8,9 @@ const octokit = new Octokit({
 })
 
 const lastTag = process.env.LAST_TAG
-const newTag = process.env.NEW_PUBLISHED_VERSION
+
 const subgraphDir = process.env.SUBGRAPH_NAME
+const newTag = `${subgraphDir}-v${process.env.NEW_PUBLISHED_VERSION}`
 
 const owner = 'klimadao'
 const repo = 'klima-subgraph'
