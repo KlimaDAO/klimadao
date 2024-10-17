@@ -2,9 +2,6 @@ import { Octokit } from 'octokit'
 import fs from 'fs'
 import os from 'os'
 
-console.log('asd node version', process.version)
-console.log('asd directory', process.cwd())
-
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 })
@@ -12,20 +9,6 @@ const octokit = new Octokit({
 const lastTag = process.env.LAST_TAG
 const subgraphDir = process.env.SUBGRAPH_NAME
 const newTag = `${subgraphDir}-v${process.env.NEW_PUBLISHED_VERSION}`
-
-// const octokit = new Octokit({
-//   auth: process.env.SEVEN_DAY_TOKEN_FOR_TUFNEL,
-// })
-
-// // @todo remove after testing
-// const lastTag = 'carbonmark-v1.6.0'
-// const newTag = 'carbonmark-v1.6.1'
-// const subgraphDir = 'carbonmark'
-
-// // @todo remove after testing
-// const lastTag = '0.0.0'
-// const newTag = 'user-carbon-v0.0.1'
-// const subgraphDir = 'user-carbon'
 
 const owner = 'klimadao'
 const repo = 'klima-subgraph'
@@ -95,7 +78,7 @@ async function generateChangelog() {
         })
 
         for (const pr of prs) {
-          // Avoid duplicates
+          // Avoid dupes
           if (prNumbers.has(pr.number)) continue
           prNumbers.add(pr.number)
 
@@ -108,7 +91,7 @@ async function generateChangelog() {
             // Remove the example and instructions from the changelog text
             const actualChangelogText = changelogText.replace(/<!--[\s\S]*?-->/, '').trim()
 
-            // Extract conventional commit messages from changelog text
+            // Extract conventional commit messages
             const conventionalCommitRegex =
               /^(feat|fix|perf|style|refactor|test|ci|chore|revert)(?:\(.*?\))?!?:\s*(.*)$/gim
             const conventionalCommits = [...actualChangelogText.matchAll(conventionalCommitRegex)]
