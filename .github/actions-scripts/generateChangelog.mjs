@@ -46,100 +46,100 @@ async function generateChangelog() {
   let prNumbers = new Set()
   let changelogEntries = []
 
-  try{
-  if (lastTag === '0.0.0') {
-    changelogEntries.push({
-      number: 0,
-      title: `Initial release of versioned ${subgraphDir} subgraph`,
-      url: `https://github.com/klimadao/klima-subgraph/releases/tag/${newTag}`,
-      versionChanges: 'initial-release of versioned subgraph',
-      author: 'klimadao',
-    })
-  } else {
-    const { data: commitComparison } = await octokit.rest.repos.compareCommitsWithBasehead({
-      owner,
-      repo,
-      basehead: `${lastTag}...${newTag}`,
-    })
-
-    // Handle if this is the first released of a versioned subgraph
-    if (commitComparison.commits.length === 0) {
-      console.log('No changes.')
-      return
-    }
-
-    const commits = commitComparison.commits
-
-    const reversedCommits = commits.reverse()
-
-    for (const commit of reversedCommits) {
-      // Check if the commit affects files in the subgraph directory
-      const { data: commitData } = await octokit.rest.repos.getCommit({
+  try {
+    if (lastTag === '0.0.0') {
+      changelogEntries.push({
+        number: 0,
+        title: `Initial release of versioned ${subgraphDir} subgraph`,
+        url: `https://github.com/klimadao/klima-subgraph/releases/tag/${newTag}`,
+        versionChanges: 'initial-release of versioned subgraph',
+        author: 'klimadao',
+      })
+    } else {
+      const { data: commitComparison } = await octokit.rest.repos.compareCommitsWithBasehead({
         owner,
         repo,
-        ref: commit.sha,
+        basehead: `${lastTag}...${newTag}`,
       })
 
-      const filesChanged = commitData.files.map((file) => file.filename)
-      const affectsSubgraph = filesChanged.some((filename) => filename.startsWith(subgraphDir + '/'))
-
-      if (!affectsSubgraph) {
-        continue // Skip commits that don't affect the current subgraph
+      // Handle if this is the first released of a versioned subgraph
+      if (commitComparison.commits.length === 0) {
+        console.log('No changes.')
+        return
       }
 
-      // Get PRs associated with the commit
-      const { data: prs } = await octokit.rest.repos.listPullRequestsAssociatedWithCommit({
-        owner,
-        repo,
-        commit_sha: commit.sha,
-      })
+      const commits = commitComparison.commits
 
-      for (const pr of prs) {
-        // Avoid duplicates
-        if (prNumbers.has(pr.number)) continue
-        prNumbers.add(pr.number)
+      const reversedCommits = commits.reverse()
 
-        const prBody = pr.body || ''
-        const changelogMatch = prBody.match(/## ?📝 Changelog\s*([\s\S]*?)(?:##|$)/i)
+      for (const commit of reversedCommits) {
+        // Check if the commit affects files in the subgraph directory
+        const { data: commitData } = await octokit.rest.repos.getCommit({
+          owner,
+          repo,
+          ref: commit.sha,
+        })
 
-        if (changelogMatch) {
-          const changelogText = changelogMatch[1].trim()
+        const filesChanged = commitData.files.map((file) => file.filename)
+        const affectsSubgraph = filesChanged.some((filename) => filename.startsWith(subgraphDir + '/'))
 
-          // Remove the example and instructions from the changelog text
-          const actualChangelogText = changelogText.replace(/<!--[\s\S]*?-->/, '').trim()
+        if (!affectsSubgraph) {
+          continue // Skip commits that don't affect the current subgraph
+        }
 
-          // Extract conventional commit messages from changelog text
-          const conventionalCommitRegex =
-            /^(feat|fix|perf|style|refactor|test|ci|chore|revert)(?:\(.*?\))?!?:\s*(.*)$/gim
-          const conventionalCommits = [...actualChangelogText.matchAll(conventionalCommitRegex)]
+        // Get PRs associated with the commit
+        const { data: prs } = await octokit.rest.repos.listPullRequestsAssociatedWithCommit({
+          owner,
+          repo,
+          commit_sha: commit.sha,
+        })
 
-          if (conventionalCommits.length > 0) {
-            for (const [, type, message] of conventionalCommits) {
-              changelogEntries.push({
-                number: pr.number,
-                title: pr.title,
-                url: pr.html_url,
-                versionChanges: `${type.toLowerCase()}: ${message.trim()}`,
-                author: pr.user.login,
-              })
+        for (const pr of prs) {
+          // Avoid duplicates
+          if (prNumbers.has(pr.number)) continue
+          prNumbers.add(pr.number)
+
+          const prBody = pr.body || ''
+          const changelogMatch = prBody.match(/## ?📝 Changelog\s*([\s\S]*?)(?:##|$)/i)
+
+          if (changelogMatch) {
+            const changelogText = changelogMatch[1].trim()
+
+            // Remove the example and instructions from the changelog text
+            const actualChangelogText = changelogText.replace(/<!--[\s\S]*?-->/, '').trim()
+
+            // Extract conventional commit messages from changelog text
+            const conventionalCommitRegex =
+              /^(feat|fix|perf|style|refactor|test|ci|chore|revert)(?:\(.*?\))?!?:\s*(.*)$/gim
+            const conventionalCommits = [...actualChangelogText.matchAll(conventionalCommitRegex)]
+
+            if (conventionalCommits.length > 0) {
+              for (const [, type, message] of conventionalCommits) {
+                changelogEntries.push({
+                  number: pr.number,
+                  title: pr.title,
+                  url: pr.html_url,
+                  versionChanges: `${type.toLowerCase()}: ${message.trim()}`,
+                  author: pr.user.login,
+                })
+              }
+            } else {
+              console.log('NO CHANGELOG FOUND FOR PR', pr.number)
+              continue
             }
-          } else {
-            console.log('NO CHANGELOG FOUND FOR PR', pr.number)
-            continue
           }
         }
       }
     }
-  }
-  if (changelogEntries.length === 0) {
-    setOutput('changelog', 'No changes.')
-  } else {
-    let changelog = ''
-    for (const entry of changelogEntries) {
-      changelog += `- PR [#${entry.number}](${entry.url}) by @${entry.author}:\n  ${entry.versionChanges}\n\n`
+    if (changelogEntries.length === 0) {
+      setOutput('changelog', 'No changes.')
+    } else {
+      let changelog = ''
+      for (const entry of changelogEntries) {
+        changelog += `- PR [#${entry.number}](${entry.url}) by @${entry.author}:\n  ${entry.versionChanges}\n\n`
+      }
+      setOutput('changelog', changelog)
     }
-    setOutput('changelog', changelog)
-  }
     return changelogEntries
   } catch (error) {
     console.error('Error generating changelog', error)
@@ -149,3 +149,8 @@ async function generateChangelog() {
 
 const changelogEntries = await generateChangelog()
 console.log('Changelog generated', changelogEntries)
+if (changelogEntries.length === 0) {
+  console.error(
+    'No changes detected for version changes. PRs must contain a changelog entry in the format of a conventional commit message.'
+  )
+}
