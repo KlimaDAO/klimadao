@@ -17,11 +17,11 @@ jobs:
       matrix:
         value:
           [
+            'user-carbon',
             'carbonmark',
             'bonds',
             'protocol-metrics',
             'vesting',
-            'user-carbon',
             'pairs',
             'celo-bridged-carbon',
             'ethereum-bridged-carbon',
@@ -247,7 +247,7 @@ jobs:
           NEW_PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}
         run: |
           echo "Generating changelog for ${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}"
-          node .github/actions-scripts/fetch-PRs.mjs
+          node .github/actions-scripts/generateChangelog.mjs
       - name: Create GitHub Release
         if: steps.compare_versions.outputs.should_deploy == 'true'
         uses: actions/create-release@v1
