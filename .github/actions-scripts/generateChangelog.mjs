@@ -8,12 +8,8 @@ const octokit = new Octokit({
 })
 
 const lastTag = process.env.LAST_TAG
-
 const subgraphDir = process.env.SUBGRAPH_NAME
 const newTag = `${subgraphDir}-v${process.env.NEW_PUBLISHED_VERSION}`
-
-const owner = 'klimadao'
-const repo = 'klima-subgraph'
 
 // const octokit = new Octokit({
 //   auth: process.env.SEVEN_DAY_TOKEN_FOR_TUFNEL,
@@ -24,7 +20,15 @@ const repo = 'klima-subgraph'
 // const newTag = 'carbonmark-v1.6.1'
 // const subgraphDir = 'carbonmark'
 
-console.log(`Generating changelog from ${subgraphDir}-v${lastTag} to ${subgraphDir}-${newTag}`)
+// // @todo remove after testing
+// const lastTag = '0.0.0'
+// const newTag = 'user-carbon-v0.0.1'
+// const subgraphDir = 'user-carbon'
+
+const owner = 'klimadao'
+const repo = 'klima-subgraph'
+
+console.log(`Generating changelog from ${lastTag} to ${subgraphDir}-${newTag}`)
 
 // Fetch commits between the two tags
 
@@ -126,8 +130,8 @@ async function generateChangelog() {
       core.setOutput('changelog', changelog)
     }
   }
+  return changelogEntries
 }
 
-generateChangelog().then(() => {
-  console.log('Changelog generated')
-})
+const changelogEntries = await generateChangelog()
+console.log('Changelog generated', changelogEntries)
