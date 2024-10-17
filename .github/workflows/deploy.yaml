@@ -256,6 +256,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}
-          release_name: ${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}
+          release_name: ${{ matrix.value }}-v${{ steps.compare_versions.outputs.new_published_version }}
           body: ${{ steps.generate_changelog.outputs.changelog }}
           draft: true

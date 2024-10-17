@@ -1,4 +1,6 @@
 import { Octokit } from 'octokit'
+import fs from 'fs'
+import os from 'os'
 
 console.log('asd node version', process.version)
 console.log('asd directory', process.cwd())
@@ -30,12 +32,21 @@ const repo = 'klima-subgraph'
 
 console.log(`Generating changelog from ${lastTag} to ${subgraphDir}-${newTag}`)
 
-// Fetch commits between the two tags
+function setOutput(name, value) {
+  const outputPath = process.env.GITHUB_OUTPUT
+  if (!outputPath) {
+    console.error('GITHUB_OUTPUT is not defined')
+    return
+  }
+  const commandValue = `${name}<<EOF${os.EOL}${value}${os.EOL}EOF${os.EOL}`
+  fs.appendFileSync(outputPath, commandValue, { encoding: 'utf8' })
+}
 
 async function generateChangelog() {
   let prNumbers = new Set()
   let changelogEntries = []
 
+  try{
   if (lastTag === '0.0.0') {
     changelogEntries.push({
       number: 0,
@@ -119,18 +130,21 @@ async function generateChangelog() {
         }
       }
     }
-
-    if (changelogEntries.length === 0) {
-      core.setOutput('changelog', 'No changes.')
-    } else {
-      let changelog = ''
-      for (const entry of changelogEntries) {
-        changelog += `- PR [#${entry.number}](${entry.url}) by @${entry.author}:\n${entry.versionChanges}\n\n`
-      }
-      core.setOutput('changelog', changelog)
-    }
   }
-  return changelogEntries
+  if (changelogEntries.length === 0) {
+    setOutput('changelog', 'No changes.')
+  } else {
+    let changelog = ''
+    for (const entry of changelogEntries) {
+      changelog += `- PR [#${entry.number}](${entry.url}) by @${entry.author}:\n  ${entry.versionChanges}\n\n`
+    }
+    setOutput('changelog', changelog)
+  }
+    return changelogEntries
+  } catch (error) {
+    console.error('Error generating changelog', error)
+    setOutput('changelog', 'Error generating changelog')
+  }
 }
 
 const changelogEntries = await generateChangelog()
