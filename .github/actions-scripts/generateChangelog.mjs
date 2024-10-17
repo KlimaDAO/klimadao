@@ -24,7 +24,7 @@ const repo = 'klima-subgraph'
 // const newTag = 'carbonmark-v1.6.1'
 // const subgraphDir = 'carbonmark'
 
-console.log(`Generating changelog from ${lastTag} to ${newTag} for subgraph: ${subgraphDir}`)
+console.log(`Generating changelog from ${subgraphDir}-v${lastTag} to ${subgraphDir}-${newTag}`)
 
 // Fetch commits between the two tags
 
@@ -32,7 +32,7 @@ async function generateChangelog() {
   let prNumbers = new Set()
   let changelogEntries = []
 
-  if (!lastTag) {
+  if (lastTag === '0.0.0') {
     changelogEntries.push({
       number: 0,
       title: `Initial release of versioned ${subgraphDir} subgraph`,
