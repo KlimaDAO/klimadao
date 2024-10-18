@@ -10,6 +10,8 @@ jobs:
   compile:
     runs-on: ubuntu-latest
     name: Deploy
+    env:
+      IS_MAIN: ${{ github.ref == 'refs/heads/main' }}
     strategy:
       max-parallel: 1
       matrix:
@@ -41,6 +43,7 @@ jobs:
       - name: Install octokit at root
         run: yarn add octokit
       - name: Get last release tag
+        if: ${{ env.IS_MAIN }}
         id: get_last_tag
         run: |
           LAST_TAG=$(git tag --list "${{ matrix.value }}-v*" | sort -V | tail -n 1)
@@ -52,6 +55,7 @@ jobs:
         working-directory: '${{ matrix.value }}'
       - name: Get schema version from package.json
         id: get_schema_version
+        if: ${{ env.IS_MAIN }}
         run: |
           SCHEMA_VERSION=$(cat package.json | grep '"version":' | cut -d'"' -f4)
           echo "schema_version=$SCHEMA_VERSION" >> $GITHUB_OUTPUT
@@ -59,6 +63,7 @@ jobs:
         working-directory: '${{ matrix.value }}'
       - name: Compare schema versions and determine new version
         id: compare_versions
+        if: ${{ env.IS_MAIN }}
         run: |
           LAST_PUBLISHED_VERSION=${{ steps.get_last_tag.outputs.last_tag }}
           SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
@@ -105,14 +110,14 @@ jobs:
           echo "NEW_PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}"
         working-directory: '${{ matrix.value }}'
       - name: Set version in version.json
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
         run: |
           NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
           SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
           echo "{\"schemaVersion\": \"$SCHEMA_VERSION\", \"publishedVersion\": \"$NEW_PUBLISHED_VERSION\"}" > version.json
         working-directory: '${{ matrix.value }}'
       - name: Set Version in version.ts for version entity
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
         run: npm run set-version
         working-directory: '${{ matrix.value }}'
       - name: Prepare Manifest if polygon-digital-carbon or carbonmark
@@ -153,7 +158,7 @@ jobs:
           fi
         working-directory: '${{ matrix.value }}'
       - name: Tag the commit with the new version
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
         run: |
           NEW_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
           echo "NEW_VERSION: $NEW_VERSION"
@@ -224,7 +229,7 @@ jobs:
       #   working-directory: '${{ matrix.value }}'
       - name: Create issue for deployment tracking
         uses: JasonEtco/create-an-issue@v2
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}
@@ -236,7 +241,7 @@ jobs:
       - name: Check Node.js version (debugging)
         run: node -v
       - name: Generate Changelog
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
         id: generate_changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -247,7 +252,7 @@ jobs:
           echo "Generating changelog for ${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}"
           node .github/actions-scripts/generateChangelog.mjs
       - name: Create GitHub Release
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
         uses: actions/create-release@v1
         id: create_release
         env:
