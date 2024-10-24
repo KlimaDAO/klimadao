@@ -1,6 +1,8 @@
+# triggers on all pushes and pull requests. This version check will fail if the commit hash for a subgraph directory has changed but the package.json version has been updated.
+
 name: Check Version Update
 
-on: 
+on:
   push:
     branches:
       - '**'
@@ -30,7 +32,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch full history
+          fetch-depth: 0 # Fetch full history
 
       - name: Determine if it's a PR or a push
         id: event_type
@@ -99,4 +101,3 @@ jobs:
           else
             echo "No real errors found. All subgraphs are up to date."
           fi
-

@@ -25,9 +25,10 @@ These entries will be scraped and included in the release tags.
 Major changes should be marked with `!` and have a footer the `BREAKING CHANGE:` keyword.
 
 docs: https://www.conventionalcommits.org/en/v1.0.0/#summary
+
+ex: - refactor(carbonProjects)!: removed very important field from entity
 -->
 
-- 
 
 ## ✅ Checklist
 
