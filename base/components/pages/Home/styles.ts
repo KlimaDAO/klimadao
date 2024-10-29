@@ -13,6 +13,7 @@ export const container = css`
   grid-template-rows: 1fr;
   max-width: 120rem;
   margin: 0 auto;
+  background: 
 
   .MuiSvgIcon-root {
     font-size: 2.4rem;

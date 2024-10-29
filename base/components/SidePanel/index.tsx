@@ -12,14 +12,11 @@ import {
   styled,
 } from "@mui/material";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import {
   BaseLogoContainer,
   LogoBox,
   LogoContainer,
   NavigationContainer,
-  WalletContainer,
-  WalletTypography,
 } from "./styles";
 
 // New styled components for the enhanced list items
@@ -27,12 +24,10 @@ const StyledListItem = styled(Box)<{ active: number }>(({ theme, active }) => ({
   width: "100%",
   display: "flex",
   alignItems: "center",
-
   borderRadius: "8px",
   cursor: "pointer",
   transition: "all 0.3s ease",
   padding: theme.spacing(1, 2),
-
   backgroundColor: active ? theme.palette.primary.main : "transparent",
   "&:hover": {
     backgroundColor: active
@@ -113,9 +108,15 @@ const CustomListItem = ({
   );
 };
 
+interface SidebarProps {
+  mobileOpen: boolean;
+  handleDrawerToggle: () => void;
+}
+
+const DRAWER_WIDTH = 280;
+
 export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
   const router = useRouter();
-  const [walletAddress] = useState("0xa98...d2c");
 
   const drawer = (
     <>
@@ -129,18 +130,9 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
         </BaseLogoContainer>
       </LogoContainer>
 
-      <WalletContainer>
+      <Box px={4}>
         <Divider />
-        <Box py={2}>
-          <WalletTypography color="text.primary" mb={1}>
-            Your Wallet Address:
-          </WalletTypography>
-          <WalletTypography color="text.secondary">
-            {walletAddress}
-          </WalletTypography>
-        </Box>
-        <Divider />
-      </WalletContainer>
+      </Box>
 
       <NavigationContainer>
         <List>
@@ -164,7 +156,14 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
   );
 
   return (
-    <Box component="nav">
+    <Box
+      component="nav"
+      sx={{
+        width: { sm: DRAWER_WIDTH },
+        flexShrink: { sm: 0 },
+      }}
+    >
+      {/* Mobile drawer */}
       <Drawer
         variant="temporary"
         open={mobileOpen}
@@ -173,20 +172,24 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
         sx={{
           display: { xs: "block", sm: "none" },
           "& .MuiDrawer-paper": {
-            width: 280,
+            width: DRAWER_WIDTH,
             backgroundColor: (theme: Theme) => theme.palette.background.default,
+            boxSizing: "border-box",
           },
         }}
       >
         {drawer}
       </Drawer>
+
+      {/* Desktop drawer */}
       <Drawer
         variant="permanent"
         sx={{
           display: { xs: "none", sm: "block" },
           "& .MuiDrawer-paper": {
-            width: 280,
+            width: DRAWER_WIDTH,
             backgroundColor: (theme: Theme) => theme.palette.background.default,
+            boxSizing: "border-box",
           },
         }}
         open

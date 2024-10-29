@@ -42,7 +42,7 @@ export const WalletTypography = styled(Typography)(
 );
 
 export const NavigationContainer = styled(Box)({
-  padding: "24px 32px",
+  padding: "12px 32px",
   width: "100%",
 });
 

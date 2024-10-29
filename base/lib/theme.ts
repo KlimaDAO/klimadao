@@ -8,7 +8,7 @@ export const AppTheme = createTheme({
     },
     background: {
       default: "#202020", // surface-02
-      paper: "#303030", // surface-03
+      paper: "#2A2A2A", // surface-03
     },
     text: {
       primary: "#FFFFFF", // font-01 darkmode
@@ -16,7 +16,7 @@ export const AppTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Poppins",
   },
   components: {
     MuiDrawer: {
