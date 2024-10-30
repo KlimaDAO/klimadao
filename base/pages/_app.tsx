@@ -1,4 +1,4 @@
-import { StyledEngineProvider } from "@mui/material/styles";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import {
   RainbowKitProvider,
   connectorsForWallets,
@@ -14,6 +14,7 @@ import "../styles/normalize.css";
 // organize-imports-ignore
 import "../styles/variables.css";
 // organize-imports-ignore
+import { AppTheme } from "lib/theme";
 import "../styles/globals.css";
 
 const { chains, publicClient } = configureChains(
@@ -37,12 +38,14 @@ const config = createConfig({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig config={config}>
-      <RainbowKitProvider chains={chains}>
-        <StyledEngineProvider injectFirst>
-          <Component {...pageProps} />
-        </StyledEngineProvider>
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <ThemeProvider theme={AppTheme}>
+      <WagmiConfig config={config}>
+        <RainbowKitProvider chains={chains}>
+          <StyledEngineProvider injectFirst>
+            <Component {...pageProps} />
+          </StyledEngineProvider>
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </ThemeProvider>
   );
 }
