@@ -1,7 +1,4 @@
-import {
-  AutoGraph as AutoGraphIcon,
-  Forest as ForestIcon,
-} from "@mui/icons-material";
+import { Autorenew, Forest as ForestIcon } from "@mui/icons-material";
 import {
   Box,
   Divider,
@@ -82,7 +79,7 @@ const menuItems = [
   },
   {
     text: "Auto Compounder",
-    icon: <AutoGraphIcon />,
+    icon: <Autorenew />,
     path: "/auto-compounder",
   },
 ];

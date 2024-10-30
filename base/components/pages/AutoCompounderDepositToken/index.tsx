@@ -1,22 +1,30 @@
-import { Box, ThemeProvider } from "@mui/material";
+import { Box, Container, ThemeProvider } from "@mui/material";
 import { AppTheme } from "lib/theme";
 import { NextPage } from "next";
 
 import { Layout } from "components/AppLayout";
+import { AutoCompounderForm } from "components/AutoCompounderForm";
 import TabsHeader from "components/TabsHeader";
-import { useRouter } from "next/router";
 
 const AutoCompounderDepositToken: NextPage = () => {
-  const router = useRouter();
-  const { token } = router.query;
-
   return (
     <div>
       <ThemeProvider theme={AppTheme}>
         <Layout>
           <Box>
             <TabsHeader />
-            <h1>Deposit {token}</h1>
+            <Container
+              maxWidth="sm"
+              sx={{
+                py: "32px",
+                px: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <AutoCompounderForm />
+            </Container>
           </Box>
         </Layout>
       </ThemeProvider>
