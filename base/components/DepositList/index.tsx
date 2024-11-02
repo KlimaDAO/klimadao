@@ -1,13 +1,27 @@
+import AddIcon from "@mui/icons-material/Add";
 import {
   Box,
   Button,
-  Grid,
+  Paper,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
 import { useRouter } from "next/router";
+import {
+  DataPairContainer,
+  DepositButton,
+  MobileItemWrapper,
+  TopRowContainer,
+} from "./styles";
 
 export interface TokenPair {
   token1: "BCT" | "WETH" | "USDC" | "AERO" | "KLIMA";
@@ -35,170 +49,158 @@ const MOCK_DATA: TokenPair[] = [
   // Add other pairs as needed
 ];
 
-export const DepositList = () => {
+interface MobileDepositItemProps {
+  pair: TokenPair;
+  onDeposit: (token1: string, token2: string) => void;
+}
+
+export const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
+  pair,
+  onDeposit,
+}) => (
+  <MobileItemWrapper>
+    <TopRowContainer>
+      <TokenPairLogo token1={pair.token1} token2={pair.token2} />
+      <Stack>
+        <Typography variant="body1" fontWeight={700}>
+          {`${pair.token1}/${pair.token2}`}
+        </Typography>
+      </Stack>
+    </TopRowContainer>
+
+    <Box display="flex" width="324px">
+      <DataPairContainer>
+        <Typography variant="body1">{pair.apy}%</Typography>
+        <Typography variant="caption" fontWeight={600}>
+          APY
+        </Typography>
+      </DataPairContainer>
+      <DataPairContainer>
+        <Typography align="right">{pair.daily}%</Typography>
+        <Typography variant="caption" fontWeight={600} align="right">
+          DAILY
+        </Typography>
+      </DataPairContainer>
+    </Box>
+
+    <Box display="flex" width="324px">
+      <DataPairContainer>
+        <Typography variant="body1">${pair.tvl.toLocaleString()}</Typography>
+        <Typography variant="caption" fontWeight={600}>
+          TVL
+        </Typography>
+      </DataPairContainer>
+    </Box>
+
+    <DepositButton onClick={() => onDeposit(pair.token1, pair.token2)}>
+      <Typography color="primary">Deposit</Typography>
+      <AddIcon color="primary" sx={{ width: 20, height: 20 }} />
+    </DepositButton>
+  </MobileItemWrapper>
+);
+
+export const DepositList: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   const router = useRouter();
 
   const handleDeposit = (token1: string, token2: string) => {
-    // Convert tokens to lowercase for URL
-    const formattedPath = `/auto-compounder/deposit/${token1.toLowerCase()}-${token2.toLowerCase()}`;
-    router.push(formattedPath);
+    router.push(
+      `/auto-compounder/deposit/${token1.toLowerCase()}-${token2.toLowerCase()}`
+    );
   };
 
+  if (isMobile) {
+    return (
+      <Box p={2}>
+        {MOCK_DATA.map((pair, index) => (
+          <MobileDepositItem
+            key={`${pair.token1}-${pair.token2}-${index}`}
+            pair={pair}
+            onDeposit={handleDeposit}
+          />
+        ))}
+      </Box>
+    );
+  }
+
   return (
-    <Box
-      sx={{
-        p: { xs: 2, md: 3 },
-        backgroundColor: theme.palette.background.default,
-        borderRadius: 2,
-      }}
-    >
-      {/* Header - Hidden on mobile */}
-      {!isMobile && (
-        <Grid
-          container
-          py={1}
-          px={2}
-          sx={{
-            backgroundColor: theme.palette.background.paper,
-            display: { xs: "none", sm: "flex" },
-          }}
-        >
-          <Grid item sm={4}>
-            <Typography variant="body2" color="text.secondary">
-              POOL
-            </Typography>
-          </Grid>
-          <Grid item sm={2}>
-            <Typography variant="body2" color="text.secondary">
-              APY
-            </Typography>
-          </Grid>
-          <Grid item sm={2}>
-            <Typography variant="body2" color="text.secondary">
-              DAILY
-            </Typography>
-          </Grid>
-          <Grid item sm={2}>
-            <Typography variant="body2" color="text.secondary">
-              TVL
-            </Typography>
-          </Grid>
-          <Grid item sm={2} />
-        </Grid>
-      )}
-
-      {/* List Items */}
-      {MOCK_DATA.map((pair, index) => (
-        <Box
-          key={`${pair.token1}-${pair.token2}`}
-          sx={{
-            py: 1,
-            px: 2,
-            borderTop: index === 0 ? 1 : 0,
-            borderBottom: 1,
-            borderColor: "#9C9C9C",
-          }}
-        >
-          {/* Desktop View */}
-          <Grid
-            container
-            spacing={2}
-            alignItems="center"
-            sx={{ display: { xs: "none", sm: "flex" } }}
-          >
-            <Grid item sm={4} sx={{ display: "flex", alignItems: "center" }}>
-              <TokenPairLogo token1={pair.token1} token2={pair.token2} />
-              <Typography variant="body1" sx={{ ml: 2 }}>
-                {pair.token1}/{pair.token2}
+    <TableContainer component={Paper}>
+      <Table size="small" sx={{ bgcolor: theme.palette.background.default }}>
+        <TableHead sx={{ bgcolor: theme.palette.background.paper }}>
+          <TableRow>
+            <TableCell>
+              <Typography variant="body2" fontWeight={600}>
+                POOL
               </Typography>
-            </Grid>
-            <Grid item sm={2}>
-              <Typography variant="body1">{pair.apy}%</Typography>
-            </Grid>
-            <Grid item sm={2}>
-              <Typography variant="body1">{pair.daily}%</Typography>
-            </Grid>
-            <Grid item sm={2}>
-              <Typography variant="body1">
-                ${pair.tvl.toLocaleString()}
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="body2" fontWeight={600}>
+                APY
               </Typography>
-            </Grid>
-            <Grid item sm={2}>
-              <Button
-                // variant="outlined"
-                color="primary"
-                fullWidth
-                sx={{
-                  borderRadius: 1,
-                  textTransform: "none",
-                  color: "primary.main",
-                  borderColor: "primary.main",
-                  "&:hover": {
-                    borderColor: "primary.main",
-                    backgroundColor: "rgba(0, 204, 51, 0.1)",
-                  },
-                }}
-                onClick={() => handleDeposit(pair.token1, pair.token2)}
-              >
-                Deposit +
-              </Button>
-            </Grid>
-          </Grid>
-
-          {/* Mobile View */}
-          <Box sx={{ display: { xs: "block", sm: "none" } }}>
-            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <TokenPairLogo token1={pair.token1} token2={pair.token2} />
-              <Typography variant="body1" sx={{ ml: 2 }}>
-                {pair.token1}/{pair.token2}
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="body2" fontWeight={600}>
+                DAILY
               </Typography>
-            </Box>
-
-            <Grid container spacing={1} sx={{ mb: 2 }}>
-              <Grid item xs={4}>
-                <Typography variant="body2" color="text.secondary">
-                  APY
-                </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="body2" fontWeight={600}>
+                TVL
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="body2" fontWeight={600}>
+                ACTION
+              </Typography>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {MOCK_DATA.map((pair, index) => (
+            <TableRow key={`${pair.token1}-${pair.token2}-${index}`}>
+              <TableCell>
+                <Box display="flex" alignItems="center" gap={1}>
+                  <TokenPairLogo token1={pair.token1} token2={pair.token2} />
+                  <Typography
+                    variant="body1"
+                    color={theme.palette.text.secondary}
+                  >
+                    {`${pair.token1}/${pair.token2}`}
+                  </Typography>
+                </Box>
+              </TableCell>
+              <TableCell align="right">
                 <Typography variant="body1">{pair.apy}%</Typography>
-              </Grid>
-              <Grid item xs={4}>
-                <Typography variant="body2" color="text.secondary">
-                  DAILY
-                </Typography>
+              </TableCell>
+              <TableCell align="right">
                 <Typography variant="body1">{pair.daily}%</Typography>
-              </Grid>
-              <Grid item xs={4}>
-                <Typography variant="body2" color="text.secondary">
-                  TVL
-                </Typography>
+              </TableCell>
+              <TableCell align="right">
                 <Typography variant="body1">
                   ${pair.tvl.toLocaleString()}
                 </Typography>
-              </Grid>
-            </Grid>
-
-            <Button
-              color="primary"
-              fullWidth
-              sx={{
-                borderRadius: 1,
-                textTransform: "none",
-                color: "primary.main",
-                borderColor: "primary.main",
-                "&:hover": {
-                  borderColor: "primary.main",
-                  backgroundColor: "rgba(0, 204, 51, 0.1)",
-                },
-              }}
-            >
-              Deposit +
-            </Button>
-          </Box>
-        </Box>
-      ))}
-    </Box>
+              </TableCell>
+              <TableCell>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="flex-end"
+                >
+                  <Button
+                    onClick={() => handleDeposit(pair.token1, pair.token2)}
+                  >
+                    <Stack direction={"row"} gap={1} alignItems={"center"}>
+                      <Typography color="primary">Deposit</Typography>
+                      <AddIcon />
+                    </Stack>
+                  </Button>
+                </Stack>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };

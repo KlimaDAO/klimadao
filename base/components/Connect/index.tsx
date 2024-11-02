@@ -37,7 +37,7 @@ export const Connect: FC<{
             if (!connected) {
               return (
                 <ButtonPrimary
-                  label="Login / Connect"
+                  label="Connect"
                   onClick={openConnectModal}
                   className={buttonClassName}
                 />

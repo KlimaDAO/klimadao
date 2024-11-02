@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Stack,
-  Tab,
-  Tabs,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { Box, Stack, Tab, Tabs, useMediaQuery, useTheme } from "@mui/material";
 import { Connect } from "components/Connect";
 import { useRouter } from "next/router";
 
@@ -78,33 +69,7 @@ const TabsHeader = () => {
       {/* Mobile Wallet Button */}
       {isMobile && (
         <Box sx={{ px: 3, py: 2 }}>
-          <ConnectButton.Custom>
-            {({ account, chain, openConnectModal, mounted }) => {
-              const ready = mounted;
-              const connected = ready && account && chain;
-
-              return (
-                <Button
-                  fullWidth
-                  onClick={!connected ? openConnectModal : undefined}
-                  variant="contained"
-                  sx={{
-                    bgcolor: "rgba(0, 204, 51, 0.1)",
-                    color: "primary.main",
-                    "&:hover": {
-                      bgcolor: "rgba(0, 204, 51, 0.2)",
-                    },
-                    textTransform: "none",
-                    borderRadius: "8px",
-                    px: 2,
-                    py: 1,
-                  }}
-                >
-                  {!connected ? "Connect Wallet" : account.displayName}
-                </Button>
-              );
-            }}
-          </ConnectButton.Custom>
+          <Connect />
         </Box>
       )}
     </Box>

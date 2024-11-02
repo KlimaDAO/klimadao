@@ -1,7 +1,7 @@
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import {
   Box,
-  IconButton,
+  Button,
   Paper,
   Stack,
   Table,
@@ -149,18 +149,39 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ bgcolor: theme.palette.background.default }}>
+      <Table size="small" sx={{ bgcolor: theme.palette.background.default }}>
         <TableHead
           sx={{
             bgcolor: theme.palette.background.paper,
           }}
         >
           <TableRow>
-            <TableCell>POOL</TableCell>
-            <TableCell align="right">BALANCE</TableCell>
-            <TableCell align="right">YIELD ACCRUED</TableCell>
-            <TableCell align="right">TVL</TableCell>
-            <TableCell align="right">ACTION</TableCell>
+            <TableCell>
+              <Typography variant="body2" fontWeight={600}>
+                POOL
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="body2" fontWeight={600}>
+                BALANCE
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="body2" fontWeight={600}>
+                {" "}
+                YIELD ACCRUED
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="body2" fontWeight={600}>
+                TVL
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="body2" fontWeight={600}>
+                ACTION
+              </Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -173,10 +194,10 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
                     token2={position.token1}
                   />
                   <Stack>
-                    <Typography variant="body1">
+                    <Typography>
                       {`${position.token0}/${position.token1}`}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography color="text.secondary">
                       {formatUSD(position.poolValue)}
                     </Typography>
                   </Stack>
@@ -184,37 +205,35 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
               </TableCell>
               <TableCell align="right">
                 <Typography>{formatUSD(position.balance.usd)}</Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography color="text.secondary">
                   {`${position.balance.lpTokens} LP Tokens`}
                 </Typography>
               </TableCell>
               <TableCell align="right">
                 <Typography>{formatUSD(position.yield.usd)}</Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography color="text.secondary">
                   {`${position.yield.lpTokens} LP Tokens`}
                 </Typography>
               </TableCell>
               <TableCell align="right">
                 <Typography>{formatUSD(position.tvl.usd)}</Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography color="text.secondary">
                   {`${position.tvl.vaultTokens} Vault Tokens`}
                 </Typography>
               </TableCell>
               <TableCell align="right">
-                <Box
-                  display="flex"
+                <Stack
+                  direction="row"
                   alignItems="center"
                   justifyContent="flex-end"
-                  gap={1}
                 >
-                  <Typography color="primary">Withdraw</Typography>
-                  <IconButton
-                    color="primary"
-                    onClick={() => onWithdraw(position)}
-                  >
-                    <SwapHorizIcon />
-                  </IconButton>
-                </Box>
+                  <Button onClick={() => onWithdraw(position)}>
+                    <Stack direction={"row"} gap={1} alignItems={"center"}>
+                      <Typography color="primary">Withdraw</Typography>
+                      <SwapHorizIcon />
+                    </Stack>
+                  </Button>
+                </Stack>
               </TableCell>
             </TableRow>
           ))}

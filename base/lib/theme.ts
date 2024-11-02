@@ -17,6 +17,13 @@ export const AppTheme = createTheme({
   },
   typography: {
     fontFamily: "Poppins",
+    htmlFontSize: 14,
+    body1: {
+      fontSize: "1.4rem",
+    },
+    body2: {
+      fontSize: "1.2rem",
+    },
   },
   components: {
     MuiDrawer: {
