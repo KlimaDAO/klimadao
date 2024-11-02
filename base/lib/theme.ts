@@ -16,7 +16,7 @@ export const AppTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Poppins",
+    fontFamily: "Inter",
     htmlFontSize: 14,
     body1: {
       fontSize: "1.4rem",

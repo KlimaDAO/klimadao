@@ -14,7 +14,7 @@ const positions = [
     tvl: { usd: 105176.0, vaultTokens: 4 },
   },
   {
-    token0: "WETH",
+    token0: "USDC",
     token1: "KLIMA",
     poolValue: 12500236.7,
     balance: { usd: 500.0, lpTokens: 1.2 },
@@ -22,8 +22,8 @@ const positions = [
     tvl: { usd: 105176.0, vaultTokens: 4 },
   },
   {
-    token0: "WETH",
-    token1: "KLIMA",
+    token0: "BCT",
+    token1: "USDC",
     poolValue: 12500236.7,
     balance: { usd: 500.0, lpTokens: 1.2 },
     yield: { usd: 147.85, lpTokens: 0.56 },

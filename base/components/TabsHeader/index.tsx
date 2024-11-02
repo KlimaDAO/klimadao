@@ -50,6 +50,7 @@ const TabsHeader = () => {
               fontSize: "16px",
               fontWeight: 600,
               textTransform: "uppercase",
+              fontFamily: "Poppins",
               px: 1,
               mr: 2,
               "&.Mui-selected": {

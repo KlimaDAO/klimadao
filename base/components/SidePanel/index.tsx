@@ -1,60 +1,18 @@
 import { Autorenew, Forest as ForestIcon } from "@mui/icons-material";
-import {
-  Box,
-  Divider,
-  Drawer,
-  List,
-  ListItem,
-  Theme,
-  styled,
-} from "@mui/material";
+import { Box, Divider, Drawer, List, ListItem, Theme } from "@mui/material";
+import { Connect } from "components/Connect";
 import { useRouter } from "next/router";
 import {
   BaseLogoContainer,
+  ListItemText,
   LogoBox,
   LogoContainer,
+  LogoWrapper,
   NavigationContainer,
+  StyledListItem,
 } from "./styles";
 
 // New styled components for the enhanced list items
-const StyledListItem = styled(Box)<{ active: number }>(({ theme, active }) => ({
-  width: "100%",
-  display: "flex",
-  alignItems: "center",
-  borderRadius: "8px",
-  cursor: "pointer",
-  transition: "all 0.3s ease",
-  padding: theme.spacing(1, 2),
-  backgroundColor: active ? theme.palette.primary.main : "transparent",
-  "&:hover": {
-    backgroundColor: active
-      ? theme.palette.success.dark
-      : theme.palette.action.hover,
-  },
-}));
-
-const LogoWrapper = styled(Box)<{ active: number }>(({ theme, active }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: 40,
-  height: 40,
-  borderRadius: "8px",
-  backgroundColor: active
-    ? theme.palette.common.white
-    : theme.palette.grey[800],
-  marginRight: theme.spacing(2),
-  "& svg": {
-    color: active ? theme.palette.primary.main : theme.palette.grey[400],
-  },
-  transition: "all 0.3s ease",
-}));
-
-const ListItemText = styled(Box)<{ active: number }>(({ theme, active }) => ({
-  color: active ? theme.palette.text.primary : theme.palette.text.secondary,
-  fontWeight: active ? 600 : 400,
-  fontSize: "14px",
-}));
 
 interface SidebarProps {
   mobileOpen: boolean;
@@ -148,6 +106,8 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
             </ListItem>
           ))}
         </List>
+
+        {mobileOpen ? <Connect /> : null}
       </NavigationContainer>
     </>
   );

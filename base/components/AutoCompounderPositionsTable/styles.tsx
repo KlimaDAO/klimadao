@@ -1,31 +1,24 @@
 import { Box, styled } from "@mui/material";
 
-export const MobilePositionWrapper = styled(Box)(({ theme }) => ({
+export const MobileItemWrapper = styled(Box)(({ theme }) => ({
+  gap: "12px 0px",
   display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "center",
-  padding: "12px 0",
+  flexDirection: "column",
   borderBottom: `1px solid ${theme.palette.divider}`,
   width: "100%",
+  paddingBottom: "12px",
 }));
 
-export const TopRowContainer = styled(Box)({
+export const RowContainer = styled(Box)({
   display: "flex",
-  alignItems: "center",
-  gap: "12px",
-  width: "324px",
-  marginBottom: "12px",
+  justifyContent: "space-between",
+  alignItems: "flex-end",
 });
 
-export const DataPairContainer = styled(Box)<{ hasBorder?: boolean }>(
-  ({ theme, hasBorder }) => ({
-    width: "162px",
-    display: "flex",
-    flexDirection: "column",
-    padding: "8px 12px",
-    borderRight: hasBorder ? `1px solid ${theme.palette.divider}` : "none",
-  })
-);
+export const DataPairContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+});
 
 export const WithdrawButton = styled(Box)(({ theme }) => ({
   width: "324px",
@@ -37,5 +30,4 @@ export const WithdrawButton = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.primary.main}`,
   borderRadius: "4px",
   cursor: "pointer",
-  marginTop: "12px",
 }));

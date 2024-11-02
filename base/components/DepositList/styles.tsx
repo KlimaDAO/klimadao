@@ -1,28 +1,23 @@
 import { Box, styled } from "@mui/material";
 
 export const MobileItemWrapper = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexWrap: "wrap",
   gap: "12px 0px",
-  justifyContent: "center",
-  padding: "12px 0",
+  display: "flex",
+  flexDirection: "column",
   borderBottom: `1px solid ${theme.palette.divider}`,
   width: "100%",
+  paddingBottom: "12px",
 }));
 
-export const TopRowContainer = styled(Box)({
+export const RowContainer = styled(Box)({
   display: "flex",
-  alignItems: "center",
-  gap: "12px",
-  width: "324px",
-  marginBottom: "12px",
+  justifyContent: "space-between",
+  alignItems: "",
 });
 
 export const DataPairContainer = styled(Box)({
-  width: "162px",
   display: "flex",
   flexDirection: "column",
-  padding: "8px 12px",
 });
 
 export const DepositButton = styled(Box)(({ theme }) => ({
@@ -35,5 +30,4 @@ export const DepositButton = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.primary.main}`,
   borderRadius: "4px",
   cursor: "pointer",
-  marginTop: "12px",
 }));

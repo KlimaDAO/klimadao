@@ -60,8 +60,8 @@ export const Layout = ({ children }: LayoutProps) => {
           flexDirection: "column",
           position: "relative",
           pt: { xs: 8, sm: 5 }, // Adjusted padding top for mobile header
-          px: { xs: 3, sm: 6 },
-          pb: 3,
+          px: { xs: 2, sm: 6 },
+          pb: 8,
           background: theme.palette.background.paper,
         }}
       >

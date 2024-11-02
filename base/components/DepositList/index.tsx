@@ -20,7 +20,7 @@ import {
   DataPairContainer,
   DepositButton,
   MobileItemWrapper,
-  TopRowContainer,
+  RowContainer,
 } from "./styles";
 
 export interface TokenPair {
@@ -46,6 +46,20 @@ const MOCK_DATA: TokenPair[] = [
     daily: 0.0571,
     tvl: 105176,
   },
+  {
+    token1: "BCT",
+    token2: "USDC",
+    apy: 23.17,
+    daily: 0.0571,
+    tvl: 105176,
+  },
+  {
+    token1: "BCT",
+    token2: "USDC",
+    apy: 23.17,
+    daily: 0.0571,
+    tvl: 105176,
+  },
   // Add other pairs as needed
 ];
 
@@ -54,48 +68,62 @@ interface MobileDepositItemProps {
   onDeposit: (token1: string, token2: string) => void;
 }
 
-export const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
+const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
   pair,
   onDeposit,
 }) => (
   <MobileItemWrapper>
-    <TopRowContainer>
-      <TokenPairLogo token1={pair.token1} token2={pair.token2} />
-      <Stack>
-        <Typography variant="body1" fontWeight={700}>
-          {`${pair.token1}/${pair.token2}`}
-        </Typography>
-      </Stack>
-    </TopRowContainer>
+    <RowContainer>
+      <Box display={"flex"} alignItems={"center"} gap={0.5} py={0.5}>
+        <TokenPairLogo token1={pair.token1} token2={pair.token2} />
+        <Stack>
+          <Typography variant="body1" fontWeight={600}>
+            {`${pair.token1}/${pair.token2}`}
+          </Typography>
+        </Stack>
+      </Box>
 
-    <Box display="flex" width="324px">
       <DataPairContainer>
         <Typography variant="body1">{pair.apy}%</Typography>
-        <Typography variant="caption" fontWeight={600}>
+        <Typography
+          variant="caption"
+          fontWeight={600}
+          align="right"
+          color={"text.secondary"}
+        >
           APY
         </Typography>
       </DataPairContainer>
-      <DataPairContainer>
-        <Typography align="right">{pair.daily}%</Typography>
-        <Typography variant="caption" fontWeight={600} align="right">
-          DAILY
-        </Typography>
-      </DataPairContainer>
-    </Box>
+    </RowContainer>
 
-    <Box display="flex" width="324px">
+    <RowContainer>
       <DataPairContainer>
         <Typography variant="body1">${pair.tvl.toLocaleString()}</Typography>
-        <Typography variant="caption" fontWeight={600}>
+        <Typography variant="caption" fontWeight={600} color={"text.secondary"}>
           TVL
         </Typography>
       </DataPairContainer>
-    </Box>
+      <DataPairContainer>
+        <Typography align="right" variant="body1">
+          {pair.daily}%
+        </Typography>
+        <Typography
+          variant="caption"
+          fontWeight={600}
+          align="right"
+          color={"text.secondary"}
+        >
+          DAILY
+        </Typography>
+      </DataPairContainer>
+    </RowContainer>
 
-    <DepositButton onClick={() => onDeposit(pair.token1, pair.token2)}>
-      <Typography color="primary">Deposit</Typography>
-      <AddIcon color="primary" sx={{ width: 20, height: 20 }} />
-    </DepositButton>
+    <RowContainer>
+      <DepositButton onClick={() => onDeposit(pair.token1, pair.token2)}>
+        <Typography color="primary">Deposit</Typography>
+        <AddIcon color="primary" sx={{ width: 20, height: 20 }} />
+      </DepositButton>
+    </RowContainer>
   </MobileItemWrapper>
 );
 
@@ -112,7 +140,7 @@ export const DepositList: React.FC = () => {
 
   if (isMobile) {
     return (
-      <Box p={2}>
+      <Box display="flex" flexDirection="column" px={1} py={0.5} rowGap={1}>
         {MOCK_DATA.map((pair, index) => (
           <MobileDepositItem
             key={`${pair.token1}-${pair.token2}-${index}`}
@@ -130,27 +158,27 @@ export const DepositList: React.FC = () => {
         <TableHead sx={{ bgcolor: theme.palette.background.paper }}>
           <TableRow>
             <TableCell>
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 POOL
               </Typography>
             </TableCell>
             <TableCell align="right">
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 APY
               </Typography>
             </TableCell>
             <TableCell align="right">
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 DAILY
               </Typography>
             </TableCell>
             <TableCell align="right">
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 TVL
               </Typography>
             </TableCell>
             <TableCell align="right">
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 ACTION
               </Typography>
             </TableCell>
@@ -162,10 +190,7 @@ export const DepositList: React.FC = () => {
               <TableCell>
                 <Box display="flex" alignItems="center" gap={1}>
                   <TokenPairLogo token1={pair.token1} token2={pair.token2} />
-                  <Typography
-                    variant="body1"
-                    color={theme.palette.text.secondary}
-                  >
+                  <Typography variant="body1" fontWeight={600}>
                     {`${pair.token1}/${pair.token2}`}
                   </Typography>
                 </Box>

@@ -18,8 +18,8 @@ import { TokenPairLogo } from "components/Logos/TokenPairLogos";
 import React from "react";
 import {
   DataPairContainer,
-  MobilePositionWrapper,
-  TopRowContainer,
+  MobileItemWrapper,
+  RowContainer,
   WithdrawButton,
 } from "./styles";
 
@@ -61,69 +61,85 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
   position,
   onWithdraw,
 }) => (
-  <MobilePositionWrapper>
-    <TopRowContainer>
-      <TokenPairLogo token1={position.token0} token2={position.token1} />
-      <Stack>
-        <Typography variant="body1" fontWeight={700}>
-          {`${position.token0}/${position.token1}`}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {formatUSD(position.poolValue)}
-        </Typography>
-      </Stack>
-    </TopRowContainer>
+  <MobileItemWrapper>
+    <RowContainer>
+      <Box display={"flex"} alignItems={"center"} gap={0.5} py={0.5}>
+        <TokenPairLogo token1={position.token0} token2={position.token1} />
+        <Stack>
+          <Typography variant="body1" fontWeight={700}>
+            {`${position.token0}/${position.token1}`}
+          </Typography>
+        </Stack>
+      </Box>
+    </RowContainer>
 
-    <Box display="flex">
+    <RowContainer>
       <DataPairContainer>
         <Typography>{formatUSD(position.balance.usd)}</Typography>
-        <Typography variant="caption" fontWeight={600}>
+        <Typography variant="caption" fontWeight={600} color="text.secondary">
           BALANCE
         </Typography>
       </DataPairContainer>
       <DataPairContainer>
         <Typography align="right">{position.balance.lpTokens}</Typography>
-        <Typography variant="caption" fontWeight={600} align="right">
+        <Typography
+          variant="caption"
+          fontWeight={600}
+          align="right"
+          color="text.secondary"
+        >
           TOTAL LP TOKENS
         </Typography>
       </DataPairContainer>
-    </Box>
+    </RowContainer>
 
-    <Box display="flex">
+    <RowContainer>
       <DataPairContainer>
         <Typography>{formatUSD(position.yield.usd)}</Typography>
-        <Typography variant="caption" fontWeight={600}>
+        <Typography variant="caption" fontWeight={600} color="text.secondary">
           YIELD ACCRUED
         </Typography>
       </DataPairContainer>
       <DataPairContainer>
         <Typography align="right">{position.yield.lpTokens}</Typography>
-        <Typography variant="caption" fontWeight={600} align="right">
+        <Typography
+          variant="caption"
+          fontWeight={600}
+          align="right"
+          color="text.secondary"
+        >
           ACCRUED LP TOKENS
         </Typography>
       </DataPairContainer>
-    </Box>
+    </RowContainer>
 
-    <Box display="flex">
+    <RowContainer>
       <DataPairContainer>
         <Typography>{formatUSD(position.tvl.usd)}</Typography>
-        <Typography variant="caption" fontWeight={600}>
+        <Typography variant="caption" fontWeight={600} color="text.secondary">
           TVL
         </Typography>
       </DataPairContainer>
       <DataPairContainer>
         <Typography align="right">{position.tvl.vaultTokens}</Typography>
-        <Typography variant="caption" fontWeight={600} align="right">
+        <Typography
+          variant="caption"
+          fontWeight={600}
+          align="right"
+          color="text.secondary"
+        >
           VAULT TOKENS
         </Typography>
       </DataPairContainer>
-    </Box>
+    </RowContainer>
 
-    <WithdrawButton onClick={() => onWithdraw(position)}>
-      <Typography color="primary">Withdraw</Typography>
-      <SwapHorizIcon color="primary" sx={{ width: 20, height: 20 }} />
-    </WithdrawButton>
-  </MobilePositionWrapper>
+    <RowContainer>
+      <WithdrawButton onClick={() => onWithdraw(position)}>
+        <Typography color="primary">Withdraw</Typography>
+        <SwapHorizIcon color="primary" sx={{ width: 20, height: 20 }} />
+      </WithdrawButton>
+    </RowContainer>
+  </MobileItemWrapper>
 );
 
 export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
@@ -135,7 +151,7 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
 
   if (isMobile) {
     return (
-      <Box p={2}>
+      <Box display="flex" flexDirection="column" px={1} py={0.5} rowGap={1}>
         {positions.map((position, index) => (
           <MobilePosition
             key={index}
@@ -157,28 +173,28 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
         >
           <TableRow>
             <TableCell>
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 POOL
               </Typography>
             </TableCell>
             <TableCell align="right">
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 BALANCE
               </Typography>
             </TableCell>
             <TableCell align="right">
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 {" "}
                 YIELD ACCRUED
               </Typography>
             </TableCell>
             <TableCell align="right">
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 TVL
               </Typography>
             </TableCell>
             <TableCell align="right">
-              <Typography variant="body2" fontWeight={600}>
+              <Typography py={0.75} variant="body2" fontWeight={600}>
                 ACTION
               </Typography>
             </TableCell>

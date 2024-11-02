@@ -1,5 +1,5 @@
 // src/styles/Sidebar.styles.ts
-import { Box, ListItem, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Theme, styled } from "@mui/material/styles";
 
 export const LogoContainer = styled(Box)(() => ({
@@ -46,10 +46,47 @@ export const NavigationContainer = styled(Box)({
   width: "100%",
 });
 
-export const StyledListItem = styled(ListItem)({
-  padding: 0,
-  marginBottom: "16px",
-  "&:last-child": {
-    marginBottom: 0,
-  },
-});
+export const StyledListItem = styled(Box)<{ active: number }>(
+  ({ theme, active }) => ({
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    borderRadius: "8px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    padding: theme.spacing(1, 2),
+    backgroundColor: active ? theme.palette.grey[800] : "transparent",
+    "&:hover": {
+      backgroundColor: theme.palette.action.hover,
+    },
+  })
+);
+
+export const LogoWrapper = styled(Box)<{ active: number }>(
+  ({ theme, active }) => ({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 40,
+    height: 40,
+    borderRadius: "8px",
+    backgroundColor: active
+      ? theme.palette.primary.main
+      : theme.palette.grey[800],
+
+    marginRight: theme.spacing(2),
+
+    "& svg": {
+      color: active ? theme.palette.text.primary : theme.palette.grey[400],
+    },
+
+    transition: "all 0.3s ease",
+  })
+);
+
+export const ListItemText = styled(Box)<{ active: number }>(
+  ({ theme, active }) => ({
+    color: active ? theme.palette.text.primary : theme.palette.text.secondary,
+    fontWeight: active ? 600 : 400,
+  })
+);
