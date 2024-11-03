@@ -1,10 +1,4 @@
-import {
-  AppBar,
-  Box,
-  CssBaseline,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
 import { MobileHeader } from "../MobileHeader";
 import { Sidebar } from "../SidePanel";
 
@@ -30,17 +24,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <CssBaseline />
 
       {/* AppBar - Shown only on mobile */}
-      {isMobile && (
-        <AppBar
-          position="fixed"
-          sx={{
-            width: { xs: "100%", sm: `calc(100% - ${DRAWER_WIDTH}px)` },
-            ml: { sm: `${DRAWER_WIDTH}px` },
-          }}
-        >
-          <MobileHeader onMenuClick={handleDrawerToggle} />
-        </AppBar>
-      )}
+      {isMobile && <MobileHeader onMenuClick={handleDrawerToggle} />}
 
       {/* Sidebar */}
       <Sidebar
@@ -65,15 +49,7 @@ export const Layout = ({ children }: LayoutProps) => {
           background: theme.palette.background.paper,
         }}
       >
-        <Box
-          sx={{
-            flexGrow: 1,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          {children}
-        </Box>
+        {children}
       </Box>
     </Box>
   );

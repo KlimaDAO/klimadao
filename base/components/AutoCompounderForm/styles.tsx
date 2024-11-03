@@ -1,4 +1,12 @@
-import { Box, Button, Paper, Select, styled } from "@mui/material";
+import {
+  alpha,
+  Box,
+  Button,
+  InputBase,
+  Paper,
+  Select,
+  styled,
+} from "@mui/material";
 
 // Custom styled components
 export const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -8,10 +16,15 @@ export const StyledPaper = styled(Paper)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: "20px",
-  overflow: "hidden",
-  padding: "20px 20px 40px",
+
+  padding: "20px",
   position: "relative",
   width: "364px",
+
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+    padding: "20px 16px",
+  },
 }));
 
 export const StyledSelect = styled(Select)(({ theme }) => ({
@@ -23,24 +36,62 @@ export const StyledSelect = styled(Select)(({ theme }) => ({
   },
 }));
 
-export const MaxButton = styled(Button)(({ theme }) => ({
+export const MaxButtonContainer = styled(Box)(({ theme }) => ({
   position: "absolute",
   right: "1px",
   top: "1px",
-  height: "46px",
-  width: "60px",
+  backgroundColor: theme.palette.background.paper,
   borderRadius: "4px",
+}));
+
+export const MaxButton = styled(Button)(({ theme }) => ({
+  height: "100%",
+  borderRadius: 0,
+  borderTopRightRadius: theme.shape.borderRadius,
+  borderBottomRightRadius: theme.shape.borderRadius,
+  padding: "0 16px",
   backgroundColor: theme.palette.background.paper,
   color: theme.palette.text.primary,
   fontWeight: 600,
-  fontSize: "12px",
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.background.paper, 0.8),
+  },
 }));
 
-export const StyledInputWrapper = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
-  border: `1px solid ${theme.palette.background.paper}`,
-  borderRadius: "8px",
+export const StyledInputWrapper = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "stretch",
+  width: "100%",
   height: "48px",
-  position: "relative",
-  width: "320px",
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: theme.palette.background.default,
+  border: `1px solid ${theme.palette.divider}`,
+  "&:hover": {
+    borderColor: alpha(theme.palette.primary.main, 0.5),
+  },
+  "&:focus-within": {
+    borderColor: theme.palette.primary.main,
+    boxShadow: `0 0 0 2px ${alpha(theme.palette.primary.main, 0.2)}`,
+  },
+}));
+
+export const CustomInputBase = styled(InputBase)(({ theme }) => ({
+  height: "100%",
+  "& .MuiInputBase-input": {
+    height: "100%",
+    padding: "0 16px",
+    fontSize: "16px",
+    "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+    "&[type=number]": {
+      "-moz-appearance": "textfield",
+    },
+  },
+  "& .MuiInputAdornment-root": {
+    height: "100%",
+    maxHeight: "100%",
+    margin: 0,
+  },
 }));

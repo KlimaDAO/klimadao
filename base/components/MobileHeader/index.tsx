@@ -4,6 +4,7 @@ import { AppBar, Box, IconButton, Toolbar, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  position: "fixed",
   backgroundColor: theme.palette.background.default,
   boxShadow: "none",
   borderBottom: `1px solid ${theme.palette.background.paper}`,
@@ -36,7 +37,7 @@ export const MobileHeader = ({ onMenuClick }: MobileHeaderProps) => {
   const theme = useTheme();
 
   return (
-    <StyledAppBar position="fixed">
+    <StyledAppBar position="sticky">
       <Toolbar sx={{ justifyContent: "space-between", px: 2 }}>
         <LogoContainer>
           <KlimaLogo src="/klimadao.svg" alt="KlimaDAO" />

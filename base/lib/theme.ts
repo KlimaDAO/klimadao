@@ -24,6 +24,12 @@ export const AppTheme = createTheme({
     body2: {
       fontSize: "1.2rem",
     },
+    h5: {
+      fontSize: "2.0rem",
+    },
+    h6: {
+      fontSize: "1.6rem",
+    },
   },
   components: {
     MuiDrawer: {

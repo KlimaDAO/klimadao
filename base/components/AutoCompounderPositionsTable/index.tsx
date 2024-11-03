@@ -213,9 +213,6 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
                     <Typography>
                       {`${position.token0}/${position.token1}`}
                     </Typography>
-                    <Typography color="text.secondary">
-                      {formatUSD(position.poolValue)}
-                    </Typography>
                   </Stack>
                 </Box>
               </TableCell>
