@@ -33,7 +33,7 @@ export const ModalContent = styled(Box)(({ theme }) => ({
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "364px",
-  background: `${theme.palette.background.default}`,
+  background: `${theme.palette.background.paper}`,
   borderRadius: "12px",
   outline: "none",
   // Optional: add a subtle border to help with contrast against blur
@@ -105,20 +105,20 @@ export const InputLabel = styled(Typography)(({ theme }) => ({
   lineHeight: "20px",
   letterSpacing: "0.01em",
   color: theme.palette.text.primary,
-  marginBottom: "8px",
 }));
 
 export const InputField = styled(Box)(({ theme }) => ({
   width: "324px",
   height: "44px",
   padding: "12px",
-  background: theme.palette.background.paper,
   borderRadius: "8px",
   color: theme.palette.text.primary,
-  fontFamily: theme.typography.fontFamily,
-  fontSize: "16px",
   display: "flex",
   alignItems: "center",
+  background: theme.palette.background.default,
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
 }));
 
 export const ActionButton = styled(Button, {
@@ -146,5 +146,8 @@ export const ActionButton = styled(Button, {
   "&.Mui-disabled": {
     background: "rgba(255, 255, 255, 0.12)",
     color: "rgba(255, 255, 255, 0.3)",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
   },
 }));
