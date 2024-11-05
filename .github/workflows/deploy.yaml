@@ -89,6 +89,7 @@ jobs:
         id: compare_versions
         if: ${{ env.IS_MAIN }}
         run: |
+          SHOULD_DEPLOY=false
           LAST_PUBLISHED_VERSION_TAG=${{ steps.get_last_tag.outputs.last_tag }}
           SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
 
@@ -125,8 +126,8 @@ jobs:
             SHOULD_DEPLOY=false
           fi
 
-          NEW_PUBLISHED_VERSION_TAG="$LAST_TAG_MAJOR.$LAST_TAG_MINOR.$LAST_TAG_PATCH"
-          echo "NEW_PUBLISHED_VERSION_TAG=$NEW_PUBLISHED_VERSION_TAG" >> $GITHUB_OUTPUT
+          NEW_PUBLISHED_VERSION="$LAST_TAG_MAJOR.$LAST_TAG_MINOR.$LAST_TAG_PATCH"
+          echo "NEW_PUBLISHED_VERSION=$NEW_PUBLISHED_VERSION" >> $GITHUB_OUTPUT
           echo "should_deploy=$SHOULD_DEPLOY" >> $GITHUB_OUTPUT
 
       - name: Set version in version.json
