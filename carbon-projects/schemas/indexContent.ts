@@ -83,34 +83,14 @@ export default defineType({
       name: "coverImage",
       description: "Primary cover image to be shown on project page",
       group: "media",
-      type: "image",
-      fields: [
-        {
-          name: "caption",
-          description:
-            "English language caption to show below the image. Can include image attribution if needed.",
-          type: "string",
-        },
-      ],
+      type: "captionImage",
     }),
     defineField({
       name: "images",
       description: "Other images associated with this project",
       group: "media",
       type: "array",
-      of: [
-        {
-          type: "image",
-          fields: [
-            {
-              name: "caption",
-              description:
-                "English language caption to show below the image. Can include image attribution if needed.",
-              type: "string",
-            },
-          ],
-        },
-      ],
+      of: [{ type: "captionImage" }],
     }),
     defineField({
       name: "notes",
