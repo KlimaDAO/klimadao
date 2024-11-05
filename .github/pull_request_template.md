@@ -18,9 +18,9 @@ These entries will be scraped and included in the release tags.
 - `fix: resolve login issue with special characters`
 - `docs: update API usage documentation`
 - `perf: improve performance of the login endpoint`
-- `refactor: refactor the authentication module`
 - `test: add unit tests for the authentication module`
 - `chore: update dependencies`
+- `refactor(carbonProjects)!: removed very important field from entity`
 
 Major changes should be marked with `!` and have a footer the `BREAKING CHANGE:` keyword.
 
