@@ -42,15 +42,15 @@ jobs:
         value:
           [
             'bonds',
+            'polygon-digital-carbon',
             'carbonmark',
+            'polygon-bridged-carbon',
             'protocol-metrics',
             'vesting',
             'user-carbon',
             'pairs',
             'celo-bridged-carbon',
             'ethereum-bridged-carbon',
-            'polygon-bridged-carbon',
-            'polygon-digital-carbon',
           ]
     steps:
       - name: Check out source repository
@@ -67,7 +67,7 @@ jobs:
       - name: Install octokit at root
         run: yarn add octokit
       - name: Get last release tag
-        if: ${{ env.IS_MAIN }}
+        if: ${{ env.IS_MAIN == 'true' }}
         id: get_last_tag
         run: |
           LAST_TAG=$(git tag --list "${{ matrix.value }}-v*" | sort -V | tail -n 1)
@@ -79,7 +79,7 @@ jobs:
         working-directory: '${{ matrix.value }}'
       - name: Get schema version from package.json
         id: get_schema_version
-        if: ${{ env.IS_MAIN }}
+        if: ${{ env.IS_MAIN == 'true' }}
         run: |
           SCHEMA_VERSION=$(cat package.json | grep '"version":' | cut -d'"' -f4)
           echo "schema_version=$SCHEMA_VERSION" >> $GITHUB_OUTPUT
@@ -87,11 +87,18 @@ jobs:
         working-directory: '${{ matrix.value }}'
       - name: Compare schema versions and determine new version
         id: compare_versions
-        if: ${{ env.IS_MAIN }}
+        if: ${{ env.IS_MAIN == 'true' }}
         run: |
           SHOULD_DEPLOY=false
           LAST_PUBLISHED_VERSION_TAG=${{ steps.get_last_tag.outputs.last_tag }}
           SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
+
+          # If the branch is staging, always deploy
+          if [[ "${{ env.IS_STAGING }}" == "true" ]]; then
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+            echo "NEW_PUBLISHED_VERSION=0.0.0" >> $GITHUB_OUTPUT
+            exit 0
+          fi
 
           echo "Fetched LAST_PUBLISHED_VERSION_TAG: $LAST_PUBLISHED_VERSION_TAG"
           echo "Schema version: $SCHEMA_VERSION"
@@ -131,23 +138,23 @@ jobs:
           echo "should_deploy=$SHOULD_DEPLOY" >> $GITHUB_OUTPUT
 
       - name: Set version in version.json
-        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN == 'true' && steps.compare_versions.outputs.should_deploy == 'true' }}
         run: |
           NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
           SCHEMA_VERSION=${{ steps.get_schema_version.outputs.schema_version }}
           echo "{\"schemaVersion\": \"$SCHEMA_VERSION\", \"publishedVersion\": \"$NEW_PUBLISHED_VERSION\"}" > version.json
         working-directory: '${{ matrix.value }}'
       - name: Set Version in version.ts for version entity
-        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN == 'true' && steps.compare_versions.outputs.should_deploy == 'true' }}
         # Updating version.ts files because the subgraph handlers can't read .json directly
         run: npm run set-version
         working-directory: '${{ matrix.value }}'
       - name: Prepare Manifest if polygon-digital-carbon or carbonmark
-        if: (matrix.value == 'polygon-digital-carbon' || matrix.value == 'carbonmark') && steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ (matrix.value == 'polygon-digital-carbon' || matrix.value == 'carbonmark') && steps.compare_versions.outputs.should_deploy == 'true'}}
         run: npm run prepare-matic
         working-directory: '${{ matrix.value }}'
       - name: Commit all changes
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ steps.compare_versions.outputs.should_deploy == 'true'}}
         run: |
           set -x  # Enable debugging output
           NEW_PUBLISHED_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
@@ -180,7 +187,7 @@ jobs:
           fi
         working-directory: '${{ matrix.value }}'
       - name: Tag the commit with the new version
-        if: ${{ env.IS_STAGING }} && steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN == 'true' && steps.compare_versions.outputs.should_deploy == 'true' }}
         run: |
           NEW_VERSION=${{ steps.compare_versions.outputs.new_published_version }}
           echo "NEW_VERSION: $NEW_VERSION"
@@ -196,19 +203,19 @@ jobs:
       # Generate code and check for uncommitted changes
       # https://github.com/marketplace/actions/check-uncommitted-changes
       - name: Generate Subgraph Code
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ steps.compare_versions.outputs.should_deploy == 'true'}}
         run: npm run codegen
         working-directory: '${{ matrix.value }}'
       - name: Check for uncommitted changes
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ steps.compare_versions.outputs.should_deploy == 'true'}}
         id: check-changes
         uses: mskri/check-uncommitted-changes-action@v1.0.1
       - name: Evaluate if there are changes
-        if: steps.check-changes.outputs.outcome == failure()
+        if: ${{ steps.check-changes.outputs.outcome == 'failure'}}
         run: echo "There are uncommitted changes - execute 'npm run codegen' locally and commit the generated files!"
 
       - name: Build Subgraph
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ steps.compare_versions.outputs.should_deploy == 'true'}}
         run: npm run build
         working-directory: '${{ matrix.value }}'
       # TODO: add matchstick test suite
@@ -217,7 +224,7 @@ jobs:
       #   working-directory: "${{ matrix.value }}"
 
       - name: Staging or not
-        if: steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ steps.compare_versions.outputs.should_deploy == 'true'}}
         id: staging_or_not
         run: |
           echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
@@ -235,24 +242,23 @@ jobs:
           fi
         env:
           REF: ${{ github.ref }}
-      # @todo: re-enable this once we are ready to merge
-      # - name: Deploy Subgraph to Studio
-      #   if: steps.compare_versions.outputs.should_deploy == 'true'
-      #   run: |
-      #     VERSION_LABEL="${{ steps.compare_versions.outputs.new_published_version }}"
+      - name: Deploy Subgraph to Studio
+        if: steps.compare_versions.outputs.should_deploy == 'true'
+        run: |
+          VERSION_LABEL="${{ steps.compare_versions.outputs.new_published_version }}"
 
-      #     ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} "${{ steps.staging_or_not.outputs.subgraph }}" --version-label "$VERSION_LABEL"
-      #   working-directory: '${{ matrix.value }}'
-      # - name: Deploy Subgraph to Alchemy Hosted Service
-      #   if: ${{ (matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' || matrix.value == 'ethereum-bridged-carbon') && (!contains(fromJson(env.VERSIONED_SUBGRAPHS), matrix.value) || (contains(fromJson(env.VERSIONED_SUBGRAPHS), matrix.value) && steps.compare_versions.outputs.should_deploy == 'true')) }}
-      #   run: |
-      #     VERSION_LABEL="${{ steps.compare_versions.outputs.new_published_version }}"
+          ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} "${{ steps.staging_or_not.outputs.subgraph }}" --version-label "$VERSION_LABEL"
+        working-directory: '${{ matrix.value }}'
+      - name: Deploy Subgraph to Alchemy Hosted Service
+        if: ${{ (matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' || matrix.value == 'ethereum-bridged-carbon') && (!contains(fromJson(env.VERSIONED_SUBGRAPHS), matrix.value) || (contains(fromJson(env.VERSIONED_SUBGRAPHS), matrix.value) && steps.compare_versions.outputs.should_deploy == 'true')) }}
+        run: |
+          VERSION_LABEL="${{ steps.compare_versions.outputs.new_published_version }}"
 
-      #     ../node_modules/.bin/graph deploy "${{ steps.staging_or_not.outputs.subgraph }}" --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label "$VERSION_LABEL"
-      #   working-directory: '${{ matrix.value }}'
+          ../node_modules/.bin/graph deploy "${{ steps.staging_or_not.outputs.subgraph }}" --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label "$VERSION_LABEL"
+        working-directory: '${{ matrix.value }}'
       - name: Create issue for deployment tracking
         uses: JasonEtco/create-an-issue@v2
-        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN == 'true' && steps.compare_versions.outputs.should_deploy == 'true'}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISHED_VERSION: ${{ steps.compare_versions.outputs.new_published_version }}
@@ -264,7 +270,7 @@ jobs:
       - name: Check Node.js version (debugging)
         run: node -v
       - name: Generate Changelog
-        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN == 'true' && steps.compare_versions.outputs.should_deploy == 'true'}}
         id: generate_changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -275,7 +281,7 @@ jobs:
           echo "Generating changelog for ${{ matrix.value }} v${{ steps.compare_versions.outputs.new_published_version }}"
           node .github/actions-scripts/generateChangelog.mjs
       - name: Create GitHub Release
-        if: ${{ env.IS_MAIN }} && steps.compare_versions.outputs.should_deploy == 'true'
+        if: ${{ env.IS_MAIN == 'true' && steps.compare_versions.outputs.should_deploy == 'true'}}
         uses: actions/create-release@v1
         id: create_release
         env:
