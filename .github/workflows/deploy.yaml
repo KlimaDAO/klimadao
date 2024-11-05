@@ -221,7 +221,7 @@ jobs:
         run: |
           echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
 
-          if [ $REF == "refs/heads/staging" ]
+          if [[ "${{ env.IS_STAGING }}" == "true" ]]
           then
               PREFIX="staging-"
           fi;
