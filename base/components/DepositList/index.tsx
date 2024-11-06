@@ -190,7 +190,7 @@ export const DepositList: React.FC = () => {
                     token2={lp.tokenB.name}
                   />
                   <Typography variant="body1" fontWeight={600}>
-                    {`${lp.tokenA.name}/${lp.tokenA.name}`}
+                    {`${lp.tokenA.name}/${lp.tokenB.name}`}
                   </Typography>
                 </Box>
               </TableCell>

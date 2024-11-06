@@ -256,7 +256,7 @@ export const AutoCompounderDepositForm: React.FC = () => {
             fullWidth
           >
             {Object.values(lps).map((lp) => (
-              <MenuItem key={lp.address} value={lp.name}>
+              <MenuItem key={lp.poolAddress} value={lp.name}>
                 {lp.name}
               </MenuItem>
             ))}
