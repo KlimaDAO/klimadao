@@ -38,7 +38,7 @@ export const Layout = ({ children }: LayoutProps) => {
         sx={{
           flexGrow: 1,
           width: { xs: "100%", sm: `calc(100% - ${DRAWER_WIDTH}px)` },
-          height: "100vh",
+          minHeight: "100vh",
           overflow: "auto",
           display: "flex",
           flexDirection: "column",

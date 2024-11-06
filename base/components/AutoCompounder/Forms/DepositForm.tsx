@@ -17,11 +17,15 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+
+import { useAvailableLP } from "hooks/useAvailablePool";
+import { useBeefyVaultsData } from "hooks/useBeefyVaultQueries";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { getAddress } from "viem";
 import { Address, useAccount, useBalance } from "wagmi";
-import DepositConfirmationModal from "./DepositModal";
+import DepositConfirmationModal from "../Modals/DepositConfirmationModal";
 import {
   CustomInputBase,
   MaxButton,
@@ -30,78 +34,15 @@ import {
   StyledSelect,
 } from "./styles";
 
-export interface Token {
-  id: string;
-  name: string;
-  address: Address;
-  decimals: number;
-}
-
-export interface LiquidityPool {
-  id: string;
-  name: string;
-  balance?: string;
-  address: Address;
-  vault?: Address;
-  decimals: number;
-  tokenA: Token;
-  tokenB: Token;
-}
-
-// Interfaces
-
 interface AddressDisplayProps {
   label: string;
-  address: string;
+  address?: string;
 }
 
 interface StatDisplayProps {
   label: string;
   value: string;
 }
-
-const TOKENS: { [key: string]: Token } = {
-  weth: {
-    id: "weth",
-    name: "WETH",
-    address: "0x4200000000000000000000000000000000000006", // Add actual address
-    decimals: 18,
-  },
-  usdc: {
-    id: "usdc",
-    name: "USDC",
-    address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", // Add actual address
-    decimals: 6,
-  },
-  klima: {
-    id: "klima",
-    name: "KLIMA",
-    address: "0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2", // Add actual address
-    decimals: 18,
-  },
-};
-
-// Token mapping
-const LIQUIDITY_POOLS: { [key: string]: LiquidityPool } = {
-  "weth-klima": {
-    id: "weth-klima",
-    name: "WETH/KLIMA",
-    address: "0xB37642E87613d8569Fd8Ec80888eA6c63684E79e", // Add actual address
-    vault: "0x456...", // Add actual vault address
-    decimals: 18,
-    tokenA: TOKENS["weth"],
-    tokenB: TOKENS["klima"],
-  },
-  "usdc-klima": {
-    id: "usdc-klima",
-    name: "USDC/KLIMA",
-    address: "0x958682eC6282BC7E939FA8Ba9397805C214c3A09", // Add actual address
-    vault: "0xabc...", // Add actual vault address
-    decimals: 18,
-    tokenA: TOKENS["usdc"],
-    tokenB: TOKENS["klima"],
-  },
-};
 
 const TOOLTIPS = {
   addLiquidity: "Add liquidity to the pool to get LP tokens",
@@ -111,7 +52,14 @@ const TOOLTIPS = {
   strategy: "Smart contract that automates the compounding strategy",
 };
 
-// Components
+export const shortenAddress = (
+  address: string,
+  prefixLength = 6,
+  suffixLength = 4
+) => {
+  return `${address.slice(0, prefixLength)}...${address.slice(-suffixLength)}`;
+};
+
 const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => (
   <Stack direction="row" alignItems="center" justifyContent={"space-between"}>
     <Typography variant="body1" color="text.secondary">
@@ -122,7 +70,7 @@ const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => (
       <Link href={"https://aerodrome.finance/liquidity"} target="_blank">
         <Stack direction="row" spacing={0.5} alignItems="center">
           <Typography variant="body2" color="primary">
-            {address}
+            {address ? shortenAddress(getAddress(address)) : "-"}
           </Typography>
           <Launch color="primary" />
         </Stack>
@@ -168,54 +116,55 @@ function generateLiquidityURL(token1?: Address, token2?: Address) {
   return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}`;
 }
 
-const usePersistedState = (key: string, initialValue: any) => {
-  const [state, setState] = React.useState(() => {
-    if (typeof window === "undefined") return initialValue;
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.error(error);
-      return initialValue;
-    }
-  });
-
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(key, JSON.stringify(state));
-    }
-  }, [key, state]);
-
-  return [state, setState];
-};
-
-export const AutoCompounderForm: React.FC = () => {
+export const AutoCompounderDepositForm: React.FC = () => {
   const router = useRouter();
   const { tokens } = router.query;
   const { address } = useAccount();
   const [showModal, setShowModal] = React.useState(false);
+  const [isClient, setIsClient] = React.useState(false);
+
+  const { lps } = useAvailableLP();
+  const { data: vaultData, isLoading: isVaultDataLoading } =
+    useBeefyVaultsData();
 
   const defaultToken = React.useMemo(() => {
-    if (!tokens || typeof tokens !== "string")
-      return LIQUIDITY_POOLS["weth-klima"];
-    return LIQUIDITY_POOLS[tokens] || LIQUIDITY_POOLS["weth-klima"];
-  }, [tokens]);
+    if (!tokens || typeof tokens !== "string") return Object.values(lps)[0];
+    const [token1, token2] = tokens.split("-");
+    return (
+      Object.values(lps).find(
+        (lp) =>
+          lp.tokenA.name.toLowerCase() === token1 &&
+          lp.tokenB.name.toLowerCase() === token2
+      ) || Object.values(lps)[0]
+    );
+  }, [tokens, lps]);
 
-  const [pool, setPool] = usePersistedState(
-    "autoCompounder_pool",
-    defaultToken.name
-  );
-  const [amount, setAmount] = usePersistedState("autoCompounder_amount", "");
+  const [pool, setPool] = React.useState(defaultToken?.name ?? "");
+  const [amount, setAmount] = React.useState("");
   const [error, setError] = React.useState("");
 
+  React.useEffect(() => {
+    if (defaultToken?.name) {
+      setPool(defaultToken.name);
+    }
+  }, [defaultToken]);
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const selectedLP = React.useMemo(
-    () => Object.values(LIQUIDITY_POOLS).find((token) => token.name === pool),
-    [pool]
+    () => Object.values(lps).find((lp) => lp.name === pool),
+    [pool, lps]
   );
 
-  // Balance loading state
+  const selectedVault = React.useMemo(
+    () => vaultData?.find((v) => v.address === selectedLP?.vault),
+    [vaultData, selectedLP]
+  );
+
   const { data: lpBalance, isLoading: isBalanceLoading } = useBalance({
-    address: "0x8196e813CfebE75d38D44Ce6275Dfa29028E56B9",
+    address,
     token: selectedLP?.address as `0x${string}`,
     watch: true,
   });
@@ -231,12 +180,10 @@ export const AutoCompounderForm: React.FC = () => {
     setAmount("");
     setError("");
 
-    const lpId = Object.entries(LIQUIDITY_POOLS).find(
-      ([, token]) => token.name === newPool
-    )?.[0];
-
-    if (lpId) {
-      router.push(`/auto-compounder/deposit/${lpId}`);
+    const selectedLp = Object.values(lps).find((lp) => lp.name === newPool);
+    if (selectedLp) {
+      const tokens = `${selectedLp.tokenA.name.toLowerCase()}-${selectedLp.tokenB.name.toLowerCase()}`;
+      router.push(`/auto-compounder/deposit/${tokens}`);
     }
   };
 
@@ -275,24 +222,17 @@ export const AutoCompounderForm: React.FC = () => {
     }
   };
 
-  const [isClient, setIsClient] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const displayBalance = React.useMemo(() => {
-    if (!isClient) return "-"; // Return placeholder during server render
-    return isBalanceLoading ? (
+    if (!isClient) return "-";
+    return isBalanceLoading || isVaultDataLoading ? (
       <CircularProgress size={16} sx={{ ml: 1 }} />
     ) : (
       formattedBalance || "0"
     );
-  }, [isClient, isBalanceLoading, formattedBalance]);
+  }, [isClient, isBalanceLoading, isVaultDataLoading, formattedBalance]);
 
   return (
     <StyledPaper elevation={0}>
-      {/* Header - Kept unchanged */}
       <Stack spacing={1} width="100%">
         <Stack direction="row" spacing={1.5} alignItems="center">
           <Autorenew color="primary" />
@@ -306,19 +246,18 @@ export const AutoCompounderForm: React.FC = () => {
         </Typography>
       </Stack>
 
-      {/* Pool Selection */}
-      <Stack spacing={2} width="100%">
+      <Stack spacing={1} width="100%">
         <Stack spacing={1}>
           <Typography variant="body1">Pool</Typography>
           <StyledSelect
-            value={isClient ? pool : ""} // Only set value on client
+            value={isClient ? pool : ""}
             onChange={handlePoolChange}
             IconComponent={KeyboardArrowDown}
             fullWidth
           >
-            {Object.values(LIQUIDITY_POOLS).map((token) => (
-              <MenuItem key={token.id} value={token.name}>
-                {token.name}
+            {Object.values(lps).map((lp) => (
+              <MenuItem key={lp.address} value={lp.name}>
+                {lp.name}
               </MenuItem>
             ))}
           </StyledSelect>
@@ -364,7 +303,6 @@ export const AutoCompounderForm: React.FC = () => {
         </Stack>
       </Stack>
 
-      {/* Deposit Amount */}
       <Stack width="100%">
         <Stack spacing={1}>
           <Typography variant="body1">Amount to Deposit</Typography>
@@ -372,7 +310,7 @@ export const AutoCompounderForm: React.FC = () => {
             <CustomInputBase
               type="text"
               fullWidth
-              value={isClient ? amount : ""} // Only set value on client
+              value={isClient ? amount : ""}
               onChange={handleAmountChange}
               placeholder="0.0"
               endAdornment={
@@ -401,21 +339,19 @@ export const AutoCompounderForm: React.FC = () => {
           )}
         </Stack>
         <Stack py={"4px"} spacing={0.5}>
-          <AddressDisplay
-            label="Vault:"
-            address={selectedLP?.vault || "0x123...ABC"}
-          />
-          <AddressDisplay label="Strategy:" address="0x123...ABC" />
+          <AddressDisplay label="Vault:" address={selectedVault?.address} />
+          <AddressDisplay label="Strategy:" address={selectedVault?.strategy} />
         </Stack>
       </Stack>
 
-      {/* Stats - Kept unchanged */}
       <Stack spacing={1} width="100%">
-        <StatDisplay label="APY" value="123%" />
-        <StatDisplay label="APR" value="123%" />
+        <StatDisplay label="APY" value={`${selectedVault?.apy ?? "-"}%`} />
+        <StatDisplay
+          label="APR"
+          value={`${selectedVault?.dailyRate ?? "-"}%`}
+        />
       </Stack>
 
-      {/* Info Box - Kept unchanged */}
       <Paper
         sx={{
           p: 1.5,
@@ -436,7 +372,6 @@ export const AutoCompounderForm: React.FC = () => {
         </Stack>
       </Paper>
 
-      {/* Deposit Button */}
       <Button
         variant="contained"
         fullWidth
@@ -457,10 +392,9 @@ export const AutoCompounderForm: React.FC = () => {
           },
         }}
       >
-        {!isClient ? "Loading..." : !address ? "Connect Wallet" : "DEPOSIT"}
+        {"DEPOSIT"}
       </Button>
 
-      {/* Deposit Modal */}
       {isClient && showModal && selectedLP && (
         <DepositConfirmationModal
           open={showModal}

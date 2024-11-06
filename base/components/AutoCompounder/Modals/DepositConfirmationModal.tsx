@@ -1,4 +1,3 @@
-import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   CircularProgress,
@@ -14,19 +13,10 @@ import {
   useContractWrite,
   useWaitForTransaction,
 } from "wagmi";
-import { LiquidityPool } from ".";
-import {
-  ActionButton,
-  CloseButton,
-  CustomBackdrop,
-  HeaderTitle,
-  InputField,
-  ModalContent,
-  ModalHeader,
-  StepButton,
-  StepContainer,
-  StyledModal,
-} from "./modalStyles";
+
+import { LiquidityPool } from "../Forms/DepositForm";
+import BaseModal from "./BaseModal";
+import { ActionButton, InputField, StepButton, StepContainer } from "./styles";
 
 // ABIs
 const erc20ABI = [
@@ -175,103 +165,74 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
   };
 
   return (
-    <StyledModal
+    <BaseModal
       open={open}
       onClose={onClose}
+      title="Confirm Deposit"
       aria-labelledby="deposit-confirmation-modal"
-      closeAfterTransition
-      disableAutoFocus
-      disableEnforceFocus
-      slots={{ backdrop: CustomBackdrop }}
-      slotProps={{
-        backdrop: {
-          timeout: 500,
-        },
-      }}
     >
-      <ModalContent>
-        <ModalHeader>
-          <HeaderTitle>Confirm Deposit</HeaderTitle>
-          <CloseButton onClick={onClose} size="small">
-            <CloseIcon />
-          </CloseButton>
-        </ModalHeader>
+      <StepContainer>
+        <StepButton $isActive={!isApproveSuccess} disabled={isApproveSuccess}>
+          1. Approve
+        </StepButton>
+        <StepButton $isActive={isApproveSuccess} disabled={!isApproveSuccess}>
+          2. Submit
+        </StepButton>
+      </StepContainer>
 
-        <Box sx={{ p: "20px" }}>
-          <Stack spacing={3}>
-            <StepContainer>
-              <StepButton
-                $isActive={!isApproveSuccess}
-                disabled={isApproveSuccess}
-              >
-                1. Approve
-              </StepButton>
-              <StepButton
-                $isActive={isApproveSuccess}
-                disabled={!isApproveSuccess}
-              >
-                2. Submit
-              </StepButton>
-            </StepContainer>
+      <Typography
+        sx={{
+          fontFamily: "Inter",
+          fontSize: "16px",
+          color: "#FFFFFF",
+          letterSpacing: "0.01em",
+        }}
+      >
+        Please approve the transaction.
+      </Typography>
 
-            <Typography
-              sx={{
-                fontFamily: "Inter",
-                fontSize: "16px",
-                color: "#FFFFFF",
-                letterSpacing: "0.01em",
-              }}
-            >
-              Please approve the transaction.
-            </Typography>
-
-            <Stack spacing={2}>
-              <Box >
-                <InputLabel>Contact address</InputLabel>
-                <InputField>{truncateAddress(lpToken.address)}</InputField>
-              </Box>
-
-              <Box>
-                <InputLabel>Spender Address</InputLabel>
-                <InputField>{truncateAddress(lpToken.vault)}</InputField>
-              </Box>
-
-              <Box>
-                <InputLabel>Confirm quantity</InputLabel>
-                <InputField>
-                  <Stack direction={"row"} alignItems={"flex-end"} gap={1}>
-                    {amount}
-                    <Typography color="text.secondary">
-                      {lpToken.name}
-                    </Typography>
-                  </Stack>
-                </InputField>
-              </Box>
-            </Stack>
-
-            <Stack spacing={1.5}>
-              <ActionButton
-                variant="primary"
-                onClick={needsApproval ? handleApprove : handleDeposit}
-                disabled={isApproving || isDepositing}
-              >
-                {isApproving || isDepositing ? (
-                  <CircularProgress size={24} color="inherit" />
-                ) : needsApproval ? (
-                  "APPROVE"
-                ) : (
-                  "DEPOSIT"
-                )}
-              </ActionButton>
-
-              <ActionButton variant="secondary" onClick={onClose}>
-                GO BACK
-              </ActionButton>
-            </Stack>
-          </Stack>
+      <Stack spacing={2}>
+        <Box>
+          <InputLabel>Contact address</InputLabel>
+          <InputField>{truncateAddress(lpToken.address)}</InputField>
         </Box>
-      </ModalContent>
-    </StyledModal>
+
+        <Box>
+          <InputLabel>Spender Address</InputLabel>
+          <InputField>{truncateAddress(lpToken.vault)}</InputField>
+        </Box>
+
+        <Box>
+          <InputLabel>Confirm quantity</InputLabel>
+          <InputField>
+            <Stack direction={"row"} alignItems={"flex-end"} gap={1}>
+              {amount}
+              <Typography color="text.secondary">{lpToken.name}</Typography>
+            </Stack>
+          </InputField>
+        </Box>
+      </Stack>
+
+      <Stack spacing={1.5}>
+        <ActionButton
+          variant="primary"
+          onClick={needsApproval ? handleApprove : handleDeposit}
+          disabled={isApproving || isDepositing}
+        >
+          {isApproving || isDepositing ? (
+            <CircularProgress size={24} color="inherit" />
+          ) : needsApproval ? (
+            "APPROVE"
+          ) : (
+            "DEPOSIT"
+          )}
+        </ActionButton>
+
+        <ActionButton variant="secondary" onClick={onClose}>
+          GO BACK
+        </ActionButton>
+      </Stack>
+    </BaseModal>
   );
 };
 

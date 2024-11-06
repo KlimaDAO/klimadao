@@ -14,7 +14,12 @@ import "../styles/normalize.css";
 // organize-imports-ignore
 import "../styles/variables.css";
 // organize-imports-ignore
+import {
+  QueryClientProvider,
+  QueryClient as ReactQueryClient,
+} from "@tanstack/react-query";
 import { AppTheme } from "lib/theme";
+import { useState } from "react";
 import "../styles/globals.css";
 
 const { chains, publicClient } = configureChains(
@@ -37,12 +42,16 @@ const config = createConfig({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [reactQueryClient] = useState(() => new ReactQueryClient());
+
   return (
     <ThemeProvider theme={AppTheme}>
       <WagmiConfig config={config}>
         <RainbowKitProvider chains={chains}>
           <StyledEngineProvider injectFirst>
-            <Component {...pageProps} />
+            <QueryClientProvider client={reactQueryClient}>
+              <Component {...pageProps} />
+            </QueryClientProvider>
           </StyledEngineProvider>
         </RainbowKitProvider>
       </WagmiConfig>

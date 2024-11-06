@@ -14,7 +14,10 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+
+import { WithdrawConfirmationModal } from "components/AutoCompounder/Modals/WithdrawConfirmationModal";
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
+import { LiquidityPool } from "lib/constants";
 import React from "react";
 import {
   DataPairContainer,
@@ -23,10 +26,8 @@ import {
   WithdrawButton,
 } from "./styles";
 
-interface Position {
-  token0: "BCT" | "WETH" | "USDC" | "AERO" | "KLIMA";
-  token1: "BCT" | "WETH" | "USDC" | "AERO" | "KLIMA";
-  poolValue: number;
+export interface Position {
+  lpToken: LiquidityPool;
   balance: {
     usd: number;
     lpTokens: number;
@@ -43,7 +44,6 @@ interface Position {
 
 interface PositionsTableProps {
   positions: Position[];
-  onWithdraw: (position: Position) => void;
 }
 
 const formatUSD = (value: number) =>
@@ -64,10 +64,13 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
   <MobileItemWrapper>
     <RowContainer>
       <Box display={"flex"} alignItems={"center"} gap={0.5} py={0.5}>
-        <TokenPairLogo token1={position.token0} token2={position.token1} />
+        <TokenPairLogo
+          token1={position.lpToken.tokenA.name}
+          token2={position.lpToken.tokenB.name}
+        />
         <Stack>
           <Typography variant="body1" fontWeight={700}>
-            {`${position.token0}/${position.token1}`}
+            {`${position.lpToken.tokenA.name}/${position.lpToken.tokenB.name}`}
           </Typography>
         </Stack>
       </Box>
@@ -114,6 +117,7 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
     </RowContainer>
 
     <RowContainer>
+      {/* $ value of Vault tokens */}
       <DataPairContainer>
         <Typography>{formatUSD(position.tvl.usd)}</Typography>
         <Typography variant="caption" fontWeight={600} color="text.secondary">
@@ -144,10 +148,18 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
 
 export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
   positions,
-  onWithdraw,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const [selectedPosition, setSelectedPosition] =
+    React.useState<Position | null>();
+
+  const [showModal, setShowModal] = React.useState(false);
+  const onWithdraw = (position: Position) => {
+    setSelectedPosition(position);
+    setShowModal(true);
+  };
 
   if (isMobile) {
     return (
@@ -159,99 +171,124 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
             onWithdraw={onWithdraw}
           />
         ))}
+        {showModal && selectedPosition ? (
+          <WithdrawConfirmationModal
+            open={showModal}
+            position={selectedPosition}
+            onClose={() => {
+              setShowModal(false);
+              setSelectedPosition(null);
+            }}
+          />
+        ) : null}
       </Box>
     );
   }
 
   return (
-    <TableContainer component={Paper}>
-      <Table size="small" sx={{ bgcolor: theme.palette.background.default }}>
-        <TableHead
-          sx={{
-            bgcolor: theme.palette.background.paper,
-          }}
-        >
-          <TableRow>
-            <TableCell>
-              <Typography py={0.75} variant="body2" fontWeight={600}>
-                POOL
-              </Typography>
-            </TableCell>
-            <TableCell align="right">
-              <Typography py={0.75} variant="body2" fontWeight={600}>
-                BALANCE
-              </Typography>
-            </TableCell>
-            <TableCell align="right">
-              <Typography py={0.75} variant="body2" fontWeight={600}>
-                {" "}
-                YIELD ACCRUED
-              </Typography>
-            </TableCell>
-            <TableCell align="right">
-              <Typography py={0.75} variant="body2" fontWeight={600}>
-                TVL
-              </Typography>
-            </TableCell>
-            <TableCell align="right">
-              <Typography py={0.75} variant="body2" fontWeight={600}>
-                ACTION
-              </Typography>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {positions.map((position, index) => (
-            <TableRow key={index}>
+    <>
+      <TableContainer component={Paper}>
+        <Table size="small" sx={{ bgcolor: theme.palette.background.default }}>
+          <TableHead
+            sx={{
+              bgcolor: theme.palette.background.paper,
+            }}
+          >
+            <TableRow>
               <TableCell>
-                <Box display="flex" alignItems="center" gap={1}>
-                  <TokenPairLogo
-                    token1={position.token0}
-                    token2={position.token1}
-                  />
-                  <Stack>
-                    <Typography>
-                      {`${position.token0}/${position.token1}`}
-                    </Typography>
-                  </Stack>
-                </Box>
-              </TableCell>
-              <TableCell align="right">
-                <Typography>{formatUSD(position.balance.usd)}</Typography>
-                <Typography color="text.secondary">
-                  {`${position.balance.lpTokens} LP Tokens`}
+                <Typography py={0.75} variant="body2" fontWeight={600}>
+                  POOL
                 </Typography>
               </TableCell>
               <TableCell align="right">
-                <Typography>{formatUSD(position.yield.usd)}</Typography>
-                <Typography color="text.secondary">
-                  {`${position.yield.lpTokens} LP Tokens`}
+                <Typography py={0.75} variant="body2" fontWeight={600}>
+                  BALANCE
                 </Typography>
               </TableCell>
               <TableCell align="right">
-                <Typography>{formatUSD(position.tvl.usd)}</Typography>
-                <Typography color="text.secondary">
-                  {`${position.tvl.vaultTokens} Vault Tokens`}
+                <Typography py={0.75} variant="body2" fontWeight={600}>
+                  {" "}
+                  YIELD ACCRUED
                 </Typography>
               </TableCell>
               <TableCell align="right">
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="flex-end"
-                >
-                  <Button onClick={() => onWithdraw(position)}>
-                    <Stack direction={"row"} gap={1} alignItems={"center"}>
-                      <Typography color="primary">Withdraw</Typography>
-                      <SwapHorizIcon />
-                    </Stack>
-                  </Button>
-                </Stack>
+                <Typography py={0.75} variant="body2" fontWeight={600}>
+                  VAULT TOKENS
+                </Typography>
+              </TableCell>
+              <TableCell align="right">
+                <Typography py={0.75} variant="body2" fontWeight={600}>
+                  ACTION
+                </Typography>
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {positions.map((position, index) => (
+              <TableRow key={index}>
+                <TableCell>
+                  <Box display="flex" alignItems="center" gap={1}>
+                    <TokenPairLogo
+                      token1={position.lpToken.tokenA.name}
+                      token2={position.lpToken.tokenB.name}
+                    />
+                    <Stack>
+                      <Typography>
+                        {`${position.lpToken.tokenA.name}/${position.lpToken.tokenB.name}`}
+                      </Typography>
+                    </Stack>
+                  </Box>
+                </TableCell>
+                <TableCell align="right">
+                  <Typography>{formatUSD(position.balance.usd)}</Typography>
+                  <Typography color="text.secondary">
+                    {`${position.balance.lpTokens ?? "-"} LP Tokens`}
+                  </Typography>
+                </TableCell>
+                <TableCell align="right">
+                  <Typography>{formatUSD(position.yield.usd)}</Typography>
+                  <Typography color="text.secondary">
+                    {`${position.yield.lpTokens ?? "-"} LP Tokens`}
+                  </Typography>
+                </TableCell>
+                <TableCell align="right">
+                  <Typography>{formatUSD(position.tvl.usd)}</Typography>
+                  <Typography color="text.secondary">
+                    {`${position.tvl.vaultTokens ?? "-"} Vault Tokens`}
+                  </Typography>
+                </TableCell>
+                <TableCell align="right">
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="flex-end"
+                  >
+                    <Button
+                      disabled={!position}
+                      onClick={() => onWithdraw(position)}
+                    >
+                      <Stack direction={"row"} gap={1} alignItems={"center"}>
+                        <Typography color="primary">Withdraw</Typography>
+                        <SwapHorizIcon />
+                      </Stack>
+                    </Button>
+                  </Stack>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      {showModal && selectedPosition ? (
+        <WithdrawConfirmationModal
+          open={showModal}
+          position={selectedPosition}
+          onClose={() => {
+            setShowModal(false);
+            setSelectedPosition(null);
+          }}
+        />
+      ) : null}
+    </>
   );
 };

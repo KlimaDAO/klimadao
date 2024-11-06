@@ -2,6 +2,7 @@ import AddIcon from "@mui/icons-material/Add";
 import {
   Box,
   Button,
+  CircularProgress,
   Paper,
   Stack,
   Table,
@@ -15,6 +16,9 @@ import {
   useTheme,
 } from "@mui/material";
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
+
+import { useAvailableLP } from "hooks/useAvailablePool";
+import { useBeefyVaultsData, VaultInfo } from "hooks/useBeefyVaultQueries";
 import { useRouter } from "next/router";
 import {
   DataPairContainer,
@@ -22,6 +26,9 @@ import {
   MobileItemWrapper,
   RowContainer,
 } from "./styles";
+
+import { LiquidityPool } from "lib/constants";
+import { formatUnits } from "viem";
 
 export interface TokenPair {
   token1: "BCT" | "WETH" | "USDC" | "AERO" | "KLIMA";
@@ -31,60 +38,30 @@ export interface TokenPair {
   tvl: number;
 }
 
-const MOCK_DATA: TokenPair[] = [
-  {
-    token1: "WETH",
-    token2: "KLIMA",
-    apy: 23.17,
-    daily: 0.0571,
-    tvl: 105176,
-  },
-  {
-    token1: "USDC",
-    token2: "KLIMA",
-    apy: 23.17,
-    daily: 0.0571,
-    tvl: 105176,
-  },
-  {
-    token1: "BCT",
-    token2: "USDC",
-    apy: 23.17,
-    daily: 0.0571,
-    tvl: 105176,
-  },
-  {
-    token1: "BCT",
-    token2: "USDC",
-    apy: 23.17,
-    daily: 0.0571,
-    tvl: 105176,
-  },
-  // Add other pairs as needed
-];
-
 interface MobileDepositItemProps {
-  pair: TokenPair;
+  vault?: VaultInfo;
+  lp: LiquidityPool;
   onDeposit: (token1: string, token2: string) => void;
 }
 
 const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
-  pair,
+  lp,
+  vault,
   onDeposit,
 }) => (
   <MobileItemWrapper>
     <RowContainer>
       <Box display={"flex"} alignItems={"center"} gap={0.5} py={0.5}>
-        <TokenPairLogo token1={pair.token1} token2={pair.token2} />
+        <TokenPairLogo token1={lp.tokenA.name} token2={lp.tokenB.name} />
         <Stack>
           <Typography variant="body1" fontWeight={600}>
-            {`${pair.token1}/${pair.token2}`}
+            {`${lp.tokenA.name}/${lp.tokenB.name}`}
           </Typography>
         </Stack>
       </Box>
 
       <DataPairContainer>
-        <Typography variant="body1">{pair.apy}%</Typography>
+        <Typography variant="body1">{vault?.apy ?? "-"}%</Typography>
         <Typography
           variant="caption"
           fontWeight={600}
@@ -98,14 +75,19 @@ const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
 
     <RowContainer>
       <DataPairContainer>
-        <Typography variant="body1">${pair.tvl.toLocaleString()}</Typography>
+        <Typography variant="body1">
+          {(vault?.balanceUSD ?? 0).toLocaleString(undefined, {
+            currency: "USD",
+            style: "currency",
+          })}
+        </Typography>
         <Typography variant="caption" fontWeight={600} color={"text.secondary"}>
           TVL
         </Typography>
       </DataPairContainer>
       <DataPairContainer>
         <Typography align="right" variant="body1">
-          {pair.daily}%
+          {vault?.dailyRate ?? "-"}%
         </Typography>
         <Typography
           variant="caption"
@@ -119,7 +101,7 @@ const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
     </RowContainer>
 
     <RowContainer>
-      <DepositButton onClick={() => onDeposit(pair.token1, pair.token2)}>
+      <DepositButton onClick={() => onDeposit(lp.tokenA.name, lp.tokenB.name)}>
         <Typography color="primary">Deposit</Typography>
         <AddIcon color="primary" sx={{ width: 20, height: 20 }} />
       </DepositButton>
@@ -132,19 +114,33 @@ export const DepositList: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const router = useRouter();
 
+  const { lps } = useAvailableLP();
+
+  const { data: vaultData, isLoading: isVaultDataLoading } =
+    useBeefyVaultsData();
+
   const handleDeposit = (token1: string, token2: string) => {
     router.push(
       `/auto-compounder/deposit/${token1.toLowerCase()}-${token2.toLowerCase()}`
     );
   };
 
+  if (isVaultDataLoading) {
+    return (
+      <Box>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
   if (isMobile) {
     return (
       <Box display="flex" flexDirection="column" px={1} py={0.5} rowGap={1}>
-        {MOCK_DATA.map((pair, index) => (
+        {Object.values(lps).map((lp, index) => (
           <MobileDepositItem
-            key={`${pair.token1}-${pair.token2}-${index}`}
-            pair={pair}
+            key={`${lp.tokenA.name}-${lp.tokenB.name}-${index}`}
+            lp={lp}
+            vault={vaultData?.find((e) => e.address === lp.vault)}
             onDeposit={handleDeposit}
           />
         ))}
@@ -185,26 +181,54 @@ export const DepositList: React.FC = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {MOCK_DATA.map((pair, index) => (
-            <TableRow key={`${pair.token1}-${pair.token2}-${index}`}>
+          {Object.values(lps).map((lp, index) => (
+            <TableRow key={`${lp.tokenA}-${lp.tokenB}-${index}`}>
               <TableCell>
                 <Box display="flex" alignItems="center" gap={1}>
-                  <TokenPairLogo token1={pair.token1} token2={pair.token2} />
+                  <TokenPairLogo
+                    token1={lp.tokenA.name}
+                    token2={lp.tokenB.name}
+                  />
                   <Typography variant="body1" fontWeight={600}>
-                    {`${pair.token1}/${pair.token2}`}
+                    {`${lp.tokenA.name}/${lp.tokenA.name}`}
                   </Typography>
                 </Box>
               </TableCell>
               <TableCell align="right">
-                <Typography variant="body1">{pair.apy}%</Typography>
-              </TableCell>
-              <TableCell align="right">
-                <Typography variant="body1">{pair.daily}%</Typography>
+                <Typography variant="body1">
+                  {vaultData?.find((e) => e.address === lp.vault)?.apy ?? "-"}%
+                </Typography>
               </TableCell>
               <TableCell align="right">
                 <Typography variant="body1">
-                  ${pair.tvl.toLocaleString()}
+                  {vaultData?.find((e) => e.address === lp.vault)?.dailyRate ??
+                    "-"}
+                  %
                 </Typography>
+              </TableCell>
+              <TableCell align="right">
+                <Stack>
+                  <Typography fontWeight={600}>
+                    {(
+                      vaultData?.find((e) => e.address === lp.vault)
+                        ?.balanceUSD ?? 0
+                    ).toLocaleString(undefined, {
+                      style: "currency",
+                      currency: "USD",
+                      currencyDisplay: "symbol",
+                      currencySign: "standard",
+                    })}
+                  </Typography>
+                  <Typography variant="body1" color={"text.secondary"}>
+                    {formatUnits(
+                      vaultData?.find((e) => e.address === lp.vault)?.balance ??
+                        BigInt(0),
+                      vaultData?.find((e) => e.address === lp.vault)
+                        ?.decimals ?? 18
+                    ) ?? "-"}{" "}
+                    {lp.name}
+                  </Typography>
+                </Stack>
               </TableCell>
               <TableCell>
                 <Stack
@@ -213,7 +237,9 @@ export const DepositList: React.FC = () => {
                   justifyContent="flex-end"
                 >
                   <Button
-                    onClick={() => handleDeposit(pair.token1, pair.token2)}
+                    onClick={() =>
+                      handleDeposit(lp.tokenA.name, lp.tokenB.name)
+                    }
                   >
                     <Stack direction={"row"} gap={1} alignItems={"center"}>
                       <Typography color="primary">Deposit</Typography>

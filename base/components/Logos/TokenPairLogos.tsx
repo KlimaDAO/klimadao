@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
 
+// TODO : Make strict types
 interface TokenPairLogoProps {
-  token1: "BCT" | "WETH" | "USDC" | "AERO" | "KLIMA";
-  token2: "BCT" | "WETH" | "USDC" | "AERO" | "KLIMA";
+  token1: string;
+  token2: string;
 }
 
 export const TokenPairLogo = ({ token1, token2 }: TokenPairLogoProps) => {

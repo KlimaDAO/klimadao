@@ -2,7 +2,7 @@ import { Box, Container } from "@mui/material";
 import { NextPage } from "next";
 
 import { Layout } from "components/AppLayout";
-import { AutoCompounderForm } from "components/AutoCompounderForm";
+import { AutoCompounderDepositForm } from "components/AutoCompounder/Forms/DepositForm";
 import TabsHeader from "components/TabsHeader";
 
 const AutoCompounderDepositToken: NextPage = () => {
@@ -20,7 +20,7 @@ const AutoCompounderDepositToken: NextPage = () => {
             justifyContent: "center",
           }}
         >
-          <AutoCompounderForm />
+          <AutoCompounderDepositForm />
         </Container>
       </Box>
     </Layout>
