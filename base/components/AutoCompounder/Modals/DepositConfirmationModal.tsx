@@ -14,7 +14,7 @@ import {
   useWaitForTransaction,
 } from "wagmi";
 
-import { LiquidityPool } from "../Forms/DepositForm";
+import { LiquidityPool } from "lib/types";
 import BaseModal from "./BaseModal";
 import { ActionButton, InputField, StepButton, StepContainer } from "./styles";
 

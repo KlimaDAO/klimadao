@@ -17,7 +17,7 @@ import {
 
 import { WithdrawConfirmationModal } from "components/AutoCompounder/Modals/WithdrawConfirmationModal";
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
-import { LiquidityPool } from "lib/constants";
+import { Position } from "lib/types";
 import React from "react";
 import {
   DataPairContainer,
@@ -25,22 +25,6 @@ import {
   RowContainer,
   WithdrawButton,
 } from "./styles";
-
-export interface Position {
-  lpToken: LiquidityPool;
-  balance: {
-    usd: number;
-    lpTokens: number;
-  };
-  yield: {
-    usd: number;
-    lpTokens: number;
-  };
-  tvl: {
-    usd: number;
-    vaultTokens: number;
-  };
-}
 
 interface PositionsTableProps {
   positions: Position[];

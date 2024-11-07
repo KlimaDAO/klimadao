@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 
 import { useAvailableLP } from "hooks/useAvailablePool";
-import { useBeefyVaultsData } from "hooks/useBeefyVaultQueries";
+import { useBeefyVaultsData } from "hooks/useBeefyVaultsData";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -165,7 +165,7 @@ export const AutoCompounderDepositForm: React.FC = () => {
 
   const { data: lpBalance, isLoading: isBalanceLoading } = useBalance({
     address,
-    token: selectedLP?.address as `0x${string}`,
+    token: selectedLP?.poolAddress as `0x${string}`,
     watch: true,
   });
 

@@ -14,7 +14,7 @@ import {
   useContractWrite,
   useWaitForTransaction,
 } from "wagmi";
-import { LiquidityPool } from ".";
+import { LiquidityPool } from "lib/types";
 import {
   ActionButton,
   CloseButton,

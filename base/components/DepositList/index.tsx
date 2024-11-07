@@ -18,7 +18,7 @@ import {
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
 
 import { useAvailableLP } from "hooks/useAvailablePool";
-import { useBeefyVaultsData, VaultInfo } from "hooks/useBeefyVaultQueries";
+import { useBeefyVaultsData, VaultInfo } from "hooks/useBeefyVaultsData";
 import { useRouter } from "next/router";
 import {
   DataPairContainer,
@@ -27,7 +27,7 @@ import {
   RowContainer,
 } from "./styles";
 
-import { LiquidityPool } from "lib/constants";
+import { LiquidityPool } from "lib/types";
 import { formatUnits } from "viem";
 
 export interface TokenPair {
@@ -76,7 +76,7 @@ const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
     <RowContainer>
       <DataPairContainer>
         <Typography variant="body1">
-          {(vault?.balanceUSD ?? 0).toLocaleString(undefined, {
+          {(vault?.vaultValueUSD ?? 0).toLocaleString(undefined, {
             currency: "USD",
             style: "currency",
           })}
@@ -211,7 +211,7 @@ export const DepositList: React.FC = () => {
                   <Typography fontWeight={600}>
                     {(
                       vaultData?.find((e) => e.address === lp.vault)
-                        ?.balanceUSD ?? 0
+                        ?.vaultValueUSD ?? 0
                     ).toLocaleString(undefined, {
                       style: "currency",
                       currency: "USD",
@@ -221,8 +221,8 @@ export const DepositList: React.FC = () => {
                   </Typography>
                   <Typography variant="body1" color={"text.secondary"}>
                     {formatUnits(
-                      vaultData?.find((e) => e.address === lp.vault)?.balance ??
-                        BigInt(0),
+                      vaultData?.find((e) => e.address === lp.vault)
+                        ?.vaultValue ?? BigInt(0),
                       vaultData?.find((e) => e.address === lp.vault)
                         ?.decimals ?? 18
                     ) ?? "-"}{" "}

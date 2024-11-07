@@ -1,5 +1,6 @@
-import { Address, Chain } from "wagmi";
+import { Chain } from "wagmi";
 import { base, baseSepolia } from "wagmi/chains";
+import { LiquidityPool } from "./types";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -35,13 +36,6 @@ export const addresses = {
   },
 };
 
-export interface Token {
-  id: string;
-  name: string;
-  address: Address;
-  decimals: number;
-}
-
 const TOKENS: { [key: string]: Token } = {
   weth: {
     id: "weth",
@@ -68,17 +62,6 @@ const TOKENS: { [key: string]: Token } = {
     decimals: 18,
   },
 };
-
-export interface LiquidityPool {
-  id: string;
-  name: string;
-  balance?: string;
-  poolAddress: Address;
-  vault: Address;
-  decimals: number;
-  tokenA: Token;
-  tokenB: Token;
-}
 
 // Token mapping
 export const BASE_LIQUIDITY_POOLS: { [key: string]: LiquidityPool } = {

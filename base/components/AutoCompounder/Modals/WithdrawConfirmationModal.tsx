@@ -5,8 +5,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Position } from "components/AutoCompounderPositionsTable";
 import { parseUnits } from "ethers";
+import { Position } from "lib/types";
 import React, { useMemo, useState } from "react";
 import {
   CustomInputBase,

@@ -1,26 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { LiquidityPool } from "lib/constants";
+import { LiquidityPool } from "lib/types";
 import { Address, getContract } from "viem";
 import { usePublicClient } from "wagmi";
 import { useAvailableLP } from "./useAvailablePool";
-
-interface VaultInfo {
-  address: Address;
-  name: string;
-  symbol: string;
-  decimals: number;
-  totalSupply: bigint;
-  pricePerShare: bigint;
-  available: bigint;
-  balance: bigint;
-  apy?: number;
-  apr?: number;
-  dailyRate?: number;
-  strategy: Address;
-  wantToken: Address;
-  // Add USD value fields
-  balanceUSD?: number; // USD value of vault's total balance
-}
 
 const ERC20_ABI = [
   {
@@ -111,13 +93,18 @@ export interface VaultInfo {
   totalSupply: bigint;
   pricePerShare: bigint;
   available: bigint;
-  balance: bigint;
+
+  vaultValue: bigint;
+
   apy?: number;
   apr?: number;
+
   dailyRate?: number;
   strategy: Address;
   wantToken: Address;
-  balanceUSD?: number;
+
+  vaultValueUSD?: number;
+
   // Add underlying token info
   underlyingTokens?: {
     token0: {
@@ -159,7 +146,7 @@ export const useBeefyVaultsData = () => {
             totalSupply,
             pricePerShare,
             available,
-            balance,
+            vaultValue,
             strategy,
             wantToken,
           ] = await Promise.all([
@@ -237,8 +224,8 @@ export const useBeefyVaultsData = () => {
           const totalPoolValue = token0USD + token1USD;
 
           // Calculate vault's balance in USD
-          const balanceUSD =
-            Number(balance) * (totalPoolValue / Number(lpTotalSupply));
+          const vaultValueUSD =
+            Number(vaultValue) * (totalPoolValue / Number(lpTotalSupply));
 
           return {
             address: pool.vault as Address,
@@ -248,10 +235,10 @@ export const useBeefyVaultsData = () => {
             totalSupply,
             pricePerShare,
             available,
-            balance,
+            vaultValue,
             strategy,
             wantToken,
-            balanceUSD,
+            vaultValueUSD,
             underlyingTokens: {
               token0: {
                 address: token0Address,
@@ -276,7 +263,8 @@ export const useBeefyVaultsData = () => {
             totalSupply: 0n,
             pricePerShare: 0n,
             available: 0n,
-            balance: 0n,
+            vaultValue: 0n,
+            vaultValueUSD: 0,
             strategy: "0x" as Address,
             wantToken: "0x" as Address,
           };
