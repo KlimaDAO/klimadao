@@ -1,13 +1,17 @@
 import {
   Box,
+  CircularProgress,
   InputAdornment,
   InputLabel,
   Stack,
   Typography,
 } from "@mui/material";
+import { VAULT_ABI } from "abis/Vault";
 import { parseUnits } from "ethers";
 import { Position } from "lib/types";
 import React, { useMemo, useState } from "react";
+import { toast } from "react-toastify";
+import { useContractWrite, useWaitForTransaction } from "wagmi";
 import {
   CustomInputBase,
   MaxButton,
@@ -23,12 +27,6 @@ interface WithdrawModalProps {
   position: Position;
 }
 
-interface WithdrawModalProps {
-  open: boolean;
-  onClose: () => void;
-  onSuccess?: () => void;
-  position: Position;
-}
 export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   open,
   onClose,
@@ -36,9 +34,14 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   position,
 }) => {
   const [amount, setAmount] = useState("");
-  const availableLP = position.balance.lpTokens;
+  const [error, setError] = useState("");
+  const [transactionToastId, setTransactionToastId] =
+    useState<React.ReactText | null>(null);
+
+  const availableLP = position.vaultBalance.vaultTokens;
   const lpToken = position.lpToken;
 
+  // Parse amount to Wei
   const amountInWei = useMemo(() => {
     try {
       return parseUnits(amount || "0", lpToken.decimals);
@@ -48,29 +51,209 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
     }
   }, [amount, lpToken.decimals]);
 
-  const handleMaxClick = () => {
-    setAmount(availableLP.toString());
+  // Contract write hook
+  const {
+    write: withdraw,
+    data: withdrawData,
+    isLoading: isWithdrawLoading,
+    reset: resetWithdraw,
+    error: withdrawError,
+  } = useContractWrite({
+    address: position.vaultBalance.vaultAddress,
+    abi: VAULT_ABI,
+    functionName: "withdraw",
+    args: [amountInWei],
+    onError: (error) => {
+      // Handle pre-transaction errors (e.g., user rejects transaction)
+      handleTransactionError(error, "pre");
+    },
+  });
+
+  // Transaction status hook
+  const {
+    isLoading: isTransactionPending,
+    isSuccess: isTransactionSuccess,
+    error: transactionError,
+  } = useWaitForTransaction({
+    hash: withdrawData?.hash,
+    onSuccess: () => {
+      handleTransactionSuccess();
+    },
+    onError: (error) => {
+      // Handle on-chain transaction errors
+      handleTransactionError(error, "onChain");
+    },
+  });
+
+  // Combined loading state
+  const isLoading = isWithdrawLoading || isTransactionPending;
+
+  // Handle transaction success
+  const handleTransactionSuccess = () => {
+    if (transactionToastId) {
+      toast.dismiss(transactionToastId);
+      setTransactionToastId(null);
+    }
+    toast.success(
+      <Stack spacing={1}>
+        <Typography variant="body1">Withdrawal successful!</Typography>
+        <Typography variant="body2" sx={{ wordBreak: "break-all" }}>
+          Transaction: {withdrawData?.hash}
+        </Typography>
+      </Stack>
+    );
+    setTimeout(() => {
+      onSuccess?.();
+      onClose();
+    }, 1500);
   };
 
-  const handleWithdraw = async () => {
-    try {
-      console.log("Withdrawing:", amountInWei.toString());
-      onSuccess?.();
-    } catch (error) {
-      console.error("Withdrawal error:", error);
+  // Handle transaction errors
+  const handleTransactionError = (
+    error: Error,
+    errorType: "pre" | "onChain"
+  ) => {
+    if (transactionToastId) {
+      toast.dismiss(transactionToastId);
+      setTransactionToastId(null);
     }
+
+    const errorMessage = formatErrorMessage(
+      error?.message || "Transaction failed"
+    );
+    let userFriendlyMessage = "";
+
+    if (isUserRejection(errorMessage)) {
+      userFriendlyMessage = "Transaction rejected by user.";
+    } else if (isInsufficientFunds(errorMessage)) {
+      userFriendlyMessage = "Insufficient funds to complete the transaction.";
+    } else if (isSlippageError(errorMessage)) {
+      userFriendlyMessage =
+        "Transaction failed due to slippage or price impact.";
+    } else {
+      userFriendlyMessage = errorMessage;
+    }
+
+    toast.error(
+      <Stack spacing={1}>
+        <Typography variant="body1">
+          {errorType === "pre" ? "Transaction Error" : "Transaction Failed"}
+        </Typography>
+        <Typography variant="body2" color="error">
+          {userFriendlyMessage}
+        </Typography>
+      </Stack>
+    );
+  };
+
+  // Helper functions for error handling
+  const isUserRejection = (message: string): boolean => {
+    const rejectionPhrases = [
+      "user rejected",
+      "user denied",
+      "denied transaction",
+      "rejected by user",
+    ];
+    return rejectionPhrases.some((phrase) =>
+      message.toLowerCase().includes(phrase)
+    );
+  };
+
+  const isInsufficientFunds = (message: string): boolean => {
+    return message.toLowerCase().includes("insufficient funds");
+  };
+
+  const isSlippageError = (message: string): boolean => {
+    return (
+      message.toLowerCase().includes("slippage") ||
+      message.toLowerCase().includes("price impact")
+    );
+  };
+
+  const formatErrorMessage = (message: string): string => {
+    // Remove common Web3 error prefixes and technical details
+    return message
+      .replace(/^Error: /i, "")
+      .replace(/\(action=.*\)/, "")
+      .replace(/\(code=.*\)/, "")
+      .trim();
+  };
+
+  // Reset form state
+  const resetForm = () => {
+    setAmount("");
+    setError("");
+    resetWithdraw?.();
+  };
+
+  const handleMaxClick = () => {
+    setAmount(availableLP.toString());
+    setError("");
+  };
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    // Only allow numbers and decimal points
+    if (value && !/^\d*\.?\d*$/.test(value)) {
+      return;
+    }
+
+    setAmount(value);
+    validateAmount(value);
+  };
+
+  const validateAmount = (value: string) => {
+    if (value === "") {
+      setError("");
+      return;
+    }
+
+    const numAmount = parseFloat(value);
+    if (isNaN(numAmount)) {
+      setError("Please enter a valid number");
+    } else if (numAmount <= 0) {
+      setError("Amount must be greater than 0");
+    } else if (numAmount > availableLP) {
+      setError("Amount exceeds available LP tokens");
+    } else {
+      setError("");
+    }
+  };
+
+  const handleWithdraw = () => {
+    if (!withdraw) {
+      toast.error("Unable to initiate withdrawal. Please try again.");
+      return;
+    }
+    const id = toast.info("Please confirm the transaction in your wallet", {
+      autoClose: false,
+    });
+    setTransactionToastId(id);
+    withdraw();
+  };
+
+  // Allow modal to be closed at any time
+  const handleClose = () => {
+    // Dismiss any pending transaction toast
+    if (transactionToastId) {
+      toast.dismiss(transactionToastId);
+      setTransactionToastId(null);
+    }
+    resetForm();
+    onClose();
   };
 
   const isValidAmount = useMemo(() => {
     const numAmount = parseFloat(amount);
-    return numAmount > 0 && numAmount <= availableLP;
-  }, [amount, availableLP]);
+    return numAmount > 0 && numAmount <= availableLP && !error;
+  }, [amount, availableLP, error]);
 
   return (
     <BaseModal
       title="Withdraw"
       open={open}
-      onClose={onClose}
+      onClose={handleClose}
       aria-labelledby="withdraw-modal"
     >
       <Box>
@@ -88,14 +271,15 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
             <StyledInputWrapper>
               <CustomInputBase
                 fullWidth
-                type="number"
+                type="text"
                 value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+                onChange={handleAmountChange}
                 placeholder="0.0"
+                disabled={!!!availableLP || isLoading}
+                error={!!error}
                 inputProps={{
-                  min: 0,
-                  max: availableLP,
-                  step: "any",
+                  inputMode: "decimal",
+                  pattern: "[0-9]*",
                 }}
                 endAdornment={
                   <InputAdornment
@@ -107,8 +291,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
                   >
                     <MaxButton
                       onClick={handleMaxClick}
-                      disableRipple
-                      disabled={availableLP === "0"}
+                      disabled={!!!availableLP || isLoading}
                     >
                       MAX
                     </MaxButton>
@@ -116,6 +299,15 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
                 }
               />
             </StyledInputWrapper>
+            {error && (
+              <Typography
+                variant="caption"
+                color="error"
+                sx={{ mt: 1, display: "block" }}
+              >
+                {error}
+              </Typography>
+            )}
           </Box>
 
           <Typography
@@ -130,12 +322,28 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
             <ActionButton
               variant="primary"
               onClick={handleWithdraw}
-              disabled={!isValidAmount}
+              disabled={!isValidAmount || isLoading || !withdraw}
             >
-              WITHDRAW
+              {isLoading ? (
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <CircularProgress size={20} color="inherit" />
+                  <span>
+                    {isTransactionPending
+                      ? "CONFIRMING WITHDRAWAL..."
+                      : "PREPARING..."}
+                  </span>
+                </Stack>
+              ) : (
+                "WITHDRAW"
+              )}
             </ActionButton>
 
-            <ActionButton variant="secondary" onClick={onClose}>
+            <ActionButton
+              variant="secondary"
+              onClick={handleClose}
+              disabled={isTransactionPending}
+              // Removed 'disabled' prop to allow closing the modal anytime
+            >
               GO BACK
             </ActionButton>
           </Stack>

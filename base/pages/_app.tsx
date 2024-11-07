@@ -20,6 +20,8 @@ import {
 } from "@tanstack/react-query";
 import { AppTheme } from "lib/theme";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/globals.css";
 
 const { chains, publicClient } = configureChains(
@@ -51,6 +53,17 @@ export default function App({ Component, pageProps }: AppProps) {
           <StyledEngineProvider injectFirst>
             <QueryClientProvider client={reactQueryClient}>
               <Component {...pageProps} />
+              <ToastContainer
+                position="top-right"
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                draggable
+                theme="dark" // or "light" based on your preference
+                pauseOnFocusLoss={false}
+                pauseOnHover={false}
+              />
             </QueryClientProvider>
           </StyledEngineProvider>
         </RainbowKitProvider>

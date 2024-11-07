@@ -2,17 +2,13 @@ import { Address } from "wagmi";
 
 export interface Position {
   lpToken: LiquidityPool;
-  balance: {
+  lpBalance: {
     usd: number;
     lpTokens: number;
   };
-  yield: {
-    usd: number;
-    lpTokens: number;
-  };
-  tvl: {
-    usd: number;
+  vaultBalance: {
     vaultTokens: number;
+    vaultAddress: Address;
   };
 }
 

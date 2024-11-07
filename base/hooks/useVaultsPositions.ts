@@ -1,100 +1,88 @@
 import { useQuery } from "@tanstack/react-query";
-
 import { LiquidityPool, Position } from "lib/types";
-import { formatUnits } from "viem";
-import { useAccount } from "wagmi";
+import { formatUnits, getContract } from "viem";
+import { useAccount, usePublicClient } from "wagmi";
 import { useAvailableLP } from "./useAvailablePool";
 import { VaultInfo, useBeefyVaultsData } from "./useBeefyVaultsData";
 
-// Helper function to calculate BigInt exponentiation
-const getBigIntDecimals = (decimals: number): bigint => {
-  let result = BigInt(1);
-  for (let i = 0; i < decimals; i++) {
-    result *= BigInt(10);
-  }
-  return result;
-};
-
-// Helper to serialize vault addresses for query key
-const serializeQueryKey = (vaultsData: any[] | undefined) => {
-  if (!vaultsData) return [];
-  return vaultsData.map((vault) => vault.address);
-};
+const VAULT_ABI = [
+  {
+    type: "function",
+    name: "balanceOf",
+    inputs: [{ name: "account", type: "address" }],
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "view",
+  },
+] as const;
 
 export const useVaultsPositions = () => {
   const { address: userAddress } = useAccount();
-
   const { data: vaultsData } = useBeefyVaultsData();
   const { lps } = useAvailableLP();
+  const publicClient = usePublicClient();
 
   return useQuery({
-    queryKey: ["positions", userAddress, serializeQueryKey(vaultsData)],
+    queryKey: [
+      "positions",
+      userAddress,
+      vaultsData ? vaultsData.map((v) => v.address) : [],
+    ],
     queryFn: async (): Promise<Position[]> => {
-      if (!vaultsData || !lps || !userAddress) return [];
+      if (!vaultsData || !lps || !userAddress || !publicClient) return [];
 
-      // Transform vault data into positions
-      const positions: Position[] = vaultsData
-        .map((vault: VaultInfo) => {
+      const positions = await Promise.all(
+        vaultsData.map(async (vault: VaultInfo) => {
           try {
-            // Find corresponding LP info
             const lpInfo = Object.values(lps).find(
               (lp: LiquidityPool) => lp.vault === vault.address
             );
 
             if (!lpInfo) return null;
 
-            // Calculate user's balance in LP tokens
-            const userBalanceInVaultTokens = vault.vaultValue;
+            // Get user's vault shares (vault tokens)
+            const vaultContract = getContract({
+              address: vault.address,
+              abi: VAULT_ABI,
+              publicClient,
+            });
 
-            const pricePerShare = vault.pricePerShare;
+            const userShares = await vaultContract.read.balanceOf([
+              userAddress,
+            ]);
 
-            const decimalsMultiplier = getBigIntDecimals(vault.decimals);
-
+            // Calculate user's LP tokens: (totalLPTokens * userShares) / totalShares
             const userLPTokens =
-              (userBalanceInVaultTokens * pricePerShare) / decimalsMultiplier;
+              vault.totalSupply > 0n
+                ? (vault.vaultValue * userShares) / vault.totalSupply
+                : 0n;
 
-            // Calculate user's balance in USD
-            const userBalanceUSD = vault.vaultValueUSD || 0;
-
-            // Calculate yield (this is an example - you might want to adjust the calculation based on your needs)
-            const yieldUSD = userBalanceUSD * 0.1; // 10% yield for example
-            const yieldLPTokens =
-              Number(formatUnits(userLPTokens, vault.decimals)) * 0.1;
-
-            // Calculate TVL
-            const tvlBigInt = vault.totalSupply * vault.pricePerShare;
-            const doubleDecimalMultiplier = getBigIntDecimals(
-              vault.decimals * 2
-            );
-            const tvlUSD = Number(formatUnits(tvlBigInt, vault.decimals * 2));
-            const tvlVaultTokens = Number(
-              formatUnits(vault.totalSupply, vault.decimals)
-            );
-
-            return {
+            const position: Position = {
               lpToken: lpInfo,
-              balance: {
-                usd: userBalanceUSD,
+              lpBalance: {
+                usd: vault.vaultValueUSD
+                  ? (Number(userLPTokens) / Number(vault.vaultValue)) *
+                    vault.vaultValueUSD
+                  : 0,
                 lpTokens: Number(formatUnits(userLPTokens, vault.decimals)),
               },
-              yield: {
-                usd: yieldUSD,
-                lpTokens: yieldLPTokens,
+              vaultBalance: {
+                vaultAddress: vault.address,
+                vaultTokens: Number(formatUnits(userShares, vault.decimals)),
               },
-              tvl: {
-                usd: tvlUSD,
-                vaultTokens: tvlVaultTokens,
-              },
-            } as Position;
+            };
+
+            return position;
           } catch (error) {
             console.error(`Error processing vault ${vault.address}:`, error);
             return null;
           }
         })
-        .filter(Boolean) as Position[];
+      );
 
-      return positions;
+      return positions.filter(
+        (position): position is Position => position !== null
+      );
     },
-    enabled: userAddress && !!vaultsData && !!lps,
+    enabled: !!userAddress && !!vaultsData && !!lps && !!publicClient,
   });
 };

@@ -7,8 +7,11 @@ import { useVaultsPositions } from "hooks/useVaultsPositions";
 import { NextPage } from "next";
 
 const AutoCompounderPositions: NextPage = () => {
-  const { data: positions, isLoading: isPositionDataLoading } =
-    useVaultsPositions();
+  const {
+    data: positions,
+    isLoading: isPositionDataLoading,
+    refetch,
+  } = useVaultsPositions();
 
   const theme = useTheme();
 
@@ -60,7 +63,10 @@ const AutoCompounderPositions: NextPage = () => {
           borderRadius: "8px",
         }}
       >
-        <AutoCompounderPositionsTable positions={positions} />
+        <AutoCompounderPositionsTable
+          positions={positions}
+          refetchPositions={refetch}
+        />
       </Box>
     </Layout>
   );

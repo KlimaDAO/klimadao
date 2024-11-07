@@ -29,14 +29,25 @@ const BaseModal: React.FC<BaseModalProps> = ({
   children,
   "aria-labelledby": ariaLabelledBy,
 }) => {
+  const handleModalClose = (
+    event: {},
+    reason: "backdropClick" | "escapeKeyDown"
+  ) => {
+    if (reason === "backdropClick") {
+      return;
+    }
+
+    onClose();
+  };
   return (
     <StyledModal
       open={open}
-      onClose={onClose}
+      onClose={handleModalClose}
       aria-labelledby={ariaLabelledBy || "modal-title"}
       closeAfterTransition
       disableAutoFocus
       disableEnforceFocus
+      disableEscapeKeyDown
       slots={{ backdrop: CustomBackdrop }}
       slotProps={{
         backdrop: {

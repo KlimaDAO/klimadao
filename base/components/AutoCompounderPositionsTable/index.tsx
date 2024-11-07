@@ -28,6 +28,7 @@ import {
 
 interface PositionsTableProps {
   positions: Position[];
+  refetchPositions: () => void;
 }
 
 const formatUSD = (value: number) =>
@@ -62,13 +63,13 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
 
     <RowContainer>
       <DataPairContainer>
-        <Typography>{formatUSD(position.balance.usd)}</Typography>
+        <Typography>{formatUSD(position.lpBalance.usd)}</Typography>
         <Typography variant="caption" fontWeight={600} color="text.secondary">
           BALANCE
         </Typography>
       </DataPairContainer>
       <DataPairContainer>
-        <Typography align="right">{position.balance.lpTokens}</Typography>
+        <Typography align="right">{position.lpBalance.lpTokens}</Typography>
         <Typography
           variant="caption"
           fontWeight={600}
@@ -82,40 +83,8 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
 
     <RowContainer>
       <DataPairContainer>
-        <Typography>{formatUSD(position.yield.usd)}</Typography>
+        <Typography>{position.vaultBalance.vaultTokens}</Typography>
         <Typography variant="caption" fontWeight={600} color="text.secondary">
-          YIELD ACCRUED
-        </Typography>
-      </DataPairContainer>
-      <DataPairContainer>
-        <Typography align="right">{position.yield.lpTokens}</Typography>
-        <Typography
-          variant="caption"
-          fontWeight={600}
-          align="right"
-          color="text.secondary"
-        >
-          ACCRUED LP TOKENS
-        </Typography>
-      </DataPairContainer>
-    </RowContainer>
-
-    <RowContainer>
-      {/* $ value of Vault tokens */}
-      <DataPairContainer>
-        <Typography>{formatUSD(position.tvl.usd)}</Typography>
-        <Typography variant="caption" fontWeight={600} color="text.secondary">
-          TVL
-        </Typography>
-      </DataPairContainer>
-      <DataPairContainer>
-        <Typography align="right">{position.tvl.vaultTokens}</Typography>
-        <Typography
-          variant="caption"
-          fontWeight={600}
-          align="right"
-          color="text.secondary"
-        >
           VAULT TOKENS
         </Typography>
       </DataPairContainer>
@@ -132,6 +101,7 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
 
 export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
   positions,
+  refetchPositions,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -162,6 +132,7 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
             onClose={() => {
               setShowModal(false);
               setSelectedPosition(null);
+              refetchPositions();
             }}
           />
         ) : null}
@@ -187,12 +158,6 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
               <TableCell align="right">
                 <Typography py={0.75} variant="body2" fontWeight={600}>
                   BALANCE
-                </Typography>
-              </TableCell>
-              <TableCell align="right">
-                <Typography py={0.75} variant="body2" fontWeight={600}>
-                  {" "}
-                  YIELD ACCRUED
                 </Typography>
               </TableCell>
               <TableCell align="right">
@@ -224,22 +189,13 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
                   </Box>
                 </TableCell>
                 <TableCell align="right">
-                  <Typography>{formatUSD(position.balance.usd)}</Typography>
+                  <Typography>{formatUSD(position.lpBalance.usd)}</Typography>
                   <Typography color="text.secondary">
-                    {`${position.balance.lpTokens ?? "-"} LP Tokens`}
+                    {`${position.lpBalance.lpTokens ?? "-"} LP Tokens`}
                   </Typography>
                 </TableCell>
                 <TableCell align="right">
-                  <Typography>{formatUSD(position.yield.usd)}</Typography>
-                  <Typography color="text.secondary">
-                    {`${position.yield.lpTokens ?? "-"} LP Tokens`}
-                  </Typography>
-                </TableCell>
-                <TableCell align="right">
-                  <Typography>{formatUSD(position.tvl.usd)}</Typography>
-                  <Typography color="text.secondary">
-                    {`${position.tvl.vaultTokens ?? "-"} Vault Tokens`}
-                  </Typography>
+                  <Typography>{position.vaultBalance.vaultTokens}</Typography>
                 </TableCell>
                 <TableCell align="right">
                   <Stack
@@ -270,6 +226,7 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
           onClose={() => {
             setShowModal(false);
             setSelectedPosition(null);
+            refetchPositions();
           }}
         />
       ) : null}
