@@ -19,7 +19,7 @@ export const StyledPaper = styled(Paper)(({ theme }) => ({
 
   padding: "20px",
   position: "relative",
-  width: "364px",
+  width: "420px",
 
   [theme.breakpoints.down("sm")]: {
     width: "100%",

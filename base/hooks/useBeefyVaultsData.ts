@@ -1,26 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import { ERC20_ABI } from "abis/ERC20";
 import { VAULT_ABI } from "abis/Vault";
 import { LiquidityPool } from "lib/types";
 import { Address, getContract } from "viem";
 import { usePublicClient } from "wagmi";
 import { useAvailableLP } from "./useAvailablePool";
-
-const ERC20_ABI = [
-  {
-    name: "symbol",
-    type: "function",
-    stateMutability: "view",
-    inputs: [],
-    outputs: [{ type: "string", name: "" }],
-  },
-  {
-    name: "decimals",
-    type: "function",
-    stateMutability: "view",
-    inputs: [],
-    outputs: [{ type: "uint8", name: "" }],
-  },
-] as const;
 
 // LP contract ABI just for getting reserves
 const LP_ABI = [
