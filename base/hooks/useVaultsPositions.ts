@@ -52,9 +52,9 @@ export const useVaultsPositions = () => {
 
             // Calculate user's LP tokens: (totalLPTokens * userShares) / totalShares
             const userLPTokens =
-              vault.totalSupply > 0n
+              vault.totalSupply > BigInt(0)
                 ? (vault.vaultValue * userShares) / vault.totalSupply
-                : 0n;
+                : BigInt(0);
 
             const position: Position = {
               lpToken: lpInfo,
@@ -83,6 +83,6 @@ export const useVaultsPositions = () => {
         (position): position is Position => position !== null
       );
     },
-    enabled: !!userAddress && !!vaultsData && !!lps && !!publicClient,
+    enabled: userAddress && !!vaultsData && !!lps && !!publicClient,
   });
 };

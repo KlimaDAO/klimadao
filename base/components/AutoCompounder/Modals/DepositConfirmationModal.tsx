@@ -79,7 +79,7 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
   const { isLoading: isApproveConfirming, isSuccess: isApproveSuccess } =
     useWaitForTransaction({
       hash: approveData?.hash,
-      confirmations: 2
+      confirmations: 2,
       onSuccess: () => {
         handleApproveSuccess();
       },
