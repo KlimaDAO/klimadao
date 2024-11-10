@@ -50,6 +50,7 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
 }) => {
   const [transactionState, setTransactionState] =
     useState<TransactionState>("idle");
+  const [approvalConfirmed, setApprovalConfirmed] = useState(false);
   const { address } = useAccount();
 
   const amountInWei = useMemo(() => {
@@ -75,9 +76,16 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
   // Reset state when modal opens/closes
   useEffect(() => {
     if (open) {
-      setTransactionState(isApprovalNeeded ? "idle" : "approved");
+      if (!isApprovalNeeded) {
+        setTransactionState("approved");
+        setApprovalConfirmed(true);
+      } else {
+        setTransactionState("idle");
+        setApprovalConfirmed(false);
+      }
     } else {
       setTransactionState("idle");
+      setApprovalConfirmed(false);
     }
   }, [open, isApprovalNeeded]);
 
@@ -99,6 +107,7 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
     isError: isApproveError,
   } = useWaitForTransaction({
     hash: approveData?.hash,
+    confirmations: 5, // Wait for at least 1 confirmation
   });
 
   const {
@@ -109,14 +118,16 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
     hash: depositData?.hash,
   });
 
-  // Enhanced approval transaction tracking
+  // Enhanced approval transaction tracking with confirmation
   useEffect(() => {
     if (isApproving) {
       setTransactionState("approving");
     } else if (isApproveSuccess) {
       setTransactionState("approved");
+      setApprovalConfirmed(true);
     } else if (isApproveError) {
       setTransactionState("error");
+      setApprovalConfirmed(false);
     }
   }, [isApproving, isApproveSuccess, isApproveError]);
 
@@ -148,8 +159,9 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
 
   const handleDeposit = async () => {
     try {
-      // Only allow deposit if approval is completed
-      if (transactionState !== "approved") {
+      // Only allow deposit if approval is confirmed
+      if (!approvalConfirmed || transactionState !== "approved") {
+        console.warn("Cannot deposit: Approval not confirmed");
         return;
       }
 
@@ -175,9 +187,9 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
       case "idle":
         return "Please approve the transaction";
       case "approving":
-        return "Approval in progress...";
+        return "Approval in progress... Waiting for confirmation";
       case "approved":
-        return "Ready to deposit";
+        return "Approval confirmed. Ready to deposit";
       case "depositing":
         return "Deposit in progress...";
       case "success":
@@ -192,10 +204,10 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
   // Determine if user can interact with modal
   const canInteract = !isApproving && !isDepositing;
 
-  // Determine step states
+  // Determine step states with enhanced approval checking
   const isApproveStep =
     transactionState === "idle" || transactionState === "approving";
-  const isDepositStep = transactionState === "approved";
+  const isDepositStep = transactionState === "approved" && approvalConfirmed;
 
   return (
     <BaseModal
@@ -221,7 +233,7 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
                 $isActive={isApproveStep}
                 disabled={!isApproveStep || !canInteract}
               >
-                1. {transactionState === "approved" ? "Approved" : "Approve"}
+                1. {approvalConfirmed ? "Approved" : "Approve"}
               </StepButton>
               <StepButton
                 $isActive={isDepositStep}

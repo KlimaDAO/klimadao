@@ -74,21 +74,21 @@ export const StepButton = styled(Button)<{ $isActive?: boolean }>(
   ({ $isActive, theme }) => ({
     width: "158px",
     height: "41px",
-    background: $isActive ? "#00CC33" : "transparent", // Changed back to original
+    background: $isActive ? "#00CC33" : "transparent",
     borderRadius: "4px",
     padding: "12px 0px",
-    color: $isActive ? "#FFFFFF" : "#9C9C9C", // Changed back to original
-    fontFamily: theme.typography.fontFamily, // Keep theme font
+    color: $isActive ? "#FFFFFF" : "#9C9C9C",
+    fontFamily: theme.typography.fontFamily,
     fontWeight: 600,
     fontSize: "14px",
     lineHeight: "17px",
     textTransform: "none",
     boxShadow: $isActive ? "0px 4px 24px rgba(0, 0, 0, 0.12)" : "none",
     "&:hover": {
-      background: $isActive ? "#00CC33" : "transparent", // Changed back to original
+      background: $isActive ? "#00CC33" : "transparent",
     },
     "&.Mui-disabled": {
-      color: "#9C9C9C", // Changed back to original
+      color: "#FFFFFF", // Changed this to keep white color when disabled
     },
   })
 );
