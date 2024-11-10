@@ -1,19 +1,14 @@
 import {
   Box,
   Button,
+  ButtonProps,
   IconButton,
   Modal,
   styled,
   Typography,
 } from "@mui/material";
 
-export const StyledModal = styled(Modal)({
-  //   [`& .MuiModal-backdrop, & .MuiBackdrop-root`]: {
-  //     backgroundColor: "rgba(0, 0, 0, 0.2) !important",
-  //     backdropFilter: "blur(8px) !important",
-  //     WebkitBackdropFilter: "blur(8px) !important",
-  //   },
-});
+export const StyledModal = styled(Modal)({});
 
 export const CustomBackdrop = styled("div")({
   position: "fixed",
@@ -76,28 +71,37 @@ export const StepContainer = styled(Box)(({ theme }) => ({
   borderRadius: "8px",
 }));
 
-export const StepButton = styled(Button)<{ $isActive?: boolean }>(
-  ({ $isActive, theme }) => ({
-    width: "158px",
-    height: "41px",
-    background: $isActive ? "#00CC33" : "transparent", // Changed back to original
-    borderRadius: "4px",
-    padding: "12px 0px",
-    color: $isActive ? "#FFFFFF" : "#9C9C9C", // Changed back to original
-    fontFamily: theme.typography.fontFamily, // Keep theme font
-    fontWeight: 600,
-    fontSize: "14px",
-    lineHeight: "17px",
-    textTransform: "none",
-    boxShadow: $isActive ? "0px 4px 24px rgba(0, 0, 0, 0.12)" : "none",
-    "&:hover": {
-      background: $isActive ? "#00CC33" : "transparent", // Changed back to original
-    },
-    "&.Mui-disabled": {
-      color: "#9C9C9C", // Changed back to original
-    },
-  })
-);
+interface StepButtonProps extends ButtonProps {
+  isActive?: boolean;
+  isCompleted?: boolean;
+}
+
+export const StepButton = styled(Button, {
+  shouldForwardProp: (prop) => prop !== "isActive" && prop !== "isCompleted",
+})<StepButtonProps>(({ isActive, isCompleted, theme }) => ({
+  width: "158px",
+  height: "41px",
+  background: isCompleted ? "#00CC33" : isActive ? "#00CC33" : "transparent",
+  borderRadius: "4px",
+  padding: "12px 0px",
+  color: isActive || isCompleted ? "#FFFFFF" : "#9C9C9C",
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 600,
+  fontSize: "14px",
+  lineHeight: "17px",
+  textTransform: "none",
+  boxShadow:
+    isActive || isCompleted ? "0px 4px 24px rgba(0, 0, 0, 0.12)" : "none",
+  "&:hover": {
+    background: isCompleted ? "#00CC33" : isActive ? "#00CC33" : "transparent",
+  },
+  "&.Mui-disabled": {
+    background: isCompleted ? "#00CC33" : "transparent",
+    color: isCompleted ? "#FFFFFF" : "#9C9C9C",
+    opacity: isCompleted ? 1 : 0.5,
+  },
+}));
+
 export const InputLabel = styled(Typography)(({ theme }) => ({
   fontFamily: theme.typography.fontFamily,
   fontWeight: 400,

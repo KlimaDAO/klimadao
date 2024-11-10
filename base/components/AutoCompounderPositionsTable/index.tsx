@@ -120,9 +120,6 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
     setShowModal(true);
   };
 
-  console.log({
-    positions,
-  });
   if (
     !positions ||
     positions.length === 0 ||

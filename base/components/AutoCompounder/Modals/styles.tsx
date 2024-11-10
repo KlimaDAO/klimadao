@@ -7,13 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 
-export const StyledModal = styled(Modal)({
-  //   [`& .MuiModal-backdrop, & .MuiBackdrop-root`]: {
-  //     backgroundColor: "rgba(0, 0, 0, 0.2) !important",
-  //     backdropFilter: "blur(8px) !important",
-  //     WebkitBackdropFilter: "blur(8px) !important",
-  //   },
-});
+export const StyledModal = styled(Modal)();
 
 export const CustomBackdrop = styled("div")({
   position: "fixed",
@@ -98,6 +92,7 @@ export const StepButton = styled(Button)<{ $isActive?: boolean }>(
     },
   })
 );
+
 export const InputLabel = styled(Typography)(({ theme }) => ({
   fontFamily: theme.typography.fontFamily,
   fontWeight: 400,
