@@ -17,6 +17,7 @@ import {
 
 import { WithdrawConfirmationModal } from "components/AutoCompounder/Modals/WithdrawConfirmationModal";
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
+import { formatTokenAmount, formatUSD } from "lib/str-format";
 import { Position } from "lib/types";
 import React from "react";
 import {
@@ -31,12 +32,6 @@ interface PositionsTableProps {
   refetchPositions: () => void;
 }
 
-const formatUSD = (value: number) =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(value);
-
 interface MobilePositionProps {
   position: Position;
   onWithdraw: (position: Position) => void;
@@ -45,59 +40,68 @@ interface MobilePositionProps {
 const MobilePosition: React.FC<MobilePositionProps> = ({
   position,
   onWithdraw,
-}) => (
-  <MobileItemWrapper>
-    <RowContainer>
-      <Box display={"flex"} alignItems={"center"} gap={0.5} py={0.5}>
-        <TokenPairLogo
-          token1={position.lpToken.tokenA.name}
-          token2={position.lpToken.tokenB.name}
-        />
-        <Stack>
-          <Typography variant="body1" fontWeight={700}>
-            {`${position.lpToken.tokenA.name}/${position.lpToken.tokenB.name}`}
+}) => {
+  if (position.vaultBalance.vaultTokens === 0) {
+    return null;
+  }
+  return (
+    <MobileItemWrapper>
+      <RowContainer>
+        <Box display={"flex"} alignItems={"center"} gap={0.5} py={0.5}>
+          <TokenPairLogo
+            token1={position.lpToken.tokenA.name}
+            token2={position.lpToken.tokenB.name}
+          />
+          <Stack>
+            <Typography variant="body1" fontWeight={700}>
+              {`${position.lpToken.tokenA.name}/${position.lpToken.tokenB.name}`}
+            </Typography>
+          </Stack>
+        </Box>
+      </RowContainer>
+
+      <RowContainer>
+        <DataPairContainer>
+          <Typography>{formatUSD(position.lpBalance.usd)}</Typography>
+          <Typography variant="caption" fontWeight={600} color="text.secondary">
+            BALANCE
           </Typography>
-        </Stack>
-      </Box>
-    </RowContainer>
+        </DataPairContainer>
+        <DataPairContainer>
+          <Typography align="right">
+            {formatTokenAmount(position.lpBalance.lpTokens)}
+          </Typography>
+          <Typography
+            variant="caption"
+            fontWeight={600}
+            align="right"
+            color="text.secondary"
+          >
+            TOTAL LP TOKENS
+          </Typography>
+        </DataPairContainer>
+      </RowContainer>
 
-    <RowContainer>
-      <DataPairContainer>
-        <Typography>{formatUSD(position.lpBalance.usd)}</Typography>
-        <Typography variant="caption" fontWeight={600} color="text.secondary">
-          BALANCE
-        </Typography>
-      </DataPairContainer>
-      <DataPairContainer>
-        <Typography align="right">{position.lpBalance.lpTokens}</Typography>
-        <Typography
-          variant="caption"
-          fontWeight={600}
-          align="right"
-          color="text.secondary"
-        >
-          TOTAL LP TOKENS
-        </Typography>
-      </DataPairContainer>
-    </RowContainer>
+      <RowContainer>
+        <DataPairContainer>
+          <Typography>
+            {formatTokenAmount(position.vaultBalance.vaultTokens)}
+          </Typography>
+          <Typography variant="caption" fontWeight={600} color="text.secondary">
+            VAULT TOKENS
+          </Typography>
+        </DataPairContainer>
+      </RowContainer>
 
-    <RowContainer>
-      <DataPairContainer>
-        <Typography>{position.vaultBalance.vaultTokens}</Typography>
-        <Typography variant="caption" fontWeight={600} color="text.secondary">
-          VAULT TOKENS
-        </Typography>
-      </DataPairContainer>
-    </RowContainer>
-
-    <RowContainer>
-      <WithdrawButton onClick={() => onWithdraw(position)}>
-        <Typography color="primary">Withdraw</Typography>
-        <SwapHorizIcon color="primary" sx={{ width: 20, height: 20 }} />
-      </WithdrawButton>
-    </RowContainer>
-  </MobileItemWrapper>
-);
+      <RowContainer>
+        <WithdrawButton onClick={() => onWithdraw(position)}>
+          <Typography color="primary">Withdraw</Typography>
+          <SwapHorizIcon color="primary" sx={{ width: 20, height: 20 }} />
+        </WithdrawButton>
+      </RowContainer>
+    </MobileItemWrapper>
+  );
+};
 
 export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
   positions,
@@ -173,49 +177,63 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
             </TableRow>
           </TableHead>
           <TableBody>
-            {positions.map((position, index) => (
-              <TableRow key={index}>
-                <TableCell>
-                  <Box display="flex" alignItems="center" gap={1}>
-                    <TokenPairLogo
-                      token1={position.lpToken.tokenA.name}
-                      token2={position.lpToken.tokenB.name}
-                    />
-                    <Stack>
+            {positions.map((position, index) => {
+              if (position.vaultBalance.vaultTokens !== 0) {
+                return (
+                  <TableRow key={index}>
+                    <TableCell>
+                      <Box display="flex" alignItems="center" gap={1}>
+                        <TokenPairLogo
+                          token1={position.lpToken.tokenA.name}
+                          token2={position.lpToken.tokenB.name}
+                        />
+                        <Stack>
+                          <Typography>
+                            {`${position.lpToken.tokenA.name}/${position.lpToken.tokenB.name}`}
+                          </Typography>
+                        </Stack>
+                      </Box>
+                    </TableCell>
+                    <TableCell align="right">
                       <Typography>
-                        {`${position.lpToken.tokenA.name}/${position.lpToken.tokenB.name}`}
+                        {formatUSD(position.lpBalance.usd)}
                       </Typography>
-                    </Stack>
-                  </Box>
-                </TableCell>
-                <TableCell align="right">
-                  <Typography>{formatUSD(position.lpBalance.usd)}</Typography>
-                  <Typography color="text.secondary">
-                    {`${position.lpBalance.lpTokens ?? "-"} LP Tokens`}
-                  </Typography>
-                </TableCell>
-                <TableCell align="right">
-                  <Typography>{position.vaultBalance.vaultTokens}</Typography>
-                </TableCell>
-                <TableCell align="right">
-                  <Stack
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="flex-end"
-                  >
-                    <Button
-                      disabled={!position}
-                      onClick={() => onWithdraw(position)}
-                    >
-                      <Stack direction={"row"} gap={1} alignItems={"center"}>
-                        <Typography color="primary">Withdraw</Typography>
-                        <SwapHorizIcon />
+                      <Typography color="text.secondary">
+                        {`${
+                          formatTokenAmount(position.lpBalance.lpTokens) ?? "-"
+                        } ${position.lpToken.name}`}
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="right">
+                      <Typography>
+                        {formatTokenAmount(position.vaultBalance.vaultTokens)}
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="right">
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="flex-end"
+                      >
+                        <Button
+                          disabled={!position}
+                          onClick={() => onWithdraw(position)}
+                        >
+                          <Stack
+                            direction={"row"}
+                            gap={1}
+                            alignItems={"center"}
+                          >
+                            <Typography color="primary">Withdraw</Typography>
+                            <SwapHorizIcon />
+                          </Stack>
+                        </Button>
                       </Stack>
-                    </Button>
-                  </Stack>
-                </TableCell>
-              </TableRow>
-            ))}
+                    </TableCell>
+                  </TableRow>
+                );
+              }
+            })}
           </TableBody>
         </Table>
       </TableContainer>

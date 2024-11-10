@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ERC20_ABI } from "abis/ERC20";
 import { VAULT_ABI } from "abis/Vault";
-import { LiquidityPool } from "lib/types";
+import { LiquidityPool, VaultInfo } from "lib/types";
 import { Address, getContract } from "viem";
 import { usePublicClient } from "wagmi";
 import { useAvailableLP } from "./useAvailablePool";
@@ -68,41 +68,6 @@ async function fetchMultiplePrices(
     console.error("Error fetching multiple prices:", error);
     return {};
   }
-}
-
-export interface VaultInfo {
-  address: Address;
-  name: string;
-  symbol: string;
-  decimals: number;
-  totalSupply: bigint;
-  pricePerShare: bigint;
-  available: bigint;
-
-  vaultValue: bigint;
-
-  apy?: number;
-  apr?: number;
-
-  dailyRate?: number;
-  strategy: Address;
-  wantToken: Address;
-
-  vaultValueUSD?: number;
-
-  // Add underlying token info
-  underlyingTokens?: {
-    token0: {
-      address: Address;
-      symbol: string;
-      decimals: number;
-    };
-    token1: {
-      address: Address;
-      symbol: string;
-      decimals: number;
-    };
-  };
 }
 
 export const useBeefyVaultsData = () => {

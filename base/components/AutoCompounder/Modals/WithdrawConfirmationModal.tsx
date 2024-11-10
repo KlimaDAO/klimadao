@@ -11,7 +11,12 @@ import { parseUnits } from "ethers";
 import { Position } from "lib/types";
 import React, { useMemo, useState } from "react";
 import { toast } from "react-toastify";
-import { useContractWrite, useWaitForTransaction } from "wagmi";
+import {
+  useAccount,
+  useBalance,
+  useContractWrite,
+  useWaitForTransaction,
+} from "wagmi";
 import {
   CustomInputBase,
   MaxButton,
@@ -38,18 +43,30 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   const [transactionToastId, setTransactionToastId] =
     useState<React.ReactText | null>(null);
 
-  const availableLP = position.vaultBalance.vaultTokens;
-  const lpToken = position.lpToken;
+  const { address: userAddress } = useAccount();
 
-  // Parse amount to Wei
+  // Use wagmi's useBalance hook for vault token balance
+  const { data: vaultBalance, isLoading: isBalanceLoading } = useBalance({
+    address: userAddress,
+    token: position.vaultBalance.vaultAddress as `0x${string}`,
+    watch: true,
+  });
+
+  // Memoize formatted balance
+  const formattedBalance = useMemo(
+    () => (vaultBalance ? vaultBalance.formatted : "0"),
+    [vaultBalance]
+  );
+
+  // Parse amount to Wei using the token's decimals
   const amountInWei = useMemo(() => {
     try {
-      return parseUnits(amount || "0", lpToken.decimals);
+      return parseUnits(amount || "0", vaultBalance?.decimals ?? 18);
     } catch (e) {
       console.error("Error parsing amount:", e);
       return BigInt(0);
     }
-  }, [amount, lpToken.decimals]);
+  }, [amount, vaultBalance?.decimals]);
 
   // Contract write hook
   const {
@@ -57,14 +74,12 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
     data: withdrawData,
     isLoading: isWithdrawLoading,
     reset: resetWithdraw,
-    error: withdrawError,
   } = useContractWrite({
     address: position.vaultBalance.vaultAddress,
     abi: VAULT_ABI,
     functionName: "withdraw",
     args: [amountInWei],
     onError: (error) => {
-      // Handle pre-transaction errors (e.g., user rejects transaction)
       handleTransactionError(error, "pre");
     },
   });
@@ -80,13 +95,61 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
       handleTransactionSuccess();
     },
     onError: (error) => {
-      // Handle on-chain transaction errors
       handleTransactionError(error, "onChain");
     },
   });
 
   // Combined loading state
   const isLoading = isWithdrawLoading || isTransactionPending;
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    // Only allow numbers and decimal points
+    if (value && !/^\d*\.?\d*$/.test(value)) {
+      return;
+    }
+
+    // Prevent multiple decimal points
+    if ((value.match(/\./g) || []).length > 1) return;
+
+    // Check decimal places don't exceed token decimals
+    const parts = value.split(".");
+    if (parts[1] && parts[1].length > (vaultBalance?.decimals ?? 18)) return;
+
+    setAmount(value);
+    validateAmount(value);
+  };
+
+  const validateAmount = (value: string) => {
+    if (value === "") {
+      setError("");
+      return;
+    }
+
+    const numAmount = Number(value);
+
+    // Check for zero or very small values (effectively zero)
+    if (numAmount <= 1e-18) {
+      setError("Amount must be greater than 0");
+      return;
+    }
+
+    if (isNaN(numAmount)) {
+      setError("Please enter a valid number");
+    } else if (numAmount <= 0) {
+      setError("Amount must be greater than 0");
+    } else if (numAmount > Number(formattedBalance)) {
+      setError("Amount exceeds available balance");
+    } else {
+      setError("");
+    }
+  };
+
+  const handleMaxClick = () => {
+    setAmount(formattedBalance);
+    setError("");
+  };
 
   // Handle transaction success
   const handleTransactionSuccess = () => {
@@ -171,7 +234,6 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   };
 
   const formatErrorMessage = (message: string): string => {
-    // Remove common Web3 error prefixes and technical details
     return message
       .replace(/^Error: /i, "")
       .replace(/\(action=.*\)/, "")
@@ -186,46 +248,20 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
     resetWithdraw?.();
   };
 
-  const handleMaxClick = () => {
-    setAmount(availableLP.toString());
-    setError("");
-  };
-
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-
-    // Only allow numbers and decimal points
-    if (value && !/^\d*\.?\d*$/.test(value)) {
-      return;
-    }
-
-    setAmount(value);
-    validateAmount(value);
-  };
-
-  const validateAmount = (value: string) => {
-    if (value === "") {
-      setError("");
-      return;
-    }
-
-    const numAmount = parseFloat(value);
-    if (isNaN(numAmount)) {
-      setError("Please enter a valid number");
-    } else if (numAmount <= 0) {
-      setError("Amount must be greater than 0");
-    } else if (numAmount > availableLP) {
-      setError("Amount exceeds available LP tokens");
-    } else {
-      setError("");
-    }
-  };
-
   const handleWithdraw = () => {
+    const numAmount = Number(amount);
+
+    // Additional validation before transaction
+    if (numAmount <= 0 || numAmount <= 1e-18) {
+      setError("Amount must be greater than 0");
+      return;
+    }
+
     if (!withdraw) {
       toast.error("Unable to initiate withdrawal. Please try again.");
       return;
     }
+
     const id = toast.info("Please confirm the transaction in your wallet", {
       autoClose: false,
     });
@@ -233,9 +269,8 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
     withdraw();
   };
 
-  // Allow modal to be closed at any time
+  // Handle modal close
   const handleClose = () => {
-    // Dismiss any pending transaction toast
     if (transactionToastId) {
       toast.dismiss(transactionToastId);
       setTransactionToastId(null);
@@ -245,9 +280,9 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   };
 
   const isValidAmount = useMemo(() => {
-    const numAmount = parseFloat(amount);
-    return numAmount > 0 && numAmount <= availableLP && !error;
-  }, [amount, availableLP, error]);
+    const numAmount = Number(amount);
+    return numAmount > 0 && numAmount <= Number(formattedBalance) && !error;
+  }, [amount, formattedBalance, error]);
 
   return (
     <BaseModal
@@ -275,7 +310,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
                 value={amount}
                 onChange={handleAmountChange}
                 placeholder="0.0"
-                disabled={!!!availableLP || isLoading}
+                disabled={!Number(formattedBalance) || isLoading}
                 error={!!error}
                 inputProps={{
                   inputMode: "decimal",
@@ -291,7 +326,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
                   >
                     <MaxButton
                       onClick={handleMaxClick}
-                      disabled={!!!availableLP || isLoading}
+                      disabled={!Number(formattedBalance) || isLoading}
                     >
                       MAX
                     </MaxButton>
@@ -315,7 +350,11 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
             color="text.secondary"
             sx={{ fontSize: "14px" }}
           >
-            {availableLP} LP Available
+            {isBalanceLoading ? (
+              <CircularProgress size={16} sx={{ ml: 1 }} />
+            ) : (
+              `${formattedBalance} ${position.lpToken.name} Available`
+            )}
           </Typography>
 
           <Stack spacing={1.5} sx={{ mt: 2 }}>
@@ -342,7 +381,6 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
               variant="secondary"
               onClick={handleClose}
               disabled={isTransactionPending}
-              // Removed 'disabled' prop to allow closing the modal anytime
             >
               GO BACK
             </ActionButton>

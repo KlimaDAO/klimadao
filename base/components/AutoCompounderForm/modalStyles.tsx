@@ -40,7 +40,7 @@ export const ModalContent = styled(Box)(({ theme }) => ({
   border: "1px solid rgba(255, 255, 255, 0.08)",
 }));
 
-export const ModalHeader = styled(Box)(({ theme }) => ({
+export const ModalHeader = styled(Box)(({}) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",

@@ -30,7 +30,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
   "aria-labelledby": ariaLabelledBy,
 }) => {
   const handleModalClose = (
-    event: {},
+    event: unknown,
     reason: "backdropClick" | "escapeKeyDown"
   ) => {
     if (reason === "backdropClick") {

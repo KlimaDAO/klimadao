@@ -7,14 +7,15 @@ import {
   Typography,
 } from "@mui/material";
 import { parseUnits } from "ethers";
+import { LiquidityPool } from "lib/types";
 import React, { useMemo, useState } from "react";
+import { Address } from "viem"; // Add this import if not already present
 import {
   useAccount,
   useContractRead,
   useContractWrite,
   useWaitForTransaction,
 } from "wagmi";
-import { LiquidityPool } from "lib/types";
 import {
   ActionButton,
   CloseButton,
@@ -28,7 +29,7 @@ import {
   StyledModal,
 } from "./modalStyles";
 
-// ABIs
+// ABIs remain unchanged
 const erc20ABI = [
   {
     inputs: [
@@ -68,6 +69,7 @@ interface DepositConfirmationModalProps {
   amount: string;
   lpToken: LiquidityPool;
   onSuccess?: () => void;
+  requiredConfirmations?: number;
 }
 
 type TransactionState =
@@ -84,12 +86,13 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
   amount,
   lpToken,
   onSuccess,
+  requiredConfirmations = 1,
 }) => {
   const [transactionState, setTransactionState] =
     useState<TransactionState>("idle");
-
   const { address } = useAccount();
 
+  // Convert amount to Wei
   const amountInWei = useMemo(() => {
     try {
       return parseUnits(amount, lpToken.decimals);
@@ -99,44 +102,68 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
     }
   }, [amount, lpToken.decimals]);
 
+  // Check allowance
   const { data: allowance } = useContractRead({
-    address: lpToken.address,
+    address: lpToken.poolAddress,
     abi: erc20ABI,
     functionName: "allowance",
-    args: [address!, lpToken.vault!],
+    args: [address!, lpToken.vault],
     enabled: !!address && !!lpToken.vault,
     watch: true,
   });
 
+  // Contract writes
   const { write: approve, data: approveData } = useContractWrite({
-    address: lpToken.address,
+    address: lpToken.poolAddress,
     abi: erc20ABI,
     functionName: "approve",
   });
 
-  const { isLoading: isApproving, isSuccess: isApproveSuccess } =
-    useWaitForTransaction({
-      hash: approveData?.hash,
-    });
-
   const { write: deposit, data: depositData } = useContractWrite({
-    address: lpToken.vault!,
+    address: lpToken.vault,
     abi: vaultABI,
     functionName: "deposit",
   });
 
-  const { isLoading: isDepositing, isSuccess: isDepositSuccess } =
-    useWaitForTransaction({
-      hash: depositData?.hash,
-    });
+  // Transaction tracking
+  const {
+    isLoading: isApproving,
+    isSuccess: isApproveSuccess,
+    status: approveStatus,
+  } = useWaitForTransaction({
+    hash: approveData?.hash,
+  });
 
-  const needsApproval = allowance ? allowance < amountInWei : true;
+  const {
+    isLoading: isDepositing,
+    isSuccess: isDepositSuccess,
+    status: depositStatus,
+  } = useWaitForTransaction({
+    hash: depositData?.hash,
+  });
 
+  // Derived state flags for UI control
+  const isApprovalStage =
+    transactionState === "idle" || transactionState === "approving";
+  const isDepositStage =
+    transactionState === "approved" || transactionState === "depositing";
+  const canDeposit = transactionState === "approved";
+  const showLoading =
+    transactionState === "approving" || transactionState === "depositing";
+
+  // Enhanced state management
   React.useEffect(() => {
-    if (isApproving) setTransactionState("approving");
-    if (isApproveSuccess) setTransactionState("approved");
-    if (isDepositing) setTransactionState("depositing");
-    if (isDepositSuccess) {
+    if (transactionState === "error") {
+      return; // Don't update state if in error state
+    }
+
+    if (isApproving) {
+      setTransactionState("approving");
+    } else if (isApproveSuccess) {
+      setTransactionState("approved");
+    } else if (isDepositing) {
+      setTransactionState("depositing");
+    } else if (isDepositSuccess) {
       setTransactionState("success");
       onSuccess?.();
     }
@@ -146,12 +173,17 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
     isDepositing,
     isDepositSuccess,
     onSuccess,
+    transactionState,
   ]);
 
+  // Transaction handlers with error handling
   const handleApprove = async () => {
     try {
+      if (!lpToken.vault || amountInWei === BigInt(0)) {
+        throw new Error("Invalid vault address or amount");
+      }
       approve?.({
-        args: [lpToken.vault!, amountInWei],
+        args: [lpToken.vault, amountInWei],
       });
     } catch (error) {
       console.error("Approval error:", error);
@@ -161,6 +193,9 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
 
   const handleDeposit = async () => {
     try {
+      if (amountInWei === BigInt(0)) {
+        throw new Error("Invalid amount");
+      }
       deposit?.({
         args: [amountInWei],
       });
@@ -170,14 +205,32 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
     }
   };
 
-  const truncateAddress = (address: string) => {
+  const truncateAddress = (address: Address): string => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
+
+  // Get transaction status message
+  const getStatusMessage = () => {
+    switch (transactionState) {
+      case "approving":
+        return `Approval transaction in progress (${approveStatus})`;
+      case "approved":
+        return "Ready to deposit";
+      case "depositing":
+        return `Deposit transaction in progress (${depositStatus})`;
+      case "success":
+        return "Transaction completed successfully";
+      case "error":
+        return "Transaction failed. Please try again.";
+      default:
+        return "Please approve the transaction";
+    }
   };
 
   return (
     <StyledModal
       open={open}
-      onClose={onClose}
+      onClose={transactionState === "idle" ? onClose : undefined}
       aria-labelledby="deposit-confirmation-modal"
       closeAfterTransition
       disableAutoFocus
@@ -192,24 +245,23 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
       <ModalContent>
         <ModalHeader>
           <HeaderTitle>Confirm Deposit</HeaderTitle>
-          <CloseButton onClick={onClose} size="small">
-            <CloseIcon />
-          </CloseButton>
+          {transactionState === "idle" && (
+            <CloseButton onClick={onClose} size="small">
+              <CloseIcon />
+            </CloseButton>
+          )}
         </ModalHeader>
 
         <Box sx={{ p: "20px" }}>
           <Stack spacing={3}>
             <StepContainer>
               <StepButton
-                $isActive={!isApproveSuccess}
-                disabled={isApproveSuccess}
+                $isActive={isApprovalStage}
+                disabled={!isApprovalStage}
               >
                 1. Approve
               </StepButton>
-              <StepButton
-                $isActive={isApproveSuccess}
-                disabled={!isApproveSuccess}
-              >
+              <StepButton $isActive={isDepositStage} disabled={!canDeposit}>
                 2. Submit
               </StepButton>
             </StepContainer>
@@ -222,13 +274,13 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
                 letterSpacing: "0.01em",
               }}
             >
-              Please approve the transaction.
+              {getStatusMessage()}
             </Typography>
 
             <Stack spacing={2}>
-              <Box >
-                <InputLabel>Contact address</InputLabel>
-                <InputField>{truncateAddress(lpToken.address)}</InputField>
+              <Box>
+                <InputLabel>Contract address</InputLabel>
+                <InputField>{truncateAddress(lpToken.poolAddress)}</InputField>
               </Box>
 
               <Box>
@@ -239,7 +291,7 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
               <Box>
                 <InputLabel>Confirm quantity</InputLabel>
                 <InputField>
-                  <Stack direction={"row"} alignItems={"flex-end"} gap={1}>
+                  <Stack direction="row" alignItems="flex-end" gap={1}>
                     {amount}
                     <Typography color="text.secondary">
                       {lpToken.name}
@@ -252,19 +304,23 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
             <Stack spacing={1.5}>
               <ActionButton
                 variant="primary"
-                onClick={needsApproval ? handleApprove : handleDeposit}
-                disabled={isApproving || isDepositing}
+                onClick={isApprovalStage ? handleApprove : handleDeposit}
+                disabled={showLoading || (!isApprovalStage && !canDeposit)}
               >
-                {isApproving || isDepositing ? (
+                {showLoading ? (
                   <CircularProgress size={24} color="inherit" />
-                ) : needsApproval ? (
+                ) : isApprovalStage ? (
                   "APPROVE"
                 ) : (
                   "DEPOSIT"
                 )}
               </ActionButton>
 
-              <ActionButton variant="secondary" onClick={onClose}>
+              <ActionButton
+                variant="secondary"
+                onClick={onClose}
+                disabled={showLoading}
+              >
                 GO BACK
               </ActionButton>
             </Stack>

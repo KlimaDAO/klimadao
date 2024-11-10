@@ -20,11 +20,12 @@ import {
 
 import { useAvailableLP } from "hooks/useAvailablePool";
 import { useBeefyVaultsData } from "hooks/useBeefyVaultsData";
+import { useGaugeRewards } from "hooks/useGaugeRewards";
+
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { getAddress } from "viem";
-import { Address, useAccount, useBalance } from "wagmi";
+import { Address, useAccount, useBalance, usePublicClient } from "wagmi";
 import DepositConfirmationModal from "../Modals/DepositConfirmationModal";
 import {
   CustomInputBase,
@@ -60,24 +61,31 @@ export const shortenAddress = (
   return `${address.slice(0, prefixLength)}...${address.slice(-suffixLength)}`;
 };
 
-const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => (
-  <Stack direction="row" alignItems="center" justifyContent={"space-between"}>
-    <Typography variant="body1" color="text.secondary">
-      {label}
-    </Typography>
+const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => {
+  const publicClient = usePublicClient();
 
-    <Stack direction="row" justifyContent="space-between" alignItems="center">
-      <Link href={"https://aerodrome.finance/liquidity"} target="_blank">
-        <Stack direction="row" spacing={0.5} alignItems="center">
-          <Typography variant="body2" color="primary">
-            {address ? shortenAddress(getAddress(address)) : "-"}
-          </Typography>
-          <Launch color="primary" />
-        </Stack>
-      </Link>
+  const explorerUrl = publicClient.chain.blockExplorers?.default.url;
+  const addressUrl = `${explorerUrl}/address/${address}`;
+
+  return (
+    <Stack direction="row" alignItems="center" justifyContent={"space-between"}>
+      <Typography variant="body1" color="text.secondary">
+        {label}
+      </Typography>
+
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Link href={addressUrl} target="_blank">
+          <Stack direction="row" spacing={0.5} alignItems="center">
+            <Typography variant="body2" color="primary">
+              {address ? shortenAddress(address) : "-"}
+            </Typography>
+            <Launch color="primary" />
+          </Stack>
+        </Link>
+      </Stack>
     </Stack>
-  </Stack>
-);
+  );
+};
 
 const StatDisplay: React.FC<StatDisplayProps> = ({ label, value }) => (
   <Stack direction="row" alignItems="center" justifyContent={"space-between"}>
@@ -113,35 +121,51 @@ const StatDisplay: React.FC<StatDisplayProps> = ({ label, value }) => (
 );
 
 function generateLiquidityURL(token1?: Address, token2?: Address) {
-  return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}`;
+  return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
 }
 
 export const AutoCompounderDepositForm: React.FC = () => {
   const router = useRouter();
-  const { tokens } = router.query;
+  const { token: tokens } = router.query;
+
+  const { lps } = useAvailableLP();
+
   const { address } = useAccount();
   const [showModal, setShowModal] = React.useState(false);
   const [isClient, setIsClient] = React.useState(false);
 
-  const { lps } = useAvailableLP();
-  const { data: vaultData, isLoading: isVaultDataLoading } =
-    useBeefyVaultsData();
-
-  const defaultToken = React.useMemo(() => {
-    if (!tokens || typeof tokens !== "string") return Object.values(lps)[0];
-    const [token1, token2] = tokens.split("-");
-    return (
-      Object.values(lps).find(
-        (lp) =>
-          lp.tokenA.name.toLowerCase() === token1 &&
-          lp.tokenB.name.toLowerCase() === token2
-      ) || Object.values(lps)[0]
-    );
-  }, [tokens, lps]);
-
-  const [pool, setPool] = React.useState(defaultToken?.name ?? "");
   const [amount, setAmount] = React.useState("");
   const [error, setError] = React.useState("");
+
+  const defaultToken = React.useMemo(() => {
+    // Wait for both router and LPs to be ready
+    if (!router.isReady || !lps || Object.keys(lps).length === 0) {
+      return null;
+    }
+
+    // No tokens in URL - return first LP
+    if (!tokens || typeof tokens !== "string") {
+      return Object.values(lps)[0];
+    }
+
+    // URL tokens are already lowercase from DepositList
+    const [token1, token2] = tokens.split("-");
+
+    // Find matching LP - compare URL tokens with UPPERCASE LP tokens
+    const match = Object.values(lps).find((lp) => {
+      const lpToken1 = lp.tokenA.name.toLowerCase();
+      const lpToken2 = lp.tokenB.name.toLowerCase();
+
+      return (
+        (lpToken1 === token1 && lpToken2 === token2) ||
+        (lpToken1 === token2 && lpToken2 === token1)
+      );
+    });
+
+    return match || Object.values(lps)[0];
+  }, [router.isReady, tokens, lps]);
+
+  const [pool, setPool] = React.useState(defaultToken?.name ?? "");
 
   React.useEffect(() => {
     if (defaultToken?.name) {
@@ -149,9 +173,8 @@ export const AutoCompounderDepositForm: React.FC = () => {
     }
   }, [defaultToken]);
 
-  React.useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const { data: vaultsData, isLoading: isVaultDataLoading } =
+    useBeefyVaultsData();
 
   const selectedLP = React.useMemo(
     () => Object.values(lps).find((lp) => lp.name === pool),
@@ -159,9 +182,13 @@ export const AutoCompounderDepositForm: React.FC = () => {
   );
 
   const selectedVault = React.useMemo(
-    () => vaultData?.find((v) => v.address === selectedLP?.vault),
-    [vaultData, selectedLP]
+    () => vaultsData?.find((v) => v.address === selectedLP?.vault),
+    [vaultsData, selectedLP]
   );
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const { data: lpBalance, isLoading: isBalanceLoading } = useBalance({
     address,
@@ -230,6 +257,11 @@ export const AutoCompounderDepositForm: React.FC = () => {
       formattedBalance || "0"
     );
   }, [isClient, isBalanceLoading, isVaultDataLoading, formattedBalance]);
+
+  const { apr, apy } = useGaugeRewards({
+    gaugeAddress: selectedLP?.gaugeAddress ?? "0x",
+    lpAddress: selectedLP?.poolAddress ?? "0x",
+  });
 
   return (
     <StyledPaper elevation={0}>
@@ -345,11 +377,8 @@ export const AutoCompounderDepositForm: React.FC = () => {
       </Stack>
 
       <Stack spacing={1} width="100%">
-        <StatDisplay label="APY" value={`${selectedVault?.apy ?? "-"}%`} />
-        <StatDisplay
-          label="APR"
-          value={`${selectedVault?.dailyRate ?? "-"}%`}
-        />
+        <StatDisplay label="APY" value={`${apy.toFixed(2) ?? "-"}%`} />
+        <StatDisplay label="APR" value={`${apr.toFixed(2) ?? "-"}%`} />
       </Stack>
 
       <Paper

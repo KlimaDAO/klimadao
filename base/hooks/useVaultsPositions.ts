@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { LiquidityPool, Position } from "lib/types";
+import { LiquidityPool, Position, VaultInfo } from "lib/types";
 import { formatUnits, getContract } from "viem";
 import { useAccount, usePublicClient } from "wagmi";
 import { useAvailableLP } from "./useAvailablePool";
-import { VaultInfo, useBeefyVaultsData } from "./useBeefyVaultsData";
+import { useBeefyVaultsData } from "./useBeefyVaultsData";
 
 const VAULT_ABI = [
   {

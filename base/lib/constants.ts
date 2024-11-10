@@ -1,6 +1,6 @@
 import { Chain } from "wagmi";
 import { base, baseSepolia } from "wagmi/chains";
-import { LiquidityPool } from "./types";
+import { LiquidityPool, Token } from "./types";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -68,10 +68,22 @@ export const BASE_LIQUIDITY_POOLS: { [key: string]: LiquidityPool } = {
   "weth-klima": {
     id: "weth-klima",
     name: "WETH/KLIMA",
+    gaugeAddress: "0x44A927DD8f6def04f76B00cece9804BF441dc6b1",
     poolAddress: "0xB37642E87613d8569Fd8Ec80888eA6c63684E79e",
-    vault: "0xb9ce6Fc2D4884c7138812F2aDea7a386CeF2b82E", // Add actual vault address
+    vault: "0xadc5125592d32698fcb8c3e415d2ceb1e68f7a06", // Add actual vault address
     decimals: 18,
     tokenA: TOKENS["weth"],
+    tokenB: TOKENS["klima"],
+  },
+
+  "usdc-klima": {
+    id: "usdc-klima",
+    name: "USDC/KLIMA",
+    gaugeAddress: "0x950aD950D6f07491ef2c150545A6A2AB7AdC03f4",
+    poolAddress: "0x958682eC6282BC7E939FA8Ba9397805C214c3A09",
+    vault: "0xd8b6bbbc273f5cdbcbe87d8a201d765e90572954", // Add actual vault address
+    decimals: 18,
+    tokenA: TOKENS["usdc"],
     tokenB: TOKENS["klima"],
   },
 };
@@ -83,4 +95,23 @@ export const getLiquidityPools = (
     return BASE_LIQUIDITY_POOLS;
   }
   return {};
+};
+
+export const TOKEN_PLATFORM_MAP: Record<string, string> = {
+  // Ethereum tokens
+  WETH: "Ethereum",
+  ETH: "Ethereum",
+  USDC: "Ethereum",
+  USDT: "Ethereum",
+  DAI: "Ethereum",
+
+  // Polygon tokens
+  KLIMA: "Polygon",
+  WMATIC: "Polygon",
+  MATIC: "Polygon",
+
+  // Base tokens
+  AERO: "Base",
+  USDbC: "Base",
+  cbETH: "Base",
 };
