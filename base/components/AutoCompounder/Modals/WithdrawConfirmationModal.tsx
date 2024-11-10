@@ -85,11 +85,8 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   });
 
   // Transaction status hook
-  const {
-    isLoading: isTransactionPending,
-    isSuccess: isTransactionSuccess,
-    error: transactionError,
-  } = useWaitForTransaction({
+  // TODO: Handle isTxn Success and failure.
+  const { isLoading: isTransactionPending } = useWaitForTransaction({
     hash: withdrawData?.hash,
     onSuccess: () => {
       handleTransactionSuccess();

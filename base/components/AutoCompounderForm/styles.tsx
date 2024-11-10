@@ -75,7 +75,7 @@ export const StyledInputWrapper = styled("div")(({ theme }) => ({
   },
 }));
 
-export const CustomInputBase = styled(InputBase)(({ theme }) => ({
+export const CustomInputBase = styled(InputBase)(() => ({
   height: "100%",
   "& .MuiInputBase-input": {
     height: "100%",

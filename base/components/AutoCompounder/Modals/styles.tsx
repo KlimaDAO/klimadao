@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  ButtonProps,
   IconButton,
   Modal,
   styled,
@@ -34,7 +35,7 @@ export const ModalContent = styled(Box)(({ theme }) => ({
   border: "1px solid rgba(255, 255, 255, 0.08)",
 }));
 
-export const ModalHeader = styled(Box)(({ theme }) => ({
+export const ModalHeader = styled(Box)(() => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -116,33 +117,42 @@ export const InputField = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ActionButton = styled(Button, {
-  shouldForwardProp: (prop) => prop !== "variant",
-})<{ variant?: "primary" | "secondary" }>(({ variant = "primary", theme }) => ({
-  width: "324px",
-  height: "48px",
-  background: variant === "primary" ? theme.palette.primary.main : "#FFFFFF",
-  color: variant === "primary" ? theme.palette.text.primary : "#313131",
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: 600,
-  fontSize: "16px",
-  lineHeight: "16px",
-  letterSpacing: "0.6px",
-  textTransform: "uppercase",
-  borderRadius: "4px",
-  ...(variant === "secondary" && {
-    border: "1px solid #626266",
-    boxShadow: "0px 4px 28px rgba(0, 0, 0, 0.06)",
-  }),
-  "&:hover": {
-    background:
-      variant === "primary" ? theme.palette.text.secondary : "#FFFFFF",
-  },
-  "&.Mui-disabled": {
-    background: "rgba(255, 255, 255, 0.12)",
-    color: "rgba(255, 255, 255, 0.3)",
-  },
-  [theme.breakpoints.down("sm")]: {
-    width: "100%",
-  },
-}));
+interface ActionButtonProps extends Omit<ButtonProps, "variant"> {
+  variant?: "primary" | "secondary";
+}
+
+const ActionButtonBase = (props: ActionButtonProps) => {
+  const { variant: _variant, ...other } = props;
+  return <Button {...other} />;
+};
+
+export const ActionButton = styled(ActionButtonBase)(
+  ({ variant = "primary", theme }) => ({
+    width: "324px",
+    height: "48px",
+    background: variant === "primary" ? theme.palette.primary.main : "#FFFFFF",
+    color: variant === "primary" ? theme.palette.text.primary : "#313131",
+    fontFamily: theme.typography.fontFamily,
+    fontWeight: 600,
+    fontSize: "16px",
+    lineHeight: "16px",
+    letterSpacing: "0.6px",
+    textTransform: "uppercase",
+    borderRadius: "4px",
+    ...(variant === "secondary" && {
+      border: "1px solid #626266",
+      boxShadow: "0px 4px 28px rgba(0, 0, 0, 0.06)",
+    }),
+    "&:hover": {
+      background:
+        variant === "primary" ? theme.palette.text.secondary : "#FFFFFF",
+    },
+    "&.Mui-disabled": {
+      background: "rgba(255, 255, 255, 0.12)",
+      color: "rgba(255, 255, 255, 0.3)",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+  })
+);

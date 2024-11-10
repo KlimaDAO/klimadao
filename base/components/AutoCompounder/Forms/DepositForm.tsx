@@ -201,8 +201,8 @@ export const AutoCompounderDepositForm: React.FC = () => {
     [lpBalance]
   );
 
-  const handlePoolChange = (event: SelectChangeEvent<string>) => {
-    const newPool = event.target.value;
+  const handlePoolChange = (event: SelectChangeEvent<unknown>) => {
+    const newPool = event.target.value as string;
     setPool(newPool);
     setAmount("");
     setError("");

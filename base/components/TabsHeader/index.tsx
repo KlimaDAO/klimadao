@@ -15,7 +15,7 @@ const TabsHeader = () => {
     return 1; // Default to positions
   };
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     if (newValue === 0) {
       router.push("/auto-compounder/deposit/all");
     } else {

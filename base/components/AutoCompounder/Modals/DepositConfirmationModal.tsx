@@ -213,7 +213,7 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
     <BaseModal
       title="Auto Compounder"
       open={open}
-      onClose={canInteract ? onClose : undefined}
+      onClose={onClose}
       aria-labelledby="auto-compounder-deposit-modal"
     >
       <ModalContent>

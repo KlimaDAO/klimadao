@@ -58,22 +58,27 @@ export const MaxButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export const StyledInputWrapper = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "stretch",
-  width: "100%",
-  height: "48px",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: theme.palette.background.default,
-  border: `1px solid ${theme.palette.divider}`,
-  "&:hover": {
-    borderColor: alpha(theme.palette.primary.main, 0.5),
-  },
-  "&:focus-within": {
-    borderColor: theme.palette.primary.main,
-    boxShadow: `0 0 0 2px ${alpha(theme.palette.primary.main, 0.2)}`,
-  },
-}));
+interface StyledInputWrapperProps {
+  error?: boolean;
+}
+export const StyledInputWrapper = styled("div")<StyledInputWrapperProps>(
+  ({ theme }) => ({
+    display: "flex",
+    alignItems: "stretch",
+    width: "100%",
+    height: "48px",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: theme.palette.background.default,
+    border: `1px solid ${theme.palette.divider}`,
+    "&:hover": {
+      borderColor: alpha(theme.palette.primary.main, 0.5),
+    },
+    "&:focus-within": {
+      borderColor: theme.palette.primary.main,
+      boxShadow: `0 0 0 2px ${alpha(theme.palette.primary.main, 0.2)}`,
+    },
+  })
+);
 
 export const CustomInputBase = styled(InputBase)(() => ({
   height: "100%",
