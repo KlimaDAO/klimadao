@@ -19,6 +19,7 @@ import { WithdrawConfirmationModal } from "components/AutoCompounder/Modals/With
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
 import { formatTokenAmount, formatUSD } from "lib/str-format";
 import { Position } from "lib/types";
+import Link from "next/link";
 import React from "react";
 import {
   DataPairContainer,
@@ -118,6 +119,33 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
     setSelectedPosition(position);
     setShowModal(true);
   };
+
+  console.log({
+    positions,
+  });
+  if (
+    !positions ||
+    positions.length === 0 ||
+    positions.every((position) => position.vaultBalance.vaultTokens === 0)
+  ) {
+    return (
+      <Box
+        sx={{
+          p: "12px",
+          bgcolor: theme.palette.background.default,
+          borderRadius: "8px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="body1" fontWeight={700} py={2}>
+          No positions found
+        </Typography>
+        <Link href={"/auto-compounder/deposit/all"}>Open a position</Link>
+      </Box>
+    );
+  }
 
   if (isMobile) {
     return (
