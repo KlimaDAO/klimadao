@@ -26,7 +26,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { Address, useAccount, useBalance, usePublicClient } from "wagmi";
-import DepositConfirmationModal from "../Modals/DepositConfirmationModal";
+import StakeConfirmationModal from "../Modals/StakeConfirmationModal";
 import {
   CustomInputBase,
   MaxButton,
@@ -46,7 +46,7 @@ interface StatDisplayProps {
 }
 
 const TOOLTIPS = {
-  addLiquidity: "Add liquidity to the pool to get LP tokens",
+  depositLiquidity: "Add liquidity to the pool to get LP tokens",
   apy: "Annual Percentage Yield (APY) includes compound interest, showing total returns over one year",
   apr: "Annual Percentage Rate (APR) shows the simple interest rate without compounding",
   vault: "Smart contract that holds your LP tokens",
@@ -124,7 +124,7 @@ function generateLiquidityURL(token1?: Address, token2?: Address) {
   return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
 }
 
-export const AutoCompounderDepositForm: React.FC = () => {
+export const AutoCompounderStakeForm: React.FC = () => {
   const router = useRouter();
   const { token: tokens } = router.query;
 
@@ -148,7 +148,7 @@ export const AutoCompounderDepositForm: React.FC = () => {
       return Object.values(lps)[0];
     }
 
-    // URL tokens are already lowercase from DepositList
+    // URL tokens are already lowercase from StaketList
     const [token1, token2] = tokens.split("-");
 
     // Find matching LP - compare URL tokens with UPPERCASE LP tokens
@@ -210,7 +210,7 @@ export const AutoCompounderDepositForm: React.FC = () => {
     const selectedLp = Object.values(lps).find((lp) => lp.name === newPool);
     if (selectedLp) {
       const tokens = `${selectedLp.tokenA.name.toLowerCase()}-${selectedLp.tokenB.name.toLowerCase()}`;
-      router.push(`/auto-compounder/deposit/${tokens}`);
+      router.push(`/auto-compounder/stake/${tokens}`);
     }
   };
 
@@ -235,7 +235,7 @@ export const AutoCompounderDepositForm: React.FC = () => {
     setError("");
   };
 
-  const isDepositDisabled = React.useMemo(() => {
+  const isStakeDisabled = React.useMemo(() => {
     if (!address) return true;
     if (!amount || Number(amount) <= 0) return true;
     if (Number(amount) > Number(formattedBalance)) return true;
@@ -243,8 +243,8 @@ export const AutoCompounderDepositForm: React.FC = () => {
     return false;
   }, [address, amount, formattedBalance]);
 
-  const handleDeposit = () => {
-    if (!isDepositDisabled) {
+  const handleStake = () => {
+    if (!isStakeDisabled) {
       setShowModal(true);
     }
   };
@@ -273,8 +273,8 @@ export const AutoCompounderDepositForm: React.FC = () => {
           </Typography>
         </Stack>
         <Typography variant="h6" color="text.secondary">
-          Deposit your Aero LP tokens and auto-compound your rewards. You can
-          withdraw your LP tokens at any time.
+          Stake your Aero LP tokens and auto-compound your rewards. You can
+          unstake your LP tokens at any time.
         </Typography>
       </Stack>
 
@@ -311,7 +311,7 @@ export const AutoCompounderDepositForm: React.FC = () => {
           >
             <Stack direction="row" spacing={0.5} alignItems="center">
               <Typography variant="body1" color="primary">
-                Add Liquidity
+                Deposit Liquidity
               </Typography>
               <Launch color="primary" />
             </Stack>
@@ -321,7 +321,7 @@ export const AutoCompounderDepositForm: React.FC = () => {
             arrow
             enterDelay={100}
             placement="top"
-            title={<Typography>{TOOLTIPS["addLiquidity"]}</Typography>}
+            title={<Typography>{TOOLTIPS["depositLiquidity"]}</Typography>}
             sx={{
               "& .MuiTooltip-arrow": {
                 color: "background.paper",
@@ -337,7 +337,7 @@ export const AutoCompounderDepositForm: React.FC = () => {
 
       <Stack width="100%">
         <Stack spacing={1}>
-          <Typography variant="body1">Amount to Deposit</Typography>
+          <Typography variant="body1">Amount to Stake</Typography>
           <StyledInputWrapper error={!!error}>
             <CustomInputBase
               type="text"
@@ -404,8 +404,8 @@ export const AutoCompounderDepositForm: React.FC = () => {
       <Button
         variant="contained"
         fullWidth
-        onClick={handleDeposit}
-        disabled={!isClient || isDepositDisabled}
+        onClick={handleStake}
+        disabled={!isClient || isStakeDisabled}
         sx={{
           fontSize: "16px",
           height: "48px",
@@ -421,11 +421,11 @@ export const AutoCompounderDepositForm: React.FC = () => {
           },
         }}
       >
-        {"DEPOSIT"}
+        Stake
       </Button>
 
       {isClient && showModal && selectedLP && (
-        <DepositConfirmationModal
+        <StakeConfirmationModal
           open={showModal}
           onClose={() => setShowModal(false)}
           amount={amount}

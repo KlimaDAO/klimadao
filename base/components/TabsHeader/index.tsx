@@ -10,14 +10,14 @@ const TabsHeader = () => {
   // Helper to determine current tab value based on route
   const getCurrentTabValue = () => {
     const path = router.pathname;
-    if (path.includes("/auto-compounder/deposit")) return 0;
+    if (path.includes("/auto-compounder/stake")) return 0;
     if (path.includes("/auto-compounder/positions")) return 1;
     return 1; // Default to positions
   };
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     if (newValue === 0) {
-      router.push("/auto-compounder/deposit/all");
+      router.push("/auto-compounder/stake/all");
     } else {
       router.push("/auto-compounder/positions");
     }
@@ -59,7 +59,7 @@ const TabsHeader = () => {
             },
           }}
         >
-          <Tab label="Deposit" />
+          <Tab label="Stake" />
           <Tab label="Your Positions" />
         </Tabs>
 

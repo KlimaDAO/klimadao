@@ -7,7 +7,7 @@ const AutoCompounderDefaultPage: NextPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/auto-compounder/deposit/all");
+    router.replace("/auto-compounder/stake/all");
   }, [router]); // Added router to dependency array
 
   // Return a loading state while redirecting

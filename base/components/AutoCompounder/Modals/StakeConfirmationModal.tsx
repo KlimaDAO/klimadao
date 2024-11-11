@@ -25,7 +25,7 @@ import {
   StepContainer,
 } from "./styles";
 
-interface DepositConfirmationModalProps {
+interface StakeConfirmationModalProps {
   open: boolean;
   onClose: () => void;
   amount: string;
@@ -41,7 +41,7 @@ type TransactionState =
   | "success"
   | "error";
 
-const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
+const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
   open,
   onClose,
   amount,
@@ -218,7 +218,7 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
     >
       <ModalContent>
         <ModalHeader>
-          <HeaderTitle>Confirm Deposit</HeaderTitle>
+          <HeaderTitle>Confirm Stake</HeaderTitle>
           {canInteract && (
             <CloseButton onClick={onClose} size="small">
               <CloseIcon />
@@ -302,7 +302,7 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
                   {isDepositing ? (
                     <CircularProgress size={24} color="inherit" />
                   ) : (
-                    "DEPOSIT"
+                    "STAKE"
                   )}
                 </ActionButton>
               )}
@@ -322,4 +322,4 @@ const DepositConfirmationModal: React.FC<DepositConfirmationModalProps> = ({
   );
 };
 
-export default DepositConfirmationModal;
+export default StakeConfirmationModal;

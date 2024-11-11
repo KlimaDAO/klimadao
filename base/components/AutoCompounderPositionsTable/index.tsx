@@ -139,7 +139,7 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
         <Typography variant="body1" fontWeight={700} py={2}>
           No positions found
         </Typography>
-        <Link href={"/auto-compounder/deposit/all"}>Open a position</Link>
+        <Link href={"/auto-compounder/stake/all"}>Open a position</Link>
       </Box>
     );
   }

@@ -22,9 +22,9 @@ import { useBeefyVaultsData } from "hooks/useBeefyVaultsData";
 import { useRouter } from "next/router";
 import {
   DataPairContainer,
-  DepositButton,
   MobileItemWrapper,
   RowContainer,
+  StakeButton,
 } from "./styles";
 
 import { useGaugeRewards } from "hooks/useGaugeRewards";
@@ -39,7 +39,7 @@ export interface TokenPair {
   tvl: number;
 }
 
-export const DepositList: React.FC = () => {
+export const StakeList: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const router = useRouter();
@@ -49,9 +49,9 @@ export const DepositList: React.FC = () => {
   const { data: vaultData, isLoading: isVaultDataLoading } =
     useBeefyVaultsData();
 
-  const handleDeposit = (token1: string, token2: string) => {
+  const handleStake = (token1: string, token2: string) => {
     router.push(
-      `/auto-compounder/deposit/${token1.toLowerCase()}-${token2.toLowerCase()}`
+      `/auto-compounder/stake/${token1.toLowerCase()}-${token2.toLowerCase()}`
     );
   };
 
@@ -67,11 +67,11 @@ export const DepositList: React.FC = () => {
     return (
       <Box display="flex" flexDirection="column" px={1} py={0.5} rowGap={1}>
         {Object.values(lps).map((lp, index) => (
-          <MobileDepositItem
+          <MobileStakeItem
             key={`${lp.tokenA.name}-${lp.tokenB.name}-${index}`}
             lp={lp}
             vault={vaultData?.find((e) => e.address === lp.vault)}
-            onDeposit={handleDeposit}
+            onStake={handleStake}
           />
         ))}
       </Box>
@@ -116,7 +116,7 @@ export const DepositList: React.FC = () => {
               key={lp.poolAddress + index}
               lp={lp}
               vault={vaultData?.find((vd) => vd.address === lp.vault)}
-              handleDeposit={handleDeposit}
+              handleStake={handleStake}
             />
           ))}
         </TableBody>
@@ -128,11 +128,11 @@ export const DepositList: React.FC = () => {
 const DesktopTableRow = ({
   lp,
   vault,
-  handleDeposit,
+  handleStake,
 }: {
   lp: LiquidityPool;
   vault?: VaultInfo;
-  handleDeposit: (_a: string, _b: string) => void;
+  handleStake: (_a: string, _b: string) => void;
 }) => {
   const { apy, dailyRate } = useGaugeRewards({
     gaugeAddress: lp.gaugeAddress,
@@ -184,9 +184,9 @@ const DesktopTableRow = ({
       </TableCell>
       <TableCell>
         <Stack direction="row" alignItems="center" justifyContent="flex-end">
-          <Button onClick={() => handleDeposit(lp.tokenA.name, lp.tokenB.name)}>
+          <Button onClick={() => handleStake(lp.tokenA.name, lp.tokenB.name)}>
             <Stack direction={"row"} gap={1} alignItems={"center"}>
-              <Typography color="primary">Deposit</Typography>
+              <Typography color="primary">Stake</Typography>
               <AddIcon />
             </Stack>
           </Button>
@@ -195,16 +195,16 @@ const DesktopTableRow = ({
     </TableRow>
   );
 };
-interface MobileDepositItemProps {
+interface MobileStakeItemProps {
   vault?: VaultInfo;
   lp: LiquidityPool;
-  onDeposit: (token1: string, token2: string) => void;
+  onStake: (token1: string, token2: string) => void;
 }
 
-const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
+const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
   lp,
   vault,
-  onDeposit,
+  onStake,
 }) => {
   const { apy } = useGaugeRewards({
     gaugeAddress: lp.gaugeAddress,
@@ -271,12 +271,10 @@ const MobileDepositItem: React.FC<MobileDepositItemProps> = ({
       </RowContainer>
 
       <RowContainer>
-        <DepositButton
-          onClick={() => onDeposit(lp.tokenA.name, lp.tokenB.name)}
-        >
-          <Typography color="primary">Deposit</Typography>
+        <StakeButton onClick={() => onStake(lp.tokenA.name, lp.tokenB.name)}>
+          <Typography color="primary">Stake</Typography>
           <AddIcon color="primary" sx={{ width: 20, height: 20 }} />
-        </DepositButton>
+        </StakeButton>
       </RowContainer>
     </MobileItemWrapper>
   );

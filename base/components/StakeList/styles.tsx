@@ -20,7 +20,7 @@ export const DataPairContainer = styled(Box)({
   flexDirection: "column",
 });
 
-export const DepositButton = styled(Box)(({ theme }) => ({
+export const StakeButton = styled(Box)(({ theme }) => ({
   width: "324px",
   height: "40px",
   display: "flex",

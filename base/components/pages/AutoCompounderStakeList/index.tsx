@@ -1,16 +1,15 @@
 import { Box, useTheme } from "@mui/material";
 import { Layout } from "components/AppLayout";
-import { DepositList } from "components/DepositList";
+import { StakeList } from "components/StakeList";
 import TabsHeader from "components/TabsHeader";
 import { NextPage } from "next";
 
 // The page component remains largely the same
-const AutoCompounderDepositList: NextPage = () => {
+const AutoCompounderStakeList: NextPage = () => {
   const theme = useTheme();
   return (
     <Layout>
       <TabsHeader />
-
       <Box
         sx={{
           mt: "20px",
@@ -19,10 +18,10 @@ const AutoCompounderDepositList: NextPage = () => {
           borderRadius: "8px",
         }}
       >
-        <DepositList />
+        <StakeList />
       </Box>
     </Layout>
   );
 };
 
-export default AutoCompounderDepositList;
+export default AutoCompounderStakeList;
