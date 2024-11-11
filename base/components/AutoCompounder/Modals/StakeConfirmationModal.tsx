@@ -37,7 +37,7 @@ type TransactionState =
   | "idle"
   | "approving"
   | "approved"
-  | "depositing"
+  | "staking"
   | "success"
   | "error";
 
@@ -95,7 +95,7 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
     functionName: "approve",
   });
 
-  const { write: deposit, data: depositData } = useContractWrite({
+  const { write: stake, data: stakeData } = useContractWrite({
     address: lpToken.vault,
     abi: VAULT_ABI,
     functionName: "deposit",
@@ -111,11 +111,11 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
   });
 
   const {
-    isLoading: isDepositing,
-    isSuccess: isDepositSuccess,
-    isError: isDepositError,
+    isLoading: isStaking,
+    isSuccess: isStakeSuccess,
+    isError: isStakeError,
   } = useWaitForTransaction({
-    hash: depositData?.hash,
+    hash: stakeData?.hash,
   });
 
   // Enhanced approval transaction tracking with confirmation
@@ -131,17 +131,17 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
     }
   }, [isApproving, isApproveSuccess, isApproveError]);
 
-  // Enhanced deposit transaction tracking
+  // Enhanced stake transaction tracking
   useEffect(() => {
-    if (isDepositing) {
-      setTransactionState("depositing");
-    } else if (isDepositSuccess) {
+    if (isStaking) {
+      setTransactionState("staking");
+    } else if (isStakeSuccess) {
       setTransactionState("success");
       onSuccess?.();
-    } else if (isDepositError) {
+    } else if (isStakeError) {
       setTransactionState("error");
     }
-  }, [isDepositing, isDepositSuccess, isDepositError, onSuccess]);
+  }, [isStaking, isStakeSuccess, isStakeError, onSuccess]);
 
   const handleApprove = async () => {
     try {
@@ -157,11 +157,11 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
     }
   };
 
-  const handleDeposit = async () => {
+  const handleStake = async () => {
     try {
-      // Only allow deposit if approval is confirmed
+      // Only allow stae if approval is confirmed
       if (!approvalConfirmed || transactionState !== "approved") {
-        console.warn("Cannot deposit: Approval not confirmed");
+        console.warn("Cannot stake: Approval not confirmed");
         return;
       }
 
@@ -169,11 +169,9 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
         throw new Error("Invalid amount");
       }
 
-      deposit?.({
-        args: [amountInWei],
-      });
+      stake?.({ args: [amountInWei] });
     } catch (error) {
-      console.error("Deposit error:", error);
+      console.error("Stake error:", error);
       setTransactionState("error");
     }
   };
@@ -189,9 +187,9 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
       case "approving":
         return "Approval in progress... Waiting for confirmation";
       case "approved":
-        return "Approval confirmed. Ready to deposit";
-      case "depositing":
-        return "Deposit in progress...";
+        return "Approval confirmed. Ready to stake";
+      case "staking":
+        return "Staking in progress...";
       case "success":
         return "Transaction completed successfully";
       case "error":
@@ -202,19 +200,19 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
   };
 
   // Determine if user can interact with modal
-  const canInteract = !isApproving && !isDepositing;
+  const canInteract = !isApproving && !isStaking;
 
   // Determine step states with enhanced approval checking
   const isApproveStep =
     transactionState === "idle" || transactionState === "approving";
-  const isDepositStep = transactionState === "approved" && approvalConfirmed;
+  const isStakeStep = transactionState === "approved" && approvalConfirmed;
 
   return (
     <BaseModal
       title="Auto Compounder"
       open={open}
       onClose={onClose}
-      aria-labelledby="auto-compounder-deposit-modal"
+      aria-labelledby="auto-compounder-stake-modal"
     >
       <ModalContent>
         <ModalHeader>
@@ -236,8 +234,8 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
                 1. {approvalConfirmed ? "Approved" : "Approve"}
               </StepButton>
               <StepButton
-                $isActive={isDepositStep}
-                disabled={!isDepositStep || !canInteract}
+                $isActive={isStakeStep}
+                disabled={!isStakeStep || !canInteract}
               >
                 2. Submit
               </StepButton>
@@ -293,13 +291,13 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
                 </ActionButton>
               )}
 
-              {isDepositStep && (
+              {isStakeStep && (
                 <ActionButton
                   variant="primary"
-                  onClick={handleDeposit}
+                  onClick={handleStake}
                   disabled={!canInteract}
                 >
-                  {isDepositing ? (
+                  {isStaking ? (
                     <CircularProgress size={24} color="inherit" />
                   ) : (
                     "STAKE"
