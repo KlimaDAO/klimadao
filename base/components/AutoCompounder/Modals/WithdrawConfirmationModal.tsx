@@ -156,7 +156,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
     }
     toast.success(
       <Stack spacing={1}>
-        <Typography variant="body1">Withdrawal successful!</Typography>
+        <Typography variant="body1">Unstaking successful!</Typography>
         <Typography variant="body2" sx={{ wordBreak: "break-all" }}>
           Transaction: {withdrawData?.hash}
         </Typography>
@@ -255,7 +255,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
     }
 
     if (!withdraw) {
-      toast.error("Unable to initiate withdrawal. Please try again.");
+      toast.error("Unable to initiate unstaking. Please try again.");
       return;
     }
 
@@ -283,7 +283,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
 
   return (
     <BaseModal
-      title="Withdraw"
+      title="Unstake"
       open={open}
       onClose={handleClose}
       aria-labelledby="withdraw-modal"
@@ -298,7 +298,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
                 fontSize: "14px",
               }}
             >
-              Amount to Withdraw
+              Amount to Unstake
             </InputLabel>
             <StyledInputWrapper>
               <CustomInputBase
@@ -365,12 +365,12 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
                   <CircularProgress size={20} color="inherit" />
                   <span>
                     {isTransactionPending
-                      ? "CONFIRMING WITHDRAWAL..."
+                      ? "CONFIRMING UNSTAKE..."
                       : "PREPARING..."}
                   </span>
                 </Stack>
               ) : (
-                "WITHDRAW"
+                "UNSTAKE"
               )}
             </ActionButton>
 

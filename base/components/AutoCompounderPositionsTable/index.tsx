@@ -96,7 +96,7 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
 
       <RowContainer>
         <WithdrawButton onClick={() => onWithdraw(position)}>
-          <Typography color="primary">Withdraw</Typography>
+          <Typography color="primary">Unstake</Typography>
           <SwapHorizIcon color="primary" sx={{ width: 20, height: 20 }} />
         </WithdrawButton>
       </RowContainer>
@@ -249,7 +249,7 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
                             gap={1}
                             alignItems={"center"}
                           >
-                            <Typography color="primary">Withdraw</Typography>
+                            <Typography color="primary">Unstake</Typography>
                             <SwapHorizIcon />
                           </Stack>
                         </Button>
