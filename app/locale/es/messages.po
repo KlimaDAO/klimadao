@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-10-29 03:40+0000\n"
+"POT-Creation-Date: 2024-11-07 15:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -64,15 +64,15 @@ msgstr "Continuar"
 #: components/views/Deposit/index.tsx:193
 #: components/views/Deposit/index.tsx:315
 msgid "Deposit Carbon"
-msgstr ""
+msgstr "Deposite de carbono"
 
 #: components/views/Deposit/index.tsx:254
 msgid "Deposit TC02"
-msgstr ""
+msgstr "Deposite TC02"
 
 #: components/views/Deposit/index.tsx:196
 msgid "Deposit TCO2 in exchange for BCT."
-msgstr ""
+msgstr "Deposite TCO2 a cambio de BCT."
 
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
@@ -92,7 +92,7 @@ msgstr "Para los usuarios que quieran compensar el pago con un pool token, utili
 
 #: components/views/Redeem/index.tsx:415
 msgid "How many tonnes would you like to acquire?"
-msgstr ""
+msgstr "¿Cuántas toneladas desea adquirir?"
 
 #: components/views/Deposit/index.tsx:111
 #: components/views/Redeem/index.tsx:282
@@ -116,7 +116,7 @@ msgstr "Cargando saldos..."
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:96
 msgid "Loading project info..."
-msgstr ""
+msgstr "Cargando información del proyecto..."
 
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
@@ -157,7 +157,7 @@ msgstr "No conectado"
 
 #: components/CarbonTokenModal/index.tsx:46
 msgid "Not compatible with BCT"
-msgstr ""
+msgstr "No compatible con BCT"
 
 #: components/views/Offset/index.tsx:27
 msgid "Offset"
@@ -173,15 +173,15 @@ msgstr "Riesgos operativos: La plataforma KlimaDAO se basa en diversas tecnolog�
 
 #: components/views/Redeem/index.tsx:489
 msgid "Payment Method"
-msgstr ""
+msgstr "Método de pago"
 
 #: components/views/Redeem/index.tsx:488
 msgid "Payment method"
-msgstr ""
+msgstr "Método de pago"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:130
 msgid "Project details <0/>"
-msgstr ""
+msgstr "Detalles del proyecto <0/>"
 
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
@@ -189,7 +189,7 @@ msgstr "La compra de criptomonedas, incluyendo el token $KLIMA, implica un alto 
 
 #: components/views/Deposit/index.tsx:296
 msgid "Receiving BCT"
-msgstr ""
+msgstr "BCT para recibir"
 
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
@@ -197,7 +197,7 @@ msgstr "Acciones y cambios regulatorios:El entorno normativo de las criptomoneda
 
 #: components/NavMenu/index.tsx:235
 msgid "Retire on Base"
-msgstr ""
+msgstr "Retirarse en Base"
 
 #: components/DisclaimerModal/index.tsx:29
 msgid "Risk Disclaimer"
@@ -205,16 +205,16 @@ msgstr "Exención de responsabilidad"
 
 #: components/CarbonTokenModal/index.tsx:22
 msgid "Select Token"
-msgstr ""
+msgstr "Seleccionar token"
 
 #: components/views/Redeem/index.tsx:390
 #: components/views/Redeem/index.tsx:391
 msgid "Select carbon pool"
-msgstr ""
+msgstr "Seleccionar reserva de carbono"
 
 #: components/views/Deposit/index.tsx:204
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
-msgstr ""
+msgstr "Selecciona el token TCO2 y la cantidad que deseas depositar en el pool."
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -226,7 +226,7 @@ msgstr "Esta aplicación sólo funciona en Polygon Mainnet."
 
 #: components/views/Redeem/index.tsx:457
 msgid "This cost includes slippage and any redemption fees charged by the pool"
-msgstr ""
+msgstr "Este costo incluye el slippage y cualquier tarifa de redención cobrada por el pool."
 
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
@@ -234,19 +234,19 @@ msgstr "Esta advertencia de riesgo resumida no revela todos los riesgos asociado
 
 #: components/views/Deposit/index.tsx:201
 msgid "Token to deposit"
-msgstr ""
+msgstr "Token para depositar"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:126
 msgid "Tonnes available: {formattedQuantity}"
-msgstr ""
+msgstr "Toneladas disponibles: {formattedQuantity}"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:103
 msgid "Unknown category"
-msgstr ""
+msgstr "Categoría desconocida"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:102
 msgid "Unknown methodology"
-msgstr ""
+msgstr "Metodología desconocida"
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
@@ -258,11 +258,11 @@ msgstr "Tienes que cargar tu monedero con USDC, KLIMA o un token del pool de car
 
 #: components/views/Redeem/index.tsx:477
 msgid "You receive"
-msgstr ""
+msgstr "Usted recibe"
 
 #: components/views/Deposit/index.tsx:275
 msgid "You'll receive BCT in exchange for your TCO2."
-msgstr ""
+msgstr "Recibirás BCT a cambio de tu TCO2."
 
 #: components/views/Redeem/index.tsx:501
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
@@ -698,15 +698,15 @@ msgstr "Visite nuestra <0> documentación </0> para construirlo en su aplicació
 
 #: components/views/Offset/SelectiveRetirementInput/index.tsx:21
 msgid "offset.enter_address"
-msgstr ""
+msgstr "Introduzca la dirección 0x"
 
 #: components/views/Redeem/index.tsx:354
 msgid "offset.incompatible"
-msgstr ""
+msgstr "TOKEN DE ENTRADA INCOMPATIBLE"
 
 #: components/views/Redeem/index.tsx:266
 msgid "offset.insufficient_project_tonnage"
-msgstr ""
+msgstr "Tonelaje de proyecto insuficiente"
 
 #: components/views/Redeem/index.tsx:442
 msgid "offset.invalid_project_tonnage"
@@ -718,11 +718,11 @@ msgstr "Total de retiros"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific"
-msgstr ""
+msgstr "Retirar tokens de proyectos específicos (opcional)"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:62
 msgid "offset.retire_specific_tooltip"
-msgstr ""
+msgstr "Sujeto a tarifa adicional, determinada por el pool seleccionado y pagada al proveedor del puente."
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:98
 msgid "offset.selectiveRetirement.address_input_type"
@@ -750,31 +750,31 @@ msgstr "Por defecto"
 
 #: components/views/Offset/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
-msgstr ""
+msgstr "No hemos podido encontrar ningún proyecto relacionado con su búsqueda. Modifique los filtros e inténtelo de nuevo."
 
 #: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
 msgid "offset.selectiveRetirement.filter.options_selected"
-msgstr ""
+msgstr "{0} seleccionado"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
 msgid "offset.selectiveRetirement.filters.find_project"
-msgstr ""
+msgstr "Buscar proyecto"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
 msgid "offset.selectiveRetirement.filters.region"
-msgstr ""
+msgstr "región"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
 msgid "offset.selectiveRetirement.filters.type"
-msgstr ""
+msgstr "tipo"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
 msgid "offset.selectiveRetirement.filters.vintage"
-msgstr ""
+msgstr "vintage"
 
 #: components/views/Offset/LoadingOverlay/index.tsx:12
 msgid "offset.selectiveRetirement.finding_projects"
-msgstr ""
+msgstr "Encontrando proyectos..."
 
 #: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
 msgid "offset.selectiveRetirement.project.available_tonnes"
@@ -786,7 +786,7 @@ msgstr "Permite retirar el proyecto por defecto del pool. Esta opción evita el 
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:89
 msgid "offset.selectiveRetirement.search_input_type"
-msgstr ""
+msgstr "Buscar proyecto"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
 msgid "offset.selectiveRetirement.selectProject.back"
@@ -794,11 +794,11 @@ msgstr "Volver a los filtros"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
 msgid "offset.selectiveRetirement.selectProject.label"
-msgstr ""
+msgstr "Seleccione un proyecto para continuar:"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
 msgid "offset.selectiveRetirement.selectProject.select"
-msgstr ""
+msgstr "Seleccionar proyecto"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:39
 msgid "offset.tonnes_of_carbon_retired"
@@ -925,7 +925,7 @@ msgstr "ERROR"
 
 #: components/views/Redeem/index.tsx:274
 msgid "shared.invalid_project_address"
-msgstr ""
+msgstr "Dirección de proyecto no válida"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:65
@@ -1179,8 +1179,8 @@ msgstr "Desempaquetado"
 #: components/CarbonTokenModal/index.tsx:35
 #: components/views/Deposit/index.tsx:230
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #: components/CarbonTokenModal/index.tsx:38
 msgid "{0} tonnes available"
-msgstr ""
+msgstr "{0} toneladas disponibles"
