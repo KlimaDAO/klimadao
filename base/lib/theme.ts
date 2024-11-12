@@ -32,6 +32,11 @@ export const AppTheme = createTheme({
     },
   },
   components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
     MuiDrawer: {
       styleOverrides: {
         paper: {

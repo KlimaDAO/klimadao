@@ -74,6 +74,7 @@ export const StepContainer = styled(Box)(({ theme }) => ({
 export const StepButton = styled(Button)<{ $isActive?: boolean }>(
   ({ $isActive, theme }) => ({
     width: "158px",
+    cursor: "unset",
     height: "41px",
     background: $isActive ? "#00CC33" : "transparent",
     borderRadius: "4px",
@@ -84,6 +85,7 @@ export const StepButton = styled(Button)<{ $isActive?: boolean }>(
     fontSize: "14px",
     lineHeight: "17px",
     textTransform: "none",
+    userSelect: "none",
     boxShadow: $isActive ? "0px 4px 24px rgba(0, 0, 0, 0.12)" : "none",
     "&:hover": {
       background: $isActive ? "#00CC33" : "transparent",

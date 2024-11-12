@@ -433,6 +433,7 @@ export const AutoCompounderStakeForm: React.FC = () => {
           onSuccess={() => {
             setShowModal(false);
             setAmount("");
+            router.push(`/auto-compounder/positions`);
           }}
         />
       )}
