@@ -5,11 +5,14 @@ on:
     branches:
       - main
       - staging
+      - dev
 
 jobs:
   compile:
     runs-on: ubuntu-latest
     name: Deploy
+    env:
+      IS_DEV: ${{ github.ref == 'refs/heads/dev' }}
     strategy:
       matrix:
         value:
@@ -56,15 +59,23 @@ jobs:
       #   run: npm run test
       #   working-directory: "${{ matrix.value }}"
 
-      - name: Staging or not
-        id: staging_or_not
+      - name: Staging, dev or main
+        id: determine_subgraph
         run: |
-          echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
+          short_sha=$(git rev-parse --short "$GITHUB_SHA")
+          echo "short_sha=${short_sha}" >> $GITHUB_OUTPUT
 
-          if [ $REF == "refs/heads/staging" ]
+          if [[ "$IS_DEV" == "true" ]]
+          then
+              echo "subgraph=${{ matrix.value }}-${short_sha}" >> $GITHUB_OUTPUT
+              return
+          fi
+
+          if [[ "$REF" == "refs/heads/staging" ]]
           then
               PREFIX="staging-"
           fi;
+
 
           if [[ "${{ matrix.value }}" =~ .*"-".*"-carbon".* ]]
           then
@@ -74,10 +85,15 @@ jobs:
           fi
         env:
           REF: ${{ github.ref }}
+      - name: Deploy Dev Subgraph to Studio
+        if: ${{ env.IS_DEV == 'true' }}
+        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} dev --version-label ${{ steps.determine_subgraph.outputs.subgraph  }}
+        working-directory: '${{ matrix.value }}'
       - name: Deploy Subgraph to Studio
-        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.staging_or_not.outputs.subgraph }} --version-label ${{ steps.staging_or_not.outputs.short_sha }}
+        if: ${{ env.IS_DEV != 'true' }}
+        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.determine_subgraph.outputs.subgraph }} --version-label ${{ steps.determine_subgraph.outputs.short_sha }}
         working-directory: '${{ matrix.value }}'
       - name: Deploy Subgraph to Alchemy Hosted Service
-        if: ${{ matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' || matrix.value == 'ethereum-bridged-carbon'}}
-        run: ../node_modules/.bin/graph deploy ${{ steps.staging_or_not.outputs.subgraph }} --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label ${{ steps.staging_or_not.outputs.short_sha }}
+        if: ${{ (matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' || matrix.value == 'ethereum-bridged-carbon') && env.IS_DEV != 'true' }}
+        run: ../node_modules/.bin/graph deploy ${{ steps.determine_subgraph.outputs.subgraph }} --deploy-key ${{ secrets.SUBGRAPH_ALCHEMY_HOSTED_SERVICE_DEPLOY_KEY }} --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz --version-label ${{ steps.determine_subgraph.outputs.short_sha }}
         working-directory: '${{ matrix.value }}'
