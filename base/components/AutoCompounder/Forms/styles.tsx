@@ -52,7 +52,8 @@ export const MaxButton = styled(Button)(({ theme }) => ({
   padding: "0 16px",
   backgroundColor: theme.palette.background.paper,
   color: theme.palette.text.primary,
-  fontWeight: 600,
+  fontWeight: 500,
+  fontSize: "1.4rem",
   "&:hover": {
     backgroundColor: alpha(theme.palette.background.paper, 0.8),
   },

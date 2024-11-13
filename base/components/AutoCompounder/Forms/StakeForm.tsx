@@ -1,3 +1,5 @@
+import { css } from "@emotion/css";
+import { Anchor } from "@klimadao/lib/components";
 import {
   Autorenew,
   Favorite,
@@ -70,14 +72,14 @@ const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => {
 
   return (
     <Stack direction="row" alignItems="center" justifyContent={"space-between"}>
-      <Typography variant="body1" color="text.secondary">
+      <Typography variant="body1" color="text.secondary" fontWeight={500}>
         {label}
       </Typography>
 
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Link href={addressUrl} target="_blank">
           <Stack direction="row" spacing={0.5} alignItems="center">
-            <Typography variant="body2" color="primary">
+            <Typography variant="body1" color="primary" fontWeight={500}>
               {address ? shortenAddress(address) : "-"}
             </Typography>
             <Launch color="primary" />
@@ -89,12 +91,12 @@ const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => {
 };
 
 const StatDisplay: React.FC<StatDisplayProps> = ({ label, value }) => (
-  <Stack direction="row" alignItems="center" justifyContent={"space-between"}>
-    <Typography variant="body1" color="text.secondary">
+  <Stack direction="row" alignItems="center" justifyContent="space-between">
+    <Typography variant="body1" color="text.secondary" fontWeight={500}>
       {label}
     </Typography>
-    <Stack direction="row" alignItems={"center"} spacing={1}>
-      <Typography variant="body2" color="text.secondary">
+    <Stack direction="row" alignItems="center" spacing={1}>
+      <Typography variant="body1" color="text.secondary" fontWeight={500}>
         {value}
       </Typography>
       <Tooltip
@@ -113,8 +115,8 @@ const StatDisplay: React.FC<StatDisplayProps> = ({ label, value }) => (
           },
         }}
       >
-        <IconButton size="small">
-          <HelpOutline fontSize="small" />
+        <IconButton size="small" sx={{ color: "#9C9C9C" }}>
+          <HelpOutline fontSize="medium" />
         </IconButton>
       </Tooltip>
     </Stack>
@@ -255,7 +257,7 @@ export const AutoCompounderStakeForm: React.FC = () => {
     return isBalanceLoading || isVaultDataLoading ? (
       <CircularProgress size={16} sx={{ ml: 1 }} />
     ) : (
-      formattedBalance || "0"
+      formattedBalance || "0.0"
     );
   }, [isClient, isBalanceLoading, isVaultDataLoading, formattedBalance]);
 
@@ -268,20 +270,41 @@ export const AutoCompounderStakeForm: React.FC = () => {
     <StyledPaper elevation={0}>
       <Stack spacing={1} width="100%">
         <Stack direction="row" spacing={1.5} alignItems="center">
-          <Autorenew />
+          <Autorenew sx={{ width: "2rem", height: "2rem" }} />
           <Typography variant="h5" fontWeight={700}>
             Auto Compounder
           </Typography>
         </Stack>
-        <Typography variant="h6" color="text.secondary">
-          Stake your Aero LP tokens and auto-compound your rewards. You can
-          unstake your LP tokens at any time.
+        <Typography
+          variant="h6"
+          color="#ddd"
+          fontWeight={400}
+          lineHeight="2rem"
+        >
+          Stake your{" "}
+          <Anchor
+            className={css`
+              text-decoration: underline;
+            `}
+            href="https://aerodrome.finance/liquidity"
+          >
+            Aero LP tokens
+          </Anchor>{" "}
+          and auto-compound your rewards. You can unstake your LP tokens at any
+          time.
         </Typography>
       </Stack>
 
       <Stack spacing={1} width="100%">
         <Stack spacing={1}>
-          <Typography variant="body1">Pool</Typography>
+          <Typography
+            variant="body1"
+            fontWeight={500}
+            fontSize="1.6rem"
+            lineHeight="2.4rem"
+          >
+            Pool
+          </Typography>
           <StyledSelect
             value={isClient ? pool : ""}
             onChange={handlePoolChange}
@@ -295,9 +318,11 @@ export const AutoCompounderStakeForm: React.FC = () => {
             ))}
           </StyledSelect>
         </Stack>
-        <Typography variant="body1" color="text.secondary">
-          Balance: {displayBalance}
-        </Typography>
+        <Stack spacing={2}>
+          <Typography variant="body1" color="text.secondary" fontWeight={500}>
+            Balance: {displayBalance}
+          </Typography>
+        </Stack>
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -311,7 +336,7 @@ export const AutoCompounderStakeForm: React.FC = () => {
             target="_blank"
           >
             <Stack direction="row" spacing={0.5} alignItems="center">
-              <Typography variant="body1" color="primary">
+              <Typography variant="body1" color="primary" fontWeight={500}>
                 Deposit Liquidity
               </Typography>
               <Launch color="primary" />
@@ -329,7 +354,7 @@ export const AutoCompounderStakeForm: React.FC = () => {
               },
             }}
           >
-            <IconButton size="small">
+            <IconButton size="small" sx={{ color: "#9C9C9C" }}>
               <HelpOutline fontSize="medium" />
             </IconButton>
           </Tooltip>
@@ -338,7 +363,14 @@ export const AutoCompounderStakeForm: React.FC = () => {
 
       <Stack width="100%">
         <Stack spacing={1}>
-          <Typography variant="body1">Amount to Stake</Typography>
+          <Typography
+            variant="body1"
+            fontWeight={500}
+            fontSize="1.6rem"
+            lineHeight="2.4rem"
+          >
+            Amount to Stake
+          </Typography>
           <StyledInputWrapper error={!!error}>
             <CustomInputBase
               type="text"
@@ -356,7 +388,6 @@ export const AutoCompounderStakeForm: React.FC = () => {
                 >
                   <MaxButton
                     onClick={handleMaxClick}
-                    disableRipple
                     disabled={!isClient || !Number(formattedBalance)}
                   >
                     MAX
@@ -366,12 +397,12 @@ export const AutoCompounderStakeForm: React.FC = () => {
             />
           </StyledInputWrapper>
           {error && (
-            <Typography variant="caption" color="error">
+            <Typography variant="caption" color="error" fontSize="1.4rem">
               {error}
             </Typography>
           )}
         </Stack>
-        <Stack py={"4px"} spacing={0.5}>
+        <Stack py="0.8rem" spacing={0.5}>
           <AddressDisplay
             label="KlimaVault:"
             address={selectedVault?.address}
@@ -383,7 +414,7 @@ export const AutoCompounderStakeForm: React.FC = () => {
         </Stack>
       </Stack>
 
-      <Stack spacing={1} width="100%">
+      <Stack width="100%">
         <StatDisplay label="APY" value={`${apy.toFixed(2) ?? "-"}%`} />
         <StatDisplay label="APR" value={`${apr.toFixed(2) ?? "-"}%`} />
       </Stack>
@@ -401,7 +432,13 @@ export const AutoCompounderStakeForm: React.FC = () => {
             <Favorite color="primary" />
             <Typography variant="h6">You're making a difference.</Typography>
           </Stack>
-          <Typography variant="body1" color="text.secondary" sx={{ pl: 3.5 }}>
+          <Typography
+            variant="body1"
+            fontWeight={500}
+            lineHeight="1.8rem"
+            color="text.secondary"
+            sx={{ pl: 3.5 }}
+          >
             We automatically redirect 1% of your LP yield to burn KLIMA and
             retire the underlying carbon credits.
           </Typography>
@@ -423,8 +460,8 @@ export const AutoCompounderStakeForm: React.FC = () => {
             bgcolor: "text.secondary",
           },
           "&:disabled": {
-            bgcolor: "action.disabledBackground",
-            color: "action.disabled",
+            bgcolor: "#A1A1A1",
+            color: "#313131",
           },
         }}
       >
