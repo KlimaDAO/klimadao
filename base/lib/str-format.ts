@@ -28,8 +28,8 @@ export const formatTokenAmount = (value: number, decimals = 18): string => {
   });
 };
 
-export const formatUSD = (value: number): string => {
-  if (!value || isNaN(value)) return "$ -";
+export const formatUSD = (value: number, showZeroBalance = false): string => {
+  if (!showZeroBalance && (!value || isNaN(value))) return "$ -";
 
   return new Intl.NumberFormat("en-US", {
     style: "currency",

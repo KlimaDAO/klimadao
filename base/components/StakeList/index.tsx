@@ -28,8 +28,8 @@ import {
 } from "./styles";
 
 import { useGaugeRewards } from "hooks/useGaugeRewards";
+import { formatUSD } from "lib/str-format";
 import { LiquidityPool, VaultInfo } from "lib/types";
-import { formatUnits } from "viem";
 
 export interface TokenPair {
   token1: "BCT" | "WETH" | "USDC" | "AERO" | "KLIMA";
@@ -103,11 +103,7 @@ export const StakeList: React.FC = () => {
                 TVL
               </Typography>
             </TableCell>
-            <TableCell align="right">
-              <Typography py={0.75} variant="body2" fontWeight={600}>
-                ACTION
-              </Typography>
-            </TableCell>
+            <TableCell align="right" />
           </TableRow>
         </TableHead>
         <TableBody>
@@ -164,28 +160,14 @@ const DesktopTableRow = ({
       <TableCell align="right">
         <Stack>
           <Typography fontWeight={600}>
-            {(vault.vaultValueUSD ?? 0).toLocaleString(undefined, {
-              style: "currency",
-              currency: "USD",
-              currencyDisplay: "symbol",
-              currencySign: "standard",
-            })}
-          </Typography>
-          <Typography variant="body1" color={"text.secondary"}>
-            {vault.vaultValue
-              ? formatUnits(
-                  vault.vaultValue ?? BigInt(0),
-                  vault?.decimals ?? 18
-                )
-              : "-"}{" "}
-            {lp.name}
+            {formatUSD(vault.vaultValueUSD ?? 0, true)}
           </Typography>
         </Stack>
       </TableCell>
       <TableCell>
         <Stack direction="row" alignItems="center" justifyContent="flex-end">
           <Button onClick={() => handleStake(lp.tokenA.name, lp.tokenB.name)}>
-            <Stack direction={"row"} gap={1} alignItems={"center"}>
+            <Stack direction="row" gap={1} alignItems="center">
               <Typography color="primary">Stake</Typography>
               <AddIcon />
             </Stack>

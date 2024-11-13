@@ -46,7 +46,8 @@ interface StatDisplayProps {
 }
 
 const TOOLTIPS = {
-  depositLiquidity: "Add liquidity to the pool to get LP tokens",
+  depositLiquidity:
+    "You can use Aerodrome to deposit liquidity into a pool and use those LPs for this transaction.",
   apy: "Annual Percentage Yield (APY) includes compound interest, showing total returns over one year",
   apr: "Annual Percentage Rate (APR) shows the simple interest rate without compounding",
   vault: "Smart contract that holds your LP tokens",
@@ -371,8 +372,14 @@ export const AutoCompounderStakeForm: React.FC = () => {
           )}
         </Stack>
         <Stack py={"4px"} spacing={0.5}>
-          <AddressDisplay label="Vault:" address={selectedVault?.address} />
-          <AddressDisplay label="Strategy:" address={selectedVault?.strategy} />
+          <AddressDisplay
+            label="KlimaVault:"
+            address={selectedVault?.address}
+          />
+          <AddressDisplay
+            label="KlimaAerodromeStrategy:"
+            address={selectedVault?.strategy}
+          />
         </Stack>
       </Stack>
 

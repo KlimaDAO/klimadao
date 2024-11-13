@@ -194,11 +194,7 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
                   VAULT TOKENS
                 </Typography>
               </TableCell>
-              <TableCell align="right">
-                <Typography py={0.75} variant="body2" fontWeight={600}>
-                  ACTION
-                </Typography>
-              </TableCell>
+              <TableCell align="right" />
             </TableRow>
           </TableHead>
           <TableBody>
