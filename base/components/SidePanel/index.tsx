@@ -1,5 +1,13 @@
 import { Autorenew, Forest as ForestIcon } from "@mui/icons-material";
-import { Box, Divider, Drawer, List, ListItem, Theme } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  Theme,
+  Typography,
+} from "@mui/material";
 import { Connect } from "components/Connect";
 import { useRouter } from "next/router";
 import {
@@ -80,15 +88,15 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
           <img src="/klimadao.svg" alt="KLIMADAO" height={30} />
         </LogoBox>
         <BaseLogoContainer>
-          <span>on</span>
+          <Typography fontSize="1.4rem" fontWeight={500}>
+            on
+          </Typography>
           <img src="/base-logo.svg" alt="BASE" />
         </BaseLogoContainer>
       </LogoContainer>
-
-      <Box px={4}>
+      <Box px={4} py={2}>
         <Divider />
       </Box>
-
       <NavigationContainer>
         <List>
           {menuItems.map((item) => (
@@ -106,9 +114,11 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
             </ListItem>
           ))}
         </List>
-
         {mobileOpen ? <Connect /> : null}
       </NavigationContainer>
+      <Box px={4} py={3}>
+        <Divider />
+      </Box>
     </>
   );
 

@@ -12,7 +12,6 @@ export const MobileItemWrapper = styled(Box)(({ theme }) => ({
 export const RowContainer = styled(Box)({
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "",
 });
 
 export const DataPairContainer = styled(Box)({

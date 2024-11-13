@@ -54,7 +54,7 @@ export const StyledListItem = styled(Box)<{ active: number }>(
     borderRadius: "8px",
     cursor: "pointer",
     transition: "all 0.3s ease",
-    padding: theme.spacing(1, 2),
+    padding: theme.spacing(1),
     backgroundColor: active ? theme.palette.grey[800] : "transparent",
     "&:hover": {
       backgroundColor: theme.palette.action.hover,
@@ -67,8 +67,8 @@ export const LogoWrapper = styled(Box)<{ active: number }>(
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: 40,
-    height: 40,
+    width: 32,
+    height: 32,
     borderRadius: "8px",
     backgroundColor: active
       ? theme.palette.primary.main
@@ -87,6 +87,6 @@ export const LogoWrapper = styled(Box)<{ active: number }>(
 export const ListItemText = styled(Box)<{ active: number }>(
   ({ theme, active }) => ({
     color: active ? theme.palette.text.primary : theme.palette.text.secondary,
-    fontWeight: active ? 600 : 400,
+    fontWeight: active ? 500 : 400,
   })
 );

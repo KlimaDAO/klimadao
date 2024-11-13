@@ -8,7 +8,7 @@ interface TokenPairLogoProps {
 
 export const TokenPairLogo = ({ token1, token2 }: TokenPairLogoProps) => {
   return (
-    <Box sx={{ position: "relative", width: "40px", height: "24px" }}>
+    <Box sx={{ position: "relative", width: "4rem", height: "2.4rem" }}>
       <Box
         component="img"
         src={`/tokens/${token1.toLowerCase()}.svg`}
@@ -16,8 +16,8 @@ export const TokenPairLogo = ({ token1, token2 }: TokenPairLogoProps) => {
         sx={{
           position: "absolute",
           left: 0,
-          width: "24px",
-          height: "24px",
+          width: "2.4rem",
+          height: "2.4rem",
           borderRadius: "50%",
         }}
       />
@@ -28,8 +28,8 @@ export const TokenPairLogo = ({ token1, token2 }: TokenPairLogoProps) => {
         sx={{
           position: "absolute",
           right: 0,
-          width: "24px",
-          height: "24px",
+          width: "2.4rem",
+          height: "2.4rem",
           borderRadius: "50%",
         }}
       />

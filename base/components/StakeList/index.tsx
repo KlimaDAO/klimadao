@@ -144,7 +144,7 @@ const DesktopTableRow = ({
       <TableCell>
         <Box display="flex" alignItems="center" gap={1}>
           <TokenPairLogo token1={lp.tokenA.name} token2={lp.tokenB.name} />
-          <Typography variant="body1" fontWeight={600}>
+          <Typography variant="body1" fontWeight={500}>
             {`${lp.tokenA.name}/${lp.tokenB.name}`}
           </Typography>
         </Box>
@@ -168,7 +168,13 @@ const DesktopTableRow = ({
         <Stack direction="row" alignItems="center" justifyContent="flex-end">
           <Button onClick={() => handleStake(lp.tokenA.name, lp.tokenB.name)}>
             <Stack direction="row" gap={1} alignItems="center">
-              <Typography color="primary">Stake</Typography>
+              <Typography
+                color="primary"
+                fontWeight={500}
+                sx={{ textTransform: "initial" }}
+              >
+                Stake
+              </Typography>
               <AddIcon />
             </Stack>
           </Button>
