@@ -187,7 +187,7 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
       case "approving":
         return "Approval in progress... Waiting for confirmation";
       case "approved":
-        return "Approval confirmed. Ready to stake";
+        return "Approval confirmed; ready to stake.";
       case "staking":
         return "Staking in progress...";
       case "success":
