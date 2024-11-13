@@ -268,7 +268,7 @@ export const AutoCompounderStakeForm: React.FC = () => {
     <StyledPaper elevation={0}>
       <Stack spacing={1} width="100%">
         <Stack direction="row" spacing={1.5} alignItems="center">
-          <Autorenew color="primary" />
+          <Autorenew />
           <Typography variant="h5" fontWeight={700}>
             Auto Compounder
           </Typography>
