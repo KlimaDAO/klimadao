@@ -11,6 +11,7 @@ import {
 } from "./styles";
 
 interface BaseModalProps {
+  sx?: any;
   open: boolean;
   onClose: () => void;
   title: string;
@@ -24,6 +25,7 @@ const ContentContainer = styled(Box)({
 });
 
 const BaseModal: React.FC<BaseModalProps> = ({
+  sx,
   open,
   onClose,
   title,
@@ -51,6 +53,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
       disableEnforceFocus
       disableEscapeKeyDown
       slots={{ backdrop: CustomBackdrop }}
+      sx={{ ...sx }}
       slotProps={{
         backdrop: {
           timeout: 500,

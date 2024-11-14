@@ -263,6 +263,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
         onClose={handleClose}
         showCloseButton
         aria-labelledby="withdraw-modal"
+        sx={{ "& > .MuiBox-root": { background: "#393939" } }}
       >
         <Box>
           <Stack spacing={2}>
@@ -273,7 +274,6 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
                   marginBottom: "8px",
                   fontSize: "1.6rem",
                   fontWeight: 500,
-                  // fontSize: "14px",
                 }}
               >
                 Amount to Unstake
