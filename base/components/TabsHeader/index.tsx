@@ -63,16 +63,8 @@ const TabsHeader = () => {
           <Tab label="Your Positions" />
         </Tabs>
 
-        {/* Desktop Wallet Button */}
         {!isMobile && <Connect />}
       </Stack>
-
-      {/* Mobile Wallet Button */}
-      {isMobile && (
-        <Box sx={{ px: 3, py: 2 }}>
-          <Connect />
-        </Box>
-      )}
     </Box>
   );
 };
