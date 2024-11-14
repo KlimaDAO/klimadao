@@ -29,10 +29,13 @@ export const StyledPaper = styled(Paper)(({ theme }) => ({
 
 export const StyledSelect = styled(Select)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
-  borderRadius: "8px",
+  borderRadius: "0.8rem",
   height: "48px",
   "& .MuiSelect-select": {
     padding: "12px",
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "transparent",
   },
 }));
 
@@ -41,14 +44,14 @@ export const MaxButtonContainer = styled(Box)(({ theme }) => ({
   right: "1px",
   top: "1px",
   backgroundColor: theme.palette.background.paper,
-  borderRadius: "4px",
+  borderRadius: "0.8rem",
 }));
 
 export const MaxButton = styled(Button)(({ theme }) => ({
   height: "100%",
-  borderRadius: 0,
-  borderTopRightRadius: theme.shape.borderRadius,
-  borderBottomRightRadius: theme.shape.borderRadius,
+  borderRadius: "0.4rem",
+  borderTopRightRadius: "0.8rem",
+  borderBottomRightRadius: "0.8rem",
   padding: "0 16px",
   backgroundColor: theme.palette.background.paper,
   color: theme.palette.text.primary,
@@ -67,8 +70,8 @@ export const StyledInputWrapper = styled("div")<StyledInputWrapperProps>(
     display: "flex",
     alignItems: "stretch",
     width: "100%",
-    height: "48px",
-    borderRadius: theme.shape.borderRadius,
+    height: "4.8rem",
+    borderRadius: "0.8rem",
     backgroundColor: theme.palette.background.default,
     border: `1px solid ${theme.palette.divider}`,
     "&:hover": {

@@ -424,7 +424,7 @@ export const AutoCompounderStakeForm: React.FC = () => {
           p: 1.5,
           width: "100%",
           bgcolor: "background.paper",
-          borderRadius: 1,
+          borderRadius: 2,
         }}
       >
         <Stack spacing={1}>
