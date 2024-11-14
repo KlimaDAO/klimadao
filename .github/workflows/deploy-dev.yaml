@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - dev
-      # @remove after testing
-      - dev-endpoint-deploy-action
 
 jobs:
   compile:
