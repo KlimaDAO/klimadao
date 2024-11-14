@@ -155,17 +155,35 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
             onWithdraw={onWithdraw}
           />
         ))}
-        {showModal && selectedPosition ? (
+        {showModal && selectedPosition && (
           <WithdrawConfirmationModal
             open={showModal}
             position={selectedPosition}
-            onClose={() => {
+            onSuccess={() => {
               setShowModal(false);
+              setShowSuccessModal(true);
+            }}
+            onClose={() => {
               setSelectedPosition(null);
               refetchPositions();
             }}
           />
-        ) : null}
+        )}
+
+        {showSuccessModal && selectedPosition && (
+          <SuccessModal
+            open={showSuccessModal}
+            onClose={() => {
+              setShowSuccessModal(false);
+            }}
+            content={
+              <Typography variant="body1">
+                You’ve successfully unstaked {selectedPosition.lpToken.name}{" "}
+                from the auto compounder.
+              </Typography>
+            }
+          />
+        )}
       </Box>
     );
   }
