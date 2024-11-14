@@ -223,7 +223,6 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
             </CloseButton>
           )}
         </ModalHeader>
-
         <Box sx={{ p: "20px" }}>
           <Stack spacing={3}>
             <StepContainer>
@@ -240,7 +239,6 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
                 2. Submit
               </StepButton>
             </StepContainer>
-
             <Typography
               sx={{
                 fontFamily: "Inter",
@@ -251,18 +249,15 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
             >
               {getStatusMessage()}
             </Typography>
-
             <Stack spacing={2}>
               <Box>
                 <InputLabel>Contract address</InputLabel>
                 <InputField>{truncateAddress(lpToken.poolAddress)}</InputField>
               </Box>
-
               <Box>
                 <InputLabel>Spender Address</InputLabel>
                 <InputField>{truncateAddress(lpToken.vault)}</InputField>
               </Box>
-
               <Box>
                 <InputLabel>Confirm quantity</InputLabel>
                 <InputField>
@@ -275,7 +270,6 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
                 </InputField>
               </Box>
             </Stack>
-
             <Stack spacing={1.5}>
               {isApproveStep && (
                 <ActionButton

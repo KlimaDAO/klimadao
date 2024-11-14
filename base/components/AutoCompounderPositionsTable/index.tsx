@@ -15,6 +15,7 @@ import {
   useTheme,
 } from "@mui/material";
 
+import SuccessModal from "components/AutoCompounder/Modals/SuccessModal";
 import { WithdrawConfirmationModal } from "components/AutoCompounder/Modals/WithdrawConfirmationModal";
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
 import { formatTokenAmount, formatUSD } from "lib/str-format";
@@ -114,6 +115,7 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
     React.useState<Position | null>();
 
   const [showModal, setShowModal] = React.useState(false);
+  const [showSuccessModal, setShowSuccessModal] = React.useState(false);
   const onWithdraw = (position: Position) => {
     setSelectedPosition(position);
     setShowModal(true);
@@ -274,17 +276,36 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
           </TableBody>
         </Table>
       </TableContainer>
+
       {showModal && selectedPosition ? (
         <WithdrawConfirmationModal
           open={showModal}
           position={selectedPosition}
-          onClose={() => {
+          onSuccess={() => {
             setShowModal(false);
+            setShowSuccessModal(true);
+          }}
+          onClose={() => {
             setSelectedPosition(null);
             refetchPositions();
           }}
         />
       ) : null}
+
+      {showSuccessModal && selectedPosition && (
+        <SuccessModal
+          open={showSuccessModal}
+          onClose={() => {
+            setShowSuccessModal(false);
+          }}
+          content={
+            <Typography variant="body1">
+              You’ve successfully unstaked {selectedPosition.lpToken.name} from
+              the auto compounder.
+            </Typography>
+          }
+        />
+      )}
     </>
   );
 };

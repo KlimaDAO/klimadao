@@ -23,7 +23,6 @@ import {
   StyledInputWrapper,
 } from "../Forms/styles";
 import BaseModal from "./BaseModal";
-import SuccessModal from "./SuccessModal";
 import { ActionButton } from "./styles";
 
 interface WithdrawModalProps {
@@ -43,7 +42,6 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   const [error, setError] = useState("");
   const [transactionToastId, setTransactionToastId] =
     useState<React.ReactText | null>(null);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const { address: userAddress } = useAccount();
 
@@ -90,7 +88,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   // TODO: Handle isTxn Success and failure.
   const { isLoading: isTransactionPending } = useWaitForTransaction({
     hash: withdrawData?.hash,
-    onSuccess: () => setShowSuccessModal(true),
+    onSuccess: () => onSuccess?.(),
     onError: (error) => handleTransactionError(error, "onChain"),
   });
 
@@ -256,120 +254,104 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
   }, [amount, formattedBalance, error]);
 
   return (
-    <>
-      <BaseModal
-        title="Unstake"
-        open={open}
-        onClose={handleClose}
-        showCloseButton
-        aria-labelledby="withdraw-modal"
-        sx={{ "& > .MuiBox-root": { background: "#393939" } }}
-      >
-        <Box>
-          <Stack spacing={2}>
-            <Box>
-              <InputLabel
-                sx={{
-                  color: "text.primary",
-                  marginBottom: "8px",
-                  fontSize: "1.6rem",
-                  fontWeight: 500,
-                }}
-              >
-                Amount to Unstake
-              </InputLabel>
-              <StyledInputWrapper>
-                <CustomInputBase
-                  fullWidth
-                  type="text"
-                  value={amount}
-                  onChange={handleAmountChange}
-                  placeholder="0.0"
-                  disabled={!Number(formattedBalance) || isLoading}
-                  error={!!error}
-                  inputProps={{
-                    inputMode: "decimal",
-                    pattern: "[0-9]*",
-                  }}
-                  endAdornment={
-                    <InputAdornment
-                      position="end"
-                      sx={{
-                        height: "100%",
-                        mr: 0,
-                      }}
-                    >
-                      <MaxButton
-                        onClick={handleMaxClick}
-                        disabled={!Number(formattedBalance) || isLoading}
-                      >
-                        MAX
-                      </MaxButton>
-                    </InputAdornment>
-                  }
-                />
-              </StyledInputWrapper>
-              {error && (
-                <Typography
-                  variant="caption"
-                  color="error"
-                  fontSize="1.4rem"
-                  sx={{ mt: 1, display: "block" }}
-                >
-                  {error}
-                </Typography>
-              )}
-            </Box>
-
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ fontSize: "14px" }}
+    <BaseModal
+      title="Unstake"
+      open={open}
+      onClose={handleClose}
+      showCloseButton
+      aria-labelledby="withdraw-modal"
+      sx={{ "& > .MuiBox-root": { background: "#393939" } }}
+    >
+      <Box>
+        <Stack spacing={2}>
+          <Box>
+            <InputLabel
+              sx={{
+                color: "text.primary",
+                marginBottom: "8px",
+                fontSize: "1.6rem",
+                fontWeight: 500,
+              }}
             >
-              {isBalanceLoading ? (
-                <CircularProgress size={16} sx={{ ml: 1 }} />
-              ) : (
-                `${formattedBalance} LP Available`
-              )}
-            </Typography>
-
-            <Stack spacing={1.5} sx={{ mt: 2 }}>
-              <ActionButton
-                variant="primary"
-                onClick={handleWithdraw}
-                disabled={!isValidAmount || isLoading || !withdraw}
+              Amount to Unstake
+            </InputLabel>
+            <StyledInputWrapper>
+              <CustomInputBase
+                fullWidth
+                type="text"
+                value={amount}
+                onChange={handleAmountChange}
+                placeholder="0.0"
+                disabled={!Number(formattedBalance) || isLoading}
+                error={!!error}
+                inputProps={{
+                  inputMode: "decimal",
+                  pattern: "[0-9]*",
+                }}
+                endAdornment={
+                  <InputAdornment
+                    position="end"
+                    sx={{
+                      height: "100%",
+                      mr: 0,
+                    }}
+                  >
+                    <MaxButton
+                      onClick={handleMaxClick}
+                      disabled={!Number(formattedBalance) || isLoading}
+                    >
+                      MAX
+                    </MaxButton>
+                  </InputAdornment>
+                }
+              />
+            </StyledInputWrapper>
+            {error && (
+              <Typography
+                variant="caption"
+                color="error"
+                fontSize="1.4rem"
+                sx={{ mt: 1, display: "block" }}
               >
-                {isLoading ? (
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <CircularProgress size={20} color="inherit" />
-                    <span>
-                      {isTransactionPending
-                        ? "CONFIRMING UNSTAKE..."
-                        : "PREPARING..."}
-                    </span>
-                  </Stack>
-                ) : (
-                  "UNSTAKE"
-                )}
-              </ActionButton>
-            </Stack>
-          </Stack>
-        </Box>
-      </BaseModal>
-      <SuccessModal
-        open={showSuccessModal}
-        onClose={() => {
-          onSuccess?.();
-          onClose();
-          setShowSuccessModal(false);
-        }}
-        content={
-          <Typography variant="body1">
-            You’ve successfully unstaked {position.lpToken.name} from the auto
-            compounder.
+                {error}
+              </Typography>
+            )}
+          </Box>
+
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{ fontSize: "14px" }}
+          >
+            {isBalanceLoading ? (
+              <CircularProgress size={16} sx={{ ml: 1 }} />
+            ) : (
+              `${formattedBalance} LP Available`
+            )}
           </Typography>
-        }
-      />
-    </>
+
+          <Stack spacing={1.5} sx={{ mt: 2 }}>
+            <ActionButton
+              variant="primary"
+              onClick={handleWithdraw}
+              disabled={!isValidAmount || isLoading || !withdraw}
+            >
+              {isLoading ? (
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <CircularProgress size={20} color="inherit" />
+                  <span>
+                    {isTransactionPending
+                      ? "CONFIRMING UNSTAKE..."
+                      : "PREPARING..."}
+                  </span>
+                </Stack>
+              ) : (
+                "UNSTAKE"
+              )}
+            </ActionButton>
+          </Stack>
+        </Stack>
+      </Box>
+    </BaseModal>
   );
 };

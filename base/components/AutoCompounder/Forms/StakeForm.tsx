@@ -29,6 +29,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { Address, useAccount, useBalance, usePublicClient } from "wagmi";
 import StakeConfirmationModal from "../Modals/StakeConfirmationModal";
+import SuccessModal from "../Modals/SuccessModal";
 import {
   CustomInputBase,
   MaxButton,
@@ -135,6 +136,7 @@ export const AutoCompounderStakeForm: React.FC = () => {
 
   const { address } = useAccount();
   const [showModal, setShowModal] = React.useState(false);
+  const [showSuccessModal, setShowSuccessModal] = React.useState(false);
   const [isClient, setIsClient] = React.useState(false);
 
   const [amount, setAmount] = React.useState("");
@@ -413,12 +415,10 @@ export const AutoCompounderStakeForm: React.FC = () => {
           />
         </Stack>
       </Stack>
-
       <Stack width="100%">
         <StatDisplay label="APY" value={`${apy.toFixed(2) ?? "-"}%`} />
         <StatDisplay label="APR" value={`${apr.toFixed(2) ?? "-"}%`} />
       </Stack>
-
       <Paper
         sx={{
           p: 1.5,
@@ -476,9 +476,30 @@ export const AutoCompounderStakeForm: React.FC = () => {
           lpToken={selectedLP}
           onSuccess={() => {
             setShowModal(false);
+            setShowSuccessModal(true);
             setAmount("");
-            router.push(`/auto-compounder/positions`);
+            // router.push(`/auto-compounder/positions`);
           }}
+        />
+      )}
+      {selectedLP && showSuccessModal && (
+        <SuccessModal
+          open={showSuccessModal}
+          onClose={() => {
+            setShowSuccessModal(false);
+          }}
+          content={
+            <>
+              <Typography variant="body1">
+                You’ve successfully staked {selectedLP.name} into the auto
+                compounder.
+              </Typography>
+              <Typography variant="body1">
+                You can view the status of your stake under the “Your Positions”
+                tab.
+              </Typography>
+            </>
+          }
         />
       )}
     </StyledPaper>
