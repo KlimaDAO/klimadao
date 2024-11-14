@@ -24,7 +24,7 @@ const TabsHeader = () => {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", marginTop: "2.4rem" }}>
       <Stack
         direction="row"
         alignItems="center"
@@ -45,24 +45,27 @@ const TabsHeader = () => {
             },
           }}
           sx={{
+            minHeight: "4rem",
             "& .MuiTab-root": {
               color: "text.secondary",
-              fontSize: "16px",
-              fontWeight: 600,
+              fontSize: "1.6rem",
+              fontWeight: 700,
               textTransform: "uppercase",
               fontFamily: "Poppins",
-              px: 1,
-              mr: 2,
+              px: 0,
+              mr: 1,
               "&.Mui-selected": {
                 color: "text.primary",
               },
             },
+            "& .MuiTabs-fixed": {
+              height: "4.4rem",
+            },
           }}
         >
-          <Tab label="Stake" />
+          <Tab sx={{ minWidth: "6.9rem" }} label="Stake" />
           <Tab label="Your Positions" />
         </Tabs>
-
         {!isMobile && <Connect />}
       </Stack>
     </Box>
