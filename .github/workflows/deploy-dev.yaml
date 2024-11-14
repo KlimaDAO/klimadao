@@ -1,4 +1,4 @@
-name: Dev Deployment
+name: Deployment
 
 on:
   push:
@@ -9,62 +9,62 @@ jobs:
   compile:
     runs-on: ubuntu-latest
     name: Deploy
-    env:
-      IS_DEV: true
+    strategy:
+      matrix:
+        value:
+          [
+            'bonds',
+            'carbonmark',
+            'protocol-metrics',
+            'vesting',
+            'user-carbon',
+            'pairs',
+            'celo-bridged-carbon',
+            'ethereum-bridged-carbon',
+            'polygon-digital-carbon',
+          ]
     steps:
-      - name: Extract subgraph name
-        id: extract
-        run: |
-          if [[ ! "${{ github.event.head_commit.message }}" =~ \[deploy[[:space:]]+([^\]]+)\] ]]; then
-            echo "Error: Dev deployments require [deploy subgraph-name] in commit message"
-            exit 1
-          fi
-          SUBGRAPH="${BASH_REMATCH[1]}"
-
-          # Validate subgraph name
-          valid_subgraphs=("bonds" "carbonmark" "protocol-metrics" "vesting" "user-carbon" "pairs" "celo-bridged-carbon" "ethereum-bridged-carbon" "polygon-bridged-carbon" "polygon-digital-carbon")
-          if [[ ! " ${valid_subgraphs[@]} " =~ " ${SUBGRAPH} " ]]; then
-            echo "Error: Invalid subgraph name: ${SUBGRAPH}"
-            exit 1
-          fi
-
-          echo "subgraph=${SUBGRAPH}" >> $GITHUB_OUTPUT
-
       - name: Check out source repository
         uses: actions/checkout@v2
-
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-
       - name: Install dependencies
         run: yarn --frozen-lockfile
-        working-directory: '${{ steps.extract.outputs.subgraph }}'
+        working-directory: '${{ matrix.value }}'
 
+      # Generate code and check for uncommitted changes
+      # https://github.com/marketplace/actions/check-uncommitted-changes
       - name: Generate Subgraph Code
         run: npm run codegen
-        working-directory: '${{ steps.extract.outputs.subgraph }}'
-
+        working-directory: '${{ matrix.value }}'
       - name: Check for uncommitted changes
         id: check-changes
         uses: mskri/check-uncommitted-changes-action@v1.0.1
-
       - name: Evaluate if there are changes
         if: steps.check-changes.outputs.outcome == failure()
         run: echo "There are uncommitted changes - execute 'npm run codegen' locally and commit the generated files!"
 
       - name: Build Subgraph
         run: npm run build
-        working-directory: '${{ steps.extract.outputs.subgraph }}'
+        working-directory: '${{ matrix.value }}'
 
-      - name: Determine subgraph name
-        id: determine_subgraph
+      - name: Create Subgraph Name
+        id: create_subgraph_name
         run: |
-          short_sha=$(git rev-parse --short "$GITHUB_SHA")
-          echo "short_sha=${short_sha}" >> $GITHUB_OUTPUT
-          echo "subgraph=${{ steps.extract.outputs.subgraph }}-${short_sha}" >> $GITHUB_OUTPUT
+          echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
 
-      - name: Deploy Dev Subgraph to Studio
-        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} dev --version-label ${{ steps.determine_subgraph.outputs.subgraph }}
-        working-directory: '${{ steps.extract.outputs.subgraph }}'
+          PREFIX="dev-"
+
+          if [[ "${{ matrix.value }}" =~ .*"-".*"-carbon".* ]]
+          then
+              echo "subgraph=${PREFIX}${{ matrix.value }}" >> $GITHUB_OUTPUT
+          else
+              echo "subgraph=${PREFIX}klimadao-${{ matrix.value }}" >> $GITHUB_OUTPUT
+          fi
+        env:
+          REF: ${{ github.ref }}
+      - name: Deploy Subgraph to Studio
+        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.create_.outputs.subgraph }} --version-label ${{ steps.staging_or_not.outputs.short_sha }}
+        working-directory: '${{ matrix.value }}'
