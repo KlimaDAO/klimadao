@@ -1,0 +1,70 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    name: Deploy
+    strategy:
+      matrix:
+        value:
+          [
+            'bonds',
+            'carbonmark',
+            'protocol-metrics',
+            'vesting',
+            'user-carbon',
+            'pairs',
+            'celo-bridged-carbon',
+            'ethereum-bridged-carbon',
+            'polygon-digital-carbon',
+          ]
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+        working-directory: '${{ matrix.value }}'
+
+      # Generate code and check for uncommitted changes
+      # https://github.com/marketplace/actions/check-uncommitted-changes
+      - name: Generate Subgraph Code
+        run: npm run codegen
+        working-directory: '${{ matrix.value }}'
+      - name: Check for uncommitted changes
+        id: check-changes
+        uses: mskri/check-uncommitted-changes-action@v1.0.1
+      - name: Evaluate if there are changes
+        if: steps.check-changes.outputs.outcome == failure()
+        run: echo "There are uncommitted changes - execute 'npm run codegen' locally and commit the generated files!"
+
+      - name: Build Subgraph
+        run: npm run build
+        working-directory: '${{ matrix.value }}'
+
+      - name: Create Subgraph Name
+        id: create_subgraph_name
+        run: |
+          echo "short_sha=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
+
+          PREFIX="dev-"
+
+          if [[ "${{ matrix.value }}" =~ .*"-".*"-carbon".* ]]
+          then
+              echo "subgraph=${PREFIX}${{ matrix.value }}" >> $GITHUB_OUTPUT
+          else
+              echo "subgraph=${PREFIX}klimadao-${{ matrix.value }}" >> $GITHUB_OUTPUT
+          fi
+        env:
+          REF: ${{ github.ref }}
+      - name: Deploy Subgraph to Studio
+        run: ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} ${{ steps.create_subgraph_name.outputs.subgraph }} --version-label ${{ steps.create_subgraph_name.outputs.short_sha }}
+        working-directory: '${{ matrix.value }}'
