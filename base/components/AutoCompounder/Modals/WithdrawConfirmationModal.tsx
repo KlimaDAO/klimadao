@@ -293,9 +293,11 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
           <Box>
             <InputLabel
               sx={{
-                color: "text.secondary",
+                color: "text.primary",
                 marginBottom: "8px",
-                fontSize: "14px",
+                fontSize: "1.6rem",
+                fontWeight: 500,
+                // fontSize: "14px",
               }}
             >
               Amount to Unstake
@@ -335,6 +337,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
               <Typography
                 variant="caption"
                 color="error"
+                fontSize="1.4rem"
                 sx={{ mt: 1, display: "block" }}
               >
                 {error}
@@ -350,7 +353,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
             {isBalanceLoading ? (
               <CircularProgress size={16} sx={{ ml: 1 }} />
             ) : (
-              `${formattedBalance} ${position.lpToken.name} Available`
+              `${formattedBalance} LP Available`
             )}
           </Typography>
 
@@ -372,14 +375,6 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
               ) : (
                 "UNSTAKE"
               )}
-            </ActionButton>
-
-            <ActionButton
-              variant="secondary"
-              onClick={handleClose}
-              disabled={isTransactionPending}
-            >
-              GO BACK
             </ActionButton>
           </Stack>
         </Stack>

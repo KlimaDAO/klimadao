@@ -60,7 +60,6 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
           </Stack>
         </Box>
       </RowContainer>
-
       <RowContainer>
         <DataPairContainer>
           <Typography>{formatUSD(position.lpBalance.usd)}</Typography>
@@ -82,7 +81,6 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
           </Typography>
         </DataPairContainer>
       </RowContainer>
-
       <RowContainer>
         <DataPairContainer>
           <Typography>
@@ -93,10 +91,11 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
           </Typography>
         </DataPairContainer>
       </RowContainer>
-
       <RowContainer>
         <WithdrawButton onClick={() => onWithdraw(position)}>
-          <Typography color="primary">Unstake</Typography>
+          <Typography color="primary" sx={{ textTransform: "initial" }}>
+            Unstake
+          </Typography>
           <SwapHorizIcon color="primary" sx={{ width: 20, height: 20 }} />
         </WithdrawButton>
       </RowContainer>
@@ -191,7 +190,12 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
               </TableCell>
               <TableCell align="right">
                 <Typography py={0.75} variant="body2" fontWeight={600}>
-                  VAULT TOKENS
+                  YIELD ACCRUED
+                </Typography>
+              </TableCell>
+              <TableCell align="right">
+                <Typography py={0.75} variant="body2" fontWeight={600}>
+                  TVL
                 </Typography>
               </TableCell>
               <TableCell align="right" />
@@ -222,12 +226,19 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
                       <Typography color="text.secondary">
                         {`${
                           formatTokenAmount(position.lpBalance.lpTokens) ?? "-"
-                        } ${position.lpToken.name}`}
+                        } LP Tokens`}
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
                       <Typography>
-                        {formatTokenAmount(position.vaultBalance.vaultTokens)}
+                        {/* {formatTokenAmount(position.vaultBalance.vaultTokens)} */}
+                        -
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="right">
+                      <Typography>
+                        {/* {formatTokenAmount(position.vaultBalance.vaultTokens)} */}
+                        -
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
@@ -245,7 +256,12 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
                             gap={1}
                             alignItems={"center"}
                           >
-                            <Typography color="primary">Unstake</Typography>
+                            <Typography
+                              color="primary"
+                              sx={{ textTransform: "initial" }}
+                            >
+                              Unstake
+                            </Typography>
                             <SwapHorizIcon />
                           </Stack>
                         </Button>
