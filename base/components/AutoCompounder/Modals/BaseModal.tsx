@@ -14,6 +14,7 @@ interface BaseModalProps {
   open: boolean;
   onClose: () => void;
   title: string;
+  showCloseButton?: boolean;
   children: React.ReactNode;
   "aria-labelledby"?: string;
 }
@@ -27,6 +28,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
   onClose,
   title,
   children,
+  showCloseButton = false,
   "aria-labelledby": ariaLabelledBy,
 }) => {
   const handleModalClose = (
@@ -36,9 +38,9 @@ const BaseModal: React.FC<BaseModalProps> = ({
     if (reason === "backdropClick") {
       return;
     }
-
     onClose();
   };
+
   return (
     <StyledModal
       open={open}
@@ -58,9 +60,11 @@ const BaseModal: React.FC<BaseModalProps> = ({
       <ModalContent>
         <ModalHeader>
           <HeaderTitle>{title}</HeaderTitle>
-          <CloseButton onClick={onClose} size="small">
-            <CloseIcon />
-          </CloseButton>
+          {showCloseButton && (
+            <CloseButton onClick={onClose} size="small">
+              <CloseIcon />
+            </CloseButton>
+          )}
         </ModalHeader>
         <ContentContainer>
           <Stack spacing={3}>{children}</Stack>

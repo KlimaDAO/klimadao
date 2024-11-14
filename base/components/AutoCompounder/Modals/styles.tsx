@@ -132,7 +132,7 @@ export const ActionButton = styled(ActionButtonBase)(
   ({ variant = "primary", theme }) => ({
     width: "324px",
     height: "48px",
-    background: theme.palette.primary.main,
+    background: variant === "primary" ? theme.palette.primary.main : "#FFFFFF",
     color: "#313131",
     fontFamily: theme.typography.fontFamily,
     fontWeight: 600,
@@ -146,7 +146,8 @@ export const ActionButton = styled(ActionButtonBase)(
       boxShadow: "0px 4px 28px rgba(0, 0, 0, 0.06)",
     }),
     "&:hover": {
-      background: theme.palette.primary.main,
+      background:
+        variant === "primary" ? theme.palette.primary.main : "#FFFFFF",
     },
     "&.Mui-disabled": {
       background: "rgba(255, 255, 255, 0.12)",
