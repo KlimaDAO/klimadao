@@ -58,9 +58,9 @@ const isRouteActive = (menuPath: string, currentPath: string): boolean => {
 const CustomListItem: FC<ListItem> = (props) => {
   const isActive = isRouteActive(props.path, props.currentPath);
   return (
-    <StyledListItem active={!!isActive}>
-      <LogoWrapper active={!!isActive}>{props.icon}</LogoWrapper>
-      <ListItemText active={!!isActive}>{props.text}</ListItemText>
+    <StyledListItem active={isActive ? 1 : 0}>
+      <LogoWrapper active={isActive ? 1 : 0}>{props.icon}</LogoWrapper>
+      <ListItemText active={isActive ? 1 : 0}>{props.text}</ListItemText>
     </StyledListItem>
   );
 };

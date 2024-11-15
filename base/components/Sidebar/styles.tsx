@@ -46,7 +46,7 @@ export const NavigationContainer = styled(Box)({
   width: "100%",
 });
 
-export const StyledListItem = styled(Box)<{ active: boolean }>(
+export const StyledListItem = styled(Box)<{ active: number }>(
   ({ theme, active }) => ({
     width: "100%",
     display: "flex",
@@ -62,7 +62,7 @@ export const StyledListItem = styled(Box)<{ active: boolean }>(
   })
 );
 
-export const LogoWrapper = styled(Box)<{ active: boolean }>(
+export const LogoWrapper = styled(Box)<{ active: number }>(
   ({ theme, active }) => ({
     display: "flex",
     alignItems: "center",
@@ -84,7 +84,7 @@ export const LogoWrapper = styled(Box)<{ active: boolean }>(
   })
 );
 
-export const ListItemText = styled(Box)<{ active: boolean }>(
+export const ListItemText = styled(Box)<{ active: number }>(
   ({ theme, active }) => ({
     color: active ? theme.palette.text.primary : theme.palette.text.secondary,
     fontWeight: active ? 500 : 400,

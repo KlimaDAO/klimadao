@@ -1,12 +1,12 @@
 import { Box, styled } from "@mui/material";
 
 export const MobileItemWrapper = styled(Box)(({ theme }) => ({
-  gap: "12px 0px",
+  gap: "1.2rem 0",
   display: "flex",
   flexDirection: "column",
-  borderBottom: `1px solid ${theme.palette.divider}`,
+  borderBottom: `0.1rem solid ${theme.palette.divider}`,
   width: "100%",
-  paddingBottom: "12px",
+  paddingBottom: "1.2rem",
 }));
 
 export const RowContainer = styled(Box)({
@@ -21,14 +21,14 @@ export const DataPairContainer = styled(Box)({
 });
 
 export const WithdrawButton = styled(Box)(({ theme }) => ({
-  width: "324px",
-  height: "40px",
+  width: "3.24rem",
+  height: "4rem",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  gap: "4px",
+  gap: "0.4rem",
   border: `1px solid ${theme.palette.primary.main}`,
-  borderRadius: "4px",
+  borderRadius: "0.4rem",
   cursor: "pointer",
   [theme.breakpoints.down("sm")]: {
     width: "100%",

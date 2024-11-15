@@ -17,8 +17,8 @@ export const CustomBackdrop = styled("div")({
   right: 0,
   bottom: 0,
   backgroundColor: "rgba(0, 0, 0, 0.2)",
-  backdropFilter: "blur(4px)",
-  WebkitBackdropFilter: "blur(4px)",
+  backdropFilter: "blur(0.4rem)",
+  WebkitBackdropFilter: "blur(0.4rem)",
   zIndex: -1,
 });
 
@@ -27,34 +27,34 @@ export const ModalContent = styled(Box)(({ theme }) => ({
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "364px",
+  width: "3.64rem",
   background: `${theme.palette.background.paper}`,
-  borderRadius: "12px",
+  borderRadius: "1.2rem",
   outline: "none",
   // Optional: add a subtle border to help with contrast against blur
-  border: "1px solid rgba(255, 255, 255, 0.08)",
+  border: "0.1rem solid rgba(255, 255, 255, 0.08)",
 }));
 
 export const ModalHeader = styled(Box)(() => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: "20px 20px 0 20px",
+  padding: "2rem 2rem 0 2rem",
 }));
 
 export const HeaderTitle = styled(Typography)(({ theme }) => ({
   fontFamily: "Poppins",
   fontWeight: 700,
-  fontSize: "24px",
-  lineHeight: "28px",
+  fontSize: "2.4rem",
+  lineHeight: "2.8rem",
   color: theme.palette.text.primary,
 }));
 
 export const CloseButton = styled(IconButton)(({ theme }) => ({
-  width: "32px",
-  height: "32px",
+  width: "3.2rem",
+  height: "3.2rem",
   background: theme.palette.background.paper,
-  borderRadius: "4px",
+  borderRadius: "0.4rem",
   color: theme.palette.text.primary,
   "&:hover": {
     background: theme.palette.background.paper,
@@ -63,30 +63,30 @@ export const CloseButton = styled(IconButton)(({ theme }) => ({
 
 export const StepContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  padding: "4px",
-  width: "324px",
-  height: "49px",
+  padding: "0.4rem",
+  width: "3.24rem",
+  height: "4.9rem",
   background: theme.palette.background.paper,
-  border: "1px solid #303030",
-  borderRadius: "8px",
+  border: "0.1rem solid #303030",
+  borderRadius: "0.8rem",
 }));
 
 export const StepButton = styled(Button)<{ $isActive?: boolean }>(
   ({ $isActive, theme }) => ({
-    width: "158px",
+    width: "1.58rem",
     cursor: "unset",
-    height: "41px",
+    height: "4.1rem",
     background: $isActive ? "#00CC33" : "transparent",
-    borderRadius: "4px",
-    padding: "12px 0px",
+    borderRadius: "0.4rem",
+    padding: "1.2rem 0",
     color: $isActive ? "#FFFFFF" : "#9C9C9C",
     fontFamily: theme.typography.fontFamily,
     fontWeight: 600,
-    fontSize: "14px",
-    lineHeight: "17px",
+    fontSize: "1.4rem",
+    lineHeight: "1.7rem",
     textTransform: "none",
     userSelect: "none",
-    boxShadow: $isActive ? "0px 4px 24px rgba(0, 0, 0, 0.12)" : "none",
+    boxShadow: $isActive ? "0 0.4rem 2.4rem rgba(0, 0, 0, 0.12)" : "none",
     "&:hover": {
       background: $isActive ? "#00CC33" : "transparent",
     },
@@ -99,17 +99,17 @@ export const StepButton = styled(Button)<{ $isActive?: boolean }>(
 export const InputLabel = styled(Typography)(({ theme }) => ({
   fontFamily: theme.typography.fontFamily,
   fontWeight: 400,
-  fontSize: "16px",
-  lineHeight: "20px",
+  fontSize: "1.6rem",
+  lineHeight: "2rem",
   letterSpacing: "0.01em",
   color: theme.palette.text.primary,
 }));
 
 export const InputField = styled(Box)(({ theme }) => ({
-  width: "324px",
-  height: "44px",
-  padding: "12px",
-  borderRadius: "8px",
+  width: "3.24rem",
+  height: "4.4rem",
+  padding: "1.2rem",
+  borderRadius: "0.8rem",
   color: theme.palette.text.primary,
   display: "flex",
   alignItems: "center",
@@ -130,20 +130,20 @@ const ActionButtonBase = (props: ActionButtonProps) => {
 
 export const ActionButton = styled(ActionButtonBase)(
   ({ variant = "primary", theme }) => ({
-    width: "324px",
-    height: "48px",
+    width: "3.24rem",
+    height: "4.8rem",
     background: variant === "primary" ? theme.palette.primary.main : "#FFFFFF",
     color: "#313131",
     fontFamily: theme.typography.fontFamily,
     fontWeight: 600,
     fontSize: "1.4rem",
-    lineHeight: "16px",
-    letterSpacing: "0.6px",
+    lineHeight: "1.6rem",
+    letterSpacing: "0.06rem",
     textTransform: "uppercase",
-    borderRadius: "4px",
+    borderRadius: "0.4rem",
     ...(variant === "secondary" && {
-      border: "1px solid #626266",
-      boxShadow: "0px 4px 28px rgba(0, 0, 0, 0.06)",
+      border: "0.1rem solid #626266",
+      boxShadow: "0 0.4rem 2.8rem rgba(0, 0, 0, 0.06)",
     }),
     "&:hover": {
       background:

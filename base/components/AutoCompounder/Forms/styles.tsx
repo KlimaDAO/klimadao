@@ -88,8 +88,8 @@ export const CustomInputBase = styled(InputBase)(() => ({
   height: "100%",
   "& .MuiInputBase-input": {
     height: "100%",
-    padding: "0 16px",
-    fontSize: "16px",
+    padding: "0 1.6rem",
+    fontSize: "1.6rem",
     "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
       "-webkit-appearance": "none",
       margin: 0,
