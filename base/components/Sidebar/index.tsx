@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
+import { FC } from "react";
 import {
   BaseLogoContainer,
   ConnectButton,
@@ -20,22 +21,19 @@ import {
   StyledListItem,
 } from "./styles";
 
-// New styled components for the enhanced list items
-
 interface SidebarProps {
   mobileOpen: boolean;
   handleDrawerToggle: () => void;
 }
 
-const isRouteActive = (menuPath: string, currentPath: string): boolean => {
-  // Root route needs exact match
-  if (menuPath === "/") {
-    return currentPath === "/";
-  }
-
-  // Other routes can match their paths and nested routes
-  return currentPath.startsWith(menuPath);
+type ListItem = {
+  text: string;
+  path: string;
+  currentPath: string;
+  icon: React.ReactNode;
 };
+
+const DRAWER_WIDTH = 280;
 
 const menuItems = [
   {
@@ -50,37 +48,25 @@ const menuItems = [
   },
 ];
 
-const CustomListItem = ({
-  text,
-  icon,
-  path,
-  currentPath,
-}: {
-  text: string;
-  icon: React.ReactNode;
-  path: string;
-  currentPath: string;
-}) => {
-  const isActive = isRouteActive(path, currentPath);
+const isRouteActive = (menuPath: string, currentPath: string): boolean => {
+  if (menuPath === "/") {
+    return currentPath === "/";
+  }
+  return currentPath.startsWith(menuPath);
+};
 
+const CustomListItem: FC<ListItem> = (props) => {
+  const isActive = isRouteActive(props.path, props.currentPath);
   return (
-    <StyledListItem active={isActive ? 1 : 0}>
-      <LogoWrapper active={isActive ? 1 : 0}>{icon}</LogoWrapper>
-      <ListItemText active={isActive ? 1 : 0}>{text}</ListItemText>
+    <StyledListItem active={!!isActive}>
+      <LogoWrapper active={!!isActive}>{props.icon}</LogoWrapper>
+      <ListItemText active={!!isActive}>{props.text}</ListItemText>
     </StyledListItem>
   );
 };
 
-interface SidebarProps {
-  mobileOpen: boolean;
-  handleDrawerToggle: () => void;
-}
-
-const DRAWER_WIDTH = 280;
-
-export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
+export const Sidebar: FC<SidebarProps> = (props) => {
   const router = useRouter();
-
   const drawer = (
     <>
       <LogoContainer>
@@ -114,7 +100,7 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
             </ListItem>
           ))}
         </List>
-        {mobileOpen ? <ConnectButton /> : null}
+        {props.mobileOpen ? <ConnectButton /> : null}
       </NavigationContainer>
       <Box px={4} py={3}>
         <Divider />
@@ -130,11 +116,10 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
         flexShrink: { sm: 0 },
       }}
     >
-      {/* Mobile drawer */}
       <Drawer
         variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
+        open={props.mobileOpen}
+        onClose={props.handleDrawerToggle}
         ModalProps={{ keepMounted: true }}
         sx={{
           display: { xs: "block", sm: "none" },
@@ -147,8 +132,6 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
       >
         {drawer}
       </Drawer>
-
-      {/* Desktop drawer */}
       <Drawer
         variant="permanent"
         sx={{

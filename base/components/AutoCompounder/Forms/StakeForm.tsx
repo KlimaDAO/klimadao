@@ -18,15 +18,13 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { useAvailableLP } from "hooks/useAvailablePool";
 import { useBeefyVaultsData } from "hooks/useBeefyVaultsData";
 import { useGaugeRewards } from "hooks/useGaugeRewards";
-
-import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { FC } from "react";
 import { Address, useAccount, useBalance, usePublicClient } from "wagmi";
 import StakeConfirmationModal from "../Modals/StakeConfirmationModal";
 import SuccessModal from "../Modals/SuccessModal";
@@ -65,7 +63,7 @@ export const shortenAddress = (
   return `${address.slice(0, prefixLength)}...${address.slice(-suffixLength)}`;
 };
 
-const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => {
+const AddressDisplay: FC<AddressDisplayProps> = ({ label, address }) => {
   const publicClient = usePublicClient();
 
   const explorerUrl = publicClient.chain.blockExplorers?.default.url;
@@ -76,7 +74,6 @@ const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => {
       <Typography variant="body1" color="text.secondary" fontWeight={500}>
         {label}
       </Typography>
-
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Link href={addressUrl} target="_blank">
           <Stack direction="row" spacing={0.5} alignItems="center">
@@ -91,7 +88,7 @@ const AddressDisplay: React.FC<AddressDisplayProps> = ({ label, address }) => {
   );
 };
 
-const StatDisplay: React.FC<StatDisplayProps> = ({ label, value }) => (
+const StatDisplay: FC<StatDisplayProps> = ({ label, value }) => (
   <Stack direction="row" alignItems="center" justifyContent="space-between">
     <Typography variant="body1" color="text.secondary" fontWeight={500}>
       {label}
@@ -128,10 +125,9 @@ function generateLiquidityURL(token1?: Address, token2?: Address) {
   return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
 }
 
-export const AutoCompounderStakeForm: React.FC = () => {
+export const StakeForm: FC = () => {
   const router = useRouter();
   const { token: tokens } = router.query;
-
   const { lps } = useAvailableLP();
 
   const { address } = useAccount();

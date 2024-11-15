@@ -14,14 +14,13 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-
 import SuccessModal from "components/AutoCompounder/Modals/SuccessModal";
 import { WithdrawConfirmationModal } from "components/AutoCompounder/Modals/WithdrawConfirmationModal";
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
 import { formatTokenAmount, formatUSD } from "lib/str-format";
 import { Position } from "lib/types";
 import Link from "next/link";
-import React from "react";
+import React, { FC } from "react";
 import {
   DataPairContainer,
   MobileItemWrapper,
@@ -39,10 +38,7 @@ interface MobilePositionProps {
   onWithdraw: (position: Position) => void;
 }
 
-const MobilePosition: React.FC<MobilePositionProps> = ({
-  position,
-  onWithdraw,
-}) => {
+const MobilePosition: FC<MobilePositionProps> = ({ position, onWithdraw }) => {
   if (position.vaultBalance.vaultTokens === 0) {
     return null;
   }
@@ -104,7 +100,7 @@ const MobilePosition: React.FC<MobilePositionProps> = ({
   );
 };
 
-export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
+export const PositionsTable: FC<PositionsTableProps> = ({
   positions,
   refetchPositions,
 }) => {
@@ -295,7 +291,7 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
         </Table>
       </TableContainer>
 
-      {showModal && selectedPosition ? (
+      {showModal && selectedPosition && (
         <WithdrawConfirmationModal
           open={showModal}
           position={selectedPosition}
@@ -308,14 +304,12 @@ export const AutoCompounderPositionsTable: React.FC<PositionsTableProps> = ({
             refetchPositions();
           }}
         />
-      ) : null}
+      )}
 
       {showSuccessModal && selectedPosition && (
         <SuccessModal
           open={showSuccessModal}
-          onClose={() => {
-            setShowSuccessModal(false);
-          }}
+          onClose={() => setShowSuccessModal(false)}
           content={
             <Typography variant="body1">
               You’ve successfully unstaked {selectedPosition.lpToken.name} from

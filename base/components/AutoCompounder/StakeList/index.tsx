@@ -22,6 +22,7 @@ import { useGaugeRewards } from "hooks/useGaugeRewards";
 import { formatUSD } from "lib/str-format";
 import { LiquidityPool, VaultInfo } from "lib/types";
 import { useRouter } from "next/router";
+import { FC } from "react";
 import {
   DataPairContainer,
   MobileItemWrapper,
@@ -37,11 +38,16 @@ export interface TokenPair {
   tvl: number;
 }
 
-export const StakeList: React.FC = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const router = useRouter();
+interface StakeItemProps {
+  lp: LiquidityPool;
+  vault?: VaultInfo;
+  handleStake: (token1: string, token2: string) => void;
+}
 
+export const StakeList: FC = () => {
+  const theme = useTheme();
+  const router = useRouter();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { lps } = useAvailableLP();
 
   const { data: vaultData, isLoading: isVaultDataLoading } =
@@ -66,10 +72,10 @@ export const StakeList: React.FC = () => {
       <Box display="flex" flexDirection="column" px={1} py={0.5} rowGap={1}>
         {Object.values(lps).map((lp, index) => (
           <MobileStakeItem
-            key={`${lp.tokenA.name}-${lp.tokenB.name}-${index}`}
             lp={lp}
+            handleStake={handleStake}
+            key={`${lp.tokenA.name}-${lp.tokenB.name}-${index}`}
             vault={vaultData?.find((e) => e.address === lp.vault)}
-            onStake={handleStake}
           />
         ))}
       </Box>
@@ -107,10 +113,10 @@ export const StakeList: React.FC = () => {
         <TableBody>
           {Object.values(lps).map((lp, index) => (
             <DesktopTableRow
-              key={lp.poolAddress + index}
               lp={lp}
-              vault={vaultData?.find((vd) => vd.address === lp.vault)}
               handleStake={handleStake}
+              key={lp.poolAddress + index}
+              vault={vaultData?.find((vd) => vd.address === lp.vault)}
             />
           ))}
         </TableBody>
@@ -119,15 +125,8 @@ export const StakeList: React.FC = () => {
   );
 };
 
-const DesktopTableRow = ({
-  lp,
-  vault,
-  handleStake,
-}: {
-  lp: LiquidityPool;
-  vault?: VaultInfo;
-  handleStake: (_a: string, _b: string) => void;
-}) => {
+const DesktopTableRow: FC<StakeItemProps> = (props) => {
+  const { lp, vault, handleStake } = props;
   const { apy, dailyRate } = useGaugeRewards({
     gaugeAddress: lp.gaugeAddress,
     lpAddress: lp.poolAddress,
@@ -181,17 +180,9 @@ const DesktopTableRow = ({
     </TableRow>
   );
 };
-interface MobileStakeItemProps {
-  vault?: VaultInfo;
-  lp: LiquidityPool;
-  onStake: (token1: string, token2: string) => void;
-}
 
-const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
-  lp,
-  vault,
-  onStake,
-}) => {
+const MobileStakeItem: FC<StakeItemProps> = (props) => {
+  const { lp, vault, handleStake } = props;
   const { apy, dailyRate } = useGaugeRewards({
     gaugeAddress: lp.gaugeAddress,
     lpAddress: lp.poolAddress,
@@ -204,7 +195,7 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
   return (
     <MobileItemWrapper>
       <RowContainer>
-        <Box display={"flex"} alignItems={"center"} gap={0.5} py={0.5}>
+        <Box display="flex" alignItems="center" gap={0.5} py={0.5}>
           <TokenPairLogo token1={lp.tokenA.name} token2={lp.tokenB.name} />
           <Stack>
             <Typography variant="body1" fontWeight={600}>
@@ -218,7 +209,7 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
             variant="caption"
             fontWeight={600}
             align="right"
-            color={"text.secondary"}
+            color="text.secondary"
           >
             APY
           </Typography>
@@ -232,11 +223,7 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
               style: "currency",
             })}
           </Typography>
-          <Typography
-            variant="caption"
-            fontWeight={600}
-            color={"text.secondary"}
-          >
+          <Typography variant="caption" fontWeight={600} color="text.secondary">
             TVL
           </Typography>
         </DataPairContainer>
@@ -248,14 +235,16 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
             variant="caption"
             fontWeight={600}
             align="right"
-            color={"text.secondary"}
+            color="text.secondary"
           >
             DAILY
           </Typography>
         </DataPairContainer>
       </RowContainer>
       <RowContainer>
-        <StakeButton onClick={() => onStake(lp.tokenA.name, lp.tokenB.name)}>
+        <StakeButton
+          onClick={() => handleStake(lp.tokenA.name, lp.tokenB.name)}
+        >
           <Typography color="primary">Stake</Typography>
           <AddIcon color="primary" sx={{ width: 20, height: 20 }} />
         </StakeButton>

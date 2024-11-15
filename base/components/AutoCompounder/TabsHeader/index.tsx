@@ -2,10 +2,10 @@ import { Box, Stack, Tab, Tabs, useMediaQuery, useTheme } from "@mui/material";
 import { Connect } from "components/Connect";
 import { useRouter } from "next/router";
 
-const TabsHeader = () => {
+export const TabsHeader = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const router = useRouter();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Helper to determine current tab value based on route
   const getCurrentTabValue = () => {
@@ -34,7 +34,6 @@ const TabsHeader = () => {
           borderColor: "background.paper",
         }}
       >
-        {/* MUI Tabs */}
         <Tabs
           value={getCurrentTabValue()}
           onChange={handleChange}
@@ -71,5 +70,3 @@ const TabsHeader = () => {
     </Box>
   );
 };
-
-export default TabsHeader;

@@ -1,8 +1,7 @@
 import { Box, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
+import { FC, ReactNode, useState } from "react";
 import { MobileHeader } from "../MobileHeader";
-import { Sidebar } from "../SidePanel";
-
-import { ReactNode, useState } from "react";
+import { Sidebar } from "../Sidebar";
 
 const DRAWER_WIDTH = 280;
 
@@ -10,9 +9,9 @@ interface LayoutProps {
   children?: ReactNode;
 }
 
-export const Layout = ({ children }: LayoutProps) => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+export const Layout: FC<Readonly<LayoutProps>> = ({ children }) => {
   const theme = useTheme();
+  const [mobileOpen, setMobileOpen] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleDrawerToggle = () => {
@@ -22,17 +21,11 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-
-      {/* AppBar - Shown only on mobile */}
       {isMobile && <MobileHeader onMenuClick={handleDrawerToggle} />}
-
-      {/* Sidebar */}
       <Sidebar
         mobileOpen={mobileOpen}
         handleDrawerToggle={handleDrawerToggle}
       />
-
-      {/* Main content */}
       <Box
         component="main"
         sx={{

@@ -1,9 +1,8 @@
 import { Box, Container } from "@mui/material";
-import { NextPage } from "next";
-
 import { Layout } from "components/AppLayout";
-import { AutoCompounderStakeForm } from "components/AutoCompounder/Forms/StakeForm";
-import TabsHeader from "components/TabsHeader";
+import { StakeForm } from "components/AutoCompounder/Forms/StakeForm";
+import { TabsHeader } from "components/AutoCompounder/TabsHeader";
+import { NextPage } from "next";
 
 const AutoCompounderStakeToken: NextPage = () => {
   return (
@@ -20,7 +19,7 @@ const AutoCompounderStakeToken: NextPage = () => {
             justifyContent: "center",
           }}
         >
-          <AutoCompounderStakeForm />
+          <StakeForm />
         </Container>
       </Box>
     </Layout>

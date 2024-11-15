@@ -1,9 +1,8 @@
 import { Box, CircularProgress, useTheme } from "@mui/material";
 import { Layout } from "components/AppLayout";
-import { AutoCompounderPositionsTable } from "components/AutoCompounderPositionsTable";
-import TabsHeader from "components/TabsHeader";
+import { PositionsTable } from "components/AutoCompounder/PositionsTable";
+import { TabsHeader } from "components/AutoCompounder/TabsHeader";
 import { useVaultsPositions } from "hooks/useVaultsPositions";
-
 import { NextPage } from "next";
 
 const AutoCompounderPositions: NextPage = () => {
@@ -63,10 +62,7 @@ const AutoCompounderPositions: NextPage = () => {
           borderRadius: "8px",
         }}
       >
-        <AutoCompounderPositionsTable
-          positions={positions}
-          refetchPositions={refetch}
-        />
+        <PositionsTable positions={positions} refetchPositions={refetch} />
       </Box>
     </Layout>
   );
