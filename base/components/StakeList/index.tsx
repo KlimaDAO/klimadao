@@ -16,9 +16,11 @@ import {
   useTheme,
 } from "@mui/material";
 import { TokenPairLogo } from "components/Logos/TokenPairLogos";
-
 import { useAvailableLP } from "hooks/useAvailablePool";
 import { useBeefyVaultsData } from "hooks/useBeefyVaultsData";
+import { useGaugeRewards } from "hooks/useGaugeRewards";
+import { formatUSD } from "lib/str-format";
+import { LiquidityPool, VaultInfo } from "lib/types";
 import { useRouter } from "next/router";
 import {
   DataPairContainer,
@@ -26,10 +28,6 @@ import {
   RowContainer,
   StakeButton,
 } from "./styles";
-
-import { useGaugeRewards } from "hooks/useGaugeRewards";
-import { formatUSD } from "lib/str-format";
-import { LiquidityPool, VaultInfo } from "lib/types";
 
 export interface TokenPair {
   token1: "BCT" | "WETH" | "USDC" | "AERO" | "KLIMA";
@@ -194,7 +192,7 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
   vault,
   onStake,
 }) => {
-  const { apy } = useGaugeRewards({
+  const { apy, dailyRate } = useGaugeRewards({
     gaugeAddress: lp.gaugeAddress,
     lpAddress: lp.poolAddress,
   });
@@ -202,6 +200,7 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
   if (!vault) {
     return null;
   }
+
   return (
     <MobileItemWrapper>
       <RowContainer>
@@ -213,7 +212,6 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
             </Typography>
           </Stack>
         </Box>
-
         <DataPairContainer>
           <Typography variant="body1">{apy ? apy.toFixed(2) : "-"}%</Typography>
           <Typography
@@ -226,7 +224,6 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
           </Typography>
         </DataPairContainer>
       </RowContainer>
-
       <RowContainer>
         <DataPairContainer>
           <Typography variant="body1">
@@ -245,7 +242,7 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
         </DataPairContainer>
         <DataPairContainer>
           <Typography align="right" variant="body1">
-            {vault?.dailyRate ?? "-"}%
+            {dailyRate ? dailyRate.toFixed(2) : "-"}%
           </Typography>
           <Typography
             variant="caption"
@@ -257,7 +254,6 @@ const MobileStakeItem: React.FC<MobileStakeItemProps> = ({
           </Typography>
         </DataPairContainer>
       </RowContainer>
-
       <RowContainer>
         <StakeButton onClick={() => onStake(lp.tokenA.name, lp.tokenB.name)}>
           <Typography color="primary">Stake</Typography>
