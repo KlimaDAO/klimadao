@@ -53,31 +53,11 @@ export const Connect: FC<{
               );
             }
             return (
-              <div className={styles.buttons}>
-                <ButtonPrimary
-                  className={styles.networkSwitchButton}
-                  onClick={openChainModal}
-                  label={chain.name}
-                  icon={
-                    <div
-                      className="icon"
-                      style={{ background: chain.iconBackground }}
-                    >
-                      {chain.iconUrl && (
-                        <img
-                          alt={chain.name ?? "Chain icon"}
-                          src={chain.iconUrl}
-                        />
-                      )}
-                    </div>
-                  }
-                />
-                <ButtonPrimary
-                  label={account.displayName}
-                  onClick={openAccountModal}
-                  className={buttonClassName}
-                />
-              </div>
+              <ButtonPrimary
+                label={account.displayName}
+                onClick={openAccountModal}
+                className={buttonClassName}
+              />
             );
           })()}
         </div>

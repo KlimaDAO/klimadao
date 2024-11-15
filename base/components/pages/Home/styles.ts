@@ -11,6 +11,8 @@ export const container = css`
   grid-template-rows: 1fr;
   max-width: 120rem;
   margin: 0 auto;
+  margin-top: 2.4rem;
+
   background: .MuiSvgIcon-root {
     font-size: 2.4rem;
     width: 2.4rem;
@@ -23,6 +25,7 @@ export const container = css`
   }
 
   ${breakpoints.medium} {
+    margin-top: 0;
     padding: 1.6rem;
     gap: 3.2rem;
   }

@@ -8,10 +8,10 @@ import {
   Theme,
   Typography,
 } from "@mui/material";
-import { Connect } from "components/Connect";
 import { useRouter } from "next/router";
 import {
   BaseLogoContainer,
+  ConnectButton,
   ListItemText,
   LogoBox,
   LogoContainer,
@@ -114,7 +114,7 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
             </ListItem>
           ))}
         </List>
-        {mobileOpen ? <Connect /> : null}
+        {mobileOpen ? <ConnectButton /> : null}
       </NavigationContainer>
       <Box px={4} py={3}>
         <Divider />

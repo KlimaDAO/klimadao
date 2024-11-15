@@ -29,4 +29,7 @@ export const StakeButton = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.primary.main}`,
   borderRadius: "4px",
   cursor: "pointer",
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
 }));

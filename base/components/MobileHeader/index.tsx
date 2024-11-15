@@ -1,4 +1,3 @@
-import LanguageIcon from "@mui/icons-material/Language";
 import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, Box, IconButton, Toolbar, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -53,7 +52,7 @@ export const MobileHeader: FC<MobileHeaderProps> = ({ onMenuClick }) => {
           </OnBaseText>
         </LogoContainer>
         <Box sx={{ display: "flex", gap: 1 }}>
-          <IconButton color="inherit" aria-label="language">
+          {/* <IconButton color="inherit" aria-label="language">
             <LanguageIcon
               sx={{
                 width: "2.4rem",
@@ -61,7 +60,7 @@ export const MobileHeader: FC<MobileHeaderProps> = ({ onMenuClick }) => {
                 color: theme.palette.text.primary,
               }}
             />
-          </IconButton>
+          </IconButton> */}
           <IconButton
             edge="end"
             color="inherit"

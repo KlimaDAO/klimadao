@@ -1,6 +1,6 @@
-// src/styles/Sidebar.styles.ts
 import { Box, Typography } from "@mui/material";
 import { Theme, styled } from "@mui/material/styles";
+import { Connect } from "components/Connect";
 
 export const LogoContainer = styled(Box)(() => ({
   display: "flex",
@@ -90,3 +90,7 @@ export const ListItemText = styled(Box)<{ active: number }>(
     fontWeight: active ? 500 : 400,
   })
 );
+
+export const ConnectButton = styled(Connect)({
+  width: "100%",
+});
