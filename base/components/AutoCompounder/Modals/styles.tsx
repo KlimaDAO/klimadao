@@ -27,7 +27,7 @@ export const ModalContent = styled(Box)(({ theme }) => ({
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "3.64rem",
+  width: "36.4rem",
   background: `${theme.palette.background.paper}`,
   borderRadius: "1.2rem",
   outline: "none",
