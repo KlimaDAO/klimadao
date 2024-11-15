@@ -8,7 +8,6 @@ import {
   Launch,
 } from "@mui/icons-material";
 import {
-  Button,
   CircularProgress,
   IconButton,
   InputAdornment,
@@ -24,6 +23,7 @@ import { useAvailableLP } from "hooks/useAvailablePool";
 import { useBeefyVaultsData } from "hooks/useBeefyVaultsData";
 import { useGaugeRewards } from "hooks/useGaugeRewards";
 
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -445,28 +445,12 @@ export const AutoCompounderStakeForm: React.FC = () => {
         </Stack>
       </Paper>
 
-      <Button
-        variant="contained"
-        fullWidth
+      <ButtonPrimary
+        label="STAKE"
         onClick={handleStake}
+        className={css({ width: "100%" })}
         disabled={!isClient || isStakeDisabled}
-        sx={{
-          fontSize: "16px",
-          height: "48px",
-          fontWeight: 600,
-          bgcolor: "primary",
-          color: "background.paper",
-          "&:hover": {
-            bgcolor: "text.secondary",
-          },
-          "&:disabled": {
-            bgcolor: "#A1A1A1",
-            color: "#313131",
-          },
-        }}
-      >
-        Stake
-      </Button>
+      />
 
       {isClient && showModal && selectedLP && (
         <StakeConfirmationModal
@@ -478,7 +462,6 @@ export const AutoCompounderStakeForm: React.FC = () => {
             setShowModal(false);
             setShowSuccessModal(true);
             setAmount("");
-            // router.push(`/auto-compounder/positions`);
           }}
         />
       )}

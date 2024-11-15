@@ -2,6 +2,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import { ERC20_ABI } from "abis/ERC20";
 import { VAULT_ABI } from "abis/Vault";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { parseUnits } from "ethers";
 import { LiquidityPool } from "lib/types";
 import React, { useEffect, useMemo, useState } from "react";
@@ -272,33 +273,31 @@ const StakeConfirmationModal: React.FC<StakeConfirmationModalProps> = ({
             </Stack>
             <Stack spacing={1.5}>
               {isApproveStep && (
-                <ActionButton
-                  variant="primary"
+                <ButtonPrimary
                   onClick={handleApprove}
                   disabled={!canInteract}
-                >
-                  {isApproving ? (
-                    <CircularProgress size={24} color="inherit" />
-                  ) : (
-                    "APPROVE"
-                  )}
-                </ActionButton>
+                  label={
+                    isApproving ? (
+                      <CircularProgress size={24} color="inherit" />
+                    ) : (
+                      "APPROVE"
+                    )
+                  }
+                />
               )}
-
               {isStakeStep && (
-                <ActionButton
-                  variant="primary"
+                <ButtonPrimary
                   onClick={handleStake}
                   disabled={!canInteract}
-                >
-                  {isStaking ? (
-                    <CircularProgress size={24} color="inherit" />
-                  ) : (
-                    "STAKE"
-                  )}
-                </ActionButton>
+                  label={
+                    isStaking ? (
+                      <CircularProgress size={24} color="inherit" />
+                    ) : (
+                      "STAKE"
+                    )
+                  }
+                />
               )}
-
               <ActionButton
                 variant="secondary"
                 onClick={onClose}
