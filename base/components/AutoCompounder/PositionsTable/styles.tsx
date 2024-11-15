@@ -21,7 +21,7 @@ export const DataPairContainer = styled(Box)({
 });
 
 export const WithdrawButton = styled(Box)(({ theme }) => ({
-  width: "3.24rem",
+  width: "32.4rem",
   height: "4rem",
   display: "flex",
   alignItems: "center",

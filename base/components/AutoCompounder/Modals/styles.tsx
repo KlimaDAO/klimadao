@@ -64,7 +64,7 @@ export const CloseButton = styled(IconButton)(({ theme }) => ({
 export const StepContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   padding: "0.4rem",
-  width: "3.24rem",
+  width: "32.4rem",
   height: "4.9rem",
   background: theme.palette.background.paper,
   border: "0.1rem solid #303030",
@@ -106,7 +106,7 @@ export const InputLabel = styled(Typography)(({ theme }) => ({
 }));
 
 export const InputField = styled(Box)(({ theme }) => ({
-  width: "3.24rem",
+  width: "32.4rem",
   height: "4.4rem",
   padding: "1.2rem",
   borderRadius: "0.8rem",
