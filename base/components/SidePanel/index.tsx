@@ -140,7 +140,7 @@ export const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
           display: { xs: "block", sm: "none" },
           "& .MuiDrawer-paper": {
             width: DRAWER_WIDTH,
-            backgroundColor: (theme: Theme) => theme.palette.background.default,
+            background: (theme: Theme) => theme.palette.background.default,
             boxSizing: "border-box",
           },
         }}
