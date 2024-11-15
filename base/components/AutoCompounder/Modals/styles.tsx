@@ -130,7 +130,7 @@ const ActionButtonBase = (props: ActionButtonProps) => {
 
 export const ActionButton = styled(ActionButtonBase)(
   ({ variant = "primary", theme }) => ({
-    width: "3.24rem",
+    width: "32.4rem",
     height: "4.8rem",
     background: variant === "primary" ? theme.palette.primary.main : "#FFFFFF",
     color: "#313131",
