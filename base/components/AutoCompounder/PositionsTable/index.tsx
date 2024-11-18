@@ -206,12 +206,7 @@ export const PositionsTable: FC<PositionsTableProps> = ({
               </TableCell>
               <TableCell align="right">
                 <Typography py={0.75} variant="body2" fontWeight={600}>
-                  YIELD ACCRUED
-                </Typography>
-              </TableCell>
-              <TableCell align="right">
-                <Typography py={0.75} variant="body2" fontWeight={600}>
-                  TVL
+                  VAULT TOKENS
                 </Typography>
               </TableCell>
               <TableCell align="right" />
@@ -242,19 +237,12 @@ export const PositionsTable: FC<PositionsTableProps> = ({
                       <Typography color="text.secondary">
                         {`${
                           formatTokenAmount(position.lpBalance.lpTokens) ?? "-"
-                        } LP Tokens`}
+                        } ${position.lpToken.name}`}
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
                       <Typography>
-                        {/* {formatTokenAmount(position.vaultBalance.vaultTokens)} */}
-                        -
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="right">
-                      <Typography>
-                        {/* {formatTokenAmount(position.vaultBalance.vaultTokens)} */}
-                        -
+                        {formatTokenAmount(position.vaultBalance.vaultTokens)}
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
