@@ -1,6 +1,6 @@
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { toDecimal } from '../../../../../lib/utils/Decimals'
-import { CarbonMetric } from '../../../../generated/schema'
+import { CarbonMetric, CarbonPoolCreditBalanceLoader } from '../../../../generated/schema'
 import { ICarbonToken } from '../ICarbonToken'
 
 export class MCO2 implements ICarbonToken {
@@ -8,9 +8,10 @@ export class MCO2 implements ICarbonToken {
     return 18
   }
 
-  returnUpdatedRetirementMetrics(carbonMetrics: CarbonMetric, amount: BigInt): CarbonMetric {
-    carbonMetrics.mco2Retired = carbonMetrics.mco2Retired.plus(toDecimal(amount, this.getDecimals()))
-    carbonMetrics.totalRetirements = carbonMetrics.totalRetirements.plus(toDecimal(amount, this.getDecimals()))
+  returnUpdatedRetirementMetrics(carbonMetrics: CarbonMetric, carbonTon: BigInt): CarbonMetric {
+    const carbonTonDecimal = new BigDecimal(carbonTon)
+    carbonMetrics.mco2Retired = carbonMetrics.mco2Retired.plus(carbonTonDecimal)
+    carbonMetrics.totalRetirements = carbonMetrics.totalRetirements.plus(carbonTonDecimal)
 
     return carbonMetrics
   }
