@@ -8,6 +8,7 @@ import {
   Launch,
 } from "@mui/icons-material";
 import {
+  Box,
   CircularProgress,
   IconButton,
   InputAdornment,
@@ -125,6 +126,32 @@ function generateLiquidityURL(token1?: Address, token2?: Address) {
   return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
 }
 
+const MenuItemContent: FC<any> = ({ lp }) => {
+  const { data: vaultData } = useBeefyVaultsData();
+  const vault = vaultData?.find((e) => e.address === lp.vault);
+  const { apr } = useGaugeRewards({
+    gaugeAddress: lp.gaugeAddress,
+    lpAddress: lp.poolAddress,
+  });
+
+  return (
+    <Box display="flex" flexDirection="column" width="100%">
+      <Typography variant="h6">{lp.name}</Typography>
+      <Box display="flex" justifyContent="space-between" gap={1}>
+        <Typography variant="body2" color="#9C9C9C">
+          {(vault?.vaultValueUSD ?? 0).toLocaleString(undefined, {
+            currency: "USD",
+            style: "currency",
+          })}
+        </Typography>
+        <Typography variant="body2" color="#9C9C9C">
+          {apr.toFixed(2)}% APR
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
 export const StakeForm: FC = () => {
   const router = useRouter();
   const { token: tokens } = router.query;
@@ -201,6 +228,12 @@ export const StakeForm: FC = () => {
     () => (lpBalance ? lpBalance.formatted : "0"),
     [lpBalance]
   );
+
+  //   const trigger = useScrollTrigger();
+
+  //   useEffect(() => {
+  //    trigger && isOpenMenu && handleClose();
+  //  }, [trigger, isOpenMenu])
 
   const handlePoolChange = (event: SelectChangeEvent<unknown>) => {
     const newPool = event.target.value as string;
@@ -304,14 +337,19 @@ export const StakeForm: FC = () => {
             Pool
           </Typography>
           <StyledSelect
+            fullWidth
             value={isClient ? pool : ""}
             onChange={handlePoolChange}
             IconComponent={KeyboardArrowDown}
-            fullWidth
+            renderValue={() => (
+              <Box display="flex" flexWrap="wrap" gap={0.5}>
+                {pool}
+              </Box>
+            )}
           >
             {Object.values(lps).map((lp) => (
               <MenuItem key={lp.poolAddress} value={lp.name}>
-                {lp.name}
+                <MenuItemContent lp={lp} />
               </MenuItem>
             ))}
           </StyledSelect>
