@@ -3,23 +3,18 @@ import { Anchor } from "@klimadao/lib/components";
 import {
   Autorenew,
   Favorite,
-  HelpOutline,
   KeyboardArrowDown,
   Launch,
 } from "@mui/icons-material";
 import {
   Box,
   CircularProgress,
-  IconButton,
   InputAdornment,
   MenuItem,
   Paper,
   SelectChangeEvent,
   Stack,
-  Tooltip,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { useAvailableLP } from "hooks/useAvailablePool";
@@ -31,6 +26,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { Address, useAccount, useBalance, usePublicClient } from "wagmi";
+import { CustomTooltip, TOOLTIPS } from "../CustomTooltip";
 import StakeConfirmationModal from "../Modals/StakeConfirmationModal";
 import SuccessModal from "../Modals/SuccessModal";
 import {
@@ -51,58 +47,11 @@ interface StatDisplayProps {
   value: string;
 }
 
-const TOOLTIPS = {
-  depositLiquidity:
-    "You can use Aerodrome to deposit liquidity into a pool and use those LPs for this transaction.",
-  apy: "Annual Percentage Yield (APY) includes compound interest, showing total returns over one year",
-  apr: "Annual Percentage Rate (APR) shows the simple interest rate without compounding",
-  vault: "Smart contract that holds your LP tokens",
-  strategy: "Smart contract that automates the compounding strategy",
-};
-
-const tooltipSlotProps = {
-  popper: {
-    modifiers: [{ name: "offset", options: { offset: [0, -20] } }],
-  },
-};
-
 const generateLiquidityURL = (token1?: Address, token2?: Address) =>
   `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
 
 const shortenAddress = (address: string, prefixLength = 6, suffixLength = 4) =>
   `${address.slice(0, prefixLength)}...${address.slice(-suffixLength)}`;
-
-// todo - move components out of this single file...
-const CustomTooltip: FC<{ tooltipText: string }> = ({ tooltipText }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [tooltipOpen, setTooltipOpen] = React.useState(false);
-  return (
-    <Tooltip
-      arrow
-      placement="top"
-      enterDelay={100}
-      enterTouchDelay={0}
-      open={isMobile ? tooltipOpen : undefined}
-      onClose={() => setTooltipOpen(false)}
-      slotProps={isMobile ? tooltipSlotProps : {}}
-      title={<Typography>{tooltipText}</Typography>}
-      sx={{
-        "& .MuiTooltip-arrow": {
-          color: "background.paper",
-        },
-      }}
-    >
-      <IconButton
-        size="small"
-        sx={{ color: "#9C9C9C" }}
-        onClick={() => setTooltipOpen(true)}
-      >
-        <HelpOutline fontSize="medium" />
-      </IconButton>
-    </Tooltip>
-  );
-};
 
 const AddressDisplay: FC<AddressDisplayProps> = ({ label, address }) => {
   const publicClient = usePublicClient();
@@ -443,7 +392,7 @@ export const StakeForm: FC = () => {
           />
         </Stack>
       </Stack>
-      <Stack width="100%">
+      <Stack width="100%" gap="0.4rem">
         <StatDisplay label="APY" value={`${apy.toFixed(2) ?? "-"}%`} />
         <StatDisplay label="APR" value={`${apr.toFixed(2) ?? "-"}%`} />
       </Stack>

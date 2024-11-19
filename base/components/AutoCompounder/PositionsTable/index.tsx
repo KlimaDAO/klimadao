@@ -21,6 +21,7 @@ import { formatTokenAmount, formatUSD } from "lib/str-format";
 import { Position } from "lib/types";
 import Link from "next/link";
 import React, { FC } from "react";
+import { CustomTooltip, TOOLTIPS } from "../CustomTooltip";
 import {
   DataPairContainer,
   MobileItemWrapper,
@@ -59,7 +60,10 @@ const MobilePosition: FC<MobilePositionProps> = ({ position, onWithdraw }) => {
       </RowContainer>
       <RowContainer>
         <DataPairContainer>
-          <Typography>{formatUSD(position.lpBalance.usd)}</Typography>
+          <Box display="flex" gap="0.8rem" alignItems="center">
+            <Typography>{formatUSD(position.lpBalance.usd)}</Typography>
+            <CustomTooltip tooltipText={TOOLTIPS.balance} />
+          </Box>
           <Typography variant="caption" fontWeight={600} color="text.secondary">
             BALANCE
           </Typography>
@@ -80,9 +84,12 @@ const MobilePosition: FC<MobilePositionProps> = ({ position, onWithdraw }) => {
       </RowContainer>
       <RowContainer>
         <DataPairContainer>
-          <Typography>
-            {formatTokenAmount(position.vaultBalance.vaultTokens)}
-          </Typography>
+          <Box display="flex" gap="0.8rem" alignItems="center">
+            <Typography>
+              {formatTokenAmount(position.vaultBalance.vaultTokens)}
+            </Typography>
+            <CustomTooltip tooltipText={TOOLTIPS.vaultTokens} />
+          </Box>
           <Typography variant="caption" fontWeight={600} color="text.secondary">
             VAULT TOKENS
           </Typography>
@@ -200,14 +207,30 @@ export const PositionsTable: FC<PositionsTableProps> = ({
                 </Typography>
               </TableCell>
               <TableCell align="right">
-                <Typography py={0.75} variant="body2" fontWeight={600}>
-                  BALANCE
-                </Typography>
+                <Box
+                  gap="0.8rem"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="flex-end"
+                >
+                  <Typography py={0.75} variant="body2" fontWeight={600}>
+                    BALANCE
+                  </Typography>
+                  <CustomTooltip tooltipText={TOOLTIPS.balance} />
+                </Box>
               </TableCell>
               <TableCell align="right">
-                <Typography py={0.75} variant="body2" fontWeight={600}>
-                  VAULT TOKENS
-                </Typography>
+                <Box
+                  gap="0.8rem"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="flex-end"
+                >
+                  <Typography py={0.75} variant="body2" fontWeight={600}>
+                    VAULT TOKENS
+                  </Typography>
+                  <CustomTooltip tooltipText={TOOLTIPS.vaultTokens} />
+                </Box>
               </TableCell>
               <TableCell align="right" />
             </TableRow>
