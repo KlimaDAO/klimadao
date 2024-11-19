@@ -30,7 +30,8 @@ export const LinksContainer = styled(Box)({
   gap: "4rem",
   display: "flex",
   flexDirection: "column",
-  p: "3rem 0",
+  paddingTop: "3rem",
+  paddingBottom: "3rem",
 });
 
 export const WalletContainer = styled(Box)({
