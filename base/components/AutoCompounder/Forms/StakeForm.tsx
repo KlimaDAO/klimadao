@@ -25,6 +25,7 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { useAvailableLP } from "hooks/useAvailablePool";
 import { useBeefyVaultsData } from "hooks/useBeefyVaultsData";
 import { useGaugeRewards } from "hooks/useGaugeRewards";
+import { LiquidityPool } from "lib/types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
@@ -64,6 +65,10 @@ const tooltipSlotProps = {
   },
 };
 
+function generateLiquidityURL(token1?: Address, token2?: Address) {
+  return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
+}
+
 export const shortenAddress = (
   address: string,
   prefixLength = 6,
@@ -72,9 +77,40 @@ export const shortenAddress = (
   return `${address.slice(0, prefixLength)}...${address.slice(-suffixLength)}`;
 };
 
+// todo - move components out of this single file...
+const CustomTooltip: FC<{ tooltipText: string }> = ({ tooltipText }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [tooltipOpen, setTooltipOpen] = React.useState(false);
+  return (
+    <Tooltip
+      arrow
+      placement="top"
+      enterDelay={100}
+      enterTouchDelay={0}
+      open={tooltipOpen}
+      onClose={() => setTooltipOpen(false)}
+      slotProps={isMobile ? tooltipSlotProps : {}}
+      title={<Typography>{tooltipText}</Typography>}
+      sx={{
+        "& .MuiTooltip-arrow": {
+          color: "background.paper",
+        },
+      }}
+    >
+      <IconButton
+        size="small"
+        sx={{ color: "#9C9C9C" }}
+        onClick={() => setTooltipOpen(true)}
+      >
+        <HelpOutline fontSize="medium" />
+      </IconButton>
+    </Tooltip>
+  );
+};
+
 const AddressDisplay: FC<AddressDisplayProps> = ({ label, address }) => {
   const publicClient = usePublicClient();
-
   const explorerUrl = publicClient.chain.blockExplorers?.default.url;
   const addressUrl = `${explorerUrl}/address/${address}`;
 
@@ -97,58 +133,23 @@ const AddressDisplay: FC<AddressDisplayProps> = ({ label, address }) => {
   );
 };
 
-const StatDisplay: FC<StatDisplayProps> = ({ label, value }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [tooltipOpen, setTooltipOpen] = React.useState(false);
-
-  return (
-    <Stack direction="row" alignItems="center" justifyContent="space-between">
+const StatDisplay: FC<StatDisplayProps> = ({ label, value }) => (
+  <Stack direction="row" alignItems="center" justifyContent="space-between">
+    <Typography variant="body1" color="text.secondary" fontWeight={500}>
+      {label}
+    </Typography>
+    <Stack direction="row" alignItems="center" spacing={1}>
       <Typography variant="body1" color="text.secondary" fontWeight={500}>
-        {label}
+        {value}
       </Typography>
-      <Stack direction="row" alignItems="center" spacing={1}>
-        <Typography variant="body1" color="text.secondary" fontWeight={500}>
-          {value}
-        </Typography>
-        <Tooltip
-          arrow
-          placement="top"
-          enterDelay={200}
-          open={tooltipOpen}
-          enterTouchDelay={0}
-          onClose={() => setTooltipOpen(false)}
-          slotProps={isMobile ? tooltipSlotProps : {}}
-          title={
-            <Typography>
-              {TOOLTIPS[label.toLowerCase() as keyof typeof TOOLTIPS]}
-            </Typography>
-          }
-          sx={{
-            bgcolor: "background.paper",
-            "& .MuiTooltip-arrow": {
-              color: "background.paper",
-            },
-          }}
-        >
-          <IconButton
-            size="small"
-            sx={{ color: "#9C9C9C" }}
-            onClick={() => setTooltipOpen(true)}
-          >
-            <HelpOutline fontSize="medium" />
-          </IconButton>
-        </Tooltip>
-      </Stack>
+      <CustomTooltip
+        tooltipText={TOOLTIPS[label.toLowerCase() as keyof typeof TOOLTIPS]}
+      />
     </Stack>
-  );
-};
+  </Stack>
+);
 
-function generateLiquidityURL(token1?: Address, token2?: Address) {
-  return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
-}
-
-const MenuItemContent: FC<any> = ({ lp }) => {
+const MenuItemContent: FC<{ lp: LiquidityPool }> = ({ lp }) => {
   const { data: vaultData } = useBeefyVaultsData();
   const vault = vaultData?.find((e) => e.address === lp.vault);
   const { apr } = useGaugeRewards({
@@ -176,7 +177,6 @@ const MenuItemContent: FC<any> = ({ lp }) => {
 
 export const StakeForm: FC = () => {
   const router = useRouter();
-  const theme = useTheme();
   const { token: tokens } = router.query;
   const { lps } = useAvailableLP();
 
@@ -184,9 +184,6 @@ export const StakeForm: FC = () => {
   const [showModal, setShowModal] = React.useState(false);
   const [showSuccessModal, setShowSuccessModal] = React.useState(false);
   const [isClient, setIsClient] = React.useState(false);
-  const [tooltipOpen, setTooltipOpen] = React.useState(false);
-
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [amount, setAmount] = React.useState("");
   const [error, setError] = React.useState("");
@@ -254,12 +251,6 @@ export const StakeForm: FC = () => {
     () => (lpBalance ? lpBalance.formatted : "0"),
     [lpBalance]
   );
-
-  //   const trigger = useScrollTrigger();
-
-  //   useEffect(() => {
-  //    trigger && isOpenMenu && handleClose();
-  //  }, [trigger, isOpenMenu])
 
   const handlePoolChange = (event: SelectChangeEvent<unknown>) => {
     const newPool = event.target.value as string;
@@ -404,29 +395,7 @@ export const StakeForm: FC = () => {
               <Launch color="primary" />
             </Stack>
           </Link>
-          <Tooltip
-            arrow
-            enterDelay={100}
-            enterTouchDelay={0}
-            open={tooltipOpen}
-            onClose={() => setTooltipOpen(false)}
-            placement="top"
-            slotProps={isMobile ? tooltipSlotProps : {}}
-            title={<Typography>{TOOLTIPS["depositLiquidity"]}</Typography>}
-            sx={{
-              "& .MuiTooltip-arrow": {
-                color: "background.paper",
-              },
-            }}
-          >
-            <IconButton
-              size="small"
-              sx={{ color: "#9C9C9C" }}
-              onClick={() => setTooltipOpen(true)}
-            >
-              <HelpOutline fontSize="medium" />
-            </IconButton>
-          </Tooltip>
+          <CustomTooltip tooltipText={TOOLTIPS["depositLiquidity"]} />
         </Stack>
       </Stack>
 
