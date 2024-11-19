@@ -218,10 +218,7 @@ const MobileStakeItem: FC<StakeItemProps> = (props) => {
       <RowContainer>
         <DataPairContainer>
           <Typography variant="body1">
-            {(vault?.vaultValueUSD ?? 0).toLocaleString(undefined, {
-              currency: "USD",
-              style: "currency",
-            })}
+            {formatUSD(vault?.vaultValueUSD ?? 0, true)}
           </Typography>
           <Typography variant="caption" fontWeight={600} color="text.secondary">
             TVL

@@ -25,6 +25,7 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { useAvailableLP } from "hooks/useAvailablePool";
 import { useBeefyVaultsData } from "hooks/useBeefyVaultsData";
 import { useGaugeRewards } from "hooks/useGaugeRewards";
+import { formatUSD } from "lib/str-format";
 import { LiquidityPool } from "lib/types";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -162,10 +163,7 @@ const MenuItemContent: FC<{ lp: LiquidityPool }> = ({ lp }) => {
       <Typography variant="h6">{lp.name}</Typography>
       <Box display="flex" justifyContent="space-between" gap={1}>
         <Typography variant="body2" color="#9C9C9C">
-          {(vault?.vaultValueUSD ?? 0).toLocaleString(undefined, {
-            currency: "USD",
-            style: "currency",
-          })}
+          {formatUSD(vault?.vaultValueUSD ?? 0, true)}
         </Typography>
         <Typography variant="body2" color="#9C9C9C">
           {apr.toFixed(2)}% APR
