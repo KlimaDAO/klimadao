@@ -8,11 +8,13 @@ import {
   Theme,
   Typography,
 } from "@mui/material";
+import { NavLinks } from "components/AutoCompounder/NavLinks";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import {
   BaseLogoContainer,
   ConnectButton,
+  LinksContainer,
   ListItemText,
   LogoBox,
   LogoContainer,
@@ -100,11 +102,20 @@ export const Sidebar: FC<SidebarProps> = (props) => {
             </ListItem>
           ))}
         </List>
-        {props.mobileOpen ? <ConnectButton /> : null}
+        {props.mobileOpen ? (
+          <LinksContainer>
+            <NavLinks />
+            <Box display="flex" flexDirection="column" gap="2rem">
+              <Divider />
+              <ConnectButton />
+            </Box>
+          </LinksContainer>
+        ) : (
+          <Box py={4} px={0}>
+            <Divider />
+          </Box>
+        )}
       </NavigationContainer>
-      <Box px={4} py={3}>
-        <Divider />
-      </Box>
     </>
   );
 

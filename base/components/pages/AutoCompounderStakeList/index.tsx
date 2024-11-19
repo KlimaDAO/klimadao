@@ -1,7 +1,7 @@
 import { Box, useTheme } from "@mui/material";
 import { Layout } from "components/AppLayout";
 import { StakeList } from "components/AutoCompounder/StakeList";
-import { TabsHeader } from "components/AutoCompounder/TabsHeader";
+import TabsHeader from "components/AutoCompounder/TabsHeader";
 import { NextPage } from "next";
 
 const AutoCompounderStakeList: NextPage = () => {

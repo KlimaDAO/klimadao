@@ -1,7 +1,7 @@
 import { Box, Container } from "@mui/material";
 import { Layout } from "components/AppLayout";
 import { StakeForm } from "components/AutoCompounder/Forms/StakeForm";
-import { TabsHeader } from "components/AutoCompounder/TabsHeader";
+import TabsHeader from "components/AutoCompounder/TabsHeader";
 import { NextPage } from "next";
 
 const AutoCompounderStakeToken: NextPage = () => {

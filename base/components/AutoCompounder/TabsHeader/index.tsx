@@ -1,8 +1,10 @@
 import { Box, Stack, Tab, Tabs, useMediaQuery, useTheme } from "@mui/material";
 import { Connect } from "components/Connect";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { NavLinks } from "../NavLinks";
 
-export const TabsHeader = () => {
+const TabsHeader = () => {
   const theme = useTheme();
   const router = useRouter();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -65,8 +67,15 @@ export const TabsHeader = () => {
           <Tab sx={{ minWidth: "6.9rem" }} label="Stake" />
           <Tab label="Your Positions" />
         </Tabs>
-        {!isMobile && <Connect />}
+        {!isMobile && (
+          <Box display="flex" gap="4rem" alignItems="center">
+            <NavLinks />
+            <Connect />
+          </Box>
+        )}
       </Stack>
     </Box>
   );
 };
+
+export default dynamic(() => Promise.resolve(TabsHeader), { ssr: false });

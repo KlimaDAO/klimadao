@@ -1,7 +1,7 @@
 import { Box, CircularProgress, useTheme } from "@mui/material";
 import { Layout } from "components/AppLayout";
 import { PositionsTable } from "components/AutoCompounder/PositionsTable";
-import { TabsHeader } from "components/AutoCompounder/TabsHeader";
+import TabsHeader from "components/AutoCompounder/TabsHeader";
 import { useVaultsPositions } from "hooks/useVaultsPositions";
 import { NextPage } from "next";
 

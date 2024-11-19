@@ -26,6 +26,13 @@ export const BaseLogoContainer = styled(Box)(({ theme }: { theme: Theme }) => ({
   ...theme.typography.body1,
 }));
 
+export const LinksContainer = styled(Box)({
+  gap: "4rem",
+  display: "flex",
+  flexDirection: "column",
+  p: "3rem 0",
+});
+
 export const WalletContainer = styled(Box)({
   padding: "0 32px",
   width: "100%",
