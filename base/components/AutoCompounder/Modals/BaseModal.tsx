@@ -14,7 +14,7 @@ interface BaseModalProps {
   sx?: any;
   open: boolean;
   onClose: () => void;
-  title: string;
+  title: string | React.ReactElement;
   showCloseButton?: boolean;
   children: React.ReactNode;
   "aria-labelledby"?: string;

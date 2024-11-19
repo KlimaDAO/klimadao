@@ -326,7 +326,7 @@ export const WithdrawConfirmationModal: React.FC<WithdrawModalProps> = ({
             {isBalanceLoading ? (
               <CircularProgress size={16} sx={{ ml: 1 }} />
             ) : (
-              `${formattedBalance} LP Available`
+              `${formattedBalance} Vault Tokens`
             )}
           </Typography>
 

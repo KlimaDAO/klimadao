@@ -1,4 +1,5 @@
-import { Stack } from "@mui/material";
+import { CheckCircleOutlineOutlined } from "@mui/icons-material";
+import { Box, Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import React from "react";
 import BaseModal from "./BaseModal";
@@ -18,7 +19,12 @@ const SuccessModal: React.FC<StakeConfirmationModalProps> = ({
   const router = useRouter();
   return (
     <BaseModal
-      title="Success"
+      title={
+        <Box display="flex" alignItems="center" gap="0.8rem">
+          <CheckCircleOutlineOutlined fontSize="large" htmlColor="#00CC33" />
+          <span>Success!</span>
+        </Box>
+      }
       open={open}
       onClose={onClose}
       aria-labelledby="auto-compounder-success-modal"

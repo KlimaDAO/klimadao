@@ -66,17 +66,11 @@ const tooltipSlotProps = {
   },
 };
 
-function generateLiquidityURL(token1?: Address, token2?: Address) {
-  return `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
-}
+const generateLiquidityURL = (token1?: Address, token2?: Address) =>
+  `https://aerodrome.finance/deposit?token0=${token1}&token1=${token2}&type=-1`;
 
-export const shortenAddress = (
-  address: string,
-  prefixLength = 6,
-  suffixLength = 4
-) => {
-  return `${address.slice(0, prefixLength)}...${address.slice(-suffixLength)}`;
-};
+const shortenAddress = (address: string, prefixLength = 6, suffixLength = 4) =>
+  `${address.slice(0, prefixLength)}...${address.slice(-suffixLength)}`;
 
 // todo - move components out of this single file...
 const CustomTooltip: FC<{ tooltipText: string }> = ({ tooltipText }) => {
