@@ -89,7 +89,7 @@ const CustomTooltip: FC<{ tooltipText: string }> = ({ tooltipText }) => {
       placement="top"
       enterDelay={100}
       enterTouchDelay={0}
-      open={tooltipOpen}
+      open={isMobile ? tooltipOpen : undefined}
       onClose={() => setTooltipOpen(false)}
       slotProps={isMobile ? tooltipSlotProps : {}}
       title={<Typography>{tooltipText}</Typography>}
