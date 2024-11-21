@@ -1,4 +1,4 @@
-import { StyledEngineProvider } from "@mui/material/styles";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import {
   RainbowKitProvider,
   connectorsForWallets,
@@ -14,6 +14,14 @@ import "../styles/normalize.css";
 // organize-imports-ignore
 import "../styles/variables.css";
 // organize-imports-ignore
+import {
+  QueryClientProvider,
+  QueryClient as ReactQueryClient,
+} from "@tanstack/react-query";
+import { AppTheme } from "lib/theme";
+import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/globals.css";
 
 const { chains, publicClient } = configureChains(
@@ -36,13 +44,30 @@ const config = createConfig({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [reactQueryClient] = useState(() => new ReactQueryClient());
+
   return (
-    <WagmiConfig config={config}>
-      <RainbowKitProvider chains={chains}>
-        <StyledEngineProvider injectFirst>
-          <Component {...pageProps} />
-        </StyledEngineProvider>
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <ThemeProvider theme={AppTheme}>
+      <WagmiConfig config={config}>
+        <RainbowKitProvider chains={chains}>
+          <StyledEngineProvider injectFirst>
+            <QueryClientProvider client={reactQueryClient}>
+              <Component {...pageProps} />
+              <ToastContainer
+                position="top-right"
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                draggable
+                theme="dark" // or "light" based on your preference
+                pauseOnFocusLoss={false}
+                pauseOnHover={false}
+              />
+            </QueryClientProvider>
+          </StyledEngineProvider>
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </ThemeProvider>
   );
 }

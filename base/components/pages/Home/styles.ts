@@ -2,39 +2,22 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
   z-index: 0;
   overflow-x: hidden;
-  overflow-y: auto;
-  min-height: 100vh;
+  height: 100%;
   grid-template-rows: 1fr;
   max-width: 120rem;
   margin: 0 auto;
+  margin-top: 2.4rem;
 
-  .MuiSvgIcon-root {
+  background: .MuiSvgIcon-root {
     font-size: 2.4rem;
     width: 2.4rem;
     height: 2.4rem;
   }
-
-  // safari and chrome
-  *::-webkit-scrollbar {
-    width: 0.6rem;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--dark-gray);
-    outline: 1px solid var(--dark-gray);
-    border-radius: 0.2rem;
-    width: 0.6rem;
-  }
-
-  // firefox scrollbar
-  scrollbar-color: var(--dark-gray);
-  scrollbar-width: 0.6rem;
 
   /** KlimaDAO Logo */
   .logo {
@@ -42,6 +25,7 @@ export const container = css`
   }
 
   ${breakpoints.medium} {
+    margin-top: 0;
     padding: 1.6rem;
     gap: 3.2rem;
   }
