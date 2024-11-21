@@ -1,4 +1,4 @@
-specVersion: 0.0.5
+specVersion: 0.0.8
 schema:
   file: ./schema.graphql
 dataSources:
@@ -29,6 +29,10 @@ dataSources:
       eventHandlers:
         - event: Swap(indexed address,uint256,uint256,uint256,uint256,indexed address)
           handler: handleSwap
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
       file: ./src/Pair.ts
   - kind: ethereum/contract
     name: KLIMA_BCT

@@ -99,3 +99,12 @@ type Purchase @entity {
   listing: Listing!
 }
 
+# Subgraph Versioning
+
+type SubgraphVersion @entity(immutable: true)  {
+  id: ID!
+  schemaVersion: String!
+  publishedVersion: String!
+}
+
+

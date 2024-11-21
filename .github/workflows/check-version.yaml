@@ -1,0 +1,103 @@
+# triggers on all pushes and pull requests. This version check will fail if the commit hash for a subgraph directory has changed but the package.json version has been updated.
+
+name: Check Version Update
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  check-version-update:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        value:
+          [
+            'bonds',
+            'carbonmark',
+            'protocol-metrics',
+            'vesting',
+            'user-carbon',
+            'pairs',
+            'celo-bridged-carbon',
+            'ethereum-bridged-carbon',
+            'polygon-bridged-carbon',
+            'polygon-digital-carbon',
+          ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full history
+
+      - name: Determine if it's a PR or a push
+        id: event_type
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "is_pr=true" >> $GITHUB_ENV
+          else
+            echo "is_pr=false" >> $GITHUB_ENV
+          fi
+
+      - name: Fetch main branch
+        run: |
+          git fetch origin main:main  # Fetch main branch for comparison
+
+      - name: Initialize error log
+        run: |
+          echo "" > errors.log
+
+      - name: Check for changes in subgraph folder
+        id: check_changes
+        run: |
+          echo "Checking for changes in ${{ matrix.value }}"
+
+          if [[ "${{ env.is_pr }}" == "true" ]]; then
+            # For PRs: Compare the base branch (main) with the PR's head branch
+            CHANGED=$(git diff --name-only origin/main ${{ github.event.pull_request.head.sha }} -- "${{ matrix.value }}/" || true)
+          else
+            # For pushes: Compare the main branch with the latest commit in the push
+            CHANGED=$(git diff --name-only origin/main ${{ github.sha }} -- "${{ matrix.value }}/" || true)
+          fi
+
+          if [ -n "$CHANGED" ]; then
+            echo "changes=true" >> $GITHUB_ENV
+          else
+            echo "changes=false" >> $GITHUB_ENV
+          fi
+
+      - name: Check version update if changes exist
+        if: env.changes == 'true'
+        run: |
+          echo "Comparing versions in ${{ matrix.value }} folder"
+          BASE_VERSION=$(git show origin/main:${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
+          echo "Base version: $BASE_VERSION"
+
+          if [[ "${{ env.is_pr }}" == "true" ]]; then
+            PR_VERSION=$(git show ${{ github.event.pull_request.head.sha }}:${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
+          else
+            PR_VERSION=$(git show ${{ github.sha }}:${{ matrix.value }}/package.json | grep '"version":' | cut -d'"' -f4)
+          fi
+          echo "PR version: $PR_VERSION"
+
+          if [ "$BASE_VERSION" = "$PR_VERSION" ]; then
+            # Only write error if there's a mismatch, avoiding empty spaces or newlines
+            echo "Error: Version in package.json for ${{ matrix.value }} has not been updated." >> errors.log
+          else
+            echo "Version has been updated for ${{ matrix.value }}."
+          fi
+
+      - name: Final version check summary
+        if: env.changes == 'true'
+        run: |
+          if grep -q "Error:" errors.log; then  # Only fail if the log contains a real error. Otherwise the creation of the log is 1 byte, thus -s returns a false positive
+            echo "Errors detected in errors.log. Exiting."
+            cat errors.log
+            exit 1
+          else
+            echo "No real errors found. All subgraphs are up to date."
+          fi

@@ -1,4 +1,4 @@
-specVersion: 0.0.4
+specVersion: 0.0.8
 description: Polygon Bridged Carbon
 repository: https://github.com/KlimaDAO/carbon-subgraph
 schema:
@@ -28,6 +28,10 @@ dataSources:
       eventHandlers:
         - event: TokenCreated(uint256,address)
           handler: handleNewTCO2
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
   - kind: ethereum/contract
     name: BaseCarbonTonne
     network: matic

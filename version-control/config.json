@@ -1,0 +1,47 @@
+[
+  {
+    "name": "bonds",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  },
+  {
+    "name": "carbonmark",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  },
+  {
+    "name": "celo-bridged-carbon",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  },
+  {
+    "name": "ethereum-bridged-carbon",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  },
+  {
+    "name": "pairs",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  },
+  {
+    "name": "polygon-bridged-carbon",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  },
+  {
+    "name": "polygon-digital-carbon",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  },
+  {
+    "name": "protocol-metrics",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  },
+  {
+    "name": "user-carbon",
+    "versionJsonPath": "version.json",
+    "outputFile": "src/utils/version.ts"
+  }
+]

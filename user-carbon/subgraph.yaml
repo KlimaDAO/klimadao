@@ -1,4 +1,4 @@
-specVersion: 0.0.4
+specVersion: 0.0.8
 description: Klima DAO Users Subgraph
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
@@ -25,6 +25,10 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
   # NCT Holdings
   - kind: ethereum/contract
     name: NCT

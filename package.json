@@ -32,6 +32,8 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "mustache": "4.2.0"
+    "conventional-changelog-cli": "5.0.0",
+    "mustache": "4.2.0",
+    "octokit": "4.0.2"
   }
 }

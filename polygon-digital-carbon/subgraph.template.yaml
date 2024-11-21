@@ -1,4 +1,4 @@
-specVersion: 0.0.4
+specVersion: 0.0.8
 description: Polygon Carbon
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
@@ -459,6 +459,10 @@ dataSources:
       eventHandlers:
         - event: ToucanRetired(indexed address,indexed address,string,string,indexed address,address,uint256)
           handler: handleToucanRetired
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
   - kind: ethereum/contract
     name: RetireMossCarbon
     network: {{network}}

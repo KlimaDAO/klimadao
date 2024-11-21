@@ -1,4 +1,4 @@
-specVersion: 0.0.5
+specVersion: 0.0.8
 description: Ethereum Bridged Carbon
 repository: https://github.com/KlimaDAO/carbon-subgraph
 schema:
@@ -24,6 +24,10 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+      blockHandlers:
+        - handler: handleSetSubgraphVersion
+          filter:
+            kind: once
   - kind: ethereum/contract
     name: MossInventory
     network: mainnet

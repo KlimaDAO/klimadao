@@ -757,3 +757,11 @@ type PuroIdMigration @entity {
   id: ID!
   tokenIds: [Bytes!]!
 }
+
+# Subgraph Versioning
+
+type SubgraphVersion @entity(immutable: true)  {
+  id: ID!
+  schemaVersion: String!
+  publishedVersion: String!
+}
