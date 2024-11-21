@@ -1,4 +1,4 @@
-import { Anchor, LogoWithClaim, Text } from "@klimadao/lib/components";
+import { Anchor, Text } from "@klimadao/lib/components";
 import { OffsetInputToken } from "@klimadao/lib/constants";
 import {
   getTokenDecimals,
@@ -6,6 +6,7 @@ import {
   trimStringDecimals,
 } from "@klimadao/lib/utils";
 import GppMaybeOutlinedIcon from "@mui/icons-material/GppMaybeOutlined";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { BaseLogo } from "components/Logos/BaseLogo";
 import { TransactionModal } from "components/TransactionModal";
 import {
@@ -45,8 +46,10 @@ const initialFormState = {
 
 // TODO: add lingui for translations
 export const Home = () => {
+  const theme = useTheme();
   const { chain } = useNetwork();
   const isMounted = useIsMounted();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { address, isConnected, connector } = useAccount();
   const { data } = useBalance({
     address,
@@ -191,12 +194,12 @@ export const Home = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <a href="https://app.klimadao.finance">
-          <LogoWithClaim className="logo" />
-        </a>
-        <Connect />
-      </div>
+      {!isMobile && (
+        <div className={styles.header}>
+          <div />
+          <Connect />
+        </div>
+      )}
       <div className={styles.textHeading}>
         <Text t="badge" className="newBadge">
           ✨ New!

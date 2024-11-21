@@ -9,6 +9,7 @@ export const connectWrapper = css`
 export const buttons = css`
   display: flex;
   gap: 1.2rem;
+  width: 100%;
 
   & button {
     display: flex;
