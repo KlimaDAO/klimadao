@@ -66,6 +66,12 @@ export const container = css`
     grid-column: 1 / 4;
   }
 
+  .navFooter .base-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .domain-wrapper {
     display: flex;
     align-items: center;
@@ -123,11 +129,10 @@ export const container = css`
 `;
 
 export const baseButtons = css`
-  gap: 1.6rem;
+  gap: 0.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 2.4rem;
 `;
 
 export const baseButton = css`
@@ -137,8 +142,8 @@ export const baseButton = css`
 `;
 
 export const baseIcon = css`
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 `;
 
 export const sidebarButton = css`

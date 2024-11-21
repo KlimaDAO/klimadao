@@ -219,20 +219,29 @@ export const NavMenu: FC<Props> = (props) => {
         </div>
       )}
       <div className="navFooter">
+        <div className="hr" />
+        <div className="base-title">
+          <BaseLogo className={styles.baseIcon} />
+          <Text t="h5">Base Network</Text>
+        </div>
         <div className={styles.baseButtons}>
           <ButtonPrimary
             target="_blank"
             href={SQUID_ROUTER_URL}
             className={styles.baseButton}
-            icon={<BaseLogo className={styles.baseIcon} />}
-            label={<Trans>Bridge to Base</Trans>}
+            label={<Trans>Bridge</Trans>}
           />
           <ButtonPrimary
             target="_blank"
             href="https://base.klimadao.finance"
             className={styles.baseButton}
-            icon={<BaseLogo className={styles.baseIcon} />}
-            label={<Trans>Retire on Base</Trans>}
+            label={<Trans>Retire</Trans>}
+          />
+          <ButtonPrimary
+            target="_blank"
+            href="https://base.klimadao.finance/auto-compounder"
+            className={styles.baseButton}
+            label={<Trans>Autocompounder</Trans>}
           />
         </div>
         <div className="hr" />
