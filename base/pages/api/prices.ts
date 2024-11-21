@@ -14,6 +14,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
+  res.setHeader("Cache-Control", "public, s-maxage=60");
   if (req.method !== "GET") {
     return res.status(405).json({ error: "Method not allowed" });
   }
