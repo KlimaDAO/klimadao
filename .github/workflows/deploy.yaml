@@ -250,7 +250,7 @@ jobs:
           ../node_modules/.bin/graph deploy --studio --deploy-key ${{ secrets.SUBGRAPH_STUDIO_DEPLOY_KEY }} "${{ steps.staging_or_not.outputs.subgraph }}" --version-label "$VERSION_LABEL"
         working-directory: '${{ matrix.value }}'
       - name: Deploy Subgraph to Alchemy Hosted Service
-        if: ${{ (matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' || matrix.value == 'ethereum-bridged-carbon') && (!contains(fromJson(env.VERSIONED_SUBGRAPHS), matrix.value) || (contains(fromJson(env.VERSIONED_SUBGRAPHS), matrix.value) && steps.compare_versions.outputs.should_deploy == 'true')) }}
+        if: ${{ (matrix.value == 'carbonmark' || matrix.value == 'polygon-digital-carbon' || matrix.value == 'pairs' || matrix.value == 'ethereum-bridged-carbon') && steps.compare_versions.outputs.should_deploy == 'true')) }}
         run: |
           VERSION_LABEL="${{ steps.compare_versions.outputs.new_published_version }}"
 
