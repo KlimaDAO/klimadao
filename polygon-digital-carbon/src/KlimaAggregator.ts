@@ -11,6 +11,7 @@ import { saveKlimaRetire } from './utils/KlimaRetire'
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { getRetirementsContractAddress } from '../utils/helpers'
 import { SubgraphVersion } from '../generated/schema'
+import { PUBLISHED_VERSION, SCHEMA_VERSION } from '../utils/version'
 
 export function handleMossRetired(event: MossRetired): void {
   // Ignore zero value retirements
@@ -183,7 +184,7 @@ export function handleCarbonRetiredWithTokenId(event: CarbonRetiredTokenId): voi
 
 export function handleSetSubgraphVersion(block: ethereum.Block): void {
   let version = new SubgraphVersion('polygon-digital-carbon')
-  version.schemaVersion = version.schemaVersion
-  version.publishedVersion = version.publishedVersion
+  version.schemaVersion = SCHEMA_VERSION
+  version.publishedVersion = PUBLISHED_VERSION
   version.save()
 }
