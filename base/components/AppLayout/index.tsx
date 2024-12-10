@@ -1,4 +1,5 @@
 import { Box, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
+import { DisclaimerModal } from "components/DisclaimerModal";
 import { FC, ReactNode, useState } from "react";
 import { MobileHeader } from "../MobileHeader";
 import { Sidebar } from "../Sidebar";
@@ -20,6 +21,7 @@ export const Layout: FC<Readonly<LayoutProps>> = ({ children }) => {
 
   return (
     <Box sx={{ display: "flex" }}>
+      <DisclaimerModal />
       <CssBaseline />
       {isMobile && <MobileHeader onMenuClick={handleDrawerToggle} />}
       <Sidebar
