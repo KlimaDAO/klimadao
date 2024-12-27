@@ -250,5 +250,12 @@ export default defineType({
       type: "array",
       of: [{ type: "externalFile" }],
     }),
+    defineField({
+      name: "hostedDocuments",
+      description: "PDF documents hosted in this CMS associated with this project",
+      group: "media",
+      type: "array",
+      of: [{ type: "hostedFile" }],
+    }),
   ],
 });
