@@ -26,5 +26,15 @@ export default defineType({
       title: "MIME Type",
       name: "mimetype",
     },
+    {
+      type: "string",
+      title: "File category",
+      name: "category",
+    },
+    {
+      type: "number",
+      title: "File size (bytes)",
+      name: "size",
+    },
   ],
 });
