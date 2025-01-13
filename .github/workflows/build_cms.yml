@@ -1,0 +1,53 @@
+name: Build Sanity CMS
+
+on:
+  push:
+    paths:
+      - "carbon-projects/**"
+    branches: "*"
+  pull_request:
+    paths:
+      - "carbon-projects/**"
+    branches: "*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Explicit caching instead of using setup-node's built-in cache
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: carbon-projects/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('carbon-projects/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        working-directory: ./carbon-projects
+        run: npm ci
+
+      - name: Build Sanity studio
+        working-directory: ./carbon-projects
+        run: npm run build
+        env:
+          CI: true
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanity-build
+          path: carbon-projects/dist
+          retention-days: 7
