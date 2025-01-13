@@ -1,12 +1,12 @@
 import { defineField, defineType } from "sanity";
 import { categories } from "../lib/categories";
+import { sectors } from "../lib/sectors";
 
 export default defineType({
   name: "methodology",
   title: "Methodology",
   description: "Methodology definition",
   type: "document",
-  groups: [{ name: "location" }],
   preview: {
     select: {
       slug: "id",
@@ -42,6 +42,13 @@ export default defineType({
         list: categories,
       },
       validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "sector",
+      type: "string",
+      options: {
+        list: sectors,
+      },
     }),
     defineField({
       name: "link",

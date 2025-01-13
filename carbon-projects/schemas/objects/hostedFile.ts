@@ -4,7 +4,8 @@ export default defineType({
   name: "hostedFile",
   type: "file",
   title: "Hosted file",
-  description: "A file whose content is hosted directly in the Sanity CMS, with associated metadata",
+  description:
+    "A file whose content is hosted directly in the Sanity CMS, with associated metadata",
   fields: [
     {
       type: "string",
@@ -24,12 +25,12 @@ export default defineType({
     {
       type: "string",
       title: "File category",
-      name: "category"
+      name: "category",
     },
     {
       type: "number",
       title: "File size",
-      name: "size"
-    }
+      name: "size",
+    },
   ],
 });
