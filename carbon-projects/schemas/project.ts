@@ -315,10 +315,17 @@ export default defineType({
     }),
     defineField({
       name: "externalDocuments",
-      description: "External PDF documents associated with this project",
+      description: "External documents (e.g. PDFs, Word documents) associated with this project",
       group: "media",
       type: "array",
       of: [{ type: "externalFile" }],
+    }),
+    defineField({
+      name: "hostedMedia",
+      description: "Media hosted in this CMS and associated captions",
+      group: "media",
+      type: "array",
+      of: [{ type: "captionImage" }],
     }),
     defineField({
       name: "hostedDocuments",

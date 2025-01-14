@@ -19,7 +19,8 @@ export default defineType({
     },
     {
       type: "string",
-      title: "MIME Type",
+      title: "MIME Type (e.g. application/pdf)",
+      description: "Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types",
       name: "mimetype",
     },
     {
@@ -29,7 +30,7 @@ export default defineType({
     },
     {
       type: "number",
-      title: "File size",
+      title: "File size (in bytes)",
       name: "size",
     },
   ],
