@@ -34,7 +34,10 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          # hard-coded to fix issue with this workflow
+          node-version: 20
+          # caches until package-lock.json in the root is changed
+          cache: "npm"
 
       - name: Cache node_modules
         uses: actions/cache@v4
