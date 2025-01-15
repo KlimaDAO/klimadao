@@ -1,4 +1,5 @@
 import { defineType } from "sanity";
+import { fileCategories } from "../../lib/fileCategories";
 
 export default defineType({
   name: "hostedFile",
@@ -28,6 +29,9 @@ export default defineType({
       type: "string",
       title: "File category",
       name: "category",
+      options: {
+        list: fileCategories,
+      },
     },
     {
       type: "number",

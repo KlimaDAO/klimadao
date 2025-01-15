@@ -1,9 +1,9 @@
 import { defineType } from "sanity";
 
 export default defineType({
-  name: "developer",
-  title: "Developer",
-  description: "Information about an organization that develops projects",
+  name: "accreditation",
+  title: "Accreditation",
+  description: "Information about an accreditation that applies to assessors",
   type: "document",
   preview: {
     select: {
@@ -29,14 +29,8 @@ export default defineType({
     },
     {
       type: "image",
-      title: "Avatar",
-      name: "avatar",
-    },
-    {
-      type: "array",
-      title: "Carbonmark Handles",
-      name: "handles",
-      of: [{ type: "string" }],
+      title: "Logo",
+      name: "logo",
     },
   ],
 });

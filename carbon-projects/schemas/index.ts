@@ -1,3 +1,4 @@
+import accreditation from "./accreditation";
 import assessor from "./assessor";
 import country from "./country";
 import developer from "./developer";
@@ -18,6 +19,7 @@ export const schemaTypes = [
   captionImage,
   country,
   indexContent,
+  accreditation,
   assessor,
   developer,
   standard,
