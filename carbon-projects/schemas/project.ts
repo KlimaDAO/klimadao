@@ -315,7 +315,8 @@ export default defineType({
     }),
     defineField({
       name: "externalDocuments",
-      description: "External documents (e.g. PDFs, Word documents) associated with this project",
+      description:
+        "External documents (e.g. PDFs, Word documents) associated with this project",
       group: "media",
       type: "array",
       of: [{ type: "externalFile" }],
