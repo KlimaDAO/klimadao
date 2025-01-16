@@ -11,6 +11,16 @@ const ccbs = [
   { title: "CCB Community Gold", value: "CCB-Community Gold" },
 ];
 
+const registries = [
+  { title: "Verra", value: "VCS" },
+  { title: "Gold Standard", value: "GS" },
+  { title: "EcoRegistry", value: "ECO" },
+  { title: "International Carbon Registry", value: "ICR" },
+  { title: "Puro", value: "PUR" },
+  { title: "J-Credit", value: "JCS" },
+  { title: "Carbonmark Direct Issuance", value: "CMARK" },
+];
+
 const subcategories = [
   { title: "Solar Energy", value: "solar" },
   { title: "Wind Energy", value: "wind" },
@@ -19,6 +29,20 @@ const subcategories = [
   { title: "Avoided Deforestation", value: "redd" },
   { title: "Afforestation", value: "afforestation" },
   { title: "Mangrove Restoration", value: "mangroves" },
+];
+
+const statuses = [
+  { title: "Registered", value: "registered" },
+  { title: "Validated", value: "validated" },
+  { title: "Verified", value: "verified" },
+  { title: "Withdrawn", value: "withdrawn" },
+];
+
+const types = [
+  { title: "Avoidance", value: "avoidance" },
+  { title: "Reduction", value: "reduction" },
+  { title: "Removal", value: "removal" },
+  { title: "Hybrid", value: "hybrid" },
 ];
 
 export default defineType({
@@ -71,14 +95,7 @@ export default defineType({
       placeholder: "VCS",
       type: "string",
       options: {
-        list: [
-          { title: "Verra", value: "VCS" },
-          { title: "Gold Standard", value: "GS" },
-          { title: "EcoRegistry", value: "ECO" },
-          { title: "International Carbon Registry", value: "ICR" },
-          { title: "Puro", value: "PUR" },
-          { title: "J-Credit", value: "JCS" },
-        ],
+        list: registries,
       },
       validation: (r) => r.required(),
     },
@@ -118,6 +135,52 @@ export default defineType({
         }),
     }),
     defineField({
+      type: "reference",
+      name: "developer",
+      to: [{ type: "developer" }],
+      description: "The developer of this project",
+      group: "info",
+    }),
+    defineField({
+      type: "reference",
+      name: "assessor",
+      to: [{ type: "assessor" }],
+      description: "The assessor of this project",
+      group: "info",
+    }),
+    defineField({
+      type: "array",
+      name: "standards",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "standard" }],
+        },
+      ],
+      description: "Standards with which the project conforms",
+      group: "info",
+    }),
+    {
+      name: "status",
+      description:
+        "Project status. Indicates where a project is in its lifecycle from registration to verification and issuance",
+      group: "info",
+      type: "string",
+      options: {
+        list: statuses,
+      },
+    },
+    {
+      name: "type",
+      description:
+        "Project type. Indicates whether a project avoids or removes emissions, or both.",
+      group: "info",
+      type: "string",
+      options: {
+        list: types,
+      },
+    },
+    defineField({
       type: "array",
       name: "methodologies",
       of: [
@@ -146,10 +209,17 @@ export default defineType({
     defineField({
       name: "subcategory",
       description: "From our predefined ontology of subcategories",
+      group: "info",
       type: "string",
       options: {
         list: subcategories,
       },
+    }),
+    defineField({
+      name: "estAnnualMitigations",
+      description: "Estimated tonnes of carbon emissions mitigated per annum",
+      group: "info",
+      type: "number",
     }),
     {
       name: "region",
@@ -245,10 +315,26 @@ export default defineType({
     }),
     defineField({
       name: "externalDocuments",
-      description: "External PDF documents associated with this project",
+      description:
+        "External documents (e.g. PDFs, Word documents) associated with this project",
       group: "media",
       type: "array",
       of: [{ type: "externalFile" }],
+    }),
+    defineField({
+      name: "hostedMedia",
+      description: "Media hosted in this CMS and associated captions",
+      group: "media",
+      type: "array",
+      of: [{ type: "captionImage" }],
+    }),
+    defineField({
+      name: "hostedDocuments",
+      description:
+        "PDF documents hosted in this CMS associated with this project",
+      group: "media",
+      type: "array",
+      of: [{ type: "hostedFile" }],
     }),
   ],
 });
