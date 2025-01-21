@@ -36,12 +36,7 @@ export default defineType({
       type: "array",
       title: "Accreditations",
       name: "accreditations",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "accreditation" }],
-        },
-      ],
+      of: [{ type: "accreditation" }],
     },
   ],
 });
