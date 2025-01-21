@@ -7,5 +7,8 @@ export const categories = [
   { title: "Agriculture", value: "Agriculture" },
   { title: "Construction", value: "Construction" },
   { title: "Biochar", value: "Biochar" },
+  { title: "Waste Disposal", value: "Waste Disposal" },
+  { title: "Low Carbon Energy", value: "Low Carbon Energy" },
+  { title: "Transportation", value: "Transportation" },
   { title: "Other", value: "Other" },
 ];
