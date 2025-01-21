@@ -16,7 +16,10 @@ import {
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
-import { AccountBalanceWalletOutlined } from "@mui/icons-material";
+import {
+  AccountBalanceWalletOutlined,
+  CreditCardOutlined,
+} from "@mui/icons-material";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -156,6 +159,14 @@ export const NavMenu: FC<Props> = (props) => {
         <Address domains={domains} address={props.address} />
         <div className="hr" />
       </div>
+      <MenuButton
+        isActive={pathname === "/buy"}
+        href="/buy"
+        icon={<CreditCardOutlined />}
+        onClick={handleHide}
+      >
+        <Trans id="menu.buy_klima">Buy KLIMA</Trans>
+      </MenuButton>
       <MenuButton
         isActive={pathname === "/stake"}
         href="/stake"
