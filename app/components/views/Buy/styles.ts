@@ -11,6 +11,7 @@ export const card = css`
   align-content: start;
   grid-column: 1 / 3;
   grid-template-rows: unset !important;
+  height: fit-content;
 
   & a {
     text-decoration: underline;
@@ -71,8 +72,13 @@ export const buttons = css`
   gap: 1rem;
   width: 100%;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: space-between;
+
+  .secondary-button {
+    background-color: var(--white);
+  }
 
   a {
     flex: 1;
@@ -85,7 +91,7 @@ export const buttons = css`
     &.learn-more {
       letter-spacing: unset;
       text-transform: none;
-      background-color: var(--white);
+      text-decoration: underline;
     }
   }
 
@@ -107,6 +113,13 @@ export const cardRow = css`
   flex-direction: row;
 `;
 
+export const divider = css`
+  width: 100%;
+  height: 0.1rem;
+  margin: 2.4rem 0 0.6rem;
+  background: #393939;
+`;
+
 export const cardTitle = css`
   gap: 1.2rem;
   display: flex;
@@ -119,4 +132,6 @@ export const cardTitle = css`
 
 export const cardDescription = css`
   font-weight: 500;
+  font-size: 1.4rem !important;
+  line-height: 1.8rem !important;
 `;

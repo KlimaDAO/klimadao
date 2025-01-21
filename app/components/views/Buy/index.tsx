@@ -1,7 +1,7 @@
 import { Anchor, ButtonPrimary, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { Trans } from "@lingui/macro";
-import { CelebrationOutlined } from "@mui/icons-material";
+import { Trans, t } from "@lingui/macro";
+import { CelebrationOutlined, TrendingUpOutlined } from "@mui/icons-material";
 import Payment from "@mui/icons-material/Payment";
 import { BalancesCard } from "components/BalancesCard";
 import { DisclaimerModal } from "components/DisclaimerModal";
@@ -23,22 +23,62 @@ export const Buy = () => (
         <Text color="lightest" t="caption" className={styles.cardDescription}>
           <Trans>
             The best way to earn money on your Klima is to buy on{" "}
-            <Anchor href={urls.aerodrome}>Aerodrome</Anchor> and deposit into a
-            liquidity pool.
+            <Anchor href={urls.aerodrome} target="_blank">
+              Aerodrome
+            </Anchor>{" "}
+            and deposit into a liquidity pool.
           </Trans>
         </Text>
       </div>
       <div className={styles.cardRow}>
         <div className={styles.buttons}>
           <ButtonPrimary
+            target="_blank"
             href={urls.buyOnAerodrome}
-            label="Buy KLIMA on Aerodrome"
+            label={t`Buy Klima on Aerodrome`}
           />
-          <ButtonPrimary
+          <Anchor
+            target="_blank"
             href={urls.learnMoreLPs}
             className="learn-more"
-            label="Learn more about liquidity pools"
+          >
+            <Trans>Learn more about liquidity pools</Trans>
+          </Anchor>
+        </div>
+      </div>
+      <div className={styles.divider} />
+      <div className={styles.cardRow}>
+        <div className={styles.cardCol}>
+          <Text t="h5" className={styles.cardTitle}>
+            <TrendingUpOutlined />
+            <Trans>Put your Klima to work</Trans>
+          </Text>
+          <Text color="lightest" t="caption" className={styles.cardDescription}>
+            <Trans>
+              Head over to{" "}
+              <Anchor href={urls.klimaBase} target="_blank">
+                base.klimadao.finance
+              </Anchor>{" "}
+              to max your returns by auto-compounding your liquidity positions.
+            </Trans>
+          </Text>
+        </div>
+      </div>
+      <div className={styles.cardRow}>
+        <div className={styles.buttons}>
+          <ButtonPrimary
+            target="_blank"
+            href={urls.klimaAutocompounder}
+            label={t`KlimaDAO Autocompounder`}
+            className="secondary-button"
           />
+          <Anchor
+            target="_blank"
+            href={urls.learnMoreKlimaAutocompounder}
+            className="learn-more"
+          >
+            <Trans>Learn more about Autocompounder</Trans>
+          </Anchor>
         </div>
       </div>
       <div className={styles.cardRow}>
@@ -65,7 +105,7 @@ export const Buy = () => (
               Maker (AMM).
             </Trans>
           </Text>
-          <Anchor href={urls.learnMoreKlima2_0}>
+          <Anchor href={urls.learnMoreKlima2_0} target="_blank">
             <Trans>Read more about KlimaDAO 2.0</Trans>
           </Anchor>
         </div>
