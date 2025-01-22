@@ -51,7 +51,7 @@ export const Buy = () => (
         <div className={styles.cardCol}>
           <Text t="h5" className={styles.cardTitle}>
             <TrendingUpOutlined />
-            <Trans>Put your Klima to work</Trans>
+            <Trans>Put your KLIMA to work</Trans>
           </Text>
           <Text color="lightest" t="caption" className={styles.cardDescription}>
             <Trans>

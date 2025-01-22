@@ -979,7 +979,7 @@ msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high 
 msgstr ""
 
 #: components/views/Buy/index.tsx:54
-msgid "Put your Klima to work"
+msgid "Put your KLIMA to work"
 msgstr ""
 
 #. js-lingui-explicit-id

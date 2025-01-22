@@ -979,8 +979,8 @@ msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high 
 msgstr "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 
 #: components/views/Buy/index.tsx:54
-msgid "Put your Klima to work"
-msgstr "Put your Klima to work"
+msgid "Put your KLIMA to work"
+msgstr "Put your KLIMA to work"
 
 #. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:66
