@@ -22,11 +22,11 @@ export const Buy = () => (
         </Text>
         <Text color="lightest" t="caption" className={styles.cardDescription}>
           <Trans>
-            The best way to earn money on your Klima is to buy on{" "}
+            Easily buy or sell KLIMA with low slippage and deep liquidity on{" "}
             <Anchor href={urls.aerodrome} target="_blank">
               Aerodrome
-            </Anchor>{" "}
-            and deposit into a liquidity pool.
+            </Anchor>
+            .
           </Trans>
         </Text>
       </div>
@@ -55,11 +55,11 @@ export const Buy = () => (
           </Text>
           <Text color="lightest" t="caption" className={styles.cardDescription}>
             <Trans>
-              Head over to{" "}
+              Head to{" "}
               <Anchor href={urls.klimaBase} target="_blank">
                 base.klimadao.finance
               </Anchor>{" "}
-              to max your returns by auto-compounding your liquidity positions.
+              to programmatically grow your position.
             </Trans>
           </Text>
         </div>

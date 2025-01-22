@@ -525,6 +525,10 @@ msgstr ""
 msgid "checkurlbanner.dont_remind_me"
 msgstr ""
 
+#: components/views/Buy/index.tsx:24
+msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
+msgstr ""
+
 #. js-lingui-explicit-id
 #: lib/getWeb3ModalStrings.ts:21
 msgid "web3modal.torus.desc"
@@ -617,7 +621,7 @@ msgid "checkurlbanner.got_it"
 msgstr ""
 
 #: components/views/Buy/index.tsx:57
-msgid "Head over to <0>base.klimadao.finance</0> to max your returns by auto-compounding your liquidity positions."
+msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
 msgstr ""
 
 #: components/views/Redeem/index.tsx:415
@@ -750,11 +754,6 @@ msgstr ""
 msgid "Loading project info..."
 msgstr ""
 
-#. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:231
-msgid "shared.connect_wallet"
-msgstr ""
-
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
@@ -765,6 +764,11 @@ msgstr ""
 #: components/views/Stake/index.tsx:431
 #: components/views/Wrap/index.tsx:204
 msgid "Loading..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/views/Stake/index.tsx:231
+msgid "shared.connect_wallet"
 msgstr ""
 
 #: components/views/Home/index.tsx:179
@@ -1181,10 +1185,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/views/ChooseBond/index.tsx:212
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr ""
-
-#: components/views/Buy/index.tsx:24
-msgid "The best way to earn money on your Klima is to buy on <0>Aerodrome</0> and deposit into a liquidity pool."
 msgstr ""
 
 #. js-lingui-explicit-id
