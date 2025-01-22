@@ -46,7 +46,7 @@ export const BalancesCard: FC<Props> = (props) => {
           <AccountBalanceOutlined />
           <Trans id="shared.balances">Balances</Trans>
         </Text>
-        <InfoButton content={props.tooltip} />
+        {props.tooltip && <InfoButton content={props.tooltip} />}
       </div>
       <div className="cardContent">
         {props.assets.map((asset) => (

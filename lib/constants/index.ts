@@ -109,6 +109,18 @@ export const urls = {
   retirements: "https://www.klimadao.finance/retirements",
   retirements_carbonmark: "https://www.carbonmark.com/retirements",
   buy: "https://www.klimadao.finance/buy",
+  aerodrome: "https://aerodrome.finance",
+  buyOnAerodrome:
+    "https://aerodrome.finance/swap?from=eth&to=0xdcefd8c8fcc492630b943abcab3429f12ea9fea2",
+  klimaBase: "https://base.klimadao.finance",
+  klimaAutocompounder:
+    "https://base.klimadao.finance/auto-compounder/stake/all",
+  learnMoreLPs:
+    "https://help.coinbase.com/en/coinbase/getting-started/crypto-education/glossary/liquidity-pool",
+  learnMoreKlima2_0:
+    "https://www.klimadao.finance/resources/klimadao-2-0-a-decentralized-carbon-market",
+  learnMoreKlimaAutocompounder:
+    "https://docs.klimadao.finance/auto-compounder/auto-compounder-app-guide",
   carbonDashboard: "https://data.klimadao.finance",
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",

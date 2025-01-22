@@ -70,7 +70,7 @@ export const Home: FC = () => {
 
   useEffect(() => {
     if (pathname === "/") {
-      window.location.replace(`/#/stake${window.location.search}`);
+      window.location.replace(`/#/buy${window.location.search}`);
     }
   }, [pathname]);
 
@@ -189,16 +189,7 @@ export const Home: FC = () => {
             })}
           </div>
           <IsomorphicRoutes>
-            <Route
-              path="/buy"
-              element={
-                <Buy
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                />
-              }
-            />
+            <Route path="/buy" element={<Buy />} />
             <Route
               path="/stake"
               element={

@@ -11,6 +11,11 @@ let nextConfig = {
   async redirects() {
     return [
       {
+        source: "/buy",
+        destination: "/#/buy",
+        permanent: true,
+      },
+      {
         source: "/stake",
         destination: "/#/stake",
         permanent: true,
