@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-01-22 15:39+0000\n"
+"POT-Creation-Date: 2025-01-22 16:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,6 +11,10 @@ msgstr ""
 msgid "Acknowledge and Accept"
 msgstr "确认并接受"
 
+#: components/views/Buy/index.tsx:92
+msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
+msgstr ""
+
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
 #: components/views/Deposit/index.tsx:116
@@ -20,7 +24,7 @@ msgstr "确认并接受"
 msgid "Approve"
 msgstr "批准"
 
-#: components/NavMenu/index.tsx:244
+#: components/NavMenu/index.tsx:255
 msgid "Autocompounder"
 msgstr ""
 
@@ -40,7 +44,7 @@ msgstr "余额"
 msgid "Base Carbon Tonne"
 msgstr "基准碳吨"
 
-#: components/NavMenu/index.tsx:232
+#: components/NavMenu/index.tsx:243
 msgid "Bridge"
 msgstr ""
 
@@ -48,10 +52,18 @@ msgstr ""
 msgid "Buy & Redeem Carbon"
 msgstr "购买和赎回碳"
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:208
 #: components/views/Redeem/index.tsx:528
 msgid "Buy Carbon"
 msgstr "购买碳"
+
+#: components/views/Buy/index.tsx:21
+msgid "Buy KLIMA"
+msgstr "购买 KLIMA"
+
+#: components/views/Buy/index.tsx:38
+msgid "Buy Klima on Aerodrome"
+msgstr ""
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
@@ -62,7 +74,7 @@ msgstr "容量"
 msgid "Continue"
 msgstr "继续"
 
-#: components/NavMenu/index.tsx:189
+#: components/NavMenu/index.tsx:200
 #: components/views/Deposit/index.tsx:193
 #: components/views/Deposit/index.tsx:315
 msgid "Deposit Carbon"
@@ -75,6 +87,10 @@ msgstr "存 TC02"
 #: components/views/Deposit/index.tsx:196
 msgid "Deposit TCO2 in exchange for BCT."
 msgstr "存入TCO2以兑换BCT。"
+
+#: components/views/Buy/index.tsx:24
+msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
+msgstr ""
 
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
@@ -92,6 +108,10 @@ msgstr "输入数量"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "对于想要使用矿池代币抵消付款的用户，请使用<0>此网站</0>。"
 
+#: components/views/Buy/index.tsx:57
+msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
+msgstr ""
+
 #: components/views/Redeem/index.tsx:415
 msgid "How many tonnes would you like to acquire?"
 msgstr "您想购买多少吨？"
@@ -103,9 +123,25 @@ msgstr "您想购买多少吨？"
 msgid "Insufficient balance"
 msgstr "余额不足"
 
+#: components/views/Buy/index.tsx:98
+msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
+msgstr ""
+
+#: components/views/Buy/index.tsx:72
+msgid "KlimaDAO Autocompounder"
+msgstr ""
+
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 msgstr "流动性不足：可能市场上面有活跃的 $KLIMA，如果您需要快速出售代币，可能会导致亏损。"
+
+#: components/views/Buy/index.tsx:80
+msgid "Learn more about Autocompounder"
+msgstr ""
+
+#: components/views/Buy/index.tsx:45
+msgid "Learn more about liquidity pools"
+msgstr ""
 
 #: components/views/Bond/index.tsx:411
 #: components/views/PKlima/index.tsx:167
@@ -189,6 +225,14 @@ msgstr "项目详情<0/>"
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "购买加密货币，包括$KLIMA代币，涉及高度风险，应被视为极具投机性。以下是一些重要考虑要点："
 
+#: components/views/Buy/index.tsx:54
+msgid "Put your KLIMA to work"
+msgstr ""
+
+#: components/views/Buy/index.tsx:109
+msgid "Read more about KlimaDAO 2.0"
+msgstr ""
+
 #: components/views/Deposit/index.tsx:296
 msgid "Receiving BCT"
 msgstr "收到 BCT"
@@ -197,7 +241,7 @@ msgstr "收到 BCT"
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
 msgstr "监管行动和变化：加密货币的监管环境在不断发展，监管政策的变化可能对您的投资产生不利影响。"
 
-#: components/NavMenu/index.tsx:238
+#: components/NavMenu/index.tsx:249
 msgid "Retire"
 msgstr "停用"
 
@@ -454,27 +498,6 @@ msgstr "在提供输入数量的情况下，您将获得的金额"
 msgid "bond.you_will_get.tooltip"
 msgstr "在提供输入量的情况下，您将获得的债券化KLIMA数量"
 
-#: components/views/Buy/index.tsx:31
-msgid "buy.buy_klima"
-msgstr "购买 KLIMA"
-
-#. Long sentence
-#: components/views/Buy/index.tsx:59
-msgid "buy.connect_to_buy"
-msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键登录或创建帐户。"
-
-#: components/views/Buy/index.tsx:34
-msgid "buy.cta_1"
-msgstr "如果您是初学者，我们建议您遵循我们的分步教程：<0>如何购买 KLIMA</0> ."
-
-#: components/views/Buy/index.tsx:40
-msgid "buy.cta_2"
-msgstr "另外，如果您已经在 Polygon 上拥有一个带有 MATIC 的钱包，获得 KLIMA 的最佳方式是在 <0>Sushi.com </0>上交换. 如果您更喜欢用信用卡支付，您可以使用 <1>Transak</1>直接购买 KLIMA。"
-
-#: components/views/Buy/index.tsx:54
-msgid "buy.please_log_in"
-msgstr "请登录或连接钱包"
-
 #: components/views/Bond/index.tsx:700
 msgid "capacity.description_inverse"
 msgstr "这是合约中可用于债券的 USDC.e 数量。"
@@ -644,31 +667,35 @@ msgstr "无法访问网络。这很可能是由您钱包中的旧 Polygon RPC �
 msgid "invalid_rpc.modal.title"
 msgstr "检查您的网络设置"
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:168
+msgid "menu.buy_klima"
+msgstr "购买 KLIMA"
+
+#: components/NavMenu/index.tsx:216
 msgid "menu.info"
 msgstr "信息"
 
-#: components/NavMenu/index.tsx:210
+#: components/NavMenu/index.tsx:221
 msgid "menu.just_for_you"
 msgstr "只为您服务"
 
-#: components/NavMenu/index.tsx:71
+#: components/NavMenu/index.tsx:74
 msgid "menu.not_connected"
 msgstr "未连接"
 
-#: components/NavMenu/index.tsx:181
+#: components/NavMenu/index.tsx:192
 msgid "menu.offset"
 msgstr "抵消"
 
-#: components/NavMenu/index.tsx:165
+#: components/NavMenu/index.tsx:176
 msgid "menu.stake_klima"
 msgstr "质押 KLIMA"
 
-#: components/NavMenu/index.tsx:52
+#: components/NavMenu/index.tsx:55
 msgid "menu.wallet_address"
 msgstr "您的钱包地址"
 
-#: components/NavMenu/index.tsx:173
+#: components/NavMenu/index.tsx:184
 msgid "menu.wrap_klima"
 msgstr "打包 sKLIMA"
 
@@ -932,7 +959,6 @@ msgid "shared.invalid_project_address"
 msgstr "项目地址无效"
 
 #: components/views/Bond/index.tsx:397
-#: components/views/Buy/index.tsx:65
 #: components/views/Deposit/index.tsx:90
 #: components/views/Home/index.tsx:155
 #: components/views/PKlima/index.tsx:159
@@ -972,8 +998,6 @@ msgid "stake.akr.tooltip"
 msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能会发生变化), KLIMA 年化奖利率...，包括复利。"
 
 #. Long sentence
-#. Long sentence
-#: components/views/Buy/index.tsx:78
 #: components/views/Stake/index.tsx:288
 msgid "stake.balancescard.tooltip"
 msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将按给定的百分比增加。"
@@ -1058,7 +1082,7 @@ msgstr "请点击您钱包中的 \"确认\" 以继续。"
 msgid "status.user_rejected"
 msgstr "您已选择拒绝交易"
 
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:228
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-01-22 15:39+0000\n"
+"POT-Creation-Date: 2025-01-22 16:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,6 +11,10 @@ msgstr ""
 msgid "Acknowledge and Accept"
 msgstr "स्वीकार करें और स्वीकार करें"
 
+#: components/views/Buy/index.tsx:92
+msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
+msgstr ""
+
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
 #: components/views/Deposit/index.tsx:116
@@ -20,7 +24,7 @@ msgstr "स्वीकार करें और स्वीकार कर�
 msgid "Approve"
 msgstr "मंज़ूरी दें"
 
-#: components/NavMenu/index.tsx:244
+#: components/NavMenu/index.tsx:255
 msgid "Autocompounder"
 msgstr ""
 
@@ -40,7 +44,7 @@ msgstr "बैलेंस"
 msgid "Base Carbon Tonne"
 msgstr ""
 
-#: components/NavMenu/index.tsx:232
+#: components/NavMenu/index.tsx:243
 msgid "Bridge"
 msgstr ""
 
@@ -48,10 +52,18 @@ msgstr ""
 msgid "Buy & Redeem Carbon"
 msgstr "कार्बन खरीदें और रिडीम करें"
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:208
 #: components/views/Redeem/index.tsx:528
 msgid "Buy Carbon"
 msgstr "कार्बन खरीदें"
+
+#: components/views/Buy/index.tsx:21
+msgid "Buy KLIMA"
+msgstr "KLIMA ख़रीदें"
+
+#: components/views/Buy/index.tsx:38
+msgid "Buy Klima on Aerodrome"
+msgstr ""
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
@@ -62,7 +74,7 @@ msgstr "क्षमता"
 msgid "Continue"
 msgstr "जारी रखें"
 
-#: components/NavMenu/index.tsx:189
+#: components/NavMenu/index.tsx:200
 #: components/views/Deposit/index.tsx:193
 #: components/views/Deposit/index.tsx:315
 msgid "Deposit Carbon"
@@ -74,6 +86,10 @@ msgstr ""
 
 #: components/views/Deposit/index.tsx:196
 msgid "Deposit TCO2 in exchange for BCT."
+msgstr ""
+
+#: components/views/Buy/index.tsx:24
+msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
 msgstr ""
 
 #: components/views/Bond/index.tsx:417
@@ -92,6 +108,10 @@ msgstr "मात्रा दर्ज करें"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr ""
 
+#: components/views/Buy/index.tsx:57
+msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
+msgstr ""
+
 #: components/views/Redeem/index.tsx:415
 msgid "How many tonnes would you like to acquire?"
 msgstr ""
@@ -103,9 +123,25 @@ msgstr ""
 msgid "Insufficient balance"
 msgstr "अपर्याप्त शेषराशि"
 
+#: components/views/Buy/index.tsx:98
+msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
+msgstr ""
+
+#: components/views/Buy/index.tsx:72
+msgid "KlimaDAO Autocompounder"
+msgstr ""
+
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 msgstr "तरलता की कमी: $KLIMA के लिए कोई सक्रिय बाज़ार नहीं हो सकता है, जिसके परिणामस्वरूप यदि आपको अपने टोकन जल्दी बेचने की आवश्यकता होगी तो नुकसान हो सकता है।"
+
+#: components/views/Buy/index.tsx:80
+msgid "Learn more about Autocompounder"
+msgstr ""
+
+#: components/views/Buy/index.tsx:45
+msgid "Learn more about liquidity pools"
+msgstr ""
 
 #: components/views/Bond/index.tsx:411
 #: components/views/PKlima/index.tsx:167
@@ -189,6 +225,14 @@ msgstr ""
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "$KLIMA टोकन सहित क्रिप्टोकरेंसी खरीदने में उच्च स्तर का जोखिम शामिल है और इसे अत्यधिक सट्टा माना जाना चाहिए। यहां विचार करने योग्य कुछ महत्वपूर्ण बिंदु दिए गए हैं:"
 
+#: components/views/Buy/index.tsx:54
+msgid "Put your KLIMA to work"
+msgstr ""
+
+#: components/views/Buy/index.tsx:109
+msgid "Read more about KlimaDAO 2.0"
+msgstr ""
+
 #: components/views/Deposit/index.tsx:296
 msgid "Receiving BCT"
 msgstr ""
@@ -197,7 +241,7 @@ msgstr ""
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
 msgstr "नियामक कार्रवाइयां और परिवर्तन: क्रिप्टोकरेंसी के लिए नियामक वातावरण विकसित हो रहा है और विनियमन में बदलाव आपके निवेश पर प्रतिकूल प्रभाव डाल सकता है।"
 
-#: components/NavMenu/index.tsx:238
+#: components/NavMenu/index.tsx:249
 msgid "Retire"
 msgstr "रिटायर"
 
@@ -452,27 +496,6 @@ msgstr "प्रदान की गई इनपुट मात्रा प�
 msgid "bond.you_will_get.tooltip"
 msgstr "प्रदान की गई इनपुट मात्रा पर आपको बंधित KLIMA की राशि मिलेगी"
 
-#: components/views/Buy/index.tsx:31
-msgid "buy.buy_klima"
-msgstr "KLIMA ख़रीदें"
-
-#. Long sentence
-#: components/views/Buy/index.tsx:59
-msgid "buy.connect_to_buy"
-msgstr "यह सुविधा केवल उन उपयोगकर्ताओं के लिए उपलब्ध है जो लॉग इन हैं। आप नीचे दिए गए बटन के माध्यम से लॉग इन कर सकते हैं या खाता बना सकते हैं।"
-
-#: components/views/Buy/index.tsx:34
-msgid "buy.cta_1"
-msgstr "यदि आप एक नौसिखिया हैं, तो हम अनुशंसा करते हैं कि आप हमारे चरण-दर-चरण ट्यूटोरियल का अनुसरण करें: <0>How to Buy KLIMA</0>."
-
-#: components/views/Buy/index.tsx:40
-msgid "buy.cta_2"
-msgstr "अन्यथा, यदि आपके पास पहले से ही पॉलीगॉन पर MATIC वाला वॉलेट है, तो KLIMA प्राप्त करने का सबसे अच्छा तरीका <0>Sushi.com</0> पर स्वैप करना है। यदि आप इसके बजाय क्रेडिट कार्ड से भुगतान करना पसंद करते हैं, तो आप <1>Transak</1> का उपयोग कर सकते हैं KLIMA को सीधे खरीदने के लिए।"
-
-#: components/views/Buy/index.tsx:54
-msgid "buy.please_log_in"
-msgstr "कृपया लॉग इन करें या वॉलेट कनेक्ट करें"
-
 #: components/views/Bond/index.tsx:700
 msgid "capacity.description_inverse"
 msgstr ""
@@ -642,31 +665,35 @@ msgstr "नेटवर्क पहुँच से बाहर है। ब�
 msgid "invalid_rpc.modal.title"
 msgstr "अपनी नेटवर्क सेटिंग बदलें"
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:168
+msgid "menu.buy_klima"
+msgstr "KLIMA ख़रीदें"
+
+#: components/NavMenu/index.tsx:216
 msgid "menu.info"
 msgstr "जानकारी"
 
-#: components/NavMenu/index.tsx:210
+#: components/NavMenu/index.tsx:221
 msgid "menu.just_for_you"
 msgstr "सिर्फ आपके लिए"
 
-#: components/NavMenu/index.tsx:71
+#: components/NavMenu/index.tsx:74
 msgid "menu.not_connected"
 msgstr "कनेक्ट नहीं हैं"
 
-#: components/NavMenu/index.tsx:181
+#: components/NavMenu/index.tsx:192
 msgid "menu.offset"
 msgstr "ऑफ़सेट"
 
-#: components/NavMenu/index.tsx:165
+#: components/NavMenu/index.tsx:176
 msgid "menu.stake_klima"
 msgstr "KLIMA दाँव पर लगाएँ"
 
-#: components/NavMenu/index.tsx:52
+#: components/NavMenu/index.tsx:55
 msgid "menu.wallet_address"
 msgstr "आपका वॉलेट पता"
 
-#: components/NavMenu/index.tsx:173
+#: components/NavMenu/index.tsx:184
 msgid "menu.wrap_klima"
 msgstr "sKLIMA रैप करें"
 
@@ -930,7 +957,6 @@ msgid "shared.invalid_project_address"
 msgstr ""
 
 #: components/views/Bond/index.tsx:397
-#: components/views/Buy/index.tsx:65
 #: components/views/Deposit/index.tsx:90
 #: components/views/Home/index.tsx:155
 #: components/views/PKlima/index.tsx:159
@@ -970,8 +996,6 @@ msgid "stake.akr.tooltip"
 msgstr "कंपाउंडिंग सहित वार्षिक KLIMA पुरस्कार, यदि वर्तमान इनाम दर 12 महीनों के लिए अपरिवर्तित रहे (इनाम दर परिवर्तन के अधीन हो सकती है)।"
 
 #. Long sentence
-#. Long sentence
-#: components/views/Buy/index.tsx:78
 #: components/views/Stake/index.tsx:288
 msgid "stake.balancescard.tooltip"
 msgstr "sKLIMA प्राप्त करने के लिए अपने KLIMA टोकन को दाँव पर लगाएँ। हर रिबेस के बाद, आपका sKLIMA बैलेंस दिए गए प्रतिशत के हिसाब से बढ़ जाएगा।"
@@ -1056,7 +1080,7 @@ msgstr "जारी रखने के लिए कृपया अपने 
 msgid "status.user_rejected"
 msgstr "आपने लेन-देन को अस्वीकार करना चयनित किया"
 
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:228
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

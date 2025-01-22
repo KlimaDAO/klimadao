@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-01-22 15:39+0000\n"
+"POT-Creation-Date: 2025-01-22 16:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,6 +11,10 @@ msgstr ""
 msgid "Acknowledge and Accept"
 msgstr "Accuser réception et Accepter"
 
+#: components/views/Buy/index.tsx:92
+msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
+msgstr ""
+
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
 #: components/views/Deposit/index.tsx:116
@@ -20,7 +24,7 @@ msgstr "Accuser réception et Accepter"
 msgid "Approve"
 msgstr "Approuver"
 
-#: components/NavMenu/index.tsx:244
+#: components/NavMenu/index.tsx:255
 msgid "Autocompounder"
 msgstr ""
 
@@ -40,7 +44,7 @@ msgstr "Soldes"
 msgid "Base Carbon Tonne"
 msgstr "Tonne de Carbone Base"
 
-#: components/NavMenu/index.tsx:232
+#: components/NavMenu/index.tsx:243
 msgid "Bridge"
 msgstr ""
 
@@ -48,10 +52,18 @@ msgstr ""
 msgid "Buy & Redeem Carbon"
 msgstr "Acheter et Réclamer du carbone"
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:208
 #: components/views/Redeem/index.tsx:528
 msgid "Buy Carbon"
 msgstr "Acheter du Carbone"
+
+#: components/views/Buy/index.tsx:21
+msgid "Buy KLIMA"
+msgstr "Acheter KLIMA"
+
+#: components/views/Buy/index.tsx:38
+msgid "Buy Klima on Aerodrome"
+msgstr ""
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
@@ -62,7 +74,7 @@ msgstr "Capacité"
 msgid "Continue"
 msgstr "Continuer"
 
-#: components/NavMenu/index.tsx:189
+#: components/NavMenu/index.tsx:200
 #: components/views/Deposit/index.tsx:193
 #: components/views/Deposit/index.tsx:315
 msgid "Deposit Carbon"
@@ -74,6 +86,10 @@ msgstr ""
 
 #: components/views/Deposit/index.tsx:196
 msgid "Deposit TCO2 in exchange for BCT."
+msgstr ""
+
+#: components/views/Buy/index.tsx:24
+msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
 msgstr ""
 
 #: components/views/Bond/index.tsx:417
@@ -92,6 +108,10 @@ msgstr "Entrez la quantité"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "Pour les utilisateurs qui souhaitent compenser le paiement par un jeton de pool, veuillez utiliser <0>ce site</0>."
 
+#: components/views/Buy/index.tsx:57
+msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
+msgstr ""
+
 #: components/views/Redeem/index.tsx:415
 msgid "How many tonnes would you like to acquire?"
 msgstr ""
@@ -103,9 +123,25 @@ msgstr ""
 msgid "Insufficient balance"
 msgstr "Solde insuffisant"
 
+#: components/views/Buy/index.tsx:98
+msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
+msgstr ""
+
+#: components/views/Buy/index.tsx:72
+msgid "KlimaDAO Autocompounder"
+msgstr ""
+
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 msgstr "Manque de Liquidité : Il se peut qu'il n'y ait pas de marché actif pour $KLIMA, ce qui peut entraîner des pertes si vous devez vendre vos jetons rapidement."
+
+#: components/views/Buy/index.tsx:80
+msgid "Learn more about Autocompounder"
+msgstr ""
+
+#: components/views/Buy/index.tsx:45
+msgid "Learn more about liquidity pools"
+msgstr ""
 
 #: components/views/Bond/index.tsx:411
 #: components/views/PKlima/index.tsx:167
@@ -189,6 +225,14 @@ msgstr ""
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "L'achat de crypto-monnaies, y compris le jeton $KLIMA, implique un degré élevé de risque et doit être considéré comme extrêmement spéculatif. Voici quelques points importants à prendre en compte :"
 
+#: components/views/Buy/index.tsx:54
+msgid "Put your KLIMA to work"
+msgstr ""
+
+#: components/views/Buy/index.tsx:109
+msgid "Read more about KlimaDAO 2.0"
+msgstr ""
+
 #: components/views/Deposit/index.tsx:296
 msgid "Receiving BCT"
 msgstr ""
@@ -197,7 +241,7 @@ msgstr ""
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
 msgstr "Actions et Évolutions Réglementaires : L'environnement réglementaire des crypto-monnaies évolue et les changements de réglementation pourraient avoir un impact négatif sur votre investissement."
 
-#: components/NavMenu/index.tsx:238
+#: components/NavMenu/index.tsx:249
 msgid "Retire"
 msgstr "Retirer du marché"
 
@@ -452,27 +496,6 @@ msgstr "Montant d'obligations que vous obtiendrez, d'après la quantité fournie
 msgid "bond.you_will_get.tooltip"
 msgstr "Montant d'obligations KLIMA liée que vous obtiendrez, d'après la quantité soumise en entrée."
 
-#: components/views/Buy/index.tsx:31
-msgid "buy.buy_klima"
-msgstr "Acheter KLIMA"
-
-#. Long sentence
-#: components/views/Buy/index.tsx:59
-msgid "buy.connect_to_buy"
-msgstr "Cette fonction n'est disponible que pour les utilisateurs qui sont connectés. Vous pouvez vous connecter ou créer un compte en cliquant sur le bouton ci-dessous."
-
-#: components/views/Buy/index.tsx:34
-msgid "buy.cta_1"
-msgstr "Si vous êtes un débutant, nous vous recommandons de suivre notre tutoriel étape par étape : <0>Comment acheter des KLIMA</0>."
-
-#: components/views/Buy/index.tsx:40
-msgid "buy.cta_2"
-msgstr "Autrement, si vous avez déjà un portefeuille avec des MATIC sur Polygon, la meilleure façon d'obtenir KLIMA est de faire un échange sur <0>Sushi.com</0>. Si vous préférez plutôt payer avec une carte de crédit, vous pouvez utiliser <1>Transak</1> pour acheter KLIMA directement."
-
-#: components/views/Buy/index.tsx:54
-msgid "buy.please_log_in"
-msgstr "Veuillez Vous Identifier ou Connecter Un Portefeuille"
-
 #: components/views/Bond/index.tsx:700
 msgid "capacity.description_inverse"
 msgstr "Voici le montant d'USDC.e disponible dans le contrat pour les obligations."
@@ -642,31 +665,35 @@ msgstr "Le réseau n'a pas pu être atteint. Ceci est très probablement causé 
 msgid "invalid_rpc.modal.title"
 msgstr "Vérifiez vos paramètres réseau"
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:168
+msgid "menu.buy_klima"
+msgstr "Acheter KLIMA"
+
+#: components/NavMenu/index.tsx:216
 msgid "menu.info"
 msgstr "Informations"
 
-#: components/NavMenu/index.tsx:210
+#: components/NavMenu/index.tsx:221
 msgid "menu.just_for_you"
 msgstr "JUSTE POUR VOUS"
 
-#: components/NavMenu/index.tsx:71
+#: components/NavMenu/index.tsx:74
 msgid "menu.not_connected"
 msgstr "NON CONNECTÉ"
 
-#: components/NavMenu/index.tsx:181
+#: components/NavMenu/index.tsx:192
 msgid "menu.offset"
 msgstr "Compenser"
 
-#: components/NavMenu/index.tsx:165
+#: components/NavMenu/index.tsx:176
 msgid "menu.stake_klima"
 msgstr "Mettre en jeu des KLIMA"
 
-#: components/NavMenu/index.tsx:52
+#: components/NavMenu/index.tsx:55
 msgid "menu.wallet_address"
 msgstr "L'adresse de votre portefeuille"
 
-#: components/NavMenu/index.tsx:173
+#: components/NavMenu/index.tsx:184
 msgid "menu.wrap_klima"
 msgstr "Encapsuler sKLIMA"
 
@@ -930,7 +957,6 @@ msgid "shared.invalid_project_address"
 msgstr ""
 
 #: components/views/Bond/index.tsx:397
-#: components/views/Buy/index.tsx:65
 #: components/views/Deposit/index.tsx:90
 #: components/views/Home/index.tsx:155
 #: components/views/PKlima/index.tsx:159
@@ -970,8 +996,6 @@ msgid "stake.akr.tooltip"
 msgstr "Rendement en KLIMA annualisé, y compris les intérêts composés, si le rendement actuel reste inchangé pendant 12 mois (le rendement peut être variable)."
 
 #. Long sentence
-#. Long sentence
-#: components/views/Buy/index.tsx:78
 #: components/views/Stake/index.tsx:288
 msgid "stake.balancescard.tooltip"
 msgstr "Mettez en jeu vos jetons KLIMA pour recevoir des sKLIMA. Après chaque rebasement, votre solde sKLIMA augmentera du pourcentage indiqué."
@@ -1056,7 +1080,7 @@ msgstr "Veuillez cliquer sur « confirmer » dans votre portefeuille pour cont
 msgid "status.user_rejected"
 msgstr "Vous avez rejeté la transaction"
 
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:228
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
