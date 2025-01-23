@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-01-22 16:38+0000\n"
+"POT-Creation-Date: 2025-01-23 15:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr "确认并接受"
 
 #: components/views/Buy/index.tsx:92
 msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
-msgstr ""
+msgstr "宣布 KlimaDAO 2.0：一个去中心化的碳市场！"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
@@ -26,7 +26,7 @@ msgstr "批准"
 
 #: components/NavMenu/index.tsx:255
 msgid "Autocompounder"
-msgstr ""
+msgstr "自动复利计算器"
 
 #: components/views/Deposit/index.tsx:237
 msgid "Available Balance"
@@ -46,7 +46,7 @@ msgstr "基准碳吨"
 
 #: components/NavMenu/index.tsx:243
 msgid "Bridge"
-msgstr ""
+msgstr "桥链接"
 
 #: components/views/Redeem/index.tsx:377
 msgid "Buy & Redeem Carbon"
@@ -63,7 +63,7 @@ msgstr "购买 KLIMA"
 
 #: components/views/Buy/index.tsx:38
 msgid "Buy Klima on Aerodrome"
-msgstr ""
+msgstr "在 Aerodrome 购买 Klima"
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
@@ -90,7 +90,7 @@ msgstr "存入TCO2以兑换BCT。"
 
 #: components/views/Buy/index.tsx:24
 msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
-msgstr ""
+msgstr "在<0>Aerodrome上轻松买卖KLIMA，优点：滑点低，流动性强</0>。"
 
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
@@ -110,7 +110,7 @@ msgstr "对于想要使用矿池代币抵消付款的用户，请使用<0>此网
 
 #: components/views/Buy/index.tsx:57
 msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
-msgstr ""
+msgstr "前往<0>base.klimadao.finance</0>以编程方式提升您的持仓。"
 
 #: components/views/Redeem/index.tsx:415
 msgid "How many tonnes would you like to acquire?"
@@ -125,11 +125,11 @@ msgstr "余额不足"
 
 #: components/views/Buy/index.tsx:98
 msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
-msgstr ""
+msgstr "KlimaDAO 2.0 代表了对碳货币化、停用和抵消去中心化市场基础设施的根本性重新设计。虽然 KlimaDAO 已经建立了品牌影响力并积累了大量碳资产，但 2.0 模型引入了复杂的机制，通过发布 Klima X 自动做市商 (AMM)，成为链上碳的主要流动性场所。"
 
 #: components/views/Buy/index.tsx:72
 msgid "KlimaDAO Autocompounder"
-msgstr ""
+msgstr "KlimaDAO 自动复利计算器"
 
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
@@ -137,11 +137,11 @@ msgstr "流动性不足：可能市场上面有活跃的 $KLIMA，如果您需�
 
 #: components/views/Buy/index.tsx:80
 msgid "Learn more about Autocompounder"
-msgstr ""
+msgstr "了解更多自动复利计算器"
 
 #: components/views/Buy/index.tsx:45
 msgid "Learn more about liquidity pools"
-msgstr ""
+msgstr "了解更多流动性池"
 
 #: components/views/Bond/index.tsx:411
 #: components/views/PKlima/index.tsx:167
@@ -227,11 +227,11 @@ msgstr "购买加密货币，包括$KLIMA代币，涉及高度风险，应被视
 
 #: components/views/Buy/index.tsx:54
 msgid "Put your KLIMA to work"
-msgstr ""
+msgstr "让您的 KLIMA 发挥作用"
 
 #: components/views/Buy/index.tsx:109
 msgid "Read more about KlimaDAO 2.0"
-msgstr ""
+msgstr "了解 KlimaDAO 2.0 的更多信息"
 
 #: components/views/Deposit/index.tsx:296
 msgid "Receiving BCT"
