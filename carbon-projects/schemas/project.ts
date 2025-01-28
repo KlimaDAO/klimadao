@@ -32,17 +32,17 @@ const subcategories = [
 ];
 
 const statuses = [
-  { title: "Registered", value: "registered" },
-  { title: "Validated", value: "validated" },
-  { title: "Verified", value: "verified" },
-  { title: "Withdrawn", value: "withdrawn" },
+  { title: "Registered", value: "Registered" },
+  { title: "Validated", value: "Validated" },
+  { title: "Verified", value: "Verified" },
+  { title: "Withdrawn", value: "Withdrawn" },
 ];
 
 const types = [
-  { title: "Avoidance", value: "avoidance" },
-  { title: "Reduction", value: "reduction" },
-  { title: "Removal", value: "removal" },
-  { title: "Hybrid", value: "hybrid" },
+  { title: "Avoidance", value: "Avoidance" },
+  { title: "Reduction", value: "Reduction" },
+  { title: "Removal", value: "Removal" },
+  { title: "Hybrid", value: "Hybrid" },
 ];
 
 export default defineType({

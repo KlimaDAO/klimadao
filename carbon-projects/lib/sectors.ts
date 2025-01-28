@@ -1,65 +1,66 @@
 export const sectors = [
   {
     title: "Afforestation and reforestation",
-    value: "afforestation-and-reforestation",
+    value: "Afforestation and reforestation",
   },
   {
     title: "Energy industries (renewable/non-renewable sources)",
-    value: "energy-industries-renewable-non-renewable-sources",
+    value: "Energy industries (renewable/non-renewable sources)",
   },
-  { title: "Energy demand", value: "energy-demand" },
+  { title: "Energy demand", value: "Energy demand" },
   {
     title: "Agriculture; forestry and fishing",
-    value: "agriculture-forestry-and-fishing",
+    value: "Agriculture; forestry and fishing",
   },
   {
     title: "Waste handling and disposal",
-    value: "waste-handling-and-disposal",
+    value: "Waste handling and disposal",
   },
   {
     title: "Livestock, enteric fermentation, and manure management",
-    value: "livestock-enteric-fermentation-and-manure-management",
+    value: "Livestock, enteric fermentation, and manure management",
   },
-  { title: "Technical Removal", value: "technical-removal" },
-  { title: "Afforestation", value: "afforestation" },
-  { title: "Transport", value: "transport" },
+  { title: "Technical Removal", value: "Technical Removal" },
+  { title: "Afforestation", value: "Afforestation" },
+  { title: "Transport", value: "Transport" },
   {
     title: "Landfill Gas Capture/Combustion",
-    value: "landfill-gas-capture-combustion",
+    value: "Landfill Gas Capture/Combustion",
   },
-  { title: "Forestry", value: "forestry" },
-  { title: "Energy Distribution", value: "energy-distribution" },
+  { title: "Forestry", value: "Forestry" },
+  { title: "Energy Distribution", value: "Energy Distribution" },
   {
     title:
       "Water supply; sewerage, waste management and remediation activities",
-    value: "water-supply-sewerage-waste-management-and-remediation-activities",
+    value:
+      "Water supply; sewerage, waste management and remediation activities",
   },
   {
     title: "Electricity; gas, steam and air conditioning supply",
-    value: "electricity-gas-steam-and-air-conditioning-supply",
+    value: "Electricity; gas, steam and air conditioning supply",
   },
-  { title: "Manufacturing", value: "manufacturing" },
-  { title: "Transportation and storage", value: "transportation-and-storage" },
+  { title: "Manufacturing", value: "Manufacturing" },
+  { title: "Transportation and storage", value: "Transportation and storage" },
   {
     title: "Fugitive emissions from fuel (solid, oil and gas)",
-    value: "fugitive-emissions-from-fuel-solid-oil-and-gas",
+    value: "Fugitive emissions from fuel (solid, oil and gas)",
   },
-  { title: "Manufacturing industries", value: "manufacturing-industries" },
-  { title: "Chemical industries", value: "chemical-industries" },
-  { title: "Energy distribution", value: "energy-distribution" },
+  { title: "Manufacturing industries", value: "Manufacturing industries" },
+  { title: "Chemical industries", value: "Chemical industries" },
+  { title: "Energy distribution", value: "Energy distribution" },
   {
     title:
       "Fugitive emissions from production and consumption of halocarbons and sulphur hexafluoride",
     value:
-      "fugitive-emissions-from-production-and-consumption-of-halocarbons-and-sulphur-hexafluoride",
+      "Fugitive emissions from production and consumption of halocarbons and sulphur hexafluoride",
   },
-  { title: "Metal production", value: "metal-production" },
-  { title: "Agriculture", value: "agriculture" },
-  { title: "Mining/mineral production", value: "mining-mineral-production" },
-  { title: "Construction", value: "construction" },
-  { title: "Mining and quarrying", value: "mining-and-quarrying" },
+  { title: "Metal production", value: "Metal production" },
+  { title: "Agriculture", value: "Agriculture" },
+  { title: "Mining/mineral production", value: "Mining/mineral production" },
+  { title: "Construction", value: "Construction" },
+  { title: "Mining and quarrying", value: "Mining and quarrying" },
   {
     title: "Metal production (metallurgy)",
-    value: "metal-production-metallurgy",
+    value: "Metal production (metallurgy)",
   },
 ];
