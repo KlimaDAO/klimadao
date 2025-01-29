@@ -1,9 +1,5 @@
 export const fileCategories = [
-  { title: "Methodology", value: "Methodology" },
-  {
-    title: "Project Description Document (PDD)",
-    value: "Project Description Document (PDD)",
-  },
-  { title: "Verifications", value: "Verifications" },
+  { title: "Methodology and PDD", value: "Methodology and PDD" },
+  { title: "Verification", value: "Verification" },
   { title: "Supporting Documentation", value: "Supporting Documentation" },
 ];
