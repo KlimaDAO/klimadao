@@ -11,13 +11,13 @@ export const DisclaimerModal: FC = () => {
   useScrollLock(showModal);
 
   useEffect(() => {
-    if (isNil(window?.sessionStorage?.getItem("disclaimer_accepted"))) {
+    if (isNil(window?.localStorage?.getItem("disclaimer_accepted"))) {
       setShowModal(true);
     }
   }, []);
 
   const setDisclaimer = async () => {
-    window.sessionStorage.setItem("disclaimer_accepted", "");
+    window.localStorage.setItem("disclaimer_accepted", "");
     setShowModal(false);
   };
 
