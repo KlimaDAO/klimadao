@@ -11552,4 +11552,27 @@ export const PROJECT_INFO: ProjectInfo[] = [
     '0',
     false
   ),
+  new ProjectInfo(
+    '0xfd47cfa69af9eaf5446cdc5f3e879618a0e87613',
+    'CMARK-0',
+    '9999',
+    'This Project is for Testing Purposes Only',
+    'C05000000',
+    'Other',
+    'Canada',
+    '0',
+    false
+  ),
+  new ProjectInfo(
+    // TODO: wait for the credit to be minted
+    '0x0000000000000000000000000000000000000000',
+    'CMARK-1',
+    '2022',
+    'Black Earth 2022 OWC',
+    'ACM0022',
+    'Waste Disposal',
+    'United States',
+    '0',
+    false
+  ),
 ]
