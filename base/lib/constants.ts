@@ -1,3 +1,4 @@
+import { urls } from "@klimadao/lib/constants";
 import { Chain } from "wagmi";
 import { base, baseSepolia } from "wagmi/chains";
 import { LiquidityPool, Token } from "./types";
@@ -12,6 +13,12 @@ export const IS_PREVIEW_BUILD =
 
 /** True if local development (not preview deployment) */
 export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
+
+export const BASE_URL = IS_PRODUCTION
+  ? urls.base
+  : process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+  : "http://localhost:3004";
 
 export const supportedChains =
   IS_LOCAL_DEVELOPMENT || IS_PRODUCTION || IS_PREVIEW_BUILD

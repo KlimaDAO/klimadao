@@ -186,6 +186,7 @@ export const urls = {
   resourcesCarbonmark: "https://www.carbonmark.com/resources",
   carbonmarkEmail: "mailto:support@carbonmark.com",
   disclaimer: "https://www.klimadao.finance/disclaimer",
+  base: "https://base.klimadao.finance",
 };
 
 export const polygonNetworks = {
