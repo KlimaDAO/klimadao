@@ -19,7 +19,7 @@ import {
   formatUnits,
   getDefaultProvider,
   parseEther,
-  parseUnits
+  parseUnits,
 } from "ethers";
 import { addresses } from "./constants";
 
@@ -147,9 +147,9 @@ export const submitCrossChain = async (props: {
       "Polygon",
       addresses.polygon.destinationHelperContract,
       maxAmountIn.toString(),
-      // metadata version ("bytes4(0)") needs to be included in the data payload 
+      // metadata version ("bytes4(0)") needs to be included in the data payload
       // see https://github.com/axelarnetwork/interchain-token-service/commit/9ada6d42eb58849aa71063c086f3e9d26e59840a
-      concat(['0x00000000', data]),
+      concat(["0x00000000", data]),
       totalFees,
       { value: totalFees }
     );
