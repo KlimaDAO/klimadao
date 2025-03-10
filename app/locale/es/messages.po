@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-01-29 22:21+0000\n"
+"POT-Creation-Date: 2025-03-06 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr "Reconocer y aceptar"
 
 #: components/views/Buy/index.tsx:92
 msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
-msgstr ""
+msgstr "Anunciamos KlimaDAO 2.0: ¡Un mercado de carbono descentralizado!"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
@@ -26,7 +26,7 @@ msgstr "Aprobar"
 
 #: components/NavMenu/index.tsx:255
 msgid "Autocompounder"
-msgstr ""
+msgstr "Autocompuesto"
 
 #: components/views/Deposit/index.tsx:237
 msgid "Available Balance"
@@ -46,7 +46,7 @@ msgstr "Tonelada base de carbono"
 
 #: components/NavMenu/index.tsx:243
 msgid "Bridge"
-msgstr ""
+msgstr "Puente"
 
 #: components/views/Redeem/index.tsx:377
 msgid "Buy & Redeem Carbon"
@@ -63,7 +63,7 @@ msgstr "Comprar KLIMA"
 
 #: components/views/Buy/index.tsx:38
 msgid "Buy Klima on Aerodrome"
-msgstr ""
+msgstr "Comprar Klima en Aeródromo"
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
@@ -90,7 +90,7 @@ msgstr "Deposite TCO2 a cambio de BCT."
 
 #: components/views/Buy/index.tsx:24
 msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
-msgstr ""
+msgstr "Compre o venda KLIMA fácilmente con bajo deslizamiento y gran liquidez en <0>Aerodrome</0> ."
 
 #: components/views/Bond/index.tsx:417
 msgid "Enter Quantity"
@@ -110,7 +110,7 @@ msgstr "Para los usuarios que quieran compensar el pago con un pool token, utili
 
 #: components/views/Buy/index.tsx:57
 msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
-msgstr ""
+msgstr "Dirígete a <0>base.klimadao.finance</0> para hacer crecer su posición programáticamente."
 
 #: components/views/Redeem/index.tsx:415
 msgid "How many tonnes would you like to acquire?"
@@ -125,11 +125,11 @@ msgstr "Saldo insuficiente"
 
 #: components/views/Buy/index.tsx:98
 msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
-msgstr ""
+msgstr "KlimaDAO 2.0 representa un rediseño fundamental de la infraestructura de mercado descentralizada para la monetización, retiro y compensación de carbono. Si bien KlimaDAO ha establecido una presencia de marca y acumulado activos de carbono sustanciales, el modelo 2.0 introduce mecanismos sofisticados para convertirse en el lugar de liquidez dominante para el carbono en cadena mediante el lanzamiento del Creador de Mercado Automatizado (AMM) Klima X."
 
 #: components/views/Buy/index.tsx:72
 msgid "KlimaDAO Autocompounder"
-msgstr ""
+msgstr "Componedor automático KlimaDAO"
 
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
@@ -137,11 +137,11 @@ msgstr "Falta de Liquidez: Es posible que no exista un mercado activo para $KLIM
 
 #: components/views/Buy/index.tsx:80
 msgid "Learn more about Autocompounder"
-msgstr ""
+msgstr "Obtenga más información sobre Autocompounder"
 
 #: components/views/Buy/index.tsx:45
 msgid "Learn more about liquidity pools"
-msgstr ""
+msgstr "Obtenga más información sobre los fondos de liquidez"
 
 #: components/views/Bond/index.tsx:411
 #: components/views/PKlima/index.tsx:167
@@ -227,11 +227,11 @@ msgstr "La compra de criptomonedas, incluyendo el token $KLIMA, implica un alto 
 
 #: components/views/Buy/index.tsx:54
 msgid "Put your KLIMA to work"
-msgstr ""
+msgstr "Pon tu KLIMA a trabajar"
 
 #: components/views/Buy/index.tsx:109
 msgid "Read more about KlimaDAO 2.0"
-msgstr ""
+msgstr "Obtenga mas informacion sobre KlimaDAO 2.0"
 
 #: components/views/Deposit/index.tsx:296
 msgid "Receiving BCT"
