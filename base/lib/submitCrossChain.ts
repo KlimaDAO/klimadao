@@ -14,11 +14,12 @@ import {
   Interface,
   JsonRpcProvider,
   Signer,
+  concat,
   formatEther,
   formatUnits,
   getDefaultProvider,
   parseEther,
-  parseUnits,
+  parseUnits
 } from "ethers";
 import { addresses } from "./constants";
 
@@ -141,12 +142,14 @@ export const submitCrossChain = async (props: {
   try {
     // Step 4: Call the Axelar contract
     props.onStatus("networkConfirmation");
-    const tx = await contract.callContractWithInterchainToken(
+    const tx = await contract.interchainTransfer(
       "0xdc30a9bd9048b5a833e3f90ea281f70ae77e82018fa5b96831d3a1f563e38aaf",
       "Polygon",
       addresses.polygon.destinationHelperContract,
       maxAmountIn.toString(),
-      data,
+      // metadata version ("bytes4(0)") needs to be included in the data payload 
+      // see https://github.com/axelarnetwork/interchain-token-service/commit/9ada6d42eb58849aa71063c086f3e9d26e59840a
+      concat(['0x00000000', data]),
       totalFees,
       { value: totalFees }
     );

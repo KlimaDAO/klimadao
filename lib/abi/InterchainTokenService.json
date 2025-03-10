@@ -12,26 +12,14 @@
           "name": "interchainTokenDeployer_",
           "type": "address"
         },
-        {
-          "internalType": "address",
-          "name": "gateway_",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "gasService_",
-          "type": "address"
-        },
+        { "internalType": "address", "name": "gateway_", "type": "address" },
+        { "internalType": "address", "name": "gasService_", "type": "address" },
         {
           "internalType": "address",
           "name": "interchainTokenFactory_",
           "type": "address"
         },
-        {
-          "internalType": "string",
-          "name": "chainName_",
-          "type": "string"
-        },
+        { "internalType": "string", "name": "chainName_", "type": "string" },
         {
           "internalType": "address",
           "name": "tokenManagerImplementation_",
@@ -41,16 +29,17 @@
           "internalType": "address",
           "name": "tokenHandler_",
           "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "gatewayCaller_",
+          "type": "address"
         }
       ],
       "stateMutability": "nonpayable",
       "type": "constructor"
     },
-    {
-      "inputs": [],
-      "name": "AlreadyExecuted",
-      "type": "error"
-    },
+    { "inputs": [], "name": "AlreadyExecuted", "type": "error" },
     {
       "inputs": [
         {
@@ -62,11 +51,13 @@
       "name": "CannotDeploy",
       "type": "error"
     },
-    {
-      "inputs": [],
-      "name": "EmptyData",
-      "type": "error"
-    },
+    { "inputs": [], "name": "CannotDeployRemotelyToSelf", "type": "error" },
+    { "inputs": [], "name": "EmptyData", "type": "error" },
+    { "inputs": [], "name": "EmptyDestinationAddress", "type": "error" },
+    { "inputs": [], "name": "EmptyParams", "type": "error" },
+    { "inputs": [], "name": "EmptyTokenAddress", "type": "error" },
+    { "inputs": [], "name": "EmptyTokenName", "type": "error" },
+    { "inputs": [], "name": "EmptyTokenSymbol", "type": "error" },
     {
       "inputs": [
         {
@@ -76,11 +67,6 @@
         }
       ],
       "name": "ExecuteWithInterchainTokenFailed",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "ExecuteWithTokenNotSupported",
       "type": "error"
     },
     {
@@ -94,317 +80,139 @@
       "name": "ExpressExecuteWithInterchainTokenFailed",
       "type": "error"
     },
+    { "inputs": [], "name": "ExpressExecutorAlreadySet", "type": "error" },
     {
-      "inputs": [],
-      "name": "ExpressExecutorAlreadySet",
+      "inputs": [{ "internalType": "bytes", "name": "data", "type": "bytes" }],
+      "name": "GatewayCallFailed",
       "type": "error"
     },
     {
-      "inputs": [],
-      "name": "GatewayToken",
-      "type": "error"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes",
-          "name": "data",
-          "type": "bytes"
-        }
-      ],
+      "inputs": [{ "internalType": "bytes", "name": "data", "type": "bytes" }],
       "name": "GiveTokenFailed",
       "type": "error"
     },
+    { "inputs": [], "name": "InsufficientValue", "type": "error" },
     {
-      "inputs": [],
-      "name": "InsufficientValue",
-      "type": "error"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes",
-          "name": "error",
-          "type": "bytes"
-        }
-      ],
+      "inputs": [{ "internalType": "bytes", "name": "error", "type": "bytes" }],
       "name": "InterchainTokenDeploymentFailed",
       "type": "error"
     },
-    {
-      "inputs": [],
-      "name": "InvalidAddress",
-      "type": "error"
-    },
+    { "inputs": [], "name": "InvalidAddress", "type": "error" },
     {
       "inputs": [
-        {
-          "internalType": "bytes",
-          "name": "bytesAddress",
-          "type": "bytes"
-        }
+        { "internalType": "bytes", "name": "bytesAddress", "type": "bytes" }
       ],
       "name": "InvalidBytesLength",
       "type": "error"
     },
-    {
-      "inputs": [],
-      "name": "InvalidChainName",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "InvalidCodeHash",
-      "type": "error"
-    },
+    { "inputs": [], "name": "InvalidChainName", "type": "error" },
+    { "inputs": [], "name": "InvalidCodeHash", "type": "error" },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "messageType",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "messageType", "type": "uint256" }
       ],
       "name": "InvalidExpressMessageType",
       "type": "error"
     },
-    {
-      "inputs": [],
-      "name": "InvalidImplementation",
-      "type": "error"
-    },
+    { "inputs": [], "name": "InvalidImplementation", "type": "error" },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "messageType",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "messageType", "type": "uint256" }
       ],
       "name": "InvalidMessageType",
       "type": "error"
     },
     {
       "inputs": [
-        {
-          "internalType": "uint32",
-          "name": "version",
-          "type": "uint32"
-        }
+        { "internalType": "uint32", "name": "version", "type": "uint32" }
       ],
       "name": "InvalidMetadataVersion",
       "type": "error"
     },
-    {
-      "inputs": [],
-      "name": "InvalidOwner",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "InvalidOwnerAddress",
-      "type": "error"
-    },
+    { "inputs": [], "name": "InvalidOwner", "type": "error" },
+    { "inputs": [], "name": "InvalidOwnerAddress", "type": "error" },
+    { "inputs": [], "name": "InvalidPayload", "type": "error" },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "fromAccount",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "toAccount",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "accountRoles",
-          "type": "uint256"
-        }
+        { "internalType": "address", "name": "fromAccount", "type": "address" },
+        { "internalType": "address", "name": "toAccount", "type": "address" },
+        { "internalType": "uint256", "name": "accountRoles", "type": "uint256" }
       ],
       "name": "InvalidProposedRoles",
       "type": "error"
     },
+    { "inputs": [], "name": "LengthMismatch", "type": "error" },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "implementation",
-          "type": "address"
-        }
-      ],
-      "name": "InvalidTokenManagerImplementationType",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "LengthMismatch",
-      "type": "error"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "accountRoles",
-          "type": "uint256"
-        }
+        { "internalType": "address", "name": "account", "type": "address" },
+        { "internalType": "uint256", "name": "accountRoles", "type": "uint256" }
       ],
       "name": "MissingAllRoles",
       "type": "error"
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "accountRoles",
-          "type": "uint256"
-        }
+        { "internalType": "address", "name": "account", "type": "address" },
+        { "internalType": "uint256", "name": "accountRoles", "type": "uint256" }
       ],
       "name": "MissingAnyOfRoles",
       "type": "error"
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint8",
-          "name": "role",
-          "type": "uint8"
-        }
+        { "internalType": "address", "name": "account", "type": "address" },
+        { "internalType": "uint8", "name": "role", "type": "uint8" }
       ],
       "name": "MissingRole",
       "type": "error"
     },
-    {
-      "inputs": [],
-      "name": "MulticallFailed",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotApprovedByGateway",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotOwner",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotPaused",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotProxy",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotRemoteService",
-      "type": "error"
-    },
+    { "inputs": [], "name": "MulticallFailed", "type": "error" },
+    { "inputs": [], "name": "NotApprovedByGateway", "type": "error" },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "caller",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "token",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "sender", "type": "address" }
       ],
-      "name": "NotToken",
+      "name": "NotInterchainTokenFactory",
       "type": "error"
     },
+    { "inputs": [], "name": "NotOwner", "type": "error" },
+    { "inputs": [], "name": "NotPaused", "type": "error" },
+    { "inputs": [], "name": "NotProxy", "type": "error" },
+    { "inputs": [], "name": "NotRemoteService", "type": "error" },
+    { "inputs": [], "name": "NotSupported", "type": "error" },
+    { "inputs": [], "name": "Pause", "type": "error" },
     {
-      "inputs": [],
-      "name": "Pause",
+      "inputs": [{ "internalType": "bytes", "name": "data", "type": "bytes" }],
+      "name": "PostDeployFailed",
       "type": "error"
     },
+    { "inputs": [], "name": "SetupFailed", "type": "error" },
     {
-      "inputs": [],
-      "name": "SetupFailed",
-      "type": "error"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes",
-          "name": "data",
-          "type": "bytes"
-        }
-      ],
+      "inputs": [{ "internalType": "bytes", "name": "data", "type": "bytes" }],
       "name": "TakeTokenFailed",
       "type": "error"
     },
     {
-      "inputs": [
-        {
-          "internalType": "bytes",
-          "name": "data",
-          "type": "bytes"
-        }
-      ],
+      "inputs": [{ "internalType": "bytes", "name": "data", "type": "bytes" }],
       "name": "TokenHandlerFailed",
       "type": "error"
     },
     {
-      "inputs": [
-        {
-          "internalType": "bytes",
-          "name": "error",
-          "type": "bytes"
-        }
-      ],
+      "inputs": [{ "internalType": "bytes", "name": "error", "type": "bytes" }],
       "name": "TokenManagerDeploymentFailed",
       "type": "error"
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
       ],
       "name": "TokenManagerDoesNotExist",
       "type": "error"
     },
-    {
-      "inputs": [],
-      "name": "UntrustedChain",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "ZeroAddress",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "ZeroStringLength",
-      "type": "error"
-    },
+    { "inputs": [], "name": "UntrustedChain", "type": "error" },
+    { "inputs": [], "name": "ZeroAddress", "type": "error" },
+    { "inputs": [], "name": "ZeroAmount", "type": "error" },
+    { "inputs": [], "name": "ZeroStringLength", "type": "error" },
     {
       "anonymous": false,
       "inputs": [
@@ -470,55 +278,6 @@
           "type": "bytes32"
         },
         {
-          "indexed": false,
-          "internalType": "string",
-          "name": "symbol",
-          "type": "string"
-        },
-        {
-          "indexed": true,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "expressExecutor",
-          "type": "address"
-        }
-      ],
-      "name": "ExpressExecutedWithToken",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "bytes32",
-          "name": "commandId",
-          "type": "bytes32"
-        },
-        {
-          "indexed": false,
-          "internalType": "string",
-          "name": "sourceChain",
-          "type": "string"
-        },
-        {
-          "indexed": false,
-          "internalType": "string",
-          "name": "sourceAddress",
-          "type": "string"
-        },
-        {
-          "indexed": false,
-          "internalType": "bytes32",
-          "name": "payloadHash",
-          "type": "bytes32"
-        },
-        {
           "indexed": true,
           "internalType": "address",
           "name": "expressExecutor",
@@ -526,55 +285,6 @@
         }
       ],
       "name": "ExpressExecutionFulfilled",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "bytes32",
-          "name": "commandId",
-          "type": "bytes32"
-        },
-        {
-          "indexed": false,
-          "internalType": "string",
-          "name": "sourceChain",
-          "type": "string"
-        },
-        {
-          "indexed": false,
-          "internalType": "string",
-          "name": "sourceAddress",
-          "type": "string"
-        },
-        {
-          "indexed": false,
-          "internalType": "bytes32",
-          "name": "payloadHash",
-          "type": "bytes32"
-        },
-        {
-          "indexed": false,
-          "internalType": "string",
-          "name": "symbol",
-          "type": "string"
-        },
-        {
-          "indexed": true,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "expressExecutor",
-          "type": "address"
-        }
-      ],
-      "name": "ExpressExecutionWithTokenFulfilled",
       "type": "event"
     },
     {
@@ -785,6 +495,49 @@
       "inputs": [
         {
           "indexed": true,
+          "internalType": "bytes32",
+          "name": "tokenId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "destinationChain",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "sourceTokenAddress",
+          "type": "bytes"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "destinationTokenAddress",
+          "type": "bytes"
+        },
+        {
+          "indexed": true,
+          "internalType": "enum ITokenManagerType.TokenManagerType",
+          "name": "tokenManagerType",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "params",
+          "type": "bytes"
+        }
+      ],
+      "name": "LinkTokenStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
           "internalType": "address",
           "name": "newOwner",
           "type": "address"
@@ -918,30 +671,18 @@
       "inputs": [
         {
           "indexed": true,
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
         },
         {
           "indexed": false,
-          "internalType": "string",
-          "name": "destinationChain",
-          "type": "string"
-        },
-        {
-          "indexed": true,
-          "internalType": "enum ITokenManagerType.TokenManagerType",
-          "name": "tokenManagerType",
+          "internalType": "uint8",
+          "name": "decimals",
           "type": "uint8"
-        },
-        {
-          "indexed": false,
-          "internalType": "bytes",
-          "name": "params",
-          "type": "bytes"
         }
       ],
-      "name": "TokenManagerDeploymentStarted",
+      "name": "TokenMetadataRegistered",
       "type": "event"
     },
     {
@@ -1004,11 +745,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "fromOperator",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "fromOperator", "type": "address" }
       ],
       "name": "acceptOperatorship",
       "outputs": [],
@@ -1023,52 +760,10 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "destinationChain",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes",
-          "name": "destinationAddress",
-          "type": "bytes"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes",
-          "name": "data",
-          "type": "bytes"
-        },
-        {
-          "internalType": "uint256",
-          "name": "gasValue",
-          "type": "uint256"
-        }
-      ],
-      "name": "callContractWithInterchainToken",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
       "inputs": [],
       "name": "chainName",
       "outputs": [
-        {
-          "internalType": "string",
-          "name": "chainName_",
-          "type": "string"
-        }
+        { "internalType": "string", "name": "chainName_", "type": "string" }
       ],
       "stateMutability": "view",
       "type": "function"
@@ -1076,90 +771,20 @@
     {
       "inputs": [],
       "name": "chainNameHash",
-      "outputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        }
-      ],
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "string",
-          "name": "sourceChain",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceAddress",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes",
-          "name": "payload",
-          "type": "bytes"
-        }
+        { "internalType": "string", "name": "sourceChain", "type": "string" },
+        { "internalType": "string", "name": "sourceAddress", "type": "string" },
+        { "internalType": "bytes", "name": "payload", "type": "bytes" }
       ],
       "name": "contractCallValue",
       "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes",
-          "name": "",
-          "type": "bytes"
-        },
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "contractCallWithTokenValue",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
+        { "internalType": "address", "name": "", "type": "address" },
+        { "internalType": "uint256", "name": "", "type": "uint256" }
       ],
       "stateMutability": "view",
       "type": "function"
@@ -1167,126 +792,52 @@
     {
       "inputs": [],
       "name": "contractId",
-      "outputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        }
-      ],
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
       "stateMutability": "pure",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "salt",
-          "type": "bytes32"
-        },
+        { "internalType": "bytes32", "name": "salt", "type": "bytes32" },
         {
           "internalType": "string",
           "name": "destinationChain",
           "type": "string"
         },
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "symbol",
-          "type": "string"
-        },
-        {
-          "internalType": "uint8",
-          "name": "decimals",
-          "type": "uint8"
-        },
-        {
-          "internalType": "bytes",
-          "name": "minter",
-          "type": "bytes"
-        },
-        {
-          "internalType": "uint256",
-          "name": "gasValue",
-          "type": "uint256"
-        }
+        { "internalType": "string", "name": "name", "type": "string" },
+        { "internalType": "string", "name": "symbol", "type": "string" },
+        { "internalType": "uint8", "name": "decimals", "type": "uint8" },
+        { "internalType": "bytes", "name": "minter", "type": "bytes" },
+        { "internalType": "uint256", "name": "gasValue", "type": "uint256" }
       ],
       "name": "deployInterchainToken",
       "outputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
       ],
       "stateMutability": "payable",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "salt",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "destinationChain",
-          "type": "string"
-        },
-        {
-          "internalType": "enum ITokenManagerType.TokenManagerType",
-          "name": "tokenManagerType",
-          "type": "uint8"
-        },
-        {
-          "internalType": "bytes",
-          "name": "params",
-          "type": "bytes"
-        },
-        {
-          "internalType": "uint256",
-          "name": "gasValue",
-          "type": "uint256"
-        }
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
       ],
-      "name": "deployTokenManager",
+      "name": "deployedTokenManager",
       "outputs": [
         {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
+          "internalType": "contract ITokenManager",
+          "name": "tokenManager_",
+          "type": "address"
         }
       ],
-      "stateMutability": "payable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "commandId",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceChain",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceAddress",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes",
-          "name": "payload",
-          "type": "bytes"
-        }
+        { "internalType": "bytes32", "name": "commandId", "type": "bytes32" },
+        { "internalType": "string", "name": "sourceChain", "type": "string" },
+        { "internalType": "string", "name": "sourceAddress", "type": "string" },
+        { "internalType": "bytes", "name": "payload", "type": "bytes" }
       ],
       "name": "execute",
       "outputs": [],
@@ -1295,163 +846,14 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes",
-          "name": "",
-          "type": "bytes"
-        },
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "executeWithToken",
-      "outputs": [],
-      "stateMutability": "pure",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "commandId",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceChain",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceAddress",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes",
-          "name": "payload",
-          "type": "bytes"
-        }
+        { "internalType": "bytes32", "name": "commandId", "type": "bytes32" },
+        { "internalType": "string", "name": "sourceChain", "type": "string" },
+        { "internalType": "string", "name": "sourceAddress", "type": "string" },
+        { "internalType": "bytes", "name": "payload", "type": "bytes" }
       ],
       "name": "expressExecute",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes",
-          "name": "",
-          "type": "bytes"
-        },
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "expressExecuteWithToken",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
-      ],
-      "name": "flowInAmount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "flowInAmount_",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
-      ],
-      "name": "flowLimit",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "flowLimit_",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
-      ],
-      "name": "flowOutAmount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "flowOutAmount_",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -1481,27 +883,18 @@
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "gatewayCaller",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "commandId",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceChain",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceAddress",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "payloadHash",
-          "type": "bytes32"
-        }
+        { "internalType": "bytes32", "name": "commandId", "type": "bytes32" },
+        { "internalType": "string", "name": "sourceChain", "type": "string" },
+        { "internalType": "string", "name": "sourceAddress", "type": "string" },
+        { "internalType": "bytes32", "name": "payloadHash", "type": "bytes32" }
       ],
       "name": "getExpressExecutor",
       "outputs": [
@@ -1516,69 +909,11 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "commandId",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceChain",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "sourceAddress",
-          "type": "string"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "payloadHash",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "string",
-          "name": "symbol",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "getExpressExecutorWithToken",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "expressExecutor",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint8",
-          "name": "role",
-          "type": "uint8"
-        }
+        { "internalType": "address", "name": "account", "type": "address" },
+        { "internalType": "uint8", "name": "role", "type": "uint8" }
       ],
       "name": "hasRole",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -1597,19 +932,11 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
       ],
       "name": "interchainTokenAddress",
       "outputs": [
-        {
-          "internalType": "address",
-          "name": "tokenAddress",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "tokenAddress", "type": "address" }
       ],
       "stateMutability": "view",
       "type": "function"
@@ -1617,60 +944,32 @@
     {
       "inputs": [],
       "name": "interchainTokenDeployer",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [],
       "name": "interchainTokenFactory",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "sender",
-          "type": "address"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "salt",
-          "type": "bytes32"
-        }
+        { "internalType": "address", "name": "sender", "type": "address" },
+        { "internalType": "bytes32", "name": "salt", "type": "bytes32" }
       ],
       "name": "interchainTokenId",
       "outputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
       ],
       "stateMutability": "pure",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        },
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" },
         {
           "internalType": "string",
           "name": "destinationChain",
@@ -1681,21 +980,9 @@
           "name": "destinationAddress",
           "type": "bytes"
         },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes",
-          "name": "metadata",
-          "type": "bytes"
-        },
-        {
-          "internalType": "uint256",
-          "name": "gasValue",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "amount", "type": "uint256" },
+        { "internalType": "bytes", "name": "metadata", "type": "bytes" },
+        { "internalType": "uint256", "name": "gasValue", "type": "uint256" }
       ],
       "name": "interchainTransfer",
       "outputs": [],
@@ -1704,62 +991,67 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "addr",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "addr", "type": "address" }
       ],
       "name": "isOperator",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
+        { "internalType": "string", "name": "chain", "type": "string" },
+        { "internalType": "string", "name": "address_", "type": "string" }
+      ],
+      "name": "isTrustedAddress",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "bytes32", "name": "salt", "type": "bytes32" },
         {
           "internalType": "string",
-          "name": "chain",
+          "name": "destinationChain",
           "type": "string"
         },
         {
-          "internalType": "string",
-          "name": "address_",
-          "type": "string"
-        }
-      ],
-      "name": "isTrustedAddress",
-      "outputs": [
+          "internalType": "bytes",
+          "name": "destinationTokenAddress",
+          "type": "bytes"
+        },
         {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
+          "internalType": "enum ITokenManagerType.TokenManagerType",
+          "name": "tokenManagerType",
+          "type": "uint8"
+        },
+        { "internalType": "bytes", "name": "linkParams", "type": "bytes" },
+        { "internalType": "uint256", "name": "gasValue", "type": "uint256" }
       ],
-      "stateMutability": "view",
+      "name": "linkToken",
+      "outputs": [
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
+      ],
+      "stateMutability": "payable",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes[]",
-          "name": "data",
-          "type": "bytes[]"
-        }
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
+      ],
+      "name": "migrateInterchainToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "bytes[]", "name": "data", "type": "bytes[]" }
       ],
       "name": "multicall",
       "outputs": [
-        {
-          "internalType": "bytes[]",
-          "name": "results",
-          "type": "bytes[]"
-        }
+        { "internalType": "bytes[]", "name": "results", "type": "bytes[]" }
       ],
       "stateMutability": "payable",
       "type": "function"
@@ -1768,11 +1060,7 @@
       "inputs": [],
       "name": "owner",
       "outputs": [
-        {
-          "internalType": "address",
-          "name": "owner_",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "owner_", "type": "address" }
       ],
       "stateMutability": "view",
       "type": "function"
@@ -1781,11 +1069,7 @@
       "inputs": [],
       "name": "paused",
       "outputs": [
-        {
-          "internalType": "bool",
-          "name": "paused_",
-          "type": "bool"
-        }
+        { "internalType": "bool", "name": "paused_", "type": "bool" }
       ],
       "stateMutability": "view",
       "type": "function"
@@ -1794,22 +1078,14 @@
       "inputs": [],
       "name": "pendingOwner",
       "outputs": [
-        {
-          "internalType": "address",
-          "name": "owner_",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "owner_", "type": "address" }
       ],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "operator",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "operator", "type": "address" }
       ],
       "name": "proposeOperatorship",
       "outputs": [],
@@ -1818,11 +1094,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "newOwner",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "newOwner", "type": "address" }
       ],
       "name": "proposeOwnership",
       "outputs": [],
@@ -1831,11 +1103,54 @@
     },
     {
       "inputs": [
+        { "internalType": "bytes32", "name": "salt", "type": "bytes32" },
         {
-          "internalType": "string",
-          "name": "chain",
-          "type": "string"
-        }
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "enum ITokenManagerType.TokenManagerType",
+          "name": "tokenManagerType",
+          "type": "uint8"
+        },
+        { "internalType": "bytes", "name": "linkParams", "type": "bytes" }
+      ],
+      "name": "registerCustomToken",
+      "outputs": [
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        { "internalType": "uint256", "name": "gasValue", "type": "uint256" }
+      ],
+      "name": "registerTokenMetadata",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
+      ],
+      "name": "registeredTokenAddress",
+      "outputs": [
+        { "internalType": "address", "name": "tokenAddress", "type": "address" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "string", "name": "chain", "type": "string" }
       ],
       "name": "removeTrustedAddress",
       "outputs": [],
@@ -1861,13 +1176,7 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "bool",
-          "name": "paused",
-          "type": "bool"
-        }
-      ],
+      "inputs": [{ "internalType": "bool", "name": "paused", "type": "bool" }],
       "name": "setPauseStatus",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -1875,16 +1184,8 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "string",
-          "name": "chain",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "address_",
-          "type": "string"
-        }
+        { "internalType": "string", "name": "chain", "type": "string" },
+        { "internalType": "string", "name": "address_", "type": "string" }
       ],
       "name": "setTrustedAddress",
       "outputs": [],
@@ -1892,13 +1193,7 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "bytes",
-          "name": "data",
-          "type": "bytes"
-        }
-      ],
+      "inputs": [{ "internalType": "bytes", "name": "data", "type": "bytes" }],
       "name": "setup",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -1907,36 +1202,20 @@
     {
       "inputs": [],
       "name": "tokenHandler",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [],
       "name": "tokenManager",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" }
       ],
       "name": "tokenManagerAddress",
       "outputs": [
@@ -1952,42 +1231,20 @@
     {
       "inputs": [],
       "name": "tokenManagerDeployer",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
+      "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "name": "tokenManagerImplementation",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "operator",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "operator", "type": "address" }
       ],
       "name": "transferOperatorship",
       "outputs": [],
@@ -1996,11 +1253,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "address",
-          "name": "newOwner",
-          "type": "address"
-        }
+        { "internalType": "address", "name": "newOwner", "type": "address" }
       ],
       "name": "transferOwnership",
       "outputs": [],
@@ -2009,11 +1262,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        },
+        { "internalType": "bytes32", "name": "tokenId", "type": "bytes32" },
         {
           "internalType": "address",
           "name": "sourceAddress",
@@ -2029,16 +1278,8 @@
           "name": "destinationAddress",
           "type": "bytes"
         },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes",
-          "name": "metadata",
-          "type": "bytes"
-        }
+        { "internalType": "uint256", "name": "amount", "type": "uint256" },
+        { "internalType": "bytes", "name": "metadata", "type": "bytes" }
       ],
       "name": "transmitInterchainTransfer",
       "outputs": [],
@@ -2047,11 +1288,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "string",
-          "name": "chain",
-          "type": "string"
-        }
+        { "internalType": "string", "name": "chain", "type": "string" }
       ],
       "name": "trustedAddress",
       "outputs": [
@@ -2066,11 +1303,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "string",
-          "name": "chain",
-          "type": "string"
-        }
+        { "internalType": "string", "name": "chain", "type": "string" }
       ],
       "name": "trustedAddressHash",
       "outputs": [
@@ -2095,53 +1328,11 @@
           "name": "newImplementationCodeHash",
           "type": "bytes32"
         },
-        {
-          "internalType": "bytes",
-          "name": "params",
-          "type": "bytes"
-        }
+        { "internalType": "bytes", "name": "params", "type": "bytes" }
       ],
       "name": "upgrade",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
-      ],
-      "name": "validTokenAddress",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "tokenAddress",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenId",
-          "type": "bytes32"
-        }
-      ],
-      "name": "validTokenManagerAddress",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "tokenManagerAddress_",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     }
   ]
