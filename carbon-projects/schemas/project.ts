@@ -19,6 +19,7 @@ const registries = [
   { title: "Puro", value: "PUR" },
   { title: "J-Credit", value: "JCS" },
   { title: "Carbonmark Direct Issuance", value: "CMARK" },
+  { title: "Thailand Voluntary Emission Reduction", value: "TVER" },
 ];
 
 const subcategories = [
