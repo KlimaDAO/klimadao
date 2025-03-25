@@ -2,7 +2,7 @@
   "name": "@klimadao/base",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3004",
+    "dev": "next dev -p 3002",
     "build": "prettier --check . && next build",
     "start": "next start",
     "lint": "next lint"
