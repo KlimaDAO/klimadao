@@ -62,6 +62,18 @@ export default defineType({
       type: "text",
     }),
     defineField({
+      name: "blockLongDescription",
+      title: "Block Long Description",
+      description: "Block-type longer description to support rich formatting",
+      group: "info",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+      ],
+    }),
+    defineField({
       name: "extraSdgs",
       description:
         "List of additional Sustainable Development Goals for this project (not authoritative from the registry).",
