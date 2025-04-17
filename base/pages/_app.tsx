@@ -5,10 +5,10 @@ import {
   getDefaultWallets,
 } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
-import { supportedChains } from "lib/constants";
+import { BASE_RPC_URL, supportedChains } from "lib/constants";
 import { AppProps } from "next/app";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 // organize-imports-ignore
 import "../styles/normalize.css";
 // organize-imports-ignore
@@ -26,7 +26,13 @@ import "../styles/globals.css";
 
 const { chains, publicClient } = configureChains(
   [...supportedChains],
-  [publicProvider()]
+  [
+    jsonRpcProvider({
+      rpc: (_chain) => ({
+        http: BASE_RPC_URL,
+      }),
+    }),
+  ]
 );
 
 const { wallets } = getDefaultWallets({
