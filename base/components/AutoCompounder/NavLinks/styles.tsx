@@ -1,7 +1,7 @@
 import { Anchor } from "@klimadao/lib/components";
 import { styled } from "@mui/material";
 
-export const StyledNavLinks = styled(Anchor)(({ theme }) => ({
+export const StyledNavLinks = styled("div")(({ theme }) => ({
   gap: "4rem",
   display: "flex",
   alignItems: "center",
