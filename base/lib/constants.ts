@@ -146,7 +146,7 @@ export const BASE_LIQUIDITY_POOLS: { [key: string]: LiquidityPool } = {
 export const getLiquidityPools = (
   chain: Chain
 ): { [key: string]: LiquidityPool } => {
-  if (chain === base) {
+  if (chain.id === base.id) {
     return BASE_LIQUIDITY_POOLS;
   }
   return {};
