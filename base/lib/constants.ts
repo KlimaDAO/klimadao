@@ -13,8 +13,7 @@ export const IS_PREVIEW_BUILD =
 /** True if local development (not preview deployment) */
 export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 
-export const BASE_RPC_URL =
-  process.env.BASE_RPC_URL || "https://mainnet.base.org";
+export const ALCHEMY_KEY = process.env.NEXT_PUBLIC_ALCHEMY_KEY;
 
 export const supportedChains =
   IS_LOCAL_DEVELOPMENT || IS_PRODUCTION || IS_PREVIEW_BUILD
