@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { TOKEN_PLATFORM_MAP } from "lib/constants";
-import { Address, getContract } from "viem";
+import { Address } from "viem";
 import { usePublicClient } from "wagmi";
 import { useTokenPrices } from "./useTokenPrice";
 
@@ -101,39 +101,37 @@ export const useLPPrice = ({
   } = useQuery<LPTokenInfo>({
     queryKey: ["lp-token-info", lpAddress, publicClient.chain.id],
     queryFn: async () => {
-      const lpContract = getContract({
+      const lpContract = {
         address: lpAddress,
         abi: LP_ABI,
-        publicClient,
-      });
+      };
 
-      const [token0Address, token1Address] = await Promise.all([
-        lpContract.read.token0(),
-        lpContract.read.token1(),
-      ]);
+      const [token0Address, token1Address] = await publicClient.multicall({
+        allowFailure: false,
+        contracts: [
+          { ...lpContract, functionName: "token0" },
+          { ...lpContract, functionName: "token1" },
+        ],
+      });
 
       const [token0Contract, token1Contract] = [
         token0Address,
         token1Address,
-      ].map((address) =>
-        getContract({
-          address,
-          abi: ERC20_ABI,
-          publicClient,
-        })
-      );
+      ].map((address) => ({
+        address,
+        abi: ERC20_ABI,
+      }));
 
-      const [[token0Symbol, token0Decimals], [token1Symbol, token1Decimals]] =
-        await Promise.all([
-          Promise.all([
-            token0Contract.read.symbol(),
-            token0Contract.read.decimals(),
-          ]),
-          Promise.all([
-            token1Contract.read.symbol(),
-            token1Contract.read.decimals(),
-          ]),
-        ]);
+      const [token0Symbol, token0Decimals, token1Symbol, token1Decimals] =
+        await publicClient.multicall({
+          allowFailure: false,
+          contracts: [
+            { ...token0Contract, functionName: "symbol" },
+            { ...token0Contract, functionName: "decimals" },
+            { ...token1Contract, functionName: "symbol" },
+            { ...token1Contract, functionName: "decimals" },
+          ],
+        });
 
       const token0Platform = TOKEN_PLATFORM_MAP[token0Symbol];
       const token1Platform = TOKEN_PLATFORM_MAP[token1Symbol];

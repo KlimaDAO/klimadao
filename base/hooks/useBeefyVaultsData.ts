@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ERC20_ABI } from "abis/ERC20";
 import { VAULT_ABI } from "abis/Vault";
 import { LiquidityPool, VaultInfo } from "lib/types";
-import { Address, getContract } from "viem";
+import { Address } from "viem";
 import { usePublicClient } from "wagmi";
 import { useAvailableLP } from "./useAvailablePool";
 
@@ -83,11 +83,16 @@ export const useBeefyVaultsData = () => {
 
       const vaultPromises = poolsArray.map(async (pool: LiquidityPool) => {
         try {
-          const contract = getContract({
-            address: pool.vault as Address,
+          const vaultContract = {
+            address: pool.vault,
             abi: VAULT_ABI,
-            publicClient,
-          });
+          };
+
+          // Get LP contract
+          const lpContract = {
+            address: pool.poolAddress,
+            abi: LP_ABI,
+          };
 
           const [
             name,
@@ -99,62 +104,50 @@ export const useBeefyVaultsData = () => {
             vaultValue,
             strategy,
             wantToken,
-          ] = await Promise.all([
-            contract.read.name(),
-            contract.read.symbol(),
-            contract.read.decimals(),
-            contract.read.totalSupply(),
-            contract.read.getPricePerFullShare(),
-            contract.read.available(),
-            contract.read.balance(),
-            contract.read.strategy(),
-            contract.read.want(),
-          ]);
-
-          // Get LP contract
-          const lpContract = getContract({
-            address: pool.poolAddress,
-            abi: LP_ABI,
-            publicClient,
-          });
-
-          // Get token addresses from LP contract
-          const [token0Address, token1Address] = await Promise.all([
-            lpContract.read.token0(),
-            lpContract.read.token1(),
-          ]);
-
-          // Get token contracts
-          const token0Contract = getContract({
-            address: token0Address,
-            abi: ERC20_ABI,
-            publicClient,
-          });
-
-          const token1Contract = getContract({
-            address: token1Address,
-            abi: ERC20_ABI,
-            publicClient,
-          });
-
-          // Get token info
-          const [
-            [token0Symbol, token0Decimals],
-            [token1Symbol, token1Decimals],
+            token0Address,
+            token1Address,
             [reserve0, reserve1],
             lpTotalSupply,
-          ] = await Promise.all([
-            Promise.all([
-              token0Contract.read.symbol(),
-              token0Contract.read.decimals(),
-            ]),
-            Promise.all([
-              token1Contract.read.symbol(),
-              token1Contract.read.decimals(),
-            ]),
-            lpContract.read.getReserves(),
-            lpContract.read.totalSupply(),
-          ]);
+          ] = await publicClient.multicall({
+            allowFailure: false, // throw if any of the inner calls reverts
+            contracts: [
+              { ...vaultContract, functionName: "name" },
+              { ...vaultContract, functionName: "symbol" },
+              { ...vaultContract, functionName: "decimals" },
+              { ...vaultContract, functionName: "totalSupply" },
+              { ...vaultContract, functionName: "getPricePerFullShare" },
+              { ...vaultContract, functionName: "available" },
+              { ...vaultContract, functionName: "balance" },
+              { ...vaultContract, functionName: "strategy" },
+              { ...vaultContract, functionName: "want" },
+              { ...lpContract, functionName: "token0" },
+              { ...lpContract, functionName: "token1" },
+              { ...lpContract, functionName: "getReserves" },
+              { ...lpContract, functionName: "totalSupply" },
+            ],
+          });
+
+          // Get token contracts
+          const token0Contract = {
+            address: token0Address,
+            abi: ERC20_ABI,
+          };
+
+          const token1Contract = {
+            address: token1Address,
+            abi: ERC20_ABI,
+          };
+
+          const [token0Symbol, token0Decimals, token1Symbol, token1Decimals] =
+            await publicClient.multicall({
+              allowFailure: false, // throw if any of the inner calls reverts
+              contracts: [
+                { ...token0Contract, functionName: "symbol" },
+                { ...token0Contract, functionName: "decimals" },
+                { ...token1Contract, functionName: "symbol" },
+                { ...token1Contract, functionName: "decimals" },
+              ],
+            });
 
           // Get prices using actual token symbols
           const prices = await fetchMultiplePrices([
