@@ -16,6 +16,35 @@ export const Buy = () => (
     <ImageCard />
 
     <div className={styles.card}>
+      <div className={styles.cardRow}>
+        <div className={styles.cardMessage}>
+          <div className="title">
+            <CelebrationOutlined
+              fontSize="large"
+              htmlColor="var(--klima-green)"
+            />
+            <Text t="body3">
+              <Trans>
+                Announcing KlimaDAO 2.0: A Decentralized Carbon Market!
+              </Trans>
+            </Text>
+          </div>
+          <Text t="caption" color="lightest" className="description">
+            <Trans>
+              KlimaDAO 2.0 represents a fundamental redesign of decentralized
+              market infrastructure for carbon monetization, retirement, and
+              offsets. While KlimaDAO has established a brand presence and
+              accumulated substantial carbon assets, the 2.0 model introduces
+              sophisticated mechanisms to become the dominant liquidity venue
+              for carbon on-chain by releasing the Klima X Automated Market
+              Maker (AMM).
+            </Trans>
+          </Text>
+          <Anchor href={urls.learnMoreKlima2_0} target="_blank">
+            <Trans>Read more about KlimaDAO 2.0</Trans>
+          </Anchor>
+        </div>
+      </div>
       <div className={styles.cardCol}>
         <Text t="h5" className={styles.cardTitle}>
           <Payment />
@@ -80,35 +109,6 @@ export const Buy = () => (
             className="learn-more"
           >
             <Trans>Learn more about Autocompounder</Trans>
-          </Anchor>
-        </div>
-      </div>
-      <div className={styles.cardRow}>
-        <div className={styles.cardMessage}>
-          <div className="title">
-            <CelebrationOutlined
-              fontSize="large"
-              htmlColor="var(--klima-green)"
-            />
-            <Text t="body3">
-              <Trans>
-                Announcing KlimaDAO 2.0: A Decentralized Carbon Market!
-              </Trans>
-            </Text>
-          </div>
-          <Text t="caption" color="lightest" className="description">
-            <Trans>
-              KlimaDAO 2.0 represents a fundamental redesign of decentralized
-              market infrastructure for carbon monetization, retirement, and
-              offsets. While KlimaDAO has established a brand presence and
-              accumulated substantial carbon assets, the 2.0 model introduces
-              sophisticated mechanisms to become the dominant liquidity venue
-              for carbon on-chain by releasing the Klima X Automated Market
-              Maker (AMM).
-            </Trans>
-          </Text>
-          <Anchor href={urls.learnMoreKlima2_0} target="_blank">
-            <Trans>Read more about KlimaDAO 2.0</Trans>
           </Anchor>
         </div>
       </div>
