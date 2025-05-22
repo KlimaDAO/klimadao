@@ -7,6 +7,7 @@ import { loadAppDetails } from "actions/app";
 import { loadAccountDetails } from "actions/user";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
+import { FairLaunchBanner } from "components/FairLaunchBanner";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
@@ -125,6 +126,7 @@ export const Home: FC = () => {
 
   return (
     <>
+      <FairLaunchBanner />
       <div className={styles.container} data-scroll-lock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
           <NavMenu address={address} />
