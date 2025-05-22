@@ -135,3 +135,9 @@ export const cardDescription = css`
   font-size: 1.4rem !important;
   line-height: 1.8rem !important;
 `;
+
+export const responsiveButtonWidth = css`
+  ${breakpoints.desktopLarge} {
+    max-width: 30rem;
+  }
+`;

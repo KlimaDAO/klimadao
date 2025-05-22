@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { Anchor, ButtonPrimary, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { Trans, t } from "@lingui/macro";
@@ -34,6 +35,7 @@ export const Buy = () => (
         <div className={styles.buttons}>
           <ButtonPrimary
             target="_blank"
+            className={styles.responsiveButtonWidth}
             href={urls.buyOnAerodrome}
             label={t`Buy Klima on Aerodrome`}
           />
@@ -70,7 +72,7 @@ export const Buy = () => (
             target="_blank"
             href={urls.klimaAutocompounder}
             label={t`KlimaDAO Autocompounder`}
-            className="secondary-button"
+            className={cx("secondary-button", styles.responsiveButtonWidth)}
           />
           <Anchor
             target="_blank"
