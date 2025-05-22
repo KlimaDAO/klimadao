@@ -64,7 +64,7 @@ export const cardMessage = css`
   }
 
   ${breakpoints.desktopLarge} {
-    margin-top: 2.4rem;
+    margin-bottom: 2rem;
   }
 `;
 
