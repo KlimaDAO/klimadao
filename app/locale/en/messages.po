@@ -17,7 +17,7 @@ msgstr ""
 msgid "Acknowledge and Accept"
 msgstr "Acknowledge and Accept"
 
-#: components/views/Buy/index.tsx:92
+#: components/views/Buy/index.tsx:27
 msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
 msgstr "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
 
@@ -63,11 +63,11 @@ msgstr "Buy & Redeem Carbon"
 msgid "Buy Carbon"
 msgstr "Buy Carbon"
 
-#: components/views/Buy/index.tsx:21
+#: components/views/Buy/index.tsx:51
 msgid "Buy KLIMA"
 msgstr "Buy KLIMA"
 
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:69
 msgid "Buy Klima on Aerodrome"
 msgstr "Buy Klima on Aerodrome"
 
@@ -94,7 +94,7 @@ msgstr "Deposit TC02"
 msgid "Deposit TCO2 in exchange for BCT."
 msgstr "Deposit TCO2 in exchange for BCT."
 
-#: components/views/Buy/index.tsx:24
+#: components/views/Buy/index.tsx:54
 msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
 msgstr "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
 
@@ -114,7 +114,11 @@ msgstr "Enter quantity"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "For users who want to offset paying with a pool token, please use <0>this site</0>."
 
-#: components/views/Buy/index.tsx:57
+#: components/FairLaunchBanner/index.tsx:11
+msgid "Go to <0>app.klimaprotocol.com</0> to get started or see the <1>fair launch guide</1> to learn more."
+msgstr "Go to <0>app.klimaprotocol.com</0> to get started or see the <1>fair launch guide</1> to learn more."
+
+#: components/views/Buy/index.tsx:88
 msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
 msgstr "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
 
@@ -129,11 +133,11 @@ msgstr "How many tonnes would you like to acquire?"
 msgid "Insufficient balance"
 msgstr "Insufficient balance"
 
-#: components/views/Buy/index.tsx:98
+#: components/views/Buy/index.tsx:33
 msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
 msgstr "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:103
 msgid "KlimaDAO Autocompounder"
 msgstr "KlimaDAO Autocompounder"
 
@@ -141,11 +145,11 @@ msgstr "KlimaDAO Autocompounder"
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 msgstr "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:111
 msgid "Learn more about Autocompounder"
 msgstr "Learn more about Autocompounder"
 
-#: components/views/Buy/index.tsx:45
+#: components/views/Buy/index.tsx:76
 msgid "Learn more about liquidity pools"
 msgstr "Learn more about liquidity pools"
 
@@ -174,7 +178,7 @@ msgstr "Loading project info..."
 msgid "Loading..."
 msgstr "Loading..."
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:181
 msgid "Login"
 msgstr "Login"
 
@@ -231,11 +235,11 @@ msgstr "Project details <0/>"
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 
-#: components/views/Buy/index.tsx:54
+#: components/views/Buy/index.tsx:85
 msgid "Put your KLIMA to work"
 msgstr "Put your KLIMA to work"
 
-#: components/views/Buy/index.tsx:109
+#: components/views/Buy/index.tsx:44
 msgid "Read more about KlimaDAO 2.0"
 msgstr "Read more about KlimaDAO 2.0"
 
@@ -271,6 +275,10 @@ msgstr "Select the TCO2 Token and the amount you want to deposit to the pool."
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
+
+#: components/FairLaunchBanner/index.tsx:8
+msgid "The Klima 2.0 fair launch period has begun 🎉"
+msgstr "The Klima 2.0 fair launch period has begun 🎉"
 
 #: components/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
@@ -580,15 +588,15 @@ msgstr "Treasury Balance"
 msgid "choose_bond.ubo.description"
 msgstr "C3 Universal Basic Offset"
 
-#: components/views/Home/index.tsx:170
+#: components/views/Home/index.tsx:172
 msgid "connectModal.torus"
 msgstr "social or email"
 
-#: components/views/Home/index.tsx:174
+#: components/views/Home/index.tsx:176
 msgid "connectModal.wallet"
 msgstr "connect a wallet"
 
-#: components/views/Home/index.tsx:180
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -604,7 +612,7 @@ msgstr "User refused connection."
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
-#: components/views/Home/index.tsx:184
+#: components/views/Home/index.tsx:186
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -964,7 +972,7 @@ msgstr "Invalid project address"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Deposit/index.tsx:90
-#: components/views/Home/index.tsx:155
+#: components/views/Home/index.tsx:157
 #: components/views/PKlima/index.tsx:159
 #: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:223

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-05-27 15:43+0000\n"
+"POT-Creation-Date: 2025-05-27 23:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Acknowledge and Accept"
 msgstr "确认并接受"
 
-#: components/views/Buy/index.tsx:92
+#: components/views/Buy/index.tsx:27
 msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
 msgstr "宣布 KlimaDAO 2.0：一个去中心化的碳市场！"
 
@@ -57,11 +57,11 @@ msgstr "购买和赎回碳"
 msgid "Buy Carbon"
 msgstr "购买碳"
 
-#: components/views/Buy/index.tsx:21
+#: components/views/Buy/index.tsx:51
 msgid "Buy KLIMA"
 msgstr "购买 KLIMA"
 
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:69
 msgid "Buy Klima on Aerodrome"
 msgstr "在 Aerodrome 购买 Klima"
 
@@ -88,7 +88,7 @@ msgstr "存 TC02"
 msgid "Deposit TCO2 in exchange for BCT."
 msgstr "存入TCO2以兑换BCT。"
 
-#: components/views/Buy/index.tsx:24
+#: components/views/Buy/index.tsx:54
 msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
 msgstr "在<0>Aerodrome上轻松买卖KLIMA，优点：滑点低，流动性强</0>。"
 
@@ -108,7 +108,11 @@ msgstr "输入数量"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "对于想要使用矿池代币抵消付款的用户，请使用<0>此网站</0>。"
 
-#: components/views/Buy/index.tsx:57
+#: components/FairLaunchBanner/index.tsx:11
+msgid "Go to <0>app.klimaprotocol.com</0> to get started or see the <1>fair launch guide</1> to learn more."
+msgstr ""
+
+#: components/views/Buy/index.tsx:88
 msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
 msgstr "前往<0>base.klimadao.finance</0>以编程方式提升您的持仓。"
 
@@ -123,11 +127,11 @@ msgstr "您想购买多少吨？"
 msgid "Insufficient balance"
 msgstr "余额不足"
 
-#: components/views/Buy/index.tsx:98
+#: components/views/Buy/index.tsx:33
 msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
 msgstr "KlimaDAO 2.0 代表了对碳货币化、停用和抵消去中心化市场基础设施的根本性重新设计。虽然 KlimaDAO 已经建立了品牌影响力并积累了大量碳资产，但 2.0 模型引入了复杂的机制，通过发布 Klima X 自动做市商 (AMM)，成为链上碳的主要流动性场所。"
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:103
 msgid "KlimaDAO Autocompounder"
 msgstr "KlimaDAO 自动复利计算器"
 
@@ -135,11 +139,11 @@ msgstr "KlimaDAO 自动复利计算器"
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 msgstr "流动性不足：可能市场上面有活跃的 $KLIMA，如果您需要快速出售代币，可能会导致亏损。"
 
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:111
 msgid "Learn more about Autocompounder"
 msgstr "了解更多自动复利计算器"
 
-#: components/views/Buy/index.tsx:45
+#: components/views/Buy/index.tsx:76
 msgid "Learn more about liquidity pools"
 msgstr "了解更多流动性池"
 
@@ -168,7 +172,7 @@ msgstr "正在加载项目信息..."
 msgid "Loading..."
 msgstr "正在加载..."
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:181
 msgid "Login"
 msgstr "登录"
 
@@ -225,11 +229,11 @@ msgstr "项目详情<0/>"
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "购买加密货币，包括$KLIMA代币，涉及高度风险，应被视为极具投机性。以下是一些重要考虑要点："
 
-#: components/views/Buy/index.tsx:54
+#: components/views/Buy/index.tsx:85
 msgid "Put your KLIMA to work"
 msgstr "让您的 KLIMA 发挥作用"
 
-#: components/views/Buy/index.tsx:109
+#: components/views/Buy/index.tsx:44
 msgid "Read more about KlimaDAO 2.0"
 msgstr "了解 KlimaDAO 2.0 的更多信息"
 
@@ -265,6 +269,10 @@ msgstr "选择 TCO2 代币和您想要存入的金额。"
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
 msgstr "切换到 Polygon"
+
+#: components/FairLaunchBanner/index.tsx:8
+msgid "The Klima 2.0 fair launch period has begun 🎉"
+msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
@@ -576,15 +584,15 @@ msgstr "国库余额"
 msgid "choose_bond.ubo.description"
 msgstr "C3 基本通用抵消"
 
-#: components/views/Home/index.tsx:170
+#: components/views/Home/index.tsx:172
 msgid "connectModal.torus"
 msgstr "社交或电子邮件"
 
-#: components/views/Home/index.tsx:174
+#: components/views/Home/index.tsx:176
 msgid "connectModal.wallet"
 msgstr "连接钱包"
 
-#: components/views/Home/index.tsx:180
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
@@ -600,7 +608,7 @@ msgstr "用户拒绝连接。"
 msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
-#: components/views/Home/index.tsx:184
+#: components/views/Home/index.tsx:186
 msgid "connect_modal.error_title"
 msgstr "连接错误"
 
@@ -960,7 +968,7 @@ msgstr "项目地址无效"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Deposit/index.tsx:90
-#: components/views/Home/index.tsx:155
+#: components/views/Home/index.tsx:157
 #: components/views/PKlima/index.tsx:159
 #: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:223

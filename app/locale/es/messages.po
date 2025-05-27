@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-05-27 15:43+0000\n"
+"POT-Creation-Date: 2025-05-27 23:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Acknowledge and Accept"
 msgstr "Reconocer y aceptar"
 
-#: components/views/Buy/index.tsx:92
+#: components/views/Buy/index.tsx:27
 msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
 msgstr "Anunciamos KlimaDAO 2.0: ¡Un mercado de carbono descentralizado!"
 
@@ -57,11 +57,11 @@ msgstr "Comprar y canjear carbono"
 msgid "Buy Carbon"
 msgstr "Comprar Carbono"
 
-#: components/views/Buy/index.tsx:21
+#: components/views/Buy/index.tsx:51
 msgid "Buy KLIMA"
 msgstr "Comprar KLIMA"
 
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:69
 msgid "Buy Klima on Aerodrome"
 msgstr "Comprar Klima en Aeródromo"
 
@@ -88,7 +88,7 @@ msgstr "Deposite TC02"
 msgid "Deposit TCO2 in exchange for BCT."
 msgstr "Deposite TCO2 a cambio de BCT."
 
-#: components/views/Buy/index.tsx:24
+#: components/views/Buy/index.tsx:54
 msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
 msgstr "Compre o venda KLIMA fácilmente con bajo deslizamiento y gran liquidez en <0>Aerodrome</0> ."
 
@@ -108,7 +108,11 @@ msgstr "Introduce la cantidad"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "Para los usuarios que quieran compensar el pago con un pool token, utilice <0>este sitio</0> ."
 
-#: components/views/Buy/index.tsx:57
+#: components/FairLaunchBanner/index.tsx:11
+msgid "Go to <0>app.klimaprotocol.com</0> to get started or see the <1>fair launch guide</1> to learn more."
+msgstr ""
+
+#: components/views/Buy/index.tsx:88
 msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
 msgstr "Dirígete a <0>base.klimadao.finance</0> para hacer crecer su posición programáticamente."
 
@@ -123,11 +127,11 @@ msgstr "¿Cuántas toneladas desea adquirir?"
 msgid "Insufficient balance"
 msgstr "Saldo insuficiente"
 
-#: components/views/Buy/index.tsx:98
+#: components/views/Buy/index.tsx:33
 msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
 msgstr "KlimaDAO 2.0 representa un rediseño fundamental de la infraestructura de mercado descentralizada para la monetización, retiro y compensación de carbono. Si bien KlimaDAO ha establecido una presencia de marca y acumulado activos de carbono sustanciales, el modelo 2.0 introduce mecanismos sofisticados para convertirse en el lugar de liquidez dominante para el carbono en cadena mediante el lanzamiento del Creador de Mercado Automatizado (AMM) Klima X."
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:103
 msgid "KlimaDAO Autocompounder"
 msgstr "Componedor automático KlimaDAO"
 
@@ -135,11 +139,11 @@ msgstr "Componedor automático KlimaDAO"
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 msgstr "Falta de Liquidez: Es posible que no exista un mercado activo para $KLIMA, lo que puede ocasionar pérdidas si necesita vender sus tokens rápidamente."
 
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:111
 msgid "Learn more about Autocompounder"
 msgstr "Obtenga más información sobre Autocompounder"
 
-#: components/views/Buy/index.tsx:45
+#: components/views/Buy/index.tsx:76
 msgid "Learn more about liquidity pools"
 msgstr "Obtenga más información sobre los fondos de liquidez"
 
@@ -168,7 +172,7 @@ msgstr "Cargando información del proyecto..."
 msgid "Loading..."
 msgstr "Cargando..."
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:181
 msgid "Login"
 msgstr "Iniciar sesión"
 
@@ -225,11 +229,11 @@ msgstr "Detalles del proyecto <0/>"
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "La compra de criptomonedas, incluyendo el token $KLIMA, implica un alto grado de riesgo y debe considerarse extremadamente especulativa. Estos son algunos puntos importantes a tener en cuenta:"
 
-#: components/views/Buy/index.tsx:54
+#: components/views/Buy/index.tsx:85
 msgid "Put your KLIMA to work"
 msgstr "Pon tu KLIMA a trabajar"
 
-#: components/views/Buy/index.tsx:109
+#: components/views/Buy/index.tsx:44
 msgid "Read more about KlimaDAO 2.0"
 msgstr "Obtenga mas informacion sobre KlimaDAO 2.0"
 
@@ -265,6 +269,10 @@ msgstr "Selecciona el token TCO2 y la cantidad que deseas depositar en el pool."
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
 msgstr "Cambiar a Polygon"
+
+#: components/FairLaunchBanner/index.tsx:8
+msgid "The Klima 2.0 fair launch period has begun 🎉"
+msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
@@ -574,15 +582,15 @@ msgstr "Saldo de la Tesorería"
 msgid "choose_bond.ubo.description"
 msgstr "Compensación universal basica C3"
 
-#: components/views/Home/index.tsx:170
+#: components/views/Home/index.tsx:172
 msgid "connectModal.torus"
 msgstr "redes sociales o correo electrónico"
 
-#: components/views/Home/index.tsx:174
+#: components/views/Home/index.tsx:176
 msgid "connectModal.wallet"
 msgstr "conectar un monedero"
 
-#: components/views/Home/index.tsx:180
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.connecting"
 msgstr "Conectando..."
 
@@ -598,7 +606,7 @@ msgstr "El usuario rechazó la conexión."
 msgid "connect_modal.error_processing"
 msgstr "Solicitud ya en trámite. Por favor, abra su monedero y complete la solicitud."
 
-#: components/views/Home/index.tsx:184
+#: components/views/Home/index.tsx:186
 msgid "connect_modal.error_title"
 msgstr "Error de conexión"
 
@@ -958,7 +966,7 @@ msgstr "Dirección de proyecto no válida"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Deposit/index.tsx:90
-#: components/views/Home/index.tsx:155
+#: components/views/Home/index.tsx:157
 #: components/views/PKlima/index.tsx:159
 #: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:223

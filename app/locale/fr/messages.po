@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-05-27 15:43+0000\n"
+"POT-Creation-Date: 2025-05-27 23:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Acknowledge and Accept"
 msgstr "Accuser réception et Accepter"
 
-#: components/views/Buy/index.tsx:92
+#: components/views/Buy/index.tsx:27
 msgid "Announcing KlimaDAO 2.0: A Decentralized Carbon Market!"
 msgstr ""
 
@@ -57,11 +57,11 @@ msgstr "Acheter et Réclamer du carbone"
 msgid "Buy Carbon"
 msgstr "Acheter du Carbone"
 
-#: components/views/Buy/index.tsx:21
+#: components/views/Buy/index.tsx:51
 msgid "Buy KLIMA"
 msgstr "Acheter KLIMA"
 
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:69
 msgid "Buy Klima on Aerodrome"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Deposit TCO2 in exchange for BCT."
 msgstr ""
 
-#: components/views/Buy/index.tsx:24
+#: components/views/Buy/index.tsx:54
 msgid "Easily buy or sell KLIMA with low slippage and deep liquidity on <0>Aerodrome</0>."
 msgstr ""
 
@@ -108,7 +108,11 @@ msgstr "Entrez la quantité"
 msgid "For users who want to offset paying with a pool token, please use <0>this site</0>."
 msgstr "Pour les utilisateurs qui souhaitent compenser le paiement par un jeton de pool, veuillez utiliser <0>ce site</0>."
 
-#: components/views/Buy/index.tsx:57
+#: components/FairLaunchBanner/index.tsx:11
+msgid "Go to <0>app.klimaprotocol.com</0> to get started or see the <1>fair launch guide</1> to learn more."
+msgstr ""
+
+#: components/views/Buy/index.tsx:88
 msgid "Head to <0>base.klimadao.finance</0> to programmatically grow your position."
 msgstr ""
 
@@ -123,11 +127,11 @@ msgstr ""
 msgid "Insufficient balance"
 msgstr "Solde insuffisant"
 
-#: components/views/Buy/index.tsx:98
+#: components/views/Buy/index.tsx:33
 msgid "KlimaDAO 2.0 represents a fundamental redesign of decentralized market infrastructure for carbon monetization, retirement, and offsets. While KlimaDAO has established a brand presence and accumulated substantial carbon assets, the 2.0 model introduces sophisticated mechanisms to become the dominant liquidity venue for carbon on-chain by releasing the Klima X Automated Market Maker (AMM)."
 msgstr ""
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:103
 msgid "KlimaDAO Autocompounder"
 msgstr ""
 
@@ -135,11 +139,11 @@ msgstr ""
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
 msgstr "Manque de Liquidité : Il se peut qu'il n'y ait pas de marché actif pour $KLIMA, ce qui peut entraîner des pertes si vous devez vendre vos jetons rapidement."
 
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:111
 msgid "Learn more about Autocompounder"
 msgstr ""
 
-#: components/views/Buy/index.tsx:45
+#: components/views/Buy/index.tsx:76
 msgid "Learn more about liquidity pools"
 msgstr ""
 
@@ -168,7 +172,7 @@ msgstr ""
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:181
 msgid "Login"
 msgstr "Se connecter"
 
@@ -225,11 +229,11 @@ msgstr ""
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
 msgstr "L'achat de crypto-monnaies, y compris le jeton $KLIMA, implique un degré élevé de risque et doit être considéré comme extrêmement spéculatif. Voici quelques points importants à prendre en compte :"
 
-#: components/views/Buy/index.tsx:54
+#: components/views/Buy/index.tsx:85
 msgid "Put your KLIMA to work"
 msgstr ""
 
-#: components/views/Buy/index.tsx:109
+#: components/views/Buy/index.tsx:44
 msgid "Read more about KlimaDAO 2.0"
 msgstr ""
 
@@ -265,6 +269,10 @@ msgstr ""
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
 msgstr "Passer sur le réseau Polygon"
+
+#: components/FairLaunchBanner/index.tsx:8
+msgid "The Klima 2.0 fair launch period has begun 🎉"
+msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
@@ -574,15 +582,15 @@ msgstr "Solde de la trésorerie"
 msgid "choose_bond.ubo.description"
 msgstr "Compensation C3 standard"
 
-#: components/views/Home/index.tsx:170
+#: components/views/Home/index.tsx:172
 msgid "connectModal.torus"
 msgstr "réseau social ou email"
 
-#: components/views/Home/index.tsx:174
+#: components/views/Home/index.tsx:176
 msgid "connectModal.wallet"
 msgstr "connecter un portefeuille"
 
-#: components/views/Home/index.tsx:180
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
@@ -598,7 +606,7 @@ msgstr "L'utilisateur a refusé la connexion."
 msgid "connect_modal.error_processing"
 msgstr "Demande en cours de traitement. Veuillez ouvrir votre portefeuille et compléter la demande."
 
-#: components/views/Home/index.tsx:184
+#: components/views/Home/index.tsx:186
 msgid "connect_modal.error_title"
 msgstr "Erreur de connexion"
 
@@ -958,7 +966,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Deposit/index.tsx:90
-#: components/views/Home/index.tsx:155
+#: components/views/Home/index.tsx:157
 #: components/views/PKlima/index.tsx:159
 #: components/views/Redeem/index.tsx:248
 #: components/views/Stake/index.tsx:223
