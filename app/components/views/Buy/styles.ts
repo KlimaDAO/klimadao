@@ -64,7 +64,7 @@ export const cardMessage = css`
   }
 
   ${breakpoints.desktopLarge} {
-    margin-top: 2.4rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -134,4 +134,10 @@ export const cardDescription = css`
   font-weight: 500;
   font-size: 1.4rem !important;
   line-height: 1.8rem !important;
+`;
+
+export const responsiveButtonWidth = css`
+  ${breakpoints.desktopLarge} {
+    max-width: 30rem;
+  }
 `;
