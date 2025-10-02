@@ -35,22 +35,33 @@ export const InvalidNetworkModal: FC = () => {
 
     const typedProvider = (provider as any)?.provider;
     if (typedProvider && typeof typedProvider.request === "function") {
-      await typedProvider.request({
-        method: "wallet_addEthereumChain",
-        params: [
-          {
-            chainId: hexChainId,
-            chainName,
-            nativeCurrency: {
-              name: "MATIC",
-              symbol: "MATIC",
-              decimals: 18,
-            },
-            rpcUrls,
-            blockExplorerUrls,
-          },
-        ],
-      });
+      try {
+        await typedProvider.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: hexChainId }],
+        });
+      } catch (switchError: any) {
+        if (switchError.code === 4902) {
+          await typedProvider.request({
+            method: "wallet_addEthereumChain",
+            params: [
+              {
+                chainId: hexChainId,
+                chainName,
+                nativeCurrency: {
+                  name: "MATIC",
+                  symbol: "MATIC",
+                  decimals: 18,
+                },
+                rpcUrls,
+                blockExplorerUrls,
+              },
+            ],
+          });
+        } else {
+          throw switchError;
+        }
+      }
     }
   };
 
