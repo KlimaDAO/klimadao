@@ -137,11 +137,10 @@ export const useProvider = (
         });
 
         if (!options?.useCache) {
-          console.log("Manual connect: Starting Torus login...");
           try {
             await torus.login();
-          } catch (loginError: any) {
-            console.error("Torus login failed:", loginError);
+          } catch (error) {
+            console.error("Torus login failed:", error);
           }
         } else {
           if (!torus.isLoggedIn) {
@@ -149,7 +148,6 @@ export const useProvider = (
           }
         }
 
-        // Verify Torus provider is available
         if (!torus.provider) {
           throw new Error("Torus provider not available");
         }
