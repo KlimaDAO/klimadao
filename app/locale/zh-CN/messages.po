@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-10-02 15:40+0000\n"
+"POT-Creation-Date: 2025-10-02 17:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -266,7 +266,7 @@ msgstr "选择碳池"
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
 msgstr "选择 TCO2 代币和您想要存入的金额。"
 
-#: components/InvalidNetworkModal/index.tsx:72
+#: components/InvalidNetworkModal/index.tsx:83
 msgid "Switch to Polygon"
 msgstr "切换到 Polygon"
 
@@ -274,7 +274,7 @@ msgstr "切换到 Polygon"
 msgid "The Klima 2.0 fair launch period has begun 🎉"
 msgstr ""
 
-#: components/InvalidNetworkModal/index.tsx:68
+#: components/InvalidNetworkModal/index.tsx:79
 msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
@@ -304,7 +304,7 @@ msgstr "未知类别"
 msgid "Unknown methodology"
 msgstr "未知方法"
 
-#: components/InvalidNetworkModal/index.tsx:63
+#: components/InvalidNetworkModal/index.tsx:74
 msgid "Wrong Network"
 msgstr "网络错误"
 

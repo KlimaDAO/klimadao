@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-10-02 15:40+0000\n"
+"POT-Creation-Date: 2025-10-02 17:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -266,7 +266,7 @@ msgstr "Seleccionar reserva de carbono"
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
 msgstr "Selecciona el token TCO2 y la cantidad que deseas depositar en el pool."
 
-#: components/InvalidNetworkModal/index.tsx:72
+#: components/InvalidNetworkModal/index.tsx:83
 msgid "Switch to Polygon"
 msgstr "Cambiar a Polygon"
 
@@ -274,7 +274,7 @@ msgstr "Cambiar a Polygon"
 msgid "The Klima 2.0 fair launch period has begun 🎉"
 msgstr ""
 
-#: components/InvalidNetworkModal/index.tsx:68
+#: components/InvalidNetworkModal/index.tsx:79
 msgid "This app only works on Polygon Mainnet."
 msgstr "Esta aplicación sólo funciona en Polygon Mainnet."
 
@@ -302,7 +302,7 @@ msgstr "Categoría desconocida"
 msgid "Unknown methodology"
 msgstr "Metodología desconocida"
 
-#: components/InvalidNetworkModal/index.tsx:63
+#: components/InvalidNetworkModal/index.tsx:74
 msgid "Wrong Network"
 msgstr "Red incorrecta"
 

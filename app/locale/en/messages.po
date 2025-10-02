@@ -272,7 +272,7 @@ msgstr "Select carbon pool"
 msgid "Select the TCO2 Token and the amount you want to deposit to the pool."
 msgstr "Select the TCO2 Token and the amount you want to deposit to the pool."
 
-#: components/InvalidNetworkModal/index.tsx:72
+#: components/InvalidNetworkModal/index.tsx:83
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
 
@@ -280,7 +280,7 @@ msgstr "Switch to Polygon"
 msgid "The Klima 2.0 fair launch period has begun 🎉"
 msgstr "The Klima 2.0 fair launch period has begun 🎉"
 
-#: components/InvalidNetworkModal/index.tsx:68
+#: components/InvalidNetworkModal/index.tsx:79
 msgid "This app only works on Polygon Mainnet."
 msgstr "This app only works on Polygon Mainnet."
 
@@ -308,7 +308,7 @@ msgstr "Unknown category"
 msgid "Unknown methodology"
 msgstr "Unknown methodology"
 
-#: components/InvalidNetworkModal/index.tsx:63
+#: components/InvalidNetworkModal/index.tsx:74
 msgid "Wrong Network"
 msgstr "Wrong Network"
 
