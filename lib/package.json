@@ -13,7 +13,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.2",
     "@tippyjs/react": "^4.2.6",
-    "@toruslabs/torus-embed": "^4.0.0",
+    "@toruslabs/torus-embed": "^5.0.0",
     "@walletconnect/ethereum-provider": "^2.10.2",
     "@walletconnect/modal": "^2.6.2",
     "eslint-plugin-react": "^7.33.2",

@@ -18,7 +18,7 @@ import { isTestnetChainId } from "../isTestnetChainId";
 
 /** Type guards for convenience and readability */
 const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
-  !!p && "isTorus" in p && p.isTorus;
+  !!p && "isTorus" in p && (p as any).isTorus === true;
 
 const isWalletConnectProvider = (
   p?: WrappedProvider
@@ -118,23 +118,42 @@ export const useProvider = (
         await torus.init({
           buildEnv: "production",
           enableLogging: false,
-          network: isTestnet
-            ? {
-                host: polygonNetworks["testnet"].rpcUrls[0],
-                chainId: polygonNetworks["testnet"].chainId,
-                networkName: "Mumbai Matic",
-              }
-            : {
-                host: polygonNetworks["mainnet"].rpcUrls[0],
-                chainId: polygonNetworks["mainnet"].chainId,
-                networkName: "Polygon",
-              },
-          showTorusButton: false,
-          useLocalStorage: true,
-          // torus types are incorrect
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } as any);
-        await torus.login();
+          network: {
+            host: isTestnet
+              ? polygonNetworks["testnet"].rpcUrls[0]
+              : polygonNetworks["mainnet"].rpcUrls[0],
+            chainId: isTestnet
+              ? parseInt(polygonNetworks["testnet"].hexChainId, 16)
+              : parseInt(polygonNetworks["mainnet"].hexChainId, 16),
+            networkName: isTestnet
+              ? polygonNetworks["testnet"].chainName
+              : polygonNetworks["mainnet"].chainName,
+            blockExplorer: isTestnet
+              ? polygonNetworks["testnet"].blockExplorerUrls[0]
+              : polygonNetworks["mainnet"].blockExplorerUrls[0],
+            ticker: "MATIC",
+            tickerName: "Polygon",
+          },
+        });
+
+        if (!options?.useCache) {
+          console.log("Manual connect: Starting Torus login...");
+          try {
+            await torus.login();
+          } catch (loginError: any) {
+            console.error("Torus login failed:", loginError);
+          }
+        } else {
+          if (!torus.isLoggedIn) {
+            throw new Error("User not logged in");
+          }
+        }
+
+        // Verify Torus provider is available
+        if (!torus.provider) {
+          throw new Error("Torus provider not available");
+        }
+
         provider = getWeb3Provider(torus.provider);
         (provider.provider as TorusProvider).torus = torus; // inject so we can access this later (on disconnect)
         localStorage.setItem(
