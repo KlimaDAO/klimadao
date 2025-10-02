@@ -118,22 +118,23 @@ export const useProvider = (
         await torus.init({
           buildEnv: "production",
           enableLogging: false,
-          network: {
-            host: isTestnet
-              ? polygonNetworks["testnet"].rpcUrls[0]
-              : polygonNetworks["mainnet"].rpcUrls[0],
-            chainId: isTestnet
-              ? parseInt(polygonNetworks["testnet"].hexChainId, 16)
-              : parseInt(polygonNetworks["mainnet"].hexChainId, 16),
-            networkName: isTestnet
-              ? polygonNetworks["testnet"].chainName
-              : polygonNetworks["mainnet"].chainName,
-            blockExplorer: isTestnet
-              ? polygonNetworks["testnet"].blockExplorerUrls[0]
-              : polygonNetworks["mainnet"].blockExplorerUrls[0],
-            ticker: "MATIC",
-            tickerName: "Polygon",
-          },
+          network: isTestnet
+            ? {
+                host: polygonNetworks["testnet"].rpcUrls[0],
+                chainId: parseInt(polygonNetworks["testnet"].hexChainId, 16),
+                networkName: polygonNetworks["testnet"].chainName,
+                blockExplorer: polygonNetworks["testnet"].blockExplorerUrls[0],
+                ticker: "MATIC",
+                tickerName: "Polygon Testnet",
+              }
+            : {
+                host: polygonNetworks["mainnet"].rpcUrls[0],
+                chainId: parseInt(polygonNetworks["mainnet"].hexChainId, 16),
+                networkName: polygonNetworks["mainnet"].chainName,
+                blockExplorer: polygonNetworks["mainnet"].blockExplorerUrls[0],
+                ticker: "MATIC",
+                tickerName: "Polygon",
+              },
         });
 
         if (!options?.useCache) {
