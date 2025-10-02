@@ -2,7 +2,6 @@
 
 import type { CoinbaseWalletProvider } from "@coinbase/wallet-sdk";
 import type Torus from "@toruslabs/torus-embed";
-import type { TorusInpageProvider } from "@toruslabs/torus-embed";
 import type EthereumProvider from "@walletconnect/ethereum-provider";
 import type { providers } from "ethers";
 
@@ -22,7 +21,7 @@ interface WrappedWeb3Provider extends providers.ExternalProvider {
   on: typeof ProviderEventHandler;
   removeListener: typeof ProviderEventHandler;
 }
-export type TorusProvider = TorusInpageProvider & { torus: Torus };
+export type TorusProvider = providers.ExternalProvider & { torus: Torus };
 export type WalletConnectProvider = EthereumProvider;
 /** Coinbase has these methods, but the types are wrong. */
 export type CoinbaseProvider = CoinbaseWalletProvider & {

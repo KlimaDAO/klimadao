@@ -18,7 +18,7 @@ import { isTestnetChainId } from "../isTestnetChainId";
 
 /** Type guards for convenience and readability */
 const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
-  !!p && "isTorus" in p && p.isTorus;
+  !!p && "isTorus" in p && (p as any).isTorus === true;
 
 const isWalletConnectProvider = (
   p?: WrappedProvider
@@ -121,20 +121,38 @@ export const useProvider = (
           network: isTestnet
             ? {
                 host: polygonNetworks["testnet"].rpcUrls[0],
-                chainId: polygonNetworks["testnet"].chainId,
-                networkName: "Mumbai Matic",
+                chainId: parseInt(polygonNetworks["testnet"].hexChainId, 16),
+                networkName: polygonNetworks["testnet"].chainName,
+                blockExplorer: polygonNetworks["testnet"].blockExplorerUrls[0],
+                ticker: "MATIC",
+                tickerName: "Polygon Testnet",
               }
             : {
                 host: polygonNetworks["mainnet"].rpcUrls[0],
-                chainId: polygonNetworks["mainnet"].chainId,
-                networkName: "Polygon",
+                chainId: parseInt(polygonNetworks["mainnet"].hexChainId, 16),
+                networkName: polygonNetworks["mainnet"].chainName,
+                blockExplorer: polygonNetworks["mainnet"].blockExplorerUrls[0],
+                ticker: "MATIC",
+                tickerName: "Polygon",
               },
-          showTorusButton: false,
-          useLocalStorage: true,
-          // torus types are incorrect
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } as any);
-        await torus.login();
+        });
+
+        if (!options?.useCache) {
+          try {
+            await torus.login();
+          } catch (error) {
+            console.error("Torus login failed:", error);
+          }
+        } else {
+          if (!torus.isLoggedIn) {
+            throw new Error("User not logged in");
+          }
+        }
+
+        if (!torus.provider) {
+          throw new Error("Torus provider not available");
+        }
+
         provider = getWeb3Provider(torus.provider);
         (provider.provider as TorusProvider).torus = torus; // inject so we can access this later (on disconnect)
         localStorage.setItem(
