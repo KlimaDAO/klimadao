@@ -31,6 +31,7 @@ export const card = css`
 
 export const cardMessage = css`
   gap: 1rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -63,6 +64,12 @@ export const cardMessage = css`
     text-decoration: underline;
   }
 
+  ${breakpoints.desktop} {
+    & .description {
+      max-width: 80rem;
+    }
+  }
+
   ${breakpoints.desktopLarge} {
     margin-bottom: 2rem;
   }
@@ -92,6 +99,13 @@ export const buttons = css`
       letter-spacing: unset;
       text-transform: none;
       text-decoration: underline;
+    }
+  }
+
+  ${breakpoints.desktop} {
+    justify-content: flex-start;
+    a {
+      max-width: 50rem;
     }
   }
 
