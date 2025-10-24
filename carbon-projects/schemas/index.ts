@@ -1,4 +1,6 @@
 import assessor from "./assessor";
+import carbonClass from "./carbonClass";
+import carbonClassGroup from "./carbonClassGroup";
 import country from "./country";
 import developer from "./developer";
 import indexContent from "./indexContent";
@@ -23,4 +25,6 @@ export const schemaTypes = [
   assessor,
   developer,
   standard,
+  carbonClass,
+  carbonClassGroup,
 ];
