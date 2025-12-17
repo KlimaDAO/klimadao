@@ -20,6 +20,7 @@ const registries = [
   { title: "J-Credit", value: "JCS" },
   { title: "Carbonmark Direct Issuance", value: "CMARK" },
   { title: "Thailand Voluntary Emission Reduction", value: "TVER" },
+  { title: "Regen Registry", value: "REGEN" },
 ];
 
 const subcategories = [
@@ -107,8 +108,6 @@ export default defineType({
       placeholder: "432",
       group: "info",
       type: "string",
-      validation: (r) =>
-        r.min(1).regex(/^[0-9]*$/, { name: "Numeric characters only" }),
     },
     defineField({
       name: "id",
