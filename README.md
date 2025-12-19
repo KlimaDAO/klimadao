@@ -92,10 +92,8 @@ See [this page in the wiki of this repo](https://github.com/KlimaDAO/klimadao/wi
 
 # Contributing
 
-**The DAO is looking for react/typescript devs as well as experienced Solidity devs!** Enjoy a flexible work schedule and work on something truly ambitious and meaningful. Monthly compensation available based on your level of experience and degree of contribution.
-
 If you'd like to just take a ticket or fix a bug, go for it (always better to ask first, though).
 
-If you'd like to become a regular contributor to the DAO, [join the KlimaDAO discord](https://discord.com/invite/klimadao) and follow the application instructions.
+If you'd like to become a regular contributor to the DAO, [join the KlimaDAO discord](https://www.klimaprotocol.com/discord).
 
 📚Check out the [contribution & style guide](https://github.com/KlimaDAO/klimadao/wiki).
