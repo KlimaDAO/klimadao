@@ -21,6 +21,7 @@ const registries = [
   { title: "Carbonmark Direct Issuance", value: "CMARK" },
   { title: "Thailand Voluntary Emission Reduction", value: "TVER" },
   { title: "Regen Registry", value: "REGEN" },
+  { title: "Universal Carbon Registry", value: "UCR" },
 ];
 
 const subcategories = [
