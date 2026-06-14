@@ -73,6 +73,7 @@ const GRAPH_API_KEY =
   process.env.GRAPH_API_KEY ?? process.env.NEXT_PUBLIC_GRAPH_API_KEY;
 
 const BRIDGED_CARBON_ID = "9skh5pMQGRdyJcBe8PjWdDjLoYqoYTMLRDpFh6acSHUu";
+const DIGITAL_CARBON_ID = "ECLEwJKgujmiRCW1XbfbbUbpae2igeHa2KJ6BXNSWrZF";
 const SUBGRAPH_BASE_URL =
   "https://gateway-arbitrum.network.thegraph.com/api/" +
   GRAPH_API_KEY +
@@ -86,6 +87,6 @@ export const subgraphs = {
     ? `${SUBGRAPH_BASE_URL}${BRIDGED_CARBON_ID}`
     : `${SUBGRAPH_DEV_URL}/polygon-bridged-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
   polygonDigitalCarbon: IS_PRODUCTION
-    ? `${SUBGRAPH_BASE_URL}${BRIDGED_CARBON_ID}`
+    ? `${SUBGRAPH_BASE_URL}${DIGITAL_CARBON_ID}`
     : `${SUBGRAPH_DEV_URL}/polygon-digital-carbon/${SUBGRAPH_VERSION_SUFFIX}`,
 };
