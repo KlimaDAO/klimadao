@@ -84,7 +84,7 @@ export default function ChartCard<T extends Key, B extends Key>(
     cardHeaderTitleStyle = `${cardHeaderTitleStyle} ${styles.cardHeaderTitleNoGrow}`;
 
   /** Returns the chart to display given the chosen options
-   If the the chart attribute is filled, it is that chart.
+   If the chart attribute is filled, it is that chart.
    If the charts attribute if filled, it is the chart that is referenced by the key :
    `$t{topOptionKey}|$t{bottomOptionKey}` if both options are provided
    topOptionKey if only topOptionKey is provided
