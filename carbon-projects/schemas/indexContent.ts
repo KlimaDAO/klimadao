@@ -53,14 +53,14 @@ export default defineType({
       description:
         "Short description, e.g. for retirement PDFs. Ideally 300-600 chars, no newlines, no bullet points.",
       group: "info",
-      type: "text",
-      validation: (r) => r.min(20).max(700),
+      type: "text"
     }),
     defineField({
       name: "longDescription",
       description: "Longer description",
       group: "info",
-      type: "text",
+      type: "array",
+      of: [{type: "block"}]
     }),
     defineField({
       name: "sdgs",
