@@ -1,8 +1,7 @@
-import { cx } from "@emotion/css";
 import { Anchor, ButtonPrimary, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { Trans, t } from "@lingui/macro";
-import { CelebrationOutlined, TrendingUpOutlined } from "@mui/icons-material";
+import { CelebrationOutlined } from "@mui/icons-material";
 import Payment from "@mui/icons-material/Payment";
 import { BalancesCard } from "components/BalancesCard";
 import { DisclaimerModal } from "components/DisclaimerModal";
@@ -74,41 +73,6 @@ export const Buy = () => (
             className="learn-more"
           >
             <Trans>Learn more about liquidity pools</Trans>
-          </Anchor>
-        </div>
-      </div>
-      <div className={styles.divider} />
-      <div className={styles.cardRow}>
-        <div className={styles.cardCol}>
-          <Text t="h5" className={styles.cardTitle}>
-            <TrendingUpOutlined />
-            <Trans>Put your KLIMA to work</Trans>
-          </Text>
-          <Text color="lightest" t="caption" className={styles.cardDescription}>
-            <Trans>
-              Head to{" "}
-              <Anchor href={urls.klimaBase} target="_blank">
-                base.klimadao.finance
-              </Anchor>{" "}
-              to programmatically grow your position.
-            </Trans>
-          </Text>
-        </div>
-      </div>
-      <div className={styles.cardRow}>
-        <div className={styles.buttons}>
-          <ButtonPrimary
-            target="_blank"
-            href={urls.klimaAutocompounder}
-            label={t`KlimaDAO Autocompounder`}
-            className={cx("secondary-button", styles.responsiveButtonWidth)}
-          />
-          <Anchor
-            target="_blank"
-            href={urls.learnMoreKlimaAutocompounder}
-            className="learn-more"
-          >
-            <Trans>Learn more about Autocompounder</Trans>
           </Anchor>
         </div>
       </div>

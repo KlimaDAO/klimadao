@@ -76,10 +76,6 @@ export const buttons = css`
   flex-direction: column;
   justify-content: space-between;
 
-  .secondary-button {
-    background-color: var(--white);
-  }
-
   a {
     flex: 1;
     width: 100%;
@@ -111,13 +107,6 @@ export const cardRow = css`
   gap: 0.8rem;
   display: flex;
   flex-direction: row;
-`;
-
-export const divider = css`
-  width: 100%;
-  height: 0.1rem;
-  margin: 2.4rem 0 0.6rem;
-  background: #393939;
 `;
 
 export const cardTitle = css`

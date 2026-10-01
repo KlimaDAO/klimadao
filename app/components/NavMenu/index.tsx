@@ -244,15 +244,9 @@ export const NavMenu: FC<Props> = (props) => {
           />
           <ButtonPrimary
             target="_blank"
-            href="https://base.klimadao.finance"
+            href="https://app.klimaprotocol.com/retire-carbon"
             className={styles.baseButton}
             label={<Trans>Retire</Trans>}
-          />
-          <ButtonPrimary
-            target="_blank"
-            href="https://base.klimadao.finance/auto-compounder"
-            className={styles.baseButton}
-            label={<Trans>Autocompounder</Trans>}
           />
         </div>
         <div className="hr" />
