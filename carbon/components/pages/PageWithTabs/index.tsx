@@ -78,7 +78,7 @@ export default function PageWithTabs(props: {
   }
 
   /** Returns the tab to display given the chosen options
-   If the the chart attribute is filled, it is that chart.
+   If the chart attribute is filled, it is that chart.
    If the charts attribute if filled, it is the chart that is referenced by the key :
    `$t{topOptionKey}|$t{bottomOptionKey}` if both options are provided
    topOptionKey if only topOptionKey is provided
