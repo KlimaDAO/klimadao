@@ -7,6 +7,7 @@ export const modal = css`
   height: auto;
   top: auto;
   bottom: auto;
+  overflow-y: auto;
 
   div:first-of-type {
     p {
